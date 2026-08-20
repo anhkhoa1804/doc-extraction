@@ -1,0 +1,35 @@
+# Default settings for run.py, loaded automatically from this file's
+# location (override with --defaults-config, or ignore this file entirely
+# and pass every flag explicitly — this matters for Kaggle, where paths
+# come from the command line; see kaggle/run_full_benchmark.ipynb). Every
+# value here is also a normal CLI flag and any flag passed on the command
+# line wins over what's here.
+#
+# Nothing here is Kaggle-specific and nothing points outside this repo by
+# default. prepare.py and evaluate.py (run independently of run.py) are not
+# affected by this file — they take their defaults from their own flags.
+
+# doc_extraction pipeline config (NOT the OmniDocBench evaluator's config —
+# that one is generated per-run by write_evaluator_config() from the values
+# below). configs/cpu.yaml is this project's only validated profile.
+doc_extraction_config: "configs/cpu.yaml"
+
+# Where the evaluator lives. Set up per experiments/005_omnidocbench/README.md
+# "Setup" — cloned outside version control, pinned to a specific commit.
+omnidoc_repo: ".external/OmniDocBench"
+omnidoc_python: ".venv-omnidoc/Scripts/python.exe"
+
+# Evaluator matching method. quick_match is upstream's own recommendation —
+# see experiments/005_omnidocbench/README.md "Matching method".
+match_method: "quick_match"
+# Upstream's own guidance: keep each worker pool at roughly 1/3-1/2 of idle
+# CPU cores. Tuned for an 8-core/16-thread machine; lower this on a smaller
+# Kaggle CPU instance.
+match_workers: 4
+
+# Formula CDM needs a Linux-only toolchain (TeX Live + ImageMagick 7.x +
+# Ghostscript) that upstream itself documents as such — never enable this on
+# Windows. BLEU/METEOR are optional extra text metrics (slower, and download
+# nltk data on first use).
+include_cdm: false
+include_bleu_meteor: false

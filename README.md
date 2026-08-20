@@ -139,6 +139,17 @@ route decision *and its evidence*), per-stage intermediates, `final/`, and
 
 Details and per-backend install notes: [docs/backends.md](docs/backends.md).
 
+## Benchmarking against OmniDocBench
+
+[OmniDocBench](https://github.com/opendatalab/OmniDocBench) (CVPR 2025) is
+integrated as an external, unmodified evaluator — see
+[experiments/005_omnidocbench](experiments/005_omnidocbench/) for the
+adapter, the exact upstream commit pinned, the IR→benchmark field mapping,
+and results from a validated small-subset run (`baseline` and `docling`
+backends; the full 1651-page benchmark needs more CPU time or a GPU than
+this dev machine has — the same run is prepared and documented for Kaggle
+in that directory's `kaggle/` notebook).
+
 ## Documentation
 
 - [docs/architecture.md](docs/architecture.md) — pipeline and component boundaries

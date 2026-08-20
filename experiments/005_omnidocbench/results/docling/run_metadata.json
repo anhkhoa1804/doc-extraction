@@ -1,0 +1,64 @@
+{
+  "benchmark": "OmniDocBench",
+  "upstream_repo": "https://github.com/opendatalab/OmniDocBench",
+  "upstream_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+  "backend": "docling",
+  "device": "cpu",
+  "python": "3.12.10",
+  "python_implementation": "CPython",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timestamp": "2026-08-20T10:34:03.980044+00:00",
+  "ground_truth_file": "OmniDocBench_demo.json",
+  "ground_truth_sha256": "146690eae39d35ae95eff9d92889876eb45137285cb73cd5af451329411c9207",
+  "num_samples": 18,
+  "model_versions": {
+    "doc_extraction": "0.1.0",
+    "pymupdf": "1.28.2",
+    "docling": "2.120.3",
+    "docling-core": "2.92.0",
+    "easyocr": "1.7.2",
+    "transformers": "5.15.0",
+    "torch": "2.8.0"
+  },
+  "config": {
+    "input_dir": ".",
+    "output_dir": "outputs",
+    "device": "cpu",
+    "render_dpi": 200,
+    "digital_pdf_min_chars_per_page": 40,
+    "digital_pdf_page_ratio": 0.6,
+    "digital_pdf_sample_pages": 5,
+    "text_quality_min_chars": 200,
+    "text_quality_max_mixed_script_word_ratio": 0.1,
+    "text_quality_max_unexpected_script_ratio": 0.1,
+    "text_quality_max_replacement_ratio": 0.02,
+    "text_quality_max_control_ratio": 0.02,
+    "text_quality_min_alpha_ratio": 0.3,
+    "text_quality_max_digit_in_word_ratio": 0.3,
+    "text_quality_expected_scripts": [
+      "LATIN"
+    ],
+    "text_quality_max_suspicious_page_ratio": 0.34,
+    "digital_pdf_page_fallback": true,
+    "digital_pdf_tables": true,
+    "ocr_languages": [
+      "en",
+      "vi"
+    ],
+    "layout_backend": "docling",
+    "ocr_backend": "docling",
+    "table_backend": "table_transformer",
+    "backends": {
+      "docling": true,
+      "mineru": false,
+      "paddleocr": false,
+      "vlm": false
+    },
+    "cache_dir": ".cache",
+    "log_level": "INFO"
+  },
+  "dataset_root": "D:\\doc-extraction\\experiments\\005_omnidocbench\\dataset\\demo",
+  "subset": null,
+  "seed": 0,
+  "total_available_samples": 18
+}

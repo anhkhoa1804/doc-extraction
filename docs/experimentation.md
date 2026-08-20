@@ -130,6 +130,31 @@ in `outputs/` (gitignored, regenerable). See
 were actually run are recorded; a missing `results.json` truthfully means
 "not run yet".
 
+## External benchmarking (OmniDocBench)
+
+Experiments 000-004 measure this pipeline against its own 12-document
+corpus only — there is no external reference point. `experiments/005_omnidocbench/`
+integrates the official [OmniDocBench](https://github.com/opendatalab/OmniDocBench)
+benchmark as an **external, unmodified evaluator** (a separate Python
+3.10/3.11 environment, `.venv-omnidoc/`, cloned outside version control at
+`.external/OmniDocBench/`) rather than reimplementing any of its metrics
+(Edit Distance, TEDS, CDM, BLEU/METEOR).
+
+```bash
+python experiments/005_omnidocbench/run.py \
+    --dataset experiments/005_omnidocbench/dataset/demo \
+    --backend baseline \
+    --output experiments/005_omnidocbench/results/baseline
+```
+
+`prepare.py` (generate predictions, this project's own `.venv`) and
+`evaluate.py` (invoke the official evaluator, subprocess into
+`.venv-omnidoc`) are independently rerunnable — see
+[experiments/005_omnidocbench/README.md](../experiments/005_omnidocbench/README.md)
+for the full setup (including two genuine Windows-specific bugs found and
+worked around without touching the evaluator's own code), the IR→benchmark
+field mapping, and what was and wasn't run locally.
+
 ## Configuration
 
 `configs/cpu.yaml` (validated), `configs/default.yaml` (identical to cpu),

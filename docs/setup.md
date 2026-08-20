@@ -107,3 +107,14 @@ Once cached, the whole validation sequence runs offline.
 
 The full validation sequence is in the [README](../README.md) under "Local
 validation".
+
+## A second environment: benchmarking
+
+Benchmarking against OmniDocBench (`experiments/005_omnidocbench/`) needs
+its own Python 3.10/3.11 environment, separate from everything above — the
+official evaluator requires `<3.12`, and this project's main `.venv` is
+3.12. That setup (including two Windows-specific bugs found and worked
+around) is documented on its own in
+[experiments/005_omnidocbench/README.md](../experiments/005_omnidocbench/README.md)
+rather than duplicated here, since it's optional and unrelated to running
+the extraction pipeline itself.
