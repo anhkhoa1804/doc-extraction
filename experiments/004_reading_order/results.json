@@ -1,0 +1,48 @@
+{
+  "experiment": "004_reading_order",
+  "date": "2026-08-20",
+  "device": "cpu",
+  "strategy": "column-aware-xy-band",
+  "cases": [
+    {
+      "case": "vietnamese_phrase_split",
+      "document": "FROGSLEAP_BUSINESS LICENSE.pdf",
+      "page": 1,
+      "route": "scanned_pdf",
+      "observed_prefix": "THÀNH PHỐ HỔ CHÍ MINH PHÒNG ĐĂNG KÝ KINH DOANH SỞ TÀI CHÍNH CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP CÔNG TY TRÁCH NHIỆM HỮU HẠN HAI THÀNH VIÊN TRỞ LÊN Mã số doanh n",
+      "note": "the fixed phrase 'Doc lap - Tu do - Hanh phuc' appears with 'Tu do' split"
+    },
+    {
+      "case": "backend_order_correlation",
+      "left": "baseline",
+      "right": "docling",
+      "per_page": [
+        {
+          "page": 1,
+          "reading_order_correlation": 0.8714,
+          "bbox_match_rate": 0.8333
+        },
+        {
+          "page": 2,
+          "reading_order_correlation": 1.0,
+          "bbox_match_rate": 0.4286
+        },
+        {
+          "page": 3,
+          "reading_order_correlation": 0.4,
+          "bbox_match_rate": 0.8
+        },
+        {
+          "page": 4,
+          "reading_order_correlation": 1.0,
+          "bbox_match_rate": 1.0
+        },
+        {
+          "page": 5,
+          "reading_order_correlation": null,
+          "bbox_match_rate": 0.3333
+        }
+      ]
+    }
+  ]
+}

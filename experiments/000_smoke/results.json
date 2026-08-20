@@ -1,0 +1,160 @@
+{
+  "experiment": "000_smoke",
+  "date": "2026-08-20",
+  "device": "cpu",
+  "config": "configs/cpu.yaml",
+  "documents": [
+    {
+      "input_file": "Detail price for JDI.xlsx",
+      "route": "native_office",
+      "pages": 2,
+      "elements": 2,
+      "tables": 2,
+      "cells": 274,
+      "runtime_seconds": 0.19,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "native OOXML container (xlsx)"
+    },
+    {
+      "input_file": "FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf",
+      "route": "digital_pdf",
+      "pages": 40,
+      "elements": 457,
+      "tables": 31,
+      "cells": 120,
+      "runtime_seconds": 2.6,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "80% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "FROGSLEAP PARTNERSHIP PROPOSAL.pdf",
+      "route": "digital_pdf",
+      "pages": 9,
+      "elements": 342,
+      "tables": 0,
+      "cells": 0,
+      "runtime_seconds": 0.73,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "FROGSLEAP_BUSINESS LICENSE.pdf",
+      "route": "scanned_pdf",
+      "pages": 2,
+      "elements": 39,
+      "tables": 1,
+      "cells": 10,
+      "runtime_seconds": 84.56,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "text layer present (100% of sampled pages) but 100% of sampled pages fail text-quality checks (> 34%) — likely broken font CMap; routing to the visual/OCR path"
+    },
+    {
+      "input_file": "FROGSLEAP_COMPANY PROFILE.pdf",
+      "route": "digital_pdf",
+      "pages": 40,
+      "elements": 457,
+      "tables": 31,
+      "cells": 120,
+      "runtime_seconds": 3.46,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "80% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+      "route": "digital_pdf",
+      "pages": 5,
+      "elements": 75,
+      "tables": 3,
+      "cells": 85,
+      "runtime_seconds": 0.84,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "GEP-2025-Proposal.docx.pdf",
+      "route": "digital_pdf",
+      "pages": 4,
+      "elements": 39,
+      "tables": 2,
+      "cells": 51,
+      "runtime_seconds": 0.4,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "[IE_GEP] 2025 Letter to Partner Schools (Y5.2 Ma Da).pdf",
+      "route": "digital_pdf",
+      "pages": 1,
+      "elements": 5,
+      "tables": 0,
+      "cells": 0,
+      "runtime_seconds": 0.1,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "Partnership Proposal.pdf",
+      "route": "digital_pdf",
+      "pages": 8,
+      "elements": 96,
+      "tables": 2,
+      "cells": 126,
+      "runtime_seconds": 0.84,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    },
+    {
+      "input_file": "Tính giá cost.xlsx",
+      "route": "native_office",
+      "pages": 3,
+      "elements": 3,
+      "tables": 3,
+      "cells": 565,
+      "runtime_seconds": 0.09,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "native OOXML container (xlsx)"
+    },
+    {
+      "input_file": "VN_Mau_De_Xuat_Y_Tuong_CfTA3.docx",
+      "route": "native_office",
+      "pages": 1,
+      "elements": 11,
+      "tables": 1,
+      "cells": 31,
+      "runtime_seconds": 0.06,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "native OOXML container (docx)"
+    },
+    {
+      "input_file": "frogsleap_partnership_proposal_v2_20260307095034.pdf",
+      "route": "digital_pdf",
+      "pages": 9,
+      "elements": 342,
+      "tables": 0,
+      "cells": 0,
+      "runtime_seconds": 1.02,
+      "device": "cpu",
+      "schema_version": "1.1.0",
+      "route_reason": "100% of sampled pages have extractable text and pass text-quality checks"
+    }
+  ],
+  "totals": {
+    "documents": 12,
+    "pages": 124,
+    "elements": 1868,
+    "tables": 76,
+    "cells": 1382,
+    "total_runtime_seconds": 94.89
+  }
+}

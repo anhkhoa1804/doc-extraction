@@ -1,0 +1,467 @@
+[
+  {
+    "file": "[IE_GEP] 2025 Letter to Partner Schools (Y5.2 Ma Da).pdf",
+    "page": 1,
+    "n_chars": 1765,
+    "n_words": 203,
+    "alpha_ratio": 0.7853,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0049,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1386
+    }
+  },
+  {
+    "file": "FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf",
+    "page": 1,
+    "n_chars": 48,
+    "n_words": 5,
+    "alpha_ratio": 0.8125,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "insufficient_text"
+    ],
+    "scripts_seen": {
+      "LATIN": 39
+    }
+  },
+  {
+    "file": "FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf",
+    "page": 2,
+    "n_chars": 1007,
+    "n_words": 123,
+    "alpha_ratio": 0.8103,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 816
+    }
+  },
+  {
+    "file": "FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf",
+    "page": 3,
+    "n_chars": 203,
+    "n_words": 19,
+    "alpha_ratio": 0.7734,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 157
+    }
+  },
+  {
+    "file": "FROGSLEAP PARTNERSHIP PROPOSAL.pdf",
+    "page": 1,
+    "n_chars": 618,
+    "n_words": 62,
+    "alpha_ratio": 0.7913,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 489
+    }
+  },
+  {
+    "file": "FROGSLEAP PARTNERSHIP PROPOSAL.pdf",
+    "page": 2,
+    "n_chars": 1501,
+    "n_words": 174,
+    "alpha_ratio": 0.8221,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1234
+    }
+  },
+  {
+    "file": "FROGSLEAP PARTNERSHIP PROPOSAL.pdf",
+    "page": 3,
+    "n_chars": 1748,
+    "n_words": 201,
+    "alpha_ratio": 0.8015,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1401
+    }
+  },
+  {
+    "file": "FROGSLEAP_BUSINESS LICENSE.pdf",
+    "page": 1,
+    "n_chars": 828,
+    "n_words": 50,
+    "alpha_ratio": 0.3925,
+    "mixed_script_word_ratio": 0.4,
+    "unexpected_script_ratio": 0.1569,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.2283,
+    "digit_in_word_ratio": 0.38,
+    "suspicious": true,
+    "reasons": [
+      "mixed_script_words=40.00% (> 10%) — likely broken font CMap",
+      "unexpected_script_chars=15.69% (> 10%), expected ['LATIN']",
+      "control_chars=22.83% (> 2%)",
+      "digit_letter_words=38.00% (> 30%)"
+    ],
+    "scripts_seen": {
+      "LATIN": 274,
+      "CYRILLIC": 49,
+      "GREEK": 2
+    }
+  },
+  {
+    "file": "FROGSLEAP_BUSINESS LICENSE.pdf",
+    "page": 2,
+    "n_chars": 1061,
+    "n_words": 104,
+    "alpha_ratio": 0.5146,
+    "mixed_script_word_ratio": 0.5385,
+    "unexpected_script_ratio": 0.2125,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.1668,
+    "digit_in_word_ratio": 0.3558,
+    "suspicious": true,
+    "reasons": [
+      "mixed_script_words=53.85% (> 10%) — likely broken font CMap",
+      "unexpected_script_chars=21.25% (> 10%), expected ['LATIN']",
+      "control_chars=16.68% (> 2%)",
+      "digit_letter_words=35.58% (> 30%)"
+    ],
+    "scripts_seen": {
+      "LATIN": 430,
+      "CYRILLIC": 116
+    }
+  },
+  {
+    "file": "FROGSLEAP_COMPANY PROFILE.pdf",
+    "page": 1,
+    "n_chars": 48,
+    "n_words": 5,
+    "alpha_ratio": 0.8125,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "insufficient_text"
+    ],
+    "scripts_seen": {
+      "LATIN": 39
+    }
+  },
+  {
+    "file": "FROGSLEAP_COMPANY PROFILE.pdf",
+    "page": 2,
+    "n_chars": 1007,
+    "n_words": 123,
+    "alpha_ratio": 0.8103,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 816
+    }
+  },
+  {
+    "file": "FROGSLEAP_COMPANY PROFILE.pdf",
+    "page": 3,
+    "n_chars": 203,
+    "n_words": 19,
+    "alpha_ratio": 0.7734,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 157
+    }
+  },
+  {
+    "file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+    "page": 1,
+    "n_chars": 1997,
+    "n_words": 229,
+    "alpha_ratio": 0.7952,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0087,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1588
+    }
+  },
+  {
+    "file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+    "page": 2,
+    "n_chars": 1699,
+    "n_words": 189,
+    "alpha_ratio": 0.6975,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0106,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1185
+    }
+  },
+  {
+    "file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+    "page": 3,
+    "n_chars": 1759,
+    "n_words": 218,
+    "alpha_ratio": 0.7055,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0046,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1241
+    }
+  },
+  {
+    "file": "frogsleap_partnership_proposal_v2_20260307095034.pdf",
+    "page": 1,
+    "n_chars": 618,
+    "n_words": 62,
+    "alpha_ratio": 0.7913,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 489
+    }
+  },
+  {
+    "file": "frogsleap_partnership_proposal_v2_20260307095034.pdf",
+    "page": 2,
+    "n_chars": 1501,
+    "n_words": 174,
+    "alpha_ratio": 0.8221,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1234
+    }
+  },
+  {
+    "file": "frogsleap_partnership_proposal_v2_20260307095034.pdf",
+    "page": 3,
+    "n_chars": 1748,
+    "n_words": 201,
+    "alpha_ratio": 0.8015,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1401
+    }
+  },
+  {
+    "file": "GEP-2025-Proposal.docx.pdf",
+    "page": 1,
+    "n_chars": 1656,
+    "n_words": 186,
+    "alpha_ratio": 0.7736,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1281
+    }
+  },
+  {
+    "file": "GEP-2025-Proposal.docx.pdf",
+    "page": 2,
+    "n_chars": 870,
+    "n_words": 101,
+    "alpha_ratio": 0.7299,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 635
+    }
+  },
+  {
+    "file": "GEP-2025-Proposal.docx.pdf",
+    "page": 3,
+    "n_chars": 2299,
+    "n_words": 286,
+    "alpha_ratio": 0.7769,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 1786
+    }
+  },
+  {
+    "file": "Partnership Proposal.pdf",
+    "page": 1,
+    "n_chars": 357,
+    "n_words": 44,
+    "alpha_ratio": 0.8403,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 300
+    }
+  },
+  {
+    "file": "Partnership Proposal.pdf",
+    "page": 2,
+    "n_chars": 703,
+    "n_words": 83,
+    "alpha_ratio": 0.8321,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 585
+    }
+  },
+  {
+    "file": "Partnership Proposal.pdf",
+    "page": 3,
+    "n_chars": 617,
+    "n_words": 70,
+    "alpha_ratio": 0.8331,
+    "mixed_script_word_ratio": 0.0,
+    "unexpected_script_ratio": 0.0,
+    "replacement_ratio": 0.0,
+    "control_ratio": 0.0,
+    "digit_in_word_ratio": 0.0,
+    "suspicious": false,
+    "reasons": [
+      "ok"
+    ],
+    "scripts_seen": {
+      "LATIN": 514
+    }
+  }
+]

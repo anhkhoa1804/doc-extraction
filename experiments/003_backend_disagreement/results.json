@@ -1,0 +1,139 @@
+{
+  "input_file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+  "backends": {
+    "baseline": {
+      "status": "ok",
+      "num_pages": 5,
+      "num_elements": 75,
+      "element_type_counts": {
+        "heading": 1,
+        "paragraph": 61,
+        "image": 10,
+        "table": 3
+      },
+      "num_tables": 3,
+      "num_table_cells": 85,
+      "total_text_chars": 3809,
+      "mean_confidence": 1.0,
+      "runtime_seconds": 0.6839502999791875,
+      "device": "cpu",
+      "errors": [],
+      "warnings": []
+    },
+    "docling": {
+      "status": "ok",
+      "num_pages": 5,
+      "num_elements": 39,
+      "element_type_counts": {
+        "image": 5,
+        "heading": 9,
+        "list_item": 21,
+        "text": 1,
+        "table": 3
+      },
+      "num_tables": 3,
+      "num_table_cells": 80,
+      "total_text_chars": 3859,
+      "mean_confidence": null,
+      "runtime_seconds": 35.95758789998945,
+      "device": "cpu",
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "disagreements": [
+    {
+      "left": "baseline",
+      "right": "docling",
+      "page_count_delta": 0,
+      "left_pages": 5,
+      "right_pages": 5,
+      "compared_pages": 5,
+      "total_element_count_delta": 36,
+      "total_table_count_delta": 0,
+      "mean_text_similarity": 0.5215,
+      "pages": [
+        {
+          "page_index": 0,
+          "left_elements": 30,
+          "right_elements": 18,
+          "element_count_delta": 12,
+          "left_tables": 0,
+          "right_tables": 0,
+          "table_count_delta": 0,
+          "left_text_chars": 1966,
+          "right_text_chars": 1994,
+          "text_similarity": 0.4646,
+          "matched_elements": 15,
+          "bbox_match_rate": 0.8333,
+          "mean_matched_iou": 0.8051,
+          "reading_order_correlation": 0.8714
+        },
+        {
+          "page_index": 1,
+          "left_elements": 14,
+          "right_elements": 7,
+          "element_count_delta": 7,
+          "left_tables": 1,
+          "right_tables": 1,
+          "table_count_delta": 0,
+          "left_text_chars": 572,
+          "right_text_chars": 529,
+          "text_similarity": 0.2743,
+          "matched_elements": 3,
+          "bbox_match_rate": 0.4286,
+          "mean_matched_iou": 0.9166,
+          "reading_order_correlation": 1.0
+        },
+        {
+          "page_index": 2,
+          "left_elements": 10,
+          "right_elements": 5,
+          "element_count_delta": 5,
+          "left_tables": 1,
+          "right_tables": 1,
+          "table_count_delta": 0,
+          "left_text_chars": 414,
+          "right_text_chars": 410,
+          "text_similarity": 0.3617,
+          "matched_elements": 4,
+          "bbox_match_rate": 0.8,
+          "mean_matched_iou": 0.8949,
+          "reading_order_correlation": 0.4
+        },
+        {
+          "page_index": 3,
+          "left_elements": 5,
+          "right_elements": 3,
+          "element_count_delta": 2,
+          "left_tables": 1,
+          "right_tables": 1,
+          "table_count_delta": 0,
+          "left_text_chars": 43,
+          "right_text_chars": 41,
+          "text_similarity": 0.9762,
+          "matched_elements": 3,
+          "bbox_match_rate": 1.0,
+          "mean_matched_iou": 0.926,
+          "reading_order_correlation": 1.0
+        },
+        {
+          "page_index": 4,
+          "left_elements": 16,
+          "right_elements": 6,
+          "element_count_delta": 10,
+          "left_tables": 0,
+          "right_tables": 0,
+          "table_count_delta": 0,
+          "left_text_chars": 871,
+          "right_text_chars": 911,
+          "text_similarity": 0.5309,
+          "matched_elements": 2,
+          "bbox_match_rate": 0.3333,
+          "mean_matched_iou": 0.907,
+          "reading_order_correlation": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "doc-extraction"
+version = "0.1.0"
+description = "Research-oriented, modular baseline pipeline for heterogeneous enterprise document extraction."
+readme = "README.md"
+requires-python = ">=3.10"
+
+# NOTE ON LICENSING — read before redistributing.
+# This project's own source is MIT. However `pymupdf`, a CORE dependency
+# below, is AGPL-3.0 (or a commercial licence from Artifex). A combined work
+# that includes PyMuPDF therefore carries AGPL obligations regardless of what
+# this field says. That is not a problem for internal research use, which is
+# this project's stated scope, but it must be resolved before shipping this
+# as part of a closed product — either by buying an Artifex licence or by
+# replacing PyMuPDF (pypdfium2 is the usual Apache/BSD-licensed alternative,
+# though it has no equivalent of `find_tables`). See docs/backends.md.
+license = { text = "MIT" }
+
+# Core dependencies are intentionally minimal: no GPU/torch/heavy-model
+# dependency should ever be required merely to `import doc_extraction`.
+# Everything backend-specific (docling, mineru, paddleocr, table-transformer,
+# vlm) is an optional extra — see docs/backends.md.
+dependencies = [
+    "pyyaml>=6.0",
+    "pydantic>=2.6",
+    "pymupdf>=1.24",
+    "python-docx>=1.1",
+    "openpyxl>=3.1",
+    "python-pptx>=0.6.23",
+    "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+# Docling: primary end-to-end baseline backend (layout + OCR + table +
+# reading order for PDF/DOCX/XLSX/PPTX in one library). `easyocr` is pulled
+# in explicitly (not a docling dependency by default — docling's own default
+# OCR engine is RapidOCR) because EasyOCR has proper Vietnamese ("vi")
+# language support, which the sample documents in this repo actually need;
+# RapidOCR's bundled language packs cover Latin script only approximately.
+docling = ["docling>=2.0", "easyocr>=1.7"]
+
+# Table Transformer (microsoft/table-transformer-*) via transformers/torch.
+# On a machine with a matching global torch already installed, create the
+# venv with `--system-site-packages` first so these are not re-downloaded.
+tables = ["transformers>=4.40", "torch>=2.1"]
+
+# MinerU: documented in docs/backends.md, NOT installed/verified in the
+# reference environment (heavy model downloads, package name has moved
+# between `magic-pdf` and `mineru` across releases — pin after checking
+# upstream at install time).
+mineru = ["mineru"]
+
+# PaddleOCR / PP-Structure: documented in docs/backends.md, NOT installed/
+# verified in the reference environment (separate framework, sizable
+# download, Windows install can need a VC++ redistributable).
+paddle = ["paddlepaddle>=2.6", "paddleocr>=2.7"]
+
+# Local document VLM: interface only. No implementation ships by default —
+# see docs/backends.md for why (VRAM requirements exceed what's available in
+# the reference environment). Left as an extras group so a future
+# implementation has somewhere to declare its dependencies.
+vlm = []
+
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+all = ["doc-extraction[docling,tables,dev]"]
+
+[project.scripts]
+doc-extraction = "doc_extraction.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/doc_extraction"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

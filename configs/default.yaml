@@ -1,0 +1,55 @@
+# Default profile — SUPPORTED AND VALIDATED LOCALLY (CPU-only).
+#
+# Identical to configs/cpu.yaml. CPU is the default because it is the only
+# configuration this project has actually validated; nothing in the default
+# path needs a GPU, CUDA, or network access once models are cached.
+#
+# Kept as a separate file so `--config configs/cpu.yaml` stays an explicit,
+# always-safe choice even if this file drifts later, and so cpu/gpu read as
+# a clear pair. See configs/gpu.yaml for the unvalidated GPU shape.
+
+input_dir: "."          # sample documents live at the repo root; see samples/README.md
+output_dir: "outputs"
+device: "cpu"
+
+render_dpi: 200
+
+# --- PDF routing: quantity gate ---
+digital_pdf_min_chars_per_page: 40
+digital_pdf_page_ratio: 0.6
+digital_pdf_sample_pages: 5
+
+# --- PDF routing: quality gate (ingest/text_quality.py) ---
+# Detects a text layer that is present but wrongly decoded (broken font
+# CMap). Thresholds calibrated on this repo's corpus: 22 clean pages scored
+# 0.000 on mixed_script_word_ratio, the 2 corrupt pages scored 0.400-0.538.
+# Re-calibrate with scripts/calibrate_text_quality.py for a different corpus.
+text_quality_min_chars: 200
+text_quality_max_mixed_script_word_ratio: 0.10
+text_quality_max_unexpected_script_ratio: 0.10
+text_quality_max_replacement_ratio: 0.02
+text_quality_max_control_ratio: 0.02
+text_quality_min_alpha_ratio: 0.30
+text_quality_max_digit_in_word_ratio: 0.30
+text_quality_expected_scripts: ["LATIN"]   # covers English and Vietnamese
+text_quality_max_suspicious_page_ratio: 0.34
+digital_pdf_page_fallback: true            # re-extract only the bad pages
+
+# --- Tables ---
+digital_pdf_tables: true   # PyMuPDF native table finder; no render, no OCR
+
+# Sample documents are mixed Vietnamese/English.
+ocr_languages: ["en", "vi"]
+
+layout_backend: "docling"
+ocr_backend: "docling"
+table_backend: "table_transformer"
+
+backends:
+  docling: true       # installed and validated on CPU
+  mineru: false       # not installed — see docs/backends.md
+  paddleocr: false    # not installed — see docs/backends.md
+  vlm: false          # not implemented — see docs/backends.md
+
+cache_dir: ".cache"   # relative: resolved against the repo root
+log_level: "INFO"
