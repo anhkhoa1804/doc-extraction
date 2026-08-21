@@ -105,6 +105,10 @@ class TableTransformerBackend:
         import torch
 
         inputs = self._detection_processor(images=image, return_tensors="pt")
+        # The models were moved to self.device in _lazy_load; their inputs must
+        # follow, or torch raises "Expected all tensors to be on the same
+        # device" the moment device is anything but cpu.
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
         with torch.no_grad():
             outputs = self._detection_model(**inputs)
         target_sizes = torch.tensor([image.size[::-1]])
@@ -120,6 +124,7 @@ class TableTransformerBackend:
         import torch
 
         inputs = self._structure_processor(images=crop_image, return_tensors="pt")
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}  # see _detect_tables
         with torch.no_grad():
             outputs = self._structure_model(**inputs)
         target_sizes = torch.tensor([crop_image.size[::-1]])

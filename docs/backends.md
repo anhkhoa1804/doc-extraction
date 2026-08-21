@@ -18,10 +18,27 @@ all caches live on a data drive, not the OS drive (which has <8 GB free).
 
 ## GPU status
 
-**No GPU path in this repository has been validated.** `configs/gpu.yaml`
-documents the intended shape of a GPU config and says so in its own header.
-Nothing in the default path, the test suite, or the local validation
-sequence requires CUDA. Before trusting `device: cuda`, check:
+**`device` is now plumbed end to end, but no GPU timing has been recorded
+in this repository.** Those are two different claims and both matter.
+
+What is wired: `config.device` reaches docling's layout, TableFormer and
+EasyOCR stages through `PdfPipelineOptions.accelerator_options`, and the
+Table Transformer backend's models *and* input tensors. Until this was
+fixed, `device: cuda` did not mean what it looked like — docling ignored
+the setting and used its own `device="auto"` default, EasyOCR was pinned
+to CPU by the deprecated `use_gpu` flag (emitting a per-page
+`UserWarning`), and the Table Transformer path would have raised
+"Expected all tensors to be on the same device".
+
+What is not claimed: a measured speedup. The reference dev machine cannot
+produce one — its torch is a CPU-only build (2.8.0+cpu) and its driver
+caps out at CUDA 11.2 — so `configs/gpu.yaml` has never been executed
+here. The Kaggle notebook
+(`experiments/005_omnidocbench/doc-extraction.ipynb`) selects that profile
+when CUDA is present and prints seconds/page against the CPU reference,
+which is where a real number should come from.
+
+Before trusting `device: cuda`, check:
 
 ```bash
 python -c "import torch; print(torch.cuda.is_available())"

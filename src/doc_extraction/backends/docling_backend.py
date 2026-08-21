@@ -138,14 +138,28 @@ class DoclingBackend:
     def _get_converter(self):
         if self._converter is None:
             from docling.datamodel.base_models import InputFormat
-            from docling.datamodel.pipeline_options import EasyOcrOptions, PdfPipelineOptions
+            from docling.datamodel.pipeline_options import AcceleratorOptions, EasyOcrOptions, PdfPipelineOptions
             from docling.document_converter import DocumentConverter, ImageFormatOption, PdfFormatOption
 
             pipeline_options = PdfPipelineOptions()
             pipeline_options.do_ocr = True
+            # Drive *every* model stage (layout, TableFormer, OCR) from the
+            # configured device. Without this, docling falls back to its own
+            # `device="auto"` default, which silently disagrees with
+            # `config.device` — on a GPU box that means layout runs on CUDA
+            # while the config claims "cpu".
+            pipeline_options.accelerator_options = AcceleratorOptions(device=self.device)
             # EasyOCR (not docling's RapidOCR default) specifically for proper
             # Vietnamese ("vi") support — see docs/backends.md.
-            pipeline_options.ocr_options = EasyOcrOptions(lang=self.ocr_languages, use_gpu=(self.device == "cuda"))
+            #
+            # `use_gpu` is deliberately left unset: it is deprecated upstream,
+            # and setting it *overrides* the accelerator device rather than
+            # following it. Leaving it None makes EasyOCR derive its device
+            # from `accelerator_options` above, so one setting controls all
+            # stages. Passing it explicitly is what previously pinned EasyOCR
+            # to CPU even on a CUDA box, and emitted a per-page deprecation
+            # warning.
+            pipeline_options.ocr_options = EasyOcrOptions(lang=self.ocr_languages)
 
             self._converter = DocumentConverter(
                 format_options={

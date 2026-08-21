@@ -132,3 +132,73 @@ def test_unknown_backend_name_is_rejected():
 
     with pytest.raises(ValueError):
         build_whole_document_backend("nonexistent", PipelineConfig())
+
+
+# --- device plumbing ------------------------------------------------------
+# Both regressions below were live bugs, and neither surfaced as a failure:
+# the pipeline kept producing correct output while quietly ignoring
+# `config.device`. Only wall-clock time (and, on CUDA, a crash) revealed
+# them, so they need assertions rather than observation.
+
+
+@pytest.mark.parametrize("device", ["cpu", "cuda"])
+def test_docling_pipeline_options_follow_configured_device(device):
+    """docling must be told the device explicitly. Left unset it falls back
+    to its own `device="auto"`, which resolves to CUDA whenever a GPU is
+    visible — silently disagreeing with a config that says "cpu"."""
+    from docling.datamodel.base_models import InputFormat
+
+    from doc_extraction.backends.docling_backend import DoclingBackend
+
+    converter = DoclingBackend(device=device, ocr_languages=["en", "vi"])._get_converter()
+
+    for fmt in (InputFormat.PDF, InputFormat.IMAGE):
+        options = converter.format_to_options[fmt].pipeline_options
+        assert options.accelerator_options.device == device
+        # `use_gpu` must stay None: it is deprecated upstream and *overrides*
+        # the accelerator device instead of following it, which is exactly
+        # what pinned EasyOCR to CPU on a CUDA box.
+        assert options.ocr_options.use_gpu is None
+        assert options.ocr_options.lang == ["en", "vi"]
+
+
+def test_table_transformer_moves_inputs_to_its_device():
+    """The models are moved to `self.device`; their inputs must be too, or
+    torch raises "Expected all tensors to be on the same device" as soon as
+    device is not cpu. Asserted on CPU by checking the call actually routes
+    every input tensor through `.to(device)`."""
+    from doc_extraction.backends.table_backend import TableTransformerBackend
+
+    backend = TableTransformerBackend(device="cpu")
+    moved: list[str] = []
+
+    class _FakeProcessor:
+        def __call__(self, images, return_tensors):
+            return {"pixel_values": _TrackedTensor(moved, "pixel_values")}
+
+        def post_process_object_detection(self, outputs, threshold, target_sizes):
+            return [{"boxes": [], "labels": [], "scores": []}]
+
+    class _TrackedTensor:
+        def __init__(self, log, name):
+            self._log = log
+            self._name = name
+
+        def to(self, device):
+            self._log.append(f"{self._name}->{device}")
+            return self
+
+    class _FakeModel:
+        def __call__(self, **inputs):
+            return object()
+
+    backend._detection_processor = _FakeProcessor()
+    backend._detection_model = _FakeModel()
+    backend._structure_model = _FakeModel()
+    backend._lazy_load = lambda: None
+
+    class _FakeImage:
+        size = (100, 200)
+
+    backend._detect_tables(_FakeImage())
+    assert moved == ["pixel_values->cpu"], f"inputs were not moved to the device: {moved}"
