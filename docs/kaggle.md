@@ -74,6 +74,33 @@ This is the project's own install mechanism (see
 `antlr4-python3-runtime` is a Windows-specific snag and does not apply on
 Kaggle's Linux image).
 
+### Prefetch Docling models — required on Kaggle
+
+`docs/setup.md` calls this "optional" for the local dev machine, but that's
+only true there because its `.cache/docling` already had models cached from
+prior local runs. On a fresh Kaggle session, once `DOCLING_ARTIFACTS_PATH`
+is set to anything, Docling **refuses to auto-download** and requires that
+directory to already contain the models — it raises `RuntimeError: ... is
+not valid` instead. Redirect the cache off the small root volume and
+prefetch before running anything:
+
+```bash
+mkdir -p /kaggle/working/.cache/huggingface /kaggle/working/.cache/docling
+export HF_HOME=/kaggle/working/.cache/huggingface
+export DOCLING_ARTIFACTS_PATH=/kaggle/working/.cache/docling
+export XDG_CACHE_HOME=/kaggle/working/.cache
+
+python -m docling.cli.tools models download -o $DOCLING_ARTIFACTS_PATH
+python -m docling.cli.tools models download easyocr \
+    --easyocr-lang en --easyocr-lang vi -o $DOCLING_ARTIFACTS_PATH
+```
+
+`en`/`vi` matches `configs/cpu.yaml`'s `ocr_languages` — the same languages
+this project's OCR is configured for everywhere else. Note this means OCR on
+Chinese-language OmniDocBench pages (a real part of that dataset) runs
+without a matching EasyOCR language model; that's a pre-existing config
+choice inherited from this repo's own corpus, not something fixed here.
+
 The OmniDocBench evaluator is a **separate** project with its own
 environment needs (Python `>=3.10,<3.12`) — see
 [experiments/005_omnidocbench/README.md](../experiments/005_omnidocbench/README.md#setup)
@@ -180,16 +207,11 @@ full run, print metrics, save results).
   `device: cuda` and verify `torch.cuda.is_available()` rather than relying
   on the accelerator being attached.
 - **Large model downloads dominate startup time**, not GPU compute — the
-  first Docling run pulls ~1.5 GB of models (see
-  [setup.md](setup.md#prefetching-models-optional)). Cache them under
-  `/kaggle/working` (not `/kaggle/input`, which is read-only) so a session
-  restart doesn't re-download:
-
-  ```python
-  import os
-  os.environ.setdefault("HF_HOME", "/kaggle/working/.cache/huggingface")
-  os.environ.setdefault("DOCLING_ARTIFACTS_PATH", "/kaggle/working/.cache/docling")
-  ```
+  Docling model set is ~1.5 GB. See "Prefetch Docling models" under Step 4
+  above: on Kaggle this is a required up-front step, not an optional
+  mid-run download, and it's cached under `/kaggle/working` (not
+  `/kaggle/input`, which is read-only) so a session restart doesn't
+  re-download.
 - **Outputs go to `/kaggle/working`**, never `/kaggle/input` (read-only,
   reserved for attached datasets).
 - Do not claim a specific model "fits" or "runs well" on a T4 unless it has
@@ -208,6 +230,15 @@ cd doc-extraction
 
 # 4. Install
 pip install -e ".[docling,tables]" -q
+
+mkdir -p /kaggle/working/.cache/huggingface /kaggle/working/.cache/docling
+export HF_HOME=/kaggle/working/.cache/huggingface
+export DOCLING_ARTIFACTS_PATH=/kaggle/working/.cache/docling
+export XDG_CACHE_HOME=/kaggle/working/.cache
+python -m docling.cli.tools models download -o $DOCLING_ARTIFACTS_PATH
+python -m docling.cli.tools models download easyocr \
+    --easyocr-lang en --easyocr-lang vi -o $DOCLING_ARTIFACTS_PATH
+
 git clone https://github.com/opendatalab/OmniDocBench.git .external/OmniDocBench
 cd .external/OmniDocBench && git checkout 193627ae9e97d89188468ed1ee3b7a856ff76044 && cd ../..
 pip install -q -U uv
