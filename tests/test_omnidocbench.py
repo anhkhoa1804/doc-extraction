@@ -11,6 +11,7 @@ success path.
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -540,3 +541,78 @@ def test_run_cli_flag_wins_over_defaults_config(tmp_path):
     parser = run.build_parser(defaults)
     args = parser.parse_args(["--dataset", "d", "--backend", "baseline", "--output", "o", "--match-workers", "1"])
     assert args.match_workers == 1
+
+
+def _load_evaluate_module():
+    import importlib.util
+
+    path = Path(__file__).resolve().parents[1] / "experiments" / "005_omnidocbench" / "evaluate.py"
+    spec = importlib.util.spec_from_file_location("_omnidocbench_evaluate_under_test", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_evaluate_does_not_symlink_resolve_the_interpreter(tmp_path, monkeypatch):
+    """`.venv/bin/python` is a symlink to the base interpreter on Linux (always
+    so for uv-managed installs). Resolving it launches that base interpreter,
+    whose sys.path has none of the venv's site-packages — the evaluator's own
+    dependencies then vanish and it dies with `ModuleNotFoundError: No module
+    named 'yaml'` despite a correctly populated venv.
+
+    Asserted as an invariant rather than with a real symlink on purpose: the
+    reference dev machine is Windows, where venvs copy python.exe and symlink
+    creation needs a privilege it does not have, so a symlink-based test would
+    silently skip here — which is exactly how this bug reached Kaggle twice.
+    """
+    evaluate = _load_evaluate_module()
+
+    dataset = tmp_path / "dataset"
+    dataset.mkdir()
+    gt = dataset / "OmniDocBench_demo.json"
+    gt.write_text("[]", encoding="utf-8")
+
+    predictions = tmp_path / "out" / "predictions"
+    predictions.mkdir(parents=True)
+    (predictions / "page.md").write_text("# x", encoding="utf-8")
+
+    venv_python = tmp_path / ".venv-omnidoc" / "bin" / "python"
+    venv_python.parent.mkdir(parents=True)
+    venv_python.write_text("", encoding="utf-8")
+
+    resolved_paths: list[Path] = []
+    real_resolve = Path.resolve
+
+    def recording_resolve(self, *args, **kwargs):
+        resolved_paths.append(Path(self))
+        return real_resolve(self, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "resolve", recording_resolve)
+
+    captured = {}
+
+    def fake_run_official_evaluator(*, omnidoc_python, omnidoc_repo, config_path, **kwargs):
+        captured["omnidoc_python"] = omnidoc_python
+        return subprocess.CompletedProcess(args=[], returncode=0, stdout="", stderr="")
+
+    monkeypatch.setattr(evaluate.odb, "load_dataset", lambda root: (gt, []))
+    monkeypatch.setattr(evaluate.odb, "check_evaluator_available", lambda *a, **k: None)
+    monkeypatch.setattr(
+        evaluate.odb, "write_evaluator_config", lambda **kwargs: kwargs["output_path"]
+    )
+    monkeypatch.setattr(evaluate.odb, "run_official_evaluator", fake_run_official_evaluator)
+    monkeypatch.setattr(evaluate.odb, "collect_evaluator_results", lambda *a, **k: {})
+
+    evaluate.main([
+        "--dataset", str(dataset),
+        "--output", str(tmp_path / "out"),
+        "--omnidoc-python", str(venv_python),
+    ])
+
+    # The interpreter reaches the subprocess exactly as given (absolute),
+    # never replaced by whatever it points at.
+    assert captured["omnidoc_python"] == Path(os.path.abspath(str(venv_python)))
+    # And it was never fed through Path.resolve() on the way there.
+    assert venv_python not in resolved_paths, (
+        "the evaluator interpreter path was symlink-resolved; use os.path.abspath"
+    )

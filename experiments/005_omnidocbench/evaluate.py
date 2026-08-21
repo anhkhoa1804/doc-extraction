@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -62,7 +63,14 @@ def main(argv: list[str] | None = None) -> int:
     output_root = Path(args.output).resolve()
     predictions_dir = Path(args.predictions).resolve() if args.predictions else output_root / "predictions"
     omnidoc_repo = Path(args.omnidoc_repo).resolve()
-    omnidoc_python = Path(args.omnidoc_python).resolve()
+    # Absolute, but NOT symlink-resolved: a venv's `bin/python` is typically a
+    # symlink to the base interpreter (uv-managed installs always are), and
+    # resolving it launches that base interpreter instead. The venv's
+    # site-packages is then never on sys.path, so the evaluator's own
+    # dependencies vanish — surfacing as `ModuleNotFoundError: No module named
+    # 'yaml'` even though the venv is correctly populated. Windows hides this
+    # (venvs there copy python.exe rather than symlinking it).
+    omnidoc_python = Path(os.path.abspath(args.omnidoc_python))
 
     try:
         gt_path, _samples = odb.load_dataset(dataset_root)
