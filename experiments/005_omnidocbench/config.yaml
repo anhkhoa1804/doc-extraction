@@ -17,7 +17,11 @@ doc_extraction_config: "configs/cpu.yaml"
 # Where the evaluator lives. Set up per experiments/005_omnidocbench/README.md
 # "Setup" — cloned outside version control, pinned to a specific commit.
 omnidoc_repo: ".external/OmniDocBench"
-omnidoc_python: ".venv-omnidoc/Scripts/python.exe"
+# omnidoc_python is deliberately not set here: run.py/evaluate.py fall back
+# to a platform-aware default (.venv-omnidoc/bin/python on Linux/macOS,
+# .venv-omnidoc/Scripts/python.exe on Windows) via
+# doc_extraction.evaluation.omnidocbench.default_omnidoc_python(). Set it
+# explicitly only to point at a non-standard interpreter path.
 
 # Evaluator matching method. quick_match is upstream's own recommendation —
 # see experiments/005_omnidocbench/README.md "Matching method".

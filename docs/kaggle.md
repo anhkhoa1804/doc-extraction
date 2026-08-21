@@ -77,19 +77,32 @@ Kaggle's Linux image).
 The OmniDocBench evaluator is a **separate** project with its own
 environment needs (Python `>=3.10,<3.12`) — see
 [experiments/005_omnidocbench/README.md](../experiments/005_omnidocbench/README.md#setup)
-for the full rationale. On Kaggle's default Python (currently 3.10/3.11),
-install it directly, pinned to the same commit this repo's adapter targets:
+for the full rationale. Kaggle's default Python image is **3.12+**, which
+the evaluator's own `pyproject.toml` rejects, so it always needs an isolated
+venv on Kaggle (not just as a fallback). [`uv`](https://docs.astral.sh/uv/)
+makes fetching a pinned Python 3.11 and building that venv fast and
+reliable inside a Kaggle session:
 
 ```bash
 git clone https://github.com/opendatalab/OmniDocBench.git .external/OmniDocBench
 cd .external/OmniDocBench && git checkout 193627ae9e97d89188468ed1ee3b7a856ff76044 && cd ../..
-pip install -e .external/OmniDocBench -q
+
+pip install -q -U uv
+uv python install 3.11
+uv venv --python 3.11 .venv-omnidoc
+uv pip install --python .venv-omnidoc/bin/python -U pip setuptools wheel -q
+uv pip install --python .venv-omnidoc/bin/python -e .external/OmniDocBench -q
+
+# Verify — the installed distribution is named omnidocbench-eval but its
+# importable top-level module is `src` (a src-layout package).
+.venv-omnidoc/bin/python -c "from src.core.pipeline import run_config_file; print('OK')"
 ```
 
-If the attached Kaggle image's default Python is 3.12+, create an isolated
-venv for the evaluator instead (same reasoning as the dev machine, which
-needed this on Windows) and pass `--omnidoc-python .venv-omnidoc/bin/python`
-to `run.py` in Step 6.
+`run.py`/`evaluate.py` locate this venv automatically — their
+`--omnidoc-python` default resolves to `.venv-omnidoc/bin/python` on Linux
+(and `.venv-omnidoc/Scripts/python.exe` on Windows) as long as the venv
+lives at the standard `.venv-omnidoc` path shown above. Pass
+`--omnidoc-python` explicitly only if you put it somewhere else.
 
 ## Step 5 — Dataset
 
@@ -109,6 +122,13 @@ smoke test, not the full benchmark):
 ```
 .external/OmniDocBench/demo_data/omnidocbench_demo/
 ```
+
+The notebook's Step 5 tries Option A first and **automatically falls back**
+to Option B if nothing is attached at `/kaggle/input/<dataset-name>` — so a
+fresh run never hard-fails on a missing dataset, it just quietly runs the
+demo set instead. Watch for that fallback message if you expected the full
+benchmark: it means `KAGGLE_DATASET_NAME` wasn't edited, or nothing was
+attached via "Add Input".
 
 Either option is public OmniDocBench data. Never attach this repo's own
 `data/` as a Kaggle input.
@@ -190,7 +210,11 @@ cd doc-extraction
 pip install -e ".[docling,tables]" -q
 git clone https://github.com/opendatalab/OmniDocBench.git .external/OmniDocBench
 cd .external/OmniDocBench && git checkout 193627ae9e97d89188468ed1ee3b7a856ff76044 && cd ../..
-pip install -e .external/OmniDocBench -q
+pip install -q -U uv
+uv python install 3.11
+uv venv --python 3.11 .venv-omnidoc
+uv pip install --python .venv-omnidoc/bin/python -U pip setuptools wheel -q
+uv pip install --python .venv-omnidoc/bin/python -e .external/OmniDocBench -q
 
 # 5. Dataset — attach via Kaggle "Add Input", then:
 DATASET_PATH=/kaggle/input/<dataset-name>

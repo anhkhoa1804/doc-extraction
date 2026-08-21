@@ -507,6 +507,16 @@ def write_evaluator_config(
     return output_path
 
 
+def default_omnidoc_python(repo_root: Path | str) -> Path:
+    """Platform-appropriate path to the isolated evaluator venv's
+    interpreter, assuming the standard `.venv-omnidoc` layout described in
+    experiments/005_omnidocbench/README.md — `bin/python` on Linux/macOS
+    (e.g. Kaggle), `Scripts/python.exe` on Windows. A venv only ever gets
+    one of these two layouts, keyed off the OS it was created on."""
+    subdir = ("Scripts", "python.exe") if os.name == "nt" else ("bin", "python")
+    return Path(repo_root) / ".venv-omnidoc" / subdir[0] / subdir[1]
+
+
 class EvaluatorNotAvailableError(RuntimeError):
     """The isolated evaluator environment isn't set up yet. Carries setup
     instructions rather than a bare failure — see
@@ -515,10 +525,11 @@ class EvaluatorNotAvailableError(RuntimeError):
 
 def check_evaluator_available(omnidoc_python: Path, omnidoc_repo: Path) -> None:
     if not Path(omnidoc_python).exists():
+        venv_python = "bin/python" if os.name != "nt" else "Scripts\\python.exe"
         raise EvaluatorNotAvailableError(
             f"no Python interpreter at {omnidoc_python}. Set up the isolated evaluator "
             f"environment first: py -3.11 -m venv .venv-omnidoc && "
-            f".venv-omnidoc/Scripts/python.exe -m pip install -e {omnidoc_repo} "
+            f".venv-omnidoc/{venv_python} -m pip install -e {omnidoc_repo} "
             f"(see experiments/005_omnidocbench/README.md)"
         )
     if not (Path(omnidoc_repo) / "pdf_validation.py").exists():

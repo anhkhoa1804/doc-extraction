@@ -41,6 +41,7 @@ if str(THIS_DIR) not in sys.path:
 
 import evaluate as evaluate_step  # noqa: E402
 import prepare as prepare_step  # noqa: E402
+from doc_extraction.evaluation import omnidocbench as odb  # noqa: E402
 
 
 _DEFAULTS_CONFIG_PATH = Path(__file__).resolve().parent / "config.yaml"
@@ -79,7 +80,7 @@ def build_parser(defaults: dict[str, Any] | None = None) -> argparse.ArgumentPar
     parser.add_argument("--subset", type=int, default=None)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--omnidoc-repo", default=d.get("omnidoc_repo", str(REPO_ROOT / ".external" / "OmniDocBench")))
-    parser.add_argument("--omnidoc-python", default=d.get("omnidoc_python", str(REPO_ROOT / ".venv-omnidoc" / "Scripts" / "python.exe")))
+    parser.add_argument("--omnidoc-python", default=d.get("omnidoc_python", str(odb.default_omnidoc_python(REPO_ROOT))))
     parser.add_argument("--match-method", default=d.get("match_method", "quick_match"),
                          choices=["no_split", "simple_match", "quick_match"])
     parser.add_argument("--match-workers", type=int, default=d.get("match_workers", 4))
