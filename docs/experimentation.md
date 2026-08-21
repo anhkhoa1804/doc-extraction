@@ -6,8 +6,8 @@ The full sequence, reproducible from a clean checkout:
 
 ```bash
 .venv/Scripts/python.exe -m pytest -q
-.venv/Scripts/python.exe -m doc_extraction run     --input . --config configs/cpu.yaml
-.venv/Scripts/python.exe -m doc_extraction compare --input . --config configs/cpu.yaml --backends baseline docling
+.venv/Scripts/python.exe -m doc_extraction run     --input data --config configs/cpu.yaml
+.venv/Scripts/python.exe -m doc_extraction compare --input data --config configs/cpu.yaml --backends baseline docling
 .venv/Scripts/python.exe -m doc_extraction inspect
 .venv/Scripts/python.exe scripts/build_failure_report.py --input outputs/
 ```
@@ -38,7 +38,7 @@ engine), not something to shrug off.
 ## Backend comparison
 
 ```bash
-doc_extraction compare --input . --config configs/cpu.yaml --backends baseline docling
+doc_extraction compare --input data --config configs/cpu.yaml --backends baseline docling
 ```
 
 Writes `outputs/comparison/<document_id>/`:

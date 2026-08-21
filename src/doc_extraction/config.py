@@ -31,7 +31,9 @@ class BackendToggles(BaseModel):
 
 
 class PipelineConfig(BaseModel):
-    input_dir: str = "."
+    # Local/private sample documents live under data/ (gitignored — see
+    # data/README.md), not the repo root.
+    input_dir: str = "data"
     output_dir: str = "outputs"
     device: str = "cpu"
 

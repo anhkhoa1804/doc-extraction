@@ -70,13 +70,21 @@ Every stage persists its own intermediate output under
 [docs/architecture.md](docs/architecture.md) and
 [docs/output-format.md](docs/output-format.md).
 
-## Sample documents are immutable
+## Data
 
-The files at the repo root (`*.pdf`, `*.docx`, `*.xlsx`) are real enterprise
-samples used as pipeline input. **They are never moved, renamed, or
-modified** — every run reads them and writes exclusively under `outputs/`.
-They are **not tracked by git**; see [samples/README.md](samples/README.md)
-for why and for the committed manifest that documents them.
+Local, internal enterprise sample documents (`*.pdf`, `*.docx`, `*.xlsx`)
+live under `data/` and are used as pipeline input. They are **never
+renamed or modified** — every run reads them and writes exclusively under
+`outputs/`. They are **intentionally excluded from Git**; see
+[data/README.md](data/README.md) for why and for the committed manifest
+that documents them without distributing their content.
+
+## Kaggle
+
+Public [OmniDocBench](https://github.com/opendatalab/OmniDocBench)
+experiments (`experiments/005_omnidocbench/`) can be run on a Kaggle T4
+GPU. Nothing under `data/` is ever attached to Kaggle. See
+[docs/kaggle.md](docs/kaggle.md).
 
 ## Quick start
 
@@ -96,8 +104,8 @@ The whole sequence, reproducible from a clean checkout, no GPU:
 
 ```bash
 .venv/Scripts/python.exe -m pytest -q
-.venv/Scripts/python.exe -m doc_extraction run     --input . --config configs/cpu.yaml
-.venv/Scripts/python.exe -m doc_extraction compare --input . --config configs/cpu.yaml --backends baseline docling
+.venv/Scripts/python.exe -m doc_extraction run     --input data --config configs/cpu.yaml
+.venv/Scripts/python.exe -m doc_extraction compare --input data --config configs/cpu.yaml --backends baseline docling
 .venv/Scripts/python.exe -m doc_extraction inspect
 .venv/Scripts/python.exe scripts/build_failure_report.py --input outputs/
 ```
@@ -158,4 +166,5 @@ in that directory's `kaggle/` notebook).
 - [docs/output-format.md](docs/output-format.md) — canonical IR, schema version, coordinates
 - [docs/experimentation.md](docs/experimentation.md) — reproducibility, comparison, logging
 - [docs/research-roadmap.md](docs/research-roadmap.md) — hypotheses, with evidence and its limits
+- [docs/kaggle.md](docs/kaggle.md) — running public OmniDocBench experiments on a Kaggle T4 GPU
 - [experiments/](experiments/) — investigations actually run, with observations

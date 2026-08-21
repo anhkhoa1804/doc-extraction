@@ -19,11 +19,11 @@ test:
 	$(PYTHON) -m pytest -q
 
 baseline:
-	$(PYTHON) -m doc_extraction run --input . --config $(CONFIG)
+	$(PYTHON) -m doc_extraction run --input data --config $(CONFIG)
 
 # Docling costs ~35 s/page on CPU — target one file rather than the corpus.
 compare:
-	$(PYTHON) -m doc_extraction compare --input FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf \
+	$(PYTHON) -m doc_extraction compare --input "data/FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf" \
 		--config $(CONFIG) --backends baseline docling
 
 inspect:

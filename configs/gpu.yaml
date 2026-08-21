@@ -13,7 +13,7 @@
 # GPU driver caps out at CUDA 11.2, so `device: cuda` would fail at model
 # load. See docs/backends.md ("GPU status").
 
-input_dir: "."          # sample documents live at the repo root; see samples/README.md
+input_dir: "data"       # local/private sample documents; see data/README.md
 output_dir: "outputs"
 device: "cuda"   # UNVALIDATED — see the header above
 

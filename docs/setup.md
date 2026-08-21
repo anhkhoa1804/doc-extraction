@@ -102,7 +102,7 @@ Once cached, the whole validation sequence runs offline.
 
 ```bash
 .venv/Scripts/python.exe -m pytest -q
-.venv/Scripts/python.exe -m doc_extraction run --input . --config configs/cpu.yaml
+.venv/Scripts/python.exe -m doc_extraction run --input data --config configs/cpu.yaml
 ```
 
 The full validation sequence is in the [README](../README.md) under "Local

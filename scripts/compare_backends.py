@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 """Thin wrapper for environments without `make`:
 
-    python scripts/compare_backends.py --input . --backends docling
+    python scripts/compare_backends.py --input data --backends docling
 
 is equivalent to:
 
-    python -m doc_extraction compare --input . --backends docling
+    python -m doc_extraction compare --input data --backends docling
 """
 from __future__ import annotations
 

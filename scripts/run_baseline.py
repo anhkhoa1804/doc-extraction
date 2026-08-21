@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 """Thin wrapper for environments without `make`:
 
-    python scripts/run_baseline.py --input . --config configs/default.yaml
+    python scripts/run_baseline.py --input data --config configs/default.yaml
 
 is equivalent to:
 
-    python -m doc_extraction run --input . --config configs/default.yaml
+    python -m doc_extraction run --input data --config configs/default.yaml
 """
 from __future__ import annotations
 

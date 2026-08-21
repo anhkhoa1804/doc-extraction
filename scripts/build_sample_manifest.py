@@ -1,11 +1,15 @@
 #!/usr/bin/env python
-"""Regenerate samples/MANIFEST.json from the immutable sample files at the
-repo root. Read-only over the sample files themselves — only ever opens them
-for hashing/stat, never writes to them.
+"""Regenerate data/manifest.json from the local sample files under data/.
+
+Read-only over the sample files themselves — only ever opens them for
+hashing/stat, never writes to them. The manifest is metadata only: name,
+size, SHA-256, and detected type. It never contains extracted text or any
+other document content.
 """
 from __future__ import annotations
 
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -19,23 +23,33 @@ _SAMPLE_EXTENSIONS = {"pdf", "docx", "xlsx", "pptx"}
 
 
 def main() -> None:
-    entries = []
-    for path in sorted(REPO_ROOT.iterdir()):
+    data_dir = REPO_ROOT / "data"
+    data_dir.mkdir(exist_ok=True)
+
+    files = []
+    for path in sorted(data_dir.iterdir()):
         if not path.is_file() or path.suffix.lower().lstrip(".") not in _SAMPLE_EXTENSIONS:
             continue
         info = detect(path)
-        entries.append(
+        files.append(
             {
-                "filename": path.name,
-                "size_bytes": path.stat().st_size,
+                "name": path.name,
+                "size": path.stat().st_size,
                 "sha256": sha256_file(path),
+                "extension": path.suffix.lower(),
                 "detected_kind": info.detected_kind,
-                "extension": info.extension,
             }
         )
-    out_path = REPO_ROOT / "samples" / "MANIFEST.json"
-    write_json(out_path, {"samples": entries})
-    print(f"Wrote {out_path} ({len(entries)} files)")
+
+    out_path = data_dir / "manifest.json"
+    write_json(
+        out_path,
+        {
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "files": files,
+        },
+    )
+    print(f"Wrote {out_path} ({len(files)} files)")
 
 
 if __name__ == "__main__":

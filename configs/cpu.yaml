@@ -8,7 +8,7 @@
 # only configuration actually validated in this project. See configs/gpu.yaml
 # for the unvalidated GPU shape.
 
-input_dir: "."          # sample documents live at the repo root; see samples/README.md
+input_dir: "data"       # local/private sample documents; see data/README.md
 output_dir: "outputs"
 device: "cpu"
 

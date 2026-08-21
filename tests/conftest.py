@@ -15,8 +15,14 @@ def repo_root() -> Path:
 
 @pytest.fixture(scope="session")
 def sample_files(repo_root: Path) -> list[Path]:
-    """The real, immutable sample documents at the repo root. Tests may
-    *read* these, never write/rename/move them."""
+    """The real, local sample documents under data/. Tests may *read*
+    these, never write/rename/move them. Session-local: on a clone without
+    any local documents present, this is an empty list rather than an
+    error — tests consuming it should handle that (most already do, by
+    filtering an empty list down to an empty list)."""
+    data_dir = repo_root / "data"
+    if not data_dir.is_dir():
+        return []
     return sorted(
-        p for p in repo_root.iterdir() if p.is_file() and p.suffix.lower().lstrip(".") in _SAMPLE_EXTENSIONS
+        p for p in data_dir.iterdir() if p.is_file() and p.suffix.lower().lstrip(".") in _SAMPLE_EXTENSIONS
     )

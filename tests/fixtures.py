@@ -1,10 +1,11 @@
 """Programmatically-built test fixtures.
 
-The real sample documents at the repo root are immutable experimental input:
-tests may read them but must never write, rename, or copy-modify them. Where
-the real corpus does not cover a case (it contains no PPTX and no standalone
-image, and only one corrupt PDF), we synthesize a minimal file into pytest's
-`tmp_path` instead.
+The real sample documents under data/ (local/private, gitignored — see
+data/README.md) are immutable experimental input: tests may read them but
+must never write, rename, or copy-modify them. Where the real corpus does
+not cover a case (it contains no PPTX and no standalone image, and only one
+corrupt PDF) — or on a clone with no local documents present at all — we
+synthesize a minimal file into pytest's `tmp_path` instead.
 
 Everything here writes only under a caller-supplied temporary directory.
 """
