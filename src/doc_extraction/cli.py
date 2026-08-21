@@ -40,16 +40,44 @@ def _discover_inputs(input_path: Path) -> list[Path]:
     )
 
 
+_COMPONENT_BACKEND_CACHE: dict[tuple[str, tuple[str, ...]], Any] = {}
+
+
+def clear_component_backend_cache() -> None:
+    """Drop the cached backends (and the models they hold). For tests, and
+    for any caller that changes device mid-process."""
+    _COMPONENT_BACKEND_CACHE.clear()
+
+
 def _get_component_backends(config: PipelineConfig):
     """Layout/OCR/table backends for the baseline pipeline's scanned-page
     route. The same Docling instance serves layout+OCR so it only converts
-    each page image once (see backends/docling_backend.py)."""
+    each page image once (see backends/docling_backend.py).
+
+    Cached per (device, ocr_languages) for the process lifetime. Constructing
+    a backend is cheap — models load lazily on first use — but they load into
+    *that instance*, so building a fresh one per file made every page pay the
+    full model-load cost again. On a benchmark run that dominates everything
+    else: the OmniDocBench pages are standalone images, so each one takes the
+    visual route and was re-loading the Docling layout weights plus both Table
+    Transformer models from disk.
+
+    Reusing instances is safe here because the runner is sequential and these
+    backends hold no per-document state (DoclingBackend's `_page_cache` is
+    keyed by path). A future parallel runner must not share them across
+    threads without checking that assumption again.
+    """
     from doc_extraction.backends.docling_backend import DoclingBackend
     from doc_extraction.backends.table_backend import TableTransformerBackend
 
-    docling = DoclingBackend(device=config.device, ocr_languages=config.ocr_languages)
-    table_backend = TableTransformerBackend(device=config.device)
-    return docling, docling, table_backend
+    key = (config.device, tuple(config.ocr_languages))
+    cached = _COMPONENT_BACKEND_CACHE.get(key)
+    if cached is None:
+        docling = DoclingBackend(device=config.device, ocr_languages=config.ocr_languages)
+        table_backend = TableTransformerBackend(device=config.device)
+        cached = (docling, docling, table_backend)
+        _COMPONENT_BACKEND_CACHE[key] = cached
+    return cached
 
 
 def build_whole_document_backend(name: str, config: PipelineConfig) -> Any:

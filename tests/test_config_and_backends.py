@@ -202,3 +202,45 @@ def test_table_transformer_moves_inputs_to_its_device():
 
     backend._detect_tables(_FakeImage())
     assert moved == ["pixel_values->cpu"], f"inputs were not moved to the device: {moved}"
+
+
+def test_component_backends_are_cached_per_device_and_languages():
+    """Backends are constructed per processed file, but each instance loads
+    its own models on first use. Rebuilding them per file made every page pay
+    the full model-load cost again — on a benchmark whose pages all take the
+    visual route, that dominated the run (visible as a fresh "Loading
+    weights"/"LOAD REPORT" per page in the logs). They must be reused."""
+    from doc_extraction.cli import _get_component_backends, clear_component_backend_cache
+
+    clear_component_backend_cache()
+    try:
+        cfg = PipelineConfig(device="cpu", ocr_languages=["en", "vi"])
+        layout_a, ocr_a, table_a = _get_component_backends(cfg)
+
+        # A separate but equivalent config must hit the same cached instances.
+        layout_b, _, table_b = _get_component_backends(
+            PipelineConfig(device="cpu", ocr_languages=["en", "vi"])
+        )
+        assert layout_a is layout_b
+        assert table_a is table_b
+
+        # One Docling instance serves layout+OCR so a page converts once.
+        assert layout_a is ocr_a
+
+        # Device and language changes must not silently reuse a wrong backend.
+        layout_cuda, _, _ = _get_component_backends(
+            PipelineConfig(device="cuda", ocr_languages=["en", "vi"])
+        )
+        assert layout_cuda is not layout_a
+        assert layout_cuda.device == "cuda"
+
+        layout_en, _, _ = _get_component_backends(
+            PipelineConfig(device="cpu", ocr_languages=["en"])
+        )
+        assert layout_en is not layout_a
+
+        clear_component_backend_cache()
+        layout_fresh, _, _ = _get_component_backends(cfg)
+        assert layout_fresh is not layout_a
+    finally:
+        clear_component_backend_cache()
