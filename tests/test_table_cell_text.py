@@ -224,3 +224,102 @@ def test_recognize_handles_missing_table_cells_gracefully():
     result = backend.recognize(_page_input())
 
     assert result.tokens == []
+
+
+# ---------------------------------------------------------------------------
+# Native-table fallback (pipelines/base.select_better_populated_table /
+# _apply_native_table_fallback)
+#
+# Real-world evidence (experiments/005_omnidocbench/observations.md,
+# "Bottleneck Analysis"): on one real OmniDocBench page, Table Transformer
+# detected the wrong grid entirely (1x3 instead of the correct 4x2, TEDS
+# 0.083) while Docling's own TableFormer (exposed via
+# DoclingBackend.native_tables) found the exact right structure with every
+# cell populated. On a different page the reverse held. Neither backend is
+# uniformly better, so the fix is a per-table, fill-rate-based choice
+# between two independently-produced candidates -- not a preference for
+# either specific backend.
+# ---------------------------------------------------------------------------
+
+from doc_extraction.pipelines.base import (
+    TableResult,
+    _apply_native_table_fallback,
+    select_better_populated_table,
+)
+from doc_extraction.schemas.element import BBox
+
+
+def _table(id_, bbox, cells, source_backend="table_transformer"):
+    n_rows = max((c.row for c in cells), default=-1) + 1
+    n_cols = max((c.col for c in cells), default=-1) + 1
+    return Table(id=id_, bbox=bbox, page_number=1, n_rows=n_rows, n_cols=n_cols,
+                 cells=cells, source_backend=source_backend)
+
+
+def test_select_better_populated_table_prefers_higher_fill_rate():
+    sparse = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [
+        Cell(row=0, col=0, text="only this one"),
+        Cell(row=0, col=1, text=""),
+    ])
+    dense = _table("native-t0", BBox(x0=0, y0=0, x1=100, y1=100), [
+        Cell(row=0, col=0, text="a"), Cell(row=0, col=1, text="b"),
+    ], source_backend="docling")
+
+    chosen = select_better_populated_table(sparse, dense)
+
+    assert chosen.id == "t0", "keeps the original candidate's id so Element.table_id linkage still resolves"
+    assert chosen.cells == dense.cells
+    assert chosen.source_backend == "docling+fallback"
+
+
+def test_select_better_populated_table_keeps_candidate_on_tie_or_worse_alternative():
+    candidate = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [
+        Cell(row=0, col=0, text="a"), Cell(row=0, col=1, text="b"),
+    ])
+    worse = _table("native-t0", BBox(x0=0, y0=0, x1=100, y1=100), [
+        Cell(row=0, col=0, text=""), Cell(row=0, col=1, text=""),
+    ])
+
+    assert select_better_populated_table(candidate, worse) is candidate
+    assert select_better_populated_table(candidate, None) is candidate
+
+
+def test_apply_native_table_fallback_matches_by_geometry_not_order():
+    """Two table_backend tables and two native tables at different
+    positions -- each must be compared against its own geometric match, not
+    e.g. list index."""
+    weak_a = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    weak_b = _table("t1", BBox(x0=200, y0=200, x1=300, y1=300), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[weak_a, weak_b], backend="table_transformer")
+
+    strong_for_b = _table("native-t1", BBox(x0=205, y0=205, x1=295, y1=295),
+                           [Cell(row=0, col=0, text="right region")], source_backend="docling")
+    # Overlaps weak_a's region only slightly (< 0.1 IoU threshold) -- must NOT be selected for it.
+    near_a_but_below_threshold = _table(
+        "native-t0", BBox(x0=95, y0=95, x1=195, y1=195),
+        [Cell(row=0, col=0, text="wrong region, low overlap")], source_backend="docling",
+    )
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [near_a_but_below_threshold, strong_for_b]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert table_result.tables[0].cells[0].text == "", "weak_a has no adequately-overlapping alternative"
+    assert table_result.tables[1].cells[0].text == "right region"
+
+
+def test_apply_native_table_fallback_noop_when_backend_has_no_native_tables():
+    """OCR backends without a native_tables method (PaddleOCR/MinerU stubs,
+    or any future non-Docling backend) must be silently skipped, not
+    crash."""
+    weak = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[weak], backend="table_transformer")
+
+    class _BackendWithoutNativeTables:
+        pass
+
+    _apply_native_table_fallback(table_result, _BackendWithoutNativeTables(), page=None)
+
+    assert table_result.tables[0] is weak

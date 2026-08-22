@@ -1,0 +1,13 @@
+{
+  "total_pages": 20,
+  "succeeded": 20,
+  "failed": 0,
+  "total_runtime_seconds": 2893.917,
+  "mean_seconds_per_page": 144.6958,
+  "pages_per_second": 0.0069,
+  "routes": {
+    "image": 20
+  },
+  "failures": [],
+  "wall_clock_seconds": 2894.399
+}

@@ -174,6 +174,7 @@ def _convert_docling_table(
                 col=col,
                 row_span=row_span,
                 col_span=col_span,
+                bbox=_bbox_from_docling(getattr(tc, "bbox", None), page_height),
                 text=(getattr(tc, "text", "") or "").strip(),
                 is_header=is_header,
             )
@@ -545,3 +546,41 @@ class DoclingBackend:
                 continue
             tokens.append(OCRToken(text=text, bbox=bbox, confidence=None))
         return OCRResult(tokens=tokens, backend=self.name)
+
+    def native_tables(self, page: PageInput) -> list[Table]:
+        """Docling's own table extraction (TableFormer structure + Docling's
+        internal per-cell OCR) for this page, as full `Table` objects —
+        the same conversion `recognize()`'s per-cell tokens come from, and
+        the same code `convert()` uses for whole-document mode, exposed
+        standalone so a caller can compare it against a different table
+        backend's result for the same page.
+
+        Evidence this exists for (experiments/005_omnidocbench/observations.md,
+        "Bottleneck Analysis"): on a real OmniDocBench page where
+        TableTransformerBackend detected the wrong grid entirely (1x3
+        instead of 4x2, TEDS 0.083), Docling's own TableFormer found the
+        exact correct 4x2 structure with all 6 cells correctly populated.
+        Neither table model is uniformly better — see
+        `pipelines/base.select_better_populated_table` for how a caller
+        chooses between them.
+        """
+        if page.image_path is None:
+            return []
+        result = self._convert_cached(page.image_path)
+        docling_doc = result.document
+        tables: list[Table] = []
+        idx = 0
+        for item, _level in docling_doc.iterate_items():
+            if _label_str(item) != "table":
+                continue
+            prov_list = getattr(item, "prov", None) or []
+            prov = prov_list[0] if prov_list else None
+            bbox = _bbox_from_docling(getattr(prov, "bbox", None), page.height) if prov else None
+            tables.append(
+                _convert_docling_table(
+                    item, page.page_index + 1, table_id=f"p{page.page_index}-native-t{idx}",
+                    bbox=bbox, page_height=page.height,
+                )
+            )
+            idx += 1
+        return tables

@@ -645,6 +645,79 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> s
     return owned_token_ids
 
 
+def _table_fill_rate(table: Table) -> float:
+    """Fraction of cells with non-empty text — a simple, general, cheap
+    quality signal for comparing two independently-produced Table
+    candidates for the same region. Not benchmark-specific: "prefer the
+    extraction that actually has content" holds for any document."""
+    if not table.cells:
+        return 0.0
+    return sum(1 for c in table.cells if c.text) / len(table.cells)
+
+
+def select_better_populated_table(candidate: Table, alternative: "Table | None") -> Table:
+    """Pick whichever of two independently-detected Table candidates for
+    the same region is more populated, by cell-fill-rate.
+
+    Table Transformer (table_backend.py) and Docling's own TableFormer
+    (docling_backend.py:native_tables) are two independent structure models
+    over the same page; neither is uniformly better (measured, not assumed
+    — experiments/005_omnidocbench/observations.md "Bottleneck Analysis"):
+    on one real OmniDocBench page, Table Transformer detected the wrong
+    grid entirely (1x3 instead of 4x2, TEDS 0.083) while Docling's own
+    TableFormer found the exact right structure with every cell correctly
+    populated; on a different page the reverse held (Table Transformer's
+    partial structure had more real content than Docling's, which
+    collapsed the table to 1x1). A single fixed preference between the two
+    backends would be wrong on one of those pages by construction — cell
+    fill-rate is a cheap, general, per-table signal that picks correctly on
+    both without needing to know why either model failed.
+
+    Returns a Table with `candidate`'s id/bbox/page_number (so a caller
+    that already linked an Element.table_id to `candidate.id` doesn't need
+    to know a swap happened) but `alternative`'s structure/cells, whenever
+    `alternative` is strictly better populated. Ties keep `candidate`.
+    """
+    if alternative is None:
+        return candidate
+    if _table_fill_rate(alternative) <= _table_fill_rate(candidate):
+        return candidate
+    return Table(
+        id=candidate.id,
+        bbox=candidate.bbox,
+        page_number=candidate.page_number,
+        n_rows=alternative.n_rows,
+        n_cols=alternative.n_cols,
+        cells=alternative.cells,
+        source_backend=f"{alternative.source_backend}+fallback",
+        confidence=alternative.confidence,
+    )
+
+
+def _apply_native_table_fallback(table_result: "TableResult", ocr_backend: OCRBackend, page: PageInput) -> None:
+    """For each table_backend-detected table, compare it against the OCR
+    backend's own native table extraction for the same page (if it exposes
+    one — see DoclingBackend.native_tables) and keep whichever is better
+    populated. Matched geometrically (highest bbox IoU), since the two
+    backends detect table regions independently and won't agree on exact
+    boundaries pixel-for-pixel."""
+    native = getattr(ocr_backend, "native_tables", None)
+    if native is None:
+        return
+    alternatives = native(page)
+    if not alternatives:
+        return
+    for i, table in enumerate(table_result.tables):
+        if table.bbox is None:
+            continue
+        best = max(
+            alternatives, key=lambda t: (t.bbox.iou(table.bbox) if t.bbox else 0.0), default=None
+        )
+        if best is None or best.bbox is None or best.bbox.iou(table.bbox) <= 0.1:
+            continue
+        table_result.tables[i] = select_better_populated_table(table, best)
+
+
 def merge_regions_into_page(
     page_index: int,
     width: float,
