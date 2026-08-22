@@ -240,3 +240,43 @@ Same experiment, same seed, `--subset 100` instead of 20 — see
   nothing for the (larger-than-expected) fraction of tables where both
   specialists fail together.
 - **Decision: robust, not a small-subset artifact.**
+
+## Oracle ablation — Opus audit (20-page subset, n=7 real GT tables)
+
+Independent re-verification, full methodology and negative findings in
+`observations.md` ("Opus audit and oracle analysis") and
+`docs/research_proposal.md`. Candidates generated in one coherent process
+(cross-run comparison was tried first and found unreliable — Table
+Transformer's structure output is not bit-identical across separate
+`prepare.py` invocations on CPU).
+
+| Selector | mean table TEDS | matches oracle |
+|---|---:|---:|
+| Always Table Transformer | 0.2376 | 0/7 |
+| Always Docling | 0.3325 | 5/7 |
+| **Fill-rate (production, unchanged)** | **0.3325** | **5/7 (71%)** |
+| Oracle (upper bound — picks the GT-better candidate per table; not a production method) | **0.4476** | 7/7 by definition |
+
+Headroom (oracle − fill-rate) = **+0.115 mean TEDS**. Both misses
+(`book_zh_DLT10902008`, `jiaocaineedrop_...en_1898`) share one root cause:
+TEDS scores an all-empty prediction generously against a naturally-sparse
+ground-truth table, and fill-rate cannot tell "correctly recognized
+nothing is here" apart from "failed to recognize something that is here."
+Checked directly whether a fill-rate threshold closes this without
+breaking the currently-correct `docstructbench` decision (same TT-fill=0
+signature) — none does. Selective-escalation-to-save-compute was also
+tested and rejected on the same data: neither model's own fill-rate
+reliably predicts when the other should be invoked (full detail in
+`docs/research_proposal.md`, "Selector").
+
+100-page validation of the *both-fail* rate (directly measured, no
+reconstruction): 14/30 tables (47%), larger than the 7-table sample's 29%
+— narrows, not inflates, the claimed opportunity. The full 100-page
+oracle-vs-selector gap was not completed (11 of 29 table pages
+independently timeout-flagged by the evaluator itself for TEDS matching;
+stopped after the first untested page ran past 850 CPU-seconds — see
+`observations.md` section 17 for the full accounting).
+
+**Decision: composition is a validated, bounded engineering improvement,
+not (yet) a generalizable confidence-aware-ranking research result.** See
+`docs/research_proposal.md` for the full writeup and rationale.

@@ -645,19 +645,99 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> s
     return owned_token_ids
 
 
-def _table_fill_rate(table: Table) -> float:
-    """Fraction of cells with non-empty text — a simple, general, cheap
-    quality signal for comparing two independently-produced Table
-    candidates for the same region. Not benchmark-specific: "prefer the
-    extraction that actually has content" holds for any document."""
+# ---------------------------------------------------------------------------
+# Model-agnostic table candidate selection.
+#
+# Any number of backends can independently produce a Table for the same
+# region (today: TableTransformerBackend via the table stage,
+# DoclingBackend.native_tables as a second source; conceptually a future
+# MinerU/PaddleOCR-VL backend could add a third). Nothing below this line
+# knows which backend produced a given candidate — a candidate is just a
+# Table plus cheap, backend-agnostic quality signals computed from that
+# Table alone. Adding a new candidate source means adding it to the list
+# passed to _gather_table_candidates; it does not touch selection logic.
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class TableCandidate:
+    """One backend's independently-produced Table for a region, plus cheap
+    quality signals computed from the table alone (no ground truth, no
+    extra model inference — see compute_table_quality_features). `source`
+    is provenance for logging/debugging; selection itself never branches
+    on it."""
+
+    table: Table
+    source: str
+    quality: dict[str, float] = field(default_factory=dict)
+
+
+def compute_table_quality_features(table: Table) -> dict[str, float]:
+    """Cheap, deterministic, backend-agnostic signals computable from a
+    Table object alone — no ground truth, and nothing here that this
+    pipeline doesn't actually have at inference time. Notably absent: OCR
+    confidence (neither TableTransformerBackend nor Docling's table-cell
+    conversion populates `Cell.confidence` today — see schemas/table.py —
+    so it is not invented here) and cross-model structural agreement (bbox
+    IoU between Table Transformer's region and Docling's native table is
+    currently *not* an independent signal in this architecture: Table
+    Transformer receives its table bbox from Docling's own layout stage
+    when layout_backend="docling", the default, so the two nearly always
+    agree geometrically by construction, not by genuine cross-model
+    consensus — see experiments/005_omnidocbench/observations.md,
+    "Bottleneck Analysis", for the measurement that found this).
+
+    Only `fill_rate` currently feeds selection
+    (`select_best_table_candidate`'s default `key`); the rest are exposed
+    for inspection and future selectors, not silently combined into one
+    score without evidence a specific combination helps — see the same doc
+    for why weighting these without more data would be premature.
+    """
     if not table.cells:
-        return 0.0
-    return sum(1 for c in table.cells if c.text) / len(table.cells)
+        return {"fill_rate": 0.0, "n_cells": 0.0, "avg_text_len": 0.0, "empty_cell_ratio": 1.0}
+    n = len(table.cells)
+    nonempty = [c for c in table.cells if c.text]
+    return {
+        "fill_rate": len(nonempty) / n,
+        "n_cells": float(n),
+        "avg_text_len": (sum(len(c.text) for c in nonempty) / len(nonempty)) if nonempty else 0.0,
+        "empty_cell_ratio": 1 - len(nonempty) / n,
+    }
+
+
+def make_table_candidate(table: Table) -> TableCandidate:
+    return TableCandidate(table=table, source=table.source_backend, quality=compute_table_quality_features(table))
+
+
+def select_best_table_candidate(
+    candidates: list[TableCandidate], key: str = "fill_rate"
+) -> TableCandidate | None:
+    """Pick the highest-scoring candidate from any number of independently-
+    produced Table candidates for the same region, by `key` in each
+    candidate's `quality` dict (default: fill_rate — the only signal
+    measured, on real OmniDocBench pages, to track selection quality; see
+    compute_table_quality_features for why the other signals aren't used
+    by default).
+
+    Deterministic tie-breaking: Python's `max()` keeps the first item that
+    achieves the maximum, so ties resolve to whichever candidate appears
+    earliest in `candidates` — callers control tie-breaking purely by the
+    order they pass candidates in (existing callers put the primary/
+    already-detected candidate first, so a tie keeps it).
+
+    Returns None only when `candidates` is empty.
+    """
+    if not candidates:
+        return None
+    return max(candidates, key=lambda c: c.quality.get(key, 0.0))
 
 
 def select_better_populated_table(candidate: Table, alternative: "Table | None") -> Table:
     """Pick whichever of two independently-detected Table candidates for
-    the same region is more populated, by cell-fill-rate.
+    the same region is more populated, by cell-fill-rate. A thin,
+    2-candidate convenience wrapper over select_best_table_candidate,
+    kept for callers that only ever compare exactly one primary table
+    against one alternative (the current production pipeline).
 
     Table Transformer (table_backend.py) and Docling's own TableFormer
     (docling_backend.py:native_tables) are two independent structure models
@@ -671,7 +751,11 @@ def select_better_populated_table(candidate: Table, alternative: "Table | None")
     collapsed the table to 1x1). A single fixed preference between the two
     backends would be wrong on one of those pages by construction — cell
     fill-rate is a cheap, general, per-table signal that picks correctly on
-    both without needing to know why either model failed.
+    most such disagreements without needing to know why either model
+    failed (measured ceiling: it does not always pick the ground-truth-best
+    candidate — see the oracle-vs-selector gap in observations.md — but no
+    cheap production-time signal was found that closes that gap without
+    ground truth).
 
     Returns a Table with `candidate`'s id/bbox/page_number (so a caller
     that already linked an Element.table_id to `candidate.id` doesn't need
@@ -680,7 +764,8 @@ def select_better_populated_table(candidate: Table, alternative: "Table | None")
     """
     if alternative is None:
         return candidate
-    if _table_fill_rate(alternative) <= _table_fill_rate(candidate):
+    best = select_best_table_candidate([make_table_candidate(candidate), make_table_candidate(alternative)])
+    if best is not None and best.table is candidate:
         return candidate
     return Table(
         id=candidate.id,
@@ -694,28 +779,64 @@ def select_better_populated_table(candidate: Table, alternative: "Table | None")
     )
 
 
+def _gather_extra_table_candidates(
+    ocr_backend: OCRBackend, page: PageInput
+) -> list[list[Table]]:
+    """Collect Tables from every extra candidate source this OCR backend
+    exposes, beyond the primary table_backend. Today that's just
+    `native_tables` (Docling's own TableFormer, duck-typed so backends that
+    don't have one — PaddleOCR, MinerU stubs — are silently skipped, not
+    treated as an error). A future backend that exposes a second or third
+    such method only needs to be added to `source_methods` here; nothing
+    downstream (select_best_table_candidate) needs to change to consume it."""
+    source_methods = ["native_tables"]
+    results: list[list[Table]] = []
+    for method_name in source_methods:
+        source = getattr(ocr_backend, method_name, None)
+        if source is None:
+            continue
+        tables = source(page)
+        if tables:
+            results.append(tables)
+    return results
+
+
 def _apply_native_table_fallback(table_result: "TableResult", ocr_backend: OCRBackend, page: PageInput) -> None:
-    """For each table_backend-detected table, compare it against the OCR
-    backend's own native table extraction for the same page (if it exposes
-    one — see DoclingBackend.native_tables) and keep whichever is better
-    populated. Matched geometrically (highest bbox IoU), since the two
-    backends detect table regions independently and won't agree on exact
-    boundaries pixel-for-pixel."""
-    native = getattr(ocr_backend, "native_tables", None)
-    if native is None:
-        return
-    alternatives = native(page)
-    if not alternatives:
+    """For each table_backend-detected table, compare it against every
+    extra candidate source this OCR backend exposes for the same page (see
+    _gather_extra_table_candidates) and keep whichever candidate is best
+    populated. Each extra source is matched to the primary table
+    geometrically (highest bbox IoU), since independent backends detect
+    table regions independently and won't agree on exact boundaries
+    pixel-for-pixel."""
+    extra_source_results = _gather_extra_table_candidates(ocr_backend, page)
+    if not extra_source_results:
         return
     for i, table in enumerate(table_result.tables):
         if table.bbox is None:
             continue
-        best = max(
-            alternatives, key=lambda t: (t.bbox.iou(table.bbox) if t.bbox else 0.0), default=None
-        )
-        if best is None or best.bbox is None or best.bbox.iou(table.bbox) <= 0.1:
+        candidates = [make_table_candidate(table)]
+        for alternatives in extra_source_results:
+            best_match = max(
+                alternatives, key=lambda t: (t.bbox.iou(table.bbox) if t.bbox else 0.0), default=None
+            )
+            if best_match is None or best_match.bbox is None or best_match.bbox.iou(table.bbox) <= 0.1:
+                continue
+            candidates.append(make_table_candidate(best_match))
+        if len(candidates) < 2:
             continue
-        table_result.tables[i] = select_better_populated_table(table, best)
+        best = select_best_table_candidate(candidates)
+        if best is not None and best.table is not table:
+            table_result.tables[i] = Table(
+                id=table.id,
+                bbox=table.bbox,
+                page_number=table.page_number,
+                n_rows=best.table.n_rows,
+                n_cols=best.table.n_cols,
+                cells=best.table.cells,
+                source_backend=f"{best.table.source_backend}+fallback",
+                confidence=best.table.confidence,
+            )
 
 
 def merge_regions_into_page(

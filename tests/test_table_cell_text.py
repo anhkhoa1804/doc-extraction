@@ -323,3 +323,136 @@ def test_apply_native_table_fallback_noop_when_backend_has_no_native_tables():
     _apply_native_table_fallback(table_result, _BackendWithoutNativeTables(), page=None)
 
     assert table_result.tables[0] is weak
+
+
+# ---------------------------------------------------------------------------
+# Model-agnostic candidate abstraction (pipelines/base.TableCandidate /
+# compute_table_quality_features / select_best_table_candidate)
+#
+# select_better_populated_table and _apply_native_table_fallback (tested
+# above) are now thin wrappers over these — this section tests the general
+# N-candidate primitives directly, independent of which two backends the
+# production pipeline currently wires together.
+# ---------------------------------------------------------------------------
+
+from doc_extraction.pipelines.base import (
+    compute_table_quality_features,
+    make_table_candidate,
+    select_best_table_candidate,
+)
+
+
+def test_compute_table_quality_features_empty_table():
+    empty = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [])
+    features = compute_table_quality_features(empty)
+    assert features["fill_rate"] == 0.0
+    assert features["n_cells"] == 0.0
+    assert features["empty_cell_ratio"] == 1.0
+
+
+def test_compute_table_quality_features_partial_fill():
+    table = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [
+        Cell(row=0, col=0, text="abc"), Cell(row=0, col=1, text=""),
+        Cell(row=1, col=0, text="de"), Cell(row=1, col=1, text=""),
+    ])
+    features = compute_table_quality_features(table)
+    assert features["fill_rate"] == 0.5
+    assert features["n_cells"] == 4.0
+    assert features["empty_cell_ratio"] == 0.5
+    assert features["avg_text_len"] == 2.5  # (3 + 2) / 2 non-empty cells
+
+
+def test_compute_table_quality_features_never_populates_confidence_signals():
+    """Guard against silently inventing a signal the pipeline can't
+    actually produce: neither TableTransformerBackend nor Docling's table
+    conversion populate Cell.confidence today (see schemas/table.py), so
+    the quality-feature dict must not claim one exists."""
+    table = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="x")])
+    assert "confidence" not in compute_table_quality_features(table)
+    assert "ocr_confidence" not in compute_table_quality_features(table)
+
+
+def test_select_best_table_candidate_picks_highest_key_among_n():
+    """Three independent backends, not just two — the selector must not be
+    hardcoded to a pairwise comparison."""
+    weak = make_table_candidate(_table("a", None, [Cell(row=0, col=0, text="")], source_backend="mineru"))
+    medium = make_table_candidate(_table("b", None, [
+        Cell(row=0, col=0, text="x"), Cell(row=0, col=1, text=""),
+    ], source_backend="table_transformer"))
+    strong = make_table_candidate(_table("c", None, [
+        Cell(row=0, col=0, text="x"), Cell(row=0, col=1, text="y"),
+    ], source_backend="docling"))
+
+    best = select_best_table_candidate([weak, medium, strong])
+
+    assert best is strong
+
+
+def test_select_best_table_candidate_tie_keeps_first_by_input_order():
+    a = make_table_candidate(_table("a", None, [Cell(row=0, col=0, text="x")], source_backend="table_transformer"))
+    b = make_table_candidate(_table("b", None, [Cell(row=0, col=0, text="y")], source_backend="docling"))
+
+    assert select_best_table_candidate([a, b]) is a
+    assert select_best_table_candidate([b, a]) is b
+
+
+def test_select_best_table_candidate_empty_list_returns_none():
+    assert select_best_table_candidate([]) is None
+
+
+def test_select_best_table_candidate_respects_custom_key():
+    short_but_full = make_table_candidate(_table("a", None, [
+        Cell(row=0, col=0, text="x"), Cell(row=0, col=1, text="y"),
+    ], source_backend="table_transformer"))
+    sparse_but_verbose = make_table_candidate(_table("b", None, [
+        Cell(row=0, col=0, text="a much longer cell value here"), Cell(row=0, col=1, text=""),
+    ], source_backend="docling"))
+
+    assert select_best_table_candidate([short_but_full, sparse_but_verbose], key="fill_rate") is short_but_full
+    assert select_best_table_candidate([short_but_full, sparse_but_verbose], key="avg_text_len") is sparse_but_verbose
+
+
+def test_apply_native_table_fallback_considers_multiple_extra_sources():
+    """_gather_extra_table_candidates iterates every candidate-source method
+    a backend exposes, not just one -- simulate a backend with two, and
+    confirm the better of *all* candidates (primary + both extras) wins,
+    not just primary-vs-first-extra."""
+    primary = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[primary], backend="table_transformer")
+
+    weak_extra = _table("native-t0", BBox(x0=0, y0=0, x1=100, y1=100),
+                         [Cell(row=0, col=0, text="a")], source_backend="mineru")
+    strong_extra = _table("native-t1", BBox(x0=0, y0=0, x1=100, y1=100),
+                           [Cell(row=0, col=0, text="a"), Cell(row=0, col=1, text="b")], source_backend="docling")
+
+    class _MultiSourceBackend:
+        def native_tables(self, page):
+            return [weak_extra]
+
+        def mineru_tables(self, page):  # not a recognized source method -- must be ignored, not crash
+            return [strong_extra]
+
+    _apply_native_table_fallback(table_result, _MultiSourceBackend(), page=None)
+
+    # only native_tables is a recognized source today, so weak_extra (the
+    # only *reachable* alternative) wins over the empty primary.
+    assert table_result.tables[0].cells[0].text == "a"
+
+
+def test_apply_native_table_fallback_both_fail_keeps_primary_unchanged():
+    """When every candidate is equally empty (both models failed), the
+    primary table object must be left as-is -- not replaced by an
+    equally-empty copy that loses its original identity/id linkage."""
+    primary = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[primary], backend="table_transformer")
+
+    also_empty = _table("native-t0", BBox(x0=0, y0=0, x1=100, y1=100),
+                         [Cell(row=0, col=0, text="")], source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [also_empty]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert table_result.tables[0] is primary

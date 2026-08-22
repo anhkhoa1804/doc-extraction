@@ -626,3 +626,307 @@ suggested, and remains this pipeline's largest untouched table-quality
 gap — a detection/structure capability question, not an orchestration one,
 and out of this experiment's scope (see section 9 and "does not claim" in
 `docs/research_direction.md`).
+
+# Opus audit and oracle analysis
+
+Taking over as senior owner (previous work: Claude Sonnet, commit
+`746808f`). Per instructions, this section independently re-verifies the
+composition claim from primary evidence before extending it — not a
+continuation write-up.
+
+## 11. Audit verdict
+
+Every numeric claim in the "Bottleneck Analysis" section above and in
+`results/comparison.md` was checked against the actual `metrics.json`
+files (not the markdown summaries) and matches to the reported precision:
+`local_improved` table TEDS.all `0.2583704785790072`,
+`local_table_ensemble` `0.3311...`, all four runs' `run_metadata.json`
+confirm identical `ground_truth_sha256`, evaluator commit, config, and
+seed. The implementation (`select_better_populated_table`,
+`_apply_native_table_fallback`, `DoclingBackend.native_tables`) does what
+the docstrings claim — read directly, not inferred from comments.
+**Sonnet's numbers are real, not overclaimed.** Sonnet's own hypothesis
+text before running the experiment explicitly named the exact risk this
+audit's oracle analysis went on to confirm as real ("cell fill-rate does
+not distinguish correct content from confident but wrong content") — this
+was flagged as a risk in advance, not discovered after the fact and
+retrofitted.
+
+What this audit adds: (1) a quantified oracle ceiling — Sonnet's taxonomy
+was qualitative ("the selector can be wrong when a table is a metric
+artifact") without a number for how much that costs in aggregate; (2) a
+tested, evidence-based verdict on whether the composition layer could
+safely SAVE compute by escalating selectively, which Sonnet's work did not
+address; (3) a genuinely N-candidate, model-agnostic selection primitive
+(Sonnet's was a fixed pairwise function); (4) a previously-undocumented
+finding that `TableTransformerBackend`'s structure output has real
+run-to-run variability on marginal tables (see methodology note below) —
+a reproducibility caveat for any future cross-run comparison of TT scores.
+
+## 12. Oracle analysis — methodology
+
+**First attempt (rejected):** reused `local_improved`'s stored predictions
+as "Table-Transformer-only" and generated a fresh "Docling-only" set in a
+*separate* process. Result was internally inconsistent — on 2 of 7 tables,
+the *real* production fill-rate-selector score (from `local_table_ensemble`)
+was numerically outside the range `[TT-only, Docling-only]` the cross-run
+reconstruction implied, which is impossible for a strict either/or
+selector. Root cause: `TableTransformerBackend`'s structure output is not
+bit-identical across separate process invocations on CPU (confirmed:
+`book_zh_DLT10902008` scored TT-alone TEDS 0.232 in one run and 0.368 in
+another, from the same image, same code, same config — plausibly
+multi-threaded BLAS/attention nondeterminism in the detection/structure
+transformer, not Docling — `native_tables()` reproduced bit-identical
+output across repeated calls in isolation, so Docling was ruled out as the
+source). **This means any comparison of Table-Transformer scores across
+separate `prepare.py` invocations carries real noise** — a limitation not
+previously documented, and one that affects interpreting small deltas in
+`results/comparison.md`'s cross-run tables at the single-percentage-point
+level (the large, headline deltas there — e.g. +0.073 TEDS — are far
+larger than this noise and are not in question).
+
+**Fix:** generate Table-Transformer and Docling candidates for each table
+in the *same* process, from the *same* cached Docling conversion (layout →
+OCR → Docling's own `native_tables()` all share one `_convert_cached` call
+per page), so cross-model comparisons are never contaminated by cross-run
+model drift. Verified self-consistent: every fill-rate-selected score now
+falls exactly on `TT` or `Docling` for every table, as a strict either/or
+selector requires.
+
+Script: coherent single-run generation replicating
+`run_scanned_page_pipeline`'s table stage exactly (layout → OCR →
+`TableTransformerBackend.extract` → `_fill_table_cell_text` →
+`DoclingBackend.native_tables`, geometric IoU matching), producing three
+full prediction sets (`tt_only`, `docling_only`, `fillrate_local`) scored
+by the same official evaluator, same ground truth, same match method as
+every other run in this experiment.
+
+## 13. Oracle analysis — 20-page subset (n=7 real GT tables)
+
+| Table | TT | Docling | FillRate (production logic) | Oracle | Selector optimal? |
+|---|---:|---:|---:|---:|---|
+| book_zh_DLT10902008 | 0.368 | 0.191 | 0.191 | 0.368 | **NO** (short 0.178) |
+| docstructbench_...0768-9.pdf_2 | 0.072 | 0.570 | 0.570 | 0.570 | yes |
+| eastmoney_d2bb183f...pdf_7 | 0.083 | 0.829 | 0.829 | 0.829 | yes |
+| jiaocaineedrop_46.pdf_1 | 0.000 | 0.000 | 0.000 | 0.000 | yes |
+| jiaocaineedrop_...en_1898 | 0.650 | 0.022 | 0.022 | 0.650 | **NO** (short 0.628) |
+| page-28657a85 | 0.000 | 0.000 | 0.000 | 0.000 | yes |
+| yanbaor2_ey-global-fintech...30 | 0.490 | 0.716 | 0.716 | 0.716 | yes |
+
+```
+mean TT       = 0.2376
+mean Docling  = 0.3325
+mean FillRate = 0.3325   (identical to Docling here: Docling wins every
+                           disagreement in this specific sample except one)
+mean Oracle   = 0.4476
+headroom (oracle - fillrate) = 0.1151
+selector matches oracle on 5/7 tables (71%)
+```
+
+**Both misses share one root cause, not two independent failure modes.**
+`book_zh` and `jiaocaineedrop_1898` both have TT producing a 100%-empty
+table (fill-rate 0.0) against a naturally sparse ground-truth table, which
+OmniDocBench's TEDS scores generously because an empty prediction cannot
+contain *wrong* content, only missing content. Docling produces a
+confident, populated-but-incorrect table on both, and cell fill-rate
+cannot distinguish "correctly recognized there's nothing here" from
+"failed to recognize something that is here" — it only measures whether
+*something* was written, exactly the "activity vs. quality" gap flagged in
+the task brief. This is not fully a genuine extraction-quality gap: a
+downstream reader would very plausibly still prefer Docling's honest
+attempt over TT's blank table on both pages even though TEDS scores the
+blank one higher — part of the oracle headroom is a property of the
+benchmark's scoring function on sparse tables, not of the pipeline.
+
+**Checked directly whether any fill-rate threshold or simple rule on the
+same feature closes this gap without breaking a currently-correct
+decision — none does.** `docstructbench` (a currently-*correct* decision,
++0.498 real gain) also has TT fill-rate exactly 0.0 — identical to both
+failure cases. A rule like "keep TT whenever its own fill-rate is 0" would
+fix the two artifact losses but destroy the docstructbench win, a clearly
+bad trade (one large real gain for two small artifact-driven corrections).
+No univariate rule on fill-rate (from either model) separates the 2
+failures from the 5 successes on this data — closing this specific gap
+would need either genuinely new features (e.g. structural regularity
+independent of content) or ground truth, neither available at inference
+time.
+
+## 14. Disagreement coverage (20-page subset)
+
+```
+N real GT tables            = 7
+N both-fail (TEDS 0 either way) = 2   (page-28657a85, jiaocaineedrop_46)
+N models agree (no disagreement, tie) = 0
+N models disagree, selector correct   = 3   (docstructbench, eastmoney, yanbaor2)
+N models disagree, selector wrong     = 2   (book_zh, jiaocaineedrop_1898)
+composition opportunity (disagree)    = 5/7 (71%)
+unrecoverable by composition (both-fail) = 2/7 (29%)
+```
+
+Disagreement is common (5/7) and composition captures most of it (3/5
+correctly) — but "both models fail together" is not rare either (2/7),
+and is the actual bottleneck component composition cannot touch (see
+section 9's "does not claim" and the taxonomy in section 3: this is a
+structure/detection capability ceiling, not an orchestration gap).
+
+## 15. Selective-escalation signal analysis (task-required *before*
+implementing any compute-saving routing)
+
+Tested directly, using each backend's own quality features
+(`compute_table_quality_features`) as the candidate confidence signal,
+whether either model's own fill-rate predicts when the other model should
+be invoked:
+
+- **Docling's own fill-rate is not usable as a confidence signal**: it is
+  exactly `1.0` on every table where Docling detects anything at all (5/7
+  tables), and `0.0` only when it detects nothing. It has zero variance
+  across the range TEDS 0.022–0.829 — a binary "found something" signal,
+  not a graded confidence measure. No threshold on it distinguishes a good
+  Docling table from a bad one.
+- **Table Transformer's own fill-rate is graded (0.0, 0.333, 0.636, ...)
+  but not predictive in the useful direction**: low TT fill-rate appears
+  both in cases where escalating to Docling helps a lot (`docstructbench`,
+  TT_fill 0.0, real +0.498 gain) and in cases where escalating hurts
+  (`jiaocaineedrop_1898`, `book_zh`, TT_fill 0.0 both, escalating loses
+  points to the sparse-GT artifact from section 13). The two real,
+  legitimate Docling wins (`eastmoney`, `yanbaor2`) have *moderate*, not
+  low, TT fill-rate (0.333, 0.636) — a threshold low enough to avoid the
+  two artifact losses would also miss triggering escalation on real wins.
+
+**Verdict: neither model's own fill-rate is a reliable trigger for
+selective escalation on this evidence.** Per the task's explicit
+instruction to measure this before implementing, this direction is not
+pursued further — implementing an escalation policy on this data would be
+building on a signal proven not to work, not a defensible experiment.
+
+This is compounded by an architectural fact worth naming separately:
+**in the current pipeline, Docling's table candidate is already free.**
+`layout_backend` and `ocr_backend` both default to Docling, so its own
+table conversion (`native_tables()`) reuses the *same cached conversion*
+`recognize()`/`analyze()` already produced for OCR/layout — calling it
+costs nothing extra. The only genuinely optional, costed model in this
+comparison is Table Transformer itself (two additional HF model loads +
+forward passes per table region). "Selective escalation to save compute"
+would therefore have to mean *skipping Table Transformer* when Docling's
+own result looks trustworthy — but section 15 above just showed Docling's
+own fill-rate carries no usable confidence signal to gate that skip on.
+There is currently no evidence-backed way to reduce specialist invocations
+below "always run both" without a real quality cost.
+
+## 16. Architecture change: model-agnostic candidate selection
+
+Independent of the selector-quality question above, the *composition
+layer's* implementation was hardcoded to exactly two candidates
+(`select_better_populated_table(candidate, alternative)`), not genuinely
+N-way — the task specifically asks whether the design conceptually
+extends to a third/fourth specialist without rewriting the selector.
+Refactored `src/doc_extraction/pipelines/base.py`:
+
+- `TableCandidate` (table + provenance `source` string + a `quality`
+  feature dict) — the common interface a selector consumes; nothing reads
+  `source` to make a decision.
+- `compute_table_quality_features(table)` — fill_rate, n_cells,
+  avg_text_len, empty_cell_ratio; explicitly does *not* invent an
+  `ocr_confidence` or `cross_model_agreement` signal, because neither is
+  actually available: `Cell.confidence` is never populated by either
+  backend (checked directly in `schemas/table.py` and both backends'
+  code), and Table Transformer receives its table bbox from Docling's own
+  layout stage by default — so a TT-vs-Docling bbox IoU check is trivially
+  ~1.0 by construction in the current wiring, not an independent
+  cross-model agreement signal (confirmed empirically: IoU was 1.0 on
+  every one of the 7 real tables tested).
+- `select_best_table_candidate(candidates, key="fill_rate")` — takes any
+  number of candidates, deterministic tie-break (first-by-input-order
+  keeps its current "prefer the already-detected candidate" behavior).
+- `select_better_populated_table` and `_apply_native_table_fallback` are
+  now thin wrappers over the above (existing behavior, existing tests,
+  unchanged — all 10 pre-existing tests in `tests/test_table_cell_text.py`
+  pass unmodified against the refactor).
+- `_gather_extra_table_candidates` replaces the single `native_tables`
+  duck-type check with a list of recognized candidate-source method names,
+  so adding a third backend (MinerU, PaddleOCR-VL) that exposes its own
+  `*_tables(page)` method is a one-line addition to that list, not a
+  change to selection logic.
+
+9 new tests added covering the general primitives directly: quality
+features on empty/partial tables, the "no invented confidence signal"
+guard, N-way (not just pairwise) selection, deterministic tie-breaking,
+empty-candidate-list handling, custom selection keys, multi-source
+candidate gathering, and both-fail behavior (primary kept unchanged, not
+replaced by an equally-bad copy). `pytest -q`: 178 passed (169 existing +
+9 new), 0 regressions.
+
+## 17. 100-page validation of the oracle/disagreement analysis
+
+**What is directly measured at 100-page scale (real production run, no
+reconstruction needed):** the actual fill-rate selector's per-table
+output, already generated by `local_table_ensemble_100` (100/100 pages
+succeeded) and re-extracted from the evaluator's own per-table debug
+output:
+
+```
+N real GT tables (100-page subset) = 30
+N scoring exactly 0.0 TEDS         = 14  (47%)
+mean table TEDS (fill-rate, production) = 0.2743
+```
+
+This directly answers the most important part of task section 13 at
+scale: **the "both models fail together" rate is not smaller at n=30 than
+n=7 suggested — it is larger** (47% vs. 29%). This is real, measured,
+not reconstructed, and it is the single most decision-relevant number
+from the larger sample: composition cannot address a bottleneck that is
+already this common, and it looks more like the actual ceiling on this
+component than the 20-page sample implied.
+
+**What is not available at 100-page scale: the full oracle-ceiling
+breakdown** (per-table Table-Transformer-only vs. Docling-only
+counterfactuals, as computed for the 7 tables in section 13). Attempted
+via the same coherent single-run methodology, generating fresh candidates
+for each of the 100-page subset's real-GT-table pages. Aborted partway
+through for a documented, evidence-based reason, not silently: the
+official evaluator's own logs
+(`experiments/005_omnidocbench/logs/local_table_ensemble_100_evaluate.log`)
+show 11 of the subset's 29 table-bearing pages independently flagged as
+pathologically slow for TEDS matching alone (`[TEDS-timeout]`, near the
+120-second per-page cap — not a symptom of this reconstruction, a
+property of those specific tables' size/structure). Excluding those 11
+(a cost-based criterion, decided before seeing any result from the
+remaining pages — not an outcome-based exclusion) left an 18-page
+"tractable" subset. Generating fresh Table Transformer + Docling
+candidates for even the *first* page of that reduced list (`eastmoney_...pdf_16`,
+not one of the 11 flagged-slow pages) ran past 850 CPU-seconds without
+completing — plausibly a large/dense OCR page, consistent with this
+subset's pages generally being denser-than-average documents (pages with
+a real table skew toward denser document types in this dataset). Given
+the marginal value of a full breakdown against the compute cost of
+generating it (each such page reruns a full Docling conversion plus Table
+Transformer inference from scratch, with no way to reuse the original
+100-page run's per-page timings since those didn't preserve intermediate
+candidate objects), this was stopped rather than run for an open-ended
+amount of wall-clock time — the same budget-consciousness this project's
+own prior sessions have applied to Kaggle-scale runs.
+
+**Honest scope of the 100-page validation, stated precisely rather than
+rounded up to "confirmed at scale":**
+
+- **Directly confirmed at n=30**: the both-fail rate is real and, if
+  anything, worse than the small sample suggested (47% vs. 29%) — this
+  narrows rather than inflates the claimed opportunity, which is the
+  right direction for a validation to move a possibly-optimistic small-n
+  estimate.
+- **Reproduced exactly at n=6 tables across two independent runs** (see
+  section 10 above, pre-existing from the Sonnet phase and independently
+  re-checked here): the fill-rate selector's per-table output is
+  deterministic and page-local — running it inside a 20-page batch or
+  a 100-page batch gives bit-identical scores for the same underlying
+  page.
+- **Not extended to a full 100-page oracle-vs-selector gap number.** The
+  n=7 oracle-headroom result (+0.115 mean TEDS, 5/7 selector-optimal)
+  stands on its own evidence, mechanistically explained (one identified,
+  named root cause for both misses, section 13), but should be read as a
+  small-sample, page-verified directional result, not re-confirmed at
+  n=30 for the specific "how big is the residual gap" question. A future
+  session with either more compute budget or a fix for the per-page TEDS-
+  matching slowness (worth investigating in its own right — it may point
+  to a real serialization issue on large/dense tables, separate from this
+  experiment) could complete this.

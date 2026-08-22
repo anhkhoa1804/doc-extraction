@@ -1,0 +1,30 @@
+{
+    "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg_[0]": {
+        "TEDS": 0.5697144522144522,
+        "TEDS_structure_only": 0.6461538461538461
+    },
+    "yanbaor2_ey-global-fintech-adoption-index.pdf_30.jpg_[0]": {
+        "TEDS": 0.7160557391326623,
+        "TEDS_structure_only": 0.717948717948718
+    },
+    "jiaocaineedrop_46.pdf_1.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_1898.jpg_[0]": {
+        "TEDS": 0.02210526315789485,
+        "TEDS_structure_only": 0.030000000000000027
+    },
+    "eastmoney_d2bb183f5254ede5760932ac3118524aa7eddad551935713b435541f1525c1ee.pdf_7.jpg_[0]": {
+        "TEDS": 0.8287037037037037,
+        "TEDS_structure_only": 1.0
+    },
+    "book_zh_DLT10902008_extracted_page_8.png_[0]": {
+        "TEDS": 0.1907894736842105,
+        "TEDS_structure_only": 0.21052631578947367
+    }
+}

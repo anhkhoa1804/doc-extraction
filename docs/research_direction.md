@@ -106,3 +106,62 @@ direct evidence behind it — not a general "ensemble everything" rewrite.
   question, not an orchestration bug.
 - It does not claim n=7 tables generalizes without the larger-subset
   validation `observations.md` records the result of.
+
+## Opus audit addendum
+
+Independently re-verified (new owner, fresh eyes, not a rubber stamp — see
+`experiments/005_omnidocbench/observations.md`, "Opus audit and oracle
+analysis"). Every number above checked directly against `metrics.json`
+files, not the markdown reports; all matched. The mechanism and the
+measured effect are real.
+
+What the audit added is a quantified answer to the question this document
+did not ask: **how much of the theoretically available gain does the
+fill-rate heuristic actually capture?** Built an oracle (the candidate
+with the higher ground-truth TEDS, per table — not a production method,
+an upper-bound measurement) from the same real tables, using a coherent
+single-process reconstruction (comparing Table Transformer and Docling
+candidates generated in *separate* processes turned out to be unreliable —
+Table Transformer's structure output is not perfectly reproducible run to
+run on CPU, a previously-undocumented finding in its own right).
+
+Result: the fill-rate selector matches the oracle on 5 of 7 real tables
+(71%); mean oracle TEDS 0.4476 vs. the selector's actual 0.3325 — a real
+headroom of ~0.115. Both misses trace to the *same* mechanism, not two
+independent bugs: OmniDocBench's TEDS scores an all-empty table generously
+against a naturally sparse ground truth, and cell fill-rate cannot tell
+"correctly recognized nothing is here" apart from "failed to recognize
+something that is here." Checked directly whether any fill-rate threshold
+closes this without breaking a currently-correct decision elsewhere — none
+does, on this data (see observations.md section 13 for the specific
+counter-example). Also checked, per the task's explicit "measure before
+implementing" requirement, whether either model's own fill-rate could
+gate a compute-saving selective-escalation policy (run the expensive model
+only when the cheap one looks uncertain) — it cannot: Docling's own
+fill-rate is a binary "found something" signal with no graded confidence
+information, and Table Transformer's fill-rate is graded but not
+predictive in the useful direction (see observations.md section 15).
+
+Refactored the composition layer to be genuinely model-agnostic
+(`TableCandidate` / `compute_table_quality_features` /
+`select_best_table_candidate` in `pipelines/base.py`) — the previous
+`select_better_populated_table` was a fixed two-argument function; the new
+primitive takes any number of candidates and does not know or care which
+backend produced any of them, satisfying the "does this conceptually
+support a third/fourth specialist" requirement without touching selection
+logic. `select_better_populated_table` and `_apply_native_table_fallback`
+are now thin, behavior-preserving wrappers over it (all 10 pre-existing
+tests pass unchanged; 9 new tests cover the general primitive directly).
+
+**Revised verdict:** this is a validated, real engineering improvement
+with a well-understood, appropriately-bounded ceiling — not (yet) a
+generalizable "confidence-aware ranking" research result. The available
+cheap signals (each candidate's own fill-rate) explain most, not all, of
+the achievable gain, and the specific gap that remains is disproportionately
+a benchmark-scoring-function artifact rather than a genuinely closable
+extraction-quality gap. A more sophisticated multi-signal or learned
+ranker is not justified by the amount of data available (n=7, and the
+larger-subset check below) and is not pursued on this evidence. See
+`docs/research_proposal.md` for the full writeup, and the "100-page
+validation" addition in `observations.md` for whether this ceiling holds
+at scale.
