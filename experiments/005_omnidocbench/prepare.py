@@ -250,6 +250,21 @@ def main(argv: list[str] | None = None) -> int:
     print(f"dataset: {gt_path}")
     print(f"samples: {len(samples)} of {total_available} available (backend={args.backend})")
 
+    # A subset of predictions scored against the FULL ground truth is not a
+    # smaller benchmark run — the official evaluator treats every
+    # unmatched ground-truth page as an empty (i.e. failed) prediction, so
+    # the other total_available - len(samples) pages would be scored as
+    # failures alongside whatever this subset's own pages produced. Write a
+    # ground-truth JSON trimmed to exactly this subset so evaluate.py (via
+    # run.py, which passes --ground-truth automatically) scores only the
+    # pages actually generated. See omnidocbench.write_subset_ground_truth.
+    subset_gt_path = None
+    if len(samples) < total_available:
+        subset_gt_path = odb.write_subset_ground_truth(
+            gt_path, samples, output_root / "subset_ground_truth.json"
+        )
+        print(f"subset ground truth: {subset_gt_path} ({len(samples)} records)")
+
     config = load_config(args.config)
     if args.backend == "paddleocr_vl" and config.device != "cuda":
         print(

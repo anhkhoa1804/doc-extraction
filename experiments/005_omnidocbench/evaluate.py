@@ -61,6 +61,15 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Explicit selected ground-truth JSON (for a frozen subset run).")
     parser.add_argument("--output", required=True, help="Result directory containing predictions/ (from prepare.py).")
     parser.add_argument("--predictions", default=None, help="Override: predictions dir (default: <output>/predictions).")
+    parser.add_argument(
+        "--ground-truth", default=None,
+        help="Override: exact ground-truth JSON file to score against, instead of deriving one from --dataset. "
+             "Required whenever predictions/ covers a --subset of --dataset rather than all of it: the evaluator "
+             "scores every record in whatever ground truth it's given, and treats a record with no matching "
+             "prediction file as an empty (failing) prediction — scoring a subset of predictions against the full "
+             "dataset's ground truth silently corrupts every metric with those unmatched pages. run.py passes this "
+             "automatically using prepare.py's own <output>/subset_ground_truth.json when --subset was used.",
+    )
     parser.add_argument("--omnidoc-repo", default=str(REPO_ROOT / ".external" / "OmniDocBench"))
     parser.add_argument("--omnidoc-python", default=str(_DEFAULT_OMNIDOC_PYTHON))
     parser.add_argument("--match-method", default="quick_match", choices=["no_split", "simple_match", "quick_match"])

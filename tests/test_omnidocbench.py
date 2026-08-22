@@ -225,6 +225,92 @@ def test_select_subset_rejects_non_positive_limit():
 
 
 # ---------------------------------------------------------------------------
+# Subset ground truth (evaluating --subset against the FULL dataset without
+# scoring every unmatched page as an automatic failure)
+# ---------------------------------------------------------------------------
+
+
+def _write_full_gt(tmp_path, n=10):
+    records = [
+        {"page_info": {"image_path": f"images/{i}.jpg", "page_no": i, "width": 100, "height": 100,
+                        "page_attribute": {}}}
+        for i in range(n)
+    ]
+    gt_path = tmp_path / "OmniDocBench.json"
+    gt_path.write_text(json.dumps(records), encoding="utf-8")
+    return gt_path, records
+
+
+def test_write_subset_ground_truth_keeps_only_selected_records(tmp_path):
+    gt_path, records = _write_full_gt(tmp_path, n=10)
+    samples = [
+        odb.OmniDocSample(index=i, image_path=Path(f"{i}.jpg"), image_name=f"{i}.jpg", page_no=i, width=100, height=100)
+        for i in (2, 5, 7)
+    ]
+
+    out_path = odb.write_subset_ground_truth(gt_path, samples, tmp_path / "out" / "subset_ground_truth.json")
+
+    written = json.loads(out_path.read_text(encoding="utf-8"))
+    assert len(written) == 3
+    assert written == [records[2], records[5], records[7]]
+
+
+def test_write_subset_ground_truth_matches_original_record_exactly(tmp_path):
+    """The written records must be the ORIGINAL full-schema entries (every
+    annotation field the evaluator needs), not our own trimmed
+    OmniDocSample — index-based lookup into the raw JSON, not a
+    reconstruction from OmniDocSample's fields."""
+    gt_path = tmp_path / "OmniDocBench.json"
+    rich_record = {
+        "page_info": {"image_path": "images/0.jpg", "page_no": 0, "width": 100, "height": 100, "page_attribute": {}},
+        "layout_dets": [{"category_type": "text_block", "text": "hello", "poly": [0, 0, 1, 1]}],
+    }
+    gt_path.write_text(json.dumps([rich_record]), encoding="utf-8")
+    samples = [odb.OmniDocSample(index=0, image_path=Path("0.jpg"), image_name="0.jpg", page_no=0, width=100, height=100)]
+
+    out_path = odb.write_subset_ground_truth(gt_path, samples, tmp_path / "subset.json")
+
+    written = json.loads(out_path.read_text(encoding="utf-8"))
+    assert written == [rich_record]
+    assert "layout_dets" in written[0]
+
+
+def test_run_passes_ground_truth_override_only_when_subset_file_exists(tmp_path, monkeypatch):
+    """run.py must auto-detect prepare.py's subset_ground_truth.json and
+    pass it to evaluate.py — the bug this guards against: scoring a
+    --subset's predictions against the full dataset's ground truth, which
+    silently counts every unmatched page as a failure (see
+    write_subset_ground_truth's docstring)."""
+    run = _load_run_module()
+
+    captured_evaluate_argv = {}
+
+    def fake_prepare_main(argv):
+        return 0
+
+    def fake_evaluate_main(argv):
+        captured_evaluate_argv["argv"] = argv
+        return 0
+
+    monkeypatch.setattr(run, "prepare_step", type("M", (), {"main": staticmethod(fake_prepare_main)}))
+    monkeypatch.setattr(run, "evaluate_step", type("M", (), {"main": staticmethod(fake_evaluate_main)}))
+    monkeypatch.setattr(run, "write_report", lambda *a, **k: tmp_path / "report.md")
+
+    output_dir = tmp_path / "out_no_subset_file"
+    run.main(["--dataset", "d", "--backend", "baseline", "--output", str(output_dir)])
+    assert "--ground-truth" not in captured_evaluate_argv["argv"]
+
+    output_dir2 = tmp_path / "out_with_subset_file"
+    output_dir2.mkdir()
+    subset_gt = output_dir2 / "subset_ground_truth.json"
+    subset_gt.write_text("[]", encoding="utf-8")
+    run.main(["--dataset", "d", "--backend", "baseline", "--output", str(output_dir2)])
+    argv = captured_evaluate_argv["argv"]
+    assert "--ground-truth" in argv
+    assert argv[argv.index("--ground-truth") + 1] == str(subset_gt)
+
+
+# ---------------------------------------------------------------------------
 # IR -> Markdown prediction rendering
 # ---------------------------------------------------------------------------
 

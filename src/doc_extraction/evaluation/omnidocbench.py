@@ -385,6 +385,39 @@ def select_subset(
     return [samples[i] for i in indices]
 
 
+def write_subset_ground_truth(gt_path: Path, samples: list[OmniDocSample], output_path: Path) -> Path:
+    """Write a ground-truth JSON containing only the records for `samples`.
+
+    The official evaluator (`End2EndDataset.__init__`,
+    `.external/OmniDocBench/src/dataset/end2end_dataset.py`) scores *every*
+    record in whatever ground-truth JSON it's given, treating a page with no
+    matching prediction file as an empty prediction (`read_md_file`
+    returns `""` when `pred_path` is falsy) — i.e. a scored failure, not a
+    skip. Pointing it at the full 1651-record `OmniDocBench.json` while only
+    a `--subset` of predictions exists is not a smaller benchmark run: it is
+    ~1600+ automatic failures added to whatever the subset's own pages
+    scored, which swamps every metric (observed: text_block Edit_dist
+    ~0.40 file-scale artifact away from ~1.0 collapse; see
+    experiments/005_omnidocbench/observations.md). A subset run is only a
+    valid comparison against a ground truth restricted to the same pages.
+
+    `OmniDocSample.index` is the record's original position in `gt_path`'s
+    top-level JSON array (see `load_dataset`) — used here to pull the exact
+    original record (full annotation schema, not our own trimmed
+    `OmniDocSample` fields) for each selected sample, order-independent
+    since the evaluator matches by image filename, not list position.
+    """
+    raw = json.loads(Path(gt_path).read_text(encoding="utf-8"))
+    wanted = {s.index for s in samples}
+    subset_records = [record for i, record in enumerate(raw) if i in wanted]
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(subset_records, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return output_path
+
+
 # ---------------------------------------------------------------------------
 # IR -> OmniDocBench end2end Markdown (spec §9)
 # ---------------------------------------------------------------------------

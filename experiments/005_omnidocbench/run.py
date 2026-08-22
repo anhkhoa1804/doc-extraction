@@ -252,6 +252,16 @@ def main(argv: list[str] | None = None) -> int:
             "--omnidoc-repo", args.omnidoc_repo, "--omnidoc-python", args.omnidoc_python,
             "--match-method", args.match_method, "--match-workers", str(args.match_workers),
         ]
+        # prepare.py writes this whenever --subset produced fewer predictions
+        # than the dataset has records — scoring those against the full,
+        # unfiltered ground truth would count every unmatched page as a
+        # failure (see evaluate.py's --ground-truth help and
+        # omnidocbench.write_subset_ground_truth). Checked by presence, not
+        # args.subset, so --skip-prepare reusing an earlier subset run picks
+        # it up too.
+        subset_gt_path = output_root / "subset_ground_truth.json"
+        if subset_gt_path.exists():
+            evaluate_argv += ["--ground-truth", str(subset_gt_path)]
         if args.include_bleu_meteor:
             evaluate_argv.append("--include-bleu-meteor")
         if args.include_cdm:

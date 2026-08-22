@@ -1,0 +1,71 @@
+# OmniDocBench profile — CPU, Chinese+English OCR.
+#
+# Identical to configs/cpu.yaml except ocr_languages. configs/cpu.yaml is
+# tuned for this repo's own private corpus (Vietnamese/English business
+# documents — see data/README.md), which is a different document population
+# from the public OmniDocBench benchmark (majority Chinese, per its own
+# documented language taxonomy and confirmed empirically: 149/238 = 63% of
+# text lines in a demo-set baseline run were text_simplified_chinese).
+#
+# EasyOCR (this project's OCR engine — see docs/backends.md) enforces a hard
+# compatibility rule, not a preference: `ch_sim` may only be combined with
+# `en` (easyocr.Reader.setModelLanguage raises ValueError otherwise — "Chinese
+# is only compatible with English"). `vi` is a different language group, so a
+# single OCR config cannot serve both this repo's own corpus and OmniDocBench
+# at once. This file exists for that reason: point OmniDocBench experiments
+# at it via --config, and leave configs/cpu.yaml (and its default status)
+# untouched for the private corpus.
+#
+# See experiments/005_omnidocbench/observations.md for the evidence trail
+# (a real page's Chinese table found 0 OCR tokens under en+vi, correct text
+# under en+ch_sim) and prefetch the ch_sim EasyOCR model before using this:
+#
+#     .venv/Scripts/python.exe -m docling.cli.tools models download easyocr \
+#         --easyocr-lang en --easyocr-lang ch_sim -o .cache/docling
+
+input_dir: "data"       # unused by OmniDocBench experiments (--dataset is explicit); kept for schema parity with cpu.yaml
+output_dir: "outputs"
+device: "cpu"
+
+render_dpi: 200
+
+# --- PDF routing: quantity gate --- (irrelevant here: every OmniDocBench
+# sample is a standalone image, never a PDF with a native text layer to route)
+digital_pdf_min_chars_per_page: 40
+digital_pdf_page_ratio: 0.6
+digital_pdf_sample_pages: 5
+
+# --- PDF routing: quality gate --- (also irrelevant for the same reason;
+# kept identical to cpu.yaml rather than omitted, so this file validates
+# against the same schema and nothing silently falls back to a default that
+# was never chosen for this corpus)
+text_quality_min_chars: 200
+text_quality_max_mixed_script_word_ratio: 0.10
+text_quality_max_unexpected_script_ratio: 0.10
+text_quality_max_replacement_ratio: 0.02
+text_quality_max_control_ratio: 0.02
+text_quality_min_alpha_ratio: 0.30
+text_quality_max_digit_in_word_ratio: 0.30
+text_quality_expected_scripts: ["LATIN"]
+text_quality_max_suspicious_page_ratio: 0.34
+digital_pdf_page_fallback: true
+
+# --- Tables ---
+digital_pdf_tables: true
+
+# OmniDocBench's dataset is majority Chinese with an English minority — see
+# the header above. No Vietnamese in this benchmark.
+ocr_languages: ["en", "ch_sim"]
+
+layout_backend: "docling"
+ocr_backend: "docling"
+table_backend: "table_transformer"
+
+backends:
+  docling: true
+  mineru: false
+  paddleocr: false
+  vlm: false
+
+cache_dir: ".cache"
+log_level: "INFO"

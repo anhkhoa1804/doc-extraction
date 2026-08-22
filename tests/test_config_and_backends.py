@@ -10,7 +10,7 @@ from pydantic import ValidationError
 from doc_extraction.config import PipelineConfig, load_config
 from doc_extraction.pipelines.base import BackendUnavailableError
 
-ALL_CONFIGS = ["default.yaml", "cpu.yaml", "gpu.yaml"]
+ALL_CONFIGS = ["default.yaml", "cpu.yaml", "gpu.yaml", "omnidocbench.yaml"]
 
 
 @pytest.mark.parametrize("name", ALL_CONFIGS)
@@ -23,6 +23,17 @@ def test_shipped_configs_load_and_validate(repo_root, name):
 def test_default_and_cpu_configs_are_cpu_only(repo_root, name):
     """This phase's explicit goal: the default path must never need a GPU."""
     assert load_config(repo_root / "configs" / name).device == "cpu"
+
+
+def test_omnidocbench_config_uses_chinese_compatible_ocr_languages(repo_root):
+    """easyocr.Reader hard-rejects mixing 'ch_sim' with anything but 'en'
+    (setModelLanguage raises ValueError: "Chinese is only compatible with
+    English") — this profile must request exactly a subset of {en, ch_sim},
+    never 'vi' (configs/cpu.yaml's language, for a different corpus)."""
+    config = load_config(repo_root / "configs" / "omnidocbench.yaml")
+    assert "ch_sim" in config.ocr_languages
+    assert set(config.ocr_languages) <= {"en", "ch_sim"}
+    assert config.device == "cpu"
 
 
 @pytest.mark.parametrize("name", ALL_CONFIGS)
