@@ -1,0 +1,471 @@
+{
+  "description": "Per-table detection diagnostics for every ground-truth table still scoring 0.0 TEDS on the 100-page subset after the candidate-recovery fix (commit 982cc2f). Probes: layout-region overlap vs GT bbox, Table Transformer full-page detection at 0.7 and 0.05, Table Transformer on a GT-bbox crop at 1x/2x/3x (detection score + structure grid), and Docling TableFormer on the 2x crop.",
+  "purpose": "Separate pipeline-induced from model-induced failure -- see docs/research_gap_analysis.md",
+  "subset": {
+    "pages": 100,
+    "seed": 0,
+    "run": "results/local_recovered_100"
+  },
+  "note": "References the external local dataset by path; no dataset content copied into this repo.",
+  "pages": {
+    "jiaocaineedrop_46.pdf_1.jpg": {
+      "page_px": [
+        2339,
+        1654
+      ],
+      "n_layout_regions": 19,
+      "tt_full_page_detections_at_0.7": 0,
+      "tt_full_page_detections_at_0.05": 6,
+      "tables": [
+        {
+          "gt_index": 0,
+          "gt_bbox": [
+            1302,
+            357,
+            1855,
+            507
+          ],
+          "gt_area_pct": 2.15,
+          "gt_px": [
+            553,
+            150
+          ],
+          "layout_regions_overlapping_gt": [
+            {
+              "label": "picture",
+              "iou": 0.753,
+              "frac_of_gt_covered": 0.983
+            }
+          ],
+          "tt_standalone_near_gt_at_0.7": [],
+          "tt_standalone_near_gt_at_0.05": [
+            {
+              "score": 0.0675,
+              "label": "table",
+              "bbox": [
+                1082,
+                376,
+                1797,
+                515
+              ]
+            },
+            {
+              "score": 0.0593,
+              "label": "table",
+              "bbox": [
+                1097,
+                386,
+                1784,
+                519
+              ]
+            }
+          ],
+          "crop_upscale": {
+            "1x": {
+              "crop_px": [
+                569,
+                166
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.9434,
+              "tt_structure": "2x7"
+            },
+            "2x": {
+              "crop_px": [
+                1138,
+                332
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.9377,
+              "tt_structure": "2x7"
+            },
+            "3x": {
+              "crop_px": [
+                1707,
+                498
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.939,
+              "tt_structure": "2x7"
+            }
+          },
+          "docling_tableformer_on_2x_crop": []
+        }
+      ],
+      "seconds": 407.6
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_2901.jpg": {
+      "page_px": [
+        5556,
+        8059
+      ],
+      "n_layout_regions": 48,
+      "tt_full_page_detections_at_0.7": 0,
+      "tt_full_page_detections_at_0.05": 2,
+      "tables": [
+        {
+          "gt_index": 0,
+          "gt_bbox": [
+            473,
+            683,
+            3156,
+            1068
+          ],
+          "gt_area_pct": 2.31,
+          "gt_px": [
+            2684,
+            385
+          ],
+          "layout_regions_overlapping_gt": [
+            {
+              "label": "text",
+              "iou": 0.025,
+              "frac_of_gt_covered": 0.025
+            },
+            {
+              "label": "text",
+              "iou": 0.021,
+              "frac_of_gt_covered": 0.021
+            }
+          ],
+          "tt_standalone_near_gt_at_0.7": [],
+          "tt_standalone_near_gt_at_0.05": [
+            {
+              "score": 0.6234,
+              "label": "table",
+              "bbox": [
+                507,
+                684,
+                1934,
+                1019
+              ]
+            }
+          ],
+          "crop_upscale": {
+            "1x": {
+              "crop_px": [
+                2699,
+                401
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.9962,
+              "tt_structure": null
+            },
+            "2x": {
+              "crop_px": [
+                5398,
+                802
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.9965,
+              "tt_structure": null
+            },
+            "3x": {
+              "crop_px": [
+                8097,
+                1203
+              ],
+              "tt_detect_any": 2,
+              "tt_detect_top_score": 0.9964,
+              "tt_structure": null
+            }
+          },
+          "docling_tableformer_on_2x_crop": []
+        },
+        {
+          "gt_index": 1,
+          "gt_bbox": [
+            3315,
+            687,
+            5014,
+            1073
+          ],
+          "gt_area_pct": 1.46,
+          "gt_px": [
+            1699,
+            385
+          ],
+          "layout_regions_overlapping_gt": [
+            {
+              "label": "text",
+              "iou": 0.126,
+              "frac_of_gt_covered": 0.126
+            },
+            {
+              "label": "text",
+              "iou": 0.067,
+              "frac_of_gt_covered": 0.067
+            },
+            {
+              "label": "text",
+              "iou": 0.034,
+              "frac_of_gt_covered": 0.034
+            },
+            {
+              "label": "text",
+              "iou": 0.034,
+              "frac_of_gt_covered": 0.034
+            }
+          ],
+          "tt_standalone_near_gt_at_0.7": [],
+          "tt_standalone_near_gt_at_0.05": [
+            {
+              "score": 0.108,
+              "label": "table",
+              "bbox": [
+                3091,
+                627,
+                4960,
+                940
+              ]
+            }
+          ],
+          "crop_upscale": {
+            "1x": {
+              "crop_px": [
+                1715,
+                402
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.9676,
+              "tt_structure": "2x1"
+            },
+            "2x": {
+              "crop_px": [
+                3430,
+                804
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.968,
+              "tt_structure": "2x1"
+            },
+            "3x": {
+              "crop_px": [
+                5145,
+                1206
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.9685,
+              "tt_structure": "2x1"
+            }
+          },
+          "docling_tableformer_on_2x_crop": []
+        }
+      ],
+      "seconds": 493.8
+    },
+    "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png": {
+      "page_px": [
+        1653,
+        2339
+      ],
+      "n_layout_regions": 11,
+      "tt_full_page_detections_at_0.7": 0,
+      "tt_full_page_detections_at_0.05": 3,
+      "tables": [
+        {
+          "gt_index": 0,
+          "gt_bbox": [
+            179,
+            197,
+            1477,
+            322
+          ],
+          "gt_area_pct": 4.19,
+          "gt_px": [
+            1298,
+            125
+          ],
+          "layout_regions_overlapping_gt": [
+            {
+              "label": "text",
+              "iou": 0.229,
+              "frac_of_gt_covered": 0.229
+            },
+            {
+              "label": "text",
+              "iou": 0.227,
+              "frac_of_gt_covered": 0.227
+            },
+            {
+              "label": "text",
+              "iou": 0.071,
+              "frac_of_gt_covered": 0.071
+            }
+          ],
+          "tt_standalone_near_gt_at_0.7": [],
+          "tt_standalone_near_gt_at_0.05": [
+            {
+              "score": 0.0926,
+              "label": "table",
+              "bbox": [
+                257,
+                203,
+                1423,
+                301
+              ]
+            },
+            {
+              "score": 0.1527,
+              "label": "table",
+              "bbox": [
+                264,
+                198,
+                1429,
+                298
+              ]
+            },
+            {
+              "score": 0.0643,
+              "label": "table",
+              "bbox": [
+                480,
+                208,
+                1406,
+                314
+              ]
+            }
+          ],
+          "crop_upscale": {
+            "1x": {
+              "crop_px": [
+                1314,
+                141
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.7299,
+              "tt_structure": "1x2"
+            },
+            "2x": {
+              "crop_px": [
+                2628,
+                282
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.7889,
+              "tt_structure": "1x3"
+            },
+            "3x": {
+              "crop_px": [
+                3942,
+                423
+              ],
+              "tt_detect_any": 3,
+              "tt_detect_top_score": 0.8064,
+              "tt_structure": "1x3"
+            }
+          },
+          "docling_tableformer_on_2x_crop": []
+        }
+      ],
+      "seconds": 144.9
+    },
+    "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png": {
+      "page_px": [
+        2339,
+        1654
+      ],
+      "n_layout_regions": 41,
+      "tt_full_page_detections_at_0.7": 1,
+      "tt_full_page_detections_at_0.05": 1,
+      "tables": [
+        {
+          "gt_index": 0,
+          "gt_bbox": [
+            75,
+            415,
+            2278,
+            1528
+          ],
+          "gt_area_pct": 63.42,
+          "gt_px": [
+            2204,
+            1113
+          ],
+          "layout_regions_overlapping_gt": [
+            {
+              "label": "text",
+              "iou": 0.067,
+              "frac_of_gt_covered": 0.067
+            },
+            {
+              "label": "text",
+              "iou": 0.067,
+              "frac_of_gt_covered": 0.067
+            },
+            {
+              "label": "text",
+              "iou": 0.067,
+              "frac_of_gt_covered": 0.067
+            },
+            {
+              "label": "text",
+              "iou": 0.066,
+              "frac_of_gt_covered": 0.066
+            },
+            {
+              "label": "text",
+              "iou": 0.048,
+              "frac_of_gt_covered": 0.048
+            }
+          ],
+          "tt_standalone_near_gt_at_0.7": [
+            {
+              "score": 0.9991,
+              "label": "table",
+              "bbox": [
+                141,
+                444,
+                2252,
+                1520
+              ]
+            }
+          ],
+          "tt_standalone_near_gt_at_0.05": [
+            {
+              "score": 0.9991,
+              "label": "table",
+              "bbox": [
+                141,
+                444,
+                2252,
+                1520
+              ]
+            }
+          ],
+          "crop_upscale": {
+            "1x": {
+              "crop_px": [
+                2219,
+                1129
+              ],
+              "tt_detect_any": 1,
+              "tt_detect_top_score": 0.9994,
+              "tt_structure": "6x4"
+            },
+            "2x": {
+              "crop_px": [
+                4438,
+                2258
+              ],
+              "tt_detect_any": 1,
+              "tt_detect_top_score": 0.9994,
+              "tt_structure": "6x4"
+            },
+            "3x": {
+              "crop_px": [
+                6657,
+                3387
+              ],
+              "tt_detect_any": 1,
+              "tt_detect_top_score": 0.9994,
+              "tt_structure": "6x4"
+            }
+          },
+          "docling_tableformer_on_2x_crop": []
+        }
+      ],
+      "seconds": 265.8
+    }
+  }
+}

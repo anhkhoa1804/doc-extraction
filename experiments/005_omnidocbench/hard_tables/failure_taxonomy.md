@@ -210,6 +210,27 @@ The shared blind spot is purely at **detection**, not structure.
 4. **Table metrics on this benchmark must be measured with the TEDS timeout
    raised**, or wall-clock load silently manufactures failures.
 
+## 4a. Follow-up: are the remaining failures a research gap?
+
+Answered separately, with per-table detection probes for all 5 tables
+still scoring 0.0 after the candidate-recovery fix:
+[`../../../docs/research_gap_analysis.md`](../../../docs/research_gap_analysis.md),
+raw data in [`detection_diagnostics.json`](detection_diagnostics.json).
+
+Short version: **no research gap for 3 of 5** (two are defects in our own
+pipeline — a `label == "table"` filter and an orphaned-table attach gap;
+one needs a 2× crop upscale, which is exactly what MinerU2.5's and
+PaddleOCR-VL's Stage-II designs already do). **Not established for the
+other 2**, where both Table Transformer *and* Docling's TableFormer fail
+on 2×2 borderless grids at 1×, 2× and 3× — a real structure-model limit,
+resolvable by measuring an existing SOTA system rather than by research.
+
+Note this revises §2b above: those 4 "shared detection failure" tables are
+not uniformly detection failures. Table Transformer reaches 0.73–0.9994
+confidence on a crop for **every** one of them, and on `page-d29fe4d2` it
+already fires at **0.9991 on the unmodified full page** — that table is
+lost purely to orchestration, not detection.
+
 ## 5. Experiment run from this diagnosis
 
 Hypothesis, change, and measured result: see
