@@ -204,6 +204,7 @@ def main(argv: list[str] | None = None) -> int:
         match_workers=args.match_workers,
         include_bleu_meteor=args.include_bleu_meteor,
         include_cdm=args.include_cdm,
+        teds_timeout_seconds=(args.teds_timeout_seconds or None),
     )
     print(f"evaluator config: {config_path}")
     if args.include_cdm:
@@ -259,6 +260,20 @@ def main(argv: list[str] | None = None) -> int:
     if metrics_path.exists():
         metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
         print(f"metric groups reported: {list(metrics.keys())}")
+
+    timeouts = odb.find_teds_timeouts(process.stdout)
+    marker_path = output_root / "TEDS_TIMEOUTS.txt"
+    if timeouts:
+        marker_path.write_text("\n".join(timeouts) + "\n", encoding="utf-8")
+        print(
+            f"WARNING: {len(timeouts)} TEDS comparison(s) hit the "
+            f"{args.teds_timeout_seconds}s timeout and scored 0.0 — "
+            f"indistinguishable from a real extraction failure. table TEDS/TEDS_structure_only "
+            f"in {metrics_path} are UNRELIABLE. Details: {marker_path}",
+            file=sys.stderr,
+        )
+    else:
+        marker_path.unlink(missing_ok=True)
 
     print(f"done -> {output_root}")
     return 0

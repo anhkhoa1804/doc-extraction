@@ -592,6 +592,77 @@ def test_write_evaluator_config_handles_windows_paths(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# TEDS timeout config (write_evaluator_config's teds_timeout_seconds /
+# find_teds_timeouts) — see write_evaluator_config's docstring for the
+# incident this prevents: two separate 100-page runs were silently
+# contaminated by the upstream evaluator's 120s-timeout-scores-0.0 behavior
+# before it was traced to source, because nothing in this codebase set or
+# checked the timeout. This must never again require a human to remember.
+# ---------------------------------------------------------------------------
+
+
+def test_write_evaluator_config_sets_teds_timeout_by_default(tmp_path):
+    """A caller who does nothing special still gets a raised timeout in the
+    generated config -- not the upstream 120s default, and not left to an
+    env var nobody has to set."""
+    import yaml
+
+    config_path = odb.write_evaluator_config(
+        ground_truth_path=tmp_path / "gt.json", predictions_dir=tmp_path / "preds",
+        output_path=tmp_path / "config.yaml",
+    )
+    loaded = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    table_cfg = loaded["end2end_eval"]["metrics"]["table"]
+    assert table_cfg["timeout_sec"] == odb.DEFAULT_TEDS_TIMEOUT_SECONDS
+    assert table_cfg["timeout_sec"] > 120, "must be raised above the upstream default that caused the incident"
+    assert table_cfg["metric"] == ["TEDS", "Edit_dist"], "timeout_sec must not replace the metric list"
+
+
+def test_write_evaluator_config_teds_timeout_is_overridable(tmp_path):
+    import yaml
+
+    config_path = odb.write_evaluator_config(
+        ground_truth_path=tmp_path / "gt.json", predictions_dir=tmp_path / "preds",
+        output_path=tmp_path / "config.yaml", teds_timeout_seconds=1800.0,
+    )
+    loaded = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    assert loaded["end2end_eval"]["metrics"]["table"]["timeout_sec"] == 1800.0
+
+
+def test_write_evaluator_config_teds_timeout_none_omits_the_key(tmp_path):
+    """Passing None falls back to whatever the upstream evaluator itself
+    defaults to (or its own env var) -- the key must be genuinely absent,
+    not written as null, so metric_cfg.get('timeout_sec') behaves exactly
+    as if this project had never touched it."""
+    import yaml
+
+    config_path = odb.write_evaluator_config(
+        ground_truth_path=tmp_path / "gt.json", predictions_dir=tmp_path / "preds",
+        output_path=tmp_path / "config.yaml", teds_timeout_seconds=None,
+    )
+    loaded = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    assert "timeout_sec" not in loaded["end2end_eval"]["metrics"]["table"]
+
+
+def test_find_teds_timeouts_extracts_timeout_lines_only():
+    stdout = (
+        "some ordinary log line\n"
+        "[TEDS-timeout] img_id=foo.jpg gt_idx=[0] pred_idx=[0] timeout=900.0 reason=timeout:900.0\n"
+        "Matching pages: 50%|#####     | 50/100\n"
+        "[TEDS-timeout] img_id=bar.jpg gt_idx=[0] pred_idx=[0] timeout=900.0 reason=timeout:900.0\n"
+    )
+    timeouts = odb.find_teds_timeouts(stdout)
+    assert len(timeouts) == 2
+    assert all(line.startswith("[TEDS-timeout]") for line in timeouts)
+    assert "foo.jpg" in timeouts[0]
+    assert "bar.jpg" in timeouts[1]
+
+
+def test_find_teds_timeouts_empty_when_none_present():
+    assert odb.find_teds_timeouts("ordinary output\nwith no timeouts\n") == []
+
+
+# ---------------------------------------------------------------------------
 # Evaluator availability / invocation
 # ---------------------------------------------------------------------------
 

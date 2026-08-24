@@ -356,3 +356,26 @@ region (5/30, 17%) is a genuine shared detection-recall gap on small,
 borderless, few-row banner tables -- not addressed by this change, and not
 justifying a third structure model (in every case where a region was
 detected, an existing model already produced a usable structure).
+
+## Pipeline-integrity + SOTA comparison phase (no new pipeline metrics)
+
+No pipeline behavior changed this phase -- see
+`docs/pipeline_integrity.md`, `docs/residual_failure_corpus.md`, and
+`observations.md` sections 24-26 for the full writeup. One infrastructure
+fix was made: the TEDS-evaluation timeout (previously an env var this
+project's own tooling never set, which silently contaminated table
+metrics twice this session -- see section 18 above) is now written
+directly into every generated evaluator config with a default of 900s,
+and `evaluate.py` writes a `TEDS_TIMEOUTS.txt` marker plus a loud warning
+into any result directory where a timeout still occurs. All existing
+metrics.json files in this document predate that fix where noted; the
+values corrected in section 18 above (via manual re-evaluation) are now
+what the tooling produces automatically going forward.
+
+Verdict of the SOTA comparison (primary sources; direct inference on our
+exact hard tables was attempted via a public demo and blocked on browser
+tooling -- see `residual_failure_corpus.md` for why): **no confirmed
+research gap.** 3 of the 5 residual hard tables are pipeline-fixable
+(label-filter, orphan-attach, crop-upscale); 2 are unresolved pending a
+real third model's output, not yet evidence of a shared capability limit
+across architectures.

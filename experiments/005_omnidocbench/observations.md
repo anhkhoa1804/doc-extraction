@@ -1186,3 +1186,94 @@ problem — a materially different conclusion from "both table structure
 models fail together", and it points at a different class of solution
 (small-region detection, or a document VLM with stronger layout reasoning)
 than swapping in another TableFormer-style checkpoint.
+
+# Pipeline-clean baseline, SOTA comparison, and residual-gap verdict
+
+New session objective: after correcting the pipeline and accounting for
+known SOTA capability, what genuinely difficult capability remains, and is
+it a research gap? Full writeup: `docs/pipeline_integrity.md`,
+`docs/residual_failure_corpus.md` (supersedes the "shared blind spot"
+framing above with a per-case, evidence-graded verdict), `docs/
+research_gap_analysis.md` addendum.
+
+## 24. Pipeline integrity audit — one real fix found and made
+
+Auditing every mechanism from prior phases against current code (not
+memory) found the label-filter and orphan-table gaps still correctly
+unfixed (evidence-gated, as designed), crop/refine correctly not yet
+implemented, and TT nondeterminism still correctly documented as open. One
+genuine, previously-undocumented gap: **the TEDS-timeout mitigation used
+throughout this investigation was never durable** — `OMNIDOCBENCH_TEDS_
+TIMEOUT_SEC` was an env var this project's own tooling never set, meaning
+every future run (by anyone, including a future session of this same
+project) was one un-set environment variable away from silently
+reproducing the exact contamination documented in section 18.
+
+**Fixed** (pure measurement-tooling change, no accuracy tradeoff, so it
+did not need the evidence-gating the label-filter/orphan fixes do):
+`write_evaluator_config` now writes `timeout_sec` directly into the
+evaluator's own `table` metric config (default 900s via the new
+`DEFAULT_TEDS_TIMEOUT_SECONDS`), and `evaluate.py` scans evaluator stdout
+for `[TEDS-timeout]` lines, writing a `TEDS_TIMEOUTS.txt` marker and a
+loud stderr warning into the result directory whenever any occur.
+`run.py` inherits this automatically. 5 new tests in
+`tests/test_omnidocbench.py`; full suite 185 → 190 passing.
+
+## 25. SOTA comparison — attempted direct inference, blocked on tooling
+
+Located a public MinerU demo requiring no login
+(huggingface.co/spaces/opendatalab/MinerU → Gradio app on ModelScope) and
+attempted to upload the exact `jiaocaineedrop_46.pdf_1.jpg` hard-table
+image to get real per-case evidence. The in-app Browser tool has no
+file-upload primitive; a base64-relay workaround (construct a File via JS
+from image bytes passed through repeated `javascript_tool` calls) was
+tried and abandoned after the first 90KB chunk alone cost ~85,000 tokens
+of transcript — the image is 309KB, five chunks would have cost far more
+than the corroborating (not load-bearing) evidence was worth. Documented
+here rather than silently dropped: this is a real, current limitation of
+this project's tooling for this kind of cross-system verification, not a
+decision that the comparison wasn't worth attempting.
+
+Fell back to primary-source evidence instead (papers, official benchmark
+numbers, and — a genuinely useful discovery — our own ground-truth data's
+official OmniDocBench attribute tags): full detail and exact citations in
+`docs/residual_failure_corpus.md`. Headline numbers: MinerU2.5-Pro Table
+TEDS 93.42 overall / 92.46 on OmniDocBench's own "Hard" subset (samples
+selected for nested tables/dense formulas/unconventional layout — table
+size/borderlessness not a defining criterion there, checked directly);
+PaddleOCR-VL 89.76 end-to-end. Our own 100-page subset: 45.14.
+
+**A real finding along the way**: two of our four unique failing pages
+carry OmniDocBench's own official `subset: table_hard` tag, and a third
+carries `special_issue: ['table_full_line', 'table_horizontal']` —
+matching this project's own "short, wide banner table" characterization
+exactly, but as the *benchmark's own curators'* label, not this project's
+invention. No published attribute-level SOTA breakdown for these specific
+official tags was found, and the evaluator's own `group` breakdown is
+empty for the `table` metric category (checked directly against
+`metrics.json`) — an upstream limitation, not something fixable here.
+
+## 26. Residual corpus verdict — no confirmed research gap
+
+Full per-case table, shared-failure-mechanism analysis (categories A–F),
+and classification (task categories [A]–[F]) in `docs/
+residual_failure_corpus.md`. Summary: **3 of 5 residual hard tables are
+[A] pipeline bug / [B] missing integration** (label filter, orphan-attach,
+crop-upscale — all recoverable with models already loaded, converging
+SOTA evidence supports this without claiming certainty). **2 of 5 are
+[F] unresolved**, not [E] possible-research-gap: both existing structure
+models (Table Transformer, Docling's TableFormer) fail on the same page's
+2×2 borderless grid at every scale tested, but that is one page, one
+geometric pattern — not the "multiple independent examples" the task's
+own rule requires before a case can support a research claim, and no
+third model's output exists yet to determine whether it's a genuine
+cross-architecture limit or just these two models'.
+
+**Verdict, stated in the task's own permitted form**: there is no clear
+research gap yet. The remaining problems are model integration (crop-
+and-verify, orphan-attach) and, for the 2 unresolved cases, an open
+question that a real third-model integration — not a novel method —
+would answer. Recommended next experiment: integrate one real SOTA system
+(MinerU2.5 or PaddleOCR-VL, both open-weight, on-device, no external API)
+as a genuine third candidate source into the already-model-agnostic
+composition layer (`select_best_table_candidate`, commit `df1f0a1`).

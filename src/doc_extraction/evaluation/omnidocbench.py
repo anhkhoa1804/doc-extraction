@@ -733,6 +733,9 @@ def build_benchmark_metadata(
 # ---------------------------------------------------------------------------
 
 
+DEFAULT_TEDS_TIMEOUT_SECONDS = 900.0
+
+
 def write_evaluator_config(
     *,
     ground_truth_path: Path,
@@ -742,6 +745,7 @@ def write_evaluator_config(
     match_workers: int = 4,
     include_bleu_meteor: bool = False,
     include_cdm: bool = False,
+    teds_timeout_seconds: float | None = DEFAULT_TEDS_TIMEOUT_SECONDS,
 ) -> Path:
     """Render an `end2end.yaml`-shaped config for the official evaluator.
 
@@ -752,18 +756,36 @@ def write_evaluator_config(
     commit, it isn't a guess. Enable it only on a Linux/Docker runner that
     actually has that toolchain; see docs in
     experiments/005_omnidocbench/README.md.
+
+    `teds_timeout_seconds` is written straight into the `table` metric's own
+    config (`call_TEDS.__init__` reads `metric_cfg['timeout_sec']` before
+    ever consulting the `OMNIDOCBENCH_TEDS_TIMEOUT_SEC` env var — see
+    `.external/OmniDocBench/src/metrics/cal_metric.py`), not left as an env
+    var a future run has to remember to set. The upstream default is 120
+    seconds; a TEDS comparison that exceeds it is scored 0.0 — the exact
+    value a genuine extraction failure gets — with no distinguishing signal
+    besides a `[TEDS-timeout]` log line and a debug JSON dump. This silently
+    contaminated two separate 100-page runs this project already produced
+    (experiments/005_omnidocbench/observations.md, "Hard-table capability
+    analysis") before being traced to source. Raised here so a slow-but-
+    real TEDS comparison completes rather than resembling one more zero.
+    `check_evaluator_log_for_teds_timeouts` (below) is the corresponding
+    post-run check, for whenever even this generous a bound is still hit.
     """
     import yaml
 
     text_metrics = ["Edit_dist"] + (["BLEU", "METEOR"] if include_bleu_meteor else [])
     formula_metrics = ["Edit_dist"] + (["CDM"] if include_cdm else [])
+    table_metric_cfg: dict[str, Any] = {"metric": ["TEDS", "Edit_dist"]}
+    if teds_timeout_seconds is not None:
+        table_metric_cfg["timeout_sec"] = teds_timeout_seconds
 
     config = {
         "end2end_eval": {
             "metrics": {
                 "text_block": {"metric": text_metrics},
                 "display_formula": {"metric": formula_metrics},
-                "table": {"metric": ["TEDS", "Edit_dist"]},
+                "table": table_metric_cfg,
                 "reading_order": {"metric": ["Edit_dist"]},
             },
             "dataset": {
@@ -879,6 +901,20 @@ def run_official_evaluator(
             encoding="utf-8",
         )
     return process
+
+
+def find_teds_timeouts(evaluator_stdout: str) -> list[str]:
+    """Every `[TEDS-timeout]` line the evaluator printed, verbatim.
+
+    A TEDS comparison that hits this timeout scores 0.0 — indistinguishable
+    from a genuine extraction failure in every downstream number (see
+    `write_evaluator_config`'s `teds_timeout_seconds` docstring for the
+    incident this documents). `write_evaluator_config` now sets a generous
+    default timeout so this should be rare, but "rare" is not "impossible"
+    — a caller should always check this and treat any table metric from a
+    run with non-empty output here as unreliable, not silently trust it.
+    """
+    return [line for line in evaluator_stdout.splitlines() if line.startswith("[TEDS-timeout]")]
 
 
 def collect_evaluator_results(omnidoc_repo: Path, save_name: str) -> dict[str, Path]:

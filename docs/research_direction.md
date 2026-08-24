@@ -212,3 +212,23 @@ implementation asymmetry, not a shared capability limit.
 This also settles the "is a third candidate model justified" question for
 now: **no.** A third structure specialist would address 0 of the 8 cases.
 The open direction is small-region *detection* recall.
+
+**Revised by the next phase** (`docs/residual_failure_corpus.md`,
+`observations.md` §24–26): after the deeper per-table diagnosis, the
+picture is 3/5 pipeline-fixable (label filter, orphan-attach, crop
+upscale — no new model needed) and 2/5 genuinely undetermined without a
+third model's actual output on those exact tables (both existing
+structure models fail on the same 2×2 borderless grid at every scale
+tested). **A pipeline-integrity audit also found and fixed a real,
+previously-undocumented gap**: the TEDS-timeout mitigation this whole
+investigation depended on was never durable — an env var nobody's tooling
+set — and silently contaminated results twice before being caught. Now
+written directly into the evaluator config with a post-run check;
+see `docs/pipeline_integrity.md`.
+
+**Current verdict: no confirmed research gap.** The recommended next
+experiment is integrating one real SOTA system (MinerU2.5 or
+PaddleOCR-VL — both open-weight, on-device, no external API) as a third
+candidate source into the already-model-agnostic composition layer, which
+would resolve the 2 unresolved cases with real evidence rather than
+inference from aggregate benchmark numbers.

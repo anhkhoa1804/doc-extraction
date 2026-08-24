@@ -376,3 +376,21 @@ duplication check, reaching 1 more, and (4) benchmarking MinerU2.5 or
 PaddleOCR-VL on the hard-table set to settle the last 2 — **not** to a
 novel method. This analysis deliberately stops before spending that
 budget, which was its purpose.
+
+## Addendum: item 4 attempted, formal verdict recorded
+
+`docs/residual_failure_corpus.md` is the direct follow-up: item 4 above
+(benchmark a real SOTA system on these exact tables) was attempted via a
+public MinerU demo and blocked on browser-automation tooling (no
+file-upload primitive; a base64-relay workaround cost ~85,000 tokens for
+one 90KB image chunk, abandoned as disproportionate to corroborating
+evidence). The comparison instead uses convergent primary-source evidence
+(architecture papers, official OmniDocBench numbers, and this project's
+own ground-truth attribute tags — two of the four unique failing pages
+carry OmniDocBench's own `table_hard` label, a third carries the official
+`table_full_line`/`table_horizontal` tag). That document also runs the
+formal task categories (A–F shared-mechanism, [A]–[F] classification) this
+one didn't yet, and reaches the same practical verdict with more rigor:
+3/5 cases are pipeline-fixable, 2/5 are `[F] unresolved` (not `[E]` — a
+single page's geometric pattern, not multiple independent examples), and
+**there is no confirmed research gap.**
