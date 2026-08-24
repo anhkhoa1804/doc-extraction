@@ -5,6 +5,7 @@ __pycache__/
 *.egg-info/
 .venv/
 .venv-omnidoc/
+.venv-mineru/
 build/
 dist/
 *.so

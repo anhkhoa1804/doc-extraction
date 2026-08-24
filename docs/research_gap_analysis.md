@@ -1,5 +1,13 @@
 # Small-table detection: bug, limitation, SOTA capability, or research gap?
 
+> **RESOLVED — see `docs/sota_comparison.md`.** This document concluded
+> "fix and integrate, do not research" and ranked benchmarking a real SOTA
+> system as item 4. That has been done: MinerU2.5 was installed locally and
+> run on all five residual hard tables, scoring `TEDS_structure_only =
+> 1.0000` on **every one** (including the two both incumbent structure
+> models fail at 1x/2x/3x). The verdict is confirmed by measurement:
+> **no research gap; this is a SOTA integration gap.**
+
 Written to answer one question before spending more compute: the remaining
 hard-table failures are concentrated in small, wide, often borderless
 1–2 row tables — **is that our bug, our implementation limitation, a known

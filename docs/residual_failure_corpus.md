@@ -1,25 +1,38 @@
 # Residual failure corpus — current pipeline vs. SOTA evidence
 
+> **SUPERSEDED IN PART — read `docs/sota_comparison.md` first.**
+> This document's central limitation (no SOTA system had been run on these
+> exact images) has since been removed: MinerU2.5 was installed and run
+> locally on all five cases. It achieves `TEDS_structure_only = 1.0000` on
+> **all five**, including both cases this document classified
+> `[F] unresolved`. Those two are now **`[B] missing integration`**, and
+> **zero cases remain in `[F]` or `[E]`**. The verdict below ("no confirmed
+> research gap") is unchanged and now rests on direct measurement rather
+> than inference. Everything else here — the per-case mechanisms, the
+> category A–F analysis, the classification method — still stands.
+
 Population: the 5 tables still scoring 0.0 TEDS after the candidate-recovery
 fix (commit `982cc2f`), individually traced (commit `9a9843c`,
 `docs/research_gap_analysis.md`). This document adds the SOTA side of the
 comparison and reaches a verdict on whether a genuine research gap exists.
 
-**Methodology limitation, stated up front, not discovered partway through:**
-no independent inference was run on these exact images through a SOTA
-system this session. A public MinerU demo was located
-(huggingface.co/spaces/opendatalab/MinerU → a Gradio app on ModelScope) and
-reached, but the in-app Browser tool has no file-upload primitive; a
-workaround (relay the image as base64 through repeated `javascript_tool`
-calls) was attempted and abandoned after the first 90KB chunk alone cost
-~85,000 tokens of transcript — prohibitively expensive for what would be
-corroborating, not load-bearing, evidence. The SOTA side below is therefore
-**convergent evidence from primary sources** (architecture papers, official
-benchmark numbers, this project's own ground-truth attribute tags) — not
-directly measured per-case results. Every claim below is labeled with
-which kind of evidence it is. Actually running a SOTA system as a genuine
-third candidate source is the concrete next experiment this document
-recommends, not something already done here.
+**Methodology limitation as originally written (now resolved — kept for
+the record):** at the time this document was first written, no independent
+inference had been run on these exact images through a SOTA system. A
+public MinerU demo was located (huggingface.co/spaces/opendatalab/MinerU →
+a Gradio app on ModelScope) and reached, but the in-app Browser tool has no
+file-upload primitive; a base64-relay workaround was attempted and
+abandoned after the first 90KB chunk alone cost ~85,000 tokens of
+transcript. The SOTA side below was therefore **convergent evidence from
+primary sources** rather than direct measurement, and every claim was
+labeled accordingly.
+
+**That limitation no longer applies.** MinerU2.5 was subsequently
+installed locally (isolated `.venv-mineru`, `mineru-vl-utils[transformers]`
+on CPU) and run directly on all five images — see
+`docs/sota_comparison.md`. The inference-based SOTA reasoning below is
+therefore superseded by measurement wherever the two touch the same
+question; where it isn't contradicted, it stood up.
 
 ## Common representation and adapter-loss note
 
@@ -38,8 +51,8 @@ run exists (see "Recommended experiment").
 | 1 | `jiaocaineedrop_46` | table detection (label misclassification) | Layout localizes the region (IoU 0.753, 98.3% GT coverage) but labels it `picture`; our `label == "table"` filter then discards it. TT-on-crop: 0.9434, exact `2×7`. | Official OmniDocBench `special_issue: ['table_full_line', 'table_horizontal']` tag on this exact page (verified in our own GT — not third-party). Architecturally: MinerU2.5/PaddleOCR-VL both run layout on the *whole page* first, same as Docling, so the same TABLE-vs-PICTURE ambiguity is architecturally *possible* in them too — not ruled out by anything found. | **[B] missing integration** (crop-and-verify pass) |
 | 2 | `page-d29fe4d2` | table detection (orphan attach) | TT already detects at **0.9991 on the unmodified full page** (default 0.7 threshold). Lost purely because layout emits no `table`-labelled region to attach it to. | Official `subset: table_hard` tag (verified in our own GT). No SOTA-specific evidence needed — this is a pure orchestration loss with no detection difficulty at all. | **[A] pipeline bug** |
 | 3 | `page-28657a85` | table detection + structure (resolution) | 1× crop → wrong `1×2`; 2× crop → exact `1×3` (= GT). Official `subset: table_hard` tag (our own GT). | MinerU2.5's Stage II explicitly crops to native resolution before structure recognition (primary source, arXiv 2509.22186: *"crop the native high-resolution image into local regions, which are then parsed at fine granularity"*) — the same mechanism our own ablation showed decisive here. | **[B] missing integration** (crop upscale) |
-| 4 | `..._en_2901` [0] | structure (2×2 borderless) | TT detects at 0.996 on crop; **structure returns `None` at 1×, 2×, and 3×**. Docling TableFormer also returns nothing on the same crop. | No direct evidence either way. Official `special_issue: ['colorful_backgroud']` tag (our own GT) — a different axis (visual complexity) than the geometric one (borderless, 2×2) that appears to be the actual blocker. | **[F] unresolved** |
-| 5 | `..._en_2901` [1] | structure (2×2 borderless, partial) | TT: `2×1` vs GT `2×2` at every scale. Same page as #4. | Same as #4. | **[F] unresolved** |
+| 4 | `..._en_2901` [0] | structure (2×2 borderless) | TT detects at 0.996 on crop; **structure returns `None` at 1×, 2×, and 3×**. Docling TableFormer also returns nothing on the same crop. | No direct evidence either way. Official `special_issue: ['colorful_backgroud']` tag (our own GT) — a different axis (visual complexity) than the geometric one (borderless, 2×2) that appears to be the actual blocker. **RESOLVED: MinerU2.5 → structure-only TEDS 1.0000** (`docs/sota_comparison.md`). | ~~[F] unresolved~~ → **[B] missing integration** |
+| 5 | `..._en_2901` [1] | structure (2×2 borderless, partial) | TT: `2×1` vs GT `2×2` at every scale. Same page as #4. | **RESOLVED: MinerU2.5 → structure-only TEDS 1.0000, content TEDS 0.9881.** | ~~[F] unresolved~~ → **[B] missing integration** |
 
 ## SOTA aggregate evidence (primary sources, cited exactly)
 
@@ -103,11 +116,11 @@ out for them); 2/5 are genuinely unclassified pending more evidence.
 | Class | Count | Cases |
 |---|---:|---|
 | [A] pipeline bug | 1 | `page-d29fe4d2` |
-| [B] missing integration | 2 | `jiaocaineedrop_46`, `page-28657a85` |
+| [B] missing integration | ~~2~~ **4** | `jiaocaineedrop_46`, `page-28657a85`, **+ both `..._en_2901` tables** |
 | [C] known SOTA limitation | 0 | — |
 | [D] model capability limitation | 0 | not distinguished from [F] below without a real second/third structure model's output on these exact cases |
 | [E] possible research gap | **0** | see verdict |
-| [F] unresolved | 2 | `..._en_2901` ×2 |
+| [F] unresolved | ~~2~~ **0** | ~~`..._en_2901` ×2~~ — both resolved by MinerU2.5, see `docs/sota_comparison.md` |
 
 **Per the task's own rule ("only category [E] can support a research
 direction... require at least multiple independent examples"): zero cases
@@ -124,57 +137,67 @@ multiple partially correct / all models wrong." That requires the SOTA
 system's actual output on these cases, which — per the limitation stated
 at the top — was not obtained this session. What **is** available:
 
-| Case | Docling | Table Transformer | SOTA (evidenced, not measured) |
+**Now measured, not inferred** (`docs/sota_comparison.md`):
+
+| Case | Docling | Table Transformer | **MinerU2.5 (measured)** |
 |---|---|---|---|
-| 1, 3 | fails at page scale, untested on crop | fails at page scale; **succeeds on crop** | architecturally does the same crop step by default (MinerU2.5 Stage II) — plausibly succeeds, not confirmed |
-| 2 | untested (no crop-refine needed; TT already succeeds at page scale) | **succeeds at page scale (0.9991)** | not needed — this case has nothing to do with model capability |
-| 4, 5 | **fails on crop** | **fails on crop, all scales** | **genuinely unknown** — the one place a real oracle entry is missing |
+| 1, 3 | fails at page scale, nothing on crop | fails at page scale; **succeeds on crop** | **succeeds — structure-only 1.0000 on both, full page, no GT crop** |
+| 2 | nothing on crop | **succeeds at page scale (0.9991)** | **succeeds — structure-only 1.0000** |
+| 4, 5 | **fails on crop** | **fails on crop, all scales** | **succeeds — structure-only 1.0000 on both** |
 
 The "ALL MODELS WRONG" category the task calls out as most interesting
-(§7) is real for cases 4–5, but only two of three columns are filled in.
-That is precisely the gap the next experiment should close.
+(§7) turned out to be **empty**: the third column is now filled in, and
+there is no case where all three model families fail. Cases 4–5, the only
+candidates for it, are solved outright by MinerU2.5.
 
 ## Verdict
 
-**No confirmed research gap.** Restating the task's own permitted valid
-outcome: *"there is no clear research gap yet; the remaining problems are
-mostly model integration / known SOTA limitations."* That is this
-document's answer, for 3 of 5 cases decisively and for the other 2
-because the evidence needed to call them anything else does not exist yet.
+**No confirmed research gap** — and, unlike when this document was first
+written, that verdict now rests on direct measurement for every case.
+Restating the task's own permitted valid outcome: *"there is no clear
+research gap yet; the remaining problems are mostly model integration /
+known SOTA limitations."*
 
 - 3/5 cases (`jiaocaineedrop_46`, `page-d29fe4d2`, `page-28657a85`) are
   **[A] pipeline bug / [B] missing integration** — recoverable with models
   already loaded, no new capability needed, matches `docs/
   research_gap_analysis.md`'s prior finding exactly.
-- 2/5 cases (`..._en_2901` both tables) are **[F] unresolved** — not [E].
-  Both existing structure models fail on the same narrow geometric
-  pattern (2×2 borderless grid), which is a real, specific, but
-  single-page, non-generalized finding. Calling this a research gap would
-  violate the task's own "require multiple independent examples" bar.
+- 2/5 cases (`..._en_2901` both tables) were **[F] unresolved**; they are
+  now **[B] missing integration**. Both existing structure models fail on
+  that 2×2 borderless grid at every scale, but **MinerU2.5 returns the
+  exactly-correct structure on both** (structure-only TEDS 1.0000). A
+  third model family succeeding is precisely the evidence that rules out
+  a shared capability gap.
+- **Zero cases remain in `[E]` or `[F]`.**
 
-## Recommended experiment
+## Recommended experiment — DONE, and what it showed
 
-Not a novel method. The evidence gap above has one honest fix: **integrate
-one real SOTA system (MinerU2.5 or PaddleOCR-VL) as a genuine third
-candidate source**, exactly as `docs/research_gap_analysis.md` §7 already
-ranked as item 3, and let the existing N-way composition layer
-(`select_best_table_candidate`, already model-agnostic per commit
-`df1f0a1`) consume it. This simultaneously:
+This section recommended integrating one real SOTA system as a genuine
+third candidate source. **That has now been done** (`docs/sota_comparison.md`):
+MinerU2.5 runs locally via a thin `MinerUVLTableBackend` exposing the same
+`native_tables(page)` hook the existing N-way composition already consumes,
+with no change to the composition algorithm or canonical IR.
 
-1. Fills the oracle table's missing SOTA column for cases 4–5 with real
-   data, resolving whether they are [D] (both existing models incapable,
-   third model succeeds — an integration win) or a genuine shared limit
-   across three independent architectures (the closest this project could
-   get to actual [E] evidence).
-2. Provides real per-case adapter-loss data (task §3) once there's an
-   actual SOTA output to normalize into the canonical IR.
-3. Is directly measurable on the existing 20-/100-page protocol, with no
-   new architecture and no training.
+Outcome against the three things this section wanted from it:
 
-Production-compatible per the task's constraint: both MinerU2.5 and
-PaddleOCR-VL are open-weight, run on-device (CPU or GPU), and require no
-external SaaS API — the same deployment shape as the existing Docling/
-Table Transformer backends.
+1. **The missing SOTA column is filled.** Cases 4–5 are `[D]-then-[B]`:
+   both existing models incapable, third model succeeds — an integration
+   win, not a shared limit. There is no `[E]` evidence.
+2. **Adapter-loss data exists now.** MinerU emits `<table>` HTML with
+   `colspan`/`rowspan`; `parse_html_table()` converts it into the canonical
+   `Table` via an occupancy grid. Verified round-trip on real output: the
+   2×7 and 1×3 tables parse to exactly their GT shapes with every cell
+   populated. **No adapter loss observed on these cases** — so the residual
+   content gap (TEDS 0.76–0.99) is the model's, not the adapter's.
+3. **Measurable on the existing protocol** — though at a real cost: ~180–220 s
+   per page CPU-only, ~2.6–3× the current pipeline. The composition A/B is
+   therefore scoped as the next step, not run here.
+
+Production-compatible per the task's constraint: MinerU2.5 is open-weight
+and runs on-device with no external SaaS API. **One caveat found in the
+audit and not present for the other backends: the weights are AGPL-3.0**
+(the code is Apache-2.0-based), which needs licensing review before
+redistribution or hosted deployment.
 
 ## What NOT to pursue
 
@@ -185,7 +208,8 @@ Table Transformer backends.
   corpus does not contain.
 - **Do not conclude the 2×2-borderless cases are a confirmed model
   limitation of the *field***, only of the two specific models tested.
-  That distinction is exactly what's unresolved.
+  *(Settled: MinerU2.5 extracts both perfectly — it was never a limitation
+  of the field, exactly as this warning cautioned.)*
 - **Do not treat the aggregate SOTA numbers (~90+ TEDS) as proof our
   specific 5 cases are solved elsewhere.** They are strong, converging,
   but indirect evidence — stated as such throughout this document, not

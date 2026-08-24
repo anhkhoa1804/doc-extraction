@@ -1277,3 +1277,101 @@ would answer. Recommended next experiment: integrate one real SOTA system
 (MinerU2.5 or PaddleOCR-VL, both open-weight, on-device, no external API)
 as a genuine third candidate source into the already-model-agnostic
 composition layer (`select_best_table_candidate`, commit `df1f0a1`).
+
+# MinerU2.5 benchmark against the residual table failures
+
+Full writeup: `docs/sota_comparison.md`. Adapter:
+`src/doc_extraction/backends/mineru_backend.py` (`MinerUVLTableBackend`),
+tests: `tests/test_mineru_backend.py`.
+
+## 27. Result A — a third model family solves every residual case
+
+The prior phase left 2 of 5 residual hard tables classified `[F]
+unresolved` purely because no third model's output existed: both Table
+Transformer and Docling's TableFormer fail on the same 2x2 borderless
+grammar boxes at 1x, 2x AND 3x scale. That evidence now exists.
+
+MinerU2.5 (`opendatalab/MinerU2.5-2509-1.2B`, 1.2B Qwen2-VL-based) run
+locally, measured with the official evaluator's own TEDS implementation:
+
+| Table | GT | Docling | Table Transformer | MinerU2.5 |
+|---|---|---|---|---|
+| `..._en_2901` [0] | 2x2 | nothing | `None` all scales | **struct 1.0000**, TEDS 0.7639 |
+| `..._en_2901` [1] | 2x2 | nothing | `2x1` all scales | **struct 1.0000**, TEDS 0.9881 |
+| `jiaocaineedrop_46` | 2x7 | nothing on crop | exact on crop | **struct 1.0000**, TEDS 0.9018 |
+| `page-d29fe4d2` | 4x4 | nothing on crop | `6x4` on crop | **struct 1.0000**, TEDS 0.9283 |
+| `page-28657a85` | 1x3 | nothing on crop | `1x2` @1x, `1x3` @2x | **struct 1.0000**, TEDS 0.9800 (full page) |
+
+`TEDS_structure_only = 1.0000` on **all five**, where the current pipeline
+scores 0.0000 on every one. **Zero residual cases remain in `[E] possible
+research gap` or `[F] unresolved`** — this is a SOTA integration gap.
+
+## 28. Two findings that change how it must be integrated
+
+**Feed MinerU whole pages, never pre-cropped regions.** `page-28657a85`
+inverts between methods: on a tight ground-truth crop MinerU classified
+the region as ordinary *text* and emitted no table at all; on the
+**unmodified full page** it produced the exactly-correct 1x3 table (TEDS
+0.98). MinerU2.5 already performs coarse-to-fine internally (global layout
+on a downscaled page, then native-resolution crops), so pre-cropping strips
+the context its layout stage needs. This is the **opposite** of Table
+Transformer, which needs a crop (0.0675 -> 0.9434 on the same kind of
+region). A composed pipeline must therefore feed its candidate sources
+*differently* — a real integration constraint, measured not assumed.
+
+It also means the earlier crop-only reading of that case ("MinerU also
+fails on the 1x3") was an artifact of the diagnostic method, corrected
+here rather than left standing.
+
+**Full-page runs used no ground truth at all** — MinerU's own layout stage
+found and correctly labelled both detection-dependent tables end-to-end,
+including the one our Docling layout labels `picture`. The crop columns
+above are oracle-assisted diagnostics; the full-page column is the
+production-realistic one.
+
+## 29. Compute cost — the real constraint
+
+CPU-only, float32 (no usable CUDA on this machine: RTX 3050 4GB, driver
+462.62 / CUDA 11.2, `torch 2.8.0+cpu`). MinerU's own docs require 8GB VRAM
+for its VLM engines and state pure-CPU is unsupported for them; the
+`mineru-vl-utils[transformers]` path runs anyway, slowly but correctly.
+
+| Measure | Value |
+|---|---|
+| Weights on disk | 2,323.6 MB |
+| Model load | ~26 s (once per process) |
+| Per full page | **181.7 s and 219.6 s** |
+| Current pipeline per page | ~70 s |
+
+**~2.6-3x the current pipeline's per-page cost.** A 100-page validation
+would be ~5.5 h CPU-only, which is why the composition A/B is scoped as
+the next step rather than run here. Running MinerU on every page is the
+wrong production design; gating it on regions where the cheap specialists
+disagree or produce nothing is an engineering optimisation with a
+measurable cost/quality curve — not a research question.
+
+**Licensing:** the weights are **AGPL-3.0** (MinerU's code is Apache-2.0
+based) — a materially different obligation from this repo's other model
+dependencies, requiring review before redistribution or hosted deployment.
+
+## 30. What was built
+
+Smallest viable surface area, per the task's constraint — **no change to
+the canonical IR, composition algorithm, reading order, evaluator, or any
+existing backend**:
+
+- `MinerUVLTableBackend.native_tables(page) -> list[Table]` — deliberately
+  the exact duck-typed hook `pipelines/base._gather_extra_table_candidates`
+  already looks for, so the existing N-way composition can consume MinerU
+  with no algorithm change whatsoever.
+- `parse_html_table()` — MinerU's `<table>` HTML into a canonical `Table`,
+  honouring `colspan`/`rowspan` via an occupancy grid, standard library
+  only (no BeautifulSoup/lxml dependency added).
+- Installed in an isolated `.venv-mineru` so the existing test baseline
+  could not be disturbed; `HF_HOME` redirected to D: (C: had 8.5 GB free).
+- 12 tests. Suite: 190 -> **202 passing**, no regressions.
+
+**Adapter loss: none observed.** Verified round-trip on real MinerU output
+— the 2x7 and 1x3 tables parse to exactly their GT shapes with every cell
+populated — so the residual content gap (TEDS 0.76-0.99) is the model's,
+not the adapter's.

@@ -232,3 +232,32 @@ PaddleOCR-VL — both open-weight, on-device, no external API) as a third
 candidate source into the already-model-agnostic composition layer, which
 would resolve the 2 unresolved cases with real evidence rather than
 inference from aggregate benchmark numbers.
+
+## MinerU2.5 result — the question is settled
+
+`docs/sota_comparison.md` closes the loop this document left open. MinerU2.5
+(1.2B Qwen2-VL-based, run locally on CPU via a thin `mineru-vl-utils`
+adapter) was measured on all five residual hard tables:
+
+**`TEDS_structure_only = 1.0000` on all five**, content TEDS 0.76–0.99,
+where the current pipeline scores 0.0000 on every one — including both 2x2
+borderless grids that return no grid at all from Table Transformer *and*
+Docling's TableFormer at 1x, 2x and 3x scale.
+
+**RESULT A: this is a SOTA integration/capability gap, not a research gap.**
+Zero residual cases remain classified `[E] possible research gap` or
+`[F] unresolved`.
+
+Two findings worth carrying forward:
+
+1. **Feed MinerU whole pages, not crops.** Measured: a tight GT crop made it
+   classify `page-28657a85`'s region as plain text (no table), while the
+   unmodified full page gave the exactly-correct 1x3 table. It already does
+   coarse-to-fine internally, so pre-cropping removes context it depends on.
+   This is the *opposite* of Table Transformer, which needs a crop — so a
+   composed pipeline must feed its candidate sources differently.
+2. **Cost is the real constraint, not capability.** ~180–220 s/page CPU-only
+   vs ~70 s for the current pipeline. Running it on every page is the wrong
+   production design; gating it on regions where the cheap specialists
+   disagree or produce nothing is an engineering optimisation with a
+   measurable cost/quality curve — the natural next experiment.
