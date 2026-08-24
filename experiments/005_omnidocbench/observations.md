@@ -1375,3 +1375,72 @@ existing backend**:
 — the 2x7 and 1x3 tables parse to exactly their GT shapes with every cell
 populated — so the residual content gap (TEDS 0.76-0.99) is the model's,
 not the adapter's.
+
+# Compute-target change: laptop -> A30-class GPU host
+
+## 31. The laptop is now a control plane, not a compute target
+
+Every performance figure recorded in this file up to this point was
+produced on a CPU-only development machine (RTX 3050 4 GiB, driver
+462.62 / CUDA 11.2, `torch 2.8.0+cpu`, 15.8 GiB RAM). From this phase on,
+that machine is used only for `pytest`, adapter/unit tests, static
+inspection and small deterministic diagnostics.
+
+**Consequence for reading this log:** every runtime number here — ~70 s/page
+for the current pipeline, 181-220 s/page for MinerU2.5, the ~5.5 h estimate
+for a 100-page MinerU run — characterises *that laptop*, not the models and
+not production. None of them should be used to reject a model or size a
+deployment. The quality numbers (TEDS, edit distances) are unaffected:
+they do not depend on the device.
+
+Specifically retracted as an architecture input: the earlier reasoning that
+MinerU2.5 at "~2.6-3x the current pipeline's per-page cost" makes
+always-on VLM inference the wrong production design. The *conclusion* may
+well hold, but it must be re-derived from A30 measurements — published
+throughput for these models on datacentre GPUs is orders of magnitude
+above this CPU path.
+
+## 32. What was added to prepare for the GPU host
+
+- **`doc_extraction.cli env`** — environment/accelerator diagnostics.
+  Reports Python, torch version **and whether torch is a CUDA or CPU-only
+  build**, driver CUDA version, every visible GPU with VRAM, which optional
+  backends import, and where model caches point; then interprets the
+  result. `--require-gpu` exits non-zero if the host cannot actually do GPU
+  work, for bring-up gating; `--json` for capture alongside results.
+
+  It exists because the most common GPU-host bring-up failure is silent: a
+  config requesting `device: cuda` on a CPU-only torch build does not
+  error, it just runs ~30x slower on CPU. Verified on the laptop, where it
+  correctly reports `GPU usable: NO` while still detecting the RTX 3050 via
+  nvidia-smi, and explains the mismatch.
+
+- **Docs:** `gpu_host.md` (A30 runbook: install, smoke tests, benchmark
+  commands, measurement tables left explicitly as *TO MEASURE*),
+  `model_licenses.md`, `production_architecture.md`,
+  `final_research_gap.md`, plus a phased roadmap and a production candidate
+  matrix.
+
+Tests: 202 -> **209**, no regressions.
+
+## 33. Two findings from the licence/candidate audit
+
+**The most restrictive licence in this project is a core code dependency,
+not a model.** `pymupdf` is AGPL-3.0 and sits in `pyproject.toml`'s
+required `dependencies` — it cannot be disabled by config. MinerU2.5's
+AGPL-3.0 weights are the more visible concern but are strictly optional.
+Both are flagged for legal review in `docs/model_licenses.md`; neither is
+given a legal conclusion here.
+
+**Two comparably-strong parsers are permissively licensed**, which changes
+the experiment ordering: PaddleOCR-VL is **Apache-2.0** (0.9B, reported
+SOTA on OmniDocBench v1.5) and dots.ocr is **MIT** (3B, reported Table TEDS
+88.6 EN / 89.0 ZH). Benchmarking those *before* MinerU2.5 means the AGPL
+question may never need answering. This is licence-led sequencing and costs
+nothing.
+
+**Blocking verification item:** PaddleOCR-VL claims 109 languages but names
+neither Vietnamese in its model card nor in its abstract, and no
+primary-source language list was located. This project's actual target
+corpus is Vietnamese/English, so Vietnamese support must be tested
+directly on the GPU host before adoption.

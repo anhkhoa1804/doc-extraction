@@ -728,7 +728,40 @@ def build_parser() -> argparse.ArgumentParser:
     inspect_parser.add_argument("--output-dir", default="outputs")
     inspect_parser.set_defaults(func=cmd_inspect)
 
+    env_parser = subparsers.add_parser(
+        "env",
+        help="Report Python/torch/CUDA/GPU/backend availability — run this first on a new GPU host.",
+    )
+    env_parser.add_argument("--json", action="store_true", help="Emit JSON instead of a text report.")
+    env_parser.add_argument(
+        "--require-gpu", action="store_true",
+        help="Exit non-zero if this host cannot actually do GPU work (for CI/bring-up gating).",
+    )
+    env_parser.add_argument(
+        "--min-vram-gib", type=float, default=20.0,
+        help="VRAM bar for the document-VLM tier (default 20; an A30 is 24).",
+    )
+    env_parser.set_defaults(func=cmd_env)
+
     return parser
+
+
+def cmd_env(args: argparse.Namespace) -> int:
+    """Environment diagnostics. Exists because the most common GPU-host
+    bring-up failure is silent: a config requesting `device: cuda` on a
+    CPU-only torch build still runs, just ~30x slower. See
+    docs/gpu_host.md."""
+    from doc_extraction.utils.environment import collect_environment, format_report
+
+    report = collect_environment(min_vram_gib=args.min_vram_gib)
+    if args.json:
+        print(json.dumps(report.to_dict(), indent=2))
+    else:
+        print(format_report(report))
+    if args.require_gpu and not report.gpu_ready:
+        print("\nERROR: --require-gpu was set but this host cannot do GPU work.", file=sys.stderr)
+        return 1
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:

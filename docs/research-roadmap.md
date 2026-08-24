@@ -112,3 +112,83 @@ No model training or fine-tuning, no knowledge graph, no ontology, no RAG, no
 business or workflow reasoning. If a hypothesis above starts to imply one of
 these, that is a signal it has drifted outside this project's scope — not a
 reason to build it.
+
+---
+
+# Phased roadmap (A30-class compute target)
+
+Added when the compute target moved off the development laptop. The
+hypotheses above predate the OmniDocBench work; **this section supersedes
+them wherever the two disagree**, because it is backed by measurement.
+
+Full reasoning: `docs/final_research_gap.md`. Commands: `docs/gpu_host.md`.
+
+## NOW — laptop only (no GPU required)
+
+| Item | Status |
+|---|---|
+| `pytest -q` green | **done** — 209 tests |
+| Environment diagnostics (`cli env`) | **done** this phase |
+| Licence audit for every candidate | **done** — `docs/model_licenses.md` |
+| Production candidate matrix | **done** — `docs/sota_comparison.md` |
+| A30 runbook | **done** — `docs/gpu_host.md` |
+| Target architecture + tiering | **done** — `docs/production_architecture.md` |
+| Research-gap classification | **done** — `docs/final_research_gap.md` |
+
+Deliberately **not** done on the laptop, and not to be attempted here:
+GPU throughput, VLM feasibility, production latency, VRAM figures.
+
+## NEXT — first hours on the A30
+
+1. `pytest -q`; `cli env --require-gpu`.
+2. **Time the existing pipeline under `configs/gpu.yaml`** — wired for CUDA
+   since before this phase, never measured on a GPU. This is the missing
+   baseline everything else is compared against.
+3. Bring up **PaddleOCR-VL** (Apache-2.0, 0.9B). **Gate: verify Vietnamese
+   directly** — the card claims 109 languages without naming it, and this
+   project's real corpus is Vietnamese/English.
+4. If Vietnamese fails → **dots.ocr** (MIT, 3B).
+5. Only if a permissive model is materially worse → MinerU2.5 (AGPL-3.0
+   weights; adapter already exists), and start the legal review then, not
+   before.
+
+## AFTER A30 VALIDATION
+
+6. Quality A/B on deterministic 20- then 100-page subsets: current vs
+   Tier 2 alone vs composed. Same evaluator, same normalisation,
+   TEDS-timeout hygiene on. Never compare across subset sizes.
+7. **Measure formula.** `display_formula` edit distance ≈ 0.995 — near-total
+   failure, no formula model active at all. Largest single quality gap.
+8. Compare reading order head-to-head against a SOTA parser.
+9. Fix the two known pipeline defects with the measurements that gate them:
+   the `label == "table"` filter (needs a false-positive study) and orphan
+   tables (needs a duplication check).
+10. Full 1651-page run only after 100 is clean.
+
+## RESEARCH — gated, not scheduled
+
+Only after step 6 produces Tier-1-vs-Tier-2 labelled data:
+
+- **Hardness signal** (`production_architecture.md` §4): which cheap signals
+  predict Tier-1 failure? Note fill-rate was measured and **rejected** — do
+  not rebuild it.
+- **Multi-model evidence fusion**: composing *partial* candidates rather
+  than selecting whole ones. The most research-shaped direction available,
+  but gated on observing distributed partial correctness — and there is
+  reason to doubt it, since MinerU2.5 scored a *perfect* structure on all
+  five hard cases, leaving nothing for fusion to add.
+
+**Closed by evidence — do not reopen:** novel small-table detection
+(coarse-to-fine is published SOTA), "both structure models fail together"
+(refuted twice — a timeout artifact, then solved by a third model),
+confidence-aware candidate ranking (measured and rejected), cross-region
+reasoning (zero cases in the corpus need it).
+
+## PRODUCTION
+
+- Tier routing, once a hardness signal is validated — **not before**.
+- vLLM serving for the Tier-2 model; batch at page level; one worker per
+  GPU until utilisation says otherwise.
+- Resolve the AGPL items (`pymupdf` **core**; MinerU2.5 weights if adopted).
+- Keep: local-only inference, no SaaS, pinned evaluator, deterministic
+  seeds, per-run environment capture.

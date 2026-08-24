@@ -379,3 +379,23 @@ research gap.** 3 of the 5 residual hard tables are pipeline-fixable
 (label-filter, orphan-attach, crop-upscale); 2 are unresolved pending a
 real third model's output, not yet evidence of a shared capability limit
 across architectures.
+
+## Compute-target change — how to read every runtime number above
+
+All runtimes in this file were measured on a CPU-only development laptop
+(RTX 3050 4 GiB, CUDA-11.2-era driver, `torch 2.8.0+cpu`). That machine is
+now a control plane for code and tests only; the compute target is an
+A30-class GPU host.
+
+**Quality numbers (TEDS, TEDS-S, edit distances) remain valid** — they do
+not depend on the device, and every comparison above was run with matched
+subset, seed, evaluator commit, ground truth and normalisation.
+
+**Runtime numbers do not transfer.** Do not use them to size a deployment,
+reject a model, or justify an architecture. They are re-derived on the A30
+per `docs/gpu_host.md` §6, where the measurement tables are left explicitly
+as *TO MEASURE* rather than estimated.
+
+No GPU comparison exists yet: `configs/gpu.yaml` has been wired for CUDA
+since before this phase but has **never been timed on a GPU**. Producing
+that baseline is step 2 of the A30 plan.

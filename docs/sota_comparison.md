@@ -214,3 +214,63 @@ Next, in order:
    research question.
 3. Only then consider a broader (100-page) validation, and only on
    hardware where MinerU is not CPU-bound.
+
+---
+
+# Production candidate matrix (A30-class target)
+
+Added when the compute target moved off the development laptop. **The
+laptop's 4 GiB RTX 3050 / CUDA-11.2 / CPU-only-torch limits are NOT inputs
+to these decisions** — a model that cannot run on the laptop is marked
+"requires GPU-host validation", never rejected.
+
+Evidence types are kept strictly separate below:
+**[P]** published result (primary source) · **[M]** our direct measurement
+· **[I]** our inference. Nothing published is compared against our subset
+scores as if equivalent.
+
+## End-to-end document parsers
+
+| | PaddleOCR-VL | dots.ocr | MinerU2.5 | Docling (current) |
+|---|---|---|---|---|
+| Params | 0.9B | 3B (1.7B LLM) | 1.2B | ~200M-class stack |
+| Architecture | NaViT dynamic-res encoder + ERNIE-4.5-0.3B; PP-DocLayoutV3 (RT-DETR) layout | Qwen2.5-VL based, single unified model for layout + content | Qwen2-VL based; decoupled coarse-to-fine (1036² thumbnail layout → native-res crops) | RT-DETR layout + TableFormer + EasyOCR |
+| **Weights licence** | **Apache-2.0** [P] | **MIT** [P] | **AGPL-3.0** [P] | MIT [P] |
+| Languages | 109 claimed [P]; **Vietnamese unverified** | EN/ZH + 100 demonstrated [P] | EN/ZH focus | via EasyOCR (incl. `vi`) [M] |
+| OmniDocBench | v1.5 SOTA overall/text/formula/table/reading-order [P]; 96.33 overall v1.6 (vendor) [P] | Table TEDS 88.6 EN / 89.0 ZH; overall edit 0.125 EN / 0.160 ZH [P] | 95.69 overall v1.6 (Pro) [P]; Table TEDS 93.42 / TEDS-S 95.92 [P] | our pipeline: table TEDS 0.4514 on 100-page subset [M] |
+| Table capability | strong [P] | strong [P] | **struct 1.0000 on all 5 of our residual hard tables** [M] | baseline [M] |
+| Formula | yes [P] | comparable to much larger models [P] | yes [P] | **not active in our baseline** [M] |
+| Reading order | yes (absolute order predicted) [P] | SOTA [P] | yes [P] | geometric heuristic [M] |
+| Inference | PaddleOCR / vLLM / transformers; quantised variants | transformers / vLLM | transformers / vLLM / SGLang | native |
+| CPU support | yes | yes (slow) | transformers path works [M] | yes [M] |
+| VRAM | not stated [P] | not stated [P] | 8 GiB for VLM engines [P] | ~CPU-friendly |
+| Integration complexity | medium (new stack) | medium | **low — adapter already exists** [M] | zero (current) |
+| Production suitability | **highest** (permissive + smallest + multilingual) [I] | high (permissive, larger) [I] | **licence-gated** [I] | current baseline |
+
+**All four run fully locally with no external API** — the enterprise
+constraint (§19) does not discriminate between them. **Licence and
+verified language support do.**
+
+## Table / layout / OCR specialists
+
+| | Table Transformer | TableFormer (Docling) | PP-DocLayoutV3 | EasyOCR |
+|---|---|---|---|---|
+| Role | table detection + structure | table structure | layout | OCR |
+| Licence | MIT weights, Apache-2.0 code [P] | MIT [P] | Apache-2.0 [P] | Apache-2.0 [P] |
+| Status here | active [M] | active [M] | not integrated | active [M] |
+| Known limitation | single-scale DETR; needs a crop (0.0675→0.9434 on same region) [M]; nondeterministic across processes [M] | returns nothing on all 5 residual hard crops [M] | — | Chinese needs `ch_sim`; cannot combine with `vi` [M] |
+
+## Ordering for the A30 phase
+
+1. **PaddleOCR-VL first** — Apache-2.0, smallest, strongest published
+   OmniDocBench numbers, claims the multilingual coverage this project
+   actually needs. Gate: **verify Vietnamese directly.**
+2. **dots.ocr second** — MIT, permissive fallback if Vietnamese fails.
+3. **MinerU2.5 only if a permissive model is materially worse** — it is
+   the one we have measured [M] and it has a working adapter, but AGPL-3.0
+   weights need legal review before production. Do not spend that review
+   until the benchmark shows it is worth it.
+
+This ordering is licence-led on purpose and costs nothing: if a permissive
+model matches MinerU2.5 on our residual failures, the AGPL question never
+needs answering. See `docs/model_licenses.md`.

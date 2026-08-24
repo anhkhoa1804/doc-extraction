@@ -191,10 +191,22 @@ class MinerUBackend:
         return is_available()
 
     def convert(self, path: Path, config: Any) -> Document:
+        detail = (
+            "the full `mineru` package is not installed in this environment"
+            if not is_available()
+            else "whole-document conversion is not implemented for this backend yet"
+        )
+        extra = (
+            " Note: `mineru-vl-utils` IS importable here, so MinerU2.5 is usable as a *table "
+            "candidate source* via MinerUVLTableBackend.native_tables() — it is only "
+            "whole-document `convert()` that is unavailable."
+            if is_vl_available()
+            else ""
+        )
         raise BackendUnavailableError(
-            "mineru is not installed in this environment. "
+            f"MinerU whole-document backend unavailable: {detail}. "
             "Install with `pip install -e '.[mineru]'` after verifying the current "
-            "package name/version and model download size upstream — see docs/backends.md."
+            f"package name/version and model download size upstream — see docs/backends.md.{extra}"
         )
 
 
