@@ -1,0 +1,122 @@
+{
+    "page-b527edec-3363-4d38-a390-2f3a307f2392.png_[0]": {
+        "TEDS": 0.7126811594202899,
+        "TEDS_structure_only": 0.8913043478260869
+    },
+    "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "page-69c15957-4d6d-485c-a244-04a1a8d29d37.png_[0]": {
+        "TEDS": 0.6370159059047948,
+        "TEDS_structure_only": 0.9222222222222223
+    },
+    "page-5cb4b2fe-c14d-450e-9b97-4b6e7c99493b.png_[0]": {
+        "TEDS": 0.930953397907111,
+        "TEDS_structure_only": 1.0
+    },
+    "eastmoney_7cae1642250a3dbabfef7624d3424ec6e162ae91c8de4acfa89a9779092b0189.pdf_16.jpg_[0]": {
+        "TEDS": 0.907306344004245,
+        "TEDS_structure_only": 0.9857142857142858
+    },
+    "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg_[0]": {
+        "TEDS": 0.5048186785891704,
+        "TEDS_structure_only": 0.5901639344262295
+    },
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61521384.pdf_750.jpg_[0]": {
+        "TEDS": 0.44928325381232936,
+        "TEDS_structure_only": 0.593939393939394
+    },
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63688043.pdf_110.jpg_[0]": {
+        "TEDS": 0.37037037037037035,
+        "TEDS_structure_only": 0.37037037037037035
+    },
+    "yanbaor2_ey-global-fintech-adoption-index.pdf_30.jpg_[0]": {
+        "TEDS": 0.7160557391326623,
+        "TEDS_structure_only": 0.717948717948718
+    },
+    "docstructbench_llm-raw-scihub-o.O-ceat.200407001.pdf_3.jpg_[0]": {
+        "TEDS": 0.24035445757250262,
+        "TEDS_structure_only": 0.5142857142857142
+    },
+    "docstructbench_llm-raw-scihub-o.O-s10653-010-9369-8.pdf_11.jpg_[0]": {
+        "TEDS": 0.8553908753584079,
+        "TEDS_structure_only": 0.9642857142857143
+    },
+    "jiaocaineedrop_46.pdf_1.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.jpg_[0]": {
+        "TEDS": 0.8534958681074389,
+        "TEDS_structure_only": 1.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_1349.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_1898.jpg_[0]": {
+        "TEDS": 0.02210526315789485,
+        "TEDS_structure_only": 0.030000000000000027
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_2540.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_2901.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_2901.jpg_[1]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "jiaocaineedrop_jiaocai_needrop_en_922.jpg_[0]": {
+        "TEDS": 0.0,
+        "TEDS_structure_only": 0.0
+    },
+    "notes_1ba14cb325bc448f7201b20502ecf2b5_81.jpg_[0]": {
+        "TEDS": 0.13055555555555554,
+        "TEDS_structure_only": 0.33333333333333337
+    },
+    "newspaper_bf784eedb0c377adb9a0f286954af785_2.jpg_[0]": {
+        "TEDS": 0.6650569703535454,
+        "TEDS_structure_only": 1.0
+    },
+    "eastmoney_03e39833d520af7d1abb96dd624dcd15f2b57d061969d196e80922e2f590503f.pdf_22.jpg_[0]": {
+        "TEDS": 0.817063492063492,
+        "TEDS_structure_only": 1.0
+    },
+    "eastmoney_8e0ecdad6ea6edd7014a328fa79e4b69230c1b4f82cc031dd247c3c1c39744cf.pdf_11.jpg_[0]": {
+        "TEDS": 0.763057748351866,
+        "TEDS_structure_only": 0.8639455782312925
+    },
+    "eastmoney_d2bb183f5254ede5760932ac3118524aa7eddad551935713b435541f1525c1ee.pdf_7.jpg_[0]": {
+        "TEDS": 0.8287037037037037,
+        "TEDS_structure_only": 1.0
+    },
+    "yanbaopptmerge_0c79d327060dbf9f1582d03c235dadb039533a19091d2c0d24f2ad95d267f79b.pdf_2.jpg_[0]": {
+        "TEDS": 0.41479573058520425,
+        "TEDS_structure_only": 0.696969696969697
+    },
+    "yanbaopptmerge_903cf6cd7820b5463e95c5aaab9f16134f9853cd7963567497337527e73b9bcc.pdf_7.jpg_[0]": {
+        "TEDS": 0.9021706620563137,
+        "TEDS_structure_only": 0.9761904761904762
+    },
+    "yanbaor2_0aa9545ccbc482a37e3b55c96897f0f24cee08bb80c7addfb0c219814af44a3b.pdf_27.jpg_[0]": {
+        "TEDS": 0.051136363636363646,
+        "TEDS_structure_only": 0.06818181818181823
+    },
+    "book_zh_DLT10902008_extracted_page_8.png_[0]": {
+        "TEDS": 0.24583333333333335,
+        "TEDS_structure_only": 0.3157894736842105
+    },
+    "book_zh_HGT51022016_extracted_page_12.png_[0]": {
+        "TEDS": 0.2222222222222222,
+        "TEDS_structure_only": 0.41666666666666663
+    }
+}

@@ -801,41 +801,99 @@ def _gather_extra_table_candidates(
     return results
 
 
+_TABLE_MATCH_MIN_IOU = 0.1
+
+
 def _apply_native_table_fallback(table_result: "TableResult", ocr_backend: OCRBackend, page: PageInput) -> None:
-    """For each table_backend-detected table, compare it against every
-    extra candidate source this OCR backend exposes for the same page (see
-    _gather_extra_table_candidates) and keep whichever candidate is best
-    populated. Each extra source is matched to the primary table
-    geometrically (highest bbox IoU), since independent backends detect
-    table regions independently and won't agree on exact boundaries
-    pixel-for-pixel."""
+    """Reconcile the primary table backend's tables with every extra
+    candidate source this OCR backend exposes for the same page (see
+    _gather_extra_table_candidates).
+
+    Two distinct things happen, and the second one matters as much as the
+    first (measured — see experiments/005_omnidocbench/hard_tables/):
+
+    1. **Compare**, where both a primary table and an extra candidate
+       cover the same region (highest bbox IoU, since independent backends
+       won't agree on exact boundaries pixel-for-pixel): keep whichever
+       candidate is better populated.
+    2. **Add**, where an extra source found a table the primary backend
+       produced *nothing* for. Previously these were discarded: the loop
+       only ever replaced tables the primary had already produced, so when
+       `TableTransformerBackend._recognize_structure` found no row/column
+       grid (returning None, emitting no Table at all), a perfectly good
+       second candidate for that same region was silently dropped. That is
+       not a model capability gap — it was an asymmetry in this function.
+       Measured on the 100-page subset: every ground-truth table with <= 2
+       rows scored exactly 0.0 TEDS (7/7), and on inspected cases Docling's
+       own TableFormer had produced the correct structure for that exact
+       region (e.g. a 2x12 answer-key table, all 18 cells populated, bbox
+       matching ground truth to within a few pixels) while Table
+       Transformer's structure model returned nothing for the same crop.
+
+    An extra candidate is only *added* when it actually carries content
+    (at least one non-empty cell). An empty grid would replace whatever
+    region text the page would otherwise emit for that area with nothing
+    of value — "only add a candidate that extracted something" is the same
+    general principle the comparison step already uses.
+    """
     extra_source_results = _gather_extra_table_candidates(ocr_backend, page)
     if not extra_source_results:
         return
-    for i, table in enumerate(table_result.tables):
-        if table.bbox is None:
-            continue
-        candidates = [make_table_candidate(table)]
-        for alternatives in extra_source_results:
-            best_match = max(
-                alternatives, key=lambda t: (t.bbox.iou(table.bbox) if t.bbox else 0.0), default=None
-            )
-            if best_match is None or best_match.bbox is None or best_match.bbox.iou(table.bbox) <= 0.1:
+
+    for alternatives in extra_source_results:
+        claimed: set[int] = set()
+        for i, table in enumerate(table_result.tables):
+            if table.bbox is None:
                 continue
-            candidates.append(make_table_candidate(best_match))
-        if len(candidates) < 2:
-            continue
-        best = select_best_table_candidate(candidates)
-        if best is not None and best.table is not table:
-            table_result.tables[i] = Table(
-                id=table.id,
-                bbox=table.bbox,
-                page_number=table.page_number,
-                n_rows=best.table.n_rows,
-                n_cols=best.table.n_cols,
-                cells=best.table.cells,
-                source_backend=f"{best.table.source_backend}+fallback",
-                confidence=best.table.confidence,
+            best_j: int | None = None
+            best_iou = _TABLE_MATCH_MIN_IOU
+            for j, alt in enumerate(alternatives):
+                if j in claimed or alt.bbox is None:
+                    continue
+                iou = alt.bbox.iou(table.bbox)
+                if iou > best_iou:
+                    best_j, best_iou = j, iou
+            if best_j is None:
+                continue
+            claimed.add(best_j)
+            best = select_best_table_candidate(
+                [make_table_candidate(table), make_table_candidate(alternatives[best_j])]
+            )
+            if best is not None and best.table is not table:
+                table_result.tables[i] = Table(
+                    id=table.id,
+                    bbox=table.bbox,
+                    page_number=table.page_number,
+                    n_rows=best.table.n_rows,
+                    n_cols=best.table.n_cols,
+                    cells=best.table.cells,
+                    source_backend=f"{best.table.source_backend}+fallback",
+                    confidence=best.table.confidence,
+                )
+
+        # Regions this source found a table for that the primary backend
+        # produced no table for at all — add rather than discard (see 2.).
+        existing_ids = {t.id for t in table_result.tables}
+        for j, alt in enumerate(alternatives):
+            if j in claimed or not any(c.text for c in alt.cells):
+                continue
+            table_id = alt.id
+            suffix = 0
+            while table_id in existing_ids:
+                suffix += 1
+                table_id = f"{alt.id}-{suffix}"
+            existing_ids.add(table_id)
+            table_result.tables.append(
+                Table(
+                    id=table_id,
+                    bbox=alt.bbox,
+                    page_number=alt.page_number,
+                    n_rows=alt.n_rows,
+                    n_cols=alt.n_cols,
+                    cells=alt.cells,
+                    source_backend=f"{alt.source_backend}+recovered",
+                    confidence=alt.confidence,
+                )
             )
 
 

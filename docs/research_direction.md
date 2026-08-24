@@ -153,6 +153,12 @@ logic. `select_better_populated_table` and `_apply_native_table_fallback`
 are now thin, behavior-preserving wrappers over it (all 10 pre-existing
 tests pass unchanged; 9 new tests cover the general primitive directly).
 
+**Superseded in part — see the "Hard-table capability analysis" addendum
+at the end of this document.** A later session found that the 100-page
+both-fail statistic quoted below was contaminated by evaluator timeouts,
+and that half the remaining both-fail region was this pipeline discarding
+candidates it had already produced, not a model capability gap.
+
 **Revised verdict:** this is a validated, real engineering improvement
 with a well-understood, appropriately-bounded ceiling — not (yet) a
 generalizable "confidence-aware ranking" research result. The available
@@ -165,3 +171,44 @@ larger-subset check below) and is not pursued on this evidence. See
 `docs/research_proposal.md` for the full writeup, and the "100-page
 validation" addition in `observations.md` for whether this ceiling holds
 at scale.
+
+## Hard-table capability analysis addendum
+
+Full evidence: `experiments/005_omnidocbench/hard_tables/failure_taxonomy.md`
+and `observations.md` sections 18-23.
+
+Asking *why* both specialists fail on the same tables produced two
+findings that revise the picture above.
+
+**1. A measurement artifact, not a capability statistic.** The upstream
+evaluator scores a TEDS comparison exceeding a 120-second wall-clock
+timeout as `0.0` — indistinguishable from genuine failure. Re-evaluating
+byte-identical 100-page predictions on an unloaded machine changed
+`table TEDS.all` from 0.2743 to **0.4080** and the both-fail count from
+14/30 to **8/30**, with every non-TEDS metric bit-identical. The claim
+that both-fail was worse at scale (47%) than in the small sample (29%) is
+**withdrawn**: the corrected 27% matches the small sample. Table metrics
+on this benchmark are only valid when the evaluator log contains no
+`[TEDS-timeout]` lines.
+
+**2. Half the real both-fail region was never a model failure.** Of the 8
+genuine cases, 3 are the composition layer discarding a candidate it
+already had (Docling's TableFormer produced the correct structure — on one
+page a 2x12 answer-key table with all 18 cells populated and a bbox within
+~2px of ground truth — while Table Transformer produced nothing for the
+same crop, and the reconciliation loop only ever *replaced* primary tables,
+never *added* a missing one), and 1 is a table produced but never
+referenced by any element. Only 4/8 are a genuine shared gap, and that gap
+is at **detection**, not structure: the failing family is small, wide,
+1-2 row banner tables (every table with <= 2 GT rows scored exactly 0.0,
+7/7; `exam_paper` 6/6) that neither backend detects as a table at all.
+
+Notably, **"both models detect the table and both produce similar wrong
+structure" occurs 0 times out of 8.** Where both engage, one succeeds. So
+the composition thesis is *more* right than the earlier writeup credited —
+the ceiling it appeared to hit was substantially an artifact plus an
+implementation asymmetry, not a shared capability limit.
+
+This also settles the "is a third candidate model justified" question for
+now: **no.** A third structure specialist would address 0 of the 8 cases.
+The open direction is small-region *detection* recall.

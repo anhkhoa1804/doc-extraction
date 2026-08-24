@@ -1,0 +1,196 @@
+{
+  "description": "Multi-label failure taxonomy for every table scoring 0.0 TEDS on the 100-page subset, derived by replaying the exact production table path (layout -> OCR -> table backend -> cell text -> candidate reconciliation -> merge -> markdown) per page and recording where the table is lost.",
+  "measurement_note": "All TEDS values measured with OMNIDOCBENCH_TEDS_TIMEOUT_SEC=1800. The upstream evaluator scores a TEDS wall-clock timeout as 0.0, indistinguishable from a real failure; at the default 120s this contaminated an earlier measurement.",
+  "tables": [
+    {
+      "table_id": "jiaocaineedrop_46.pdf_1.jpg_[0]",
+      "page_id": "jiaocaineedrop_46.pdf_1.jpg",
+      "gt_rows": 2,
+      "gt_cols": 7,
+      "gt_area_pct_of_page": 2.15,
+      "data_source": "exam_paper",
+      "language": "simplified_chinese",
+      "teds": 0.0,
+      "category": "shared_detection_failure",
+      "failure_labels": [
+        "detection: table completely missed (all sources)"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 0,
+        "tt_tables": 0,
+        "docling_native": [],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "jiaocaineedrop_jiaocai_needrop_en_1349.jpg_[0]",
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_1349.jpg",
+      "gt_rows": 2,
+      "gt_cols": 9,
+      "gt_area_pct_of_page": 2.68,
+      "data_source": "exam_paper",
+      "language": "simplified_chinese",
+      "teds": 0.0,
+      "category": "composition_layer_loss",
+      "failure_labels": [
+        "structure: primary backend found no row/column grid",
+        "serialization: viable second candidate discarded by composition layer"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 1,
+        "tt_tables": 0,
+        "docling_native": [
+          [
+            1,
+            6,
+            6
+          ]
+        ],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "jiaocaineedrop_jiaocai_needrop_en_2540.jpg_[0]",
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_2540.jpg",
+      "gt_rows": 2,
+      "gt_cols": 13,
+      "gt_area_pct_of_page": 2.75,
+      "data_source": "exam_paper",
+      "language": "simplified_chinese",
+      "teds": 0.0,
+      "category": "composition_layer_loss",
+      "failure_labels": [
+        "structure: primary backend found no row/column grid",
+        "serialization: viable second candidate discarded by composition layer"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 1,
+        "tt_tables": 0,
+        "docling_native": [
+          [
+            2,
+            12,
+            18
+          ]
+        ],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "jiaocaineedrop_jiaocai_needrop_en_2901.jpg_[0]",
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_2901.jpg",
+      "gt_rows": 2,
+      "gt_cols": 2,
+      "gt_area_pct_of_page": 2.31,
+      "data_source": "exam_paper",
+      "language": "en_ch_mixed",
+      "teds": 0.0,
+      "category": "shared_detection_failure",
+      "failure_labels": [
+        "detection: table completely missed (all sources)"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 0,
+        "tt_tables": 0,
+        "docling_native": [],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "jiaocaineedrop_jiaocai_needrop_en_2901.jpg_[1]",
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_2901.jpg",
+      "gt_rows": 2,
+      "gt_cols": 2,
+      "gt_area_pct_of_page": 1.46,
+      "data_source": "exam_paper",
+      "language": "en_ch_mixed",
+      "teds": 0.0,
+      "category": "shared_detection_failure",
+      "failure_labels": [
+        "detection: table completely missed (all sources)"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 0,
+        "tt_tables": 0,
+        "docling_native": [],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "jiaocaineedrop_jiaocai_needrop_en_922.jpg_[0]",
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_922.jpg",
+      "gt_rows": 2,
+      "gt_cols": 13,
+      "gt_area_pct_of_page": 5.18,
+      "data_source": "exam_paper",
+      "language": "en_ch_mixed",
+      "teds": 0.0,
+      "category": "composition_layer_loss",
+      "failure_labels": [
+        "structure: primary backend found no row/column grid",
+        "serialization: viable second candidate discarded by composition layer"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 1,
+        "tt_tables": 0,
+        "docling_native": [
+          [
+            2,
+            6,
+            7
+          ]
+        ],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png_[0]",
+      "page_id": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png",
+      "gt_rows": 1,
+      "gt_cols": 3,
+      "gt_area_pct_of_page": 4.19,
+      "data_source": "academic_literature",
+      "language": "simplified_chinese",
+      "teds": 0.0,
+      "category": "shared_detection_failure",
+      "failure_labels": [
+        "detection: table completely missed (all sources)"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 0,
+        "tt_tables": 0,
+        "docling_native": [],
+        "tables_after_fallback": 0,
+        "final_pipe_lines": 0
+      }
+    },
+    {
+      "table_id": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png_[0]",
+      "page_id": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png",
+      "gt_rows": 4,
+      "gt_cols": 4,
+      "gt_area_pct_of_page": 63.42,
+      "data_source": "research_report",
+      "language": "simplified_chinese",
+      "teds": 0.0,
+      "category": "orphaned_table",
+      "failure_labels": [
+        "detection: no layout table region to anchor the detected table",
+        "serialization: detected table orphaned, never referenced by any element"
+      ],
+      "stage_evidence": {
+        "layout_table_regions": 0,
+        "tt_tables": 1,
+        "docling_native": [],
+        "tables_after_fallback": 1,
+        "final_pipe_lines": 0
+      }
+    }
+  ]
+}

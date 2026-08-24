@@ -280,3 +280,79 @@ stopped after the first untested page ran past 850 CPU-seconds — see
 **Decision: composition is a validated, bounded engineering improvement,
 not (yet) a generalizable confidence-aware-ranking research result.** See
 `docs/research_proposal.md` for the full writeup and rationale.
+
+## Hard-table capability analysis and candidate-recovery fix
+
+Full evidence, taxonomy, and methodology:
+`experiments/005_omnidocbench/hard_tables/failure_taxonomy.md`,
+`observations.md` sections 18-23.
+
+**Correction first:** the "47% both-fail at 100 pages" figure quoted above
+was contaminated by an upstream evaluator wall-clock timeout (TEDS
+comparisons over 120s score `0.0`, indistinguishable from real failure).
+Re-evaluated timeout-free: `table TEDS.all` **0.4080** (not 0.2743),
+both-fail **8/30 (27%)**, matching the 20-page sample's 29% — the "worse
+at scale" claim is withdrawn.
+
+Of the 8 genuine both-fail tables, 3 were the composition layer
+(`_apply_native_table_fallback`) discarding a real candidate: it only
+*replaced* tables the primary backend (Table Transformer) had already
+detected, never *added* one the primary missed entirely. On all 3, Table
+Transformer returned nothing (no row/column grid) for a short, wide table
+crop, while Docling's own TableFormer had already produced a correct or
+near-correct structure for the identical region — on one, an 18/18-cell
+answer-key table with bbox within ~2px of ground truth.
+
+**Fix:** `_apply_native_table_fallback` now adds an unmatched extra
+candidate (guarded: must have >=1 non-empty cell) instead of only
+comparing matched ones; `merge_regions_into_page` falls back to region OCR
+text when a table region matches no detected `Table`, instead of emitting
+neither table nor text.
+
+| Metric | before | after | delta |
+| --- | ---: | ---: | ---: |
+| table TEDS.all | 0.4080 | **0.4514** | **+0.0434** |
+| table TEDS_structure_only.all | 0.5084 | **0.5734** | **+0.0650** |
+| table Edit_dist (ALL_page_avg) | 0.7177 | **0.6792** | **-0.0384** (improvement) |
+| text_block Edit_dist (ALL_page_avg) | 0.4869 | 0.4870 | +0.0001 (noise) |
+| reading_order Edit_dist (ALL_page_avg) | 0.4921 | 0.4912 | -0.0008 (noise) |
+| display_formula Edit_dist (ALL_page_avg) | 0.9951 | 0.9951 | 0.0000 |
+
+**Per-table: exactly the 3 targeted tables moved, all 27 others
+bit-identical.** `..._en_2540` 0.0000 -> 0.6429 (structure-only 0.9643),
+`..._en_922` 0.0000 -> 0.4464, `..._en_1349` 0.0000 -> 0.2114. Both-fail
+count 8/30 -> 5/30; the remaining 5 are exactly the tables this fix does
+not target (4 shared-detection-failure, 1 unaddressed orphaned-table
+case), as predicted before running the experiment.
+
+**A second timeout artifact was caught during this experiment itself**
+(12 timeouts even at a raised 1800s cap on a machine that had just resumed
+from an OS sleep suspend mid-run) and resolved by re-evaluating on an idle
+machine (0 timeouts, all 27 unaffected tables matched to 4 decimals). The
+numbers above are from that clean run — see `observations.md` section 22
+for the full account, kept rather than hidden per this project's rigor
+standard.
+
+```
+Hypothesis: the composition layer's reconciliation loop only iterates over
+  primary-backend tables, so a region where the primary found nothing gets
+  no comparison at all, regardless of what an extra candidate source found.
+Change: pipelines/base.py -- _apply_native_table_fallback appends unmatched,
+  non-empty extra candidates instead of discarding them; merge_regions_into_page
+  falls back to region OCR text for an unmatched table region.
+Evidence before: 3 real pages traced through the exact production path,
+  each showing Docling producing a real table for a region Table Transformer
+  returned nothing for.
+Evidence after: table TEDS.all +0.0434, structure_only +0.0650, table
+  Edit_dist -0.0384 (also improved), zero regressions on any of the other
+  27 tables, text_block/reading_order/display_formula within noise.
+Regression?: none found. pytest -q: 185 passed (7 new tests, 3 confirmed
+  to fail against pre-fix code).
+```
+
+**Decision: the composition-layer asymmetry was real, well-evidenced, and
+fixed with a small, general, table-local change.** The remaining both-fail
+region (5/30, 17%) is a genuine shared detection-recall gap on small,
+borderless, few-row banner tables -- not addressed by this change, and not
+justifying a third structure model (in every case where a region was
+detected, an existing model already produced a usable structure).

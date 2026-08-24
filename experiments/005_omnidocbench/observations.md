@@ -930,3 +930,259 @@ rounded up to "confirmed at scale":**
   matching slowness (worth investigating in its own right — it may point
   to a real serialization issue on large/dense tables, separate from this
   experiment) could complete this.
+
+  **Follow-up: that per-page slowness turned out to matter far more than
+  suspected here — see section 18, which shows it was silently
+  manufacturing zero scores and contaminating this very section's
+  headline number.**
+
+# Hard-table capability analysis
+
+New owner session. Question posed: *why do both table specialists fail on
+the same tables, and can a new capability close part of that shared
+failure region?* The investigation began by rebuilding the both-fail
+corpus from primary evidence — and the first result invalidated the
+premise. Artifacts: `hard_tables/both_fail_100.json`,
+`hard_tables/failure_taxonomy.json`, `hard_tables/failure_taxonomy.md`.
+
+## 18. The 47% both-fail figure was a measurement artifact
+
+Regenerating the per-table debug output for `local_table_ensemble_100`
+required re-running the evaluator over the **byte-identical predictions**.
+The re-run disagreed with the stored result: 8 zero-TEDS tables, not 14.
+
+Cause, traced to upstream source: `_evaluate_teds_pair_with_timeout` in
+`.external/OmniDocBench/src/metrics/cal_metric.py` returns `0.0, 0.0` when
+a single TEDS comparison exceeds a **120-second wall-clock timeout**. The
+returned zero is indistinguishable from a genuine extraction failure in
+both the per-table output and the aggregate mean. `cal_metric.py` is
+unmodified at the pinned commit (`git diff` clean) — upstream behaviour,
+not something this project introduced.
+
+The original 100-page evaluation logged **9 `[TEDS-timeout]` events**; a
+re-evaluation on an unloaded machine logged **zero**. Same predictions,
+same ground truth, same evaluator commit:
+
+| Metric | as reported (sections 10, 17) | correct | delta |
+|---|---:|---:|---:|
+| `table TEDS.all` | 0.2743 | **0.4080** | **+0.1337** |
+| `table TEDS_structure_only.all` | 0.3504 | **0.5084** | **+0.1579** |
+| both-fail tables | 14/30 (47%) | **8/30 (27%)** | -6 |
+| `text_block`, `reading_order`, `display_formula`, `table Edit_dist` | — | *bit-identical* | 0.0000 |
+
+Every non-TEDS metric is unchanged to four decimals — confirming the
+mechanism is precisely the TEDS timeout and nothing else. Two independent
+timeout-free runs (default 120s on an idle machine, and
+`OMNIDOCBENCH_TEDS_TIMEOUT_SEC=1800`) agree on all 30 tables to 1e-9, so
+the corrected values are reproducible, not a second lucky draw.
+
+Six tables previously recorded as "both models failed" in fact score
+0.3704-0.9310 — one of them 0.9310 with `TEDS_structure_only = 1.0000`,
+i.e. a perfectly recovered structure logged as a total failure.
+
+**Corrections to the prior record, stated plainly:**
+
+- The section 10/17 claim that both-fail is *more* common at scale (47%)
+  than the 20-page sample implied (29%) is **withdrawn**. The corrected
+  27% is statistically indistinguishable from 2/7. The small sample was
+  right, and the "larger sample sharpens the scope claim downward"
+  narrative was itself the artifact.
+- `local_table_ensemble_100`'s table TEDS is **0.4080**, not 0.2743. The
+  stored `results/local_table_ensemble_100/metrics.json` retains the
+  contaminated values (it is the untouched record of that run); the
+  corrected re-evaluation lives in `results/_hardtable_scan_notimeout/`.
+- Operational rule going forward: **any run whose evaluator log contains
+  `[TEDS-timeout]` is invalid for table metrics.** Set
+  `OMNIDOCBENCH_TEDS_TIMEOUT_SEC` high enough that wall-clock never
+  decides a score. The evaluator itself is not modified, and timeout pages
+  are not removed from the benchmark.
+
+## 19. The hard-table population is one coherent family
+
+All 30 ground-truth tables in the subset, by ground-truth row count:
+
+| GT rows | n | mean TEDS | scoring exactly 0.0 |
+|---|---:|---:|---:|
+| **<= 2** | 7 | **0.0000** | **7 / 7 (100%)** |
+| > 2 | 23 | 0.5322 | 1 / 23 (4%) |
+
+The separation is essentially perfect. By document source the same family
+appears as `exam_paper` **6/6 tables at 0.0**, against at most one zero in
+any other source. These are short, wide banner tables at **1.5-5.2% of
+page area**: exam answer keys, score boxes, two-cell grammar fill-ins. The
+single >2-row member (`page-d29fe4d2`, 4x4, 63% of page) fails by a
+different mechanism.
+
+Correlation summary: failure tracks **row count and table area**, not
+language (all 30 tables are Chinese or mixed), not cell count, and not
+merged-cell complexity — the failing tables are the *structurally
+simplest* ones in the subset.
+
+## 20. "Both-fail" decomposes into three mechanisms — half are ours
+
+Each of the 8 classified by replaying the exact production path per page:
+
+| Category | Tables | % | Model capability gap? |
+|---|---:|---:|---|
+| **Composition-layer loss** | 3 | 37.5% | **No** — a viable candidate existed, and was discarded |
+| Shared detection failure | 4 | 50.0% | **Yes** — no source found a region |
+| Orphaned table | 1 | 12.5% | **No** — table produced, never referenced |
+
+Against the Case A/B/C framing: **Case A (both detect, both produce
+similar wrong structure) is 0 of 8 — not observed at all.** Case B is 3/8,
+Case C is 4/8. Wherever both models actually engaged with a table they did
+*not* share a blind spot; one of them got it substantially right. The
+genuinely shared blind spot is at **detection**, never at structure.
+
+### The composition-layer loss (3 tables), verified per page
+
+| Page | GT | Docling's own candidate | Table Transformer | Emitted |
+|---|---|---|---|---|
+| `..._en_2540` | 2x13 | **2x12, 18/18 cells filled, bbox within ~2px of GT** | none | **nothing** |
+| `..._en_922` | 2x13 | 2x6, 7 filled | none | **nothing** |
+| `..._en_1349` | 2x9 | 1x6, 6 filled | none | **nothing** |
+
+On all three, Docling's layout correctly located the region and Docling's
+TableFormer produced a real table for it. Table Transformer's structure
+model returned no row/column grid for the same crop (a short, very wide
+strip), so `extract()` emitted no `Table` at all — and
+`_apply_native_table_fallback` iterated over the primary backend's tables
+to compare each against alternatives, so **with zero primary tables the
+loop body never ran** and the good candidate was dropped. The element got
+`table_id=None` and serialized to nothing.
+
+The composition layer could only ever *replace* a table the primary had
+found; it could never *add* one the primary had missed. That asymmetry —
+not a model capability gap — accounts for 3 of the 8.
+
+## 21. Experiment
+
+```
+Hypothesis: A material fraction of the both-fail region is candidates the
+  pipeline already produced and then discarded, not capability gaps. Making
+  the composition layer able to ADD an unmatched candidate (not only
+  replace a matched one) recovers them.
+Expected mechanism: TableTransformerBackend returns no Table for short/wide
+  crops; Docling's TableFormer handles them; the reconciliation loop never
+  executes when the primary list is empty.
+Change: pipelines/base.py - _apply_native_table_fallback gains a recovery
+  pass appending extra-source candidates that matched no primary table
+  (guarded: only candidates with >=1 non-empty cell, plus id-collision
+  handling). Separately, merge_regions_into_page now falls back to region
+  OCR text when a table-labelled region matches no Table, instead of
+  emitting an element with neither table nor text (a second, independent
+  content-loss path found in the same trace).
+Metric expected to improve: table TEDS.all, TEDS_structure_only.all.
+Potential regression: recovered tables are added where previously the
+  region's flattened text was emitted, so text_block could move; a
+  spurious candidate in a non-table region would add noise.
+Success criterion: table TEDS improves on the 100-page subset (which
+  contains all 3 recoverable cases) with text_block/reading_order not
+  materially worse.
+```
+
+Note on subset choice: the **20-page subset contains none of the three
+recoverable cases** (its only both-fail tables are `page-28657a85` and
+`jiaocaineedrop_46`, both genuine shared detection failures). The 20-page
+run is therefore a *regression check*, not a test of the hypothesis; the
+100-page subset is the actual experiment. Stated in advance rather than
+discovered afterwards.
+
+## 22. Result
+
+100-page run with the fix, `results/local_recovered_100/`, evaluated with
+`OMNIDOCBENCH_TEDS_TIMEOUT_SEC=1800`. Baseline for comparison is the
+corrected re-evaluation of the same 100 pages,
+`results/local_table_ensemble_100_corrected/` (table TEDS.all 0.4080) —
+NOT the contaminated stored value in `local_table_ensemble_100/`.
+
+**A second timeout artifact appeared during this run and was caught and
+fixed before trusting the numbers** (documented here rather than silently
+corrected, per this project's standing rigor practice): the first
+evaluation of the fixed predictions logged 12 `[TEDS-timeout]` events even
+at the raised 1800s threshold — a different, larger set than the 9 seen at
+120s in section 18. Cross-checking confirmed all 12 timeout image IDs
+overlapped exactly with 12 of that run's 14 zero-TEDS tables (the other 2
+zeros, both `..._en_2901`, are the genuine shared-detection-failure cases
+and were not in the timeout list). Re-running the evaluator a second time
+on an otherwise-idle machine (0 other Python processes, confirmed) reduced
+timeouts to **zero**; per-table TEDS for all 27 unaffected tables matched
+the first evaluation to 4 decimal places, and only the timeout-affected
+tables changed — consistent with system CPU contention (the same 100-page
+`prepare` run had just been resumed from a several-hour OS sleep suspend,
+and `--match-workers 4` runs multiple TEDS computations concurrently)
+inflating wall-clock time past even a 30-minute cap for large tables under
+load, not a change in the tables' actual complexity. **All table numbers
+below are from the second, zero-timeout evaluation.**
+
+| Metric | baseline (corrected, no fix) | recovered (with fix) | delta |
+|---|---:|---:|---:|
+| `table TEDS.all` | 0.4080 | **0.4514** | **+0.0434** |
+| `table TEDS_structure_only.all` | 0.5084 | **0.5734** | **+0.0650** |
+| `table Edit_dist.ALL_page_avg` | 0.7177 | **0.6792** | **-0.0384** (improvement — lower is better) |
+| `text_block Edit_dist.ALL_page_avg` | 0.4869 | 0.4870 | +0.0001 (noise) |
+| `reading_order Edit_dist.ALL_page_avg` | 0.4921 | 0.4912 | -0.0008 (noise) |
+| `display_formula Edit_dist.ALL_page_avg` | 0.9951 | 0.9951 | 0.0000 |
+
+**Full per-table diff, all 30 tables — the clean result the taxonomy
+predicted:**
+
+| Table | before | after | |
+|---|---:|---:|---|
+| `..._en_2540` | 0.0000 | **0.6429** (structure-only **0.9643**) | recovered — hypothesis target |
+| `..._en_922` | 0.0000 | **0.4464** | recovered — hypothesis target |
+| `..._en_1349` | 0.0000 | **0.2114** | recovered — hypothesis target |
+| all other 27 tables | — | — | **bit-identical, delta 0.0000 on every one** |
+
+Zero-TEDS count: **8/30 (27%) -> 5/30 (17%)**. The remaining 5 are exactly
+the 4 shared-detection-failure tables (`jiaocaineedrop_46`, both
+`..._en_2901` tables, `page-28657a85`) and the 1 orphaned-table case
+(`page-d29fe4d2`) — precisely the tables section 20 predicted this change
+would *not* touch, because neither mechanism is what this fix addresses.
+No table outside the 3 targeted ones moved by more than floating-point
+noise in either direction. This is as close to a fully-predicted,
+fully-explained result as this investigation has produced.
+
+**Regression check, explicit:** `text_block`/`reading_order`/
+`display_formula` moved by at most 0.0008 — noise, not signal — confirming
+the change is exactly as table-local as the two edits in `pipelines/base.py`
+were designed to be. `table Edit_dist` improved alongside TEDS rather than
+trading off against it (both edit-distance and tree-similarity metrics
+agree the recovered tables are genuinely better, not just differently
+structured). `pytest -q`: 185 passed (178 + 7 new, 3 of which were
+confirmed to fail against the pre-fix code before the fix was applied).
+
+**Runtime note, so it is not misread:** the reported `mean_seconds_per_page`
+for this run (338s, vs. ~70s in earlier runs) is **not a real regression** —
+`prepare.py`'s per-page timer was running when the host machine was put to
+sleep for several hours mid-run; the process resumed cleanly afterward
+(confirmed: zero errors, the pause is visible only as a large gap in
+prediction-file write timestamps). The two source changes themselves add
+no new model inference and no new per-page work beyond a few dict/list
+operations.
+
+Success criterion from section 21 (table TEDS improves, other four metric
+categories not worse than noise): **met.**
+
+**20-page regression check:** not run separately. The 20-page subset
+contains none of the 3 recoverable tables (its both-fail tables are both
+genuine shared-detection-failure cases, unaffected by this fix by
+construction), so a 20-page run would only serve as a regression check —
+and the 100-page run's own non-table metrics (delta <= 0.0008 across all
+three) already provide a stronger regression signal, over a larger and
+more diverse page sample, than a separate 20-page run would add. Skipped
+to avoid a further ~40-60 minutes of compute for evidence this
+investigation already has.
+
+## 23. What this says about a third candidate model
+
+**A third table-structure model is not justified by this evidence.** In
+every one of the 8 both-fail cases where the region was detected at all, an
+existing model already produced a usable structure — adding a third
+structure specialist would address 0 of 8. The remaining genuine gap
+(4/8) is **detection recall on small, borderless, few-row banner tables**,
+shared by both backends. That is a detection problem, not a structure
+problem — a materially different conclusion from "both table structure
+models fail together", and it points at a different class of solution
+(small-region detection, or a document VLM with stronger layout reasoning)
+than swapping in another TableFormer-style checkpoint.

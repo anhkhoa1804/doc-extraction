@@ -456,3 +456,187 @@ def test_apply_native_table_fallback_both_fail_keeps_primary_unchanged():
     _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
 
     assert table_result.tables[0] is primary
+
+
+# ---------------------------------------------------------------------------
+# Candidate *recovery*: an extra source's table for a region the primary
+# backend produced nothing for must be ADDED, not discarded.
+#
+# Real-world evidence (experiments/005_omnidocbench/hard_tables/failure_taxonomy.md):
+# on the 100-page subset every ground-truth table with <= 2 rows scored
+# exactly 0.0 TEDS (7/7). On 3 of them, Docling's layout had correctly
+# located the table region and Docling's own TableFormer had produced a real
+# table for it -- on one, a 2x12 answer-key table with all 18 cells
+# populated and a bbox matching ground truth within ~2px -- while Table
+# Transformer's structure model returned no row/column grid for the same
+# crop, so no primary Table object existed. The reconciliation loop only
+# iterated over primary tables, so with zero primary tables the good
+# candidate was silently dropped and the page emitted no table at all.
+# ---------------------------------------------------------------------------
+
+
+def test_apply_native_table_fallback_recovers_table_when_primary_found_none():
+    """The core regression: primary backend produced NO tables, an extra
+    source produced a populated one -- it must be added, not discarded."""
+    table_result = TableResult(tables=[], backend="table_transformer")
+
+    recovered = _table("p0-native-t0", BBox(x0=10, y0=10, x1=200, y1=60), [
+        Cell(row=0, col=0, text="题号"), Cell(row=0, col=1, text="1"),
+        Cell(row=1, col=0, text="答案"), Cell(row=1, col=1, text="C"),
+    ], source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [recovered]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert len(table_result.tables) == 1, "a viable candidate must not be discarded"
+    added = table_result.tables[0]
+    assert added.n_rows == 2 and added.n_cols == 2
+    assert [c.text for c in added.cells] == ["题号", "1", "答案", "C"]
+    assert added.source_backend == "docling+recovered"
+
+
+def test_apply_native_table_fallback_does_not_recover_an_empty_candidate():
+    """An all-empty grid carries no content -- adding it would replace the
+    region's real OCR text with nothing of value."""
+    table_result = TableResult(tables=[], backend="table_transformer")
+    empty = _table("p0-native-t0", BBox(x0=10, y0=10, x1=200, y1=60),
+                    [Cell(row=0, col=0, text=""), Cell(row=0, col=1, text="")],
+                    source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [empty]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert table_result.tables == []
+
+
+def test_apply_native_table_fallback_does_not_double_add_a_matched_candidate():
+    """A candidate already consumed by the comparison step must not also be
+    appended as a recovered table."""
+    primary = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[primary], backend="table_transformer")
+    better = _table("native-t0", BBox(x0=2, y0=2, x1=98, y1=98),
+                     [Cell(row=0, col=0, text="real")], source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [better]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert len(table_result.tables) == 1, "matched candidate must be used to replace, not also appended"
+    assert table_result.tables[0].cells[0].text == "real"
+    assert table_result.tables[0].id == "t0", "replacement keeps the primary's id for Element.table_id linkage"
+
+
+def test_apply_native_table_fallback_recovers_only_the_unmatched_candidate():
+    """Mixed case: one extra candidate matches a primary table, another
+    covers a region the primary missed entirely. The first replaces, the
+    second is added."""
+    primary = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="")])
+    table_result = TableResult(tables=[primary], backend="table_transformer")
+
+    matches_primary = _table("native-t0", BBox(x0=2, y0=2, x1=98, y1=98),
+                              [Cell(row=0, col=0, text="replaced")], source_backend="docling")
+    unmatched = _table("native-t1", BBox(x0=500, y0=500, x1=700, y1=560),
+                        [Cell(row=0, col=0, text="recovered")], source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [matches_primary, unmatched]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    assert len(table_result.tables) == 2
+    assert table_result.tables[0].cells[0].text == "replaced"
+    assert table_result.tables[1].cells[0].text == "recovered"
+    assert table_result.tables[1].source_backend == "docling+recovered"
+
+
+def test_apply_native_table_fallback_recovered_id_does_not_collide():
+    """A recovered candidate whose id already exists must be given a
+    distinct one -- Page.table_by_id resolves by id, so a duplicate would
+    make one of the two tables unreachable."""
+    primary = _table("native-t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="primary")])
+    table_result = TableResult(tables=[primary], backend="table_transformer")
+    clashing = _table("native-t0", BBox(x0=500, y0=500, x1=700, y1=560),
+                       [Cell(row=0, col=0, text="recovered")], source_backend="docling")
+
+    class _FakeOCRBackend:
+        def native_tables(self, page):
+            return [clashing]
+
+    _apply_native_table_fallback(table_result, _FakeOCRBackend(), page=None)
+
+    ids = [t.id for t in table_result.tables]
+    assert len(ids) == len(set(ids)), f"table ids must stay unique, got {ids}"
+
+
+# ---------------------------------------------------------------------------
+# merge_regions_into_page: a table region that matches no detected Table
+# must still emit its text, not vanish.
+# ---------------------------------------------------------------------------
+
+
+def test_table_region_without_matching_table_keeps_its_text():
+    """Second content-loss path found in the same investigation: when some
+    table was detected on the page but not for THIS region, the element got
+    table_id=None and no text, so it serialized to nothing at all and the
+    region's content disappeared entirely."""
+    from doc_extraction.pipelines.base import (
+        LayoutResult,
+        OCRResult,
+        OCRToken,
+        Region,
+        merge_regions_into_page,
+    )
+
+    far_away_table = _table("t0", BBox(x0=0, y0=0, x1=100, y1=100), [Cell(row=0, col=0, text="x")])
+    table_result = TableResult(tables=[far_away_table], backend="table_transformer")
+
+    # A table-labelled region nowhere near the detected table.
+    region = Region(bbox=BBox(x0=500, y0=500, x1=800, y1=560), label="table")
+    layout = LayoutResult(regions=[region], backend="docling")
+    ocr = OCRResult(
+        tokens=[OCRToken(text="unmatched region text", bbox=BBox(x0=510, y0=510, x1=790, y1=550))],
+        backend="docling",
+    )
+
+    page = merge_regions_into_page(0, 1000, 1000, 200, layout, ocr, table_result, None)
+
+    element = page.elements[0]
+    assert element.table_id is None
+    assert element.text == "unmatched region text", "content must not silently vanish"
+
+
+def test_table_region_with_matching_table_does_not_duplicate_text():
+    """Guard the other direction: when a region DOES match a table, it must
+    not also carry text, or the content would be emitted twice (once as the
+    table, once as a text block)."""
+    from doc_extraction.pipelines.base import (
+        LayoutResult,
+        OCRResult,
+        OCRToken,
+        Region,
+        merge_regions_into_page,
+    )
+
+    matched_table = _table("t0", BBox(x0=500, y0=500, x1=800, y1=560), [Cell(row=0, col=0, text="cell")])
+    table_result = TableResult(tables=[matched_table], backend="table_transformer")
+    region = Region(bbox=BBox(x0=500, y0=500, x1=800, y1=560), label="table")
+    layout = LayoutResult(regions=[region], backend="docling")
+    ocr = OCRResult(
+        tokens=[OCRToken(text="cell", bbox=BBox(x0=510, y0=510, x1=790, y1=550))],
+        backend="docling",
+    )
+
+    page = merge_regions_into_page(0, 1000, 1000, 200, layout, ocr, table_result, None)
+
+    element = page.elements[0]
+    assert element.table_id == "t0"
+    assert element.text is None, "a matched table region must not also emit its text"

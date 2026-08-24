@@ -216,16 +216,95 @@ for the specific size of the residual gap.
   constraint on what "cross-specialist agreement" (task section 9) can
   mean here without also decoupling layout detection between the two.
 
+## Addendum: hard-table capability analysis (supersedes parts of the above)
+
+A follow-up session asked *why* both specialists fail on the same tables.
+Two findings revise this proposal materially. Full evidence:
+`experiments/005_omnidocbench/hard_tables/failure_taxonomy.md`,
+`observations.md` sections 18-23.
+
+**1. The both-fail statistic quoted above was contaminated.** The upstream
+evaluator scores any TEDS comparison exceeding a 120-second wall-clock
+timeout as `0.0`, indistinguishable from real failure. Re-evaluating
+byte-identical predictions with no timeouts gives `table TEDS.all`
+**0.4080** (not 0.2743) and **8/30** both-fail (not 14/30), with every
+non-TEDS metric bit-identical and two independent runs agreeing to 1e-9.
+The "47% at scale, worse than the small sample's 29%" claim in Results and
+Limitations above is **withdrawn** — the corrected 27% matches the small
+sample.
+
+**2. The both-fail region is not primarily a capability gap.** Classified
+by replaying the production path per page:
+
+| Category | Tables | Model capability gap? |
+|---|---:|---|
+| Composition-layer loss | 3 (37.5%) | No — viable candidate discarded |
+| Shared detection failure | 4 (50.0%) | Yes — at *detection*, not structure |
+| Orphaned table | 1 (12.5%) | No — produced, never referenced |
+
+"Both detect, both produce similar wrong structure" occurs **0 of 8
+times**. The failing family is highly coherent: every ground-truth table
+with <= 2 rows scored exactly 0.0 (7/7), `exam_paper` 6/6 — short, wide
+banner tables (answer keys, score boxes) at 1.5-5.2% of page area.
+
+This **strengthens** the composition thesis rather than weakening it: the
+apparent ceiling was an artifact plus an implementation asymmetry
+(`_apply_native_table_fallback` could only replace a primary table, never
+add a missing one), not a shared model limit.
+
+**Answers the "third candidate" question posed above: no.** A third
+structure specialist would address 0 of 8 cases. The open direction is
+small-region *detection* recall.
+
+### The fix, implemented and validated
+
+`_apply_native_table_fallback` now *adds* an extra-source candidate that
+matched no primary table (previously it only ever compared/replaced
+candidates that did match), guarded to require at least one non-empty
+cell. `merge_regions_into_page` falls back to region OCR text for a table
+region matching no detected `Table`, instead of emitting neither table nor
+text — a second, independent content-loss path found in the same trace.
+
+100-page result (evaluated with `OMNIDOCBENCH_TEDS_TIMEOUT_SEC=1800`, and
+re-confirmed on an idle machine after an initial run showed unrelated
+timeout contamination — see `observations.md` section 22):
+
+| Metric | before | after | delta |
+| --- | ---: | ---: | ---: |
+| table TEDS.all | 0.4080 | **0.4514** | **+0.0434** |
+| table TEDS_structure_only.all | 0.5084 | **0.5734** | **+0.0650** |
+| table Edit_dist | 0.7177 | **0.6792** | **-0.0384** (improvement) |
+| text_block / reading_order / display_formula | — | — | <= 0.0008 (noise) |
+
+**Exactly the 3 hypothesized tables moved** (0.0000 -> 0.6429, 0.4464,
+0.2114) and **all other 27 tables are bit-identical** — the cleanest,
+most fully-predicted result this investigation produced. Both-fail:
+8/30 (27%) -> 5/30 (17%), the remaining 5 being exactly the tables this
+fix does not target. `pytest -q`: 185 passed, 3 of the 7 new tests
+confirmed to fail against pre-fix code.
+
 ## Next experiment
 
-Given the evidence, the highest-value next step is **not** a more
-sophisticated selector (not justified by available data) and **not**
+**Superseded by the hard-table diagnosis above — the recommendation below
+is stale and kept only for the record; see the addendum for the current
+one.** ~~Given the evidence, the highest-value next step is not a more
+sophisticated selector (not justified by available data) and not
 selective escalation (evidence says the available signals don't support
 it). It is closing the "both models fail together" component identified
-above and in `observations.md` sections 3 and 14 — a detection/structure
+above and in observations.md sections 3 and 14 — a detection/structure
 capability question. That is a different, larger investigation (candidate
 directions: a third structure model/backend as a genuine third candidate
 source now that the composition layer is N-way-capable; or targeted
-table-detection-recall work) and is out of scope for this proposal, which
-is deliberately the smallest defensible next step given what the data
-supports today.
+table-detection-recall work) and is out of scope for this proposal.~~
+
+The diagnosis showed "both models fail together" was half measurement
+artifact and half a fixable implementation asymmetry, not a structure
+capability gap — and that fix is now implemented and validated above. The
+current next step, given the remaining 5/30 (17%) both-fail tables are all
+small (<=2 GT rows, 1.5-5.2% of page area) and *undetected* by either
+backend's table-region localization: **table detection recall on small,
+borderless regions specifically** — not a new structure model (the
+structure step is never reached), and not a document VLM without first
+checking whether a cheaper detection-side fix (e.g. a lower confidence
+threshold or a size-aware detection pass for regions this small) closes
+some of the remaining 5 before reaching for a heavier component.
