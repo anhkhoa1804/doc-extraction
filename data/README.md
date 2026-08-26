@@ -5,31 +5,41 @@ the experiment suite. **Not part of the public repository** — see below.
 
 ## Local and private, intentionally excluded from Git
 
-Everything in this directory except this file and `manifest.json` is
-ignored by `.gitignore` (`data/*` with `!data/README.md` and
-`!data/manifest.json` as the only exceptions). These are real internal
-enterprise documents — at least one
-(`FROGSLEAP_BUSINESS LICENSE.pdf`) contains personal data (national ID
-numbers, dates of birth, home addresses of named individuals); others
-contain commercial pricing. They must never reach a public remote or a
-Kaggle notebook.
+Everything in this directory except this file is ignored by `.gitignore`
+(`data/*` with `!data/README.md` as the only exception). These are real
+internal enterprise documents: **at least one contains personal data
+(national ID numbers, dates of birth, home addresses of named
+individuals), and others contain commercial pricing.** They must never
+reach a public remote or a Kaggle notebook.
+
+Filenames are deliberately not listed anywhere in this repository. On a
+corpus like this the filenames alone are confidential metadata — they name
+counterparties, document types and commercial relationships even when no
+content is exposed.
 
 If you clone this repository elsewhere, `data/` will be empty except for
-this README and the manifest — that's expected. Put your own local
-documents here, or point `--input` at any other directory; nothing in the
-pipeline requires this exact location.
+this README — that's expected. Put your own local documents here, or point
+`--input` at any other directory; nothing in the pipeline requires this
+exact location.
 
-## `manifest.json` describes the corpus without containing it
+## `manifest.json` — local only, no longer tracked
 
-`manifest.json` **is** tracked. It is generated, derived data — filename,
-size, SHA-256, and detected type for each file — so the local corpus is
-documented and verifiable (you can confirm you have the same bytes) without
-distributing any content. It never contains extracted text or other
-document content.
+`scripts/build_sample_manifest.py` generates `data/manifest.json`: filename,
+size, SHA-256 and detected type per file, so the local corpus is documented
+and verifiable without distributing any content. It never contains
+extracted text.
+
+**It is not tracked in Git.** It was until the pre-push audit, which is a
+history caveat recorded in `docs/RELEASE_READINESS.md`: although it holds
+no document content, it lists real private filenames, and untracking a file
+does not remove it from commits that already contain it.
 
 Regenerate it after adding/removing local documents:
 
 ```bash
+# Linux/macOS
+.venv/bin/python scripts/build_sample_manifest.py
+# Windows
 .venv/Scripts/python.exe scripts/build_sample_manifest.py
 ```
 
@@ -42,7 +52,7 @@ manifest is derived data, not the source of truth.
 `configs/cpu.yaml` / `configs/default.yaml` set `input_dir: "data"`, so:
 
 ```bash
-.venv/Scripts/python.exe -m doc_extraction run --input data --config configs/cpu.yaml
+python -m doc_extraction run --input data --config configs/cpu.yaml
 ```
 
 is equivalent to the plain `run --config configs/cpu.yaml` most docs show.
@@ -50,14 +60,12 @@ is equivalent to the plain `run --config configs/cpu.yaml` most docs show.
 ## What the current local corpus contains
 
 Observed by running the pipeline over it (see `experiments/000_smoke/` and
-the failure report):
+the failure report). Characteristics only — no filenames:
 
 - **12 files, 10 unique documents.** Two pairs are byte-identical duplicates
-  under different names (`FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf` ==
-  `FROGSLEAP_COMPANY PROFILE.pdf`, and `FROGSLEAP PARTNERSHIP PROPOSAL.pdf`
-  == `frogsleap_partnership_proposal_v2_20260307095034.pdf`). They are
-  processed separately — `document_id` includes a content hash, so their
-  outputs are directly comparable and should be identical.
+  stored under different names. They are processed separately —
+  `document_id` includes a content hash, so their outputs are directly
+  comparable and should be identical.
 - **10 PDFs, 2 XLSX, 1 DOCX** (one PDF is a PPTX export). No PPTX and no
   standalone image, which is why `tests/fixtures.py` synthesizes those.
 - **Mixed Vietnamese and English**, which is why OCR is configured for

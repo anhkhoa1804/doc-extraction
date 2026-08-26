@@ -197,20 +197,44 @@ table metrics.**
 
 Escalate in this order. Do not skip to the full set.
 
+**Use `configs/omnidocbench-gpu.yaml`, not `configs/gpu.yaml`.**
+`gpu.yaml` carries `ocr_languages: [en, vi]` (this repo's private-corpus
+profile). Every CPU result in this repository was produced with
+`[en, ch_sim]`, so benchmarking with `gpu.yaml` is a **measurement error,
+not merely a slowdown** — the results would not be comparable to the
+baselines they exist to be compared against, and Chinese OCR degrades badly
+without `ch_sim` (measured: text edit distance 0.9601 vs 0.3893).
+`configs/omnidocbench-gpu.yaml` is `configs/omnidocbench.yaml` with
+`device: cuda` and nothing else changed; a test enforces that they differ
+only by `device`.
+
 ```bash
+export ODB_DATA=.external/OmniDocBench-data          # or a shared volume
+export ODB_OUT=experiments/005_omnidocbench/results
+export ODB_CFG=configs/omnidocbench-gpu.yaml
+
 # 20-page diagnostic subset (fast iteration)
-PYTHONUTF8=1 python experiments/005_omnidocbench/run.py \
-  --dataset .external/OmniDocBench-data \
-  --backend baseline --config configs/gpu.yaml \
-  --output experiments/005_omnidocbench/results/a30_baseline_20 \
+python experiments/005_omnidocbench/run.py \
+  --dataset "$ODB_DATA" --config "$ODB_CFG" --backend baseline \
+  --output "$ODB_OUT/a30_baseline_20" \
   --subset 20 --seed 0 --match-workers 4
 
 # 100-page validation
-... --subset 100 --seed 0 --output .../a30_baseline_100
+python experiments/005_omnidocbench/run.py \
+  --dataset "$ODB_DATA" --config "$ODB_CFG" --backend baseline \
+  --output "$ODB_OUT/a30_baseline_100" \
+  --subset 100 --seed 0 --match-workers 4
 
-# full 1651 pages — only after 100 is clean
-... (omit --subset) --output .../a30_baseline_full
+# full 1651 pages -- only after 100 is clean
+python experiments/005_omnidocbench/run.py \
+  --dataset "$ODB_DATA" --config "$ODB_CFG" --backend baseline \
+  --output "$ODB_OUT/a30_baseline_full" \
+  --match-workers 4
 ```
+
+`PYTHONUTF8=1` is **not** required on Linux — it appears in this repo's
+Windows instructions only because the console codepage there cannot decode
+the dataset's Chinese filenames. Harmless if set.
 
 Subsets are deterministic for a given `--seed`, and nested: the 100-page
 set contains the 20-page set. Results land in `<output>/` as

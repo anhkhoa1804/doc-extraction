@@ -1,0 +1,78 @@
+# OmniDocBench profile — GPU (CUDA), Chinese+English OCR.
+#
+# WHY THIS FILE EXISTS: before it, there was no way to run the OmniDocBench
+# benchmark correctly on a GPU host. The two candidate configs each got one
+# half right and one half wrong:
+#
+#   configs/omnidocbench.yaml  correct OCR languages (en+ch_sim), device: cpu
+#                              -> silently runs on CPU on a GPU host
+#   configs/gpu.yaml           device: cuda, but ocr_languages [en, vi]
+#                              -> wrong language profile for this benchmark
+#
+# Using gpu.yaml for OmniDocBench would be a measurement error, not just a
+# slowdown: every CPU result in this repository was produced with en+ch_sim,
+# so an en+vi run is not comparable to them, AND Chinese OCR degrades badly
+# without ch_sim (measured on the demo set: text edit distance 0.9601 for
+# simplified Chinese vs 0.3893 for English before the language fix).
+#
+# This file is configs/omnidocbench.yaml with device: cuda and nothing else
+# changed. Keep the two in sync.
+#
+# VERIFY CUDA IS REAL BEFORE USING IT — a CPU-only torch build will accept
+# device: cuda and silently run on CPU:
+#
+#     python -m doc_extraction.cli env --require-gpu
+#
+# Prefetch the ch_sim EasyOCR model first (Linux path shown):
+#
+#     .venv/bin/python -m docling.cli.tools models download easyocr #         --easyocr-lang en --easyocr-lang ch_sim -o .cache/docling
+#
+# Status: UNVALIDATED ON GPU. No run with this file has been executed on any
+# GPU as of this commit. See docs/gpu_host.md.
+
+input_dir: "data"       # unused by OmniDocBench experiments (--dataset is explicit); kept for schema parity with cpu.yaml
+output_dir: "outputs"
+device: "cuda"   # UNVALIDATED — see header
+
+render_dpi: 200
+
+# --- PDF routing: quantity gate --- (irrelevant here: every OmniDocBench
+# sample is a standalone image, never a PDF with a native text layer to route)
+digital_pdf_min_chars_per_page: 40
+digital_pdf_page_ratio: 0.6
+digital_pdf_sample_pages: 5
+
+# --- PDF routing: quality gate --- (also irrelevant for the same reason;
+# kept identical to cpu.yaml rather than omitted, so this file validates
+# against the same schema and nothing silently falls back to a default that
+# was never chosen for this corpus)
+text_quality_min_chars: 200
+text_quality_max_mixed_script_word_ratio: 0.10
+text_quality_max_unexpected_script_ratio: 0.10
+text_quality_max_replacement_ratio: 0.02
+text_quality_max_control_ratio: 0.02
+text_quality_min_alpha_ratio: 0.30
+text_quality_max_digit_in_word_ratio: 0.30
+text_quality_expected_scripts: ["LATIN"]
+text_quality_max_suspicious_page_ratio: 0.34
+digital_pdf_page_fallback: true
+
+# --- Tables ---
+digital_pdf_tables: true
+
+# OmniDocBench's dataset is majority Chinese with an English minority — see
+# the header above. No Vietnamese in this benchmark.
+ocr_languages: ["en", "ch_sim"]
+
+layout_backend: "docling"
+ocr_backend: "docling"
+table_backend: "table_transformer"
+
+backends:
+  docling: true
+  mineru: false
+  paddleocr: false
+  vlm: false
+
+cache_dir: ".cache"
+log_level: "INFO"

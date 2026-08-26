@@ -10,7 +10,7 @@ from pydantic import ValidationError
 from doc_extraction.config import PipelineConfig, load_config
 from doc_extraction.pipelines.base import BackendUnavailableError
 
-ALL_CONFIGS = ["default.yaml", "cpu.yaml", "gpu.yaml", "omnidocbench.yaml"]
+ALL_CONFIGS = ["default.yaml", "cpu.yaml", "gpu.yaml", "omnidocbench.yaml", "omnidocbench-gpu.yaml"]
 
 
 @pytest.mark.parametrize("name", ALL_CONFIGS)
@@ -34,6 +34,36 @@ def test_omnidocbench_config_uses_chinese_compatible_ocr_languages(repo_root):
     assert "ch_sim" in config.ocr_languages
     assert set(config.ocr_languages) <= {"en", "ch_sim"}
     assert config.device == "cpu"
+
+
+def test_omnidocbench_gpu_config_pairs_cuda_with_chinese_ocr(repo_root):
+    """The combination that did not exist before this config was added.
+
+    Running the benchmark on a GPU host previously forced a choice between
+    two wrong options: configs/omnidocbench.yaml (right OCR languages, but
+    device: cpu -- silently runs on CPU on a GPU box) or configs/gpu.yaml
+    (device: cuda, but ocr_languages [en, vi]). The latter is a *measurement
+    error*, not just a slowdown: every CPU result in this repo used
+    en+ch_sim, so an en+vi run is not comparable, and Chinese OCR degrades
+    badly without ch_sim.
+    """
+    config = load_config(repo_root / "configs" / "omnidocbench-gpu.yaml")
+    assert config.device == "cuda"
+    assert "ch_sim" in config.ocr_languages
+    assert set(config.ocr_languages) <= {"en", "ch_sim"}, "easyocr rejects ch_sim with 'vi'"
+
+
+def test_omnidocbench_cpu_and_gpu_configs_differ_only_by_device(repo_root):
+    """Guards against silent drift between the pair. If they diverge on
+    render_dpi, backends, thresholds or anything else, a GPU benchmark stops
+    being comparable to the CPU baselines it is meant to be compared against
+    -- which would be invisible in the results."""
+    cpu = yaml.safe_load((repo_root / "configs" / "omnidocbench.yaml").read_text(encoding="utf-8"))
+    gpu = yaml.safe_load((repo_root / "configs" / "omnidocbench-gpu.yaml").read_text(encoding="utf-8"))
+
+    differing = {k for k in set(cpu) | set(gpu) if cpu.get(k) != gpu.get(k)}
+
+    assert differing == {"device"}, f"configs must differ only by device, got: {differing}"
 
 
 @pytest.mark.parametrize("name", ALL_CONFIGS)

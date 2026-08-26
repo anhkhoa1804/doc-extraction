@@ -23,10 +23,15 @@ outputs/*
 *.log
 
 # Local/private data — real internal enterprise documents (see data/README.md).
-# Only the README and the derived manifest are tracked.
+# ONLY the README is tracked. data/manifest.json is deliberately NOT tracked:
+# although it holds no document *content*, it lists real filenames of private
+# business documents (company names, a business licence, pricing and
+# partnership proposals). Filenames alone are confidential metadata and must
+# not reach a public remote. It was tracked until the pre-push audit; see
+# docs/RELEASE_READINESS.md for the git-history caveat that untracking does
+# not by itself remove it from earlier commits.
 data/*
 !data/README.md
-!data/manifest.json
 
 # Experiments: the question, config, and conclusions ARE committed
 # (README.md / config.yaml / results.json / observations.md); bulky
