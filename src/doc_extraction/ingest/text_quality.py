@@ -6,7 +6,7 @@ A PDF can carry a text layer that is *present and plentiful* but *decoded
 wrongly*. The usual cause is a broken or non-standard ``ToUnicode`` CMap in
 an embedded font subset: the glyph codes are read correctly, but each code
 maps to the wrong character. The first smoke test on this repo's own corpus
-hit exactly this (``FROGSLEAP_BUSINESS LICENSE.pdf`` decodes
+hit exactly this (``sample-business-licence.pdf`` decodes
 ``Độc lập Tự do`` as ``ĈӝF OұS 7ӵ GR``).
 
 A character-count heuristic cannot see this: the garbage is exactly as long

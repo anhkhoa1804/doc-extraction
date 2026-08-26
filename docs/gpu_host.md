@@ -13,13 +13,46 @@ organisation's normal PAM flow, then start at step 1.
 
 ---
 
+## Golden path (do these in order, stop at the first failure)
+
+Full detail in the numbered sections below. This is the sequence.
+
+```bash
+# 1. Does the host have a usable GPU at all?
+nvidia-smi
+
+# 2. Does *this project* agree? (fails loudly if torch cannot reach the GPU)
+python -m doc_extraction.cli env --require-gpu
+
+# 3. Is the code healthy?
+pytest -q
+
+# 4. Tiny smoke test -- one document, end to end
+python -m doc_extraction.cli run --input <one-local-or-public-pdf> --config configs/cpu.yaml
+
+# 5. Current pipeline on GPU (private-corpus OCR profile: en+vi)
+python -m doc_extraction.cli run --input <one-local-or-public-pdf> --config configs/gpu.yaml
+
+# 6. OmniDocBench 20-page (benchmark OCR profile: en+ch_sim)
+python experiments/005_omnidocbench/run.py \
+  --dataset "$ODB_DATA" --config configs/omnidocbench-gpu.yaml --backend baseline \
+  --output "$ODB_OUT/a30_baseline_20" --subset 20 --seed 0 --match-workers 4
+```
+
+**Only after all six pass** should you install or run large SOTA models.
+Steps 5 and 6 use different configs on purpose — see §5 for why using
+`gpu.yaml` for the benchmark would be a measurement error, not just a
+slower run.
+
+---
+
 ## 0. Target assumptions
 
 | | |
 |---|---|
 | Hardware | NVIDIA A30 (24 GiB HBM2) or better |
 | OS | Linux |
-| Driver | Recent enough for the CUDA runtime of the installed torch wheel (cu121/cu124 wheels need a ≥ 530 driver) |
+| Driver | **Unknown until measured on the host.** Read it from `nvidia-smi`, then pick a torch wheel whose CUDA runtime that driver supports — see §2 |
 | Python | 3.12 (3.10–3.12 is the range every candidate supports; MinerU caps at 3.12 on Windows, Linux allows 3.13) |
 | Isolation | venv or Docker |
 | Network | Access to HuggingFace (or an internal mirror) for weights |
@@ -77,11 +110,46 @@ pip install --upgrade pip
 ```
 
 Install a **CUDA** torch build explicitly — do not let a transitive
-dependency pull the CPU wheel:
+dependency pull the CPU wheel.
+
+**Do not copy a CUDA version from this document.** The correct wheel
+depends on the driver actually installed on the host, which is unknown
+until you read it. A wheel whose CUDA runtime is newer than the driver
+supports will install cleanly and then fail (or silently sit unused) at
+runtime.
+
+**Step 1 — read the host's actual driver and CUDA support:**
 
 ```bash
-pip install torch --index-url https://download.pytorch.org/whl/cu121
-python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())"
+nvidia-smi                       # "CUDA Version:" here = the MAXIMUM the driver supports
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv
+python --version
+```
+
+**Step 2 — choose a wheel that the driver supports.** Pick the CUDA build
+whose runtime is **at or below** the version `nvidia-smi` reports, from the
+official selector at <https://pytorch.org/get-started/locally/> (it lists
+the currently-published `cuXXX` index URLs; this repo does not pin one
+because the right answer is host-dependent and changes over time).
+
+The install form is:
+
+```bash
+# EXAMPLE ONLY — substitute the cuXXX that matches THIS host's driver.
+pip install torch --index-url https://download.pytorch.org/whl/cuXXX
+```
+
+If the host has no external network access, use the internal mirror or a
+pre-staged wheel; the same rule applies — match the driver.
+
+**Step 3 — verify before doing anything else:**
+
+```bash
+python -c "import torch; \
+print('torch=', torch.__version__); \
+print('cuda_available=', torch.cuda.is_available()); \
+print('torch_cuda=', torch.version.cuda); \
+print('device=', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'NONE')"
 ```
 
 That must print a non-`None` CUDA version and `True` before continuing.
@@ -92,6 +160,35 @@ Then the project and its backends:
 pip install -e ".[docling,tables]"
 python -m doc_extraction.cli env          # re-check: GPU usable should now be YES
 ```
+
+### CUDA-sensitive installs — the way GPU torch gets silently replaced
+
+Several packages declare a bare `torch` dependency. If pip decides it needs
+a different version, it resolves from **PyPI**, whose default `torch` wheel
+is **CPU-only on Linux** — quietly replacing the CUDA build installed
+above. Nothing errors; the next benchmark just runs on CPU.
+
+In this project the packages that can trigger it are `docling`,
+`transformers`/`accelerate` (the `[tables]` extra), and any of the SOTA
+parser installs (`paddleocr`, `mineru-vl-utils[transformers]`).
+
+Mitigations, in order of preference:
+
+```bash
+# 1. Re-verify after EVERY install that touches torch:
+python -m doc_extraction.cli env --require-gpu
+
+# 2. Install torch first (above), then everything else, and check pip's plan
+#    before it acts:
+pip install --dry-run -e ".[docling,tables]" | grep -i "torch"
+
+# 3. If pip insists on changing torch, pin the working build explicitly:
+pip install "torch==<the version you verified>" --index-url https://download.pytorch.org/whl/cuXXX
+```
+
+**Rule: `cli env --require-gpu` is the gate. Run it after every install
+step, not just once at the end.** It exits non-zero when torch can no
+longer reach the GPU, which is exactly the failure this section describes.
 
 ### Model caches — set these before downloading weights
 
@@ -323,3 +420,94 @@ python -m doc_extraction.cli env --json > <output>/environment.json
 ```
 
 so a result can always be tied to the exact host that produced it.
+
+---
+
+## 9. Benchmark reproducibility checklist
+
+Tick every line before trusting any OmniDocBench number, and record the
+answers next to the result. A run that fails any of these is not
+comparable to the others.
+
+- [ ] **Evaluator commit pinned** to `193627ae9e97d89188468ed1ee3b7a856ff76044`
+      (`git -C .external/OmniDocBench rev-parse HEAD`). Never float it.
+- [ ] **Dataset is external** to the repo (`.external/OmniDocBench-data`
+      or a shared volume) and never committed.
+- [ ] **Ground-truth hash recorded** — `run_metadata.json` captures
+      `ground_truth_sha256`; two runs with different hashes are not
+      comparable.
+- [ ] **Subset ground truth used** whenever `--subset` is set. `prepare.py`
+      writes `<output>/subset_ground_truth.json` and `run.py` passes it
+      automatically. Without it the evaluator scores the subset against all
+      1651 records and treats every missing page as an empty prediction.
+- [ ] **Same `--subset` and `--seed`** across the runs being compared.
+      Subsets are deterministic and nested (the 100-page set contains the
+      20-page set), so *never* compare a 20-page score to a 100-page score.
+- [ ] **Same config** on both sides of any A/B, differing only in the one
+      thing under test.
+- [ ] **`configs/omnidocbench-gpu.yaml`** (not `gpu.yaml`) for GPU
+      benchmark runs — `gpu.yaml` carries `en+vi`, which is a different
+      OCR profile from every existing baseline.
+- [ ] **No accidental CPU fallback** — `cli env --require-gpu` passed
+      immediately before the run, and `run_metadata.json` shows
+      `"device": "cuda"`.
+- [ ] **No TEDS timeouts** — the result directory must NOT contain
+      `TEDS_TIMEOUTS.txt`. A timeout scores 0.0, which is indistinguishable
+      from a genuine extraction failure and silently corrupts table
+      metrics. This already invalidated two 100-page runs before it was
+      traced.
+- [ ] **Environment captured** — `cli env --json > <output>/environment.json`
+      so the result can be tied to the host that produced it.
+
+---
+
+## 10. A30 experiment plan — the first four, in order
+
+Do **not** run the full 1651 pages until Experiments 0-2 are understood.
+
+### Experiment 0 — GPU baseline (current pipeline)
+
+Purpose: establish that CUDA works end to end and get the first GPU timing
+this project has ever had.
+
+- Config: `configs/gpu.yaml`
+- Input: a small local/public document set
+- Record: runtime/page, peak VRAM (`nvidia-smi` sampling), GPU utilisation,
+  cold start vs warm
+
+Compare against the CPU reference of ~70 s/page only as a sanity check —
+different hardware, so the ratio is informative, the absolute number is not
+a target.
+
+### Experiment 1 — OmniDocBench baseline (current pipeline, GPU)
+
+- Config: `configs/omnidocbench-gpu.yaml`
+- Subset: 20 pages, `--seed 0`
+- Record: `text_block`, `table TEDS`, `TEDS_structure_only`,
+  `table Edit_dist`, `reading_order`, `display_formula`, runtime
+
+**Quality must match the CPU baseline within noise.** Device should change
+speed, not scores. A large quality delta means something is wrong (wrong
+OCR profile, silent CPU fallback, a timeout) — investigate before
+proceeding.
+
+### Experiment 2 — SOTA parser
+
+- Model: **PaddleOCR-VL first** (Apache-2.0). See `docs/model_licenses.md`
+  for why licence order matters.
+- Same pages, same evaluator, same normalisation as Experiment 1.
+- **Gate: run a Vietnamese/English smoke test first.** The official docs
+  list Vietnamese among the supported languages, but this project has not
+  verified it in practice, and the real target corpus is Vietnamese/English.
+- Record: quality deltas, runtime/page, peak VRAM, plus whether it needs
+  whole pages (it does — see `docs/sota_comparison.md`).
+
+### Experiment 3 — formula
+
+- `display_formula` edit distance is ≈0.995 on the current pipeline —
+  near-total failure, and **no formula model is active at all.** This is the
+  largest untouched quality gap in the system.
+- Run on the pages that actually contain formulas, not the whole subset.
+
+Only once these are understood should the full 1651-page run, or any
+routing/composition work, be considered.

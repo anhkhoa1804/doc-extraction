@@ -1,187 +1,185 @@
 # Release readiness — pre-push / GPU-host pre-flight audit
 
-Audit date: 2026-08-24. Scope: is this repository safe to push to GitHub
-and ready to clone onto a Linux A30-class GPU host?
+Last audit: 2026-08-26 (hardening pass). Scope: is this repository safe to
+push and ready to clone onto a Linux A30-class GPU host?
 
 ## Verdict
 
 ```
-RELEASE STATUS:  BLOCKED for a PUBLIC push
-                 READY for a PRIVATE push / internal host
+RELEASE STATUS:  PASS  — for a PRIVATE GitHub repository
+                 BLOCKED — for a PUBLIC repository (history rewrite required)
 ```
 
-One blocking item, and it is not a code defect: **real private document
-filenames are present in tracked files and in existing git history.** No
-document *content* is exposed anywhere — the leak is filenames and the
-metadata they imply (counterparty names, document types). Everything else
-passed.
+The intended state is a **private** repository for internal R&D. Under that
+decision there are **no blocking items**. The public-repo blocker is
+recorded below and is a deliberate, documented decision — not an oversight.
 
 ---
 
-## Checklist
+## Status table
 
-| # | Item | Status | Notes |
-|---|---|---|---|
-| 1 | Tests pass | **PASS** | 213 passed (was 209; +4 this audit) |
-| 2 | Source tree clean | **PASS** | `compileall` OK; `git diff --check` clean |
-| 3 | No private data tracked | **BLOCKED** | See below. 2 fixed here, 18 files remain + git history |
-| 4 | No secrets | **PASS** | No keys/tokens/passwords/credential files. Apparent "internal IPs" are Windows build numbers (`10.0.26200`) and float coordinates |
-| 5 | No model weights | **PASS** | No `.safetensors/.pth/.onnx/.bin` tracked; `.cache/`, `.venv-*` ignored |
-| 6 | Linux-compatible | **PASS** | No Windows abs paths in `src/`, no `shell=True`, no `os.system`, no `.bat/.ps1`; venv interpreter path branches on `os.name` |
-| 7 | GPU diagnostics | **PASS** | `cli env` / `--require-gpu` / `--json`; verified on laptop |
-| 8 | CUDA/PyTorch instructions | **PASS** | Explicit CUDA-wheel install + post-install verification in `gpu_host.md` |
-| 9 | Cache paths | **PASS** | `configure_caches()` sets `HF_HOME`, `HUGGINGFACE_HUB_CACHE`, `DOCLING_ARTIFACTS_PATH`, `PIP_CACHE_DIR` via `setdefault` — operator env always wins; no `D:\` or `/kaggle/` in `src/` |
-| 10 | Backend matrix | **PASS** | See below — stubs are labelled as stubs |
-| 11 | License audit | **WARNING** | `docs/model_licenses.md`; two AGPL items need legal review |
-| 12 | Security audit | **PASS** | No egress in `src/`; no external LLM APIs; logs carry no document text |
-| 13 | Failure semantics | **WARNING** | Loud and non-silent, but GPU OOM is untyped and untested on GPU |
-| 14 | Golden commands | **PASS** | `gpu_host.md` §5, env-var parameterised |
-| 15 | OmniDocBench integrity | **PASS** | Evaluator commit pinned; subset GT wired; TEDS timeout durable + post-run detection |
-| 16 | PAM-safe | **PASS** | No credentials/hosts/IPs; runbook defers to the org's PAM flow |
-| 17 | A30 next steps documented | **PASS** | `gpu_host.md`, `production_architecture.md`, `research-roadmap.md` |
-
----
-
-## BLOCKED — private filenames in tracked files and history
-
-**No document content is exposed.** Experiment `results.json` files were
-checked directly and contain statistics only (`total_text_chars`,
-`text_similarity`), never extracted text. The exposure is **filenames**,
-which on this corpus still name a real third-party company, a business
-licence, pricing and partnership documents.
-
-### Fixed during this audit
-
-| File | Action |
-|---|---|
-| `data/manifest.json` | **Untracked** (`git rm --cached`) and `.gitignore` whitelist removed. It listed all 12 private filenames with hashes in machine-readable form. File preserved on disk. |
-| `data/README.md` | **Redacted.** It named files *and* identified which one contains national ID numbers, dates of birth and home addresses. All policy and corpus statistics kept; filenames and the PII pointer removed. |
-
-### Still present — requires your decision
-
-**18 tracked files, 64 occurrences**, all filenames only:
-
-- `Makefile` — a real private filename inside a runnable `compare` command
-- `docs/output-format.md` — real filename in an example JSON payload
-- `src/doc_extraction/ingest/text_quality.py` — code comment
-- `tests/fixtures.py`, `tests/test_pdf_routing.py`, `tests/test_text_quality.py` — comments
-- `experiments/00{0,1,2,3,4}/` — observation logs, READMEs and `results.json`
-  (`input_file` fields)
-
-I did not mass-redact these, for two reasons. First, several are historical
-research records where the filename is part of the evidence trail, and
-choosing a redaction scheme is a judgement call that is yours. Second, and
-decisive:
-
-> **Redaction alone does not fix this.** These names are already in commit
-> history (at least since `4221e4a`). Rewriting the working tree does not
-> remove them from earlier commits, so a public push still exposes them.
-
-### The three real options
-
-1. **Push to a private GitHub repo** — pragmatic, no history surgery, and
-   sufficient if the repo is internal anyway. **Recommended.**
-2. **Rewrite history** with `git-filter-repo` before pushing publicly, then
-   redact the working tree. Destructive; invalidates existing clones.
-3. **Fresh repo with squashed history**, redacted first. Loses the commit
-   narrative, which has real value in this project.
-
-I have not performed any history rewrite — that is destructive and yours to
-authorise.
+| Area | Status | Evidence / Action |
+|---|---|---|
+| Git safety | **PASS** | Only intended source/docs/tests tracked; notebook excluded; no weights, venvs, caches, datasets or predictions |
+| Current-tree privacy | **PASS** | 18 files pseudonymised this pass; scan for private identifiers returns **zero hits** across all tracked files |
+| Historical privacy | **WARNING** (private repo) / **BLOCKED** (public repo) | All **18/18** commits contain the private company name. Decision: keep repo private, do **not** rewrite history. See below |
+| Linux portability | **PASS** | No Windows absolute paths in `src/`; no `shell=True`/`os.system`/`.bat`/`.ps1`; venv interpreter path branches on `os.name`; `pathlib` throughout; subprocess uses argument arrays |
+| GPU diagnostics | **PASS** | `cli env` / `--require-gpu` / `--json` / `--min-vram-gib`; reports GPU name, VRAM, driver CUDA, torch CUDA build, availability; verified on laptop |
+| CUDA/PyTorch | **PASS** (fixed this pass) | Hardcoded `cu121` removed. Runbook now reads the driver first and instructs choosing a matching wheel; adds a CUDA-sensitive-dependency section on how GPU torch gets silently replaced by the CPU wheel |
+| Configs | **PASS** | 5 configs; device/OCR matrix verified; two tests enforce the CPU/GPU benchmark pair differ **only** by `device` |
+| Model cache | **PASS** | `configure_caches()` sets `HF_HOME`, `HUGGINGFACE_HUB_CACHE`, `DOCLING_ARTIFACTS_PATH`, `PIP_CACHE_DIR` via `setdefault` (operator env wins); no `C:\`, `D:\` or `/kaggle/` in `src/` |
+| Backend matrix | **PASS** | Stubs labelled as stubs; GPU-wired vs GPU-validated distinguished — see below |
+| License | **WARNING** | Two AGPL items need company legal review (`pymupdf` core dependency; MinerU2.5 weights). `docs/model_licenses.md` |
+| Security | **PASS** | No egress in `src/`; no external LLM/SaaS APIs; only egress is model/package download at setup |
+| Logging | **PASS** | `log_event` records metadata only (document id, page, stage, backend, status, runtime, device, output path, warnings, error, metrics). **No document text, OCR output or table content** |
+| Failure semantics | **WARNING** | Loud and non-silent; but several states are not first-class — see below |
+| OmniDocBench | **PASS** | Evaluator commit pinned; dataset external; subset GT wired; TEDS timeout durable in config + post-run detection; reproducibility checklist added (`gpu_host.md` §9) |
+| A30 runbook | **PASS** | Golden path, driver-aware install, dataset setup, benchmark commands, measurement tables, 4-experiment plan |
+| Tests | **PASS** | **213 passed**; `compileall` clean; `git diff --check` clean |
 
 ---
 
-## WARNING — licences (`docs/model_licenses.md`)
+## Historical privacy — the decision
 
-Two items marked **LEGAL REVIEW REQUIRED**:
+**Decision: keep the GitHub repository PRIVATE. No history rewrite.**
 
-- **`pymupdf` is AGPL-3.0 and is a *core, non-optional* dependency.** More
-  binding than any model licence here, because it cannot be disabled by
-  config. This is the single most restrictive licence in the project.
-- **MinerU2.5 weights are AGPL-3.0** (its code is Apache-2.0-based — the
-  split matters). Avoidable: PaddleOCR-VL is Apache-2.0 and dots.ocr is
-  MIT, both comparably strong. The A30 plan benchmarks those first
-  precisely so this review may never be needed.
+Measured: **all 18 commits** in the repository's history contain the
+private company name (`git rev-list --all` + per-commit `git grep`). The
+names first appear in `29c1d26` and `4221e4a`. Rewriting would therefore
+touch every commit — effectively equivalent to starting a fresh repository.
 
-No legal conclusions are drawn in this repository.
+No document *content* is in history — the exposure is filenames and the
+metadata they imply (counterparty names, document types). Experiment
+`results.json` files were checked directly and contain statistics only
+(`total_text_chars`, `text_similarity`), never extracted text.
+
+For an internal R&D repository, a private remote is sufficient and
+proportionate. **No destructive history rewriting was performed**, per the
+standing instruction not to do so without an explicit request.
+
+**If this repository is ever to be made public**, that is a separate,
+deliberate action requiring one of:
+
+1. `git-filter-repo` history rewrite, then force-push (invalidates clones);
+2. a fresh repository with squashed, redacted history (loses the commit
+   narrative, which has real evidentiary value here);
+3. re-creating the repo from the current clean tree only.
+
+Do not make the repository public without doing one of these first.
+
+### Current tree — cleaned this pass
+
+18 tracked files were pseudonymised (`Makefile`, `docs/output-format.md`,
+`src/doc_extraction/ingest/text_quality.py`, three test files, and the
+`experiments/00{0..4}` research logs and `results.json`). Real filenames
+map to stable pseudonyms (`sample-business-licence.pdf`,
+`sample-pricing.xlsx`, …) so cross-document references still line up and
+the evidence trail stays readable.
+
+Two tests previously selected corpus fixtures **by private filename**;
+they now select **by property** (which document fails the text-quality
+gate). This removes the private-name coupling and is more robust — it keeps
+working on a machine whose corpus differs, which the filename version did
+not. Verified still meaningful on the real corpus: 9 PDFs, exactly 1
+rerouted to OCR, `suspicious_page_ratio = 1.00`.
+
+The 12 private documents remain **on disk and untracked** (`data/*` ignored,
+only `data/README.md` tracked; `data/README.md` itself was redacted in the
+previous pass — it had named files *and* identified which one contains
+national ID numbers, dates of birth and home addresses).
 
 ---
 
-## WARNING — failure semantics
+## Backend matrix — GPU-wired vs GPU-validated
 
-Verified non-silent: per-file failures print `FAILED: <type>: <msg>` to
-stderr and set exit code 1; failed benchmark pages write **no** prediction
-file and are recorded in `runtime.json` `failures[]`; the PDF page-fallback
-path records the exception in page `notes` and logs a failure event rather
-than emitting an empty page.
+Terminology used strictly:
 
-Gaps, honestly stated:
+- **GPU-wired** — `device` reaches the backend in code; never executed on a GPU
+- **GPU-smoke-tested** — ran on a GPU at least once
+- **GPU-validated** — benchmarked on a GPU with recorded quality + performance
+- **production-ready** — GPU-validated, licence-cleared, failure-tested
 
-- **GPU OOM is not a distinct exception type or exit code.** It would
-  surface as a caught `OutOfMemoryError` with exit 1 — loud, but not
-  distinguishable from other failures programmatically.
-  **UNKNOWN — VERIFY ON GPU HOST** (never run on a GPU).
-- A crashed benchmark page produces no prediction file, which the evaluator
-  then scores as an empty prediction. Reported in `failures[]`, but it does
-  depress metrics rather than being excluded. Every run to date has 0
-  failures, so this has not yet mattered.
-
----
-
-## Backend status matrix
-
-| Backend | Implemented | CPU | GPU | Tested | Production-ready |
+| Backend | Implemented | CPU | GPU status | Tested | Production-ready |
 |---|---|---|---|---|---|
-| Docling (layout/OCR/tables) | Yes | Yes | Wired, **never measured** | Yes (CPU) | Candidate |
-| Table Transformer | Yes | Yes | Wired, **never measured** | Yes (CPU) | Candidate |
-| PyMuPDF native tables | Yes | Yes | n/a | Yes | Candidate (AGPL) |
-| MinerU `MinerUVLTableBackend` | Yes (table candidates only) | Yes (measured) | **UNKNOWN — VERIFY ON GPU HOST** | Adapter unit-tested; model measured on 5 tables | No — AGPL + unmeasured on GPU |
+| Docling (layout/OCR/tables) | Yes | Yes (measured) | **GPU-wired** | Yes (CPU) | No |
+| Table Transformer | Yes | Yes (measured) | **GPU-wired** | Yes (CPU) | No |
+| PyMuPDF native tables | Yes | Yes | n/a | Yes | No (AGPL review) |
+| MinerU `MinerUVLTableBackend` | Yes (table candidates only) | Yes (measured, 5 tables) | **not wired** — see below | Adapter unit-tested | No |
 | MinerU `MinerUBackend` (whole-doc) | **Stub** | — | — | Raises clearly | No |
-| PaddleOCR | **Stub** | — | — | Raises clearly | No |
+| PaddleOCR / PaddleOCR-VL | **Stub** / not installed | — | — | — | No — **GPU-host candidate** |
+| dots.ocr | Not integrated | — | — | — | No — GPU-host candidate |
 | VLM | **Stub** | — | — | Raises clearly | No |
 | Formula | **Not present** | — | — | — | No — largest untouched gap (`display_formula` ≈ 0.995) |
 
----
+**Nothing in this repository is GPU-validated.** `configs/gpu.yaml` and
+`configs/omnidocbench-gpu.yaml` are GPU-wired only.
 
-## Fixed during this audit (beyond the data items)
+### MinerU adapter — Linux transfer check
 
-**A real defect in the GPU benchmark path.** There was no config that could
-correctly run OmniDocBench on a GPU:
-
-- `configs/omnidocbench.yaml` — correct OCR (`en`+`ch_sim`), but `device: cpu`
-  → would have **silently run on CPU** on the A30
-- `configs/gpu.yaml` — `device: cuda`, but `ocr_languages: [en, vi]`
-  → a **measurement error**, not just a slowdown: every CPU baseline in this
-  repo used `en`+`ch_sim`, so results would not be comparable, and Chinese
-  OCR degrades badly without `ch_sim` (0.9601 vs 0.3893 measured)
-
-Added **`configs/omnidocbench-gpu.yaml`** (= `omnidocbench.yaml` with
-`device: cuda`, nothing else changed), corrected `docs/gpu_host.md` §5 to
-use it, and added two tests: one asserting the cuda+`ch_sim` pairing, one
-asserting the CPU/GPU pair differ **only** by `device` so they cannot
-silently drift apart.
+- No laptop-specific paths, no hardcoded model cache (uses `HF_HOME` via
+  the standard HF resolution), no `.exe`, no `shell=True`, no subprocess.
+- `device` is a constructor parameter; `float32` on CPU and `bfloat16`
+  otherwise — so a GPU host gets bf16 automatically.
+- **Honest gap:** `MinerUVLTableBackend` is *not* wired into the pipeline
+  or the CLI backend factory. It is a standalone candidate source with an
+  adapter and 12 unit tests. Using it on the A30 means constructing it
+  explicitly. Deliberate — composition wiring was gated on GPU measurement.
+- Unavailable-backend error is explicit and distinguishes "package absent"
+  from "whole-document convert() not implemented".
 
 ---
 
-## What will definitely work on the company host
+## Failure semantics — current behaviour
 
-- `pytest -q` (213), `compileall`, CLI, config loading, `cli env`
-- Cache redirection to a shared volume
-- OmniDocBench evaluator setup (pinned commit, isolated venv, Linux paths
-  handled)
-- The existing pipeline on **CPU**
+Verified non-silent, but **not** a first-class taxonomy. Documented rather
+than redesigned, per scope.
 
-## GPU-host-only — must be verified there
+| State | Current behaviour |
+|---|---|
+| SUCCESS | exit 0 |
+| PARTIAL_SUCCESS | Per-file: failures print to stderr, exit 1. Benchmark: failed page writes **no** prediction file, recorded in `runtime.json` `failures[]`. PDF page-fallback records the exception in page `notes` + logs a failure event |
+| INVALID_INPUT | Path/config errors return 1 with a message |
+| BACKEND_UNAVAILABLE | `BackendUnavailableError` with install instructions |
+| MODEL_UNAVAILABLE | Same path as above |
+| GPU_UNAVAILABLE | **`cli env --require-gpu` exits non-zero** — the intended gate |
+| GPU_OOM | **Not first-class.** Surfaces as a caught exception, printed with type and message, exit 1. Loud, but not programmatically distinguishable. **UNKNOWN — VERIFY ON GPU HOST** |
+| TIMEOUT | TEDS timeouts detected post-run (`TEDS_TIMEOUTS.txt` + stderr warning). No pipeline-level timeout |
+| EXTRACTION_ERROR | Caught per file/page, reported, exit 1 |
 
-Everything below is **UNKNOWN — VERIFY ON GPU HOST**:
+Not a release blocker: no state is silently converted into an empty
+success. The gap is granularity, not correctness.
 
-- Any CUDA execution at all. `configs/gpu.yaml` and
-  `configs/omnidocbench-gpu.yaml` are wired but have **never been run on a
-  GPU**.
-- All throughput, latency, VRAM and batch-size figures.
-- MinerU2.5 / PaddleOCR-VL / dots.ocr GPU behaviour.
-- GPU OOM handling.
-- **PaddleOCR-VL Vietnamese support.** Its card claims 109 languages;
-  official PaddleOCR documentation is reported to list Vietnamese among
-  them, but this project has **not** verified it from the primary language
-  list, and the target corpus is Vietnamese/English. Smoke-test it directly.
+---
+
+## Fixed in this pass
+
+1. **Current-tree privacy** — 18 files pseudonymised; 2 tests decoupled
+   from private filenames; tracked tree now scans clean.
+2. **Hardcoded `cu121` removed** — the runbook reads `nvidia-smi` first and
+   instructs choosing a wheel matching the host's actual driver. The
+   example is explicitly labelled `cuXXX` / "EXAMPLE ONLY". Driver row in
+   §0 changed to "Unknown until measured on the host."
+3. **CUDA-sensitive dependency warning** — how a later `pip install`
+   silently replaces GPU torch with the CPU wheel from PyPI, with
+   `--dry-run` check and the rule that `cli env --require-gpu` is the gate
+   after *every* install.
+4. **Golden path** added at the top of the runbook (6 ordered steps).
+5. **Benchmark reproducibility checklist** (`gpu_host.md` §9) — 10 items.
+6. **A30 experiment plan** (`gpu_host.md` §10) — Experiments 0–3.
+
+---
+
+## Known warnings (non-blocking)
+
+- **AGPL, legal review required.** `pymupdf` is AGPL-3.0 and is a **core,
+  non-optional** dependency — the most binding licence in the project.
+  MinerU2.5 *weights* are AGPL-3.0 (its code is Apache-2.0-based).
+  Mitigation already planned: benchmark Apache-2.0 (PaddleOCR-VL) and MIT
+  (dots.ocr) alternatives first, so the AGPL review may never be needed.
+  **No legal determination is made in this repository.**
+- **Nothing is GPU-validated.** Every CUDA path is wired and unexecuted.
+- **GPU OOM is not first-class.** UNKNOWN — VERIFY ON GPU HOST.
+- **PaddleOCR-VL Vietnamese support** is cited from official documentation
+  but **not verified in practice by this project**. The target corpus is
+  Vietnamese/English — smoke-test before adopting.
+- **History contains private filenames** — private repo only, see above.

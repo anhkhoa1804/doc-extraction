@@ -1,5 +1,5 @@
 {
-  "input_file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+  "input_file": "sample-impact-module-b2b.pdf",
   "backends": {
     "baseline": {
       "status": "ok",

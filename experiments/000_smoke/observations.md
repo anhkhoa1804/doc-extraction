@@ -23,7 +23,7 @@ All 12 documents processed, exit code 0, no parser failures.
 | `native_office` | 3 |
 | `scanned_pdf` | 1 |
 
-The single `scanned_pdf` is `FROGSLEAP_BUSINESS LICENSE.pdf`, and it was
+The single `scanned_pdf` is `sample-business-licence.pdf`, and it was
 **not** routed there for lack of text — it has a full text layer on 100% of
 sampled pages. It was rerouted because that text fails quality checks
 (broken font CMap). See 001.
@@ -32,8 +32,8 @@ sampled pages. It was rerouted because that text fails quality checks
 
 | Document | Route | Runtime |
 |---|---|---|
-| FROGSLEAP_BUSINESS LICENSE.pdf (2 pages) | scanned_pdf | **84.6 s** |
-| FROGSLEAP_COMPANY PROFILE.pdf (40 pages) | digital_pdf | 3.5 s |
+| sample-business-licence.pdf (2 pages) | scanned_pdf | **84.6 s** |
+| sample-company-profile.pdf (40 pages) | digital_pdf | 3.5 s |
 | everything else | native / digital | 0.06 – 1.0 s |
 
 One 2-page document on the OCR path costs **89% of the entire corpus

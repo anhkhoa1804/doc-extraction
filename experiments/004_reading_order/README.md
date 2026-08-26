@@ -27,12 +27,12 @@ Two sources of evidence:
 ## Reproduce
 
 ```bash
-.venv/Scripts/python.exe -m doc_extraction run --input "FROGSLEAP_BUSINESS LICENSE.pdf" --config configs/cpu.yaml
+.venv/Scripts/python.exe -m doc_extraction run --input "sample-business-licence.pdf" --config configs/cpu.yaml
 .venv/Scripts/python.exe -m doc_extraction inspect
 # open outputs/<document_id>/inspection/index.html to see bbox overlays in order
 
 .venv/Scripts/python.exe -m doc_extraction compare \
-    --input FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf \
+    --input sample-impact-module-b2b.pdf \
     --config configs/cpu.yaml --backends baseline docling
 ```
 

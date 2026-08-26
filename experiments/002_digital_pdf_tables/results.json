@@ -5,7 +5,7 @@
   "backend": "pymupdf_tables",
   "documents": [
     {
-      "input_file": "FROGSLEAP COMPANY PROFILE EN UP 26.pptx.pdf",
+      "input_file": "sample-company-profile-export.pdf",
       "pages": 40,
       "tables": 31,
       "cells": 120,
@@ -14,7 +14,7 @@
       "col_spans_gt_1": 28
     },
     {
-      "input_file": "FROGSLEAP PARTNERSHIP PROPOSAL.pdf",
+      "input_file": "sample-partnership-proposal.pdf",
       "pages": 9,
       "tables": 0,
       "cells": 0,
@@ -23,7 +23,7 @@
       "col_spans_gt_1": 0
     },
     {
-      "input_file": "FROGSLEAP_COMPANY PROFILE.pdf",
+      "input_file": "sample-company-profile.pdf",
       "pages": 40,
       "tables": 31,
       "cells": 120,
@@ -32,7 +32,7 @@
       "col_spans_gt_1": 28
     },
     {
-      "input_file": "FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf",
+      "input_file": "sample-impact-module-b2b.pdf",
       "pages": 5,
       "tables": 3,
       "cells": 85,
@@ -41,7 +41,7 @@
       "col_spans_gt_1": 12
     },
     {
-      "input_file": "GEP-2025-Proposal.docx.pdf",
+      "input_file": "sample-proposal-export.pdf",
       "pages": 4,
       "tables": 2,
       "cells": 51,
@@ -50,7 +50,7 @@
       "col_spans_gt_1": 1
     },
     {
-      "input_file": "[IE_GEP] 2025 Letter to Partner Schools (Y5.2 Ma Da).pdf",
+      "input_file": "sample-partner-letter.pdf",
       "pages": 1,
       "tables": 0,
       "cells": 0,
@@ -68,7 +68,7 @@
       "col_spans_gt_1": 4
     },
     {
-      "input_file": "frogsleap_partnership_proposal_v2_20260307095034.pdf",
+      "input_file": "sample-partnership-proposal-v2.pdf",
       "pages": 9,
       "tables": 0,
       "cells": 0,

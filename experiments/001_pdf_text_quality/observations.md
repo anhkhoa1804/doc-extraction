@@ -28,7 +28,7 @@ extraction, not as a CMap detector.
 
 ## What was flagged
 
-Only `FROGSLEAP_BUSINESS LICENSE.pdf`, both sampled pages. This is the
+Only `sample-business-licence.pdf`, both sampled pages. This is the
 document already known to be corrupt from the phase-1 smoke test — its text
 layer decodes `Độc lập Tự do Hạnh phúc` as `ĈӝF OұS 7ӵ GR +ҥQK SK~F`.
 Rerouting it through the visual/OCR path recovers correct Vietnamese.

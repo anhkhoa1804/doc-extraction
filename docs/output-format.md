@@ -47,8 +47,8 @@ raise through the public API instead.
 
 ```json
 {
-  "input_filename": "FROGSLEAP_BUSINESS LICENSE.pdf",
-  "input_path": "FROGSLEAP_BUSINESS LICENSE.pdf",
+  "input_filename": "sample-business-licence.pdf",
+  "input_path": "sample-business-licence.pdf",
   "file_hash_sha256": "536811a9...",
   "file_type": "pdf",
   "route": "scanned_pdf",

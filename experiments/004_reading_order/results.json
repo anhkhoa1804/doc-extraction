@@ -6,7 +6,7 @@
   "cases": [
     {
       "case": "vietnamese_phrase_split",
-      "document": "FROGSLEAP_BUSINESS LICENSE.pdf",
+      "document": "sample-business-licence.pdf",
       "page": 1,
       "route": "scanned_pdf",
       "observed_prefix": "THÀNH PHỐ HỔ CHÍ MINH PHÒNG ĐĂNG KÝ KINH DOANH SỞ TÀI CHÍNH CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP CÔNG TY TRÁCH NHIỆM HỮU HẠN HAI THÀNH VIÊN TRỞ LÊN Mã số doanh n",

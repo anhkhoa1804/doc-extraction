@@ -11,12 +11,12 @@ into the digital route:
 
 | Document | Route | Pages | Tables | Cells | Runtime |
 |---|---|---|---|---|---|
-| FROGSLEAP_COMPANY PROFILE.pdf | digital_pdf | 40 | 31 | ~120 | 3.5 s |
-| FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf | digital_pdf | 5 | 3 | 85 | 0.8 s |
+| sample-company-profile.pdf | digital_pdf | 40 | 31 | ~120 | 3.5 s |
+| sample-impact-module-b2b.pdf | digital_pdf | 5 | 3 | 85 | 0.8 s |
 | Partnership Proposal.pdf | digital_pdf | 8 | 2 | 126 | 0.8 s |
-| GEP-2025-Proposal.docx.pdf | digital_pdf | 4 | 2 | 51 | 0.4 s |
-| FROGSLEAP PARTNERSHIP PROPOSAL.pdf | digital_pdf | 9 | 0 | 0 | 0.7 s |
-| [IE_GEP] 2025 Letter… .pdf | digital_pdf | 1 | 0 | 0 | 0.1 s |
+| sample-proposal-export.pdf | digital_pdf | 4 | 2 | 51 | 0.4 s |
+| sample-partnership-proposal.pdf | digital_pdf | 9 | 0 | 0 | 0.7 s |
+| sample-partner-letter.pdf | digital_pdf | 1 | 0 | 0 | 0.1 s |
 
 Across the whole corpus (including native office): **~74 tables and ~1370
 cells**, where phase 1 produced tables only from XLSX/DOCX.
@@ -34,7 +34,7 @@ Transformer is reserved for pages with no usable text layer.
 
 ## Cross-check against Docling
 
-On `FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf`, baseline and Docling
+On `sample-impact-module-b2b.pdf`, baseline and Docling
 **agree exactly on table count** (3 vs 3, `table_count_delta = 0`) and are
 close on cells (85 vs 80). Runtime differs sharply: 0.6 s vs 36.3 s.
 
@@ -53,7 +53,7 @@ truth.
   populated cell with empty cells beneath it. Table Transformer on a
   rendered page is the fallback when row spans matter. (For contrast, the
   native-office backend does recover both span directions.)
-* **Two documents with 0 tables** (`FROGSLEAP PARTNERSHIP PROPOSAL.pdf`,
+* **Two documents with 0 tables** (`sample-partnership-proposal.pdf`,
   9 pages) — not verified by hand whether those documents genuinely contain
   no tables, or contain borderless ones the finder misses. **This is the
   most important open question from this experiment** and is exactly the

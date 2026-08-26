@@ -29,7 +29,7 @@ region detection and still be badly wrong in reading order.
 
 ```bash
 .venv/Scripts/python.exe -m doc_extraction compare \
-    --input FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf \
+    --input sample-impact-module-b2b.pdf \
     --config configs/cpu.yaml --backends baseline docling
 ```
 

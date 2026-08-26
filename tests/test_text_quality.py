@@ -103,7 +103,7 @@ def test_script_of(char, expected):
 
 # --- False positives found on the real corpus (regression locks) ----------
 # Both of these were flagged by an earlier revision of this heuristic on
-# real pages of FROGSLEAP_COMPANY PROFILE.pdf. Neither page was corrupt.
+# real pages of sample-company-profile.pdf. Neither page was corrupt.
 
 
 def test_styled_unicode_letters_are_not_mistaken_for_another_script():

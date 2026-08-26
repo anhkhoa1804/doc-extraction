@@ -57,7 +57,7 @@ baseline:
 # Docling costs ~35 s/page on CPU (~4 s/page on an L4) — target one file
 # rather than the corpus.
 compare:
-	$(PYTHON) -m doc_extraction compare --input "data/FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf" \
+	$(PYTHON) -m doc_extraction compare --input "data/sample-impact-module-b2b.pdf" \
 		--config $(CONFIG) --backends baseline docling
 
 inspect:

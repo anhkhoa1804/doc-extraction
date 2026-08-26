@@ -190,7 +190,7 @@ def make_corrupt_pdf(path: Path) -> Path:
 
 
 # Text samples for text-quality tests. The "garbled" sample is copied from
-# the real observed failure in FROGSLEAP_BUSINESS LICENSE.pdf (a broken
+# the real observed failure in sample-business-licence.pdf (a broken
 # ToUnicode CMap), so the tests exercise the actual failure mode rather than
 # an invented one.
 CLEAN_VIETNAMESE_TEXT = (

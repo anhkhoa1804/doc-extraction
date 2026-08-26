@@ -89,7 +89,10 @@ def test_real_corpus_business_license_is_detected_as_corrupt(sample_files):
 
 def test_other_real_corpus_pdfs_are_not_false_positives(sample_files):
     """The quality gate must not reroute clean documents: a false positive
-    costs an unnecessary OCR pass and degrades output."""
+    costs an unnecessary OCR pass and degrades output.
+
+    The single known-corrupt document is excluded by the *property* that
+    makes it corrupt, not by its (private) filename."""
     config = PipelineConfig()
     candidates = [
         p for p in sample_files

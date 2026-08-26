@@ -1,6 +1,6 @@
 # Observations — 003 Backend disagreement
 
-`FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf` (5 pages), baseline vs
+`sample-impact-module-b2b.pdf` (5 pages), baseline vs
 Docling, CPU, 2026-08-20.
 
 ## Document-level

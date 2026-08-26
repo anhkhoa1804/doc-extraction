@@ -4,7 +4,7 @@ CPU, 2026-08-20, strategy `column-aware-xy-band`.
 
 ## Case 1: phrase-level scrambling on a recovered scan
 
-`FROGSLEAP_BUSINESS LICENSE.pdf` page 1, after the OCR reroute, orders as:
+`sample-business-licence.pdf` page 1, after the OCR reroute, orders as:
 
 > … CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM **Độc lập do Hạnh phúc Tự** GIẤY
 > CHỨNG NHẬN …
@@ -31,7 +31,7 @@ the obvious next step and has not been done.
 
 ## Case 2: disagreement with Docling's ordering
 
-From 003, on `FROGSLEAP_Impact_Module_TriAn_B2B_Sample.pdf`:
+From 003, on `sample-impact-module-b2b.pdf`:
 
 | Page | reading-order correlation | bbox match rate |
 |---|---|---|
