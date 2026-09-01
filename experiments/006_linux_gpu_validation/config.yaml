@@ -1,0 +1,73 @@
+# GPU profile — WIRED, NOT YET MEASURED. Status: requires a CUDA machine.
+#
+# `device: cuda` here now reaches every model stage:
+#   * docling layout + TableFormer + EasyOCR, via
+#     `PdfPipelineOptions.accelerator_options` (backends/docling_backend.py)
+#   * the Table Transformer detection/structure models AND their input
+#     tensors (backends/table_backend.py)
+#
+# Both were real bugs before: docling's accelerator options were never set,
+# so it fell back to its own `device="auto"` and silently disagreed with
+# this file, while EasyOCR was pinned to CPU by the deprecated `use_gpu`
+# flag; and the Table Transformer backend moved its models to the device
+# but not its inputs, which raises "Expected all tensors to be on the same
+# device" the moment device is not cpu.
+#
+# What is still NOT claimed: no timing from this profile has been recorded
+# in this repository. The reference dev machine cannot produce one — its
+# torch is a CPU-only build (2.8.0+cpu) and its driver caps out at CUDA
+# 11.2. Measure before reporting a speedup; the Kaggle notebook
+# (experiments/005_omnidocbench/doc-extraction.ipynb) prints seconds/page
+# against the CPU reference for exactly that purpose.
+#
+# Verify the machine can actually do CUDA work before using this:
+#
+#     python -c "import torch; print(torch.cuda.is_available())"
+#
+# If that prints False, use configs/cpu.yaml. See docs/backends.md.
+
+input_dir: "data"       # local/private sample documents; see data/README.md
+output_dir: "outputs"
+device: "cuda"   # UNVALIDATED — see the header above
+
+render_dpi: 200
+
+# --- PDF routing: quantity gate ---
+digital_pdf_min_chars_per_page: 40
+digital_pdf_page_ratio: 0.6
+digital_pdf_sample_pages: 5
+
+# --- PDF routing: quality gate (ingest/text_quality.py) ---
+# Detects a text layer that is present but wrongly decoded (broken font
+# CMap). Thresholds calibrated on this repo's corpus: 22 clean pages scored
+# 0.000 on mixed_script_word_ratio, the 2 corrupt pages scored 0.400-0.538.
+# Re-calibrate with scripts/calibrate_text_quality.py for a different corpus.
+text_quality_min_chars: 200
+text_quality_max_mixed_script_word_ratio: 0.10
+text_quality_max_unexpected_script_ratio: 0.10
+text_quality_max_replacement_ratio: 0.02
+text_quality_max_control_ratio: 0.02
+text_quality_min_alpha_ratio: 0.30
+text_quality_max_digit_in_word_ratio: 0.30
+text_quality_expected_scripts: ["LATIN"]   # covers English and Vietnamese
+text_quality_max_suspicious_page_ratio: 0.34
+digital_pdf_page_fallback: true            # re-extract only the bad pages
+
+# --- Tables ---
+digital_pdf_tables: true   # PyMuPDF native table finder; no render, no OCR
+
+# Sample documents are mixed Vietnamese/English.
+ocr_languages: ["en", "vi"]
+
+layout_backend: "docling"
+ocr_backend: "docling"
+table_backend: "table_transformer"
+
+backends:
+  docling: true       # installed and validated on CPU
+  mineru: false       # not installed — see docs/backends.md
+  paddleocr: false    # not installed — see docs/backends.md
+  vlm: false          # not implemented — see docs/backends.md
+
+cache_dir: ".cache"   # relative: resolved against the repo root
+log_level: "INFO"

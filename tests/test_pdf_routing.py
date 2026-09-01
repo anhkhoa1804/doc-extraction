@@ -3,6 +3,8 @@
 """
 from __future__ import annotations
 
+import pytest
+
 from doc_extraction.config import PipelineConfig
 from doc_extraction.ingest import dispatcher
 from tests.fixtures import (
@@ -78,7 +80,7 @@ def test_real_corpus_business_license_is_detected_as_corrupt(sample_files):
     """Regression lock on the actual observed failure in the real corpus."""
     matches = [p for p in sample_files if p.name == "FROGSLEAP_BUSINESS LICENSE.pdf"]
     if not matches:  # corpus may legitimately differ on another machine
-        return
+        pytest.skip("FROGSLEAP_BUSINESS LICENSE.pdf not present in local data/ corpus")
     decision = dispatcher.route(matches[0], PipelineConfig())
     assert decision.route == dispatcher.ROUTE_SCANNED_PDF
     assert decision.text_profile.text_page_ratio == 1.0
@@ -89,8 +91,12 @@ def test_other_real_corpus_pdfs_are_not_false_positives(sample_files):
     """The quality gate must not reroute clean documents: a false positive
     costs an unnecessary OCR pass and degrades output."""
     config = PipelineConfig()
-    for path in sample_files:
-        if path.suffix.lower() != ".pdf" or path.name == "FROGSLEAP_BUSINESS LICENSE.pdf":
-            continue
+    candidates = [
+        p for p in sample_files
+        if p.suffix.lower() == ".pdf" and p.name != "FROGSLEAP_BUSINESS LICENSE.pdf"
+    ]
+    if not candidates:
+        pytest.skip("no local sample PDFs under data/ (private corpus, see data/README.md)")
+    for path in candidates:
         decision = dispatcher.route(path, config)
         assert decision.route == dispatcher.ROUTE_DIGITAL_PDF, f"{path.name} was unexpectedly rerouted"

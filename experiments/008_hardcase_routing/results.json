@@ -1,0 +1,144 @@
+{
+  "experiment": "008_hardcase_routing",
+  "date_utc": "2026-09-01",
+  "git_commit": "4edd395e0b98ee9d05492e033ce80ef4df20235d",
+  "git_note": "plus uncommitted working-tree changes",
+  "question": "On EN/VI enterprise hard cases, is adaptive routing worth its cost against always-native and always-visual?",
+  "corpus": {
+    "name": "enterprise-hardcases",
+    "cases": 14,
+    "synthetic": true,
+    "languages": [
+      "en",
+      "vi",
+      "mixed"
+    ],
+    "generator": "research/hardcases/generate.py",
+    "note": "ground truth is the text the generator drew; no annotation involved"
+  },
+  "method": {
+    "strategies_differ_only_in": "router constraints; identical backends, config and device",
+    "device": "cpu",
+    "metric": "recall over must_contain strings, NFC-normalized"
+  },
+  "resource_state": {
+    "classification": "LIMITED",
+    "detail": "one unrelated GPU job (PID 9877) resident throughout; CPU loadavg 1.4-3.1",
+    "note": "all three strategies ran under the same conditions, so the comparison is internally valid; absolute timings are not a clean benchmark"
+  },
+  "results_before_coordinate_fix": {
+    "native": {
+      "mean_text_recall": 0.881,
+      "worst_text_recall": 0.0,
+      "p10_text_recall": 0.6667,
+      "fully_recovered": 11,
+      "total_failures": 1,
+      "hallucinations": 1,
+      "tables_ok": 13,
+      "total_runtime_s": 0.5,
+      "recall_per_second": 24.8024
+    },
+    "adaptive": {
+      "mean_text_recall": 0.9524,
+      "worst_text_recall": 0.6667,
+      "p10_text_recall": 0.6667,
+      "fully_recovered": 12,
+      "total_failures": 0,
+      "hallucinations": 0,
+      "tables_ok": 13,
+      "total_runtime_s": 36.9,
+      "recall_per_second": 0.3613
+    },
+    "visual": {
+      "mean_text_recall": 0.5893,
+      "worst_text_recall": 0.0,
+      "p10_text_recall": 0.0,
+      "fully_recovered": 4,
+      "total_failures": 3,
+      "hallucinations": 0,
+      "tables_ok": 14,
+      "total_runtime_s": 198.61,
+      "recall_per_second": 0.0415
+    }
+  },
+  "results_after_coordinate_fix": {
+    "native": {
+      "mean_text_recall": 0.881,
+      "worst_text_recall": 0.0,
+      "p10_text_recall": 0.6667,
+      "fully_recovered": 11,
+      "total_failures": 1,
+      "hallucinations": 1,
+      "tables_ok": 13,
+      "total_runtime_s": 0.5,
+      "recall_per_second": 24.4505
+    },
+    "adaptive": {
+      "mean_text_recall": 0.9524,
+      "worst_text_recall": 0.6667,
+      "p10_text_recall": 0.6667,
+      "fully_recovered": 12,
+      "total_failures": 0,
+      "hallucinations": 0,
+      "tables_ok": 13,
+      "total_runtime_s": 37.49,
+      "recall_per_second": 0.3556
+    },
+    "visual": {
+      "mean_text_recall": 0.6607,
+      "worst_text_recall": 0.0,
+      "p10_text_recall": 0.3333,
+      "fully_recovered": 4,
+      "total_failures": 1,
+      "hallucinations": 0,
+      "tables_ok": 14,
+      "total_runtime_s": 194.28,
+      "recall_per_second": 0.0476
+    }
+  },
+  "per_case_visual_before": {
+    "clean_vi": 0.75,
+    "clean_en": 1.0,
+    "tiny_text": 0.6667,
+    "low_contrast": 1.0,
+    "rotated_region": 0.5,
+    "stamp_over_text": 0.5,
+    "watermark": 0.5,
+    "borderless_table": 1.0,
+    "merged_cells": 0.0,
+    "multicolumn_mixed": 0.6667,
+    "tiny_cells_table": 0.0,
+    "headfoot_multipage": 0.6667,
+    "stamp_over_table": 0.0,
+    "broken_cmap_vi": 1.0
+  },
+  "per_case_visual_after": {
+    "clean_vi": 0.75,
+    "clean_en": 1.0,
+    "tiny_text": 0.6667,
+    "low_contrast": 1.0,
+    "rotated_region": 0.5,
+    "stamp_over_text": 0.5,
+    "watermark": 0.5,
+    "borderless_table": 1.0,
+    "merged_cells": 0.3333,
+    "multicolumn_mixed": 0.6667,
+    "tiny_cells_table": 0.6667,
+    "headfoot_multipage": 0.6667,
+    "stamp_over_table": 0.0,
+    "broken_cmap_vi": 1.0
+  },
+  "findings": {
+    "adaptive_dominates_quality": "95% mean recall, 0 total failures, 0 hallucinations - the only strategy with no catastrophic case",
+    "always_visual_is_harmful": "66% mean recall vs native's 88%, at ~390x the runtime. Rendering+OCR destroys information that an intact text layer already had.",
+    "native_alone_is_dangerous_not_weak": "88% mean but its single failure is the corrupt-CMap case, where it emits confident garbage - flagged by must_not_contain",
+    "adaptive_cost_is_concentrated": "36.5s of 36.9s (99%) spent on the one document that needed it; the other 13 took ~0.4s total",
+    "coordinate_fix_effect": "visual mean recall 59% -> 66%, total failures 3 -> 1, p10 0% -> 33%"
+  },
+  "limitations": [
+    "14 synthetic cases; not real scans",
+    "one run per strategy, no variance estimate",
+    "recall over a handful of strings is coarse by design",
+    "runtime measured under LIMITED contention"
+  ]
+}

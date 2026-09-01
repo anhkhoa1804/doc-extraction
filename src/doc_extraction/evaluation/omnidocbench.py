@@ -36,6 +36,8 @@ What this module provides:
 """
 from __future__ import annotations
 
+from doc_extraction import config as _config
+
 import json
 import os
 import platform
@@ -149,10 +151,16 @@ def _find_ground_truth_json(dataset_root: Path) -> Path:
 
 
 def dataset_content_hash(ground_truth_path: Path) -> str:
-    """SHA-256 of the ground-truth JSON. Provenance only — recorded in run
-    metadata so a result can be traced to exactly which copy of the file
-    produced it. Not used to validate the file (a legitimate dataset update
-    changes this hash; that isn't an error)."""
+    """SHA-256 of the ground-truth JSON *as bytes on disk*. Provenance only —
+    recorded in run metadata so a result can be traced to exactly which copy
+    of the file produced it. Not used to validate the file (a legitimate
+    dataset update changes this hash; that isn't an error).
+
+    NOTE: this is deliberately a hash of the exact bytes, so it identifies a
+    *copy*, not a dataset version. It differs between a Windows checkout
+    (CRLF) and a POSIX one (LF) for the same upstream commit — see
+    `dataset_semantic_hash` for a hash that does not.
+    """
     import hashlib
 
     digest = hashlib.sha256()
@@ -160,6 +168,64 @@ def dataset_content_hash(ground_truth_path: Path) -> str:
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+# Re-exported so callers (and tests) can express paths relative to the same
+# root `portable_path` normalizes against.
+REPO_ROOT = _config.REPO_ROOT
+
+
+def portable_path(path: Path | str, repo_root: Path | None = None) -> str:
+    """Render `path` for a file that will be committed or shared.
+
+    A path inside the repository becomes repo-relative; anything else is
+    reduced to its final component. Absolute paths must not be written into
+    result metadata: on POSIX they embed the operator's username
+    (`/home/<user>/...`), and even without that they describe one machine's
+    layout, which is noise in a file whose purpose is cross-machine
+    comparison.
+
+    This is the promise `build_benchmark_metadata` already documents; it was
+    not previously enforced for `dataset_root`, and the committed Windows
+    results show the consequence (`D:\\doc-extraction\\...`).
+    """
+    root = Path(repo_root) if repo_root is not None else REPO_ROOT
+    p = Path(path)
+    try:
+        return Path(p).resolve().relative_to(Path(root).resolve()).as_posix()
+    except ValueError:
+        # Outside the repository (a mounted dataset, a Kaggle input): keep the
+        # leaf so the result is still identifiable, drop the machine layout.
+        return p.name
+
+
+def dataset_semantic_hash(ground_truth_path: Path) -> str:
+    """SHA-256 of the ground-truth JSON's *decoded content*, independent of
+    file formatting, indentation, encoding form and line endings.
+
+    Why both this and `dataset_content_hash`: the byte hash answers "is this
+    the identical file?", which is what you want when auditing one machine.
+    It cannot answer "is this the same dataset?" across machines, because a
+    Windows checkout of an unchanged upstream file hashes differently from a
+    POSIX one (git's `core.autocrlf` rewrites LF to CRLF on checkout). That
+    was observed concretely in this repository: the committed Windows runs
+    under experiments/005_omnidocbench/results/ record
+    `146690ea...` for the pinned demo ground truth, while a Linux checkout of
+    the *same* pinned upstream commit yields `a0686ff3...`. The two files are
+    byte-identical apart from line endings, but the recorded hashes suggest —
+    wrongly — that two different datasets were evaluated.
+
+    Comparing benchmark results across machines is the entire point of
+    recording a dataset identifier, so runs also record this normalized hash,
+    which is stable across platforms for the same logical dataset.
+    """
+    import hashlib
+    import json as _json
+
+    with open(ground_truth_path, "r", encoding="utf-8") as f:
+        data = _json.load(f)
+    canonical = _json.dumps(data, sort_keys=True, ensure_ascii=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def load_dataset(dataset_root: Path | str) -> tuple[Path, list[OmniDocSample]]:
@@ -444,7 +510,10 @@ def build_benchmark_metadata(
         "platform": platform.platform(),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "ground_truth_file": ground_truth_path.name,
+        # Byte hash identifies the exact copy; semantic hash identifies the
+        # dataset across platforms (CRLF/LF). See the two functions' docs.
         "ground_truth_sha256": dataset_content_hash(ground_truth_path),
+        "ground_truth_semantic_sha256": dataset_semantic_hash(ground_truth_path),
         "num_samples": num_samples,
         "model_versions": model_versions or {},
         "config": config_snapshot,

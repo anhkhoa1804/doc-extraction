@@ -42,6 +42,34 @@ def _discover_inputs(input_path: Path) -> list[Path]:
 
 _COMPONENT_BACKEND_CACHE: dict[tuple[str, tuple[str, ...]], Any] = {}
 
+# Set by resolve_device() so the run's metadata can record *why* a device was
+# chosen, not just which one. Process-global because device selection happens
+# once per process, before any file is handled.
+_DEVICE_DECISION: dict[str, Any] | None = None
+
+
+def resolve_device(config: PipelineConfig) -> PipelineConfig:
+    """Resolve `config.device == "auto"` against the GPU's current state.
+
+    Mutates and returns `config` so that everything downstream — backends,
+    `config_snapshot`, `metadata.device` — sees one concrete device. The
+    decision and its evidence are kept for the run metadata: a benchmark that
+    says `device: cuda` without saying why is not reproducible on a machine
+    whose GPU was busy at the time.
+    """
+    global _DEVICE_DECISION
+    from doc_extraction.utils.resources import select_device
+
+    decision = select_device(
+        config.device,
+        required_mib=config.gpu_required_mib,
+        safety_margin_mib=config.gpu_safety_margin_mib,
+        allow_limited=config.gpu_allow_shared,
+    )
+    _DEVICE_DECISION = decision.as_dict()
+    config.device = decision.device
+    return config
+
 
 def clear_component_backend_cache() -> None:
     """Drop the cached backends (and the models they hold). For tests, and
@@ -212,7 +240,7 @@ def process_file(
         file_hash = sha256_file(path)
 
     doc_id = output_dir.name
-    logger = StageLogger(doc_id, output_dir / "logs")
+    logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
     start = time.perf_counter()
     route_decision = dispatcher.route(path, config)
 
@@ -240,6 +268,7 @@ def process_file(
             timestamp=datetime.now(timezone.utc).isoformat(),
             device=config.device,
             route_reason=route_decision.reason,
+            device_decision=_DEVICE_DECISION,
             text_profile=route_decision.text_profile.as_dict() if route_decision.text_profile else None,
             warnings=_collect_page_warnings(pages),
         )
@@ -268,6 +297,7 @@ def process_file(
             device=config.device,
             errors=[f"{type(exc).__name__}: {exc}"],
             route_reason=route_decision.reason,
+            device_decision=_DEVICE_DECISION,
             text_profile=route_decision.text_profile.as_dict() if route_decision.text_profile else None,
         )
         write_json(output_dir / "metadata.json", metadata)
@@ -280,6 +310,11 @@ def process_file(
 
 def cmd_run(args: argparse.Namespace) -> int:
     config = load_config(args.config)
+    if getattr(args, "device", None):
+        config.device = args.device
+    config = resolve_device(config)
+    if _DEVICE_DECISION and _DEVICE_DECISION.get("requested") == "auto":
+        print(f"device: {_DEVICE_DECISION['reason']}")
     if args.input:
         config.input_dir = args.input
     if args.output:
@@ -319,6 +354,11 @@ def cmd_compare(args: argparse.Namespace) -> int:
     from doc_extraction.evaluation.compare import build_comparison, render_comparison_html
 
     config = load_config(args.config)
+    if getattr(args, "device", None):
+        config.device = args.device
+    config = resolve_device(config)
+    if _DEVICE_DECISION and _DEVICE_DECISION.get("requested") == "auto":
+        print(f"device: {_DEVICE_DECISION['reason']}")
     input_path = Path(args.input).resolve()
     output_root = Path(config.output_dir).resolve()
     comparison_root = output_root / "comparison"
@@ -396,11 +436,21 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument(
         "--backend", default="baseline", choices=["baseline", "docling", "mineru", "paddleocr", "vlm"]
     )
+    run_parser.add_argument(
+        "--device", choices=["cpu", "cuda", "auto"], default=None,
+        help=(
+            "Override the config's device. 'auto' inspects the GPU's current free VRAM, "
+            "utilization and other compute processes and picks cpu or cuda accordingly — "
+            "on a shared machine it will stay off a GPU another job is actively using."
+        ),
+    )
     run_parser.set_defaults(func=cmd_run)
 
     compare_parser = subparsers.add_parser("compare", help="Run several whole-document backends over the same inputs.")
     compare_parser.add_argument("--input", required=True, help="Directory to process.")
     compare_parser.add_argument("--config", default="configs/default.yaml")
+    compare_parser.add_argument("--device", choices=["cpu", "cuda", "auto"], default=None,
+                                help="Override the config's device (see `run --device`).")
     compare_parser.add_argument(
         "--backends",
         nargs="+",

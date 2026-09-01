@@ -74,3 +74,14 @@ Thumbs.db
 .ruff_cache/
 .coverage
 htmlcov/
+
+# research/ — prototypes and internal benchmarks (see research/hardcases/README.md).
+# The corpus GENERATOR, its manifest and the generated PDFs are committed: they
+# are synthetic, contain no enterprise data, and are the benchmark itself.
+# Per-run working directories (rendered pages, crops, extraction output) are not.
+research/**/_runs/
+research/**/_dpi/
+research/**/_recovery/
+research/**/outputs/
+research/**/*.png
+research/**/*.jpg

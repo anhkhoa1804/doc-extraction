@@ -1,0 +1,47 @@
+# Never copy private, heavy, or machine-local content into the build context.
+# (Each entry is also a policy statement — see the Dockerfile header.)
+
+# Private enterprise sample documents (see data/README.md).
+data/*
+!data/README.md
+!data/manifest.json
+
+# Model weights and caches — ~1.5 GB, mounted at run time instead.
+.cache/
+*.pth
+*.onnx
+*.safetensors
+*.bin
+
+# Benchmark dataset and the external evaluator clone.
+.external/
+experiments/005_omnidocbench/dataset/
+experiments/005_omnidocbench/predictions/
+experiments/005_omnidocbench/logs/
+experiments/005_omnidocbench/results/**/predictions/
+experiments/005_omnidocbench/results/**/_doc_extraction_runs/
+
+# Run artifacts.
+outputs/
+*.log
+
+# Host virtualenvs — never valid inside the image.
+.venv/
+.venv-omnidoc/
+
+# Secrets.
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# VCS / tooling noise.
+.git/
+.github/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/

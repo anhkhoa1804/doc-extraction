@@ -45,8 +45,20 @@ class StageContext:
 
 
 class StageLogger:
-    def __init__(self, document_id: str, log_dir: Path) -> None:
+    """Per-document stage logger.
+
+    `device` is a property of the *run*, not of an individual stage call, so
+    it is set once here and stamped onto every record. It used to default to
+    "cpu" on each `log_event`/`stage` call with no call site ever passing it,
+    which meant a full CUDA run produced logs claiming `device: "cpu"` —
+    silently wrong provenance in the pipeline's primary observability
+    artifact. An explicit per-call `device=` still overrides, for the rare
+    stage that genuinely runs somewhere else than the rest of the run.
+    """
+
+    def __init__(self, document_id: str, log_dir: Path, device: str = "cpu") -> None:
         self.document_id = document_id
+        self.device = device
         self.log_dir = Path(log_dir)
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self._jsonl_path = self.log_dir / "pipeline.jsonl"
@@ -68,7 +80,7 @@ class StageLogger:
         backend: str,
         status: str,
         runtime_seconds: float | None = None,
-        device: str = "cpu",
+        device: str | None = None,
         page: int | None = None,
         output_path: str | None = None,
         warnings: list[str] | None = None,
@@ -83,7 +95,7 @@ class StageLogger:
             "backend": backend,
             "status": status,
             "runtime_seconds": runtime_seconds,
-            "device": device,
+            "device": device if device is not None else self.device,
             "output_path": output_path,
             "warnings": warnings or [],
             "error": error,
@@ -103,7 +115,7 @@ class StageLogger:
 
     @contextmanager
     def stage(
-        self, stage: str, backend: str, page: int | None = None, device: str = "cpu"
+        self, stage: str, backend: str, page: int | None = None, device: str | None = None
     ) -> Iterator[StageContext]:
         ctx = StageContext()
         start = time.perf_counter()

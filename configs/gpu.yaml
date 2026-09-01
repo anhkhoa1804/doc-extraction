@@ -1,4 +1,4 @@
-# GPU profile — WIRED, NOT YET MEASURED. Status: requires a CUDA machine.
+# GPU profile — WIRED AND MEASURED. Requires a CUDA-capable torch build.
 #
 # `device: cuda` here now reaches every model stage:
 #   * docling layout + TableFormer + EasyOCR, via
@@ -13,12 +13,21 @@
 # but not its inputs, which raises "Expected all tensors to be on the same
 # device" the moment device is not cpu.
 #
-# What is still NOT claimed: no timing from this profile has been recorded
-# in this repository. The reference dev machine cannot produce one — its
-# torch is a CPU-only build (2.8.0+cpu) and its driver caps out at CUDA
-# 11.2. Measure before reporting a speedup; the Kaggle notebook
-# (experiments/005_omnidocbench/doc-extraction.ipynb) prints seconds/page
-# against the CPU reference for exactly that purpose.
+# VALIDATED as of 2026-09-01 on an NVIDIA L4 (driver 580.173.02, torch
+# 2.11.0+cu128): both Table Transformer checkpoints and their input tensors
+# were observed on cuda:0, output was byte-identical to CPU (0.000 px bbox
+# delta), and warm layout inference was 8.9x faster than CPU. See
+# experiments/006_linux_gpu_validation/.
+#
+# Note the cold/warm distinction before quoting any speedup: on a short run
+# model loading dominates, and wall-clock speedup (1.4x) understates
+# steady-state inference (8.9x) by roughly 6x. `scripts/profile_pipeline.py`
+# separates them.
+#
+# On a SHARED machine prefer `device: auto` over `cuda`: it inspects free
+# VRAM, utilization and other compute processes first, and falls back to CPU
+# rather than competing with another project's job. `cuda` here is
+# unconditional and will happily contend.
 #
 # Verify the machine can actually do CUDA work before using this:
 #
@@ -28,7 +37,7 @@
 
 input_dir: "data"       # local/private sample documents; see data/README.md
 output_dir: "outputs"
-device: "cuda"   # UNVALIDATED — see the header above
+device: "cuda"   # validated; prefer "auto" on a shared machine — see header
 
 render_dpi: 200
 

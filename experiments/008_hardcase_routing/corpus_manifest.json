@@ -1,0 +1,269 @@
+{
+  "corpus": "enterprise-hardcases",
+  "generated_by": "research/hardcases/generate.py",
+  "synthetic": true,
+  "contains_real_enterprise_data": false,
+  "languages": [
+    "en",
+    "vi",
+    "mixed"
+  ],
+  "taxonomy": {
+    "T-CLEAN": "control: clean born-digital text, must not regress",
+    "T-TINY": "text below the resolution the default render DPI can resolve",
+    "T-LOWCON": "low contrast between ink and background",
+    "T-ROT": "page or region rotated away from horizontal",
+    "T-SKEW": "small skew angle, as from a scanner or camera",
+    "T-NOISE": "scan noise / speckle",
+    "T-CMAP": "text layer present but wrongly decoded (broken ToUnicode)",
+    "T-DIACRITIC": "Vietnamese diacritics specifically at risk",
+    "O-STAMP": "opaque stamp/seal overlapping text",
+    "O-WATERMARK": "large translucent watermark across the page",
+    "O-HANDWRITE": "handwriting-like strokes over printed text",
+    "L-MULTICOL": "multi-column layout with a real gutter",
+    "L-HEADFOOT": "repeated header/footer across pages",
+    "B-BORDERLESS": "table with no ruling lines",
+    "B-MERGED": "table with merged cells",
+    "B-TINYCELL": "table with small text inside cells",
+    "X-COMBO": "two failure modes interacting on one page"
+  },
+  "cases": [
+    {
+      "case_id": "clean_vi",
+      "document_type": "business_license",
+      "language": "vi",
+      "difficulty": "easy",
+      "failure_mode": "T-CLEAN",
+      "expected_behavior": "native digital route; all diacritics preserved exactly",
+      "must_contain": [
+        "Độc lập",
+        "Hạnh phúc",
+        "0123456789",
+        "Nguyễn Thị Hương"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "Control case. Any diacritic loss here invalidates every harder Vietnamese result.",
+      "filename": "clean_vi.pdf"
+    },
+    {
+      "case_id": "clean_en",
+      "document_type": "business_license",
+      "language": "en",
+      "difficulty": "easy",
+      "failure_mode": "T-CLEAN",
+      "expected_behavior": "native digital route; exact text",
+      "must_contain": [
+        "CERTIFICATE OF BUSINESS REGISTRATION",
+        "0123456789",
+        "5,000,000,000"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "",
+      "filename": "clean_en.pdf"
+    },
+    {
+      "case_id": "tiny_text",
+      "document_type": "contract",
+      "language": "mixed",
+      "difficulty": "hard",
+      "failure_mode": "T-TINY",
+      "expected_behavior": "native route recovers it exactly (text layer intact); the visual route needs higher DPI than the 200 default",
+      "must_contain": [
+        "1.5% per month",
+        "2.500.000",
+        "ninety (90) days"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "Native and visual routes should diverge sharply here — that divergence is the measurement, not a bug.",
+      "filename": "tiny_text.pdf"
+    },
+    {
+      "case_id": "low_contrast",
+      "document_type": "scanned_form",
+      "language": "en",
+      "difficulty": "hard",
+      "failure_mode": "T-LOWCON",
+      "expected_behavior": "native text layer is intact so the native route must succeed; OCR on the render is where contrast matters",
+      "must_contain": [
+        "Enterprise code",
+        "0123456789"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "",
+      "filename": "low_contrast.pdf"
+    },
+    {
+      "case_id": "rotated_region",
+      "document_type": "annex",
+      "language": "en",
+      "difficulty": "hard",
+      "failure_mode": "T-ROT",
+      "expected_behavior": "rotated text must still be recovered; reading order will likely be wrong and that is a separate, recorded failure",
+      "must_contain": [
+        "Enterprise code",
+        "ROTATED ANNEX"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "",
+      "filename": "rotated_region.pdf"
+    },
+    {
+      "case_id": "stamp_over_text",
+      "document_type": "business_license",
+      "language": "vi",
+      "difficulty": "extreme",
+      "failure_mode": "O-STAMP",
+      "expected_behavior": "native route recovers the occluded text (it is under the seal, not replaced); the visual route cannot and should say so",
+      "must_contain": [
+        "Mã số doanh nghiệp",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "The point of this case is that native and visual routes fail DIFFERENTLY. A fusion strategy should beat either alone.",
+      "filename": "stamp_over_text.pdf"
+    },
+    {
+      "case_id": "watermark",
+      "document_type": "certified_copy",
+      "language": "vi",
+      "difficulty": "medium",
+      "failure_mode": "O-WATERMARK",
+      "expected_behavior": "body text recovered; the watermark itself is content, not noise, and should appear rather than be silently dropped",
+      "must_contain": [
+        "Độc lập",
+        "Vốn điều lệ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "",
+      "filename": "watermark.pdf"
+    },
+    {
+      "case_id": "borderless_table",
+      "document_type": "contract_appendix",
+      "language": "en",
+      "difficulty": "hard",
+      "failure_mode": "B-BORDERLESS",
+      "expected_behavior": "text recovered; table STRUCTURE likely lost by the native finder, which keys on vector ruling lines",
+      "must_contain": [
+        "Registration",
+        "1,500,000",
+        "Certified copy"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "notes": "Expected-fail for the native table backend by construction. The value is measuring whether a specialist or VLM recovers the grid.",
+      "filename": "borderless_table.pdf"
+    },
+    {
+      "case_id": "merged_cells",
+      "document_type": "financial_report",
+      "language": "en",
+      "difficulty": "hard",
+      "failure_mode": "B-MERGED",
+      "expected_behavior": "cell text recovered; row/col spans are the hard part",
+      "must_contain": [
+        "12,400,000",
+        "9,800,000",
+        "Region"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "notes": "",
+      "filename": "merged_cells.pdf"
+    },
+    {
+      "case_id": "multicolumn_mixed",
+      "document_type": "contract",
+      "language": "mixed",
+      "difficulty": "medium",
+      "failure_mode": "L-MULTICOL",
+      "expected_behavior": "both columns recovered AND ordered column-by-column, not interleaved line-by-line across the gutter",
+      "must_contain": [
+        "Definitions",
+        "Điều khoản chung",
+        "nghĩa vụ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "Reading order is the measurement here, not text recovery.",
+      "filename": "multicolumn_mixed.pdf"
+    },
+    {
+      "case_id": "tiny_cells_table",
+      "document_type": "invoice",
+      "language": "mixed",
+      "difficulty": "extreme",
+      "failure_mode": "X-COMBO",
+      "expected_behavior": "ruled table detected; 5pt cell text is the interacting difficulty",
+      "must_contain": [
+        "SKU-1001",
+        "Sản phẩm 1",
+        "Mô tả"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "notes": "Deliberate interaction of B-TINYCELL and T-TINY: real invoices combine them.",
+      "filename": "tiny_cells_table.pdf"
+    },
+    {
+      "case_id": "headfoot_multipage",
+      "document_type": "contract",
+      "language": "en",
+      "difficulty": "medium",
+      "failure_mode": "L-HEADFOOT",
+      "expected_behavior": "3 pages; repeated header/footer identifiable as such rather than interleaved into body text 3 times",
+      "must_contain": [
+        "Section 1",
+        "Section 3",
+        "Contract Ref 2024/ACME/017"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "notes": "Cross-page structure: the repeated strings are the signal.",
+      "filename": "headfoot_multipage.pdf"
+    },
+    {
+      "case_id": "stamp_over_table",
+      "document_type": "invoice",
+      "language": "mixed",
+      "difficulty": "extreme",
+      "failure_mode": "X-COMBO",
+      "expected_behavior": "table structure survives; the amount under the stamp is recoverable natively but not visually",
+      "must_contain": [
+        "1,250,000",
+        "ĐÃ THU",
+        "Widget"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "notes": "Interaction of O-STAMP and B-* — the combination real invoices actually present.",
+      "filename": "stamp_over_table.pdf"
+    },
+    {
+      "case_id": "broken_cmap_vi",
+      "document_type": "business_license",
+      "language": "vi",
+      "difficulty": "hard",
+      "failure_mode": "T-CMAP",
+      "expected_behavior": "quality gate must reject the text layer and reroute to OCR; accepting it silently is the worst possible outcome",
+      "must_contain": [
+        "Cong Hoa",
+        "Doanh Nghiep"
+      ],
+      "must_not_contain": [
+        "ЅoҖѸ",
+        "Йoa"
+      ],
+      "expected_tables": 0,
+      "notes": "Regression lock on the failure the whole routing architecture exists for.",
+      "filename": "broken_cmap_vi.pdf"
+    }
+  ]
+}

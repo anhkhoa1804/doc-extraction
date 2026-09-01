@@ -115,7 +115,9 @@ def main(argv: list[str] | None = None) -> int:
         config_snapshot=config.to_snapshot(),
         model_versions=collect_model_versions(args.backend),
     )
-    metadata["dataset_root"] = str(dataset_root)
+    # Repo-relative (or bare leaf) so the committed result carries no
+    # username or machine-specific layout — see odb.portable_path.
+    metadata["dataset_root"] = odb.portable_path(dataset_root)
     metadata["subset"] = args.subset
     metadata["seed"] = args.seed
     metadata["total_available_samples"] = total_available

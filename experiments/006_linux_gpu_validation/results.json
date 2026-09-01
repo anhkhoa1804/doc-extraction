@@ -1,0 +1,157 @@
+{
+  "experiment": "006_linux_gpu_validation",
+  "date_utc": "2026-09-01",
+  "git_commit": "4edd395e0b98ee9d05492e033ce80ef4df20235d",
+  "git_note": "plus the in-tree fixes listed under repository_changes below; not yet committed",
+  "machine": {
+    "host": "research-no-1 (shared GCP research VM)",
+    "os": "Ubuntu 22.04.5 LTS",
+    "kernel": "6.8.0-1066-gcp",
+    "cpu": "Intel Xeon @ 2.20GHz, 4 cores / 8 threads",
+    "ram_gib": 31,
+    "gpu": "NVIDIA L4, 23034 MiB",
+    "nvidia_driver": "580.173.02",
+    "driver_cuda_version": "13.0"
+  },
+  "environments": {
+    "cpu": {
+      "venv": "~/.venvs/doc-extraction-linux312",
+      "python": "3.12.14",
+      "torch": "2.13.0+cpu",
+      "cuda_available": false,
+      "transformers": "5.16.1",
+      "docling": "2.124.0",
+      "docling-core": "2.92.0",
+      "easyocr": "1.7.2",
+      "pymupdf": "1.28.2",
+      "timm": "1.0.29"
+    },
+    "gpu": {
+      "venv": "~/.venvs/doc-extraction-gpu312",
+      "python": "3.12.14",
+      "torch": "2.11.0+cu128",
+      "torch_cuda": "12.8",
+      "cuda_available": true,
+      "device_name": "NVIDIA L4",
+      "compute_capability": "sm_89"
+    }
+  },
+
+  "device_propagation": {
+    "method": "inspected live model objects, not source or torch.cuda.is_available()",
+    "table_transformer_detection_param_devices": ["cuda:0"],
+    "table_transformer_detection_n_params": 28799431,
+    "table_transformer_structure_param_devices": ["cuda:0"],
+    "table_transformer_structure_n_params": 28828619,
+    "vram_after_model_load_mib": 222.0,
+    "docling": "PdfPipelineOptions.accelerator_options = AcceleratorOptions(device=config.device); drives layout, TableFormer and EasyOCR from one setting",
+    "verdict": "config.device reaches the models, not merely the config object"
+  },
+
+  "workload_a_fixture": {
+    "description": "make_pdf_with_broken_cmap, 2 pages, forced to the visual route by the text-quality gate",
+    "contention": "none - measured 15:14:56-15:16:42 UTC, in a verified gap between neighbour jobs (previous ended 15:12, next started 15:29:33)",
+    "per_stage_seconds": {
+      "layout_docling_page0_cold": {"cpu": 31.963, "gpu": 26.780},
+      "layout_docling_page1_warm": {"cpu": 13.993, "gpu": 1.579},
+      "table_transformer_page0_cold": {"cpu": 3.216, "gpu": 3.117},
+      "table_transformer_page1_warm": {"cpu": 0.839, "gpu": 0.164},
+      "render_pymupdf_per_page": {"cpu": 0.155, "gpu": 0.133}
+    },
+    "wall_seconds": {"cpu": 53.651, "gpu": 37.705},
+    "speedup": {
+      "layout_warm": 8.86,
+      "table_warm": 5.12,
+      "layout_cold": 1.19,
+      "wall_total": 1.42
+    },
+    "peak_vram_mib": {"gpu": 906},
+    "max_gpu_util_pct": 17,
+    "interpretation": "Wall-clock speedup (1.42x) badly understates the GPU benefit because a 2-page run is dominated by one-off model loading. Steady-state layout inference is 8.9x. Reporting total_runtime/pages as an inference rate would be wrong by ~6x here."
+  },
+
+  "workload_b_omnidocbench_demo": {
+    "dataset": "official 18-page demo set",
+    "upstream_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "upstream_commit_verified": true,
+    "ground_truth_sha256_linux_lf": "a0686ff3e2ce76b4e60c308bc28700683d3c62a0fd47149355e8b197db238dc6",
+    "ground_truth_semantic_sha256": "b3e7040020e48244e3dd4775fa99f161e3e3a1ddf321ecae5a1de851d6b57e8a",
+    "backend": "baseline",
+    "routes": {"image": 18},
+
+    "gpu_run": {
+      "contention": "none - GPU verified STATE A (0 MiB, 0%, no compute apps) at preflight; neighbour GPU job did not start until 16:00:17, 39 min after this run finished",
+      "succeeded": 18, "failed": 0,
+      "total_runtime_seconds": 204.719,
+      "mean_seconds_per_page": 11.3733,
+      "median_seconds_per_page": 8.05,
+      "min_seconds_per_page": 3.64,
+      "max_seconds_per_page": 43.27,
+      "pages_per_second": 0.0879,
+      "peak_vram_mib": 16592,
+      "peak_vram_pct_of_device": 72.0,
+      "max_gpu_util_pct": 100,
+      "postflight_vram_mib": 0,
+      "postflight_compute_apps": [],
+      "trustworthy": true
+    },
+
+    "cpu_runs_contaminated": {
+      "note": "BOTH CPU runs of this workload overlapped an unrelated pre-registered research job on the same host (PID 6848, ~333% CPU of 800% available, started 15:29:33 and still running). Neither is a clean CPU baseline. They are recorded as upper bounds and are NOT used for a headline speedup.",
+      "run_1": {
+        "total_runtime_seconds": 1398.14,
+        "mean_seconds_per_page": 77.674,
+        "additional_contention": "also overlapped this project's own docker build"
+      },
+      "run_2": {
+        "total_runtime_seconds": 1788.291,
+        "mean_seconds_per_page": 99.349,
+        "additional_contention": "none of ours; neighbour job only",
+        "loadavg_start": 6.31, "loadavg_end": 11.46
+      },
+      "observation": "Run 2, intended as the clean control, was SLOWER than run 1. The neighbour job's CPU share rose between them. This is why the fixture measurement, taken in a verified idle gap, is the one used for the CPU-vs-GPU claim."
+    },
+
+    "historical_reference_windows": {
+      "source": "experiments/005_omnidocbench/results/baseline/runtime.json, committed",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.8.0", "docling": "2.120.3",
+      "mean_seconds_per_page": 58.287,
+      "comparability": "NOT comparable to the Linux numbers: different machine, OS, torch and docling versions. Recorded for context only."
+    }
+  },
+
+  "output_equivalence": {
+    "claim": "GPU and CPU produce identical extraction output",
+    "method": "compared final/document.json from both devices for the same input",
+    "text_identical": true,
+    "element_counts_identical": true,
+    "table_geometry_identical": true,
+    "max_bbox_delta_px": 0.0
+  },
+
+  "full_benchmark_1651_pages": {
+    "decision": "NOT LAUNCHED",
+    "projected_gpu_hours": 5.2,
+    "projection_basis": "1651 pages x 11.3733 s/page measured on this L4",
+    "projected_cpu_hours_contended_upper_bound": 40.0,
+    "projected_prediction_output_mb": 7.3,
+    "projected_peak_vram_mib": 16592,
+    "blocking_reasons": [
+      "GPU is STATE D: an unrelated pre-registered research job (PID 9877, openvocab_rel.train) holds 4264 MiB at 100% utilization",
+      "this workload peaks at 16592 MiB; combined with the neighbour's 4264 MiB that is 20856 of 23034 MiB, a real OOM risk to THEIR job",
+      "5.2 hours of sole-occupancy GPU time on a shared VM is not a decision to take unilaterally"
+    ],
+    "recommendation": "run only when the GPU is verifiably clear, with periodic monitoring and a documented stop condition; or use the Kaggle path this repo already prepares (experiments/005_omnidocbench/kaggle/)"
+  },
+
+  "repository_changes": [
+    "pyproject.toml: added timm>=1.0.23 to the [tables] extra - Table Transformer could not load without it",
+    "tests: 5 corpus-dependent tests converted from hard failure to explicit skip; 5 more from silent pass to explicit skip",
+    "evaluation/omnidocbench.py: added dataset_semantic_hash + ground_truth_semantic_sha256",
+    "Makefile: cross-platform interpreter/venv detection; added models, docker-build, docker-test targets",
+    "Dockerfile + .dockerignore: CPU reproducible environment",
+    "docs/reproducible-environment.md: new",
+    "README.md: status table and setup/validation commands"
+  ]
+}

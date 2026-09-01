@@ -46,7 +46,15 @@ docling = ["docling>=2.0", "easyocr>=1.7"]
 # Table Transformer (microsoft/table-transformer-*) via transformers/torch.
 # On a machine with a matching global torch already installed, create the
 # venv with `--system-site-packages` first so these are not re-downloaded.
-tables = ["transformers>=4.40", "torch>=2.1"]
+#
+# `timm` is required, not optional: both table-transformer checkpoints use a
+# `TimmBackbone`, and transformers only declares timm under its own *extra*
+# (`timm>=1.0.23; extra == "timm"`), never as a hard dependency — docling
+# does not pull it either. Without it, loading the detection model raises
+# `ImportError: TimmBackbone requires the timm library` at first use, so a
+# clean install of this extra could not actually run the visual table route.
+# Verified on Linux/py3.12 with transformers 5.16.1.
+tables = ["transformers>=4.40", "torch>=2.1", "timm>=1.0.23"]
 
 # MinerU: documented in docs/backends.md, NOT installed/verified in the
 # reference environment (heavy model downloads, package name has moved

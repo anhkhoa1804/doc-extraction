@@ -1,0 +1,356 @@
+{
+    "text_block": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.7476465427083052,
+                "edit_whole": 0.7617894234650813,
+                "edit_sample_avg": 0.774495624346662
+            }
+        },
+        "group": {
+            "Edit_dist": {
+                "text_background: multi_colored": 0.937529872357175,
+                "text_background: single_colored": 0.7003272746943634,
+                "text_background: white": 0.7553673935122716,
+                "text_language: text_en_ch_mixed": 0.9314330277565572,
+                "text_language: text_english": 0.3856563648149807,
+                "text_language: text_simplified_chinese": 0.9611476396412139,
+                "text_rotate: horizontal": 1.0,
+                "text_rotate: normal": 0.7662934360054829
+            },
+            "sample_count": {
+                "text_background: multi_colored": 16,
+                "text_background: single_colored": 8,
+                "text_background: white": 216,
+                "text_language: text_en_ch_mixed": 10,
+                "text_language: text_english": 80,
+                "text_language: text_simplified_chinese": 149,
+                "text_rotate: horizontal": 1,
+                "text_rotate: normal": 238
+            }
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.7476465427083051,
+                "None": 0.7043634452179407,
+                "colorful_backgroud": 0.6016873556003115,
+                "data_source: PPT2PDF": 0.5807086614173228,
+                "data_source: academic_literature": 0.09608906904693662,
+                "data_source: book": 0.9660394265232974,
+                "data_source: colorful_textbook": 0.9648894328333228,
+                "data_source: exam_paper": 0.2567677789012471,
+                "data_source: magazine": 0.970979006635421,
+                "data_source: newspaper": 0.966225390590655,
+                "data_source: note": 0.9855436035343834,
+                "data_source: research_report": 0.9415765148921602,
+                "fuzzy_scan": 0.9648894328333228,
+                "language: en_ch_mixed": 0.9747368421052631,
+                "language: english": 0.39129504662659914,
+                "language: simplified_chinese": 0.9743835600258036,
+                "layout: 1andmore_column": 0.550535894843276,
+                "layout: double_column": 0.7628982446434103,
+                "layout: other_layout": 0.9717047142612535,
+                "layout: single_column": 0.7141869290729717,
+                "layout: three_column": 0.9338812103100486
+            }
+        }
+    },
+    "display_formula": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.996031746031746,
+                "edit_whole": 0.9964497041420118,
+                "edit_sample_avg": 0.9952569169960475
+            }
+        },
+        "group": {
+            "Edit_dist": {
+                "formula_type: print": 0.9952569169960475
+            },
+            "sample_count": {
+                "formula_type: print": 23
+            }
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.996031746031746,
+                "None": 1.0,
+                "colorful_backgroud": 0.9920634920634921,
+                "data_source: academic_literature": 1.0,
+                "data_source: exam_paper": 0.9920634920634921,
+                "language: english": 0.996031746031746,
+                "layout: single_column": 0.996031746031746
+            }
+        }
+    },
+    "table": {
+        "all": {
+            "TEDS": {
+                "all": 0.09076518883415435
+            },
+            "TEDS_structure_only": {
+                "all": 0.2811592775041051
+            },
+            "Edit_dist": {
+                "ALL_page_avg": 0.6557428272178514,
+                "edit_whole": 0.6642228739002932,
+                "edit_sample_avg": 0.6537812834824327
+            }
+        },
+        "group": {
+            "Edit_dist": {
+                "include_background: False": 0.6494661018764959,
+                "include_background: True": 0.6580964650883694,
+                "include_equation: False": 0.6488989540788744,
+                "include_equation: True": 0.6733106010966652,
+                "include_photo: False": 0.6537812834824327,
+                "language: table_en": 0.6660467928544974,
+                "language: table_simplified_chinese": 0.6485246366086905,
+                "line: fewer_line": 0.6628494934479368,
+                "line: full_line": 0.641877501065711,
+                "line: less_line": 0.6560553633217993,
+                "table_layout: horizontal": 0.6537812834824327,
+                "with_span: False": 0.6434820368603744,
+                "with_span: True": 0.664080530104491,
+                "with_structured_text: False": 0.6537812834824327
+            },
+            "TEDS": {
+                "include_background: False": 0.020197044334975378,
+                "include_background: True": 0.16133333333333333,
+                "include_equation: False": 0.0919047619047619,
+                "include_equation: True": 0.08620689655172414,
+                "include_photo: False": 0.09076518883415435,
+                "language: table_en": 0.24699507389162564,
+                "language: table_simplified_chinese": 0.023809523809523805,
+                "line: fewer_line": 0.034482758620689655,
+                "line: full_line": 0.1838095238095238,
+                "line: less_line": 0.0,
+                "table_layout: horizontal": 0.09076518883415435,
+                "with_span: False": 0.14704761904761904,
+                "with_span: True": 0.034482758620689655,
+                "with_structured_text: False": 0.09076518883415435
+            },
+            "TEDS_structure_only": {
+                "include_background: False": 0.30098522167487685,
+                "include_background: True": 0.2613333333333333,
+                "include_equation: False": 0.24369047619047618,
+                "include_equation: True": 0.43103448275862066,
+                "include_photo: False": 0.2811592775041051,
+                "language: table_en": 0.714975369458128,
+                "language: table_simplified_chinese": 0.09523809523809525,
+                "line: fewer_line": 0.17241379310344826,
+                "line: full_line": 0.48738095238095236,
+                "line: less_line": 0.0,
+                "table_layout: horizontal": 0.2811592775041051,
+                "with_span: False": 0.38990476190476187,
+                "with_span: True": 0.17241379310344826,
+                "with_structured_text: False": 0.2811592775041051
+            },
+            "sample_count": {
+                "include_background: False": 5,
+                "include_background: True": 5,
+                "include_equation: False": 8,
+                "include_equation: True": 2,
+                "include_photo: False": 10,
+                "language: table_en": 3,
+                "language: table_simplified_chinese": 7,
+                "line: fewer_line": 5,
+                "line: full_line": 4,
+                "line: less_line": 1,
+                "table_layout: horizontal": 10,
+                "with_span: False": 5,
+                "with_span: True": 5,
+                "with_structured_text: False": 10
+            }
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.6557428272178514,
+                "colorful_backgroud": 0.6632788855279836,
+                "data_source: academic_literature": 0.6868081180811808,
+                "data_source: book": 0.6560553633217993,
+                "data_source: colorful_textbook": 0.6806893056259503,
+                "data_source: exam_paper": 0.6458684654300169,
+                "data_source: magazine": 0.6598130841121496,
+                "data_source: note": 0.6204761166034383,
+                "data_source: research_report": 0.6657494375913446,
+                "fuzzy_scan": 0.6806893056259503,
+                "language: en_ch_mixed": 0.6306429548563611,
+                "language: english": 0.671121963045716,
+                "language: simplified_chinese": 0.6515353201934306,
+                "layout: 1andmore_column": 0.6527548605176989,
+                "layout: double_column": 0.6868081180811808,
+                "layout: other_layout": 0.6598130841121496,
+                "layout: single_column": 0.6499109043463869
+            },
+            "TEDS": {
+                "ALL": 0.10085020981572707,
+                "colorful_backgroud": 0.32,
+                "data_source: academic_literature": 0.1724137931034483,
+                "data_source: book": 0.0,
+                "data_source: colorful_textbook": 0.64,
+                "data_source: exam_paper": 0.0,
+                "data_source: magazine": 0.0,
+                "data_source: note": 0.047619047619047616,
+                "data_source: research_report": 0.0,
+                "fuzzy_scan": 0.64,
+                "language: en_ch_mixed": -0.0714285714285714,
+                "language: english": 0.27080459770114945,
+                "language: simplified_chinese": 0.033333333333333326,
+                "layout: 1andmore_column": 0.0,
+                "layout: double_column": 0.1724137931034483,
+                "layout: other_layout": 0.0,
+                "layout: single_column": 0.14704761904761904
+            },
+            "TEDS_structure_only": {
+                "ALL": 0.31239919722678344,
+                "colorful_backgroud": 0.32,
+                "data_source: academic_literature": 0.8620689655172413,
+                "data_source: book": 0.0,
+                "data_source: colorful_textbook": 0.64,
+                "data_source: exam_paper": 0.0,
+                "data_source: magazine": 0.0,
+                "data_source: note": 0.6547619047619048,
+                "data_source: research_report": 0.0,
+                "fuzzy_scan": 0.64,
+                "language: en_ch_mixed": 0.6428571428571428,
+                "language: english": 0.5006896551724137,
+                "language: simplified_chinese": 0.13333333333333336,
+                "layout: 1andmore_column": 0.0,
+                "layout: double_column": 0.8620689655172413,
+                "layout: other_layout": 0.0,
+                "layout: single_column": 0.38990476190476187
+            }
+        },
+        "metric_debug": {
+            "TEDS": {
+                "stage": "TEDS",
+                "workers": 13,
+                "timeout_sec": 120.0,
+                "sample_count": 10,
+                "timeout_case_count": 0,
+                "timeout_cases": [],
+                "error_case_count": 6,
+                "error_cases": [
+                    {
+                        "case_name": "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg[gt=[0], pred=[0]]",
+                        "img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "docstructbench_dianzishu_zhongwenzaixian-o.O-61522235.pdf_170.jpg[gt=[0], pred=[0]]",
+                        "img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61522235.pdf_170.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg[gt=[0], pred=[0]]",
+                        "img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg[gt=[1], pred=[1]]",
+                        "img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "jiaocaineedrop_Chapter9.pdf_46.jpg[gt=[0], pred=[0]]",
+                        "img_id": "jiaocaineedrop_Chapter9.pdf_46.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "yanbaopptmerge_0c79d327060dbf9f1582d03c235dadb039533a19091d2c0d24f2ad95d267f79b.pdf_2.jpg[gt=[0], pred=[0]]",
+                        "img_id": "yanbaopptmerge_0c79d327060dbf9f1582d03c235dadb039533a19091d2c0d24f2ad95d267f79b.pdf_2.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    }
+                ]
+            }
+        }
+    },
+    "reading_order": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.6663572864298086,
+                "edit_whole": 0.7722419928825622,
+                "edit_sample_avg": 0.6663572864298085
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.6663572864298086,
+                "None": 0.7050793650793651,
+                "colorful_backgroud": 0.5393162393162393,
+                "data_source: PPT2PDF": 0.25,
+                "data_source: academic_literature": 0.635,
+                "data_source: book": 0.7083333333333333,
+                "data_source: colorful_textbook": 0.8392857142857143,
+                "data_source: exam_paper": 0.6596153846153847,
+                "data_source: magazine": 0.43333333333333335,
+                "data_source: newspaper": 0.9044209215442092,
+                "data_source: note": 0.8214285714285714,
+                "data_source: research_report": 0.7457983193277311,
+                "fuzzy_scan": 0.8392857142857143,
+                "language: en_ch_mixed": 0.7857142857142857,
+                "language: english": 0.6004095904095904,
+                "language: simplified_chinese": 0.7005849737155136,
+                "layout: 1andmore_column": 0.7375565610859729,
+                "layout: double_column": 0.7529761904761905,
+                "layout: other_layout": 0.5726027397260274,
+                "layout: single_column": 0.6109523809523809,
+                "layout: three_column": 0.8636363636363636
+            }
+        }
+    },
+    "match_debug": {
+        "workers": 2,
+        "page_count": 18,
+        "quick_match_truncated_timeout_sec": 300,
+        "match_timeout_sec": 420,
+        "text_match_fallback_pages": {
+            "quick_match_timeout": [],
+            "page_timeout": []
+        },
+        "text_match_fallback_counts": {
+            "quick_match_timeout": 0,
+            "page_timeout": 0
+        }
+    }
+}

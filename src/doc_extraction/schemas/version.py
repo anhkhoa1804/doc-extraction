@@ -18,6 +18,17 @@ History
     * Added `Page.coordinate_origin` and documented the top-left, y-down
       convention as binding on all backends.
     * Added `Page.source` provenance (route + backend that produced it).
+1.2.0
+    * Added `RunMetadata.device_decision` — nullable. When `config.device`
+      was `"auto"`, records the GPU state observed at selection time and the
+      rule that fired (see utils/resources.py); None for an explicit
+      `cpu`/`cuda`, which is not probed.
+
+      Additive and backward-compatible: a 1.1.0 consumer that ignores
+      unknown keys reads a 1.2.0 document unchanged, and every 1.1.0 field
+      keeps its meaning. A 1.2.0 consumer reading a 1.1.0 document sees the
+      field absent, which is indistinguishable from "device was explicit" —
+      so treat a *missing* field as "unknown provenance", not as "explicit".
 """
 
-SCHEMA_VERSION = "1.1.0"
+SCHEMA_VERSION = "1.2.0"

@@ -1,0 +1,131 @@
+{
+  "experiment": "007_ocr_language_mismatch",
+  "date_utc": "2026-09-01",
+  "git_commit": "4edd395e0b98ee9d05492e033ce80ef4df20235d",
+  "git_note": "plus uncommitted working-tree changes; see repository_changes in experiments/006",
+  "question": "Is the OmniDocBench aggregate score measuring the pipeline, or the OCR language configuration?",
+  "independent_variable": "ocr_languages only — configs otherwise byte-identical (verified by diff)",
+  "baseline_config": {
+    "ocr_languages": [
+      "en",
+      "vi"
+    ],
+    "note": "repository default, tuned for the private Vietnamese corpus"
+  },
+  "candidate_config": {
+    "ocr_languages": [
+      "ch_sim",
+      "en"
+    ],
+    "note": "EasyOCR cannot serve ch_sim and vi from one reader (vi is in latin_g2, ch_sim in zh_sim_g2)"
+  },
+  "dataset": {
+    "name": "OmniDocBench demo",
+    "pages": 18,
+    "upstream_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "ground_truth_semantic_sha256": "b3e7040020e48244e3dd4775fa99f161e3e3a1ddf321ecae5a1de851d6b57e8a",
+    "composition_text_blocks": {
+      "simplified_chinese": 149,
+      "english": 80,
+      "en_ch_mixed": 10
+    }
+  },
+  "evaluator": {
+    "official": true,
+    "match_method": "quick_match",
+    "match_workers": 2,
+    "exit_code": 0,
+    "modified": false
+  },
+  "execution": {
+    "baseline_device": "cuda",
+    "baseline_contention": "CLEAN (GPU verified STATE A)",
+    "candidate_device": "cpu",
+    "candidate_contention": "CONTENDED (co-tenant job; device:auto classified GPU PROTECTED and selected CPU)",
+    "timing_comparable": false,
+    "accuracy_comparable": true,
+    "why": "GPU and CPU outputs were shown byte-identical in experiment 006 (0.000 px bbox delta), so accuracy is device-independent; only timing is affected by contention."
+  },
+  "results": {
+    "text_block_edit_distance_lower_better": {
+      "ALL_page_avg": {
+        "baseline": 0.7476,
+        "candidate": 0.5543,
+        "delta": -0.1933
+      },
+      "text_simplified_chinese_n149": {
+        "baseline": 0.9611,
+        "candidate": 0.7354,
+        "delta": -0.2258
+      },
+      "text_english_n80": {
+        "baseline": 0.3857,
+        "candidate": 0.554,
+        "delta": 0.1684
+      },
+      "text_en_ch_mixed_n10": {
+        "baseline": 0.9314,
+        "candidate": 0.9792,
+        "delta": 0.0477
+      },
+      "page_simplified_chinese": {
+        "baseline": 0.9744,
+        "candidate": 0.5278,
+        "delta": -0.4466
+      },
+      "page_english": {
+        "baseline": 0.3913,
+        "candidate": 0.5292,
+        "delta": 0.1379
+      }
+    },
+    "table_TEDS_higher_better": {
+      "ALL": {
+        "baseline": 0.0908,
+        "candidate": 0.0041,
+        "delta": -0.0867
+      },
+      "ALL_structure_only": {
+        "baseline": 0.2812,
+        "candidate": 0.1227,
+        "delta": -0.1584
+      },
+      "table_en_structure_n3": {
+        "baseline": 0.715,
+        "candidate": 0.0,
+        "delta": -0.715
+      },
+      "table_simplified_chinese_structure_n7": {
+        "baseline": 0.0952,
+        "candidate": 0.1753,
+        "delta": 0.0801
+      }
+    },
+    "reading_order_edit_distance_lower_better": {
+      "ALL_page_avg": {
+        "baseline": 0.6664,
+        "candidate": 0.5775,
+        "delta": -0.0889
+      }
+    },
+    "display_formula_edit_distance_lower_better": {
+      "ALL_page_avg": {
+        "baseline": 0.996,
+        "candidate": 1.0,
+        "delta": 0.004
+      }
+    }
+  },
+  "verdict": {
+    "hypothesis_supported": true,
+    "but_not_a_free_win": true,
+    "summary": "Chinese improves substantially and the aggregate improves 25.9%, confirming that the original score was dominated by a language-configuration mismatch rather than a pipeline defect. However English regresses 43.6% and English table structure collapses from 0.715 to 0.000, so a single global OCR language set is not adequate for a multilingual corpus.",
+    "conclusion_for_the_project": "Do NOT change the repository default: ['en','vi'] remains correct for the private corpus. The finding is that a benchmark must not inherit a corpus-tuned OCR language config, and that per-document language selection is the real fix."
+  },
+  "limitations": [
+    "18 pages, one run per configuration, no variance estimate",
+    "table_en has n=3 — the 0.715 -> 0.000 collapse is dramatic but on a very small sample",
+    "candidate run was CPU-contended; its timing is not a benchmark",
+    "Chinese remains at 0.7354 edit distance — much better, but still poor in absolute terms"
+  ]
+}

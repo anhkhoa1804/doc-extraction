@@ -72,16 +72,75 @@ def _label_str(item: Any) -> str:
     return str(getattr(label, "value", label)).lower()
 
 
-def _bbox_from_docling(bbox: Any, page_height: float) -> BBox | None:
+def docling_page_size(result: Any, page_no: int = 1) -> tuple[float, float] | None:
+    """Docling's own page dimensions for a converted page, or None.
+
+    Docling rasterizes internally at its own resolution — measured at 150 DPI
+    for an image input, giving a 1239.6 x 1754.0 page for A4 — **regardless of
+    the resolution of the image handed to it**. Its coordinates are in that
+    space, not in the caller's pixel space, so they have to be rescaled before
+    they can be compared with anything else.
+    """
+    pages = getattr(getattr(result, "document", None), "pages", None) or {}
+    page = pages.get(page_no) or pages.get(page_no - 1)
+    size = getattr(page, "size", None)
+    width, height = getattr(size, "width", None), getattr(size, "height", None)
+    if width and height:
+        return float(width), float(height)
+    return None
+
+
+def _bbox_from_docling(
+    bbox: Any,
+    page_height: float,
+    source_size: tuple[float, float] | None = None,
+) -> BBox | None:
+    """Convert one docling bbox into the caller's coordinate space.
+
+    Two conversions are needed and only one of them used to happen.
+
+    1. **Origin.** Docling mixes conventions within a single document: item
+       `prov` bboxes are BOTTOMLEFT while table-cell bboxes are TOPLEFT. The
+       flip must use *docling's* page height, not the caller's — using the
+       caller's mixes two coordinate systems in one subtraction.
+
+    2. **Scale.** Docling's page is its own internal raster size. Without
+       rescaling, every box is off by the ratio between the two resolutions
+       (measured: 1.333x for a 200 DPI render, because docling works at 150).
+
+    The consequences of skipping (2) were invisible for a long time because
+    `_gather_region_text` compares docling tokens against docling regions —
+    both wrong identically, so containment still worked. It only surfaced when
+    docling geometry met another backend's: `_fill_table_cell_text` matched
+    tokens against Table Transformer cells and filled zero of them on a
+    table whose text docling had recognized perfectly.
+
+    `source_size` is docling's (width, height). When it is None the function
+    falls back to the previous behaviour, which is correct only when the
+    caller's space already matches docling's.
+    """
     if bbox is None:
         return None
     l, t, r, b = float(bbox.l), float(bbox.t), float(bbox.r), float(bbox.b)
     origin = str(getattr(bbox, "coord_origin", "TOPLEFT")).upper()
-    if "BOTTOMLEFT" in origin and page_height:
-        y0, y1 = page_height - t, page_height - b
+
+    src_h = source_size[1] if source_size else None
+    flip_height = src_h if src_h else page_height
+
+    if "BOTTOMLEFT" in origin and flip_height:
+        y0, y1 = flip_height - t, flip_height - b
     else:
         y0, y1 = t, b
     x0, x1 = l, r
+
+    if src_h and page_height:
+        # Both renders come from the same page at different resolutions, so
+        # the scale is uniform. Deriving it from height alone (rather than
+        # scaling each axis by its own ratio) means a non-uniform render would
+        # show up as a visibly wrong box rather than being silently absorbed.
+        scale = page_height / src_h
+        x0, x1, y0, y1 = x0 * scale, x1 * scale, y0 * scale, y1 * scale
+
     if y0 > y1:
         y0, y1 = y1, y0
     if x0 > x1:
@@ -251,32 +310,78 @@ class DoclingBackend:
             return LayoutResult(regions=[], backend=self.name, warnings=["no rendered image for this page"])
         result = self._convert_cached(page.image_path)
         docling_doc = result.document
+        source_size = docling_page_size(result)
         regions: list[Region] = []
         for item, _level in docling_doc.iterate_items():
             prov_list = getattr(item, "prov", None) or []
             prov = prov_list[0] if prov_list else None
-            bbox = _bbox_from_docling(getattr(prov, "bbox", None), page.height) if prov else None
+            bbox = (_bbox_from_docling(getattr(prov, "bbox", None), page.height, source_size)
+                    if prov else None)
             if bbox is None:
                 continue
             regions.append(Region(bbox=bbox, label=_label_str(item), confidence=None))
         return LayoutResult(regions=regions, backend=self.name)
+
+    def _table_cell_tokens(self, item: Any, page_height: float,
+                           source_size: tuple[float, float] | None = None) -> list[OCRToken]:
+        """Table cell texts as OCR tokens, positioned by their own bboxes.
+
+        Cells without geometry are skipped rather than given a fabricated box:
+        a token in the wrong place is worse than a missing one, because
+        containment rules downstream would attribute it to the wrong cell or
+        region.
+        """
+        data = getattr(item, "data", None)
+        if data is None:
+            return []
+        tokens: list[OCRToken] = []
+        for cell in getattr(data, "table_cells", None) or []:
+            text = (getattr(cell, "text", "") or "").strip()
+            if not text:
+                continue
+            bbox = _bbox_from_docling(getattr(cell, "bbox", None), page_height, source_size)
+            if bbox is None:
+                continue
+            tokens.append(OCRToken(text=text, bbox=bbox, confidence=None))
+        return tokens
 
     def recognize(self, page: PageInput) -> OCRResult:
         if page.image_path is None:
             return OCRResult(tokens=[], backend=self.name, warnings=["no rendered image for this page"])
         result = self._convert_cached(page.image_path)
         docling_doc = result.document
+        source_size = docling_page_size(result)
         tokens: list[OCRToken] = []
         for item, _level in docling_doc.iterate_items():
             label = _label_str(item)
             if label == "table":
-                continue  # table text is handled by the table stage, not OCR tokens
+                # Emit each recognized table cell as its own token.
+                #
+                # This used to `continue`, on the reasoning that "table text is
+                # handled by the table stage". That is not true for the
+                # configured baseline pipeline: its table stage is Table
+                # Transformer, which produces grid *geometry* only and fills
+                # cell text from whichever OCR tokens fall inside each cell
+                # (pipelines/base.py `_fill_table_cell_text`). With no tokens
+                # emitted here, every table cell on the visual route stayed
+                # empty — so the two components each assumed the other
+                # recovered table text and neither did.
+                #
+                # Measured cost of that gap: on the enterprise-hardcases
+                # corpus the visual route scored 0% text recall on all three
+                # table cases (tiny_cells_table, merged_cells,
+                # stamp_over_table) while docling had in fact already
+                # recognized every cell. This emits what was already computed
+                # rather than computing anything new.
+                tokens.extend(self._table_cell_tokens(item, page.height, source_size))
+                continue
             text = getattr(item, "text", None)
             if not text:
                 continue
             prov_list = getattr(item, "prov", None) or []
             prov = prov_list[0] if prov_list else None
-            bbox = _bbox_from_docling(getattr(prov, "bbox", None), page.height) if prov else None
+            bbox = (_bbox_from_docling(getattr(prov, "bbox", None), page.height, source_size)
+                    if prov else None)
             if bbox is None:
                 continue
             tokens.append(OCRToken(text=text, bbox=bbox, confidence=None))

@@ -33,6 +33,11 @@ class RunMetadata(BaseModel):
     # route it did, including per-page text-quality signals for PDFs.
     route_reason: str | None = None
     text_profile: dict[str, Any] | None = None
+    # How `device` was arrived at. Populated when config.device was "auto":
+    # records the GPU state observed at selection time and the rule that
+    # fired, so a result's device is explainable months later rather than
+    # being an unexplained "cuda" or "cpu". None for an explicit device.
+    device_decision: dict[str, Any] | None = None
 
 
 class Document(BaseModel):

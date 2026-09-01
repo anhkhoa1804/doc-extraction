@@ -616,3 +616,68 @@ def test_evaluate_does_not_symlink_resolve_the_interpreter(tmp_path, monkeypatch
     assert venv_python not in resolved_paths, (
         "the evaluator interpreter path was symlink-resolved; use os.path.abspath"
     )
+
+
+# ---------------------------------------------------------------------------
+# Dataset provenance hashing (byte identity vs. cross-platform dataset identity)
+# ---------------------------------------------------------------------------
+
+
+def _write_gt(path, text: str):
+    path.write_bytes(text.encode("utf-8"))
+    return path
+
+
+def test_byte_hash_differs_between_lf_and_crlf_but_semantic_hash_does_not(tmp_path):
+    """A Windows checkout (CRLF) and a POSIX one (LF) of the *same* upstream
+    ground truth must be recognizable as the same dataset.
+
+    This is not hypothetical: the committed Windows runs in
+    experiments/005_omnidocbench/results/ record a different
+    `ground_truth_sha256` for the pinned demo file than a Linux checkout of
+    the same pinned commit produces, purely because of line endings.
+    """
+    lf = _write_gt(tmp_path / "lf.json", '[\n  {"a": 1},\n  {"b": 2}\n]\n')
+    crlf = _write_gt(tmp_path / "crlf.json", '[\r\n  {"a": 1},\r\n  {"b": 2}\r\n]\r\n')
+
+    assert odb.dataset_content_hash(lf) != odb.dataset_content_hash(crlf)
+    assert odb.dataset_semantic_hash(lf) == odb.dataset_semantic_hash(crlf)
+
+
+def test_semantic_hash_ignores_indentation_and_key_order(tmp_path):
+    a = _write_gt(tmp_path / "a.json", '[{"x": 1, "y": 2}]')
+    b = _write_gt(tmp_path / "b.json", '[\n    {\n        "y": 2,\n        "x": 1\n    }\n]\n')
+    assert odb.dataset_semantic_hash(a) == odb.dataset_semantic_hash(b)
+
+
+def test_semantic_hash_still_detects_real_content_change(tmp_path):
+    """Normalization must not make the hash useless: different data must
+    still produce a different hash."""
+    a = _write_gt(tmp_path / "a.json", '[{"x": 1}]')
+    b = _write_gt(tmp_path / "b.json", '[{"x": 2}]')
+    assert odb.dataset_semantic_hash(a) != odb.dataset_semantic_hash(b)
+
+
+def test_portable_path_makes_repo_paths_relative(tmp_path):
+    """Result metadata is committed and shared, so it must not carry the
+    operator's home directory. On POSIX an absolute dataset path embeds the
+    username directly."""
+    inside = odb.REPO_ROOT / "experiments" / "005_omnidocbench" / "dataset" / "demo"
+    assert odb.portable_path(inside) == "experiments/005_omnidocbench/dataset/demo"
+    assert not odb.portable_path(inside).startswith("/")
+
+
+def test_portable_path_reduces_outside_paths_to_their_leaf(tmp_path):
+    """A dataset mounted outside the repo (Kaggle input, scratch disk) keeps
+    an identifiable name but loses the machine's directory layout."""
+    outside = tmp_path / "kaggle" / "input" / "omnidocbench_demo"
+    outside.mkdir(parents=True)
+    assert odb.portable_path(outside) == "omnidocbench_demo"
+
+
+def test_portable_path_never_emits_a_home_directory():
+    for candidate in ("/home/someuser/doc-extraction/data/demo",
+                      "/Users/someuser/work/demo",
+                      "/root/demo"):
+        assert "home" not in odb.portable_path(candidate)
+        assert "Users" not in odb.portable_path(candidate)

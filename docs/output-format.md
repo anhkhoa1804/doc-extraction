@@ -3,7 +3,7 @@
 ## Schema version
 
 Every serialized `Document` carries a `schema_version` (currently
-**1.1.0**). Bump it whenever the serialized shape changes in a way a
+**1.2.0**). Bump it whenever the serialized shape changes in a way a
 consumer could notice; the change history lives in
 `src/doc_extraction/schemas/version.py`. A result file found on disk months
 later can then be interpreted — or rejected — without guessing which

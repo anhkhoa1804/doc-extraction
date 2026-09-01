@@ -3,7 +3,10 @@
 A modular, research-oriented pipeline for extracting structured content from
 heterogeneous enterprise documents (PDF, DOCX, XLSX, PPTX, scanned images).
 
-**CPU-only. No GPU required, and no GPU path is claimed to work.**
+**CPU-first: no GPU is required, and every result in this repository is
+reproducible without one.** A GPU path now exists and has been measured (see
+[experiments/006](experiments/006_linux_gpu_validation/)); it is an
+optimization, not a requirement, and produces identical output.
 
 ## What this is — and isn't
 
@@ -89,9 +92,20 @@ GPU. Nothing under `data/` is ever attached to Kaggle. See
 ## Quick start
 
 ```bash
+# POSIX
+python3.12 -m venv .venv && .venv/bin/python -m pip install -e ".[docling,tables,dev]"
+
+# Windows
 py -3.12 -m venv --system-site-packages .venv
 .venv/Scripts/python.exe -m pip install -e ".[docling,tables,dev]"
 ```
+
+Or `make setup`, which picks the right interpreter path for the platform.
+
+Then fetch the models once (~1.5 GB) with `make models`. This is **required**
+before the visual/OCR route will run, not optional: the project points
+`DOCLING_ARTIFACTS_PATH` at `.cache/docling`, and Docling disables
+auto-download whenever that variable is set.
 
 Windows users will hit an `antlr4-python3-runtime` packaging snag — the
 two-command fix is in [docs/setup.md](docs/setup.md), along with the
@@ -103,14 +117,20 @@ off a full system drive.
 The whole sequence, reproducible from a clean checkout, no GPU:
 
 ```bash
-.venv/Scripts/python.exe -m pytest -q
-.venv/Scripts/python.exe -m doc_extraction run     --input data --config configs/cpu.yaml
-.venv/Scripts/python.exe -m doc_extraction compare --input data --config configs/cpu.yaml --backends baseline docling
-.venv/Scripts/python.exe -m doc_extraction inspect
-.venv/Scripts/python.exe scripts/build_failure_report.py --input outputs/
+# $PY is .venv/bin/python on POSIX, .venv/Scripts/python.exe on Windows.
+$PY -m pytest -q
+$PY -m doc_extraction run     --input data --config configs/cpu.yaml
+$PY -m doc_extraction compare --input data --config configs/cpu.yaml --backends baseline docling
+$PY -m doc_extraction inspect
+$PY scripts/build_failure_report.py --input outputs/
 ```
 
-Or with GNU make: `make setup && make test && make baseline && make compare && make report`.
+Or with GNU make: `make setup && make models && make test && make baseline && make compare && make report`.
+
+On a clean checkout `data/` is empty (the corpus is private — see
+[data/README.md](data/README.md)), so `pytest` reports the corpus-dependent
+tests as **skipped**, not failed, and `run`/`compare` have no input. The
+suite itself passes with no local documents present.
 
 `compare` runs Docling over every input and takes ~35 s per page on CPU —
 point it at a single file rather than the whole corpus unless you mean it.
@@ -119,7 +139,10 @@ point it at a single file rather than the whole corpus unless you mean it.
 
 | Command | Purpose |
 |---|---|
+| `scripts/validate_environment.py` | Check what this machine can run — Python, deps, GPU, model cache, Docker — and what to do about each gap. Loads no model. |
 | `doc_extraction run --input <path>` | Baseline modular pipeline (or one named backend) over a file or directory |
+| `doc_extraction run --device auto` | Pick cpu/cuda from the GPU's *current* free VRAM, utilization and co-tenants |
+| `scripts/profile_pipeline.py --input outputs/` | Per-stage cold/warm timings from runs that already happened |
 | `doc_extraction compare --input <path> --backends baseline docling` | Run several systems over the same input and report structural **disagreement** |
 | `doc_extraction inspect [<document_id>]` | HTML viewer: page image + bbox overlays + OCR + tables + final IR. Omit the id to build all |
 | `scripts/build_failure_report.py --input outputs/` | Failure-analysis report across everything already extracted |
@@ -133,6 +156,24 @@ route decision *and its evidence*), per-stage intermediates, `final/`, and
 `logs/pipeline.jsonl`. Nothing is written next to the inputs. See
 [docs/output-format.md](docs/output-format.md).
 
+## Shared-machine execution
+
+`device: auto` inspects the GPU's current state and picks a device, rather
+than assuming a GPU that exists is a GPU that is free:
+
+```bash
+doc_extraction run --input data --device auto
+# device: auto -> cpu: 1 other compute process(es) holding 4746 MiB at 100% utilization — actively computing
+```
+
+`cpu` and `cuda` keep their literal meanings — an explicit choice is never
+overridden, because a recorded benchmark device that the pipeline silently
+changed would be worthless. Only `auto` probes. The decision and the GPU
+state behind it are written to `metadata.json` as `device_decision`, so a
+result explains which device it used *and why*. See
+[docs/reproducibility-matrix.md](docs/reproducibility-matrix.md) for what has
+actually been validated, and with what contention.
+
 ## Status
 
 | Component | Status |
@@ -143,7 +184,10 @@ route decision *and its evidence*), per-stage intermediates, `final/`, and
 | Table Transformer (visual route) | Validated locally, CPU |
 | MinerU, PaddleOCR | Optional, **not installed** — adapters report unavailable |
 | Document VLM | **Planned** — interface only, no implementation |
-| GPU | **Not validated.** `configs/gpu.yaml` documents intent only |
+| Linux (Ubuntu 22.04, Python 3.12) | Validated — full suite + visual route, see [experiments/006](experiments/006_linux_gpu_validation/) |
+| GPU (NVIDIA L4, CUDA 12.8) | **Validated.** Models and input tensors confirmed on `cuda:0`; output byte-identical to CPU; 8.9× warm layout speedup — see [experiments/006](experiments/006_linux_gpu_validation/) |
+| Docker (CPU) | Builds and runs the test suite; see [docs/reproducible-environment.md](docs/reproducible-environment.md) |
+| Docker (GPU) | **Not built.** Needs a host-level NVIDIA Container Toolkit change |
 
 Details and per-backend install notes: [docs/backends.md](docs/backends.md).
 

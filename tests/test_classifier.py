@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import pytest
+
 from doc_extraction.ingest.classifier import detect
 
 
 def test_detects_pdf_by_magic_bytes(sample_files):
     pdfs = [p for p in sample_files if p.suffix.lower() == ".pdf"]
-    assert pdfs, "expected at least one sample PDF"
+    if not pdfs:
+        pytest.skip("no local sample PDF under data/ (private corpus, see data/README.md)")
     for path in pdfs:
         info = detect(path)
         assert info.detected_kind == "pdf"
@@ -14,7 +17,8 @@ def test_detects_pdf_by_magic_bytes(sample_files):
 
 def test_detects_docx_by_zip_marker(sample_files):
     docs = [p for p in sample_files if p.suffix.lower() == ".docx"]
-    assert docs, "expected at least one sample DOCX"
+    if not docs:
+        pytest.skip("no local sample DOCX under data/ (private corpus, see data/README.md)")
     for path in docs:
         info = detect(path)
         assert info.detected_kind == "docx"
@@ -22,7 +26,8 @@ def test_detects_docx_by_zip_marker(sample_files):
 
 def test_detects_xlsx_by_zip_marker(sample_files):
     sheets = [p for p in sample_files if p.suffix.lower() == ".xlsx"]
-    assert sheets, "expected at least one sample XLSX"
+    if not sheets:
+        pytest.skip("no local sample XLSX under data/ (private corpus, see data/README.md)")
     for path in sheets:
         info = detect(path)
         assert info.detected_kind == "xlsx"

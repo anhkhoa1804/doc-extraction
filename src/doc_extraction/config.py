@@ -35,7 +35,24 @@ class PipelineConfig(BaseModel):
     # data/README.md), not the repo root.
     input_dir: str = "data"
     output_dir: str = "outputs"
+    # "cpu" | "cuda" | "auto". "auto" inspects the GPU's *current* state
+    # (free VRAM, utilization, other compute processes) and picks a device —
+    # see utils/resources.py. It is not "cuda if a GPU exists": on a shared
+    # machine that would compete with another project's job. An explicit
+    # "cpu"/"cuda" is always honoured verbatim so a recorded benchmark device
+    # is never silently overridden.
     device: str = "cpu"
+    # VRAM this workload should assume it needs, for `device: auto` only.
+    # The visual route on real benchmark pages was measured peaking near
+    # 16.6 GiB; the default here is deliberately modest so light work is not
+    # vetoed off the GPU by a pessimistic default.
+    gpu_required_mib: int = 2048
+    # VRAM left unclaimed for co-tenants when `auto` decides. A courtesy
+    # margin, not an enforced cap.
+    gpu_safety_margin_mib: int = 1024
+    # Whether `auto` may use a GPU that already has an idle co-tenant.
+    # False makes `auto` require an entirely clear GPU.
+    gpu_allow_shared: bool = True
 
     # Rendering (stages/render.py)
     render_dpi: int = 200
@@ -109,13 +126,23 @@ def configure_caches(cache_dir: str | Path | None = None) -> None:
     base = Path(cache_dir) if cache_dir else DEFAULT_CACHE_DIR
     if not base.is_absolute():
         base = REPO_ROOT / base
-    (base / "huggingface").mkdir(parents=True, exist_ok=True)
-    (base / "docling").mkdir(parents=True, exist_ok=True)
-    (base / "pip").mkdir(parents=True, exist_ok=True)
-    os.environ.setdefault("HF_HOME", str(base / "huggingface"))
-    os.environ.setdefault("HUGGINGFACE_HUB_CACHE", str(base / "huggingface" / "hub"))
-    os.environ.setdefault("DOCLING_ARTIFACTS_PATH", str(base / "docling"))
-    os.environ.setdefault("PIP_CACHE_DIR", str(base / "pip"))
+
+    # Create a directory only for a variable we are actually going to set.
+    # Creating all of them unconditionally contradicts the "operator's
+    # environment wins" rule above: in a container where HF_HOME and friends
+    # are already pointed at a mounted volume, it would still try to mkdir
+    # under the repo root — which fails outright when that path is not
+    # writable by the running user, for directories nothing would ever use.
+    for variable, path in (
+        ("HF_HOME", base / "huggingface"),
+        ("HUGGINGFACE_HUB_CACHE", base / "huggingface" / "hub"),
+        ("DOCLING_ARTIFACTS_PATH", base / "docling"),
+        ("PIP_CACHE_DIR", base / "pip"),
+    ):
+        if os.environ.get(variable):
+            continue
+        path.mkdir(parents=True, exist_ok=True)
+        os.environ[variable] = str(path)
 
 
 def load_config(path: str | Path | None = None, overrides: dict[str, Any] | None = None) -> PipelineConfig:
