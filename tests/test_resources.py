@@ -113,7 +113,7 @@ def test_auto_falls_back_to_cpu_without_a_cuda_torch(monkeypatch):
 
 def test_auto_picks_cuda_on_a_clear_gpu(monkeypatch):
     monkeypatch.setattr(res, "torch_cuda_usable", lambda: (True, "torch cu128"))
-    monkeypatch.setattr(res, "query_gpu", lambda index=0: _state())
+    monkeypatch.setattr(res, "query_gpu", lambda index=0, **kw: _state())
     decision = res.select_device("auto")
     assert decision.device == "cuda"
     assert decision.state == res.STATE_CLEAR
@@ -124,7 +124,7 @@ def test_auto_refuses_a_busy_gpu(monkeypatch):
     """The property that matters most on a shared VM: `auto` must not take a
     GPU another project is actively computing on."""
     monkeypatch.setattr(res, "torch_cuda_usable", lambda: (True, "torch cu128"))
-    monkeypatch.setattr(res, "query_gpu", lambda index=0: _state(util=100, procs=((9877, 4746),)))
+    monkeypatch.setattr(res, "query_gpu", lambda index=0, **kw: _state(util=100, procs=((9877, 4746),)))
     decision = res.select_device("auto")
     assert decision.device == "cpu"
     assert decision.state == res.STATE_PROTECTED
@@ -132,13 +132,13 @@ def test_auto_refuses_a_busy_gpu(monkeypatch):
 
 def test_auto_shares_an_idle_cotenant_gpu_by_default(monkeypatch):
     monkeypatch.setattr(res, "torch_cuda_usable", lambda: (True, "torch cu128"))
-    monkeypatch.setattr(res, "query_gpu", lambda index=0: _state(util=2, procs=((9877, 4746),)))
+    monkeypatch.setattr(res, "query_gpu", lambda index=0, **kw: _state(util=2, procs=((9877, 4746),)))
     assert res.select_device("auto").device == "cuda"
 
 
 def test_allow_limited_false_requires_an_entirely_clear_gpu(monkeypatch):
     monkeypatch.setattr(res, "torch_cuda_usable", lambda: (True, "torch cu128"))
-    monkeypatch.setattr(res, "query_gpu", lambda index=0: _state(util=2, procs=((9877, 4746),)))
+    monkeypatch.setattr(res, "query_gpu", lambda index=0, **kw: _state(util=2, procs=((9877, 4746),)))
     assert res.select_device("auto", allow_limited=False).device == "cpu"
 
 
@@ -173,3 +173,62 @@ def test_query_gpu_survives_unparseable_output(monkeypatch):
     state = res.query_gpu()
     assert state.available is False
     assert "unparseable" in (state.error or "")
+
+
+# --- bursty utilization ---------------------------------------------------
+
+
+def test_utilization_is_sampled_and_reported_as_a_median(monkeypatch):
+    """GPU utilization is bursty, so one reading is not a classification.
+
+    Measured on this machine: a co-tenant sat at a median of 17% utilization
+    with periodic spikes to 100%, while its VRAM stayed flat at 4671 MiB.
+    Reading once meant the same GPU classified LIMITED or PROTECTED purely
+    according to which instant the probe landed in — an unstable policy.
+    """
+    # The initial reading (100, the spike) comes from the full --query-gpu
+    # line below; these are the four follow-up samples.
+    readings = iter([12, 15, 18, 20])
+
+    def fake_smi(args):
+        if any("utilization.gpu" == a.split("=")[-1] for a in args):
+            return f"{next(readings)}\n"
+        # full --query-gpu line; the first utilization value is the spike
+        return "NVIDIA L4, 580.173.02, 23034, 4671, 17894, 100, 67\n"
+
+    monkeypatch.setattr(res, "_run_nvidia_smi", fake_smi)
+    monkeypatch.setattr(res.time, "sleep", lambda _s: None)
+
+    state = res.query_gpu(samples=5, interval_s=0)
+    assert state.utilization_samples == [12, 15, 18, 20, 100]
+    assert state.utilization_pct == 18, "median, not the 100% spike"
+    assert state.free_mib == 17894
+
+
+def test_single_sample_keeps_the_instantaneous_reading(monkeypatch):
+    """The cheap path must stay cheap: one sample, no sleeps, no extra
+    subprocesses — appropriate for a status display rather than a decision."""
+    calls = []
+
+    def fake_smi(args):
+        calls.append(args)
+        return "NVIDIA L4, 580.173.02, 23034, 4671, 17894, 77, 67\n"
+
+    monkeypatch.setattr(res, "_run_nvidia_smi", fake_smi)
+    state = res.query_gpu()
+    assert state.utilization_pct == 77
+    assert state.utilization_samples == []
+    # one --query-gpu call plus one compute-apps call, and nothing more
+    assert len(calls) == 2
+
+
+def test_a_bursty_cotenant_is_shareable_when_its_median_is_low(monkeypatch):
+    """The decision this fix exists to get right: a neighbour that spikes but
+    is mostly idle, holding modest VRAM, leaves room for a small model."""
+    monkeypatch.setattr(res, "torch_cuda_usable", lambda: (True, "torch cu128"))
+    monkeypatch.setattr(
+        res, "query_gpu",
+        lambda index=0, **kw: _state(free_mib=17894, used_mib=4671, util=17, procs=((9877, 4662),)))
+    decision = res.select_device("auto", required_mib=2500)
+    assert decision.device == "cuda"
+    assert decision.state == res.STATE_LIMITED

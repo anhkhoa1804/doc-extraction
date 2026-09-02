@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import time
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -82,6 +83,12 @@ class GpuState:
     used_mib: int = 0
     free_mib: int = 0
     utilization_pct: int = 0
+    # Median of several utilization samples when `samples` > 1. GPU
+    # utilization is bursty: a co-tenant measured here sat at a median of 17%
+    # with periodic spikes to 100%, so a single reading classifies the same
+    # GPU differently depending on the instant it lands in. The median is what
+    # decisions are made on; the raw samples are kept for the record.
+    utilization_samples: list[int] = field(default_factory=list)
     temperature_c: int | None = None
     processes: list[GpuProcess] = field(default_factory=list)
     error: str | None = None
@@ -131,8 +138,16 @@ def _run_nvidia_smi(args: list[str]) -> str | None:
     return proc.stdout
 
 
-def query_gpu(index: int = 0) -> GpuState:
-    """Snapshot GPU `index` via nvidia-smi. Never raises."""
+def query_gpu(index: int = 0, samples: int = 1, interval_s: float = 0.25) -> GpuState:
+    """Snapshot GPU `index` via nvidia-smi. Never raises.
+
+    `samples > 1` reads utilization several times and reports the **median**
+    in `utilization_pct`. Memory is not resampled: VRAM held by a co-tenant is
+    steady (measured: 4671 MiB across every sample of a minute), whereas its
+    utilization swung between 10% and 100%. Sampling costs one subprocess per
+    reading, so callers making a real scheduling decision should pay for a few;
+    a status display need not.
+    """
     fields = "name,driver_version,memory.total,memory.used,memory.free,utilization.gpu,temperature.gpu"
     out = _run_nvidia_smi(
         [f"--query-gpu={fields}", "--format=csv,noheader,nounits", f"--id={index}"]
@@ -160,6 +175,19 @@ def query_gpu(index: int = 0) -> GpuState:
         utilization_pct=_int(parts[5]),
         temperature_c=_int(parts[6]) or None,
     )
+
+    if samples > 1:
+        readings = [state.utilization_pct]
+        for _ in range(samples - 1):
+            time.sleep(interval_s)
+            more = _run_nvidia_smi(
+                ["--query-gpu=utilization.gpu", "--format=csv,noheader,nounits", f"--id={index}"]
+            )
+            if more and more.strip():
+                readings.append(_int(more.strip().splitlines()[0]))
+        readings.sort()
+        state.utilization_samples = readings
+        state.utilization_pct = readings[len(readings) // 2]
 
     # Compute processes are queried separately: the per-GPU query above has
     # no column for them, and their absence is itself meaningful.
@@ -249,6 +277,7 @@ def select_device(
     safety_margin_mib: int = DEFAULT_SAFETY_MARGIN_MIB,
     allow_limited: bool = True,
     exclude_pids: set[int] | None = None,
+    samples: int = 5,
 ) -> DeviceDecision:
     """Resolve a configured device string to a concrete device.
 
@@ -279,7 +308,7 @@ def select_device(
             reason=f"auto -> cpu: {torch_reason}",
         )
 
-    state = query_gpu()
+    state = query_gpu(samples=samples)
     classification, reason = classify_gpu(
         state, required_mib=required_mib, safety_margin_mib=safety_margin_mib,
         exclude_pids=exclude_pids,
