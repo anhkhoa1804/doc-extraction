@@ -1,0 +1,1782 @@
+{
+  "documents": [
+    {
+      "document": "ord_invoice_vi",
+      "options": {
+        "lang": "vi",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 2,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 35,
+          "tokens_correct": 33,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9429,
+          "cell_text_recall": 0.9429,
+          "cell_text_f1": 0.9429,
+          "contamination_rate": 0.1
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 19,
+          "missing_text": 1,
+          "extra_text": 0,
+          "contaminated_cells": 1,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 34,
+          "tokens_correct": 32,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9412,
+          "cell_text_recall": 0.9143,
+          "cell_text_f1": 0.9275,
+          "contamination_rate": 0.05
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "medium",
+        "gate_signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      }
+    },
+    {
+      "document": "ord_invoice_en",
+      "options": {
+        "lang": "en",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "ord_purchase_order_en",
+      "options": {
+        "lang": "en",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "ord_purchase_order_vi",
+      "options": {
+        "lang": "vi",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 2,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 35,
+          "tokens_correct": 33,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9429,
+          "cell_text_recall": 0.9429,
+          "cell_text_f1": 0.9429,
+          "contamination_rate": 0.1
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 19,
+          "missing_text": 1,
+          "extra_text": 0,
+          "contaminated_cells": 1,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 34,
+          "tokens_correct": 32,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9412,
+          "cell_text_recall": 0.9143,
+          "cell_text_f1": 0.9275,
+          "contamination_rate": 0.05
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "medium",
+        "gate_signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      }
+    },
+    {
+      "document": "ord_financial_report_en",
+      "options": {
+        "lang": "en",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "ord_financial_report_vi",
+      "options": {
+        "lang": "vi",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 2,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 35,
+          "tokens_correct": 33,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9429,
+          "cell_text_recall": 0.9429,
+          "cell_text_f1": 0.9429,
+          "contamination_rate": 0.1
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 19,
+          "missing_text": 1,
+          "extra_text": 0,
+          "contaminated_cells": 1,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 34,
+          "tokens_correct": 32,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9412,
+          "cell_text_recall": 0.9143,
+          "cell_text_f1": 0.9275,
+          "contamination_rate": 0.05
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "medium",
+        "gate_signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      }
+    },
+    {
+      "document": "hc_stamp_table_vi",
+      "options": {
+        "lang": "vi",
+        "style": "ruled",
+        "stamp": "table"
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 14,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 6,
+          "fragmented_cells": 2,
+          "tokens_expected": 35,
+          "tokens_predicted": 40,
+          "tokens_correct": 31,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            },
+            {
+              "cell": "r2c1",
+              "text": "Bộ lọc khí Mã 22B CÔNG TY T",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "T"
+              ]
+            },
+            {
+              "cell": "r2c2",
+              "text": "NBHộH",
+              "foreign_tokens": [
+                "NBHộH"
+              ]
+            },
+            {
+              "cell": "r3c1",
+              "text": "Dịch vụ lắp đặt ĐÃ DUY",
+              "foreign_tokens": [
+                "ĐÃ",
+                "DUY"
+              ]
+            },
+            {
+              "cell": "r3c2",
+              "text": "ỆGTói",
+              "foreign_tokens": [
+                "ỆGTói"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            },
+            {
+              "cell": "r2c1",
+              "expected": "Bộ lọc khí Mã 22B",
+              "got": "Bộ lọc khí Mã 22B CÔNG TY T"
+            },
+            {
+              "cell": "r2c2",
+              "expected": "Bộ",
+              "got": "NBHộH"
+            },
+            {
+              "cell": "r3c1",
+              "expected": "Dịch vụ lắp đặt",
+              "got": "Dịch vụ lắp đặt ĐÃ DUY"
+            },
+            {
+              "cell": "r3c2",
+              "expected": "Gói",
+              "got": "ỆGTói"
+            }
+          ],
+          "cell_exact_accuracy": 0.7,
+          "cell_text_precision": 0.775,
+          "cell_text_recall": 0.8857,
+          "cell_text_f1": 0.8267,
+          "contamination_rate": 0.3
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 16,
+          "text_present": 19,
+          "missing_text": 1,
+          "extra_text": 0,
+          "contaminated_cells": 3,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 39,
+          "tokens_correct": 32,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            },
+            {
+              "cell": "r2c1",
+              "text": "Bộ lọc khí Mã 22B CÔNG TY TNHH",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "TNHH"
+              ]
+            },
+            {
+              "cell": "r3c1",
+              "text": "ĐÃ DUYỆT Dịch vụ lắp đặt",
+              "foreign_tokens": [
+                "ĐÃ",
+                "DUYỆT"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            },
+            {
+              "cell": "r2c1",
+              "expected": "Bộ lọc khí Mã 22B",
+              "got": "Bộ lọc khí Mã 22B CÔNG TY TNHH"
+            },
+            {
+              "cell": "r3c1",
+              "expected": "Dịch vụ lắp đặt",
+              "got": "ĐÃ DUYỆT Dịch vụ lắp đặt"
+            }
+          ],
+          "cell_exact_accuracy": 0.8,
+          "cell_text_precision": 0.8205,
+          "cell_text_recall": 0.9143,
+          "cell_text_f1": 0.8649,
+          "contamination_rate": 0.15
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "high",
+        "gate_signals": [
+          "1 text run(s) cross cell boundaries",
+          "2 text run(s) differ in size and colour from their row",
+          "2 cell(s) contain runs of more than one style"
+        ]
+      }
+    },
+    {
+      "document": "hc_merged_en",
+      "options": {
+        "lang": "en",
+        "style": "merged",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 1,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 0.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 18,
+          "text_present": 19,
+          "missing_text": 0,
+          "extra_text": 1,
+          "contaminated_cells": 2,
+          "fragmented_cells": 0,
+          "tokens_expected": 27,
+          "tokens_predicted": 28,
+          "tokens_correct": 26,
+          "contamination_detail": [
+            {
+              "cell": "r1c3",
+              "text": "Qty / Am",
+              "foreign_tokens": [
+                "Am"
+              ]
+            },
+            {
+              "cell": "r1c4",
+              "text": "ount",
+              "foreign_tokens": [
+                "ount"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r1c3",
+              "expected": "Qty / Amount",
+              "got": "Qty / Am"
+            }
+          ],
+          "cell_exact_accuracy": 0.9,
+          "cell_text_precision": 0.9286,
+          "cell_text_recall": 0.963,
+          "cell_text_f1": 0.9455,
+          "contamination_rate": 0.1
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 1,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 0.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 19,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 27,
+          "tokens_predicted": 27,
+          "tokens_correct": 27,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "hc_borderless_en",
+      "options": {
+        "lang": "en",
+        "style": "borderless",
+        "stamp": null
+      },
+      "tables_found": 0,
+      "note": "no table detected by the native finder"
+    },
+    {
+      "document": "hc_tiny_cells_vi",
+      "options": {
+        "lang": "vi",
+        "style": "tiny",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 35,
+          "tokens_correct": 35,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 35,
+          "tokens_correct": 35,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "cmb_stamp_table_vi",
+      "options": {
+        "lang": "vi",
+        "style": "merged",
+        "stamp": "table"
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 1,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 0.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 12,
+          "text_present": 19,
+          "missing_text": 0,
+          "extra_text": 1,
+          "contaminated_cells": 6,
+          "fragmented_cells": 2,
+          "tokens_expected": 38,
+          "tokens_predicted": 43,
+          "tokens_correct": 31,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            },
+            {
+              "cell": "r2c1",
+              "text": "Bộ lọc khí Mã 22B CÔNG TY T",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "T"
+              ]
+            },
+            {
+              "cell": "r2c2",
+              "text": "NBHộH",
+              "foreign_tokens": [
+                "NBHộH"
+              ]
+            },
+            {
+              "cell": "r3c1",
+              "text": "Dịch vụ lắp đặt ĐÃ DUY",
+              "foreign_tokens": [
+                "ĐÃ",
+                "DUY"
+              ]
+            },
+            {
+              "cell": "r3c2",
+              "text": "ỆGTói",
+              "foreign_tokens": [
+                "ỆGTói"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            },
+            {
+              "cell": "r1c3",
+              "expected": "Số lượng / Thành tiền",
+              "got": "Số lượng"
+            },
+            {
+              "cell": "r2c1",
+              "expected": "Bộ lọc khí Mã 22B",
+              "got": "Bộ lọc khí Mã 22B CÔNG TY T"
+            },
+            {
+              "cell": "r2c2",
+              "expected": "Bộ",
+              "got": "NBHộH"
+            },
+            {
+              "cell": "r3c1",
+              "expected": "Dịch vụ lắp đặt",
+              "got": "Dịch vụ lắp đặt ĐÃ DUY"
+            },
+            {
+              "cell": "r3c2",
+              "expected": "Gói",
+              "got": "ỆGTói"
+            }
+          ],
+          "cell_exact_accuracy": 0.6,
+          "cell_text_precision": 0.7209,
+          "cell_text_recall": 0.8158,
+          "cell_text_f1": 0.7654,
+          "contamination_rate": 0.3
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 1,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 0.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 14,
+          "text_present": 17,
+          "missing_text": 2,
+          "extra_text": 1,
+          "contaminated_cells": 3,
+          "fragmented_cells": 0,
+          "tokens_expected": 38,
+          "tokens_predicted": 42,
+          "tokens_correct": 30,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            },
+            {
+              "cell": "r2c1",
+              "text": "Bộ lọc khí Mã 22B CÔNG TY TNHH",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "TNHH"
+              ]
+            },
+            {
+              "cell": "r3c1",
+              "text": "ĐÃ DUYỆT Dịch vụ lắp đặt",
+              "foreign_tokens": [
+                "ĐÃ",
+                "DUYỆT"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            },
+            {
+              "cell": "r1c3",
+              "expected": "Số lượng / Thành tiền",
+              "got": ""
+            },
+            {
+              "cell": "r2c1",
+              "expected": "Bộ lọc khí Mã 22B",
+              "got": "Bộ lọc khí Mã 22B CÔNG TY TNHH"
+            },
+            {
+              "cell": "r3c1",
+              "expected": "Dịch vụ lắp đặt",
+              "got": "ĐÃ DUYỆT Dịch vụ lắp đặt"
+            }
+          ],
+          "cell_exact_accuracy": 0.7,
+          "cell_text_precision": 0.7143,
+          "cell_text_recall": 0.7895,
+          "cell_text_f1": 0.75,
+          "contamination_rate": 0.15
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "high",
+        "gate_signals": [
+          "2 text run(s) cross cell boundaries",
+          "2 text run(s) differ in size and colour from their row",
+          "2 cell(s) contain runs of more than one style"
+        ]
+      }
+    },
+    {
+      "document": "cmb_stamp_boundary_vi",
+      "options": {
+        "lang": "vi",
+        "style": "ruled",
+        "stamp": "boundary"
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 16,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 4,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 41,
+          "tokens_correct": 33,
+          "contamination_detail": [
+            {
+              "cell": "r0c3",
+              "text": "Số lượn",
+              "foreign_tokens": [
+                "lượn"
+              ]
+            },
+            {
+              "cell": "r0c4",
+              "text": "gThành tiền",
+              "foreign_tokens": [
+                "gThành"
+              ]
+            },
+            {
+              "cell": "r1c2",
+              "text": "CÔNG TY Cái ĐÃ DU",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "ĐÃ",
+                "DU"
+              ]
+            },
+            {
+              "cell": "r1c3",
+              "text": "TNHH 12 YỆT",
+              "foreign_tokens": [
+                "TNHH",
+                "YỆT"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": "Số lượn"
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "gThành tiền"
+            },
+            {
+              "cell": "r1c2",
+              "expected": "Cái",
+              "got": "CÔNG TY Cái ĐÃ DU"
+            },
+            {
+              "cell": "r1c3",
+              "expected": "12",
+              "got": "TNHH 12 YỆT"
+            }
+          ],
+          "cell_exact_accuracy": 0.8,
+          "cell_text_precision": 0.8049,
+          "cell_text_recall": 0.9429,
+          "cell_text_f1": 0.8684,
+          "contamination_rate": 0.2
+        },
+        "is_corrupt": true,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 17,
+          "text_present": 19,
+          "missing_text": 1,
+          "extra_text": 0,
+          "contaminated_cells": 2,
+          "fragmented_cells": 0,
+          "tokens_expected": 35,
+          "tokens_predicted": 39,
+          "tokens_correct": 32,
+          "contamination_detail": [
+            {
+              "cell": "r0c4",
+              "text": "Số lượngThành tiền",
+              "foreign_tokens": [
+                "lượngThành"
+              ]
+            },
+            {
+              "cell": "r1c2",
+              "text": "CÔNG TY TNHH Cái ĐÃ DUYỆT",
+              "foreign_tokens": [
+                "CÔNG",
+                "TY",
+                "TNHH",
+                "ĐÃ",
+                "DUYỆT"
+              ]
+            }
+          ],
+          "mismatch_detail": [
+            {
+              "cell": "r0c3",
+              "expected": "Số lượng",
+              "got": ""
+            },
+            {
+              "cell": "r0c4",
+              "expected": "Thành tiền",
+              "got": "Số lượngThành tiền"
+            },
+            {
+              "cell": "r1c2",
+              "expected": "Cái",
+              "got": "CÔNG TY TNHH Cái ĐÃ DUYỆT"
+            }
+          ],
+          "cell_exact_accuracy": 0.85,
+          "cell_text_precision": 0.8205,
+          "cell_text_recall": 0.9143,
+          "cell_text_f1": 0.8649,
+          "contamination_rate": 0.1
+        },
+        "is_corrupt": true,
+        "gate_trusted": false,
+        "gate_severity": "high",
+        "gate_signals": [
+          "3 text run(s) cross cell boundaries",
+          "2 text run(s) differ in size and colour from their row",
+          "1 cell(s) contain runs of more than one style"
+        ]
+      }
+    },
+    {
+      "document": "cmb_tiny_table_en",
+      "options": {
+        "lang": "en",
+        "style": "tiny",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "cmb_multicol_table_en",
+      "options": {
+        "lang": "en",
+        "style": "ruled",
+        "stamp": null
+      },
+      "tables_found": 1,
+      "old": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      },
+      "new": {
+        "table_id": "p0-t0",
+        "structure": {
+          "rows_expected": 4,
+          "rows_found": 4,
+          "cols_expected": 5,
+          "cols_found": 5,
+          "shape_exact": true,
+          "cells_expected": 20,
+          "cells_found": 20,
+          "positions_matched": 20,
+          "spans_expected": 0,
+          "spans_recovered": 0,
+          "cells_with_bbox": 20,
+          "position_recall": 1.0,
+          "span_recall": 1.0
+        },
+        "content": {
+          "cells_compared": 20,
+          "exact_matches": 20,
+          "text_present": 20,
+          "missing_text": 0,
+          "extra_text": 0,
+          "contaminated_cells": 0,
+          "fragmented_cells": 0,
+          "tokens_expected": 26,
+          "tokens_predicted": 26,
+          "tokens_correct": 26,
+          "contamination_detail": [],
+          "mismatch_detail": [],
+          "cell_exact_accuracy": 1.0,
+          "cell_text_precision": 1.0,
+          "cell_text_recall": 1.0,
+          "cell_text_f1": 1.0,
+          "contamination_rate": 0.0
+        },
+        "is_corrupt": false,
+        "gate_trusted": true,
+        "gate_severity": "none",
+        "gate_signals": []
+      }
+    },
+    {
+      "document": "cmb_borderless_lowcontrast_en",
+      "options": {
+        "lang": "en",
+        "style": "borderless",
+        "stamp": null
+      },
+      "tables_found": 0,
+      "note": "no table detected by the native finder"
+    }
+  ],
+  "summary_old": {
+    "tables": 13,
+    "structure": {
+      "shape_exact": 13,
+      "mean_position_recall": 1.0,
+      "mean_span_recall": 0.8462
+    },
+    "content": {
+      "mean_cell_exact_accuracy": 0.9,
+      "mean_cell_text_precision": 0.9275,
+      "mean_cell_text_recall": 0.9566,
+      "mean_cell_text_f1": 0.9411,
+      "mean_contamination_rate": 0.0923,
+      "tables_with_contamination": 7,
+      "tables_with_fragmentation": 2
+    },
+    "corrupt_tables": 7,
+    "gate": {
+      "tables_judged": 13,
+      "flagged": 0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 7,
+      "precision": null,
+      "recall": 0.0,
+      "false_alarm_rate": 0.0
+    }
+  },
+  "summary_new": {
+    "tables": 13,
+    "structure": {
+      "shape_exact": 13,
+      "mean_position_recall": 1.0,
+      "mean_span_recall": 0.8462
+    },
+    "content": {
+      "mean_cell_exact_accuracy": 0.9269,
+      "mean_cell_text_precision": 0.9368,
+      "mean_cell_text_recall": 0.9508,
+      "mean_cell_text_f1": 0.9433,
+      "mean_contamination_rate": 0.0423,
+      "tables_with_contamination": 6,
+      "tables_with_fragmentation": 0
+    },
+    "corrupt_tables": 6,
+    "gate": {
+      "tables_judged": 13,
+      "flagged": 6,
+      "true_positives": 6,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_alarm_rate": 0.0
+    }
+  }
+}

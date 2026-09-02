@@ -1,0 +1,84 @@
+{
+  "ord_invoice_vi": {
+    "expected": {
+      "r0c3": "Số lượng",
+      "r0c4": "Thành tiền"
+    },
+    "span": {
+      "r0c3": "",
+      "r0c4": "Số lượngThành tiền"
+    },
+    "char": {
+      "r0c3": "Sốlượn",
+      "r0c4": "gThànhtiền"
+    },
+    "subrun": {
+      "r0c3": "Số lượng",
+      "r0c4": "Thành tiền"
+    }
+  },
+  "ord_invoice_en": {
+    "expected": {
+      "r0c3": "Qty",
+      "r0c4": "Amount"
+    },
+    "span": {
+      "r0c3": "Qty",
+      "r0c4": "Amount"
+    },
+    "char": {
+      "r0c3": "Qty",
+      "r0c4": "Amount"
+    },
+    "subrun": {
+      "r0c3": "Qty",
+      "r0c4": "Amount"
+    }
+  },
+  "hc_stamp_table_vi": {
+    "expected": {
+      "r2c2": "Bộ",
+      "r3c2": "Gói"
+    },
+    "span": {
+      "r2c2": "Bộ",
+      "r3c2": "Gói"
+    },
+    "char": {
+      "r2c2": "BộNHH",
+      "r3c2": "ỆTGói"
+    },
+    "subrun": {
+      "r2c2": "Bộ",
+      "r3c2": "Gói"
+    }
+  },
+  "cmb_stamp_boundary_vi": {
+    "expected": {
+      "r1c2": "Cái"
+    },
+    "span": {
+      "r1c2": "CÔNG TY TNHH Cái ĐÃ DUYỆT"
+    },
+    "char": {
+      "r1c2": "CÔNGTYCáiĐÃDU"
+    },
+    "subrun": {
+      "r1c2": "CÔNG TY TNHH Cái ĐÃ DUYỆT"
+    }
+  },
+  "hc_merged_en": {
+    "expected": {
+      "r1c3": "Qty / Amount"
+    },
+    "span": {
+      "r1c3": "Qty / Amount"
+    },
+    "char": {
+      "r1c3": "Qty/Am"
+    },
+    "subrun": {
+      "r1c3": "Qty / Amount"
+    }
+  }
+}

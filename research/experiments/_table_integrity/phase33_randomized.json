@@ -1,0 +1,1592 @@
+{
+  "n": 80,
+  "undetected": 0,
+  "structure_exact": 80,
+  "gate": {
+    "tp": 42,
+    "fp": 4,
+    "fn": 0,
+    "contaminated": 42,
+    "flagged": 46
+  },
+  "violations": {
+    "I1": [],
+    "I2": [],
+    "I3": [],
+    "I4": [],
+    "I5": [
+      {
+        "variant": 20,
+        "stamped": false,
+        "signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      },
+      {
+        "variant": 44,
+        "stamped": false,
+        "signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      },
+      {
+        "variant": 64,
+        "stamped": false,
+        "signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      },
+      {
+        "variant": 66,
+        "stamped": false,
+        "signals": [
+          "1 text run(s) cross cell boundaries"
+        ]
+      }
+    ],
+    "I6": []
+  },
+  "records": [
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 0,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c3",
+        "r3c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 1,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 2,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 3,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 4,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c4",
+        "r4c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 5,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 6,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c2",
+        "r2c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 7,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 8,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 9,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 10,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c1",
+        "r1c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 11,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 12,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c4",
+        "r4c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 13,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 14,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c2",
+        "r2c2"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 15,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 16,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 17,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 18,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c1",
+        "r2c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 19,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 20,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c2",
+        "r2c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 21,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 22,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c3",
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 23,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 24,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 25,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 26,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c4",
+        "r1c1",
+        "r2c0"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 27,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 28,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 29,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 30,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 31,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 32,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 33,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 34,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r4c2"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 35,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 36,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 37,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 38,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 39,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 40,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 41,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 42,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 43,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 44,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c1",
+        "r4c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 45,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 46,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c1",
+        "r1c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 47,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 48,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c1",
+        "r4c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 49,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 50,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 51,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 52,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c4",
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 53,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 54,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c0",
+        "r1c0"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 55,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 56,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c1",
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 57,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 58,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c3",
+        "r4c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 59,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 60,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c2",
+        "r3c2"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 61,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 62,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c3",
+        "r3c3"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 63,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 64,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c4",
+        "r1c1",
+        "r2c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 65,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": false,
+      "gate_severity": "medium",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries"
+      ],
+      "variant": 66,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c1",
+        "r1c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 67,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 68,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c1",
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 69,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 70,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r3c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 71,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 72,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r2c1",
+        "r3c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "1 text run(s) cross cell boundaries",
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 73,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 74,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        6,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r0c4",
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "2 cell(s) contain runs of more than one style"
+      ],
+      "variant": 75,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 76,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c1"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 77,
+      "stamped": true
+    },
+    {
+      "detected": true,
+      "shape": [
+        5,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [],
+      "gate_trusted": true,
+      "gate_severity": "none",
+      "gate_signals": [],
+      "variant": 78,
+      "stamped": false
+    },
+    {
+      "detected": true,
+      "shape": [
+        4,
+        5
+      ],
+      "fragments": [],
+      "duplicates": [],
+      "diacritic_lost": [],
+      "contaminated": [
+        "r1c4"
+      ],
+      "gate_trusted": false,
+      "gate_severity": "high",
+      "gate_signals": [
+        "2 text run(s) differ in size and colour from their row",
+        "1 cell(s) contain runs of more than one style"
+      ],
+      "variant": 79,
+      "stamped": true
+    }
+  ]
+}
