@@ -82,6 +82,11 @@ class TableResult:
     tables: list[Table] = field(default_factory=list)
     backend: str = ""
     warnings: list[str] = field(default_factory=list)
+    # Source text runs considered for each table, keyed by table id, each
+    # annotated with the cell it was assigned to. Carried so a quality gate
+    # can judge cell text against the runs that produced it rather than
+    # re-deriving them. Empty for backends that work from pixels.
+    spans_by_table: dict[str, list[dict]] = field(default_factory=dict)
 
 
 @runtime_checkable
