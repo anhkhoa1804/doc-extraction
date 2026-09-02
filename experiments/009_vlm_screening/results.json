@@ -1,0 +1,171 @@
+{
+  "experiment": "009_vlm_screening",
+  "date_utc": "2026-09-01",
+  "git_commit": "0673a39a69ef7fa9d86ab2053453157f3213d560",
+  "question": "Does a document VLM earn a place in this pipeline, and in which role?",
+  "candidate": {
+    "model": "PaddlePaddle/PaddleOCR-VL",
+    "params_b": 0.959,
+    "licence": "Apache-2.0",
+    "dtype": "bfloat16",
+    "path": "transformers trust_remote_code (element-level); NOT the full PaddleOCR-VL pipeline, which needs PaddlePaddle",
+    "vram_after_load_mib": 1840,
+    "vram_peak_page_inference_mib": 12992,
+    "load_seconds": 5.16,
+    "compat_shim_required": "create_causal_mask(inputs_embeds=) -> (input_embeds=); params were ['config', 'input_embeds']"
+  },
+  "environment": {
+    "venv": "~/.venvs/vlm-screen",
+    "transformers": "4.55.0 (model config declares this)",
+    "torch": "2.11.0+cu128",
+    "device": "cuda",
+    "gpu": "NVIDIA L4"
+  },
+  "resource_state": {
+    "classification": "CLEAR at launch (0 MiB used, 0% util, no compute apps)",
+    "note": "an earlier attempt was correctly aborted mid-run by the guard when a neighbouring project claimed the GPU; this run completed on a clear device",
+    "postflight": "0 MiB, no compute apps - nothing leaked"
+  },
+  "scoring": "identical to experiments/008 - recall over each case's must_contain strings, NFC-normalized",
+  "per_case": {
+    "clean_en": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 1.0,
+      "vlm_page": 1.0,
+      "vlm_seconds": 111.77,
+      "vlm_missing": []
+    },
+    "clean_vi": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 0.75,
+      "vlm_page": 0.5,
+      "vlm_seconds": 191.49,
+      "vlm_missing": [
+        "Hạnh phúc",
+        "Nguyễn Thị Hương"
+      ]
+    },
+    "tiny_text": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 0.6667,
+      "vlm_page": 1.0,
+      "vlm_seconds": 94.75,
+      "vlm_missing": []
+    },
+    "tiny_cells_table": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 0.6667,
+      "vlm_page": 0.3333333333333333,
+      "vlm_seconds": 456.61,
+      "vlm_missing": [
+        "Sản phẩm 1",
+        "Mô tả"
+      ]
+    },
+    "borderless_table": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 1.0,
+      "vlm_page": 1.0,
+      "vlm_seconds": 72.46,
+      "vlm_missing": []
+    },
+    "merged_cells": {
+      "native": 0.6667,
+      "adaptive": 0.6667,
+      "visual": 0.3333,
+      "vlm_page": 1.0,
+      "vlm_seconds": 149.66,
+      "vlm_missing": []
+    },
+    "stamp_over_text": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 0.5,
+      "vlm_page": 0.0,
+      "vlm_seconds": 142.84,
+      "vlm_missing": [
+        "Mã số doanh nghiệp",
+        "ĐÃ DUYỆT"
+      ]
+    },
+    "stamp_over_table": {
+      "native": 0.6667,
+      "adaptive": 0.6667,
+      "visual": 0.0,
+      "vlm_page": 0.3333333333333333,
+      "vlm_seconds": 35.0,
+      "vlm_missing": [
+        "1,250,000",
+        "ĐÃ THU"
+      ]
+    },
+    "multicolumn_mixed": {
+      "native": 1.0,
+      "adaptive": 1.0,
+      "visual": 0.6667,
+      "vlm_page": 0.6666666666666666,
+      "vlm_seconds": 77.39,
+      "vlm_missing": [
+        "Điều khoản chung"
+      ]
+    },
+    "broken_cmap_vi": {
+      "native": 0.0,
+      "adaptive": 1.0,
+      "visual": 1.0,
+      "vlm_page": 1.0,
+      "vlm_seconds": 151.15,
+      "vlm_missing": []
+    }
+  },
+  "region_role": {
+    "tiny_text": {
+      "recall": 1.0,
+      "seconds": 4.08,
+      "px": [
+        868,
+        227
+      ],
+      "missing": []
+    },
+    "tiny_cells_table": {
+      "recall": 0.6666666666666666,
+      "seconds": 277.03,
+      "px": [
+        2227,
+        895
+      ],
+      "missing": [
+        "Mô tả"
+      ]
+    }
+  },
+  "summary": {
+    "native_mean": 0.8333,
+    "adaptive_mean": 0.9333,
+    "visual_mean": 0.6583,
+    "vlm_page_mean": 0.6833,
+    "vlm_page_total_seconds": 1483.1,
+    "adaptive_total_seconds_14_docs": 37.5,
+    "vlm_strict_wins": 1,
+    "vlm_losses": 5
+  },
+  "verdict": {
+    "as_page_parser": "REJECTED",
+    "as_table_specialist": "CANDIDATE - narrow, evidence-backed",
+    "rationale": "68% mean recall against adaptive's 93%, at roughly 40x the compute. It strictly beats every cheaper strategy on 1 of 10 cases (merged_cells, 100% vs 67%) and loses on 5, including 0% on stamp_over_text where the native text layer gives 100%.",
+    "en_vi_concern": "50% on clean_vi - a perfectly clean born-digital Vietnamese page - losing 'Hạnh phúc' and 'Nguyễn Thị Hương'. Vietnamese is half the production target, so this alone disqualifies it as a default for this population.",
+    "operational_complexity": "its transformers path calls create_causal_mask(inputs_embeds=), a keyword absent from 4.53.3, 4.55.0, 4.57.6 and 5.16.1 - including the 4.55.0 its own config declares. A shim was required. It also needs a separate venv because paddleocr downgrades numpy/pyyaml in the validated environment."
+  },
+  "limitations": [
+    "10 cases, one run, synthetic corpus",
+    "element-level transformers path only; the full PaddleOCR-VL pipeline (with PP-DocLayoutV2 layout) was not evaluated and may score materially better as a page parser",
+    "no quantization or batching tried; latency is single-image, greedy, max_new_tokens=1024",
+    "region role covers only 2 cases"
+  ]
+}

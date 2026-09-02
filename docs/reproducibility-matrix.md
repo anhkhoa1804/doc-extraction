@@ -95,7 +95,8 @@ than silent degradation (see `docs/reproducible-environment.md`).
 | OmniDocBench full, 1651 pages | — | — | BLOCKED — see experiments/006 |
 | Synthetic fixture, 2 pages | CPU + GPU | CLEAN | VALIDATED — verified idle window |
 | enterprise-hardcases, 14 cases × 3 strategies | CPU | LIMITED (one GPU co-tenant, loadavg 1.4–3.1) | VALIDATED — see experiments/008 |
-| enterprise-hardcases, VLM arm | — | — | BLOCKED — GPU PROTECTED all session |
+| enterprise-hardcases, VLM page role (10 cases) | GPU | CLEAN | VALIDATED — 68% mean, see experiments/009 |
+| enterprise-hardcases, VLM region role (2 cases) | GPU | CLEAN | PARTIAL — 2 cases only |
 
 **Every benchmark row carries a contention classification.** A timing taken
 while another project was using the machine is not a benchmark, and pooling
@@ -108,7 +109,9 @@ one with a clean measurement produces a speedup number that is simply wrong.
 | GPU state query (no CUDA init) | VALIDATED | `nvidia-smi` subprocess; 17 unit tests |
 | Classification CLEAR/LIMITED/PROTECTED | VALIDATED | Synthetic states + live GPU |
 | `device: auto` refuses a busy GPU | VALIDATED | Live: refused a co-tenant at 100% util |
-| `device: auto` uses an idle GPU | PARTIAL | Unit-tested; live CLEAR case not exercised (GPU was occupied throughout) |
+| `device: auto` uses an idle GPU | VALIDATED | Live CLEAR case exercised in experiment 009 |
+| Guard aborts a run when a co-tenant arrives | VALIDATED | Fired in anger mid-screening; run stopped, nothing leaked |
+| Utilization sampled as a median, not one reading | VALIDATED | Co-tenant measured bimodal: median 17%, spikes to 100% |
 | Per-stage device recorded in logs | VALIDATED | Was hard-coded `cpu` for every run; fixed and tested |
 | Log-based profiler (cold/warm) | VALIDATED | 8 tests; flags its own unreliable estimates |
 | Determinism, native + office routes | VALIDATED | 5 tests; byte-identical modulo run-extrinsic fields |
@@ -145,8 +148,8 @@ speedup does not transfer exactly to dense real pages.
 * Model-load cost cannot be separated on a heterogeneous corpus; the
   profiler reports this rather than estimating through it.
 * OmniDocBench full 1651-page run: not executed. See experiments/006.
-* No VLM has been screened on hardware: the GPU was PROTECTED by another
-  project's job for the whole of session 3. See docs/backend-landscape.md for
-  the recorded screening plan.
+* The full PaddleOCR-VL pipeline (with PP-DocLayoutV2 layout) is unscreened —
+  only its element-level transformers path was measured. See experiments/009.
+* The VLM region-recovery role rests on 2 cases; promising but unproven.
 * `stamp_over_table` is recovered by no current strategy — native holds the
   occluded text, visual holds the grid. Indicated answer is fusion, untested.

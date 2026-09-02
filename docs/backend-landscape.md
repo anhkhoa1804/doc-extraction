@@ -47,9 +47,14 @@ PaddleOCR-VL's paper reports **~43.7 GB VRAM** with vLLM on an A100. That is
 the model's footprint. A 0.9B model in BF16 is roughly **2 GB of weights**.
 
 This distinction decides whether the model fits an L4 at all. Taken at face
-value the answer is "no"; taken correctly it is "comfortably, with room for a
-co-tenant". Any deployment here must set `gpu_memory_utilization` explicitly
-rather than accept the default.
+value the answer is "no"; taken correctly, the weights fit easily.
+
+**Both readings turned out to understate the real cost.** Measured here
+(experiment 009): 1,840 MiB after load, but **12,992 MiB peak** during
+full-page inference — vision tokens for a 1653x2339 image, not parameters. On
+a shared 23 GB L4 that rules out co-tenancy with anything using more than
+~9 GB. Region-level inference on a small crop is far cheaper, which is another
+argument for the specialist role over the parser role.
 
 ## Benchmark landscape
 
@@ -68,26 +73,44 @@ generalization check rather than a production metric.
 
 ## Screening verdicts
 
-**PaddleOCR-VL — SCREENED, CANDIDATE, not yet run.**
-It is the only candidate that is simultaneously small enough for a shared L4
-(~2 GB weights), permissively licensed (Apache-2.0), and specifically strong on
-the failure mechanisms this corpus is built around — seals and stamps above
-all, where it reportedly beats a 235B general VLM by a wide margin. That maps
-directly onto `stamp_over_table`, the one case no current strategy recovers.
+**PaddleOCR-VL — SCREENED ON HARDWARE. Page parser REJECTED; table
+specialist CANDIDATE.** See `experiments/009_vlm_screening/`.
 
-Not run this session for one reason: the GPU was **PROTECTED** by another
-project's job throughout (4.7 GB resident, 100% utilization, 2h34m+). Per the
-resource policy, competing for it was not an option, and a VLM screening on
-CPU would measure nothing useful.
+Measured on the enterprise-hardcases corpus, scored identically to the three
+routing strategies: **68% mean recall against adaptive's 93%, at ~40x the
+compute** (1483 s for 10 cases vs 37 s for 14 documents). It strictly beats
+every cheaper strategy on **1 of 10** cases and loses on 5.
 
-The screening plan is recorded rather than executed:
+Decisive per-case findings:
 
-1. 5–20 pages from `enterprise-hardcases`, covering clean / table / stamp /
-   tiny-text / multi-column.
-2. Measure recall on the same `must_contain` strings, so the number is directly
-   comparable with the three strategies already measured.
-3. Record VRAM, latency, and Vietnamese diacritic fidelity specifically.
-4. Only then decide integration — as a **recovery-ladder step**, not a default.
+| Case | native | adaptive | VLM | note |
+|---|---|---|---|---|
+| `merged_cells` | 67% | 67% | **100%** | the only genuine win — recovers a merged header cell nothing else does |
+| `stamp_over_text` | 100% | 100% | **0%** | a seal hides pixels; the text layer still has the text |
+| `clean_vi` | 100% | 100% | **50%** | clean born-digital Vietnamese; dropped diacritic-dense strings |
+
+**The Vietnamese result is disqualifying for a default.** Half the production
+population is Vietnamese, and the model lost half of a *clean* page in it.
+That is exactly the failure a benchmark with no Vietnamese cannot surface.
+
+Real costs beyond the score: peak VRAM is **12,992 MiB** for full-page
+inference (weights are only 1,840 MiB — vision tokens dominate), and its
+`transformers` path calls a keyword (`inputs_embeds`) that exists in none of
+the four transformers versions tested, requiring a shim plus a separate 6.8 GB
+venv.
+
+Retained as a **narrow table-structure candidate**, invoked by a gate when the
+native grid is untrustworthy — not as a parser.
+
+---
+
+*Why it was selected for screening (pre-screening assessment, superseded by
+the measurements above):* the only candidate simultaneously small enough for a
+shared L4, permissively licensed, and reportedly strong on seals — which is
+why it was the one candidate worth spending GPU time on. The seal claim did
+not survive contact with this corpus: it scored **0%** on `stamp_over_text`.
+The vendor's reported NED of 0.138 is for reading text *on* a seal, which is a
+different task from recovering text *underneath* one.
 
 **MinerU2.5 — DEFERRED on licence.** AGPL-3.0. The project already carries
 AGPL obligations via PyMuPDF and is internal-research scoped, so this is not
