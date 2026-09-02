@@ -1,0 +1,302 @@
+{
+  "device": "cuda",
+  "dpi": 200,
+  "results": [
+    {
+      "document": "cmb_scan_tiny_vi",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.0,
+        "word_recall": 0.4167,
+        "tokens": 2,
+        "seconds": 8.53,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          0.875,
+          0.0,
+          0.375
+        ],
+        "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải"
+      },
+      "easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667,
+        "detections": 7,
+        "seconds": 1.03,
+        "detections_with_confidence": 7,
+        "mean_confidence": 0.5755,
+        "low_confidence_count": 3,
+        "per_string": [
+          0.875,
+          0.5,
+          0.625
+        ],
+        "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Dieu Phạm vi ap dung Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Dieu 2 Tham quyén phe duyet Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản."
+      },
+      "union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667
+      }
+    },
+    {
+      "document": "hc_scan_vi",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+        "Kính gửi: Phòng Tài chính - Kế",
+        "Căn cứ biên bản đối chiếu ngày 28"
+      ],
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "tokens": 3,
+        "seconds": 0.92,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          1.0,
+          0.75,
+          1.0,
+          1.0
+        ],
+        "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ Kính Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. gửi: phải"
+      },
+      "easyocr": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "detections": 11,
+        "seconds": 1.06,
+        "detections_with_confidence": 11,
+        "mean_confidence": 0.8814,
+        "low_confidence_count": 0,
+        "per_string": [
+          1.0,
+          0.75,
+          1.0,
+          1.0
+        ],
+        "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ Kính gửi: Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. phải"
+      },
+      "union": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375
+      }
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "region_labels": [
+        "picture",
+        "section_header",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.375,
+        "word_recall": 0.4625,
+        "tokens": 2,
+        "seconds": 1.34,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.2,
+          0.0,
+          0.0
+        ],
+        "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số thuế: 0312998877"
+      },
+      "easyocr": {
+        "exact_recall": 0.75,
+        "word_recall": 0.975,
+        "detections": 19,
+        "seconds": 1.22,
+        "detections_with_confidence": 19,
+        "mean_confidence": 0.8207,
+        "low_confidence_count": 2,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.8,
+          1.0,
+          1.0
+        ],
+        "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô_tả hàng hóa Số IượngThành tiển Sản phẩm A-100 18.000.000 2 Bộ loc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000"
+      },
+      "union": {
+        "exact_recall": 0.75,
+        "word_recall": 0.975
+      }
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "region_labels": [
+        "section_header",
+        "table",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "tokens": 19,
+        "seconds": 2.42,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Đơn vị 1 Sản phẩm A-100 Cái 12 18.000.000 Bộ lọc khí Mã 22B Bộ 4 6.400.000 3 Dịch vụ đặt lắp Gói 1 3.500.000"
+      },
+      "easyocr": {
+        "exact_recall": 0.8571,
+        "word_recall": 0.9643,
+        "detections": 22,
+        "seconds": 1.19,
+        "detections_with_confidence": 22,
+        "mean_confidence": 0.8838,
+        "low_confidence_count": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.75
+        ],
+        "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Đơn vị Số lượngThành tiên Sản phẩm A-100 Cái 12 18.000.000 2 Bộ lọc khí Mã 22B Bộ 6.400.000 3 Dịch vụ Iắp đặt Gói 3.500.000"
+      },
+      "union": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0
+      }
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "Section 2. Approval authority"
+      ],
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 2,
+        "seconds": 0.73,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "text": "INTERNAL EXPENDITURE POLICY Section 1. Scope This policy applies to all employees of the company and its branch offices Section 2 Approval authority Expenditure above USD 5,000 requires written approval from the Managing Director ."
+      },
+      "easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "detections": 9,
+        "seconds": 0.87,
+        "detections_with_confidence": 9,
+        "mean_confidence": 0.8016,
+        "low_confidence_count": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "text": "INTERNAL EXPENDITURE POLICY Section 1. Scope Section 2 Approval authority This policy applies to all employees of Expenditure above USD 5,000 requires the company and its branch offices. written approval from the Managing Director."
+      },
+      "union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      }
+    },
+    {
+      "document": "hc_scan_en",
+      "must_contain": [
+        "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+        "To: Finance and Accounting",
+        "Further to the reconciliation"
+      ],
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "docling": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 2,
+        "seconds": 1.69,
+        "tokens_with_confidence": 0,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "text": "OFFICIAL LETTER CONFIRMATION OF OUTSTANDING BALANCE To: Finance and Accounting Department Further to the reconciliation minutes dated 28 February 2026, the receivable balance at cut-off is USD 31,240.00"
+      },
+      "easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "detections": 6,
+        "seconds": 0.85,
+        "detections_with_confidence": 6,
+        "mean_confidence": 0.7301,
+        "low_confidence_count": 1,
+        "per_string": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "text": "OFFICIAL LETTER  CONFIRMATION OF OUTSTANDING BALANCE To: Finance and Accounting Department Further to the reconciliation minutes dated 28 February 2026, the receivable balance at cut-off is USD 31,240.00."
+      },
+      "union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      }
+    }
+  ]
+}

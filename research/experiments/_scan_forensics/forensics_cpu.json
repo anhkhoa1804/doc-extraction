@@ -1,0 +1,854 @@
+{
+  "cases": {
+    "cmb_scan_tiny_vi": 0.0,
+    "hc_scan_vi": 0.25,
+    "cmb_scan_stamp_table_vi": 0.25,
+    "ord_invoice_png_vi": 0.57,
+    "cmb_scan_multicol_en": 0.67,
+    "hc_scan_en": 0.67
+  },
+  "results": [
+    {
+      "document": "cmb_scan_tiny_vi",
+      "filename": "cmb_scan_tiny_vi.pdf",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.185,
+            "layout": 14.133,
+            "ocr": 0.0
+          },
+          "n_regions": 2,
+          "region_labels": [
+            "section_header",
+            "text"
+          ],
+          "n_ocr_tokens": 2,
+          "n_tokens_in_regions": 2,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                58.7,
+                43.4,
+                339.1,
+                64.3
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                59.4,
+                95.5,
+                182.4,
+                125.1
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ",
+              "bbox": [
+                58.7,
+                43.4,
+                339.1,
+                64.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải",
+              "bbox": [
+                59.4,
+                95.5,
+                182.4,
+                125.1
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Điều 1. Phạm vi áp dụng",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Quy chế này áp dụng cho toàn bộ",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document": "hc_scan_vi",
+      "filename": "hc_scan_vi.pdf",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+        "Kính gửi: Phòng Tài chính - Kế",
+        "Căn cứ biên bản đối chiếu ngày 28"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.177,
+            "layout": 6.827,
+            "ocr": 0.0
+          },
+          "n_regions": 3,
+          "region_labels": [
+            "section_header",
+            "text"
+          ],
+          "n_ocr_tokens": 3,
+          "n_tokens_in_regions": 3,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                148.7,
+                47.8,
+                379.7,
+                79.5
+              ]
+            },
+            {
+              "label": "section_header",
+              "bbox": [
+                58.7,
+                84.3,
+                343.1,
+                104.2
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                57.8,
+                118.1,
+                395.6,
+                178.6
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự",
+              "bbox": [
+                148.7,
+                47.8,
+                379.7,
+                79.5
+              ],
+              "conf": null
+            },
+            {
+              "text": "CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ",
+              "bbox": [
+                58.7,
+                84.3,
+                343.1,
+                104.2
+              ],
+              "conf": null
+            },
+            {
+              "text": "Kính Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 4",
+              "bbox": [
+                57.8,
+                118.1,
+                395.6,
+                178.6
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "Độc lập - Tự do - Hạnh phúc",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Kính gửi: Phòng Tài chính - Kế",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Căn cứ biên bản đối chiếu ngày 28",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "filename": "cmb_scan_stamp_table_vi.pdf",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.199,
+            "layout": 12.899,
+            "ocr": 0.0
+          },
+          "n_regions": 3,
+          "region_labels": [
+            "picture",
+            "section_header",
+            "text"
+          ],
+          "n_ocr_tokens": 2,
+          "n_tokens_in_regions": 2,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                59.5,
+                45.1,
+                280.2,
+                64.3
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                58.2,
+                79.4,
+                399.6,
+                157.8
+              ]
+            },
+            {
+              "label": "picture",
+              "bbox": [
+                58.0,
+                188.7,
+                432.2,
+                310.2
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+              "bbox": [
+                59.5,
+                45.1,
+                280.2,
+                64.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số thuế: ",
+              "bbox": [
+                58.2,
+                79.4,
+                399.6,
+                157.8
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Ngày 14 tháng 03 năm 2026",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Mô tả hàng hóa",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Sản phẩm A-100",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Bộ lọc khí Mã 22B",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Dịch vụ lắp đặt",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "ĐÃ DUYỆT",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "filename": "ord_invoice_png_vi.png",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.142,
+            "layout": 14.346,
+            "ocr": 0.0
+          },
+          "n_regions": 3,
+          "region_labels": [
+            "section_header",
+            "table",
+            "text"
+          ],
+          "n_ocr_tokens": 20,
+          "n_tokens_in_regions": 20,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                165.7,
+                126.3,
+                263.3,
+                172.3
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                162.0,
+                221.0,
+                1110.7,
+                439.7
+              ]
+            },
+            {
+              "label": "table",
+              "bbox": [
+                164.5,
+                526.4,
+                1200.9,
+                750.3
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "HÓA",
+              "bbox": [
+                165.7,
+                126.3,
+                263.3,
+                172.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: ",
+              "bbox": [
+                162.0,
+                221.0,
+                1110.7,
+                439.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "STT",
+              "bbox": [
+                171.0,
+                553.7,
+                227.7,
+                578.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Mô tả hàng hóa",
+              "bbox": [
+                242.7,
+                547.7,
+                466.3,
+                585.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Đơn vị",
+              "bbox": [
+                708.0,
+                553.3,
+                803.0,
+                582.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "1",
+              "bbox": [
+                173.7,
+                605.7,
+                187.3,
+                626.0
+              ],
+              "conf": null
+            },
+            {
+              "text": "Sản phẩm A-100",
+              "bbox": [
+                241.0,
+                596.0,
+                455.7,
+                634.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "Cái",
+              "bbox": [
+                709.0,
+                602.3,
+                753.3,
+                628.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "12",
+              "bbox": [
+                832.7,
+                603.0,
+                866.3,
+                628.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "18.000.000",
+              "bbox": [
+                949.0,
+                602.3,
+                1095.0,
+                629.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "2",
+              "bbox": [
+                170.7,
+                659.0,
+                188.3,
+                683.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "Bộ lọc khí Mã 22B",
+              "bbox": [
+                242.0,
+                656.0,
+                470.3,
+                688.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "Bộ",
+              "bbox": [
+                709.3,
+                657.3,
+                746.3,
+                688.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "4",
+              "bbox": [
+                833.3,
+                660.7,
+                850.0,
+                681.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "6.400.000",
+              "bbox": [
+                948.0,
+                658.3,
+                1079.3,
+                684.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "3",
+              "bbox": [
+                171.7,
+                715.0,
+                188.3,
+                737.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "Dịch vụ đặt lắp",
+              "bbox": [
+                242.7,
+                705.4,
+                437.7,
+                749.0
+              ],
+              "conf": null
+            },
+            {
+              "text": "Gói",
+              "bbox": [
+                709.7,
+                713.7,
+                755.0,
+                739.0
+              ],
+              "conf": null
+            },
+            {
+              "text": "1",
+              "bbox": [
+                834.3,
+                717.0,
+                848.0,
+                736.3
+              ],
+              "conf": null
+            },
+            {
+              "text": "3.500.000",
+              "bbox": [
+                949.0,
+                713.7,
+                1079.3,
+                740.0
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Ngày 14 tháng 03 năm 2026",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Mô tả hàng hóa",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Sản phẩm A-100",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Bộ lọc khí Mã 22B",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Dịch vụ lắp đặt",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "filename": "cmb_scan_multicol_en.pdf",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "Section 2. Approval authority"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.19,
+            "layout": 5.03,
+            "ocr": 0.0
+          },
+          "n_regions": 2,
+          "region_labels": [
+            "section_header",
+            "text"
+          ],
+          "n_ocr_tokens": 2,
+          "n_tokens_in_regions": 2,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                59.5,
+                47.4,
+                316.3,
+                62.1
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                57.9,
+                89.9,
+                272.2,
+                127.8
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "INTERNAL EXPENDITURE POLICY",
+              "bbox": [
+                59.5,
+                47.4,
+                316.3,
+                62.1
+              ],
+              "conf": null
+            },
+            {
+              "text": "Section 1. Scope This policy applies to all employees of the company and its branch offices Section 2 Approval authority",
+              "bbox": [
+                57.9,
+                89.9,
+                272.2,
+                127.8
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "INTERNAL EXPENDITURE POLICY",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Section 1. Scope",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Section 2. Approval authority",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "document": "hc_scan_en",
+      "filename": "hc_scan_en.pdf",
+      "must_contain": [
+        "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+        "To: Finance and Accounting",
+        "Further to the reconciliation"
+      ],
+      "device": "cpu",
+      "dpi": 200,
+      "pages": [
+        {
+          "page": 0,
+          "image_size": [
+            1653,
+            2339
+          ],
+          "timings": {
+            "render": 0.178,
+            "layout": 16.232,
+            "ocr": 0.0
+          },
+          "n_regions": 2,
+          "region_labels": [
+            "section_header",
+            "text"
+          ],
+          "n_ocr_tokens": 2,
+          "n_tokens_in_regions": 2,
+          "layout_warnings": [],
+          "ocr_warnings": [],
+          "regions": [
+            {
+              "label": "section_header",
+              "bbox": [
+                58.7,
+                46.6,
+                565.3,
+                62.7
+              ]
+            },
+            {
+              "label": "text",
+              "bbox": [
+                58.2,
+                78.2,
+                403.7,
+                137.1
+              ]
+            }
+          ],
+          "ocr_tokens": [
+            {
+              "text": "OFFICIAL LETTER CONFIRMATION OF OUTSTANDING BALANCE",
+              "bbox": [
+                58.7,
+                46.6,
+                565.3,
+                62.7
+              ],
+              "conf": null
+            },
+            {
+              "text": "To: Finance and Accounting Department Further to the reconciliation minutes dated 28 February 2026, the receivable balan",
+              "bbox": [
+                58.2,
+                78.2,
+                403.7,
+                137.1
+              ],
+              "conf": null
+            }
+          ],
+          "strings": [
+            {
+              "string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+              "in_ocr": false,
+              "in_covered_tokens": false
+            },
+            {
+              "string": "To: Finance and Accounting",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            },
+            {
+              "string": "Further to the reconciliation",
+              "in_ocr": true,
+              "in_covered_tokens": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tally": {
+    "lost_before_ocr": 15,
+    "ocr_only_no_region": 0,
+    "survived": 13
+  }
+}

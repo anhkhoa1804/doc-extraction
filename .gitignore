@@ -104,3 +104,4 @@ research/**/*.jpg
 
 # Table-integrity probe working dir: only the JSON results are evidence.
 research/experiments/_table_integrity/*.pdf
+research/experiments/_scan_forensics/*.png

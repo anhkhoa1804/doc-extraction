@@ -1,0 +1,156 @@
+{
+  "document": "cmb_scan_tiny_vi",
+  "device": "cuda",
+  "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+  ],
+  "page_pt": [
+    595.0,
+    842.0
+  ],
+  "peak_vram_mib": 1708,
+  "arms": {
+    "global_200": {
+      "layout_s": 12.45,
+      "ocr_s": 0.0,
+      "megapixels": 3.866,
+      "n_regions": 2,
+      "n_tokens": 2,
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "exact_recall": 0.0,
+      "word_recall": 0.4167,
+      "per_string": [
+        {
+          "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+          "word_recall": 0.875
+        },
+        {
+          "string": "Điều 1. Phạm vi áp dụng",
+          "word_recall": 0.0
+        },
+        {
+          "string": "Quy chế này áp dụng cho toàn bộ",
+          "word_recall": 0.375
+        }
+      ],
+      "text_chars": 93
+    },
+    "global_300": {
+      "layout_s": 1.12,
+      "ocr_s": 0.0,
+      "megapixels": 8.702,
+      "n_regions": 2,
+      "n_tokens": 2,
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "exact_recall": 0.3333,
+      "word_recall": 0.625,
+      "per_string": [
+        {
+          "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+          "word_recall": 1.0
+        },
+        {
+          "string": "Điều 1. Phạm vi áp dụng",
+          "word_recall": 0.5
+        },
+        {
+          "string": "Quy chế này áp dụng cho toàn bộ",
+          "word_recall": 0.375
+        }
+      ],
+      "text_chars": 98
+    },
+    "global_400": {
+      "layout_s": 1.61,
+      "ocr_s": 0.0,
+      "megapixels": 15.465,
+      "n_regions": 2,
+      "n_tokens": 2,
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "exact_recall": 0.0,
+      "word_recall": 0.3889,
+      "per_string": [
+        {
+          "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+          "word_recall": 0.75
+        },
+        {
+          "string": "Điều 1. Phạm vi áp dụng",
+          "word_recall": 0.167
+        },
+        {
+          "string": "Quy chế này áp dụng cho toàn bộ",
+          "word_recall": 0.25
+        }
+      ],
+      "text_chars": 68
+    },
+    "global_600": {
+      "layout_s": 2.61,
+      "ocr_s": 0.0,
+      "megapixels": 34.797,
+      "n_regions": 2,
+      "n_tokens": 2,
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "exact_recall": 0.0,
+      "word_recall": 0.2917,
+      "per_string": [
+        {
+          "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+          "word_recall": 0.625
+        },
+        {
+          "string": "Điều 1. Phạm vi áp dụng",
+          "word_recall": 0.0
+        },
+        {
+          "string": "Quy chế này áp dụng cho toàn bộ",
+          "word_recall": 0.25
+        }
+      ],
+      "text_chars": 59
+    },
+    "targeted_600": {
+      "layout_s": null,
+      "ocr_s": 1.02,
+      "megapixels": 0.932,
+      "n_regions": 2,
+      "n_tokens": 2,
+      "region_labels": [
+        "section_header",
+        "text"
+      ],
+      "exact_recall": 0.0,
+      "word_recall": 0.0,
+      "per_string": [
+        {
+          "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+          "word_recall": 0.0
+        },
+        {
+          "string": "Điều 1. Phạm vi áp dụng",
+          "word_recall": 0.0
+        },
+        {
+          "string": "Quy chế này áp dụng cho toàn bộ",
+          "word_recall": 0.0
+        }
+      ],
+      "text_chars": 16
+    }
+  }
+}
