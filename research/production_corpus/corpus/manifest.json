@@ -1,0 +1,1418 @@
+{
+  "corpus": "enterprise-production-en-vi",
+  "version": 1,
+  "generated_by": "research/production_corpus/generate.py",
+  "seed": 20260902,
+  "synthetic": true,
+  "contains_real_enterprise_data": false,
+  "languages": [
+    "en",
+    "vi"
+  ],
+  "documents": 58,
+  "pages_total": 125,
+  "purpose": "Primary EN/VI production benchmark. Unlike research/hardcases (one mechanism per document), this corpus has a realistic mixture and documents that combine difficulties, so failure frequency and co-occurrence can be measured rather than guessed.",
+  "scoring": "recall over must_contain, NFC-normalized, identical to research/hardcases/run_benchmark.py; must_not_contain catches confident garbage",
+  "documents_list": [
+    {
+      "document_id": "ord_contract_vi",
+      "filename": "ord_contract_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+        "Điều 1. Đối tượng của hợp đồng",
+        "Bên A đồng ý bán và Bên B đồng ý"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "11b2c1b8487c9fa9e54f5f25d6c15f127aa260a7ccbdad2d7bcc74d1bd453f17",
+      "bytes": 71191,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_contract_en",
+      "filename": "ord_contract_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "GOODS PURCHASE AGREEMENT",
+        "Article 1. Subject of the",
+        "The Seller agrees to sell and the"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "db4560c72b71441524ffe360cf611cae3963098174cf23810e898c28cc469015",
+      "bytes": 70922,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_invoice_vi",
+      "filename": "ord_invoice_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "094e0601cb3774d2cc646fbbab359cdcfbdb2f97cd1a423488650df62cfccbca",
+      "bytes": 80463,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_invoice_en",
+      "filename": "ord_invoice_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "TAX INVOICE",
+        "Invoice number: INV-2026-004417",
+        "Issue date: 14 March 2026",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "fef321c574e6734f73a12d2c7c0acad8d1dc1fe96ac4e892542443770e546ffe",
+      "bytes": 77511,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_financial_report_vi",
+      "filename": "ord_financial_report_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "financial_report",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+        "Đơn vị tính: triệu đồng",
+        "Báo cáo này chưa được kiểm toán",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "c6b427e987a5781bb3aadde6f50a778dd5309820cc57232bc79f2b3f25128b69",
+      "bytes": 80247,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_financial_report_en",
+      "filename": "ord_financial_report_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "financial_report",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "QUARTERLY FINANCIAL REPORT — Q1 2026",
+        "Reporting currency: thousands of",
+        "These figures are unaudited and",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "96ba0ad6b450a7a66210d42c69ba2460119d002e03cfc41421318c8c85239781",
+      "bytes": 77297,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_company_profile_vi",
+      "filename": "ord_company_profile_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "company_profile",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "HỒ SƠ NĂNG LỰC CÔNG TY",
+        "Thành lập năm 2011, công ty hoạt",
+        "Đội ngũ hiện tại gồm 148 nhân sự"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "0caf4156c15d32202ba25fc5f4dfea6fb3eb2fdfe58e98693fc8abb833e89d93",
+      "bytes": 69579,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_company_profile_en",
+      "filename": "ord_company_profile_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "company_profile",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "COMPANY CAPABILITY PROFILE",
+        "Founded in 2011, the company",
+        "The current headcount is 148"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "50470c3b5a93a097a19b21e072ef54413c17c42c8e83eef1033d5ef3d9960bea",
+      "bytes": 67663,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_business_license_vi",
+      "filename": "ord_business_license_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+        "Tên công ty: CÔNG TY TNHH THƯƠNG",
+        "Mã số doanh nghiệp: 0312998877"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "49be5d1b896c0b4fe1230c22220e1cf4af8bea620b9b4df359fdeb7f9ad6eccf",
+      "bytes": 75882,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_business_license_en",
+      "filename": "ord_business_license_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "business_license",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "CERTIFICATE OF INCORPORATION",
+        "Company name: Brightwater Trading",
+        "Company number: 0312998877"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "b713ed3eb728f7eab8669f907e09f3db05690ebebcd9915efcfca1ac53b4a05c",
+      "bytes": 70395,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_certificate_vi",
+      "filename": "ord_certificate_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "certificate",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+        "Chứng nhận rằng hệ thống quản lý",
+        "phù hợp với các yêu cầu của tiêu"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "00e642155511434eee9796b532637143afc657ee4a7b7b8549753a62c15c3059",
+      "bytes": 71636,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_certificate_en",
+      "filename": "ord_certificate_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "certificate",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+        "This is to certify that the",
+        "conforms to the requirements of"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "454d9aef6ad7db40433222a39fc048c21f8969fd2ccda56f43d75714f1d982be",
+      "bytes": 69552,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_policy_vi",
+      "filename": "ord_policy_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "0a8aedd176e553b50a59170d0cb8b09f1d8bcb928a47d69fd42076a419f62185",
+      "bytes": 70562,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_policy_en",
+      "filename": "ord_policy_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "This policy applies to all"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "83e65dc2141e6062db0fd62d7802e3104e03ee3d0fedad4ffca45382aa43e35c",
+      "bytes": 69635,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_technical_report_vi",
+      "filename": "ord_technical_report_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "technical_report",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+        "Thiết bị: Máy nén khí trục vít,",
+        "Kết quả đo độ rung tại vị trí ổ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "1fd35092ef019b7a09389f6706526227c643a72bbc57ba5a42aa185b89392e75",
+      "bytes": 71389,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_technical_report_en",
+      "filename": "ord_technical_report_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "technical_report",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "EQUIPMENT INSPECTION TECHNICAL REPORT",
+        "Equipment: Screw-type air",
+        "Measured bearing vibration"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "e378b440fd34c5e2e0802e0c11759f22098993f61ea12fcb66b2ea9098bb2a49",
+      "bytes": 70102,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_purchase_order_vi",
+      "filename": "ord_purchase_order_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "ĐƠN ĐẶT HÀNG",
+        "Số đơn hàng: PO-2026-0318",
+        "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "36032f615370e8dd176e0614734b9efe1b62e65f3dc8b74890cc847cb41a15a3",
+      "bytes": 78861,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_purchase_order_en",
+      "filename": "ord_purchase_order_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "purchase_order",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "PURCHASE ORDER",
+        "Order number: PO-2026-0318",
+        "Supplier: Brightwater Trading",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "e671a36b058b1278d3d591eb721f22b075344bfef1a9bb8d95954f04a964339c",
+      "bytes": 76999,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_form_vi",
+      "filename": "ord_form_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "form",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+        "Họ và tên người đề nghị: Nguyễn",
+        "Bộ phận: Phòng Kế toán"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "ef481167a19ce52bd79ff9c39ef5426eb92ed394b59a588a1d2e4c9dd31b43d4",
+      "bytes": 72880,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_form_en",
+      "filename": "ord_form_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "form",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "PAYMENT REQUISITION FORM",
+        "Requested by: Alice Fairbanks",
+        "Department: Finance"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "c0402780ee86c43e0ea4446f706674e292314180138fd3c9082099797ab749b0",
+      "bytes": 69168,
+      "notes": "ordinary born-digital document"
+    },
+    {
+      "document_id": "ord_contract_docx_en",
+      "filename": "ord_contract_docx_en.docx",
+      "format": "docx",
+      "language": "en",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "GOODS PURCHASE AGREEMENT",
+        "Article 1. Subject of the agreement"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "afd368bb3b572e36c35e2bc50d6709636187e303b9eac8a4fc3ce927c04256db",
+      "bytes": 36837,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_policy_docx_vi",
+      "filename": "ord_policy_docx_vi.docx",
+      "format": "docx",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "d95ab0f049207575a402d6f6c50b152c496ee1bca6ca65187f6e6ea40e5f4478",
+      "bytes": 36873,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_invoice_docx_vi",
+      "filename": "ord_invoice_docx_vi.docx",
+      "format": "docx",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "0076b58b58fc959022a3a5e352f04783a56f3e8f5c88a140f91a390e558ad614",
+      "bytes": 37132,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_finreport_xlsx_en",
+      "filename": "ord_finreport_xlsx_en.xlsx",
+      "format": "xlsx",
+      "language": "en",
+      "document_type": "financial_report",
+      "page_count": 2,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "QUARTERLY FINANCIAL REPORT — Q1 2026",
+        "Item description",
+        "Product A-100",
+        "Reporting currency: thousands of USD"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "4ccb6731d1cfc68c1acd10986bfc859699e278b3bb0a954cb2586a57c2aa262b",
+      "bytes": 5578,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_purchase_xlsx_vi",
+      "filename": "ord_purchase_xlsx_vi.xlsx",
+      "format": "xlsx",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "page_count": 2,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "ĐƠN ĐẶT HÀNG",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Số đơn hàng: PO-2026-0318"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "618f088037d3f3b698c6285f6bf20f6bc09482c508cd2f66d93ad434a88b3e3b",
+      "bytes": 5649,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_profile_pptx_en",
+      "filename": "ord_profile_pptx_en.pptx",
+      "format": "pptx",
+      "language": "en",
+      "document_type": "company_profile",
+      "page_count": 2,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "COMPANY CAPABILITY PROFILE",
+        "Founded in 2011, the company distributes industrial equipment across three regions.",
+        "44 Harbour Street, Unit 7, Wellington Central"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "147568e9edb5ac1835aa0882beb47adc3b7137311253a8f9a2a946db07d6cc9a",
+      "bytes": 29430,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_profile_pptx_vi",
+      "filename": "ord_profile_pptx_vi.pptx",
+      "format": "pptx",
+      "language": "vi",
+      "document_type": "company_profile",
+      "page_count": 2,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [],
+      "difficulty": "easy",
+      "must_contain": [
+        "HỒ SƠ NĂNG LỰC CÔNG TY",
+        "Thành lập năm 2011, công ty hoạt động trong lĩnh vực phân phối thiết bị công nghiệp.",
+        "Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "3aa0dd731355fc2bc11e017fbf2bb015560552a129864471e67aac2143bc7126",
+      "bytes": 29546,
+      "notes": ""
+    },
+    {
+      "document_id": "ord_certificate_png_en",
+      "filename": "ord_certificate_png_en.png",
+      "format": "png",
+      "language": "en",
+      "document_type": "certificate",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+        "This is to certify that the",
+        "conforms to the requirements of"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "000095cde788e03efe31acbf76cc42118cd00e48e4b6b22fb4637ba6799e2621",
+      "bytes": 48748,
+      "notes": "image input; no text layer by construction"
+    },
+    {
+      "document_id": "ord_invoice_png_vi",
+      "filename": "ord_invoice_png_vi.png",
+      "format": "png",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality",
+        "table_detection"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "4635022a14ffa3e4038e4f7cd9b61b2701311682d00754e8eb7c3f97fd2a37a1",
+      "bytes": 79847,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_tiny_text_vi",
+      "filename": "hc_tiny_text_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "d1bf4816ccfd703723b84ff375f13bb976ae7ef7ada07bd7e55b18afe19ec29d",
+      "bytes": 70566,
+      "notes": "4.5pt body; ~11px at 200 DPI, below the floor"
+    },
+    {
+      "document_id": "hc_tiny_text_en",
+      "filename": "hc_tiny_text_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "This policy applies to all"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "814954c7410bdda96daa024185ad373db0a280f87ff8697135c1da3bcdb34ff3",
+      "bytes": 69642,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_low_contrast_vi",
+      "filename": "hc_low_contrast_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "low_contrast"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+        "Điều 1. Đối tượng của hợp đồng",
+        "Bên A đồng ý bán và Bên B đồng ý"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "c8251d70285f534863efcfe7fc9bd014b10620fe1c37b512bd33602c7d95cd23",
+      "bytes": 71201,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_scan_vi",
+      "filename": "hc_scan_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "scanned_admin",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+        "Kính gửi: Phòng Tài chính - Kế",
+        "Căn cứ biên bản đối chiếu ngày 28"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "55bd89b9732c0cbc9771bd88877dcd5d7dacc73591d039a0aa6e8cede7ed7a65",
+      "bytes": 55185,
+      "notes": "rasterized + JPEG degraded; no text layer"
+    },
+    {
+      "document_id": "hc_scan_en",
+      "filename": "hc_scan_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "scanned_admin",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+        "To: Finance and Accounting",
+        "Further to the reconciliation"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "94c7b3ec3c7204499475b3cfbbe5dd6e5952556a805dc85820917a50679d7eca",
+      "bytes": 52673,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_stamp_text_vi",
+      "filename": "hc_stamp_text_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+        "Tên công ty: CÔNG TY TNHH THƯƠNG",
+        "Mã số doanh nghiệp: 0312998877",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "411521c21ae25158f50fd3033fdde807c2125f73b5798a1f595227636280a5f2",
+      "bytes": 76893,
+      "notes": "opaque seal; native keeps the covered text, visual cannot"
+    },
+    {
+      "document_id": "hc_stamp_table_vi",
+      "filename": "hc_stamp_table_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "0c03eed2fc545485972508de8cc36dff4536679afb0196e995c25001df688836",
+      "bytes": 82253,
+      "notes": "the case no single strategy recovered in experiment 008"
+    },
+    {
+      "document_id": "hc_transparent_seal_vi",
+      "filename": "hc_transparent_seal_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+        "Tên công ty: CÔNG TY TNHH THƯƠNG",
+        "Mã số doanh nghiệp: 0312998877",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "022a0eb5c95824e8e8b31097fa83890191bc6ca7c3efe347d8e8bc96812565db",
+      "bytes": 76884,
+      "notes": "outline-only seal; pixels underneath survive, unlike the opaque case"
+    },
+    {
+      "document_id": "hc_watermark_vi",
+      "filename": "hc_watermark_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "watermark"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+        "Điều 1. Đối tượng của hợp đồng",
+        "Bên A đồng ý bán và Bên B đồng ý"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "b5f103d3c3d6cadf2276b36cea2c19035cc9e2ca795ceac92fb04db07f0a8402",
+      "bytes": 71827,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_multicolumn_en",
+      "filename": "hc_multicolumn_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "multi_column",
+        "reading_order"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "Section 2. Approval authority"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "4033a9f31ba1d6eab83ff6ec558d5fc7f2bd016ef08c62e80ebf26c71f1ecbf3",
+      "bytes": 69328,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_rotation_vi",
+      "filename": "hc_rotation_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "certificate",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "rotation",
+        "reading_order"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+        "Chứng nhận rằng hệ thống quản lý",
+        "phù hợp với các yêu cầu của tiêu"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "9ab9fd52d435faa2dd4749e28a833f87679c5e8dc55984cc7a798afdbf896e6d",
+      "bytes": 71656,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_borderless_en",
+      "filename": "hc_borderless_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "borderless_table",
+        "table_detection"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "TAX INVOICE",
+        "Invoice number: INV-2026-004417",
+        "Issue date: 14 March 2026",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "3169a74b2174034cb5d345c14ed0f763316bae4032204f824a64dfa0b8167f54",
+      "bytes": 75978,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_merged_en",
+      "filename": "hc_merged_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "merged_cells",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "TAX INVOICE",
+        "Invoice number: INV-2026-004417",
+        "Issue date: 14 March 2026",
+        "Item description",
+        "Qty / Amount",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "9f7ee42723160e51c05c4f71c717de3176233f48a329ebdc7052080672ccec48",
+      "bytes": 77566,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_tiny_cells_vi",
+      "filename": "hc_tiny_cells_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "559cfcb69bee5bb6e5d0027140abb6b0da0fe324333025fc0941bf1eaac1f6a3",
+      "bytes": 80495,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_encoding_vi",
+      "filename": "hc_encoding_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "page_count": 2,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "encoding"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "Cong Hoa",
+        "Doanh Nghiep"
+      ],
+      "must_not_contain": [
+        "ЅoҖѸ",
+        "Йoa"
+      ],
+      "expected_tables": 0,
+      "sha256": "4b9f5f0630e0e729c6dcc1439eb03d560f71fd5317af94c4fcfa269bc91c6261",
+      "bytes": 4401,
+      "notes": "regression lock: silent garbage is worse than visible failure"
+    },
+    {
+      "document_id": "hc_crosspage_vi",
+      "filename": "hc_crosspage_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 4,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "cross_page"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "3059ce71e3bb0dc42e699d77b5ddb005e53b7d19a9ce38ce0e51a9e2d65febd9",
+      "bytes": 74535,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_checkbox_en",
+      "filename": "hc_checkbox_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "form",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "form",
+        "checkbox"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "PAYMENT REQUISITION FORM",
+        "Requested by: Alice Fairbanks",
+        "Department: Finance",
+        "Approved"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "62c1e8c275ccd534314240002fa440d80fa0dcde3a5287036c455002a44d0a0f",
+      "bytes": 70929,
+      "notes": ""
+    },
+    {
+      "document_id": "hc_checkbox_vi",
+      "filename": "hc_checkbox_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "form",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "form",
+        "checkbox",
+        "key_value"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+        "Họ và tên người đề nghị: Nguyễn",
+        "Bộ phận: Phòng Kế toán",
+        "Đồng ý"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "b3012f7aeb469c17ef1d3569e7058f16060523776f08afe81780c9df277eaa2b",
+      "bytes": 74851,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_stamp_table_vi",
+      "filename": "cmb_stamp_table_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "merged_cells",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "ĐƠN ĐẶT HÀNG",
+        "Số đơn hàng: PO-2026-0318",
+        "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+        "Mô tả hàng hóa",
+        "Số lượng / Thành tiền",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "303463604a889d961caa1d26739b1c7a80d0a5e2b6c10b3023243691006e4e0a",
+      "bytes": 80640,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_tiny_table_en",
+      "filename": "cmb_tiny_table_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "TAX INVOICE",
+        "Invoice number: INV-2026-004417",
+        "Issue date: 14 March 2026",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "0f15509893e17c0d16672ea4a7c92fae6195dc719048a2a8aabfe13eee62f02e",
+      "bytes": 77545,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_scan_tiny_vi",
+      "filename": "cmb_scan_tiny_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality",
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "45642cca55a9dfc10bbbdaa89c7e8d79c3fae32a5b904d9753e05349a8fc4a52",
+      "bytes": 39957,
+      "notes": "the compound case targeted high-DPI recovery exists for"
+    },
+    {
+      "document_id": "cmb_multicol_table_en",
+      "filename": "cmb_multicol_table_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "financial_report",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "multi_column",
+        "reading_order",
+        "table_detection"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "QUARTERLY FINANCIAL REPORT — Q1 2026",
+        "Reporting currency: thousands of",
+        "Net revenue for the period",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "f7bb95b0e99ba96ed89a24a78194c7c6a2da10f046dcfc62641b037e8819f446",
+      "bytes": 77181,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_watermark_tiny_vi",
+      "filename": "cmb_watermark_tiny_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "watermark",
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+        "Điều 1. Đối tượng của hợp đồng",
+        "Bên A đồng ý bán và Bên B đồng ý"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "2981bc543bc28f7775a5d003e5d0699d336c5a219b9dc88db3b5846428cdd874",
+      "bytes": 71836,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_lowcontrast_stamp_vi",
+      "filename": "cmb_lowcontrast_stamp_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "low_contrast",
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+        "Tên công ty: CÔNG TY TNHH THƯƠNG",
+        "Mã số doanh nghiệp: 0312998877",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "4fb3258cf5113b2d3a3621b9ab1ef13a9d5f2942300068a4d5f560e56be8e19b",
+      "bytes": 76903,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "filename": "cmb_scan_stamp_table_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality",
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "45fa1db7b37f4b1a2d9e9640f0ab30b8642703840d5e2999ad8c2ddab2acf0f7",
+      "bytes": 68127,
+      "notes": "triple compound; no text layer AND occlusion AND structure"
+    },
+    {
+      "document_id": "cmb_scan_multicol_en",
+      "filename": "cmb_scan_multicol_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "scan_quality",
+        "multi_column",
+        "reading_order"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "INTERNAL EXPENDITURE POLICY",
+        "Section 1. Scope",
+        "Section 2. Approval authority"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "a04e841fda2891d355c574e5ed3cc07d2c847255295a97e85c4126fffd19da85",
+      "bytes": 53124,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_borderless_lowcontrast_en",
+      "filename": "cmb_borderless_lowcontrast_en.pdf",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "borderless_table",
+        "low_contrast",
+        "table_detection"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "TAX INVOICE",
+        "Invoice number: INV-2026-004417",
+        "Issue date: 14 March 2026",
+        "Item description",
+        "Product A-100",
+        "Air filter type 22B",
+        "Installation service"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "9e3139a8542acc5c8fa43122d9a679e0c08a85ef700cd79050297ddd4abeb3a6",
+      "bytes": 75983,
+      "notes": ""
+    },
+    {
+      "document_id": "cmb_stamp_boundary_vi",
+      "filename": "cmb_stamp_boundary_vi.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "page_count": 1,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "must_contain": [
+        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Ngày 14 tháng 03 năm 2026",
+        "Mô tả hàng hóa",
+        "Sản phẩm A-100",
+        "Bộ lọc khí Mã 22B",
+        "Dịch vụ lắp đặt",
+        "ĐÃ DUYỆT"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 1,
+      "sha256": "c4938f2dd9e7adaac347f206ec3262ef6985a640f2d20d120d001fee50607cef",
+      "bytes": 82247,
+      "notes": "seal crosses a cell boundary rather than sitting inside one"
+    },
+    {
+      "document_id": "long_policy_vi_60p",
+      "filename": "long_policy_vi_60p.pdf",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "page_count": 60,
+      "source": "synthetic (research/production_corpus/generate.py)",
+      "hard_case_labels": [
+        "cross_page",
+        "long_document"
+      ],
+      "difficulty": "hard",
+      "must_contain": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "must_not_contain": [],
+      "expected_tables": 0,
+      "sha256": "c5f4fc8a2911e2788da4bad507a0cb484141931251aa079bd83848cf62756d8e",
+      "bytes": 95124,
+      "notes": "memory, model reuse and partial-failure behaviour over 60 pages"
+    }
+  ]
+}

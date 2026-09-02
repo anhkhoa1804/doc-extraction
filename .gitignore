@@ -79,8 +79,18 @@ htmlcov/
 # The corpus GENERATOR, its manifest and the generated PDFs are committed: they
 # are synthetic, contain no enterprise data, and are the benchmark itself.
 # Per-run working directories (rendered pages, crops, extraction output) are not.
-research/**/_runs/
 research/**/outputs/
+# _runs/ holds per-document extraction output (rendered pages, intermediates)
+# plus one results_*.json that is the measurement. Keep the measurement.
+research/**/_runs/*
+!research/**/_runs/results_*.json
+# The production corpus is regenerable from its seeded generator and is 3.8 MB
+# of binaries that will grow as the corpus does. The manifest carries a
+# per-document sha256, so a regenerated corpus can be verified against the one
+# a result was measured on -- which is what makes committing the numbers, and
+# not the bytes, sufficient.
+research/production_corpus/corpus/*
+!research/production_corpus/corpus/manifest.json
 # _dpi/ and _recovery/ hold regenerable working files (probe PDFs, rendered
 # pages and crops) alongside one results.json that is the experiment's actual
 # evidence. Exclude the contents, keep the numbers: the scripts that produce

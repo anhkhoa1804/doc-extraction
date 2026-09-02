@@ -1,0 +1,185 @@
+{
+  "experiment": "010_production_baseline",
+  "date_utc": "2026-09-02",
+  "git_commit": "46c4ae4fd03d2224bdd839ebb59498ddfa5c2d5d",
+  "git_note": "plus the uncommitted working-tree changes that introduce the corpus",
+  "question": "Where does the shipped pipeline fail on a realistic EN/VI enterprise mixture, how often, and how badly?",
+  "corpus": {
+    "name": "enterprise-production-en-vi",
+    "version": 1,
+    "manifest_sha256": "d73ee35488d8284e802fc8a67daf15ef4852cc99fd3a1d9909984e3fd03447c8",
+    "documents": 58,
+    "pages": 125,
+    "synthetic": true,
+    "composition": {
+      "ordinary": 29,
+      "single_mechanism_hard": 18,
+      "combination": 10,
+      "long_60p": 1
+    },
+    "formats": {
+      "pdf": 49,
+      "docx": 3,
+      "xlsx": 2,
+      "pptx": 2,
+      "png": 2
+    }
+  },
+  "method": {
+    "strategy": "adaptive (shipped config, unmodified)",
+    "device": "cpu",
+    "metric": "recall over must_contain, NFC-normalized; must_not_contain catches confident garbage"
+  },
+  "resource_state": {
+    "gpu": "PROTECTED - co-tenant holding 4208 MiB at 100% median util; GPU not used",
+    "cpu": "CONTENDED - loadavg 2.6 -> 6.23 of 8 cores",
+    "timing_valid": false,
+    "quality_valid": true,
+    "why": "experiment 006 showed CPU/GPU outputs identical to 0.000px; quality reproduced exactly across two runs whose p99 runtimes differed 23.5s vs 33.0s"
+  },
+  "summary": {
+    "documents": 58,
+    "pages": 125,
+    "mean_text_recall": 0.9269,
+    "p50_text_recall": 1.0,
+    "p10_text_recall": 0.6667,
+    "worst_text_recall": 0.0,
+    "fully_recovered": 48,
+    "total_failures": 1,
+    "hallucinations": 0,
+    "errors": 0,
+    "tables_ok": 55,
+    "total_runtime_s": 164.32,
+    "runtime_p50_s": 0.051,
+    "runtime_p90_s": 14.196,
+    "runtime_p95_s": 22.588,
+    "runtime_p99_s": 33.035,
+    "runtime_max_s": 33.035,
+    "runtime_mean_s": 2.833
+  },
+  "failure_by_type": {
+    "scan_quality": {
+      "count": 6,
+      "critical": 1,
+      "high": 2,
+      "medium": 3,
+      "runtime_s": 106.27
+    },
+    "stamp": {
+      "count": 4,
+      "critical": 0,
+      "high": 1,
+      "medium": 3,
+      "runtime_s": 19.49
+    },
+    "occlusion": {
+      "count": 4,
+      "critical": 0,
+      "high": 1,
+      "medium": 3,
+      "runtime_s": 19.49
+    },
+    "borderless_table": {
+      "count": 2,
+      "critical": 0,
+      "high": 2,
+      "medium": 0,
+      "runtime_s": 0.1
+    },
+    "table_detection": {
+      "count": 2,
+      "critical": 0,
+      "high": 2,
+      "medium": 0,
+      "runtime_s": 0.1
+    },
+    "table_structure": {
+      "count": 2,
+      "critical": 0,
+      "high": 1,
+      "medium": 1,
+      "runtime_s": 19.35
+    },
+    "merged_cells": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "runtime_s": 0.06
+    },
+    "tiny_text": {
+      "count": 1,
+      "critical": 1,
+      "high": 0,
+      "medium": 0,
+      "runtime_s": 11.04
+    },
+    "multi_column": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "runtime_s": 7.89
+    },
+    "reading_order": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "runtime_s": 7.89
+    }
+  },
+  "finding_cell_contamination": {
+    "claim": "Overlay text drawn inside a table bbox is interleaved into cell text character-by-character, producing silently corrupted cells",
+    "severity": "silent data corruption - no gate detects it, recall barely moves",
+    "evidence_cells": {
+      "hc_stamp_table_vi": [
+        "'NBHộH' = NHH woven through Bộ",
+        "'ỆGTói' = ỆT woven through Gói",
+        "'Bộ lọc khí Mã 22B CÔNG TY T'",
+        "'Dịch vụ lắp đặt ĐÃ DUY'"
+      ]
+    },
+    "controlled": {
+      "stamped": {
+        "hc_stamp_table_vi": 2,
+        "cmb_stamp_table_vi": 2,
+        "cmb_stamp_boundary_vi": 1
+      },
+      "unstamped_controls": {
+        "ord_invoice_vi": 0,
+        "ord_purchase_order_en": 0,
+        "hc_merged_en": 0
+      }
+    },
+    "root_cause": "cell text assigned by coordinate with no notion of which text run a glyph belongs to; overlay and cell content merge in coordinate order",
+    "implication": "fusion (mission section 8) would propagate this corruption rather than fix it; the native table path must be corrected first"
+  },
+  "finding_compound_failure": {
+    "claim": "The only total failure is a compound case; neither mechanism alone fails",
+    "evidence": {
+      "hc_tiny_text_vi_born_digital": 1.0,
+      "hc_scan_vi": 0.25,
+      "cmb_scan_tiny_vi": 0.0
+    }
+  },
+  "finding_tail": {
+    "p50_s": 0.051,
+    "p90_s": 14.196,
+    "p95_s": 22.588,
+    "p99_s": 33.035,
+    "p99_over_p50": 648,
+    "note": "mean 2.833s describes no document in the corpus"
+  },
+  "instrumentation_defect": {
+    "what": "run_benchmark cpu_state() reported CLEAN at loadavg 3.79/8 cores while a neighbour ran four jobs at ~451% CPU",
+    "impact": "none on conclusions - recall is contention-independent and all runtimes are already labelled upper bounds",
+    "status": "recorded, not yet fixed"
+  },
+  "limitations": [
+    "synthetic corpus; frequencies are the author's chosen mixture, not measured production frequencies",
+    "timings taken under CPU contention",
+    "only the adaptive strategy was run; no native/visual comparison",
+    "GPU PROTECTED throughout; no GPU evidence"
+  ]
+}
