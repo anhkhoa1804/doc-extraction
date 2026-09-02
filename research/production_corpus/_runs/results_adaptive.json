@@ -7,23 +7,23 @@
   "device": "cpu",
   "resource_state": {
     "gpu_preflight": {
-      "classification": "protected",
-      "reason": "1 other compute process(es) holding 4208 MiB at 100% utilization — actively computing",
+      "classification": "clear",
+      "reason": "no other compute process; 22564 MiB free, 0% utilization",
       "util_samples": [
-        7,
-        100,
-        100,
-        100,
-        100
+        0,
+        0,
+        0,
+        0,
+        0
       ],
-      "used_mib": 4216,
-      "free_mib": 18348
+      "used_mib": 0,
+      "free_mib": 22564
     },
     "cpu_preflight": {
       "loadavg": [
-        2.6,
-        2.94,
-        3.54
+        0.52,
+        0.76,
+        1.67
       ],
       "cpu_count": 8,
       "classification": "CLEAN",
@@ -31,34 +31,34 @@
     },
     "cpu_postflight": {
       "loadavg": [
-        6.23,
-        4.58,
-        4.08
+        3.07,
+        1.63,
+        1.89
       ],
       "cpu_count": 8,
-      "classification": "CONTENDED",
+      "classification": "CLEAN",
       "note": "timings under contention are upper bounds, not benchmarks; recall is device- and contention-independent"
     }
   },
   "summary": {
     "documents": 58,
     "pages": 125,
-    "mean_text_recall": 0.9269,
+    "mean_text_recall": 0.938,
     "p50_text_recall": 1.0,
     "p10_text_recall": 0.6667,
     "worst_text_recall": 0.0,
-    "fully_recovered": 48,
+    "fully_recovered": 52,
     "total_failures": 1,
     "hallucinations": 0,
     "errors": 0,
     "tables_ok": 55,
-    "total_runtime_s": 164.32,
-    "runtime_p50_s": 0.051,
-    "runtime_p90_s": 14.196,
-    "runtime_p95_s": 22.588,
-    "runtime_p99_s": 33.035,
-    "runtime_max_s": 33.035,
-    "runtime_mean_s": 2.833
+    "total_runtime_s": 107.02,
+    "runtime_p50_s": 0.046,
+    "runtime_p90_s": 7.961,
+    "runtime_p95_s": 17.126,
+    "runtime_p99_s": 20.82,
+    "runtime_max_s": 20.82,
+    "runtime_mean_s": 1.845
   },
   "failure_by_type": {
     "scan_quality": {
@@ -74,33 +74,7 @@
         "cmb_scan_stamp_table_vi",
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 106.27
-    },
-    "stamp": {
-      "count": 4,
-      "critical": 0,
-      "high": 1,
-      "medium": 3,
-      "documents": [
-        "hc_stamp_table_vi",
-        "cmb_stamp_table_vi",
-        "cmb_scan_stamp_table_vi",
-        "cmb_stamp_boundary_vi"
-      ],
-      "runtime_s": 19.49
-    },
-    "occlusion": {
-      "count": 4,
-      "critical": 0,
-      "high": 1,
-      "medium": 3,
-      "documents": [
-        "hc_stamp_table_vi",
-        "cmb_stamp_table_vi",
-        "cmb_scan_stamp_table_vi",
-        "cmb_stamp_boundary_vi"
-      ],
-      "runtime_s": 19.49
+      "runtime_s": 63.4
     },
     "borderless_table": {
       "count": 2,
@@ -111,7 +85,7 @@
         "hc_borderless_en",
         "cmb_borderless_lowcontrast_en"
       ],
-      "runtime_s": 0.1
+      "runtime_s": 0.09
     },
     "table_detection": {
       "count": 2,
@@ -122,28 +96,7 @@
         "hc_borderless_en",
         "cmb_borderless_lowcontrast_en"
       ],
-      "runtime_s": 0.1
-    },
-    "table_structure": {
-      "count": 2,
-      "critical": 0,
-      "high": 1,
-      "medium": 1,
-      "documents": [
-        "hc_merged_en",
-        "cmb_scan_stamp_table_vi"
-      ],
-      "runtime_s": 19.35
-    },
-    "merged_cells": {
-      "count": 1,
-      "critical": 0,
-      "high": 0,
-      "medium": 1,
-      "documents": [
-        "hc_merged_en"
-      ],
-      "runtime_s": 0.06
+      "runtime_s": 0.09
     },
     "tiny_text": {
       "count": 1,
@@ -153,7 +106,37 @@
       "documents": [
         "cmb_scan_tiny_vi"
       ],
-      "runtime_s": 11.04
+      "runtime_s": 4.41
+    },
+    "stamp": {
+      "count": 1,
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 13.48
+    },
+    "occlusion": {
+      "count": 1,
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 13.48
+    },
+    "table_structure": {
+      "count": 1,
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 13.48
     },
     "multi_column": {
       "count": 1,
@@ -163,7 +146,7 @@
       "documents": [
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 7.89
+      "runtime_s": 5.43
     },
     "reading_order": {
       "count": 1,
@@ -173,7 +156,7 @@
       "documents": [
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 7.89
+      "runtime_s": 5.43
     }
   },
   "failures": [
@@ -187,7 +170,7 @@
       "recovered": false,
       "text_recall": 0.5714,
       "hallucinated": false,
-      "runtime_s": 22.588,
+      "runtime_s": 14.992,
       "language": "vi",
       "format": "png"
     },
@@ -201,7 +184,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 14.196,
+      "runtime_s": 7.961,
       "language": "vi",
       "format": "pdf"
     },
@@ -215,36 +198,8 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 31.256,
+      "runtime_s": 17.126,
       "language": "en",
-      "format": "pdf"
-    },
-    {
-      "document_id": "hc_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "stamp",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.875,
-      "hallucinated": false,
-      "runtime_s": 0.084,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "hc_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "occlusion",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.875,
-      "hallucinated": false,
-      "runtime_s": 0.084,
-      "language": "vi",
       "format": "pdf"
     },
     {
@@ -257,7 +212,7 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.056,
+      "runtime_s": 0.044,
       "language": "en",
       "format": "pdf"
     },
@@ -271,64 +226,8 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.056,
+      "runtime_s": 0.044,
       "language": "en",
-      "format": "pdf"
-    },
-    {
-      "document_id": "hc_merged_en",
-      "pages": 1,
-      "failure_type": "merged_cells",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.8571,
-      "hallucinated": false,
-      "runtime_s": 0.055,
-      "language": "en",
-      "format": "pdf"
-    },
-    {
-      "document_id": "hc_merged_en",
-      "pages": 1,
-      "failure_type": "table_structure",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.8571,
-      "hallucinated": false,
-      "runtime_s": 0.055,
-      "language": "en",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "stamp",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.75,
-      "hallucinated": false,
-      "runtime_s": 0.058,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "occlusion",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.75,
-      "hallucinated": false,
-      "runtime_s": 0.058,
-      "language": "vi",
       "format": "pdf"
     },
     {
@@ -341,7 +240,7 @@
       "recovered": false,
       "text_recall": 0.0,
       "hallucinated": false,
-      "runtime_s": 11.045,
+      "runtime_s": 4.411,
       "language": "vi",
       "format": "pdf"
     },
@@ -355,7 +254,7 @@
       "recovered": false,
       "text_recall": 0.0,
       "hallucinated": false,
-      "runtime_s": 11.045,
+      "runtime_s": 4.411,
       "language": "vi",
       "format": "pdf"
     },
@@ -369,7 +268,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 19.287,
+      "runtime_s": 13.48,
       "language": "vi",
       "format": "pdf"
     },
@@ -383,7 +282,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 19.287,
+      "runtime_s": 13.48,
       "language": "vi",
       "format": "pdf"
     },
@@ -397,7 +296,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 19.287,
+      "runtime_s": 13.48,
       "language": "vi",
       "format": "pdf"
     },
@@ -411,7 +310,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 19.287,
+      "runtime_s": 13.48,
       "language": "vi",
       "format": "pdf"
     },
@@ -425,7 +324,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 7.895,
+      "runtime_s": 5.431,
       "language": "en",
       "format": "pdf"
     },
@@ -439,7 +338,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 7.895,
+      "runtime_s": 5.431,
       "language": "en",
       "format": "pdf"
     },
@@ -453,7 +352,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 7.895,
+      "runtime_s": 5.431,
       "language": "en",
       "format": "pdf"
     },
@@ -467,7 +366,7 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.043,
+      "runtime_s": 0.048,
       "language": "en",
       "format": "pdf"
     },
@@ -481,36 +380,8 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.043,
+      "runtime_s": 0.048,
       "language": "en",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_stamp_boundary_vi",
-      "pages": 1,
-      "failure_type": "stamp",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.875,
-      "hallucinated": false,
-      "runtime_s": 0.057,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_stamp_boundary_vi",
-      "pages": 1,
-      "failure_type": "occlusion",
-      "severity": "medium",
-      "current_strategy": "adaptive",
-      "route": "digital_pdf",
-      "recovered": false,
-      "text_recall": 0.875,
-      "hallucinated": false,
-      "runtime_s": 0.057,
-      "language": "vi",
       "format": "pdf"
     }
   ],
@@ -535,7 +406,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.048,
+      "runtime_s": 0.064,
       "chars": 351,
       "error": null
     },
@@ -559,7 +430,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.041,
+      "runtime_s": 0.045,
       "chars": 371,
       "error": null
     },
@@ -583,7 +454,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.058,
+      "runtime_s": 0.057,
       "chars": 308,
       "error": null
     },
@@ -607,7 +478,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.05,
+      "runtime_s": 0.055,
       "chars": 284,
       "error": null
     },
@@ -631,7 +502,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.051,
+      "runtime_s": 0.058,
       "chars": 342,
       "error": null
     },
@@ -655,7 +526,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.051,
+      "runtime_s": 0.058,
       "chars": 358,
       "error": null
     },
@@ -679,7 +550,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.034,
+      "runtime_s": 0.037,
       "chars": 158,
       "error": null
     },
@@ -703,7 +574,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.034,
+      "runtime_s": 0.038,
       "chars": 174,
       "error": null
     },
@@ -727,7 +598,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.04,
+      "runtime_s": 0.044,
       "chars": 342,
       "error": null
     },
@@ -751,7 +622,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.04,
       "chars": 215,
       "error": null
     },
@@ -775,7 +646,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.035,
+      "runtime_s": 0.038,
       "chars": 204,
       "error": null
     },
@@ -799,7 +670,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.035,
+      "runtime_s": 0.038,
       "chars": 187,
       "error": null
     },
@@ -823,7 +694,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.04,
       "chars": 235,
       "error": null
     },
@@ -847,7 +718,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.04,
       "chars": 232,
       "error": null
     },
@@ -871,7 +742,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.038,
       "chars": 199,
       "error": null
     },
@@ -895,7 +766,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.037,
+      "runtime_s": 0.04,
       "chars": 211,
       "error": null
     },
@@ -943,7 +814,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.047,
+      "runtime_s": 0.055,
       "chars": 262,
       "error": null
     },
@@ -967,7 +838,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.04,
       "chars": 231,
       "error": null
     },
@@ -991,7 +862,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.033,
+      "runtime_s": 0.036,
       "chars": 139,
       "error": null
     },
@@ -1015,7 +886,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.029,
+      "runtime_s": 0.034,
       "chars": 371,
       "error": null
     },
@@ -1063,7 +934,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.031,
+      "runtime_s": 0.037,
       "chars": 308,
       "error": null
     },
@@ -1088,7 +959,7 @@
       "tables_found": 2,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.014,
+      "runtime_s": 0.016,
       "chars": 218,
       "error": null
     },
@@ -1113,7 +984,7 @@
       "tables_found": 2,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.018,
+      "runtime_s": 0.015,
       "chars": 188,
       "error": null
     },
@@ -1138,7 +1009,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.022,
+      "runtime_s": 0.025,
       "chars": 228,
       "error": null
     },
@@ -1163,7 +1034,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.021,
+      "runtime_s": 0.024,
       "chars": 228,
       "error": null
     },
@@ -1189,7 +1060,7 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 21.751,
+      "runtime_s": 19.651,
       "chars": 187,
       "error": null
     },
@@ -1220,7 +1091,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 22.588,
+      "runtime_s": 14.992,
       "chars": 222,
       "error": null
     },
@@ -1246,7 +1117,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.039,
+      "runtime_s": 0.043,
       "chars": 235,
       "error": null
     },
@@ -1272,7 +1143,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.037,
+      "runtime_s": 0.041,
       "chars": 232,
       "error": null
     },
@@ -1298,7 +1169,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.044,
+      "runtime_s": 0.046,
       "chars": 351,
       "error": null
     },
@@ -1328,7 +1199,7 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 14.196,
+      "runtime_s": 7.961,
       "chars": 235,
       "error": null
     },
@@ -1356,7 +1227,7 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 31.256,
+      "runtime_s": 17.126,
       "chars": 203,
       "error": null
     },
@@ -1383,7 +1254,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.088,
+      "runtime_s": 0.05,
       "chars": 364,
       "error": null
     },
@@ -1403,17 +1274,15 @@
         "digital_pdf"
       ],
       "device": "cpu",
-      "text_recall": 0.875,
-      "found": 7,
+      "text_recall": 1.0,
+      "found": 8,
       "required": 8,
-      "missing": [
-        "ĐÃ DUYỆT"
-      ],
+      "missing": [],
       "hallucinated": [],
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.084,
+      "runtime_s": 0.062,
       "chars": 330,
       "error": null
     },
@@ -1440,7 +1309,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.093,
+      "runtime_s": 0.053,
       "chars": 364,
       "error": null
     },
@@ -1466,7 +1335,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.055,
+      "runtime_s": 0.045,
       "chars": 359,
       "error": null
     },
@@ -1493,7 +1362,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.066,
+      "runtime_s": 0.041,
       "chars": 232,
       "error": null
     },
@@ -1520,7 +1389,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.077,
+      "runtime_s": 0.041,
       "chars": 204,
       "error": null
     },
@@ -1547,7 +1416,7 @@
       "tables_found": 0,
       "tables_expected": 1,
       "tables_ok": false,
-      "runtime_s": 0.056,
+      "runtime_s": 0.044,
       "chars": 284,
       "error": null
     },
@@ -1566,18 +1435,16 @@
         "digital_pdf"
       ],
       "device": "cpu",
-      "text_recall": 0.8571,
-      "found": 6,
+      "text_recall": 1.0,
+      "found": 7,
       "required": 7,
-      "missing": [
-        "Qty / Amount"
-      ],
+      "missing": [],
       "hallucinated": [],
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.055,
-      "chars": 285,
+      "runtime_s": 0.056,
+      "chars": 284,
       "error": null
     },
     {
@@ -1603,7 +1470,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.055,
+      "runtime_s": 0.061,
       "chars": 308,
       "error": null
     },
@@ -1630,7 +1497,7 @@
       "tables_found": 2,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 33.035,
+      "runtime_s": 20.82,
       "chars": 1817,
       "error": null
     },
@@ -1659,7 +1526,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.18,
+      "runtime_s": 0.089,
       "chars": 1027,
       "error": null
     },
@@ -1686,7 +1553,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.076,
+      "runtime_s": 0.04,
       "chars": 183,
       "error": null
     },
@@ -1714,7 +1581,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.059,
+      "runtime_s": 0.044,
       "chars": 263,
       "error": null
     },
@@ -1735,18 +1602,15 @@
         "digital_pdf"
       ],
       "device": "cpu",
-      "text_recall": 0.75,
-      "found": 6,
+      "text_recall": 1.0,
+      "found": 8,
       "required": 8,
-      "missing": [
-        "Số lượng / Thành tiền",
-        "ĐÃ DUYỆT"
-      ],
+      "missing": [],
       "hallucinated": [],
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.058,
+      "runtime_s": 0.062,
       "chars": 304,
       "error": null
     },
@@ -1773,7 +1637,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.056,
+      "runtime_s": 0.057,
       "chars": 284,
       "error": null
     },
@@ -1804,7 +1668,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 11.045,
+      "runtime_s": 4.411,
       "chars": 93,
       "error": null
     },
@@ -1859,7 +1723,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.044,
+      "runtime_s": 0.046,
       "chars": 359,
       "error": null
     },
@@ -1887,7 +1751,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.045,
+      "runtime_s": 0.048,
       "chars": 364,
       "error": null
     },
@@ -1923,7 +1787,7 @@
       "tables_found": 0,
       "tables_expected": 1,
       "tables_ok": false,
-      "runtime_s": 19.287,
+      "runtime_s": 13.48,
       "chars": 155,
       "error": null
     },
@@ -1953,7 +1817,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 7.895,
+      "runtime_s": 5.431,
       "chars": 231,
       "error": null
     },
@@ -1981,7 +1845,7 @@
       "tables_found": 0,
       "tables_expected": 1,
       "tables_ok": false,
-      "runtime_s": 0.043,
+      "runtime_s": 0.048,
       "chars": 284,
       "error": null
     },
@@ -2001,18 +1865,16 @@
         "digital_pdf"
       ],
       "device": "cpu",
-      "text_recall": 0.875,
-      "found": 7,
+      "text_recall": 1.0,
+      "found": 8,
       "required": 8,
-      "missing": [
-        "ĐÃ DUYỆT"
-      ],
+      "missing": [],
       "hallucinated": [],
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.057,
-      "chars": 331,
+      "runtime_s": 0.064,
+      "chars": 330,
       "error": null
     },
     {
@@ -2097,7 +1959,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.847,
+      "runtime_s": 0.911,
       "chars": 15082,
       "error": null
     }
