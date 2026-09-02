@@ -1,0 +1,63 @@
+{
+  "source": "research/hardcases/corpus/tiny_cells_table.pdf",
+  "hidpi": 600,
+  "targets": [
+    "SKU-1001",
+    "SKU-1005",
+    "Mô tả",
+    "Sản phẩm 1"
+  ],
+  "regions": [
+    [
+      53.0,
+      95.36000061035156,
+      449.6649475097656,
+      252.1750030517578
+    ]
+  ],
+  "arms": [
+    {
+      "name": "baseline_200",
+      "recall": 1.0,
+      "found": [
+        "SKU-1001",
+        "SKU-1005",
+        "Mô tả",
+        "Sản phẩm 1"
+      ],
+      "missing": [],
+      "seconds": 32.54,
+      "megapixels": 3.866,
+      "ocr_chars": 464
+    },
+    {
+      "name": "global_600",
+      "recall": 0.5,
+      "found": [
+        "SKU-1005",
+        "Sản phẩm 1"
+      ],
+      "missing": [
+        "SKU-1001",
+        "Mô tả"
+      ],
+      "seconds": 26.7,
+      "megapixels": 34.797,
+      "ocr_chars": 449
+    },
+    {
+      "name": "targeted_600",
+      "recall": 1.0,
+      "found": [
+        "SKU-1001",
+        "SKU-1005",
+        "Mô tả",
+        "Sản phẩm 1"
+      ],
+      "missing": [],
+      "seconds": 38.34,
+      "megapixels": 8.192,
+      "ocr_chars": 866
+    }
+  ]
+}

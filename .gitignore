@@ -80,8 +80,14 @@ htmlcov/
 # are synthetic, contain no enterprise data, and are the benchmark itself.
 # Per-run working directories (rendered pages, crops, extraction output) are not.
 research/**/_runs/
-research/**/_dpi/
-research/**/_recovery/
 research/**/outputs/
+# _dpi/ and _recovery/ hold regenerable working files (probe PDFs, rendered
+# pages and crops) alongside one results.json that is the experiment's actual
+# evidence. Exclude the contents, keep the numbers: the scripts that produce
+# both are tracked, so the working files can be rebuilt and the findings cannot.
+research/**/_dpi/*
+!research/**/_dpi/results.json
+research/**/_recovery/*
+!research/**/_recovery/results.json
 research/**/*.png
 research/**/*.jpg
