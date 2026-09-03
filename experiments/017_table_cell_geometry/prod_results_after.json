@@ -1,0 +1,1962 @@
+{
+  "corpus": "enterprise-production-en-vi",
+  "corpus_version": 1,
+  "corpus_manifest_sha256": "d73ee35488d8284e802fc8a67daf15ef4852cc99fd3a1d9909984e3fd03447c8",
+  "documents_run": 58,
+  "strategy": "adaptive",
+  "device": "cuda",
+  "resource_state": {
+    "gpu_preflight": {
+      "classification": "clear",
+      "reason": "no other compute process; 22561 MiB free, 0% utilization",
+      "util_samples": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "used_mib": 3,
+      "free_mib": 22561
+    },
+    "cpu_preflight": {
+      "loadavg": [
+        1.99,
+        2.17,
+        1.41
+      ],
+      "cpu_count": 8,
+      "classification": "CLEAN",
+      "note": "timings under contention are upper bounds, not benchmarks; recall is device- and contention-independent"
+    },
+    "cpu_postflight": {
+      "loadavg": [
+        2.47,
+        2.27,
+        1.47
+      ],
+      "cpu_count": 8,
+      "classification": "CLEAN",
+      "note": "timings under contention are upper bounds, not benchmarks; recall is device- and contention-independent"
+    }
+  },
+  "summary": {
+    "documents": 58,
+    "pages": 125,
+    "mean_text_recall": 0.9491,
+    "p50_text_recall": 1.0,
+    "p10_text_recall": 0.75,
+    "worst_text_recall": 0.0,
+    "fully_recovered": 52,
+    "total_failures": 1,
+    "hallucinations": 0,
+    "errors": 0,
+    "tables_ok": 55,
+    "total_runtime_s": 30.71,
+    "runtime_p50_s": 0.047,
+    "runtime_p90_s": 1.383,
+    "runtime_p95_s": 2.537,
+    "runtime_p99_s": 15.027,
+    "runtime_max_s": 15.027,
+    "runtime_mean_s": 0.529
+  },
+  "failure_by_type": {
+    "scan_quality": {
+      "count": 6,
+      "critical": 1,
+      "high": 1,
+      "medium": 4,
+      "documents": [
+        "ord_invoice_png_vi",
+        "hc_scan_vi",
+        "hc_scan_en",
+        "cmb_scan_tiny_vi",
+        "cmb_scan_stamp_table_vi",
+        "cmb_scan_multicol_en"
+      ],
+      "runtime_s": 9.86
+    },
+    "borderless_table": {
+      "count": 2,
+      "critical": 0,
+      "high": 2,
+      "medium": 0,
+      "documents": [
+        "hc_borderless_en",
+        "cmb_borderless_lowcontrast_en"
+      ],
+      "runtime_s": 0.1
+    },
+    "table_detection": {
+      "count": 2,
+      "critical": 0,
+      "high": 2,
+      "medium": 0,
+      "documents": [
+        "hc_borderless_en",
+        "cmb_borderless_lowcontrast_en"
+      ],
+      "runtime_s": 0.1
+    },
+    "tiny_text": {
+      "count": 1,
+      "critical": 1,
+      "high": 0,
+      "medium": 0,
+      "documents": [
+        "cmb_scan_tiny_vi"
+      ],
+      "runtime_s": 1.21
+    },
+    "table_structure": {
+      "count": 1,
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 1.68
+    },
+    "stamp": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 1.68
+    },
+    "occlusion": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 1.68
+    },
+    "multi_column": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_multicol_en"
+      ],
+      "runtime_s": 1.06
+    },
+    "reading_order": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_multicol_en"
+      ],
+      "runtime_s": 1.06
+    }
+  },
+  "failures": [
+    {
+      "document_id": "ord_invoice_png_vi",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "?",
+      "recovered": false,
+      "text_recall": 0.7143,
+      "hallucinated": false,
+      "runtime_s": 2.537,
+      "language": "vi",
+      "format": "png"
+    },
+    {
+      "document_id": "hc_scan_vi",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.25,
+      "hallucinated": false,
+      "runtime_s": 1.383,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "hc_scan_en",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.6667,
+      "hallucinated": false,
+      "runtime_s": 1.986,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "hc_borderless_en",
+      "pages": 1,
+      "failure_type": "borderless_table",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "digital_pdf",
+      "recovered": false,
+      "text_recall": 1.0,
+      "hallucinated": false,
+      "runtime_s": 0.046,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "hc_borderless_en",
+      "pages": 1,
+      "failure_type": "table_detection",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "digital_pdf",
+      "recovered": false,
+      "text_recall": 1.0,
+      "hallucinated": false,
+      "runtime_s": 0.046,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_tiny_vi",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "critical",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.0,
+      "hallucinated": false,
+      "runtime_s": 1.208,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_tiny_vi",
+      "pages": 1,
+      "failure_type": "tiny_text",
+      "severity": "critical",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.0,
+      "hallucinated": false,
+      "runtime_s": 1.208,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "table_structure",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.676,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.676,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "stamp",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.676,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "occlusion",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.676,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_multicol_en",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.6667,
+      "hallucinated": false,
+      "runtime_s": 1.063,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_multicol_en",
+      "pages": 1,
+      "failure_type": "multi_column",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.6667,
+      "hallucinated": false,
+      "runtime_s": 1.063,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_multicol_en",
+      "pages": 1,
+      "failure_type": "reading_order",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.6667,
+      "hallucinated": false,
+      "runtime_s": 1.063,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_borderless_lowcontrast_en",
+      "pages": 1,
+      "failure_type": "borderless_table",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "digital_pdf",
+      "recovered": false,
+      "text_recall": 1.0,
+      "hallucinated": false,
+      "runtime_s": 0.047,
+      "language": "en",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_borderless_lowcontrast_en",
+      "pages": 1,
+      "failure_type": "table_detection",
+      "severity": "high",
+      "current_strategy": "adaptive",
+      "route": "digital_pdf",
+      "recovered": false,
+      "text_recall": 1.0,
+      "hallucinated": false,
+      "runtime_s": 0.047,
+      "language": "en",
+      "format": "pdf"
+    }
+  ],
+  "documents": [
+    {
+      "document_id": "ord_contract_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.05,
+      "chars": 351,
+      "error": null
+    },
+    {
+      "document_id": "ord_contract_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.045,
+      "chars": 371,
+      "error": null
+    },
+    {
+      "document_id": "ord_invoice_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.058,
+      "chars": 308,
+      "error": null
+    },
+    {
+      "document_id": "ord_invoice_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.056,
+      "chars": 284,
+      "error": null
+    },
+    {
+      "document_id": "ord_financial_report_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "financial_report",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.075,
+      "chars": 342,
+      "error": null
+    },
+    {
+      "document_id": "ord_financial_report_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "financial_report",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.09,
+      "chars": 358,
+      "error": null
+    },
+    {
+      "document_id": "ord_company_profile_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "company_profile",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.036,
+      "chars": 158,
+      "error": null
+    },
+    {
+      "document_id": "ord_company_profile_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "company_profile",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.036,
+      "chars": 174,
+      "error": null
+    },
+    {
+      "document_id": "ord_business_license_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.044,
+      "chars": 342,
+      "error": null
+    },
+    {
+      "document_id": "ord_business_license_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "business_license",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.039,
+      "chars": 215,
+      "error": null
+    },
+    {
+      "document_id": "ord_certificate_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "certificate",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.037,
+      "chars": 204,
+      "error": null
+    },
+    {
+      "document_id": "ord_certificate_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "certificate",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.039,
+      "chars": 187,
+      "error": null
+    },
+    {
+      "document_id": "ord_policy_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.04,
+      "chars": 235,
+      "error": null
+    },
+    {
+      "document_id": "ord_policy_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.039,
+      "chars": 232,
+      "error": null
+    },
+    {
+      "document_id": "ord_technical_report_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "technical_report",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.038,
+      "chars": 199,
+      "error": null
+    },
+    {
+      "document_id": "ord_technical_report_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "technical_report",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.038,
+      "chars": 211,
+      "error": null
+    },
+    {
+      "document_id": "ord_purchase_order_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.055,
+      "chars": 274,
+      "error": null
+    },
+    {
+      "document_id": "ord_purchase_order_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "purchase_order",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.056,
+      "chars": 262,
+      "error": null
+    },
+    {
+      "document_id": "ord_form_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "form",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.041,
+      "chars": 231,
+      "error": null
+    },
+    {
+      "document_id": "ord_form_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "form",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.036,
+      "chars": 139,
+      "error": null
+    },
+    {
+      "document_id": "ord_contract_docx_en",
+      "format": "docx",
+      "language": "en",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 2,
+      "required": 2,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.033,
+      "chars": 371,
+      "error": null
+    },
+    {
+      "document_id": "ord_policy_docx_vi",
+      "format": "docx",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 2,
+      "required": 2,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.024,
+      "chars": 235,
+      "error": null
+    },
+    {
+      "document_id": "ord_invoice_docx_vi",
+      "format": "docx",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.037,
+      "chars": 308,
+      "error": null
+    },
+    {
+      "document_id": "ord_finreport_xlsx_en",
+      "format": "xlsx",
+      "language": "en",
+      "document_type": "financial_report",
+      "pages": 2,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office",
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 2,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.015,
+      "chars": 218,
+      "error": null
+    },
+    {
+      "document_id": "ord_purchase_xlsx_vi",
+      "format": "xlsx",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "pages": 2,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office",
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 2,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.013,
+      "chars": 188,
+      "error": null
+    },
+    {
+      "document_id": "ord_profile_pptx_en",
+      "format": "pptx",
+      "language": "en",
+      "document_type": "company_profile",
+      "pages": 2,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office",
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.023,
+      "chars": 228,
+      "error": null
+    },
+    {
+      "document_id": "ord_profile_pptx_vi",
+      "format": "pptx",
+      "language": "vi",
+      "document_type": "company_profile",
+      "pages": 2,
+      "labels": [],
+      "difficulty": "easy",
+      "routes": [
+        "native_office",
+        "native_office"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.024,
+      "chars": 228,
+      "error": null
+    },
+    {
+      "document_id": "ord_certificate_png_en",
+      "format": "png",
+      "language": "en",
+      "document_type": "certificate",
+      "pages": 1,
+      "labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "?"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 15.027,
+      "chars": 187,
+      "error": null
+    },
+    {
+      "document_id": "ord_invoice_png_vi",
+      "format": "png",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "scan_quality",
+        "table_detection"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "?"
+      ],
+      "device": "cuda",
+      "text_recall": 0.7143,
+      "found": 5,
+      "required": 7,
+      "missing": [
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Dịch vụ lắp đặt"
+      ],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 2.537,
+      "chars": 275,
+      "error": null
+    },
+    {
+      "document_id": "hc_tiny_text_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.041,
+      "chars": 235,
+      "error": null
+    },
+    {
+      "document_id": "hc_tiny_text_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.041,
+      "chars": 232,
+      "error": null
+    },
+    {
+      "document_id": "hc_low_contrast_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [
+        "low_contrast"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.049,
+      "chars": 351,
+      "error": null
+    },
+    {
+      "document_id": "hc_scan_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "scanned_admin",
+      "pages": 1,
+      "labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 0.25,
+      "found": 1,
+      "required": 4,
+      "missing": [
+        "Độc lập - Tự do - Hạnh phúc",
+        "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+        "Kính gửi: Phòng Tài chính - Kế"
+      ],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 1.383,
+      "chars": 235,
+      "error": null
+    },
+    {
+      "document_id": "hc_scan_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "scanned_admin",
+      "pages": 1,
+      "labels": [
+        "scan_quality"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 0.6667,
+      "found": 2,
+      "required": 3,
+      "missing": [
+        "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE"
+      ],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 1.986,
+      "chars": 202,
+      "error": null
+    },
+    {
+      "document_id": "hc_stamp_text_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "pages": 1,
+      "labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 5,
+      "required": 5,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.049,
+      "chars": 364,
+      "error": null
+    },
+    {
+      "document_id": "hc_stamp_table_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 8,
+      "required": 8,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.065,
+      "chars": 330,
+      "error": null
+    },
+    {
+      "document_id": "hc_transparent_seal_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "pages": 1,
+      "labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 5,
+      "required": 5,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.054,
+      "chars": 364,
+      "error": null
+    },
+    {
+      "document_id": "hc_watermark_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [
+        "watermark"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.048,
+      "chars": 359,
+      "error": null
+    },
+    {
+      "document_id": "hc_multicolumn_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [
+        "multi_column",
+        "reading_order"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.043,
+      "chars": 232,
+      "error": null
+    },
+    {
+      "document_id": "hc_rotation_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "certificate",
+      "pages": 1,
+      "labels": [
+        "rotation",
+        "reading_order"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.043,
+      "chars": 204,
+      "error": null
+    },
+    {
+      "document_id": "hc_borderless_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "borderless_table",
+        "table_detection"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 1,
+      "tables_ok": false,
+      "runtime_s": 0.046,
+      "chars": 284,
+      "error": null
+    },
+    {
+      "document_id": "hc_merged_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "merged_cells",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.058,
+      "chars": 284,
+      "error": null
+    },
+    {
+      "document_id": "hc_tiny_cells_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.07,
+      "chars": 308,
+      "error": null
+    },
+    {
+      "document_id": "hc_encoding_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "pages": 2,
+      "labels": [
+        "encoding"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "scanned_pdf",
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 2,
+      "required": 2,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 2,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 2.611,
+      "chars": 1817,
+      "error": null
+    },
+    {
+      "document_id": "hc_crosspage_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 4,
+      "labels": [
+        "cross_page"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.092,
+      "chars": 1027,
+      "error": null
+    },
+    {
+      "document_id": "hc_checkbox_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "form",
+      "pages": 1,
+      "labels": [
+        "form",
+        "checkbox"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 4,
+      "required": 4,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.043,
+      "chars": 183,
+      "error": null
+    },
+    {
+      "document_id": "hc_checkbox_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "form",
+      "pages": 1,
+      "labels": [
+        "form",
+        "checkbox",
+        "key_value"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 5,
+      "required": 5,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.043,
+      "chars": 263,
+      "error": null
+    },
+    {
+      "document_id": "cmb_stamp_table_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "purchase_order",
+      "pages": 1,
+      "labels": [
+        "stamp",
+        "occlusion",
+        "merged_cells",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 8,
+      "required": 8,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.058,
+      "chars": 304,
+      "error": null
+    },
+    {
+      "document_id": "cmb_tiny_table_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.058,
+      "chars": 284,
+      "error": null
+    },
+    {
+      "document_id": "cmb_scan_tiny_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [
+        "scan_quality",
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 0.0,
+      "found": 0,
+      "required": 3,
+      "missing": [
+        "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+        "Điều 1. Phạm vi áp dụng",
+        "Quy chế này áp dụng cho toàn bộ"
+      ],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 1.208,
+      "chars": 93,
+      "error": null
+    },
+    {
+      "document_id": "cmb_multicol_table_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "financial_report",
+      "pages": 1,
+      "labels": [
+        "multi_column",
+        "reading_order",
+        "table_detection"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.061,
+      "chars": 358,
+      "error": null
+    },
+    {
+      "document_id": "cmb_watermark_tiny_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "contract",
+      "pages": 1,
+      "labels": [
+        "watermark",
+        "tiny_text"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.047,
+      "chars": 359,
+      "error": null
+    },
+    {
+      "document_id": "cmb_lowcontrast_stamp_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "business_license",
+      "pages": 1,
+      "labels": [
+        "low_contrast",
+        "stamp",
+        "occlusion"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 5,
+      "required": 5,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.046,
+      "chars": 364,
+      "error": null
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "scan_quality",
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 0.75,
+      "found": 6,
+      "required": 8,
+      "missing": [
+        "Ký hiệu: MQ/2026E    Số: 0004417",
+        "Dịch vụ lắp đặt"
+      ],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 1,
+      "tables_ok": false,
+      "runtime_s": 1.676,
+      "chars": 413,
+      "error": null
+    },
+    {
+      "document_id": "cmb_scan_multicol_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "policy",
+      "pages": 1,
+      "labels": [
+        "scan_quality",
+        "multi_column",
+        "reading_order"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "scanned_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 0.6667,
+      "found": 2,
+      "required": 3,
+      "missing": [
+        "Section 2. Approval authority"
+      ],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 1.063,
+      "chars": 231,
+      "error": null
+    },
+    {
+      "document_id": "cmb_borderless_lowcontrast_en",
+      "format": "pdf",
+      "language": "en",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "borderless_table",
+        "low_contrast",
+        "table_detection"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 7,
+      "required": 7,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 1,
+      "tables_ok": false,
+      "runtime_s": 0.047,
+      "chars": 284,
+      "error": null
+    },
+    {
+      "document_id": "cmb_stamp_boundary_vi",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "invoice",
+      "pages": 1,
+      "labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "difficulty": "extreme",
+      "routes": [
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 8,
+      "required": 8,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 1,
+      "tables_expected": 1,
+      "tables_ok": true,
+      "runtime_s": 0.062,
+      "chars": 330,
+      "error": null
+    },
+    {
+      "document_id": "long_policy_vi_60p",
+      "format": "pdf",
+      "language": "vi",
+      "document_type": "policy",
+      "pages": 60,
+      "labels": [
+        "cross_page",
+        "long_document"
+      ],
+      "difficulty": "hard",
+      "routes": [
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf",
+        "digital_pdf"
+      ],
+      "device": "cuda",
+      "text_recall": 1.0,
+      "found": 3,
+      "required": 3,
+      "missing": [],
+      "hallucinated": [],
+      "tables_found": 0,
+      "tables_expected": 0,
+      "tables_ok": true,
+      "runtime_s": 0.937,
+      "chars": 15082,
+      "error": null
+    }
+  ]
+}
