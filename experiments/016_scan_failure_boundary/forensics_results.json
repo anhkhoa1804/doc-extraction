@@ -1,0 +1,814 @@
+[
+  {
+    "document": "hc_scan_vi",
+    "labels": [
+      "scan_quality"
+    ],
+    "image_quality": {
+      "width": 1653,
+      "height": 2339,
+      "sharpness_laplacian_var": 137.41,
+      "contrast_std": 20.95,
+      "noise_residual_std": 2.777,
+      "otsu_threshold": 151,
+      "ink_coverage": 0.0095,
+      "n_connected_components": 251
+    },
+    "region_coverage": 0.0666,
+    "n_layout_regions": 3,
+    "region_labels": [
+      "section_header",
+      "section_header",
+      "text"
+    ],
+    "n_raw_docling_tokens": 3,
+    "n_raw_easyocr_tokens": 11,
+    "easyocr_mean_confidence": 0.8814,
+    "text_quality": {
+      "n_chars": 235,
+      "n_words": 41,
+      "alpha_ratio": 0.6894,
+      "mixed_script_word_ratio": 0.0,
+      "unexpected_script_ratio": 0.0,
+      "replacement_ratio": 0.0,
+      "control_ratio": 0.0,
+      "digit_in_word_ratio": 0.0,
+      "suspicious": false,
+      "reasons": [
+        "ok"
+      ],
+      "scripts_seen": {
+        "LATIN": 162
+      }
+    },
+    "n_tables_expected": 0,
+    "n_tables_found": 1,
+    "phrase_traces": [
+      {
+        "phrase": "Độc lập - Tự do - Hạnh phúc",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            412.9,
+            132.9,
+            1054.8,
+            220.9
+          ],
+          "n_line_bands_detected": 2,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+        "stage": "ocr_missing",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 0.75,
+        "word_recall_raw_docling": 0.75,
+        "word_recall_raw_easyocr": 0.75,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            163.1,
+            234.3,
+            953.0,
+            289.4
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "Kính gửi: Phòng Tài chính - Kế",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            160.5,
+            328.0,
+            1098.8,
+            496.1
+          ],
+          "n_line_bands_detected": 6,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Căn cứ biên bản đối chiếu ngày 28",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            160.5,
+            328.0,
+            1098.8,
+            496.1
+          ],
+          "n_line_bands_detected": 6,
+          "spans_multiple_lines": true
+        }
+      }
+    ]
+  },
+  {
+    "document": "hc_scan_en",
+    "labels": [
+      "scan_quality"
+    ],
+    "image_quality": {
+      "width": 1653,
+      "height": 2339,
+      "sharpness_laplacian_var": 118.71,
+      "contrast_std": 20.68,
+      "noise_residual_std": 2.606,
+      "otsu_threshold": 149,
+      "ink_coverage": 0.009,
+      "n_connected_components": 182
+    },
+    "region_coverage": 0.0573,
+    "n_layout_regions": 2,
+    "region_labels": [
+      "section_header",
+      "text"
+    ],
+    "n_raw_docling_tokens": 2,
+    "n_raw_easyocr_tokens": 5,
+    "easyocr_mean_confidence": 0.8761,
+    "text_quality": {
+      "n_chars": 202,
+      "n_words": 23,
+      "alpha_ratio": 0.7772,
+      "mixed_script_word_ratio": 0.0,
+      "unexpected_script_ratio": 0.0,
+      "replacement_ratio": 0.0,
+      "control_ratio": 0.0,
+      "digit_in_word_ratio": 0.0,
+      "suspicious": false,
+      "reasons": [
+        "ok"
+      ],
+      "scripts_seen": {
+        "LATIN": 157
+      }
+    },
+    "n_tables_expected": 0,
+    "n_tables_found": 1,
+    "phrase_traces": [
+      {
+        "phrase": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            163.1,
+            129.3,
+            1571.3,
+            174.2
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "To: Finance and Accounting",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            161.4,
+            216.5,
+            1121.5,
+            381.4
+          ],
+          "n_line_bands_detected": 3,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Further to the reconciliation",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            161.4,
+            216.5,
+            1121.5,
+            381.4
+          ],
+          "n_line_bands_detected": 3,
+          "spans_multiple_lines": true
+        }
+      }
+    ]
+  },
+  {
+    "document": "cmb_scan_multicol_en",
+    "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+    ],
+    "image_quality": {
+      "width": 1653,
+      "height": 2339,
+      "sharpness_laplacian_var": 131.19,
+      "contrast_std": 19.05,
+      "noise_residual_std": 2.738,
+      "otsu_threshold": 154,
+      "ink_coverage": 0.0082,
+      "n_connected_components": 211
+    },
+    "region_coverage": 0.0238,
+    "n_layout_regions": 2,
+    "region_labels": [
+      "section_header",
+      "text"
+    ],
+    "n_raw_docling_tokens": 2,
+    "n_raw_easyocr_tokens": 9,
+    "easyocr_mean_confidence": 0.8016,
+    "text_quality": {
+      "n_chars": 231,
+      "n_words": 30,
+      "alpha_ratio": 0.8139,
+      "mixed_script_word_ratio": 0.0,
+      "unexpected_script_ratio": 0.0,
+      "replacement_ratio": 0.0,
+      "control_ratio": 0.0,
+      "digit_in_word_ratio": 0.0,
+      "suspicious": false,
+      "reasons": [
+        "ok"
+      ],
+      "scripts_seen": {
+        "LATIN": 188
+      }
+    },
+    "n_tables_expected": 0,
+    "n_tables_found": 0,
+    "phrase_traces": [
+      {
+        "phrase": "INTERNAL EXPENDITURE POLICY",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            165.4,
+            131.6,
+            878.8,
+            172.5
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "Section 1. Scope",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            160.9,
+            249.8,
+            756.1,
+            355.2
+          ],
+          "n_line_bands_detected": 3,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Section 2. Approval authority",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            160.9,
+            249.8,
+            756.1,
+            355.2
+          ],
+          "n_line_bands_detected": 3,
+          "spans_multiple_lines": true
+        }
+      }
+    ]
+  },
+  {
+    "document": "cmb_scan_stamp_table_vi",
+    "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+    ],
+    "image_quality": {
+      "width": 1653,
+      "height": 2339,
+      "sharpness_laplacian_var": 200.15,
+      "contrast_std": 23.52,
+      "noise_residual_std": 3.387,
+      "otsu_threshold": 167,
+      "ink_coverage": 0.0159,
+      "n_connected_components": 288
+    },
+    "region_coverage": 0.1661,
+    "n_layout_regions": 19,
+    "region_labels": [
+      "section_header",
+      "text",
+      "picture",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text",
+      "text"
+    ],
+    "n_raw_docling_tokens": 18,
+    "n_raw_easyocr_tokens": 19,
+    "easyocr_mean_confidence": 0.8207,
+    "text_quality": {
+      "n_chars": 413,
+      "n_words": 61,
+      "alpha_ratio": 0.5182,
+      "mixed_script_word_ratio": 0.0,
+      "unexpected_script_ratio": 0.0,
+      "replacement_ratio": 0.0,
+      "control_ratio": 0.0,
+      "digit_in_word_ratio": 0.082,
+      "suspicious": false,
+      "reasons": [
+        "ok"
+      ],
+      "scripts_seen": {
+        "LATIN": 214
+      }
+    },
+    "n_tables_expected": 1,
+    "n_tables_found": 0,
+    "phrase_traces": [
+      {
+        "phrase": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            165.4,
+            125.3,
+            778.3,
+            178.7
+          ],
+          "n_line_bands_detected": 2,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Ký hiệu: MQ/2026E    Số: 0004417",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            161.8,
+            220.5,
+            1109.9,
+            438.3
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Ngày 14 tháng 03 năm 2026",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            161.8,
+            220.5,
+            1109.9,
+            438.3
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Mô tả hàng hóa",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            165.4,
+            125.3,
+            778.3,
+            178.7
+          ],
+          "n_line_bands_detected": 2,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Sản phẩm A-100",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "picture",
+          "region_bbox": [
+            161.2,
+            524.3,
+            1200.7,
+            861.8
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "Bộ lọc khí Mã 22B",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 0.8,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            161.8,
+            220.5,
+            1109.9,
+            438.3
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Dịch vụ lắp đặt",
+        "stage": "assembly",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "picture",
+          "region_bbox": [
+            161.2,
+            524.3,
+            1200.7,
+            861.8
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "ĐÃ DUYỆT",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "picture",
+          "region_bbox": [
+            161.2,
+            524.3,
+            1200.7,
+            861.8
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      }
+    ]
+  },
+  {
+    "document": "ord_invoice_png_vi",
+    "labels": [
+      "scan_quality",
+      "table_detection"
+    ],
+    "image_quality": {
+      "width": 1653,
+      "height": 2339,
+      "sharpness_laplacian_var": 613.48,
+      "contrast_std": 22.7,
+      "noise_residual_std": 5.724,
+      "otsu_threshold": 151,
+      "ink_coverage": 0.0111,
+      "n_connected_components": 300
+    },
+    "region_coverage": 0.1215,
+    "n_layout_regions": 3,
+    "region_labels": [
+      "section_header",
+      "text",
+      "table"
+    ],
+    "n_raw_docling_tokens": 19,
+    "n_raw_easyocr_tokens": 22,
+    "easyocr_mean_confidence": 0.8838,
+    "text_quality": {
+      "n_chars": 243,
+      "n_words": 37,
+      "alpha_ratio": 0.535,
+      "mixed_script_word_ratio": 0.0,
+      "unexpected_script_ratio": 0.0,
+      "replacement_ratio": 0.0,
+      "control_ratio": 0.0,
+      "digit_in_word_ratio": 0.0811,
+      "suspicious": false,
+      "reasons": [
+        "ok"
+      ],
+      "scripts_seen": {
+        "LATIN": 130
+      }
+    },
+    "n_tables_expected": 1,
+    "n_tables_found": 1,
+    "phrase_traces": [
+      {
+        "phrase": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            165.7,
+            126.3,
+            777.3,
+            176.0
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "Ký hiệu: MQ/2026E    Số: 0004417",
+        "stage": "ocr_scrambled",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            162.0,
+            221.0,
+            1110.7,
+            439.7
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Ngày 14 tháng 03 năm 2026",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            162.0,
+            221.0,
+            1110.7,
+            439.7
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Mô tả hàng hóa",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "section_header",
+          "region_bbox": [
+            165.7,
+            126.3,
+            777.3,
+            176.0
+          ],
+          "n_line_bands_detected": 1,
+          "spans_multiple_lines": false
+        }
+      },
+      {
+        "phrase": "Sản phẩm A-100",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "table",
+          "region_bbox": [
+            164.5,
+            526.4,
+            1200.9,
+            750.3
+          ],
+          "n_line_bands_detected": 9,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Bộ lọc khí Mã 22B",
+        "stage": "present",
+        "in_final": true,
+        "in_raw_docling": true,
+        "in_raw_easyocr": true,
+        "word_recall_final": 1.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 1.0,
+        "containment_detail": null,
+        "line_band_detail": {
+          "region_label": "text",
+          "region_bbox": [
+            162.0,
+            221.0,
+            1110.7,
+            439.7
+          ],
+          "n_line_bands_detected": 5,
+          "spans_multiple_lines": true
+        }
+      },
+      {
+        "phrase": "Dịch vụ lắp đặt",
+        "stage": "assignment",
+        "in_final": false,
+        "in_raw_docling": false,
+        "in_raw_easyocr": false,
+        "word_recall_final": 0.0,
+        "word_recall_raw_docling": 1.0,
+        "word_recall_raw_easyocr": 0.75,
+        "containment_detail": {
+          "n_matching_docling_tokens": 1,
+          "sample_token_texts": [
+            "Dịch vụ đặt lắp"
+          ],
+          "all_contained_in_some_region": true,
+          "any_contained_in_some_region": true
+        },
+        "line_band_detail": {
+          "region_label": "table",
+          "region_bbox": [
+            164.5,
+            526.4,
+            1200.9,
+            750.3
+          ],
+          "n_line_bands_detected": 9,
+          "spans_multiple_lines": true
+        }
+      }
+    ]
+  }
+]
