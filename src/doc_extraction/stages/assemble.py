@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from doc_extraction.ingest.verification import verify_document
 from doc_extraction.schemas.document import Document, RunMetadata
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.reading_order import ORDER_STRATEGY, compute_reading_order
@@ -46,6 +47,17 @@ def assemble_document(
 
     document = Document(document_id=document_id, metadata=metadata, pages=pages)
 
+    ctx_manager = logger.stage("verify", "doc_extraction") if logger else noop_stage()
+    with ctx_manager as ctx:
+        # Runs regardless of route (native, per-page fallback, scanned,
+        # office) — the one point every route's output already converges,
+        # so this is the first check that looks at what was *actually
+        # produced* rather than gating a decision made before extraction.
+        # See ingest/verification.py for why this exists alongside, not
+        # instead of, the pre-extraction text/table gates.
+        verification_summary = verify_document(document)
+        ctx.metrics = verification_summary.as_dict()
+
     ctx_manager = logger.stage("assemble", "doc_extraction") if logger else noop_stage()
     with ctx_manager as ctx:
         for page in pages:
@@ -62,6 +74,7 @@ def assemble_document(
             "num_pages": len(pages),
             "num_elements": sum(len(p.elements) for p in pages),
             "num_tables": sum(len(p.tables) for p in pages),
+            "verification": verification_summary.as_dict(),
         }
 
     write_json(output_dir / "metadata.json", metadata)
