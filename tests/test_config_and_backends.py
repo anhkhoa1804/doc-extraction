@@ -386,6 +386,72 @@ def test_docling_recognize_emits_table_cell_text(tmp_path):
     assert all(t.bbox is not None for t in tokens)
 
 
+def test_docling_recognize_and_analyze_traverse_picture_children(tmp_path):
+    """A layout region docling labels `picture` can itself contain recognized
+    TextItem children — this is exactly what happens when a stamp/seal over a
+    table or text block causes a mislabel. `iterate_items()` does not descend
+    into a picture's children unless told to; `recognize()`/`analyze()` used
+    to call it with the default `traverse_pictures=False`, so every one of
+    those children's already-recognized text was silently dropped, even
+    though the picture item itself carries no `.text` to fall back on.
+
+    Root-caused on a real fixture in research/experiments/_scan_forensics
+    (`cmb_scan_stamp_table_vi`): docling recognizes every cell of the
+    mislabeled table as a child TextItem, and `iterate_items()` simply never
+    visits them. This is a pure unit test over a stubbed docling document —
+    it locks the traversal contract without needing a model.
+    """
+    from doc_extraction.backends.docling_backend import DoclingBackend
+    from doc_extraction.pipelines.base import PageInput
+
+    class _BBox:
+        def __init__(self, l, t, r, b):
+            self.l, self.t, self.r, self.b = l, t, r, b
+            self.coord_origin = "TOPLEFT"
+
+    class _Prov:
+        def __init__(self, bbox):
+            self.bbox = bbox
+
+    class _Item:
+        def __init__(self, label, text=None, bbox=None):
+            self.label = label
+            self.text = text
+            self.prov = [_Prov(bbox)] if bbox is not None else []
+
+    picture = _Item("picture", text=None, bbox=_BBox(10, 10, 400, 200))
+    child_a = _Item("text", text="CÔNG TY TNHH", bbox=_BBox(20, 20, 120, 32))
+    child_b = _Item("text", text="Đã duyệt", bbox=_BBox(140, 20, 220, 32))
+    top_level_text = _Item("text", text="HÓA ĐƠN", bbox=_BBox(10, 220, 200, 240))
+
+    class _StubDoc:
+        def iterate_items(self, traverse_pictures=False, **_kwargs):
+            yield picture, 1
+            if traverse_pictures:
+                yield child_a, 2
+                yield child_b, 2
+            yield top_level_text, 1
+
+    class _StubResult:
+        document = _StubDoc()
+
+    backend = DoclingBackend()
+    backend._convert_cached = lambda path: _StubResult()  # bypass the real model
+
+    page = PageInput(page_index=0, width=500, height=300, image_path=tmp_path / "page.png")
+
+    ocr_result = backend.recognize(page)
+    texts = [t.text for t in ocr_result.tokens]
+    assert "CÔNG TY TNHH" in texts, "text nested under a mislabeled picture must not be dropped"
+    assert "Đã duyệt" in texts
+    assert "HÓA ĐƠN" in texts, "ordinary top-level text must still come through"
+
+    layout_result = backend.analyze(page)
+    labels = [r.label for r in layout_result.regions]
+    assert labels.count("text") == 3, "nested text must surface as its own layout region too"
+    assert "picture" in labels, "the picture region itself must still be reported, not replaced"
+
+
 class _DoclingBBox:
     """Minimal stand-in for docling's BoundingBox."""
 

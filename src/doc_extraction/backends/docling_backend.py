@@ -257,7 +257,7 @@ class DoclingBackend:
             pages[page_no] = Page(index=page_no - 1, width=width, height=height, coordinate_unit="pt")
 
         order_counters: dict[int, int] = {}
-        for item, _level in docling_doc.iterate_items():
+        for item, _level in docling_doc.iterate_items(traverse_pictures=True):
             label = _label_str(item)
             prov_list = getattr(item, "prov", None) or []
             prov = prov_list[0] if prov_list else None
@@ -312,7 +312,7 @@ class DoclingBackend:
         docling_doc = result.document
         source_size = docling_page_size(result)
         regions: list[Region] = []
-        for item, _level in docling_doc.iterate_items():
+        for item, _level in docling_doc.iterate_items(traverse_pictures=True):
             prov_list = getattr(item, "prov", None) or []
             prov = prov_list[0] if prov_list else None
             bbox = (_bbox_from_docling(getattr(prov, "bbox", None), page.height, source_size)
@@ -352,7 +352,16 @@ class DoclingBackend:
         docling_doc = result.document
         source_size = docling_page_size(result)
         tokens: list[OCRToken] = []
-        for item, _level in docling_doc.iterate_items():
+        # `traverse_pictures=True`: when Docling's layout model mislabels a
+        # region as `picture` (a stamp/seal over a table or block of text
+        # reliably triggers this), the default traversal never visits that
+        # item's children at all, and every TextItem docling *already
+        # recognized* inside it is silently dropped -- the picture item
+        # itself carries no `.text`. Diagnosed in research/experiments/
+        # _scan_forensics: the recognizer had the text; only the traversal
+        # discarded it. Docling recognizes the nested text either way, so
+        # this reaches results already computed, not new inference.
+        for item, _level in docling_doc.iterate_items(traverse_pictures=True):
             label = _label_str(item)
             if label == "table":
                 # Emit each recognized table cell as its own token.
