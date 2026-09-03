@@ -1,0 +1,597 @@
+{
+  "hc_scan_vi": {
+    "page_size": [
+      1653,
+      2339
+    ],
+    "layout_regions": [
+      {
+        "label": "section_header",
+        "bbox": [
+          412.9,
+          132.9,
+          1054.8,
+          220.9
+        ]
+      },
+      {
+        "label": "section_header",
+        "bbox": [
+          163.1,
+          234.3,
+          953.0,
+          289.4
+        ]
+      },
+      {
+        "label": "text",
+        "bbox": [
+          160.5,
+          328.0,
+          1098.8,
+          496.1
+        ]
+      }
+    ],
+    "ocr_tokens": [
+      {
+        "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự",
+        "bbox": [
+          412.9,
+          132.9,
+          1054.8,
+          220.9
+        ]
+      },
+      {
+        "text": "CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ",
+        "bbox": [
+          163.1,
+          234.3,
+          953.0,
+          289.4
+        ]
+      },
+      {
+        "text": "Kính Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. gửi: phải",
+        "bbox": [
+          160.5,
+          328.0,
+          1098.8,
+          496.1
+        ]
+      }
+    ],
+    "easyocr_tokens": [
+      {
+        "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM",
+        "bbox": [
+          413.0,
+          134.0,
+          1057.0,
+          175.0
+        ]
+      },
+      {
+        "text": "Độc lập",
+        "bbox": [
+          413.0,
+          183.0,
+          539.0,
+          221.0
+        ]
+      },
+      {
+        "text": "Tự do",
+        "bbox": [
+          559.0,
+          185.0,
+          657.0,
+          221.0
+        ]
+      },
+      {
+        "text": "Hạnh phúc",
+        "bbox": [
+          679.0,
+          180.0,
+          856.0,
+          222.0
+        ]
+      },
+      {
+        "text": "CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ",
+        "bbox": [
+          162.0,
+          234.0,
+          954.0,
+          290.0
+        ]
+      },
+      {
+        "text": "Kính gửi: Phòng Tài chính",
+        "bbox": [
+          163.0,
+          328.0,
+          559.0,
+          373.0
+        ]
+      },
+      {
+        "text": "Kế toán",
+        "bbox": [
+          581.0,
+          331.0,
+          705.0,
+          369.0
+        ]
+      },
+      {
+        "text": "Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026,",
+        "bbox": [
+          162.0,
+          387.0,
+          1024.0,
+          437.0
+        ]
+      },
+      {
+        "text": "công nợ",
+        "bbox": [
+          161.0,
+          452.0,
+          295.0,
+          496.0
+        ]
+      },
+      {
+        "text": "thu tại thời điểm khóa sổ là 412.600.000 đổng.",
+        "bbox": [
+          368.0,
+          449.0,
+          1100.0,
+          497.0
+        ]
+      },
+      {
+        "text": "phải",
+        "bbox": [
+          293.6,
+          450.9,
+          369.4,
+          495.1
+        ]
+      }
+    ]
+  },
+  "hc_scan_en": {
+    "page_size": [
+      1653,
+      2339
+    ],
+    "layout_regions": [
+      {
+        "label": "section_header",
+        "bbox": [
+          163.1,
+          129.3,
+          1571.3,
+          174.2
+        ]
+      },
+      {
+        "label": "text",
+        "bbox": [
+          161.4,
+          216.5,
+          1121.5,
+          381.4
+        ]
+      }
+    ],
+    "ocr_tokens": [
+      {
+        "text": "OFFICIAL LETTER CONFIRMATION OF OUTSTANDING BALANCE",
+        "bbox": [
+          163.1,
+          129.3,
+          1571.3,
+          174.2
+        ]
+      },
+      {
+        "text": "To: Finance and Accounting Department Further to the reconciliation minutes dated 28 February 2026, the receivable balance at cut-off is USD 31,240.00",
+        "bbox": [
+          161.4,
+          216.5,
+          1121.5,
+          381.4
+        ]
+      }
+    ],
+    "easyocr_tokens": [
+      {
+        "text": "OFFICIAL LETTER",
+        "bbox": [
+          162.0,
+          130.0,
+          543.0,
+          173.0
+        ]
+      },
+      {
+        "text": "CONFIRMATION OF OUTSTANDING BALANCE",
+        "bbox": [
+          600.0,
+          129.0,
+          1570.0,
+          173.0
+        ]
+      },
+      {
+        "text": "To: Finance and Accounting Department",
+        "bbox": [
+          163.0,
+          218.0,
+          791.0,
+          263.0
+        ]
+      },
+      {
+        "text": "Further to the reconciliation minutes dated 28 February 2026,",
+        "bbox": [
+          163.0,
+          279.0,
+          1123.0,
+          323.0
+        ]
+      },
+      {
+        "text": "the receivable balance at cut-off is USD 31,240.00.",
+        "bbox": [
+          161.0,
+          343.0,
+          953.0,
+          381.0
+        ]
+      }
+    ]
+  },
+  "cmb_scan_multicol_en": {
+    "page_size": [
+      1653,
+      2339
+    ],
+    "layout_regions": [
+      {
+        "label": "section_header",
+        "bbox": [
+          165.4,
+          131.6,
+          878.8,
+          172.5
+        ]
+      },
+      {
+        "label": "text",
+        "bbox": [
+          160.9,
+          249.8,
+          756.1,
+          355.2
+        ]
+      }
+    ],
+    "ocr_tokens": [
+      {
+        "text": "INTERNAL EXPENDITURE POLICY",
+        "bbox": [
+          165.4,
+          131.6,
+          878.8,
+          172.5
+        ]
+      },
+      {
+        "text": "Section 1. Scope This policy applies to all employees of the company and its branch offices Section 2 Approval authority Expenditure above USD 5,000 requires written approval from the Managing Director .",
+        "bbox": [
+          160.9,
+          249.8,
+          756.1,
+          355.2
+        ]
+      }
+    ],
+    "easyocr_tokens": [
+      {
+        "text": "INTERNAL EXPENDITURE POLICY",
+        "bbox": [
+          163.0,
+          129.0,
+          879.0,
+          173.0
+        ]
+      },
+      {
+        "text": "Section 1. Scope",
+        "bbox": [
+          163.0,
+          250.0,
+          427.0,
+          290.0
+        ]
+      },
+      {
+        "text": "Section 2",
+        "bbox": [
+          871.0,
+          251.0,
+          1021.0,
+          287.0
+        ]
+      },
+      {
+        "text": "Approval authority",
+        "bbox": [
+          1033.0,
+          251.0,
+          1327.0,
+          291.0
+        ]
+      },
+      {
+        "text": "This policy applies to all employees of",
+        "bbox": [
+          162.0,
+          277.0,
+          756.0,
+          329.0
+        ]
+      },
+      {
+        "text": "Expenditure above USD 5,000 requires",
+        "bbox": [
+          871.0,
+          278.0,
+          1479.0,
+          326.0
+        ]
+      },
+      {
+        "text": "the company and its branch offices.",
+        "bbox": [
+          161.0,
+          315.0,
+          713.0,
+          357.0
+        ]
+      },
+      {
+        "text": "written approval from the Managing",
+        "bbox": [
+          873.0,
+          316.0,
+          1430.0,
+          358.0
+        ]
+      },
+      {
+        "text": "Director.",
+        "bbox": [
+          873.0,
+          349.0,
+          1013.0,
+          385.0
+        ]
+      }
+    ]
+  },
+  "ord_invoice_png_vi": {
+    "page_size": [
+      1653,
+      2339
+    ],
+    "layout_regions": [
+      {
+        "label": "section_header",
+        "bbox": [
+          165.7,
+          126.3,
+          777.3,
+          176.0
+        ]
+      },
+      {
+        "label": "text",
+        "bbox": [
+          162.0,
+          221.0,
+          1110.7,
+          439.7
+        ]
+      },
+      {
+        "label": "table",
+        "bbox": [
+          164.5,
+          526.4,
+          1200.9,
+          750.3
+        ]
+      }
+    ],
+    "ocr_tokens": [
+      {
+        "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+        "bbox": [
+          165.7,
+          126.3,
+          777.3,
+          176.0
+        ]
+      },
+      {
+        "text": "Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877",
+        "bbox": [
+          162.0,
+          221.0,
+          1110.7,
+          439.7
+        ]
+      },
+      {
+        "text": "STT",
+        "bbox": [
+          171.0,
+          553.7,
+          227.7,
+          578.3
+        ]
+      },
+      {
+        "text": "Mô tả hàng hóa",
+        "bbox": [
+          242.7,
+          547.7,
+          466.3,
+          585.3
+        ]
+      },
+      {
+        "text": "Đơn vị",
+        "bbox": [
+          708.0,
+          553.3,
+          803.0,
+          582.7
+        ]
+      },
+      {
+        "text": "1",
+        "bbox": [
+          173.7,
+          605.7,
+          187.3,
+          626.0
+        ]
+      },
+      {
+        "text": "Sản phẩm A-100",
+        "bbox": [
+          241.0,
+          596.0,
+          455.7,
+          634.7
+        ]
+      },
+      {
+        "text": "Cái",
+        "bbox": [
+          709.0,
+          602.3,
+          753.3,
+          628.7
+        ]
+      },
+      {
+        "text": "12",
+        "bbox": [
+          832.7,
+          603.0,
+          866.3,
+          628.7
+        ]
+      },
+      {
+        "text": "18.000.000",
+        "bbox": [
+          949.0,
+          602.3,
+          1095.0,
+          629.3
+        ]
+      },
+      {
+        "text": "Bộ lọc khí Mã 22B",
+        "bbox": [
+          242.0,
+          656.0,
+          470.3,
+          688.7
+        ]
+      },
+      {
+        "text": "Bộ",
+        "bbox": [
+          709.3,
+          657.3,
+          746.3,
+          688.3
+        ]
+      },
+      {
+        "text": "4",
+        "bbox": [
+          833.3,
+          660.7,
+          850.0,
+          681.7
+        ]
+      },
+      {
+        "text": "6.400.000",
+        "bbox": [
+          948.0,
+          658.3,
+          1079.3,
+          684.7
+        ]
+      },
+      {
+        "text": "3",
+        "bbox": [
+          171.7,
+          715.0,
+          188.3,
+          737.7
+        ]
+      },
+      {
+        "text": "Dịch vụ đặt lắp",
+        "bbox": [
+          242.7,
+          705.4,
+          437.7,
+          749.0
+        ]
+      },
+      {
+        "text": "Gói",
+        "bbox": [
+          709.7,
+          713.7,
+          755.0,
+          739.0
+        ]
+      },
+      {
+        "text": "1",
+        "bbox": [
+          834.3,
+          717.0,
+          848.0,
+          736.3
+        ]
+      },
+      {
+        "text": "3.500.000",
+        "bbox": [
+          949.0,
+          713.7,
+          1079.3,
+          740.0
+        ]
+      }
+    ]
+  }
+}
