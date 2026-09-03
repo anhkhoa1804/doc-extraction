@@ -1,0 +1,509 @@
+{
+  "summary": {
+    "n_documents": 13,
+    "device": "cuda",
+    "resource_state": "LIMITED",
+    "docling": {
+      "mean_exact_recall": 0.5056,
+      "mean_word_recall": 0.8973,
+      "total_tokens_with_confidence": 0,
+      "cold_seconds": 13.026,
+      "warm_seconds_mean": 1.353
+    },
+    "easyocr": {
+      "mean_exact_recall": 0.5267,
+      "mean_word_recall": 0.9111,
+      "total_tokens_with_confidence": 171,
+      "cold_seconds": 3.784,
+      "warm_seconds_mean": 1.196
+    },
+    "union": {
+      "mean_exact_recall": 0.5716,
+      "mean_word_recall": 0.9286
+    },
+    "mean_agreement_jaccard": 0.8736
+  },
+  "results": [
+    {
+      "document": "hc_scan_vi",
+      "n_must_contain": 4,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "tokens": 3,
+        "seconds": 13.026,
+        "cold": true,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "3/3"
+      },
+      "easyocr": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "tokens": 11,
+        "seconds": 3.784,
+        "cold": true,
+        "tokens_with_confidence": 11,
+        "mean_confidence": 0.8814,
+        "min_confidence": 0.7061,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "11/11"
+      },
+      "union": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375
+      },
+      "agreement_jaccard": 1.0
+    },
+    {
+      "document": "hc_scan_en",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 2,
+        "seconds": 1.79,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 5,
+        "seconds": 0.965,
+        "cold": false,
+        "tokens_with_confidence": 5,
+        "mean_confidence": 0.8761,
+        "min_confidence": 0.7631,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "5/5"
+      },
+      "union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 1.0
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 2,
+        "seconds": 0.824,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 9,
+        "seconds": 1.028,
+        "cold": false,
+        "tokens_with_confidence": 9,
+        "mean_confidence": 0.8016,
+        "min_confidence": 0.6058,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "9/9"
+      },
+      "union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 1.0
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "n_must_contain": 8,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.875,
+        "word_recall": 1.0,
+        "tokens": 18,
+        "seconds": 1.497,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "18/18"
+      },
+      "easyocr": {
+        "exact_recall": 0.75,
+        "word_recall": 0.975,
+        "tokens": 19,
+        "seconds": 1.359,
+        "cold": false,
+        "tokens_with_confidence": 19,
+        "mean_confidence": 0.8207,
+        "min_confidence": 0.4033,
+        "low_confidence_count_below_0.5": 2,
+        "bbox_sane": "19/19"
+      },
+      "union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 0.8833
+    },
+    {
+      "document": "cmb_scan_tiny_vi",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.0,
+        "word_recall": 0.4167,
+        "tokens": 2,
+        "seconds": 0.823,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667,
+        "tokens": 7,
+        "seconds": 1.091,
+        "cold": false,
+        "tokens_with_confidence": 7,
+        "mean_confidence": 0.5755,
+        "min_confidence": 0.1611,
+        "low_confidence_count_below_0.5": 3,
+        "bbox_sane": "7/7"
+      },
+      "union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667
+      },
+      "agreement_jaccard": 0.3404
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "n_must_contain": 7,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "tokens": 19,
+        "seconds": 2.326,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "19/19"
+      },
+      "easyocr": {
+        "exact_recall": 0.8571,
+        "word_recall": 0.9643,
+        "tokens": 22,
+        "seconds": 1.345,
+        "cold": false,
+        "tokens_with_confidence": 22,
+        "mean_confidence": 0.8838,
+        "min_confidence": 0.6086,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "22/22"
+      },
+      "union": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 0.8852
+    },
+    {
+      "document": "ord_contract_en",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "tokens": 3,
+        "seconds": 1.161,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "3/3"
+      },
+      "easyocr": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "tokens": 8,
+        "seconds": 1.176,
+        "cold": false,
+        "tokens_with_confidence": 8,
+        "mean_confidence": 0.8181,
+        "min_confidence": 0.6323,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "8/8"
+      },
+      "union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 1.0
+    },
+    {
+      "document": "ord_contract_vi",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "tokens": 2,
+        "seconds": 1.293,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "tokens": 14,
+        "seconds": 1.373,
+        "cold": false,
+        "tokens_with_confidence": 14,
+        "mean_confidence": 0.8154,
+        "min_confidence": 0.5434,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "14/14"
+      },
+      "union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825
+      },
+      "agreement_jaccard": 0.9259
+    },
+    {
+      "document": "hc_tiny_text_en",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "tokens": 3,
+        "seconds": 0.755,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "3/3"
+      },
+      "easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 0.8889,
+        "tokens": 8,
+        "seconds": 0.996,
+        "cold": false,
+        "tokens_with_confidence": 8,
+        "mean_confidence": 0.9005,
+        "min_confidence": 0.7414,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "8/8"
+      },
+      "union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 0.9032
+    },
+    {
+      "document": "hc_tiny_text_vi",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.9028,
+        "tokens": 2,
+        "seconds": 0.802,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.8472,
+        "tokens": 7,
+        "seconds": 1.057,
+        "cold": false,
+        "tokens_with_confidence": 7,
+        "mean_confidence": 0.7343,
+        "min_confidence": 0.5854,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "7/7"
+      },
+      "union": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.9028
+      },
+      "agreement_jaccard": 0.7708
+    },
+    {
+      "document": "hc_low_contrast_vi",
+      "n_must_contain": 3,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "tokens": 2,
+        "seconds": 1.451,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "2/2"
+      },
+      "easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "tokens": 24,
+        "seconds": 1.412,
+        "cold": false,
+        "tokens_with_confidence": 24,
+        "mean_confidence": 0.904,
+        "min_confidence": 0.4891,
+        "low_confidence_count_below_0.5": 1,
+        "bbox_sane": "24/24"
+      },
+      "union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825
+      },
+      "agreement_jaccard": 0.9811
+    },
+    {
+      "document": "hc_stamp_text_vi",
+      "n_must_contain": 5,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.4,
+        "word_recall": 0.8429,
+        "tokens": 4,
+        "seconds": 1.595,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "4/4"
+      },
+      "easyocr": {
+        "exact_recall": 0.8,
+        "word_recall": 1.0,
+        "tokens": 12,
+        "seconds": 1.252,
+        "cold": false,
+        "tokens_with_confidence": 12,
+        "mean_confidence": 0.7226,
+        "min_confidence": 0.3136,
+        "low_confidence_count_below_0.5": 2,
+        "bbox_sane": "12/12"
+      },
+      "union": {
+        "exact_recall": 0.8,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 0.7183
+    },
+    {
+      "document": "cmb_multicol_table_en",
+      "n_must_contain": 7,
+      "device": "cuda",
+      "dpi": 200,
+      "resource_state": "LIMITED",
+      "page_px": [
+        1653.0,
+        2339.0
+      ],
+      "docling": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "tokens": 23,
+        "seconds": 1.922,
+        "cold": false,
+        "tokens_with_confidence": 0,
+        "bbox_sane": "23/23"
+      },
+      "easyocr": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "tokens": 25,
+        "seconds": 1.299,
+        "cold": false,
+        "tokens_with_confidence": 25,
+        "mean_confidence": 0.9431,
+        "min_confidence": 0.6986,
+        "low_confidence_count_below_0.5": 0,
+        "bbox_sane": "25/25"
+      },
+      "union": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0
+      },
+      "agreement_jaccard": 0.9492
+    }
+  ]
+}
