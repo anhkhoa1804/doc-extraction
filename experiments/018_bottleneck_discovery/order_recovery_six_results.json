@@ -1,0 +1,144 @@
+{
+  "summary": {
+    "scope": "six",
+    "n_documents": 6,
+    "n_ok": 6,
+    "mean_baseline_recall": 0.508,
+    "mean_final_recall": 0.5288,
+    "n_documents_changed": 1,
+    "n_documents_improved": 1,
+    "n_documents_regressed": 0,
+    "improved_documents": [
+      "cmb_scan_stamp_table_vi"
+    ],
+    "regressed_documents": [],
+    "total_replaced": 3,
+    "total_kept": 23,
+    "device": "cuda"
+  },
+  "rows": [
+    {
+      "document": "hc_scan_vi",
+      "labels": [
+        "scan_quality"
+      ],
+      "baseline_recall": 0.25,
+      "final_recall": 0.25,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 2,
+      "n_kept": 1,
+      "changes": [
+        {
+          "element_id": "p0-e0",
+          "old_text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự",
+          "new_text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc",
+          "jaccard": 1.0,
+          "order_consistency": 0.9286,
+          "decision": "replaced"
+        },
+        {
+          "element_id": "p0-e2",
+          "old_text": "Kính Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. gửi: phải",
+          "new_text": "Kính gửi: Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ phải thu tại thời điểm khóa sổ là 412.600.000 đổng.",
+          "jaccard": 1.0,
+          "order_consistency": 0.9394,
+          "decision": "replaced"
+        }
+      ],
+      "process_seconds": 22.974,
+      "recovery_seconds": 5.802
+    },
+    {
+      "document": "hc_scan_en",
+      "labels": [
+        "scan_quality"
+      ],
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 2.082,
+      "recovery_seconds": 0.916
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "labels": [
+        "scan_quality",
+        "multi_column",
+        "reading_order"
+      ],
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 1.132,
+      "recovery_seconds": 0.969
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "labels": [
+        "scan_quality",
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "baseline_recall": 0.75,
+      "final_recall": 0.875,
+      "delta": 0.125,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 1,
+      "n_kept": 14,
+      "changes": [
+        {
+          "element_id": "p0-e2",
+          "old_text": "Mô tả hàng hóa STT Sản phẩm A-100 18.000.000 2 1 Bộ lọc khí Mã 22B 6.400.000 2 CÔNG TY TNHH ĐÃ DUYỆT lắp đặt Dịch vụ 3.500.000 3",
+          "new_text": "STT Mô_tả hàng hóa Số IượngThành tiển Sản phẩm A-100 18.000.000 2 Bộ loc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000",
+          "jaccard": 0.8286,
+          "order_consistency": 0.6389,
+          "decision": "replaced"
+        }
+      ],
+      "process_seconds": 1.732,
+      "recovery_seconds": 1.274
+    },
+    {
+      "document": "cmb_scan_tiny_vi",
+      "labels": [
+        "scan_quality",
+        "tiny_text"
+      ],
+      "baseline_recall": 0.0,
+      "final_recall": 0.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 1.295,
+      "recovery_seconds": 1.03
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "labels": [
+        "scan_quality",
+        "table_detection"
+      ],
+      "baseline_recall": 0.7143,
+      "final_recall": 0.7143,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 2.485,
+      "recovery_seconds": 1.27
+    }
+  ]
+}

@@ -1,0 +1,896 @@
+{
+  "summary": {
+    "scope": "corpus",
+    "n_documents": 58,
+    "n_ok": 58,
+    "mean_baseline_recall": 0.9491,
+    "mean_final_recall": 0.9513,
+    "n_documents_changed": 1,
+    "n_documents_improved": 1,
+    "n_documents_regressed": 0,
+    "improved_documents": [
+      "cmb_scan_stamp_table_vi"
+    ],
+    "regressed_documents": [],
+    "total_replaced": 3,
+    "total_kept": 27,
+    "device": "cuda"
+  },
+  "rows": [
+    {
+      "document": "ord_contract_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.1,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_contract_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.089,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_invoice_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.118,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_invoice_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.112,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_financial_report_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.118,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_financial_report_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.121,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_company_profile_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.075,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_company_profile_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.075,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_business_license_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.089,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_business_license_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.08,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_certificate_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.079,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_certificate_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.075,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_policy_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.08,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_policy_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.08,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_technical_report_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.077,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_technical_report_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.077,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_purchase_order_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.115,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_purchase_order_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.113,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_form_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.081,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_form_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.07,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_contract_docx_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.07,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_policy_docx_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.05,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_invoice_docx_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.074,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_finreport_xlsx_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.028,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_purchase_xlsx_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.029,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_profile_pptx_en",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.049,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_profile_pptx_vi",
+      "labels": [],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.049,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "ord_certificate_png_en",
+      "labels": [
+        "scan_quality"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 24.539,
+      "recovery_seconds": 5.102
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "labels": [
+        "scan_quality",
+        "table_detection"
+      ],
+      "baseline_recall": 0.7143,
+      "final_recall": 0.7143,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 2.611,
+      "recovery_seconds": 1.786
+    },
+    {
+      "document": "hc_tiny_text_vi",
+      "labels": [
+        "tiny_text"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.044,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_tiny_text_en",
+      "labels": [
+        "tiny_text"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.043,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_low_contrast_vi",
+      "labels": [
+        "low_contrast"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.048,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_scan_vi",
+      "labels": [
+        "scan_quality"
+      ],
+      "baseline_recall": 0.25,
+      "final_recall": 0.25,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 2,
+      "n_kept": 1,
+      "changes": [
+        {
+          "element_id": "p0-e0",
+          "old_text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập do Hạnh phúc Tự",
+          "new_text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc",
+          "jaccard": 1.0,
+          "order_consistency": 0.9286,
+          "decision": "replaced"
+        },
+        {
+          "element_id": "p0-e2",
+          "old_text": "Kính Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. gửi: phải",
+          "new_text": "Kính gửi: Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ phải thu tại thời điểm khóa sổ là 412.600.000 đổng.",
+          "jaccard": 1.0,
+          "order_consistency": 0.9394,
+          "decision": "replaced"
+        }
+      ],
+      "process_seconds": 1.335,
+      "recovery_seconds": 1.09
+    },
+    {
+      "document": "hc_scan_en",
+      "labels": [
+        "scan_quality"
+      ],
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 3.078,
+      "recovery_seconds": 1.268
+    },
+    {
+      "document": "hc_stamp_text_vi",
+      "labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.101,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_stamp_table_vi",
+      "labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.128,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_transparent_seal_vi",
+      "labels": [
+        "stamp",
+        "occlusion"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.107,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_watermark_vi",
+      "labels": [
+        "watermark"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.097,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_multicolumn_en",
+      "labels": [
+        "multi_column",
+        "reading_order"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.085,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_rotation_vi",
+      "labels": [
+        "rotation",
+        "reading_order"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.085,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_borderless_en",
+      "labels": [
+        "borderless_table",
+        "table_detection"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.092,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_merged_en",
+      "labels": [
+        "merged_cells",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.115,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_tiny_cells_vi",
+      "labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.127,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_encoding_vi",
+      "labels": [
+        "encoding"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 2,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 4.248,
+      "recovery_seconds": 2.905
+    },
+    {
+      "document": "hc_crosspage_vi",
+      "labels": [
+        "cross_page"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.094,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_checkbox_en",
+      "labels": [
+        "form",
+        "checkbox"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.041,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "hc_checkbox_vi",
+      "labels": [
+        "form",
+        "checkbox",
+        "key_value"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.045,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_stamp_table_vi",
+      "labels": [
+        "stamp",
+        "occlusion",
+        "merged_cells",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.062,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_tiny_table_en",
+      "labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.06,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_scan_tiny_vi",
+      "labels": [
+        "scan_quality",
+        "tiny_text"
+      ],
+      "baseline_recall": 0.0,
+      "final_recall": 0.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 1.866,
+      "recovery_seconds": 1.412
+    },
+    {
+      "document": "cmb_multicol_table_en",
+      "labels": [
+        "multi_column",
+        "reading_order",
+        "table_detection"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.124,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_watermark_tiny_vi",
+      "labels": [
+        "watermark",
+        "tiny_text"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.094,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_lowcontrast_stamp_vi",
+      "labels": [
+        "low_contrast",
+        "stamp",
+        "occlusion"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.1,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "labels": [
+        "scan_quality",
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "baseline_recall": 0.75,
+      "final_recall": 0.875,
+      "delta": 0.125,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 1,
+      "n_kept": 14,
+      "changes": [
+        {
+          "element_id": "p0-e2",
+          "old_text": "Mô tả hàng hóa STT Sản phẩm A-100 18.000.000 2 1 Bộ lọc khí Mã 22B 6.400.000 2 CÔNG TY TNHH ĐÃ DUYỆT lắp đặt Dịch vụ 3.500.000 3",
+          "new_text": "STT Mô_tả hàng hóa Số IượngThành tiển Sản phẩm A-100 18.000.000 2 Bộ loc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000",
+          "jaccard": 0.8286,
+          "order_consistency": 0.6389,
+          "decision": "replaced"
+        }
+      ],
+      "process_seconds": 2.886,
+      "recovery_seconds": 1.676
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "labels": [
+        "scan_quality",
+        "multi_column",
+        "reading_order"
+      ],
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 1,
+      "n_replaced": 0,
+      "n_kept": 2,
+      "changes": [],
+      "process_seconds": 1.925,
+      "recovery_seconds": 1.19
+    },
+    {
+      "document": "cmb_borderless_lowcontrast_en",
+      "labels": [
+        "borderless_table",
+        "low_contrast",
+        "table_detection"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.094,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "cmb_stamp_boundary_vi",
+      "labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 0.134,
+      "recovery_seconds": 0.0
+    },
+    {
+      "document": "long_policy_vi_60p",
+      "labels": [
+        "cross_page",
+        "long_document"
+      ],
+      "baseline_recall": 1.0,
+      "final_recall": 1.0,
+      "delta": 0.0,
+      "n_pages_with_rendered_image": 0,
+      "n_replaced": 0,
+      "n_kept": 0,
+      "changes": [],
+      "process_seconds": 1.987,
+      "recovery_seconds": 0.0
+    }
+  ]
+}
