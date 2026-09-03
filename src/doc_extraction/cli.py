@@ -98,14 +98,30 @@ def _get_component_backends(config: PipelineConfig):
     from doc_extraction.backends.docling_backend import DoclingBackend
     from doc_extraction.backends.table_backend import TableTransformerBackend
 
-    key = (config.device, tuple(config.ocr_languages))
+    key = (config.device, tuple(config.ocr_languages), config.ocr_backend)
     cached = _COMPONENT_BACKEND_CACHE.get(key)
     if cached is None:
         docling = DoclingBackend(device=config.device, ocr_languages=config.ocr_languages)
         table_backend = TableTransformerBackend(device=config.device)
-        cached = (docling, docling, table_backend)
+        ocr_backend = _build_ocr_backend(config, docling)
+        cached = (docling, ocr_backend, table_backend)
         _COMPONENT_BACKEND_CACHE[key] = cached
     return cached
+
+
+def _build_ocr_backend(config: PipelineConfig, docling: Any) -> Any:
+    """`config.ocr_backend` selects the OCR component independently of the
+    layout backend, which stays Docling either way (EasyOCR does not do
+    layout). Previously this field was defined on `PipelineConfig` but never
+    read anywhere — a config knob that did not reach the pipeline, the same
+    class of gap `render_dpi` turned out to have (see experiment 011)."""
+    if config.ocr_backend == "docling":
+        return docling
+    if config.ocr_backend == "easyocr":
+        from doc_extraction.backends.easyocr_backend import EasyOCRBackend
+
+        return EasyOCRBackend(device=config.device, languages=config.ocr_languages)
+    raise ValueError(f"unknown ocr_backend: {config.ocr_backend!r}")
 
 
 def build_whole_document_backend(name: str, config: PipelineConfig) -> Any:
