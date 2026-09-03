@@ -1,0 +1,96 @@
+{
+  "device": "cuda",
+  "resource_state": "CLEAR",
+  "cases": [
+    {
+      "document": "hc_scan_vi",
+      "baseline_recall": 0.25,
+      "final_recall": 0.25,
+      "triggered": false,
+      "n_elements_checked": 3,
+      "n_triggered": 0,
+      "n_replaced": 0,
+      "changes": [],
+      "process_seconds": 19.964,
+      "recovery_seconds": 3.545,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/hc_scan_vi-55bd89b9/rendered/page-001.png"
+    },
+    {
+      "document": "hc_scan_en",
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "triggered": false,
+      "n_elements_checked": 2,
+      "n_triggered": 0,
+      "n_replaced": 0,
+      "changes": [],
+      "process_seconds": 2.014,
+      "recovery_seconds": 0.888,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/hc_scan_en-94c7b3ec/rendered/page-001.png"
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "baseline_recall": 0.6667,
+      "final_recall": 0.6667,
+      "triggered": false,
+      "n_elements_checked": 2,
+      "n_triggered": 0,
+      "n_replaced": 0,
+      "changes": [],
+      "process_seconds": 1.071,
+      "recovery_seconds": 0.988,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/cmb_scan_multicol_en-a04e841f/rendered/page-001.png"
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "baseline_recall": 0.75,
+      "final_recall": 0.75,
+      "triggered": false,
+      "n_elements_checked": 19,
+      "n_triggered": 0,
+      "n_replaced": 0,
+      "changes": [],
+      "process_seconds": 1.673,
+      "recovery_seconds": 1.243,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/cmb_scan_stamp_table_vi-45fa1db7/rendered/page-001.png"
+    },
+    {
+      "document": "cmb_scan_tiny_vi",
+      "baseline_recall": 0.0,
+      "final_recall": 0.0,
+      "triggered": true,
+      "n_elements_checked": 2,
+      "n_triggered": 1,
+      "n_replaced": 0,
+      "changes": [
+        {
+          "element_id": "p0-e1",
+          "old_text": "Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải",
+          "new_text": "Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Tham quyén phe duyet Dieu 2 Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản.",
+          "decision": "kept_old",
+          "reasons": [
+            "docling/easyocr word-agreement=0.23",
+            "below threshold 0.5",
+            "fusion status=conflict, not accepted as verified-better"
+          ]
+        }
+      ],
+      "process_seconds": 1.214,
+      "recovery_seconds": 1.021,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/cmb_scan_tiny_vi-45642cca/rendered/page-001.png"
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "baseline_recall": 0.7143,
+      "final_recall": 0.7143,
+      "triggered": false,
+      "n_elements_checked": 2,
+      "n_triggered": 0,
+      "n_replaced": 0,
+      "changes": [],
+      "process_seconds": 2.556,
+      "recovery_seconds": 1.222,
+      "rendered_image_path": "/tmp/claude-1002/-home-leanhkhoa150204/53135489-765a-4c07-8a55-7b281fb97758/scratchpad/scan_recovery_015/ord_invoice_png_vi-4635022a/rendered/page-001.png"
+    }
+  ]
+}

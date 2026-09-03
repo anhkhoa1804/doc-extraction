@@ -1,0 +1,503 @@
+{
+  "summary": {
+    "n_documents": 13,
+    "device": "cuda",
+    "resource_state": "CLEAR",
+    "policy_a_easyocr": {
+      "mean_exact_recall": 0.5267,
+      "mean_word_recall": 0.9111,
+      "mean_duplicate_rate": 0.1876
+    },
+    "policy_b_naive_union": {
+      "mean_exact_recall": 0.5716,
+      "mean_word_recall": 0.9286,
+      "mean_duplicate_rate": 0.5608
+    },
+    "policy_c_evidence_fusion": {
+      "mean_exact_recall": 0.5364,
+      "mean_word_recall": 0.9158,
+      "mean_duplicate_rate": 0.2452,
+      "mean_conflict_rate": 0.0423
+    },
+    "correlations": {
+      "confidence_vs_c_word_recall": 0.4937085465295792,
+      "agreement_vs_c_word_recall": 0.5931590281170835,
+      "combined_vs_c_word_recall": 0.5763397227004502,
+      "agreement_vs_min_single_backend_recall_exp012_replication": 0.8562341569647783
+    },
+    "correlated_error_documents": [
+      "ord_contract_vi",
+      "hc_low_contrast_vi"
+    ]
+  },
+  "results": [
+    {
+      "document": "hc_scan_vi",
+      "n_must_contain": 4,
+      "policy_a_easyocr": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "duplicate_rate": 0.0556
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "duplicate_rate": 0.5278
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375,
+        "duplicate_rate": 0.0556,
+        "n_groups": 3,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 3,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0004
+      },
+      "docling_alone": {
+        "exact_recall": 0.25,
+        "word_recall": 0.9375
+      },
+      "min_single_backend_word_recall": 0.9375,
+      "whole_doc_word_agreement": 1.0,
+      "easyocr_mean_confidence": 0.8814,
+      "docling_seconds": 12.844,
+      "easyocr_seconds": 3.516
+    },
+    {
+      "document": "hc_scan_en",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.0968
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5484
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.0968,
+        "n_groups": 2,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 2,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0002
+      },
+      "docling_alone": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 1.0,
+      "whole_doc_word_agreement": 1.0,
+      "easyocr_mean_confidence": 0.8761,
+      "docling_seconds": 1.693,
+      "easyocr_seconds": 0.883
+    },
+    {
+      "document": "cmb_scan_multicol_en",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.1429
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5714
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5522,
+        "n_groups": 7,
+        "n_single_docling": 0,
+        "n_single_easyocr": 5,
+        "n_agree": 1,
+        "n_partial": 1,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0005
+      },
+      "docling_alone": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 1.0,
+      "whole_doc_word_agreement": 1.0,
+      "easyocr_mean_confidence": 0.8016,
+      "docling_seconds": 0.789,
+      "easyocr_seconds": 0.94
+    },
+    {
+      "document": "cmb_scan_stamp_table_vi",
+      "n_must_contain": 8,
+      "policy_a_easyocr": {
+        "exact_recall": 0.75,
+        "word_recall": 0.975,
+        "duplicate_rate": 0.1857
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5683
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.875,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.2716,
+        "n_groups": 20,
+        "n_single_docling": 5,
+        "n_single_easyocr": 2,
+        "n_agree": 12,
+        "n_partial": 1,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0011
+      },
+      "docling_alone": {
+        "exact_recall": 0.875,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 0.975,
+      "whole_doc_word_agreement": 0.8833,
+      "easyocr_mean_confidence": 0.8207,
+      "docling_seconds": 1.373,
+      "easyocr_seconds": 1.212
+    },
+    {
+      "document": "cmb_scan_tiny_vi",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667,
+        "duplicate_rate": 0.1698
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667,
+        "duplicate_rate": 0.3649
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.0,
+        "word_recall": 0.6667,
+        "duplicate_rate": 0.2879,
+        "n_groups": 4,
+        "n_single_docling": 0,
+        "n_single_easyocr": 2,
+        "n_agree": 1,
+        "n_partial": 0,
+        "n_conflict": 1,
+        "conflict_rate": 0.5,
+        "seconds_fusion_only": 0.0004
+      },
+      "docling_alone": {
+        "exact_recall": 0.0,
+        "word_recall": 0.4167
+      },
+      "min_single_backend_word_recall": 0.4167,
+      "whole_doc_word_agreement": 0.3404,
+      "easyocr_mean_confidence": 0.5755,
+      "docling_seconds": 0.824,
+      "easyocr_seconds": 0.972
+    },
+    {
+      "document": "ord_invoice_png_vi",
+      "n_must_contain": 7,
+      "policy_a_easyocr": {
+        "exact_recall": 0.8571,
+        "word_recall": 0.9643,
+        "duplicate_rate": 0.1831
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5674
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.2179,
+        "n_groups": 21,
+        "n_single_docling": 3,
+        "n_single_easyocr": 2,
+        "n_agree": 15,
+        "n_partial": 1,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0011
+      },
+      "docling_alone": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 0.9643,
+      "whole_doc_word_agreement": 0.8852,
+      "easyocr_mean_confidence": 0.8838,
+      "docling_seconds": 2.161,
+      "easyocr_seconds": 1.186
+    },
+    {
+      "document": "ord_contract_en",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.3281
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.6641
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.3281,
+        "n_groups": 3,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 3,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0003
+      },
+      "docling_alone": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 1.0,
+      "whole_doc_word_agreement": 1.0,
+      "easyocr_mean_confidence": 0.8181,
+      "docling_seconds": 1.111,
+      "easyocr_seconds": 1.091
+    },
+    {
+      "document": "ord_contract_vi",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.3735
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.6747
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.3735,
+        "n_groups": 2,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 2,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0003
+      },
+      "docling_alone": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825
+      },
+      "min_single_backend_word_recall": 0.7825,
+      "whole_doc_word_agreement": 0.9259,
+      "easyocr_mean_confidence": 0.8154,
+      "docling_seconds": 1.202,
+      "easyocr_seconds": 1.218
+    },
+    {
+      "document": "hc_tiny_text_en",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.6667,
+        "word_recall": 0.8889,
+        "duplicate_rate": 0.1212
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 1.0,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5441
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.6667,
+        "word_recall": 0.8889,
+        "duplicate_rate": 0.1212,
+        "n_groups": 3,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 3,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0003
+      },
+      "docling_alone": {
+        "exact_recall": 0.6667,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 0.8889,
+      "whole_doc_word_agreement": 0.9032,
+      "easyocr_mean_confidence": 0.9005,
+      "docling_seconds": 0.701,
+      "easyocr_seconds": 0.867
+    },
+    {
+      "document": "hc_tiny_text_vi",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.8472,
+        "duplicate_rate": 0.1923
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.9028,
+        "duplicate_rate": 0.5472
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.8472,
+        "duplicate_rate": 0.1923,
+        "n_groups": 2,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 2,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0002
+      },
+      "docling_alone": {
+        "exact_recall": 0.3333,
+        "word_recall": 0.9028
+      },
+      "min_single_backend_word_recall": 0.8472,
+      "whole_doc_word_agreement": 0.7708,
+      "easyocr_mean_confidence": 0.7343,
+      "docling_seconds": 0.787,
+      "easyocr_seconds": 0.951
+    },
+    {
+      "document": "hc_low_contrast_vi",
+      "n_must_contain": 3,
+      "policy_a_easyocr": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.3735
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.6807
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825,
+        "duplicate_rate": 0.3735,
+        "n_groups": 2,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 2,
+        "n_partial": 0,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0004
+      },
+      "docling_alone": {
+        "exact_recall": 0.0,
+        "word_recall": 0.7825
+      },
+      "min_single_backend_word_recall": 0.7825,
+      "whole_doc_word_agreement": 0.9811,
+      "easyocr_mean_confidence": 0.904,
+      "docling_seconds": 1.355,
+      "easyocr_seconds": 1.254
+    },
+    {
+      "document": "hc_stamp_text_vi",
+      "n_must_contain": 5,
+      "policy_a_easyocr": {
+        "exact_recall": 0.8,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.1216
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.8,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.4892
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.8,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.1977,
+        "n_groups": 4,
+        "n_single_docling": 0,
+        "n_single_easyocr": 0,
+        "n_agree": 2,
+        "n_partial": 2,
+        "n_conflict": 0,
+        "conflict_rate": 0.0,
+        "seconds_fusion_only": 0.0004
+      },
+      "docling_alone": {
+        "exact_recall": 0.4,
+        "word_recall": 0.8429
+      },
+      "min_single_backend_word_recall": 0.8429,
+      "whole_doc_word_agreement": 0.7183,
+      "easyocr_mean_confidence": 0.7226,
+      "docling_seconds": 1.482,
+      "easyocr_seconds": 1.13
+    },
+    {
+      "document": "cmb_multicol_table_en",
+      "n_must_contain": 7,
+      "policy_a_easyocr": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.0952
+      },
+      "policy_b_naive_union": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.5426
+      },
+      "policy_c_evidence_fusion": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0,
+        "duplicate_rate": 0.1194,
+        "n_groups": 23,
+        "n_single_docling": 3,
+        "n_single_easyocr": 0,
+        "n_agree": 19,
+        "n_partial": 0,
+        "n_conflict": 1,
+        "conflict_rate": 0.05,
+        "seconds_fusion_only": 0.0013
+      },
+      "docling_alone": {
+        "exact_recall": 0.8571,
+        "word_recall": 1.0
+      },
+      "min_single_backend_word_recall": 1.0,
+      "whole_doc_word_agreement": 0.9492,
+      "easyocr_mean_confidence": 0.9431,
+      "docling_seconds": 1.781,
+      "easyocr_seconds": 1.154
+    }
+  ]
+}

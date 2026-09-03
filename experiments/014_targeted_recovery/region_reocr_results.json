@@ -1,0 +1,44 @@
+[
+  {
+    "document": "cmb_scan_tiny_vi",
+    "group_index": 0,
+    "bbox": [
+      164.9095,
+      265.4222156461737,
+      506.72711137277594,
+      347.5483631623563
+    ],
+    "docling_text": "Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải",
+    "easyocr_text": "Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Tham quyén phe duyet Dieu 2 Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản.",
+    "original_agreement": 0.2308,
+    "reocr_text": "Quy ché nay áp dung cho toan bộ nhan sư thuọc công Diéu 2 Thám quyén duyet Khoan chi tren 50.000.000 dóng phải ducc Túng Giám Phe",
+    "reocr_mean_confidence": 0.5289,
+    "sim_docling_vs_reocr": 0.25,
+    "sim_easyocr_vs_reocr": 0.4884,
+    "relevant_must_contain_phrases": [
+      "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+      "Điều 1. Phạm vi áp dụng",
+      "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "resolved_toward_one_reading": false
+  },
+  {
+    "document": "cmb_multicol_table_en",
+    "group_index": 0,
+    "bbox": [
+      704.5324999999998,
+      912.1139999999999,
+      752.9830000000001,
+      945.4514999999999
+    ],
+    "docling_text": "Ijob",
+    "easyocr_text": "job",
+    "original_agreement": 0.0,
+    "reocr_text": "job",
+    "reocr_mean_confidence": 0.9998,
+    "sim_docling_vs_reocr": 0.0,
+    "sim_easyocr_vs_reocr": 1.0,
+    "relevant_must_contain_phrases": [],
+    "resolved_toward_one_reading": true
+  }
+]

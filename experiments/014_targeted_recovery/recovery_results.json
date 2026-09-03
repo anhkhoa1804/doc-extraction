@@ -1,0 +1,72 @@
+[
+  {
+    "document": "cmb_scan_tiny_vi",
+    "group_index": 0,
+    "docling_text": "Điéu 2Tham Khoan chi trên 50.000.000 công quyén Phè dóng phải",
+    "easyocr_text": "Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Tham quyén phe duyet Dieu 2 Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản.",
+    "original_agreement": 0.23076923076923078,
+    "attempts": [
+      {
+        "method": "plain",
+        "text": "Quy ché nay áp dung cho toan bộ nhan sư thuọc công Diéu 2 Thám quyén duyet Khoan chi tren 50.000.000 dóng phải ducc Túng Giám Phe",
+        "mean_confidence": 0.5289278479147219,
+        "sim_to_docling": 0.25,
+        "sim_to_easyocr": 0.4884
+      },
+      {
+        "method": "upscale",
+        "text": "ché nay áp dung cho toan bộ nhán sư thuọc Điéu 2Tham Phé duyet Khoan chi trên 50.0C0.000 dóng phảỉ ducc Tõng Giám công Quy quyén",
+        "mean_confidence": 0.6079289972562668,
+        "sim_to_docling": 0.3333,
+        "sim_to_easyocr": 0.3913
+      },
+      {
+        "method": "resegment",
+        "text": "Quy che nay ap dung cho toan bo nhan su thuoc cong Điéu 2Tham quyen phe duyet KFoan chi tren 50.000.000 dóng phải ducc Tong Giam €",
+        "mean_confidence": 0.4127559510465084,
+        "sim_to_docling": 0.2188,
+        "sim_to_easyocr": 0.3696
+      }
+    ],
+    "chosen_method": "plain",
+    "replaced": false,
+    "reasons": [
+      "kept old evidence: best candidate (plain) similarity 0.49 did not clear max(original_agreement=0.23, 0.5)"
+    ]
+  },
+  {
+    "document": "cmb_multicol_table_en",
+    "group_index": 0,
+    "docling_text": "Ijob",
+    "easyocr_text": "job",
+    "original_agreement": 0.0,
+    "attempts": [
+      {
+        "method": "plain",
+        "text": "job",
+        "mean_confidence": 0.9997916680724723,
+        "sim_to_docling": 0.0,
+        "sim_to_easyocr": 1.0
+      },
+      {
+        "method": "upscale",
+        "text": "Ijob",
+        "mean_confidence": 0.8041012828462057,
+        "sim_to_docling": 1.0,
+        "sim_to_easyocr": 0.0
+      },
+      {
+        "method": "resegment",
+        "text": "Ijob",
+        "mean_confidence": 0.9680261015892029,
+        "sim_to_docling": 1.0,
+        "sim_to_easyocr": 0.0
+      }
+    ],
+    "chosen_method": "plain",
+    "replaced": true,
+    "reasons": [
+      "plain: similarity 1.00 > max(original_agreement=0.00, 0.5), confidence ok"
+    ]
+  }
+]

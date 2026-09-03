@@ -4,7 +4,7 @@
   "corpus_manifest_sha256": "d73ee35488d8284e802fc8a67daf15ef4852cc99fd3a1d9909984e3fd03447c8",
   "documents_run": 58,
   "strategy": "adaptive",
-  "device": "cpu",
+  "device": "cuda",
   "resource_state": {
     "gpu_preflight": {
       "classification": "clear",
@@ -21,9 +21,9 @@
     },
     "cpu_preflight": {
       "loadavg": [
-        0.52,
-        0.76,
-        1.67
+        0.24,
+        0.55,
+        0.55
       ],
       "cpu_count": 8,
       "classification": "CLEAN",
@@ -31,9 +31,9 @@
     },
     "cpu_postflight": {
       "loadavg": [
-        3.07,
-        1.63,
-        1.89
+        0.51,
+        0.58,
+        0.56
       ],
       "cpu_count": 8,
       "classification": "CLEAN",
@@ -43,29 +43,29 @@
   "summary": {
     "documents": 58,
     "pages": 125,
-    "mean_text_recall": 0.938,
+    "mean_text_recall": 0.9491,
     "p50_text_recall": 1.0,
-    "p10_text_recall": 0.6667,
+    "p10_text_recall": 0.75,
     "worst_text_recall": 0.0,
     "fully_recovered": 52,
     "total_failures": 1,
     "hallucinations": 0,
     "errors": 0,
     "tables_ok": 55,
-    "total_runtime_s": 107.02,
-    "runtime_p50_s": 0.046,
-    "runtime_p90_s": 7.961,
-    "runtime_p95_s": 17.126,
-    "runtime_p99_s": 20.82,
-    "runtime_max_s": 20.82,
-    "runtime_mean_s": 1.845
+    "total_runtime_s": 30.18,
+    "runtime_p50_s": 0.048,
+    "runtime_p90_s": 1.318,
+    "runtime_p95_s": 2.444,
+    "runtime_p99_s": 14.839,
+    "runtime_max_s": 14.839,
+    "runtime_mean_s": 0.52
   },
   "failure_by_type": {
     "scan_quality": {
       "count": 6,
       "critical": 1,
-      "high": 2,
-      "medium": 3,
+      "high": 1,
+      "medium": 4,
       "documents": [
         "ord_invoice_png_vi",
         "hc_scan_vi",
@@ -74,7 +74,7 @@
         "cmb_scan_stamp_table_vi",
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 63.4
+      "runtime_s": 9.56
     },
     "borderless_table": {
       "count": 2,
@@ -85,7 +85,7 @@
         "hc_borderless_en",
         "cmb_borderless_lowcontrast_en"
       ],
-      "runtime_s": 0.09
+      "runtime_s": 0.1
     },
     "table_detection": {
       "count": 2,
@@ -96,7 +96,7 @@
         "hc_borderless_en",
         "cmb_borderless_lowcontrast_en"
       ],
-      "runtime_s": 0.09
+      "runtime_s": 0.1
     },
     "tiny_text": {
       "count": 1,
@@ -106,27 +106,7 @@
       "documents": [
         "cmb_scan_tiny_vi"
       ],
-      "runtime_s": 4.41
-    },
-    "stamp": {
-      "count": 1,
-      "critical": 0,
-      "high": 1,
-      "medium": 0,
-      "documents": [
-        "cmb_scan_stamp_table_vi"
-      ],
-      "runtime_s": 13.48
-    },
-    "occlusion": {
-      "count": 1,
-      "critical": 0,
-      "high": 1,
-      "medium": 0,
-      "documents": [
-        "cmb_scan_stamp_table_vi"
-      ],
-      "runtime_s": 13.48
+      "runtime_s": 1.15
     },
     "table_structure": {
       "count": 1,
@@ -136,7 +116,27 @@
       "documents": [
         "cmb_scan_stamp_table_vi"
       ],
-      "runtime_s": 13.48
+      "runtime_s": 1.65
+    },
+    "stamp": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 1.65
+    },
+    "occlusion": {
+      "count": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "documents": [
+        "cmb_scan_stamp_table_vi"
+      ],
+      "runtime_s": 1.65
     },
     "multi_column": {
       "count": 1,
@@ -146,7 +146,7 @@
       "documents": [
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 5.43
+      "runtime_s": 1.02
     },
     "reading_order": {
       "count": 1,
@@ -156,7 +156,7 @@
       "documents": [
         "cmb_scan_multicol_en"
       ],
-      "runtime_s": 5.43
+      "runtime_s": 1.02
     }
   },
   "failures": [
@@ -168,9 +168,9 @@
       "current_strategy": "adaptive",
       "route": "?",
       "recovered": false,
-      "text_recall": 0.5714,
+      "text_recall": 0.7143,
       "hallucinated": false,
-      "runtime_s": 14.992,
+      "runtime_s": 2.444,
       "language": "vi",
       "format": "png"
     },
@@ -184,7 +184,7 @@
       "recovered": false,
       "text_recall": 0.25,
       "hallucinated": false,
-      "runtime_s": 7.961,
+      "runtime_s": 1.318,
       "language": "vi",
       "format": "pdf"
     },
@@ -198,7 +198,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 17.126,
+      "runtime_s": 1.984,
       "language": "en",
       "format": "pdf"
     },
@@ -212,7 +212,7 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.044,
+      "runtime_s": 0.048,
       "language": "en",
       "format": "pdf"
     },
@@ -226,7 +226,7 @@
       "recovered": false,
       "text_recall": 1.0,
       "hallucinated": false,
-      "runtime_s": 0.044,
+      "runtime_s": 0.048,
       "language": "en",
       "format": "pdf"
     },
@@ -240,7 +240,7 @@
       "recovered": false,
       "text_recall": 0.0,
       "hallucinated": false,
-      "runtime_s": 4.411,
+      "runtime_s": 1.149,
       "language": "vi",
       "format": "pdf"
     },
@@ -254,49 +254,7 @@
       "recovered": false,
       "text_recall": 0.0,
       "hallucinated": false,
-      "runtime_s": 4.411,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_scan_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "scan_quality",
-      "severity": "high",
-      "current_strategy": "adaptive",
-      "route": "scanned_pdf",
-      "recovered": false,
-      "text_recall": 0.25,
-      "hallucinated": false,
-      "runtime_s": 13.48,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_scan_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "stamp",
-      "severity": "high",
-      "current_strategy": "adaptive",
-      "route": "scanned_pdf",
-      "recovered": false,
-      "text_recall": 0.25,
-      "hallucinated": false,
-      "runtime_s": 13.48,
-      "language": "vi",
-      "format": "pdf"
-    },
-    {
-      "document_id": "cmb_scan_stamp_table_vi",
-      "pages": 1,
-      "failure_type": "occlusion",
-      "severity": "high",
-      "current_strategy": "adaptive",
-      "route": "scanned_pdf",
-      "recovered": false,
-      "text_recall": 0.25,
-      "hallucinated": false,
-      "runtime_s": 13.48,
+      "runtime_s": 1.149,
       "language": "vi",
       "format": "pdf"
     },
@@ -308,9 +266,51 @@
       "current_strategy": "adaptive",
       "route": "scanned_pdf",
       "recovered": false,
-      "text_recall": 0.25,
+      "text_recall": 0.75,
       "hallucinated": false,
-      "runtime_s": 13.48,
+      "runtime_s": 1.647,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "scan_quality",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.647,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "stamp",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.647,
+      "language": "vi",
+      "format": "pdf"
+    },
+    {
+      "document_id": "cmb_scan_stamp_table_vi",
+      "pages": 1,
+      "failure_type": "occlusion",
+      "severity": "medium",
+      "current_strategy": "adaptive",
+      "route": "scanned_pdf",
+      "recovered": false,
+      "text_recall": 0.75,
+      "hallucinated": false,
+      "runtime_s": 1.647,
       "language": "vi",
       "format": "pdf"
     },
@@ -324,7 +324,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 5.431,
+      "runtime_s": 1.016,
       "language": "en",
       "format": "pdf"
     },
@@ -338,7 +338,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 5.431,
+      "runtime_s": 1.016,
       "language": "en",
       "format": "pdf"
     },
@@ -352,7 +352,7 @@
       "recovered": false,
       "text_recall": 0.6667,
       "hallucinated": false,
-      "runtime_s": 5.431,
+      "runtime_s": 1.016,
       "language": "en",
       "format": "pdf"
     },
@@ -397,7 +397,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -406,7 +406,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.064,
+      "runtime_s": 0.052,
       "chars": 351,
       "error": null
     },
@@ -421,7 +421,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -430,7 +430,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.045,
+      "runtime_s": 0.047,
       "chars": 371,
       "error": null
     },
@@ -445,7 +445,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -454,7 +454,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.057,
+      "runtime_s": 0.059,
       "chars": 308,
       "error": null
     },
@@ -469,7 +469,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -478,7 +478,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.055,
+      "runtime_s": 0.057,
       "chars": 284,
       "error": null
     },
@@ -493,7 +493,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -502,7 +502,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.058,
+      "runtime_s": 0.06,
       "chars": 342,
       "error": null
     },
@@ -517,7 +517,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -526,7 +526,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.058,
+      "runtime_s": 0.06,
       "chars": 358,
       "error": null
     },
@@ -541,7 +541,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -550,7 +550,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.037,
+      "runtime_s": 0.04,
       "chars": 158,
       "error": null
     },
@@ -565,7 +565,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -574,7 +574,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.038,
+      "runtime_s": 0.039,
       "chars": 174,
       "error": null
     },
@@ -589,7 +589,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -598,7 +598,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.044,
+      "runtime_s": 0.045,
       "chars": 342,
       "error": null
     },
@@ -613,7 +613,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -637,7 +637,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -646,7 +646,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.038,
+      "runtime_s": 0.042,
       "chars": 204,
       "error": null
     },
@@ -661,7 +661,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -670,7 +670,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.038,
+      "runtime_s": 0.039,
       "chars": 187,
       "error": null
     },
@@ -685,7 +685,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -709,7 +709,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -733,7 +733,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -742,7 +742,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.038,
+      "runtime_s": 0.041,
       "chars": 199,
       "error": null
     },
@@ -757,7 +757,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -781,7 +781,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -790,7 +790,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.055,
+      "runtime_s": 0.06,
       "chars": 274,
       "error": null
     },
@@ -805,7 +805,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -814,7 +814,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.055,
+      "runtime_s": 0.056,
       "chars": 262,
       "error": null
     },
@@ -829,7 +829,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -838,7 +838,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.04,
+      "runtime_s": 0.042,
       "chars": 231,
       "error": null
     },
@@ -853,7 +853,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -862,7 +862,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.036,
+      "runtime_s": 0.038,
       "chars": 139,
       "error": null
     },
@@ -877,7 +877,7 @@
       "routes": [
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 2,
       "required": 2,
@@ -886,7 +886,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.034,
+      "runtime_s": 0.035,
       "chars": 371,
       "error": null
     },
@@ -901,7 +901,7 @@
       "routes": [
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 2,
       "required": 2,
@@ -910,7 +910,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.025,
+      "runtime_s": 0.027,
       "chars": 235,
       "error": null
     },
@@ -925,7 +925,7 @@
       "routes": [
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -934,7 +934,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.037,
+      "runtime_s": 0.039,
       "chars": 308,
       "error": null
     },
@@ -950,7 +950,7 @@
         "native_office",
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -975,7 +975,7 @@
         "native_office",
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -984,7 +984,7 @@
       "tables_found": 2,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.015,
+      "runtime_s": 0.014,
       "chars": 188,
       "error": null
     },
@@ -1000,7 +1000,7 @@
         "native_office",
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1009,7 +1009,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.025,
+      "runtime_s": 0.027,
       "chars": 228,
       "error": null
     },
@@ -1025,7 +1025,7 @@
         "native_office",
         "native_office"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1034,7 +1034,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.024,
+      "runtime_s": 0.027,
       "chars": 228,
       "error": null
     },
@@ -1051,7 +1051,7 @@
       "routes": [
         "?"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1060,7 +1060,7 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 19.651,
+      "runtime_s": 14.839,
       "chars": 187,
       "error": null
     },
@@ -1078,12 +1078,11 @@
       "routes": [
         "?"
       ],
-      "device": "cpu",
-      "text_recall": 0.5714,
-      "found": 4,
+      "device": "cuda",
+      "text_recall": 0.7143,
+      "found": 5,
       "required": 7,
       "missing": [
-        "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
         "Ký hiệu: MQ/2026E    Số: 0004417",
         "Dịch vụ lắp đặt"
       ],
@@ -1091,8 +1090,8 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 14.992,
-      "chars": 222,
+      "runtime_s": 2.444,
+      "chars": 243,
       "error": null
     },
     {
@@ -1108,7 +1107,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1117,7 +1116,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.043,
+      "runtime_s": 0.045,
       "chars": 235,
       "error": null
     },
@@ -1134,7 +1133,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1143,7 +1142,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.041,
+      "runtime_s": 0.043,
       "chars": 232,
       "error": null
     },
@@ -1160,7 +1159,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1169,7 +1168,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.046,
+      "runtime_s": 0.047,
       "chars": 351,
       "error": null
     },
@@ -1186,7 +1185,7 @@
       "routes": [
         "scanned_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 0.25,
       "found": 1,
       "required": 4,
@@ -1199,7 +1198,7 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 7.961,
+      "runtime_s": 1.318,
       "chars": 235,
       "error": null
     },
@@ -1216,7 +1215,7 @@
       "routes": [
         "scanned_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 0.6667,
       "found": 2,
       "required": 3,
@@ -1227,8 +1226,8 @@
       "tables_found": 1,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 17.126,
-      "chars": 203,
+      "runtime_s": 1.984,
+      "chars": 202,
       "error": null
     },
     {
@@ -1245,7 +1244,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 5,
       "required": 5,
@@ -1254,7 +1253,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.05,
+      "runtime_s": 0.052,
       "chars": 364,
       "error": null
     },
@@ -1273,7 +1272,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 8,
       "required": 8,
@@ -1282,7 +1281,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.062,
+      "runtime_s": 0.065,
       "chars": 330,
       "error": null
     },
@@ -1300,7 +1299,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 5,
       "required": 5,
@@ -1309,7 +1308,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.053,
+      "runtime_s": 0.054,
       "chars": 364,
       "error": null
     },
@@ -1326,7 +1325,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1335,7 +1334,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.045,
+      "runtime_s": 0.048,
       "chars": 359,
       "error": null
     },
@@ -1353,7 +1352,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1380,7 +1379,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1407,7 +1406,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1416,7 +1415,7 @@
       "tables_found": 0,
       "tables_expected": 1,
       "tables_ok": false,
-      "runtime_s": 0.044,
+      "runtime_s": 0.048,
       "chars": 284,
       "error": null
     },
@@ -1434,7 +1433,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1443,7 +1442,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.056,
+      "runtime_s": 0.06,
       "chars": 284,
       "error": null
     },
@@ -1461,7 +1460,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1470,7 +1469,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.061,
+      "runtime_s": 0.062,
       "chars": 308,
       "error": null
     },
@@ -1488,7 +1487,7 @@
         "scanned_pdf",
         "scanned_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 2,
       "required": 2,
@@ -1497,7 +1496,7 @@
       "tables_found": 2,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 20.82,
+      "runtime_s": 2.507,
       "chars": 1817,
       "error": null
     },
@@ -1517,7 +1516,7 @@
         "digital_pdf",
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1526,7 +1525,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.089,
+      "runtime_s": 0.096,
       "chars": 1027,
       "error": null
     },
@@ -1544,7 +1543,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 4,
       "required": 4,
@@ -1553,7 +1552,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.04,
+      "runtime_s": 0.043,
       "chars": 183,
       "error": null
     },
@@ -1572,7 +1571,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 5,
       "required": 5,
@@ -1581,7 +1580,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.044,
+      "runtime_s": 0.048,
       "chars": 263,
       "error": null
     },
@@ -1601,7 +1600,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 8,
       "required": 8,
@@ -1610,7 +1609,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.062,
+      "runtime_s": 0.064,
       "chars": 304,
       "error": null
     },
@@ -1628,7 +1627,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1637,7 +1636,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.057,
+      "runtime_s": 0.061,
       "chars": 284,
       "error": null
     },
@@ -1655,7 +1654,7 @@
       "routes": [
         "scanned_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 0.0,
       "found": 0,
       "required": 3,
@@ -1668,7 +1667,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 4.411,
+      "runtime_s": 1.149,
       "chars": 93,
       "error": null
     },
@@ -1687,7 +1686,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1696,7 +1695,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.061,
+      "runtime_s": 0.062,
       "chars": 358,
       "error": null
     },
@@ -1714,7 +1713,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1723,7 +1722,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.046,
+      "runtime_s": 0.05,
       "chars": 359,
       "error": null
     },
@@ -1742,7 +1741,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 5,
       "required": 5,
@@ -1751,7 +1750,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.048,
+      "runtime_s": 0.049,
       "chars": 364,
       "error": null
     },
@@ -1771,24 +1770,20 @@
       "routes": [
         "scanned_pdf"
       ],
-      "device": "cpu",
-      "text_recall": 0.25,
-      "found": 2,
+      "device": "cuda",
+      "text_recall": 0.75,
+      "found": 6,
       "required": 8,
       "missing": [
         "Ký hiệu: MQ/2026E    Số: 0004417",
-        "Mô tả hàng hóa",
-        "Sản phẩm A-100",
-        "Bộ lọc khí Mã 22B",
-        "Dịch vụ lắp đặt",
-        "ĐÃ DUYỆT"
+        "Dịch vụ lắp đặt"
       ],
       "hallucinated": [],
       "tables_found": 0,
       "tables_expected": 1,
       "tables_ok": false,
-      "runtime_s": 13.48,
-      "chars": 155,
+      "runtime_s": 1.647,
+      "chars": 413,
       "error": null
     },
     {
@@ -1806,7 +1801,7 @@
       "routes": [
         "scanned_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 0.6667,
       "found": 2,
       "required": 3,
@@ -1817,7 +1812,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 5.431,
+      "runtime_s": 1.016,
       "chars": 231,
       "error": null
     },
@@ -1836,7 +1831,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 7,
       "required": 7,
@@ -1864,7 +1859,7 @@
       "routes": [
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 8,
       "required": 8,
@@ -1873,7 +1868,7 @@
       "tables_found": 1,
       "tables_expected": 1,
       "tables_ok": true,
-      "runtime_s": 0.064,
+      "runtime_s": 0.066,
       "chars": 330,
       "error": null
     },
@@ -1950,7 +1945,7 @@
         "digital_pdf",
         "digital_pdf"
       ],
-      "device": "cpu",
+      "device": "cuda",
       "text_recall": 1.0,
       "found": 3,
       "required": 3,
@@ -1959,7 +1954,7 @@
       "tables_found": 0,
       "tables_expected": 0,
       "tables_ok": true,
-      "runtime_s": 0.911,
+      "runtime_s": 0.961,
       "chars": 15082,
       "error": null
     }
