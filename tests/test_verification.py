@@ -8,8 +8,11 @@ signals, only their unified verdict.
 """
 from __future__ import annotations
 
+import pytest
+
 from doc_extraction.ingest.verification import (
     VerificationStatus,
+    assess_ocr_agreement,
     from_table_confidence,
     from_text_quality,
     verify_document,
@@ -66,6 +69,35 @@ def test_verify_element_text_skips_elements_with_no_text():
 
 def test_verify_element_text_treats_short_text_as_not_applicable():
     assert verify_element_text(_element("Hi.")) is None
+
+
+def test_ocr_agreement_identical_text_is_trusted():
+    result = assess_ocr_agreement(CLEAN_VIETNAMESE_TEXT, CLEAN_VIETNAMESE_TEXT)
+    assert result.status is VerificationStatus.TRUSTED
+    assert result.score == pytest.approx(1.0)
+
+
+def test_ocr_agreement_wildly_different_text_is_suspicious():
+    result = assess_ocr_agreement("Hoa don gia tri gia tang", "xyz qwerty asdf zzz")
+    assert result.status is VerificationStatus.SUSPICIOUS
+    assert result.score == pytest.approx(0.0)
+
+
+def test_ocr_agreement_never_reports_invalid():
+    """Disagreement says the two sources differ, not which is wrong --
+    INVALID would claim a certainty this signal does not have."""
+    result = assess_ocr_agreement("a b c", "x y z")
+    assert result.status in (VerificationStatus.TRUSTED, VerificationStatus.SUSPICIOUS)
+
+
+def test_ocr_agreement_both_empty_is_trusted_not_a_false_alarm():
+    result = assess_ocr_agreement("", "")
+    assert result.status is VerificationStatus.TRUSTED
+
+
+def test_ocr_agreement_reasons_name_the_score():
+    result = assess_ocr_agreement("hello world", "hello world")
+    assert any("agreement=" in r for r in result.reasons)
 
 
 def test_table_confidence_maps_to_all_three_statuses():

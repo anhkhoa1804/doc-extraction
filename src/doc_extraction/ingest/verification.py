@@ -112,6 +112,57 @@ def from_table_confidence(confidence: float | None, warning: str | None = None) 
                                reasons=reasons, score=confidence)
 
 
+_WORD_RE = None  # lazily compiled; see _words()
+
+
+def _words(text: str) -> set[str]:
+    import re
+    import unicodedata
+
+    global _WORD_RE
+    if _WORD_RE is None:
+        # Latin + Vietnamese precomposed-diacritic ranges, matching the
+        # tokenizer already validated in experiment 012's benchmark.
+        _WORD_RE = re.compile(r"[^0-9a-zà-ỹăâđêôơư]+", re.IGNORECASE)
+    normalized = unicodedata.normalize("NFC", text or "").lower()
+    return {w for w in _WORD_RE.split(normalized) if w}
+
+
+# Rough starting point, not a tuned threshold: experiment 012 measured
+# Pearson r=0.856 between this Jaccard agreement and min(word_recall) across
+# 13 documents — a real, stronger-than-confidence-alone signal (confidence
+# alone: r=0.491) — but n=13 is small, and two documents in that set show
+# high agreement despite both backends sharing the same failure (agreement
+# cannot catch a mistake both sources make identically). Re-calibrate against
+# a larger or real corpus before trusting this near a decision boundary; see
+# experiments/012_direct_easyocr/README.md.
+AGREEMENT_SUSPICIOUS_BELOW = 0.5
+
+
+def assess_ocr_agreement(text_a: str, text_b: str, source_a: str = "a", source_b: str = "b") -> VerificationResult:
+    """Do two independent OCR readings of the same pixels agree?
+
+    Unlike `from_table_confidence`, this is not a read of an existing
+    verdict — it is a new judgment, computed from two backends' raw output
+    at word-Jaccard granularity. It reuses the same `VerificationResult`
+    contract deliberately (mission: "do not create a second independent
+    verification framework"), so a consumer that already knows how to read
+    a text_quality or table_quality verdict reads this one identically.
+
+    Only SUSPICIOUS/TRUSTED, never INVALID: disagreement says two sources
+    differ, not which one (if either) is wrong. Assigning INVALID would
+    claim a certainty this signal does not have.
+    """
+    wa, wb = _words(text_a), _words(text_b)
+    agreement = len(wa & wb) / len(wa | wb) if (wa or wb) else 1.0
+    status = (VerificationStatus.SUSPICIOUS if agreement < AGREEMENT_SUSPICIOUS_BELOW
+              else VerificationStatus.TRUSTED)
+    reasons = [f"{source_a}/{source_b} word-agreement={agreement:.2f}"]
+    if status is VerificationStatus.SUSPICIOUS:
+        reasons.append(f"below threshold {AGREEMENT_SUSPICIOUS_BELOW}")
+    return VerificationResult(status=status, source="ocr_agreement", reasons=reasons, score=agreement)
+
+
 @dataclass
 class VerificationSummary:
     trusted: int = 0
