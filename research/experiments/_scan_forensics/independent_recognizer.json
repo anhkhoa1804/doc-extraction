@@ -1,0 +1,4075 @@
+{
+ "device": "cuda",
+ "dpi": 200,
+ "tesseract_version": "tesseract 4.1.1",
+ "documents": [
+  {
+   "document_id": "ord_contract_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.65,
+     "chars": 351,
+     "text": "HỢP ĐỔNG MUA BÁN HÀNG HÓA Điêu 1. Đối tượng của hợp đổng Bên A ý bán và Bên B đổng ý mua hàng hóa theo danh mục đính kèm. Điêu 2. Giá trị hợp đổng và phương thức thanh toán Tổng trị hợp đổng là 1.250.000.000 đổng, đã bao gổm thuế giá trị gia Điểu 3. Thời hạn giao hàng Bên A giao hàng trong vòng 30 ngày kể từ ngày hợp đổng có hiệu lực. đổng giá tăng.",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.77,
+     "chars": 357,
+     "text": "HỢP ĐỒNG MUA BÁN HÀNG HÓA\n\nĐiều 1. Đối tượng của hợp đồng\n\nBên A đồng ý bán và Bên B đồng ý mua hàng hóa theo danh mục đính kèm.\nĐiều 2. Giá trị hợp đồng và phương thức thanh toán\n\nTổng giá trị hợp đồng là 1.250.000.000 đồng, đã bao gồm thuế giá trị gia tăng.\nĐiều 3. Thời hạn giao hàng\n\nBên A giao hàng trong vòng 30 ngày kể từ ngày hợp đồng có hiệu lực.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_contract_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "GOODS PURCHASE AGREEMENT",
+    "Article 1. Subject of the",
+    "The Seller agrees to sell and the"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.14,
+     "chars": 371,
+     "text": "GOODS PURCHASE AGREEMENT Article 1. Subject of the agreement The Seller agrees to sell and the Buyer agrees to purchase the goods listed in Annex A. Article 2. Contract value and payment terms The total contract value is USD 84,500.00, inclusive of all applicable taxes. Article 3. Delivery The Seller shall deliver within 30 days of the effective date of this agreement.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.81,
+     "chars": 378,
+     "text": "GOODS PURCHASE AGREEMENT\n\nArticle 1. Subject of the agreement\n\nThe Seller agrees to sell and the Buyer agrees to purchase the goods listed in Annex A.\nArticle 2. Contract value and payment terms\n\nThe total contract value is USD 84,500.00, inclusive of all applicable taxes.\n\nArticle 3. Delivery\n\nThe Seller shall deliver within 30 days of the effective date of this agreement.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.24,
+     "chars": 298,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Đơn vị Số lượngThành tiên Sản phẩm A-100 Cái 12 18.000.000 2 Bộ lọc khí Mã 22B Bộ 6.400.000 3 Dịch vụ Iắp đặt Gói 3.500.000",
+     "raw": {
+      "exact": 0.7143,
+      "word": 0.9643
+     },
+     "+NFC": {
+      "exact": 0.7143,
+      "word": 0.9643
+     },
+     "+casefold": {
+      "exact": 0.7143,
+      "word": 0.9643
+     },
+     "+whitespace": {
+      "exact": 0.8571,
+      "word": 0.9643
+     },
+     "+punctuation": {
+      "exact": 0.8571,
+      "word": 0.9643
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 0.9643
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.76,
+     "chars": 347,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG\n\nKý hiệu: MQ/2026E Số: 0004417\n\nNgày 14 tháng 03 năm 2026\n\nĐơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số thuế: 0312998877\n\n \n\n \n\n \n\n \n\nSTT |Mô tả hàng hóa Đơn vị |Số lugnyrhanh tién\n1 Sản phẩm A-100 Cái 12 18.000.000\n2 |Bộ lọc khí Mã 22B Bộ 4 6.400.000\n3 |Dịch vụ lắp đặt Gói 1 3.500.000\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.8571,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 0.8571,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 0.8571,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.02,
+     "chars": 278,
+     "text": "TAX INVOICE Invoice number: INV-2026-004417 Issue date: 14 March 2026 Supplier: Brightwater Trading Limited VAT registration: GB 0312998877 Item description Unit Qty Amount Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00 No.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.72,
+     "chars": 323,
+     "text": "TAX INVOICE\n\nInvoice number: INV-2026-004417\nIssue date: 14 March 2026\n\nSupplier: Brightwater Trading Limited\nVAT registration: GB 0312998877\n\n \n\n \n\n \n\n \n\nNo. |Item description Unit Qty Amount\n1 Product A-100 pcs 12 18,000.00\n2 Air filter type 22B set 4 6,400.00\n3 Installation service job 1 3,500.00\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+    "Đơn vị tính: triệu đồng",
+    "Báo cáo này chưa được kiểm toán",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.22,
+     "chars": 337,
+     "text": "BÁO CÁO TÀl CHÍNH QUÝ 1 NĂM 2026 Đơn vị tính: triệu đổng Báo cáo này chưa được kiểm toán và chỉ dùng cho mục đích quản trị nội bộ. Doanh thu thuẩn trong kỳ 12,4% s0 với cùng kỳ năm trước. STT Mô tả hàng hóa Đơn vị Số lượngThành tiển 1 Sản phẩm A-100 Cái 12 18.000.000 2 Bộ lọc khí Mã 22B Bộ 6.400.000 3 Dịch vụ lắp đặt Gói 3.500.000 tăng",
+     "raw": {
+      "exact": 0.7143,
+      "word": 0.9357
+     },
+     "+NFC": {
+      "exact": 0.7143,
+      "word": 0.9357
+     },
+     "+casefold": {
+      "exact": 0.7143,
+      "word": 0.9357
+     },
+     "+whitespace": {
+      "exact": 0.7143,
+      "word": 0.9357
+     },
+     "+punctuation": {
+      "exact": 0.7143,
+      "word": 0.9357
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 0.9643
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.83,
+     "chars": 383,
+     "text": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026\n\nĐơn vị tính: triệu đồng\nBáo cáo này chưa được kiểm toán và chỉ dùng cho mục đích quản trị nội bộ.\n\nDoanh thu thuần trong kỳ tăng 12,4% so với cùng kỳ năm trước.\n\n \n\n \n\n \n\n \n\nSTT |Mô tả hàng hóa Đơn vị |Số lugnyrhanh tién\n1 Sản phẩm A-100 Cái 12 18.000.000\n2 |Bộ lọc khí Mã 22B Bộ 4 6.400.000\n3 |Dịch vụ lắp đặt Gói 1 3.500.000\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "These figures are unaudited and",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.09,
+     "chars": 352,
+     "text": "QUARTERLY FINANCIAL REPORT Q1 2026 Reporting currency: thousands of USD These figures are unaudited and prepared for internal management purposes. Net revenue for the period increased 12.4 per cent year on year. No. Item description Unit Qty Amount 1 Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00",
+     "raw": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+NFC": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+casefold": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+whitespace": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.91,
+     "chars": 398,
+     "text": "QUARTERLY FINANCIAL REPORT — Q1 2026\n\nReporting currency: thousands of USD\nThese figures are unaudited and prepared for internal management purposes.\n\nNet revenue for the period increased 12.4 per cent year on year.\n\n \n\n \n\n \n\nNo. |Item description Unit Qty Amount\n1 Product A-100 pcs 12 18,000.00\n2 Air filter type 22B set 4 6,400.00\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n3 Installation service job 1 3,500.00\n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "HỒ SƠ NĂNG LỰC CÔNG TY",
+    "Thành lập năm 2011, công ty hoạt",
+    "Đội ngũ hiện tại gồm 148 nhân sự"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.8,
+     "chars": 158,
+     "text": "HỔ SƠ NĂNG LỰC CÔNG TY Thành Iập năm 2011, công ty hoạt động trong lĩnh vực phân phối thiết bị công nghiệp. Đội ngũ hiện tại gổm 148 nhân sự tại ba chi nhánh.",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.8552
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.8552
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.8552
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.8552
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.8552
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 0.9524
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.63,
+     "chars": 162,
+     "text": "HỒ SƠ NĂNG LỰC CÔNG TY\n\nThành lập năm 2011, công ty hoạt động trong lĩnh vực phân phối thiết bị công nghiệp.\n\nĐội ngũ hiện tại gồm 148 nhân sự tại ba chỉ nhánh.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "COMPANY CAPABILITY PROFILE",
+    "Founded in 2011, the company",
+    "The current headcount is 148"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.73,
+     "chars": 174,
+     "text": "COMPANY CAPABILITY PROFILE Founded in 2011, the company distributes industrial equipment across three regions. The current headcount is 148 staff across three branch offices.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.57,
+     "chars": 178,
+     "text": "COMPANY CAPABILITY PROFILE\n\nFounded in 2011, the company distributes industrial equipment across three regions.\n\nThe current headcount is 148 staff across three branch offices.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.12,
+     "chars": 338,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP Tên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số doanh nghiệp: 0312998877 Địa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hổ Chí Minh Người đại diện theo pháp luật: Nguyễn Thị Hương Vốn điêu Iệ: 8.000.000.000 đổng",
+     "raw": {
+      "exact": 0.75,
+      "word": 0.9375
+     },
+     "+NFC": {
+      "exact": 0.75,
+      "word": 0.9375
+     },
+     "+casefold": {
+      "exact": 0.75,
+      "word": 0.9375
+     },
+     "+whitespace": {
+      "exact": 0.75,
+      "word": 0.9375
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.83,
+     "chars": 349,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nGIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP\n\nTên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nMã số doanh nghiệp: 0312998877\n\nĐịa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh\nNgười đại diện theo pháp luật: Nguyễn Thị Hương\n\nVốn điều lệ: 8.000.000.000 đồng\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "CERTIFICATE OF INCORPORATION",
+    "Company name: Brightwater Trading",
+    "Company number: 0312998877"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.78,
+     "chars": 215,
+     "text": "CERTIFICATE OF INCORPORATION Company name: Brightwater Trading Limited Company number: 0312998877 Registered office: 44 Harbour Street; Unit 7, Wellington Central Director: Alice Fairbanks Share capital: USD 350,000",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.66,
+     "chars": 221,
+     "text": "CERTIFICATE OF INCORPORATION\n\nCompany name: Brightwater Trading Limited\n\nCompany number: 0312998877\n\nRegistered office: 44 Harbour Street, Unit 7, Wellington Central\nDirector: Alice Fairbanks\n\nShare capital: USD 350,000\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.88,
+     "chars": 204,
+     "text": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG Chứng nhận hệ thống quản lý của CÔNG TY TNHH THƯƠNG MẠI MINH QUANG hợp với các yêu cẩu của tiêu chuẩn ISO 9001.2015. Hiệu lực đến ngày 30 tháng 06 năm 2028. rằng phù",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.3333,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.68,
+     "chars": 207,
+     "text": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG\n\nChứng nhận rằng hệ thống quản lý của CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nphù hợp với các yêu cầu của tiêu chuẩn ISO 9001:2015.\nHiệu lực đến ngày 30 tháng 06 năm 2028.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+    "This is to certify that the",
+    "conforms to the requirements of"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.79,
+     "chars": 187,
+     "text": "QUALITY MANAGEMENT SYSTEM CERTIFICATE This is to certify that the management system of Brightwater Trading Limited conforms to the requirements of ISO 9001.2015. Valid until 30 June 2028.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.71,
+     "chars": 190,
+     "text": "QUALITY MANAGEMENT SYSTEM CERTIFICATE\n\nThis is to certify that the management system of Brightwater Trading Limited\nconforms to the requirements of ISO 9001:2015.\nValid until 30 June 2028.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.98,
+     "chars": 235,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Điểu 1. Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sự thuộc ty và các chi nhánh. Điêu 2- Thẩm phê duyệt Khoản chi trên 50.000.000 đổng được Tổng Giám đốc duyệt bằng văn bản. công quyển phải phê",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 0.9583
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.65,
+     "chars": 241,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ\n\nĐiều 1. Phạm vi áp dụng\n\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các chỉ nhánh.\n\nĐiều 2. Thẩm quyền phê duyệt\n\nKhoản chỉ trên 50.000.000 đồng phải được Tổng Giám đốc phê duyệt bằng văn bản.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_policy_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "This policy applies to all"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.81,
+     "chars": 232,
+     "text": "INTERNAL EXPENDITURE POLICY Section 1. Scope This policy applies to all employees of the company and its branch offices. Section 2. Approval authority Expenditure above USD 5,000 requires written approval from the Managing Director.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.66,
+     "chars": 236,
+     "text": "INTERNAL EXPENDITURE POLICY\n\nSection 1. Scope\nThis policy applies to all employees of the company and its branch offices.\nSection 2. Approval authority\n\nExpenditure above USD 5,000 requires written approval from the Managing Director.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+    "Thiết bị: Máy nén khí trục vít,",
+    "Kết quả đo độ rung tại vị trí ổ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.88,
+     "chars": 199,
+     "text": "BÁO CÁO KlỂM ĐỊNH KỸ THUẬT THIẾT BỊ Thiết bị: Máy nén khí truc vít, công suất 75 kW Kết quả đo độ tại vị trí ổ trục: 2,8 mmIs (giới hạn 4,5 mmls) Kết luận: Thiết bị đạt yêu cẩu vận hành an toàn. rung",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.9107
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.9107
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.9107
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.9107
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.9583
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 0.9583
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.67,
+     "chars": 203,
+     "text": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ\n\nThiết bị: Máy nén khí trục vít, công suất 75 kW\nKết quả đo độ rung tại vị trí ổ trục: 2,8 mm/s (giới hạn 4,5 mm/s)\n\nKết luận: Thiết bị đạt yêu cầu vận hành an toàn.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "EQUIPMENT INSPECTION TECHNICAL REPORT",
+    "Equipment: Screw-type air",
+    "Measured bearing vibration"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.79,
+     "chars": 211,
+     "text": "EQUIPMENT INSPECTION TECHNICAL REPORT Equipment: Screw-type air compressor, rated 75 kW Measured bearing vibration velocity: 2.8 mmIs (limit 4.5 mmIs) Conclusion: the equipment meets safe operating requirements.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.64,
+     "chars": 215,
+     "text": "EQUIPMENT INSPECTION TECHNICAL REPORT\n\nEquipment: Screw-type air compressor, rated 75 kW\nMeasured bearing vibration velocity: 2.8 mm/s (limit 4.5 mm/s)\n\nConclusion: the equipment meets safe operating requirements.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.09,
+     "chars": 269,
+     "text": "ĐƠN ĐĂT HÀNG Số đơn PO-2026-0318 Nhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điểu kiện giao hàng: DDP kho Bên mua STT Mô tả hàng hóa Đơn vị Số lượngThành tiển 1 Sản phẩm A-100 Cái 12 18.000.000 2 Bộ lọc khí Mã 22B Bộ 6.400.000 3 Dịch vụ lắp đặt Gói 3.500.000 hàng:",
+     "raw": {
+      "exact": 0.7143,
+      "word": 0.9524
+     },
+     "+NFC": {
+      "exact": 0.7143,
+      "word": 0.9524
+     },
+     "+casefold": {
+      "exact": 0.7143,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 0.7143,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 0.7143,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.8571,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.76,
+     "chars": 315,
+     "text": "ĐƠN ĐẶT HÀNG\n\nSố đơn hàng: PO-2026-0318\nNhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nĐiều kiện giao hàng: DDP kho Bên mua\n\n \n\n \n\n \n\n \n\n \n\nSTT |Mô tả hàng hóa Đơn vị |Số lugnyrhanh tién\n1 Sản phẩm A-100 Cái 12 18.000.000\n2 |Bộ lọc khí Mã 22B Bộ 4 6.400.000\n3 |Dịch vụ lắp đặt Gói 1 3.500.000\n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "PURCHASE ORDER",
+    "Order number: PO-2026-0318",
+    "Supplier: Brightwater Trading",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.96,
+     "chars": 258,
+     "text": "PURCHASE ORDER Order number: PO-2026-0318 Supplier: Brightwater Trading Limited Delivery terms: DDP buyer's warehouse No. Item description Unit Qty Amount 1 Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.69,
+     "chars": 301,
+     "text": "PURCHASE ORDER\n\nOrder number: PO-2026-0318\nSupplier: Brightwater Trading Limited\n\nDelivery terms: DDP buyer's warehouse\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\nNo. |Item description Unit Qty Amount\n1 Product A-100 pcs 12 18,000.00\n2 Air filter type 22B set 4 6,400.00\n3 Installation service job 1 3,500.00\n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_form_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.92,
+     "chars": 227,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc PHIẾU ĐỂ NGHỊ THANH TOÁN Họ và tên người để nghị: Nguyễn Thị Hương Bộ phận: Phòng Kế toán Số tiển để nghị: 24.750.000 đổng Lý do: Thanh toán chi phí vận chuyển tháng 02",
+     "raw": {
+      "exact": 0.25,
+      "word": 0.8518
+     },
+     "+NFC": {
+      "exact": 0.25,
+      "word": 0.8518
+     },
+     "+casefold": {
+      "exact": 0.25,
+      "word": 0.8518
+     },
+     "+whitespace": {
+      "exact": 0.25,
+      "word": 0.8518
+     },
+     "+punctuation": {
+      "exact": 0.5,
+      "word": 0.9143
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.7,
+     "chars": 238,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nPHIẾU ĐỀ NGHỊ THANH TOÁN\n\nHọ và tên người đề nghị: Nguyễn Thị Hương\n\nBộ phận: Phòng Kế toán\n\nSố tiền đề nghị: 24.750.000 đồng\n\nLý do: Thanh toán chỉ phí vận chuyển tháng 02\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "ord_form_en",
+   "language": "en",
+   "difficulty": "easy",
+   "pages": 1,
+   "must_contain": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.69,
+     "chars": 139,
+     "text": "PAYMENT REQUISITION FORM Requested by: Alice Fairbanks Department: Finance Amount requested: USD 1,875.00 Purpose: February freight charges",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.61,
+     "chars": 143,
+     "text": "PAYMENT REQUISITION FORM\n\nRequested by: Alice Fairbanks\nDepartment: Finance\nAmount requested: USD 1,875.00\n\nPurpose: February freight charges\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.93,
+     "chars": 228,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Điéu Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sụ thuộc công ty và các chi nhánh. Điẻu Thẩm quyẻn phê duyệt Khoản chi trên 50.000.000 đóng phải được Tổng Giám đốc phê duyệt bằng văn bản",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.8472
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.8472
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.8472
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.8472
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.8472
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 0.9444
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.7,
+     "chars": 239,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ\n\nĐiều 1. Phạm vi áp dụng\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các chỉ nhánh.\nĐiều 2. Thẩm quyền phê duyệt\n\nKhoản chỉ trên 50.000.000 đồng phải được Tổng Giám đốc phê duyệt bằng văn bản.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "This policy applies to all"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.84,
+     "chars": 224,
+     "text": "INTERNAL EXPENDITURE POLICY Section Scope This policy applies to all employees of the company and its branch offices Section Approva authority Expenditure above USD 5,000 requires written approval from the Managing Director.",
+     "raw": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+NFC": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+casefold": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+whitespace": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+punctuation": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 0.8889
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 0.8889
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.57,
+     "chars": 235,
+     "text": "INTERNAL EXPENDITURE POLICY\n\nSection 1. Scope\nThis policy applies to all employees of the company and its branch offices\nSection 2. Approval authority\n\nExpenditure above USD 5,000 requires written approval from the Managing Director.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.23,
+     "chars": 348,
+     "text": "HỢP ĐỔNG MUA BÁN HÀNG HÓA Điêu 1- Đối tượng của Bên A đổng ý bán và Bên B đổng ý mua hàng hóa theo danh mục đính kèm Điêu 2 Giá trị đổng và phương thức thanh toán Tổng trị hợp đổng là 1.250.000.000 đổng, đã bao gôm thuế trị gia Điểu 3. Thời hạn giao hàng Bên A giao trong vòng 30 ngày kể từ ngày hợp có hiệu lực đổng hợp hợp giá giá tăng. đổng hàng",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.7349
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.7349
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.7349
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.7349
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.74,
+     "chars": 357,
+     "text": "HỢP ĐỒNG MUA BÁN HÀNG HÓA\n\nĐiều 1. Đối tượng của hợp đồng\n\nBên A đồng ý bán và Bên B đồng ý mua hàng hóa theo danh mục đính kèm.\nĐiều 2. Giá trị hợp đồng và phương thức thanh toán\n\nTổng giá trị hợp đồng là 1.250.000.000 đồng, đã bao gồm thuế giá trị gia tăng.\nĐiều 3. Thời hạn giao hàng\n\nBên A giao hàng trong vòng 30 ngày kể từ ngày hợp đồng có hiệu lực.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+    "Kính gửi: Phòng Tài chính - Kế",
+    "Căn cứ biên bản đối chiếu ngày 28"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.97,
+     "chars": 235,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc CÔNG VĂN VIV XÁC NHẬN CÔNG NỢ Kính gửi: Phòng Tài chính Kế toán Căn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026, công nợ thu tại thời điểm khóa sổ là 412.600.000 đổng. phải",
+     "raw": {
+      "exact": 0.25,
+      "word": 0.8661
+     },
+     "+NFC": {
+      "exact": 0.25,
+      "word": 0.8661
+     },
+     "+casefold": {
+      "exact": 0.25,
+      "word": 0.8661
+     },
+     "+whitespace": {
+      "exact": 0.25,
+      "word": 0.8661
+     },
+     "+punctuation": {
+      "exact": 0.75,
+      "word": 0.9643
+     },
+     "+diacritics": {
+      "exact": 0.75,
+      "word": 0.9643
+     },
+     "+confusables": {
+      "exact": 0.75,
+      "word": 0.9643
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.68,
+     "chars": 245,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nCÔNG VĂN V/V XÁC NHẬN CÔNG NỢ\n\nKính gửi: Phòng Tài chính - Kế toán\nCăn cứ biên bản đối chiếu ngày 28 tháng 02 năm 2026,\ncông nợ phải thu tại thời điểm khóa sổ là 412.600.000 đồng.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_scan_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+    "To: Finance and Accounting",
+    "Further to the reconciliation"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.82,
+     "chars": 204,
+     "text": "OFFICIAL LETTER  CONFIRMATION OF OUTSTANDING BALANCE To: Finance and Accounting Department Further to the reconciliation minutes dated 28 February 2026, the receivable balance at cut-off is USD 31,240.00.",
+     "raw": {
+      "exact": 0.6667,
+      "word": 0.9524
+     },
+     "+NFC": {
+      "exact": 0.6667,
+      "word": 0.9524
+     },
+     "+casefold": {
+      "exact": 0.6667,
+      "word": 0.9524
+     },
+     "+whitespace": {
+      "exact": 0.6667,
+      "word": 0.9524
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.78,
+     "chars": 209,
+     "text": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE\n\nTo: Finance and Accounting Department\nFurther to the reconciliation minutes dated 28 February 2026,\n\nthe receivable balance at cut-off is USD 31,240.00.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.11,
+     "chars": 343,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP Tên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số doanh nghiệp: 0312998877 Địa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hổ Chí Minh Người đại diện theo n Én luật: Nguyễn Thị Hương Vốn điêu Iệ: 8 CÔNG TY TNHH ĐÃ DUYỆT",
+     "raw": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+NFC": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+casefold": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+whitespace": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.86,
+     "chars": 340,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nGIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP\n\nTên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số doanh nghiệp: 0312998877\nĐịa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh\n\nNgười đại diện theoxa* ật: Nguyễn Thị Hương\n\n   \n\nCÔNG TY TNHH\n\nĐÃ DUYỆT\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.11,
+     "chars": 299,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Số lượngThành tiên Sản phẩm A-100 18.000.000 2 Bộ lọc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ Iắp đặt ĐÃ DUYỆT 3.500.000",
+     "raw": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+NFC": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+casefold": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+whitespace": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+punctuation": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+diacritics": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.74,
+     "chars": 364,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG\n\nKý hiệu: MQ/2026E Số: 0004417\n\nNgày 14 tháng 03 năm 2026\n\nĐơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số thuế: 0312998877\n\n \n\nSố lugnyrhanh tién\n\n \n\nSTT |Mô tả hàng hóa\n\n \n\n \n\n \n\n1 Sản phẩm A-100 42 18.000.000\n\n \n\n \n\n2 Bộ lọc khí Mã 22B CÔNG TY TNHH 6.400.000\n\n \n\n \n\n3 |Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.875,
+      "word": 0.9375
+     },
+     "+NFC": {
+      "exact": 0.875,
+      "word": 0.9375
+     },
+     "+casefold": {
+      "exact": 0.875,
+      "word": 0.9375
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9375
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.12,
+     "chars": 355,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP Tên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số doanh nghiệp: 0312998877 Địa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hổ Chí Minh Người đại diện theo phén luật: Nguyễn Thị Hương Vốn điêu Iệ: 8 /oo.000.000 CÔNG TY TNHH ĐÃ DUYỆT",
+     "raw": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+NFC": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+casefold": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+whitespace": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.76,
+     "chars": 270,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nGIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP\n\nTên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nMã số doanh nghiệp: 0312998877\nĐịa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh\n\n \n\f",
+     "raw": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+NFC": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+casefold": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+whitespace": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+punctuation": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+diacritics": {
+      "exact": 0.8,
+      "word": 0.8
+     },
+     "+confusables": {
+      "exact": 0.8,
+      "word": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.19,
+     "chars": 355,
+     "text": "HỢP ĐỔNG MUA BÁN HÀNG HÓA Điêu 1. Đối tượng của hợp đổng Bên A ý bán và Bên B đổng ý mua hàng hóa theo danh mục đính kèm. Điêu 2. Giá trị hợp đổng và phương thức thanh toán Tổng trị hợp đổng là 1.250.000.000 đổng, đã bao gổm thuế giá trị gia Điểu 3. Thời hạn giao hàng Bên A giao hàng trong vòng 30 ngày kể từ ngày hợp đổng có hiệu lực. đổng giá tăng. 9 2",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.7825
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.77,
+     "chars": 357,
+     "text": "HỢP ĐỒNG MUA BÁN HÀNG HÓA\n\nĐiều 1. Đối tượng của hợp đồng\n\nBên A đồng ý bán và Bên B đồng ý mua hàng hóa theo danh mục đính kèm.\nĐiều 2. Giá trị hợp đồng và phương thức thanh toán\n\nTổng giá trị hợp đồng là 1.250.000.000 đồng, đã bao gồm thuế giá trị gia tăng.\nĐiều 3. Thời hạn giao hàng\n\nBên A giao hàng trong vòng 30 ngày kể từ ngày hợp đồng có hiệu lực.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.82,
+     "chars": 232,
+     "text": "INTERNAL EXPENDITURE POLICY Section 1. Scope Section 2. Approval authority This policy applies to all employees of Expenditure above USD 5,000 requires the company and its branch offices. written approval from the Managing Director.",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.65,
+     "chars": 236,
+     "text": "INTERNAL EXPENDITURE POLICY\n\nSection 1. Scope Section 2. Approval authority\nThis policy applies to all employees of Expenditure above USD 5,000 requires\nthe company and its branch offices. written approval from the Managing\n\nDirector.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.05,
+     "chars": 104,
+     "text": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG ẳ z 2 , 4 P 1 ; 8 8 1i 2 { ẵ ẻ 8 8 ẵ , \" 8 ắ ể { 9 ' g g ẵỉ ẵ 2 :",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.3333
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.3333
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.619
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.619
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.619
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 0.619
+     },
+     "+confusables": {
+      "exact": 0.3333,
+      "word": 0.619
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.86,
+     "chars": 214,
+     "text": "ONG\n\nQUAN LY CHAT LU\n\n2\n\nCHUNG NHAN HE THONG\n\n'8z0£ uieu 90 BueU1 0£ ÁeBu Uap IN| NIH\n'ST0Z:T006 OSI uenu2 nại en2 nẹ2 nạÁ 2g2 IoA dỏu nud\n\nONVNO HNIW IVW ONONHL HHNL AL SNQD end A] uenb Buou1 $u 6Bue1 uẻuu 6unu2\n\f",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.0
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.0
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.0
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.0
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.0
+     },
+     "+diacritics": {
+      "exact": 0.0,
+      "word": 0.5774
+     },
+     "+confusables": {
+      "exact": 0.0,
+      "word": 0.5774
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.99,
+     "chars": 278,
+     "text": "TAX INVOICE Invoice number: INV-2026-004417 Issue date: 14 March 2026 Supplier: Brightwater Trading Limited VAT registration: GB 0312998877 No. Item description Unit Qty Amount Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.68,
+     "chars": 292,
+     "text": "TAX INVOICE\n\nInvoice number: INV-2026-004417\nIssue date: 14 March 2026\n\nSupplier: Brightwater Trading Limited\nVAT registration: GB 0312998877\n\nNo. Item description Unit Qty\n1 Product A-100 pcs 12\n2 Air filter type 22B set 4\n\n3 Installation service job 1\n\nAmount\n\n18,000.00\n6,400.00\n3,500.00\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_merged_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Qty / Amount",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.98,
+     "chars": 277,
+     "text": "TAX INVOICE Invoice number: INV-2026-004417 Issue date: 14 March 2026 Supplier: Brightwater Trading Limited VAT registration: GB 0312998877 Item description Unit Qty Amount Product A-100 pcs Qty Ambount 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00 No.",
+     "raw": {
+      "exact": 0.8571,
+      "word": 0.9524
+     },
+     "+NFC": {
+      "exact": 0.8571,
+      "word": 0.9524
+     },
+     "+casefold": {
+      "exact": 0.8571,
+      "word": 0.9524
+     },
+     "+whitespace": {
+      "exact": 0.8571,
+      "word": 0.9524
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.74,
+     "chars": 324,
+     "text": "TAX INVOICE\n\nInvoice number: INV-2026-004417\nIssue date: 14 March 2026\n\nSupplier: Brightwater Trading Limited\nVAT registration: GB 0312998877\n\n \n\n \n\n \n\n \n\nNo. |Item description Unit Qty Amount\n1 Product A-100 pCS Qty / Amount\n\n2 Air filter type 22B set 4 6,400.00\n3 Installation service job 1 3,500.00\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.08,
+     "chars": 289,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Đon vị Sổ luợng Thành tiển Sán pham A-100 Cal 18.000.000 Bộ lọc khí Mà 22B 6.400.000 vụ làp đạt Gói 3.500.000 Dich",
+     "raw": {
+      "exact": 0.4286,
+      "word": 0.7976
+     },
+     "+NFC": {
+      "exact": 0.4286,
+      "word": 0.7976
+     },
+     "+casefold": {
+      "exact": 0.4286,
+      "word": 0.7976
+     },
+     "+whitespace": {
+      "exact": 0.5714,
+      "word": 0.7976
+     },
+     "+punctuation": {
+      "exact": 0.5714,
+      "word": 0.7976
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.8571,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.71,
+     "chars": 276,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG\n\nKý hiệu: MQ/2026E Số: 0004417\n\nNgày 14 tháng 03 năm 2026\n\nĐơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số thuế: 0312998877\n\n \n\nĐơn vị | Số lượng | Thành tiền\nCai iz 8.000.000\n\n \n\n \n\nBộ + 6:400.000\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\nGái T 500.000\n\n \n\f",
+     "raw": {
+      "exact": 0.2857,
+      "word": 0.4857
+     },
+     "+NFC": {
+      "exact": 0.2857,
+      "word": 0.4857
+     },
+     "+casefold": {
+      "exact": 0.2857,
+      "word": 0.5214
+     },
+     "+whitespace": {
+      "exact": 0.4286,
+      "word": 0.5214
+     },
+     "+punctuation": {
+      "exact": 0.4286,
+      "word": 0.5571
+     },
+     "+diacritics": {
+      "exact": 0.4286,
+      "word": 0.5571
+     },
+     "+confusables": {
+      "exact": 0.4286,
+      "word": 0.5571
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 2,
+   "must_contain": [
+    "Cong Hoa",
+    "Doanh Nghiep"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 2.21,
+     "chars": 727,
+     "text": "Cong Hoa Xa Hoi Chu Nghia Viet Nam Doc lap Tu do Hanh phuc Giay Chung Nhan Ky Doanh Nghiep Cong Ty Trach Nhiem Ma so doanh nghiep ooooooooo0 Dang ky lan dau ngay thang nam Ten cong ty viet bang tieng Viet Dia chi tru so chinh Dien thoai Von dieu le mot tram trieu dong Danh sach thanh vien gop von Nguoi dai dien theo phap luat cua cong ty Giam doc Quoc tich Dang\nCong Hoa Xa Hoi Chu Nghia Viet Nam D",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 1.61,
+     "chars": 735,
+     "text": "Cong Hoa Xa Hoi Chu Nghia Viet Nam Doc lap Tu do Hanh phuc\nGiay Chung Nhan Dang Ky Doanh Nghiep Cong Ty Trach Nhiem\nMa so doanh nghiep 0000000000 Dang ky lan dau ngay thang nam\nTen cong ty viet bang tieng Viet Dia chi tru so chinh Dien thoai\n\nVon dieu le mot tram trieu dong Danh sach thanh vien gop von\n\nNguoi dai dien theo phap luat cua cong ty Giam doc Quoc tich\n\f\nCong Hoa Xa Hoi Chu Nghia Viet N",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 4,
+   "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 3.89,
+     "chars": 1027,
+     "text": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Điểu 1. Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sự thuộc ty và các chi nhánh. Điêu 2- Thẩm phê duyệt Khoản chi trên 50.000.000 đổng được Tổng Giám đốc duyệt bằng văn bản. Trang 1/4 công quyển phải phê\nCÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điểu 1. Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 0.9583
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 2.62,
+     "chars": 1053,
+     "text": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nQUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ\n\nĐiều 1. Phạm vi áp dụng\n\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các chỉ nhánh.\n\nĐiều 2. Thẩm quyền phê duyệt\n\nKhoản chỉ trên 50.000.000 đồng phải được Tổng Giám đốc phê duyệt bằng văn bản.\n\nTrang 1/4\n\f\nCÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nĐiều 1. Phạm vi áp dụng\n\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance",
+    "Approved"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.74,
+     "chars": 183,
+     "text": "PAYMENT REQUISITION FORM Requested by: Alice Fairbanks Department: Finance Amount requested: USD 1,875.00 Purpose: February freight charges Approved Rejected More information required",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.67,
+     "chars": 214,
+     "text": "PAYMENT REQUISITION FORM\n\nRequested by: Alice Fairbanks\nDepartment: Finance\nAmount requested: USD 1,875.00\n\nPurpose: February freight charges\n\n \n\nApproved\n\n \n\n \n\nRejected\n\n \n\n \n\n \n\n \n\nMore information required\n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán",
+    "Đồng ý"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.98,
+     "chars": 259,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc PHIẾU ĐỂ NGHỊ THANH TOÁN Họ và tên người để nghị: Nguyễn Thị Hương Bộ phận: Phòng Kế toán Số tiển để nghị: 24.750.000 đổng Lý do: Thanh toán chi phí vận chuyển tháng 02 Đổng ý Không đổng ý Cẩn bổ sung",
+     "raw": {
+      "exact": 0.2,
+      "word": 0.7814
+     },
+     "+NFC": {
+      "exact": 0.2,
+      "word": 0.7814
+     },
+     "+casefold": {
+      "exact": 0.2,
+      "word": 0.7814
+     },
+     "+whitespace": {
+      "exact": 0.2,
+      "word": 0.7814
+     },
+     "+punctuation": {
+      "exact": 0.4,
+      "word": 0.8314
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.76,
+     "chars": 300,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nPHIẾU ĐỀ NGHỊ THANH TOÁN\n\nHọ và tên người đề nghị: Nguyễn Thị Hương\n\nBộ phận: Phòng Kế toán\n\nSố tiền đề nghị: 24.750.000 đồng\n\nLý do: Thanh toán chỉ phí vận chuyển tháng 02\n\n \n\nX] Đồng ý\n\n \n\n \n\nKhông đồng ý\n\n \n\n \n\n \n\n \n\nCần bổ sung\n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Số lượng / Thành tiền",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.08,
+     "chars": 280,
+     "text": "ĐƠN ĐĂT HÀNG Số đơn PO-2026-0318 Nhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điểu kiện giao hàng: DDP kho Bên mua STT Mô tả hàng hóa Số lượngThành tiển 1 Sản phẩm A-100 6ố Iượng] Thành tiển 2 Bộ lọc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000 hàng:",
+     "raw": {
+      "exact": 0.625,
+      "word": 0.8833
+     },
+     "+NFC": {
+      "exact": 0.625,
+      "word": 0.8833
+     },
+     "+casefold": {
+      "exact": 0.625,
+      "word": 0.925
+     },
+     "+whitespace": {
+      "exact": 0.625,
+      "word": 0.925
+     },
+     "+punctuation": {
+      "exact": 0.625,
+      "word": 0.9375
+     },
+     "+diacritics": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+confusables": {
+      "exact": 0.75,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.77,
+     "chars": 342,
+     "text": "ĐƠN ĐẶT HÀNG\n\nSố đơn hàng: PO-2026-0318\nNhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nĐiều kiện giao hàng: DDP kho Bên mua\n\n \n\nSTT |Mô tả hàng hóa Số lugnyrhanh tién\n\n \n\n \n\n \n\n \n\n1 Sản phẩm A-100 bố lượng|/ Thành tiền\n\n \n\n \n\n \n\n2 Bộ lọc khí Mã 22B CÔNG TY TNHH 6.400.000\n\n \n\n \n\n \n\n \n\n \n\n3 |Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000\n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.875,
+      "word": 0.8875
+     },
+     "+NFC": {
+      "exact": 0.875,
+      "word": 0.8875
+     },
+     "+casefold": {
+      "exact": 0.875,
+      "word": 0.8875
+     },
+     "+whitespace": {
+      "exact": 0.875,
+      "word": 0.8875
+     },
+     "+punctuation": {
+      "exact": 0.875,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 0.875,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 0.875,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "language": "en",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.94,
+     "chars": 266,
+     "text": "TAX INVOICE Invoice number: INV-2026-004417 ssue date: 14 March 2026 Supplier: Brightwater Trading Limited VAT registration: GB 0312998877 No_ Item description Unit Amount Product A-100 pCs 18,000.00 Air filter type 22B sel 6,400.00 Installation service 3,500.00 Qty",
+     "raw": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+NFC": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+casefold": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+whitespace": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+punctuation": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 0.9714
+     },
+     "+confusables": {
+      "exact": 0.8571,
+      "word": 0.9714
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.73,
+     "chars": 324,
+     "text": "TAX INVOICE\n\nInvoice number: INV-2026-004417\nIssue date: 14 March 2026\nSupplier: Brightwater Trading Limited\n\nVAT registration: GB 0312998877\n\n \n\n \n\n \n\n \n\nNo. | Item description Unit Qty ‘Amount\n1 | Product A100 PS 1 78,000.00,\n2__[Airtiter type 225 set + 6400.00\n3 [Installation service job T 3500.00\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.7143,
+      "word": 0.75
+     },
+     "+NFC": {
+      "exact": 0.7143,
+      "word": 0.75
+     },
+     "+casefold": {
+      "exact": 0.7143,
+      "word": 0.75
+     },
+     "+whitespace": {
+      "exact": 0.7143,
+      "word": 0.75
+     },
+     "+punctuation": {
+      "exact": 0.8571,
+      "word": 0.8929
+     },
+     "+diacritics": {
+      "exact": 0.8571,
+      "word": 0.8929
+     },
+     "+confusables": {
+      "exact": 0.8571,
+      "word": 0.8929
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.93,
+     "chars": 230,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Dieu Phạm vi ap dung Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Dieu 2 Tham quyén phe duyet Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản.",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.625
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.625
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.6667
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.6667
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.6667
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+confusables": {
+      "exact": 0.6667,
+      "word": 0.9444
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.6,
+     "chars": 239,
+     "text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ\n\nĐiều 1. Phạm vì áp dụng\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các chỉ nhánh.\nĐiều 2. Thấm quyền phẻ duyệt\n\nKhoản chỉ trên 50.000.000 đồng phải được Tống Giám đốc phê duyệt bằng văn bản.\n\f",
+     "raw": {
+      "exact": 0.6667,
+      "word": 0.9444
+     },
+     "+NFC": {
+      "exact": 0.6667,
+      "word": 0.9444
+     },
+     "+casefold": {
+      "exact": 0.6667,
+      "word": 0.9444
+     },
+     "+whitespace": {
+      "exact": 0.6667,
+      "word": 0.9444
+     },
+     "+punctuation": {
+      "exact": 0.6667,
+      "word": 0.9444
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "Net revenue for the period",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.13,
+     "chars": 350,
+     "text": "QUARTERLY FINANCIAL REPORT Q1 2026 Reporting currency: thousands of USD Net revenue for the period increased These figures are unaudited and 12.4 per cent year on year. prepared for internal management purposes. No. Item description Unit Qty Amount Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00",
+     "raw": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+NFC": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+casefold": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+whitespace": {
+      "exact": 0.8571,
+      "word": 0.9762
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.74,
+     "chars": 400,
+     "text": "QUARTERLY FINANCIAL REPORT — Q1 2026\n\n \n\n \n\n \n\n \n\nReporting currency: thousands of USD Net revenue for the period increased\nThese figures are unaudited and 12.4 per cent year on year.\nprepared for internal management\n\npurposes.\n\nNo. |Item description Unit Qty Amount\n\n1 Product A-100 pcs 12 18,000.00\n\n2 Air filter type 22B set 4 6,400.00\n\n3 Installation service job 1 3,500.00\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9286
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 1,
+   "must_contain": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.31,
+     "chars": 338,
+     "text": "HỢP ĐỔNG MUA BÁN HÀNG HÓA Điéu Đỗi tuong của hợp dỏng Bên đổng bán và Bên dỏng mua hàng hóa theo danh mục đính kèm. Điẻu Giá trị hợp đổng và phuong thức thanh toán Tổng giá trị họp đổng là 1.250.000.000 đỏng đã bao gổm thué giá trị gia tăng. Điéu 3. Thòi hạn giao hàng Bên giao hàng trong vòng 30 ngày kể tù ngày hợp dổng có hiệu lực. 9 2",
+     "raw": {
+      "exact": 0.0,
+      "word": 0.5063
+     },
+     "+NFC": {
+      "exact": 0.0,
+      "word": 0.5063
+     },
+     "+casefold": {
+      "exact": 0.0,
+      "word": 0.5063
+     },
+     "+whitespace": {
+      "exact": 0.0,
+      "word": 0.5063
+     },
+     "+punctuation": {
+      "exact": 0.0,
+      "word": 0.5063
+     },
+     "+diacritics": {
+      "exact": 0.3333,
+      "word": 0.819
+     },
+     "+confusables": {
+      "exact": 0.3333,
+      "word": 0.819
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 1.03,
+     "chars": 355,
+     "text": "HỢP ĐỒNG MUA BÁN HÀNG HÓA\n\nĐiều 1. Đối tượng của hợp đồng\nBên A đồng ý bán và Bên B đồng ý mua hàng hóa theo danh mục đính kèm.\nĐiều 2. Giá trị hợp đồng và phương thức thanh toán\n\nTổng giá trị hợp đồng là 1.250.000.000 đồng, đã bao gồm thuế giá trị gia tăng\nĐiều 3. Thời hạn giao hàng\n\nBên A giao hàng trong vòng 30 ngày kể từ ngày hợp đồng có hiệu lực.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.18,
+     "chars": 338,
+     "text": "CỘNG HÒA XÃ HỘl CHỦ NGHĨA VIỆT NAM Độc lập Tự do Hạnh phúc GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP Tên công ty: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số doanh nghiệp: 0312998877 Địa chỉ trụ sở chính: Số 12, Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hổ Chí Minh Người đại diện theo luật: Nguyễn Thị Hương Vốn điểu lệ: 8 CÔNG TY TNHH ĐÃ DUYỆT",
+     "raw": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+NFC": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+casefold": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+whitespace": {
+      "exact": 0.8,
+      "word": 0.95
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.62,
+     "chars": 129,
+     "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\n\nGIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP\n\nCÔNG TY TNHH\n\nĐÃ DUYỆT\n\n \n\f",
+     "raw": {
+      "exact": 0.6,
+      "word": 0.6857
+     },
+     "+NFC": {
+      "exact": 0.6,
+      "word": 0.6857
+     },
+     "+casefold": {
+      "exact": 0.6,
+      "word": 0.7543
+     },
+     "+whitespace": {
+      "exact": 0.6,
+      "word": 0.7543
+     },
+     "+punctuation": {
+      "exact": 0.6,
+      "word": 0.8229
+     },
+     "+diacritics": {
+      "exact": 0.6,
+      "word": 0.8229
+     },
+     "+confusables": {
+      "exact": 0.6,
+      "word": 0.8229
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.16,
+     "chars": 299,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô_tả hàng hóa Số IượngThành tiển Sản phẩm A-100 18.000.000 2 Bộ loc khí Mã 22B CÔNG TY TNHH 6.400.000 3 Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000",
+     "raw": {
+      "exact": 0.625,
+      "word": 0.9125
+     },
+     "+NFC": {
+      "exact": 0.625,
+      "word": 0.9125
+     },
+     "+casefold": {
+      "exact": 0.625,
+      "word": 0.9125
+     },
+     "+whitespace": {
+      "exact": 0.75,
+      "word": 0.9125
+     },
+     "+punctuation": {
+      "exact": 0.75,
+      "word": 0.9125
+     },
+     "+diacritics": {
+      "exact": 0.875,
+      "word": 0.9375
+     },
+     "+confusables": {
+      "exact": 0.875,
+      "word": 0.9375
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.89,
+     "chars": 351,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG\n\nKý hiệu: MQ/2026E_ Số: 0004417\n\nNgày 14 tháng 03 năm 2026\n\nĐơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số thuế: 0312998877\n\n \n\n \n\nSTT |Mô tả hàng hóa jThành tiền\n\n \n\n \n\n1 Sản phẩm A-100 18.000.000\n\n \n\n \n\n2 Bộ lọc khí Mã 22B CÔNG TY TNHH 6.400.000\n\n \n\n \n\n3 |Dịch vụ lắp đặt ĐÃ DUYỆT 3.500.000\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+NFC": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+casefold": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+whitespace": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 0.87,
+     "chars": 231,
+     "text": "INTERNAL EXPENDITURE POLICY Section 1. Scope Section 2 Approval authority This policy applies to all employees of Expenditure above USD 5,000 requires the company and its branch offices. written approval from the Managing Director.",
+     "raw": {
+      "exact": 0.6667,
+      "word": 0.9167
+     },
+     "+NFC": {
+      "exact": 0.6667,
+      "word": 0.9167
+     },
+     "+casefold": {
+      "exact": 0.6667,
+      "word": 0.9167
+     },
+     "+whitespace": {
+      "exact": 0.6667,
+      "word": 0.9167
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.81,
+     "chars": 236,
+     "text": "INTERNAL EXPENDITURE POLICY\n\nSection 1. Scope Section 2. Approval authority\nThis policy applies to all employees of Expenditure above USD 5,000 requires\nthe company and its branch offices. written approval from the Managing\n\nDirector.\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.03,
+     "chars": 278,
+     "text": "TAX INVOICE Invoice number: INV-2026-004417 Issue date: 14 March 2026 Supplier: Brightwater Trading Limited VAT registration: GB 0312998877 No. Item description Unit Qty Amount Product A-100 pcs 12 18,000.00 2 Air filter type 22B set 6,400.00 3 Installation service job 3,500.00",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.76,
+     "chars": 290,
+     "text": "TAX INVOICE\n\nInvoice number: INV-2026-004417\nIssue date: 14 March 2026\n\nSupplier: Brightwater Trading Limited\nVAT registration: GB 0312998877\n\nNo. Item description Unit Qty Amount\n1 Product A-100 pcs 12 18,000.00\n2 Air filter type 22B set 4 6,400.00\n\n3 Installation service job 1 3,500.00\n\f",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "pages": 1,
+   "must_contain": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 1.17,
+     "chars": 283,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG Ký hiệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa ành tiên CÔNG TY TNHH Sản phẩm A-100 000.000 ĐÃ DUYỆT 2 Bộ lọc khí Mã 22B 00.000 3 Dịch vụ Iắp đặt 3.500.000",
+     "raw": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+NFC": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+casefold": {
+      "exact": 0.75,
+      "word": 0.9688
+     },
+     "+whitespace": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+punctuation": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+diacritics": {
+      "exact": 0.875,
+      "word": 0.9688
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 0.71,
+     "chars": 302,
+     "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG\n\nKý hiệu: MQ/2026E Số: 0004417\n\nNgày 14 tháng 03 năm 2026\n\nĐơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nMã số thuế: 0312998877\n\n \n\nSTT |Mô tả hàng hóa\n\n \n\n- CÔNG TY TNHH\n1 Sản phẩm A-100\n\nĐÃ DUYỆT\n\n \n\n2 |Bộ lọc khí Mã 22B\n\n \n\n3 |Dịch vụ lắp đặt .500.000\n\n \n\n \n\n \n\n \n\n \n\f",
+     "raw": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+NFC": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+casefold": {
+      "exact": 0.875,
+      "word": 0.9125
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 0.9125
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "language": "vi",
+   "difficulty": "hard",
+   "pages": 60,
+   "must_contain": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ],
+   "engines": [
+    {
+     "engine": "easyocr",
+     "seconds": 58.87,
+     "chars": 15082,
+     "text": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Điểu 1. Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sự thuộc ty và các chi nhánh. Điêu 2- Thẩm phê duyệt Khoản chi trên 50.000.000 đổng được Tổng Giám đốc duyệt bằng văn bản. Trang 1/60 công quyển phải phê\nCÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điểu 1. Phạm vi áp dụng Quy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và cá",
+     "raw": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+NFC": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+casefold": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+whitespace": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+punctuation": {
+      "exact": 0.3333,
+      "word": 0.9028
+     },
+     "+diacritics": {
+      "exact": 0.6667,
+      "word": 0.9583
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    },
+    {
+     "engine": "tesseract",
+     "seconds": 39.21,
+     "chars": 15444,
+     "text": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG\n\nQUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ\n\nĐiều 1. Phạm vi áp dụng\n\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công ty và các chỉ nhánh.\n\nĐiều 2. Thẩm quyền phê duyệt\n\nKhoản chỉ trên 50.000.000 đồng phải được Tổng Giám đốc phê duyệt bằng văn bản.\n\nTrang 1/60\n\f\nCÔNG TY TNHH THƯƠNG MẠI MINH QUANG\nĐiều 1. Phạm vi áp dụng\n\nQuy chế này áp dụng cho toàn bộ nhân sự thuộc công",
+     "raw": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+NFC": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+casefold": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+whitespace": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+punctuation": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+diacritics": {
+      "exact": 1.0,
+      "word": 1.0
+     },
+     "+confusables": {
+      "exact": 1.0,
+      "word": 1.0
+     }
+    }
+   ]
+  }
+ ],
+ "aggregate": {
+  "easyocr": {
+   "n": 49,
+   "mean_raw_exact": 0.6245,
+   "mean_raw_word": 0.9051,
+   "mean_dia_exact": 0.8315,
+   "total_seconds": 111.3,
+   "docs_perfect_raw": 14,
+   "docs_zero_raw": 7
+  },
+  "tesseract": {
+   "n": 49,
+   "mean_raw_exact": 0.927,
+   "mean_raw_word": 0.9336,
+   "mean_dia_exact": 0.9502,
+   "total_seconds": 77.0,
+   "docs_perfect_raw": 38,
+   "docs_zero_raw": 1
+  }
+ }
+}
