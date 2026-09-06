@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 import unicodedata
@@ -49,14 +50,21 @@ STRATEGIES = ("native", "visual", "adaptive")
 
 
 def _normalize(text: str) -> str:
-    """Compare on NFC-normalized text.
+    """Compare on NFC-normalized, whitespace-collapsed text.
 
-    Vietnamese is the reason this exists: `ệ` can be represented as one
+    Vietnamese is the reason NFC exists: `ệ` can be represented as one
     codepoint or as `e` plus two combining marks, and an OCR engine may emit
     either. Treating those as different strings would score a correct
     extraction as a failure.
+
+    Whitespace collapsing exists because no real extractor reproduces a
+    source layout's literal run of multiple spaces/tabs; a `must_contain`
+    string baking in the source's spacing fails against every real
+    extractor for a reason unrelated to extraction quality (see
+    experiment 016's "ground truth metric artifact" finding, kept
+    consistent here with `research/production_corpus/run_benchmark.py`).
     """
-    return unicodedata.normalize("NFC", text)
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", text)).strip()
 
 
 def document_text(document) -> str:

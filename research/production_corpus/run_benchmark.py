@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import statistics
 import sys
 import time
@@ -49,7 +50,18 @@ SEV_MEDIUM = "medium"
 
 
 def _norm(s: str) -> str:
-    return unicodedata.normalize("NFC", s).strip()
+    """NFC-normalize and collapse whitespace runs to a single space.
+
+    Whitespace collapsing exists because extractors (native text layers,
+    OCR) never reproduce a source document's literal run of multiple spaces
+    or tabs as-is — they emit however many characters they actually saw as
+    glyphs, which is normally one. A `must_contain` string that bakes in
+    the source layout's spacing (e.g. two fields separated by a wide gap
+    on the page) fails against any real extractor for a reason that has
+    nothing to do with extraction quality. See experiment 016's "ground
+    truth metric artifact" finding (`Ký hiệu: MQ/2026E    Số: 0004417`).
+    """
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", s)).strip()
 
 
 def document_text(document) -> str:
