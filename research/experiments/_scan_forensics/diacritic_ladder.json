@@ -1,0 +1,209 @@
+{
+ "document": "cmb_scan_tiny_vi",
+ "must_contain": [
+  "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+  "Điều 1. Phạm vi áp dụng",
+  "Quy chế này áp dụng cho toàn bộ"
+ ],
+ "source": "fresh",
+ "ladders": {
+  "docling": {
+   "raw": {
+    "exact": 0.0,
+    "word": 0.2917,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+NFC": {
+    "exact": 0.0,
+    "word": 0.2917,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+casefold": {
+    "exact": 0.0,
+    "word": 0.4167,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+whitespace": {
+    "exact": 0.0,
+    "word": 0.4167,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+punctuation": {
+    "exact": 0.0,
+    "word": 0.4167,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+diacritics": {
+    "exact": 0.0,
+    "word": 0.4722,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+confusables": {
+    "exact": 0.3333,
+    "word": 0.5139,
+    "hits": [
+     true,
+     false,
+     false
+    ]
+   }
+  },
+  "easyocr": {
+   "raw": {
+    "exact": 0.0,
+    "word": 0.625,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+NFC": {
+    "exact": 0.0,
+    "word": 0.625,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+casefold": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+whitespace": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+punctuation": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+diacritics": {
+    "exact": 0.3333,
+    "word": 0.9028,
+    "hits": [
+     false,
+     false,
+     true
+    ]
+   },
+   "+confusables": {
+    "exact": 0.6667,
+    "word": 0.9444,
+    "hits": [
+     true,
+     false,
+     true
+    ]
+   }
+  },
+  "easyocr_fresh": {
+   "raw": {
+    "exact": 0.0,
+    "word": 0.625,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+NFC": {
+    "exact": 0.0,
+    "word": 0.625,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+casefold": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+whitespace": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+punctuation": {
+    "exact": 0.0,
+    "word": 0.6667,
+    "hits": [
+     false,
+     false,
+     false
+    ]
+   },
+   "+diacritics": {
+    "exact": 0.3333,
+    "word": 0.9028,
+    "hits": [
+     false,
+     false,
+     true
+    ]
+   },
+   "+confusables": {
+    "exact": 0.6667,
+    "word": 0.9444,
+    "hits": [
+     true,
+     false,
+     true
+    ]
+   }
+  }
+ },
+ "fresh_device": "cuda",
+ "fresh_dpi": 200,
+ "fresh_text": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘl BỘ Dieu Phạm vi ap dung Quy che nay áp dung cho toan bộ nhan sư thupc công ty va cac chi nhanh Dieu 2 Tham quyén phe duyet Khoan chi trên 50.000.000 dóng phải ducc Tong Giam dõc phe duyet bang vIn bản."
+}
