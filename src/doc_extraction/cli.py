@@ -121,6 +121,14 @@ def _build_ocr_backend(config: PipelineConfig, docling: Any) -> Any:
         from doc_extraction.backends.easyocr_backend import EasyOCRBackend
 
         return EasyOCRBackend(device=config.device, languages=config.ocr_languages)
+    if config.ocr_backend == "tesseract":
+        # Genuinely independent of the other two, which both resolve OCR
+        # through EasyOCR (experiment 021). Selectable, never the default:
+        # experiment 022 measured large Vietnamese gains *and* four
+        # geometric regressions, so promotion needs the full-pipeline A/B.
+        from doc_extraction.backends.tesseract_backend import TesseractBackend
+
+        return TesseractBackend(device=config.device, languages=config.ocr_languages)
     raise ValueError(f"unknown ocr_backend: {config.ocr_backend!r}")
 
 
