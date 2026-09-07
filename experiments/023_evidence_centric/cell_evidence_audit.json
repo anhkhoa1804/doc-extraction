@@ -1,0 +1,1098 @@
+{
+ "commit": "723d4cf3efc30f05ee0bcdefaf2a244be73d0286",
+ "strategy": "visual",
+ "arms": [
+  "easyocr",
+  "tesseract"
+ ],
+ "totals": {
+  "assembly": 3,
+  "acquisition": 31,
+  "ambiguous": 47
+ },
+ "findings": [
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_multicol_table_en",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "missing_string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+   "char_recall_raw_tokens": 0.9444,
+   "char_recall_final_document": 0.9444,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_multicol_en",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "missing_string": "Section 2. Approval authority",
+   "char_recall_raw_tokens": 0.9655,
+   "char_recall_final_document": 0.6552,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "assembly"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "missing_string": "Mô tả hàng hóa",
+   "char_recall_raw_tokens": 0.9286,
+   "char_recall_final_document": 0.9286,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "missing_string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw_tokens": 0.9412,
+   "char_recall_final_document": 0.9412,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "missing_string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.7391,
+   "char_recall_final_document": 0.4348,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "missing_string": "Quy chế này áp dụng cho toàn bộ",
+   "char_recall_raw_tokens": 0.871,
+   "char_recall_final_document": 0.871,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_boundary_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "missing_string": "Dịch vụ lắp đặt",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "missing_string": "ĐƠN ĐẶT HÀNG",
+   "char_recall_raw_tokens": 0.9167,
+   "char_recall_final_document": 0.9167,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "missing_string": "Số lượng / Thành tiền",
+   "char_recall_raw_tokens": 0.9048,
+   "char_recall_final_document": 0.9048,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Issue date: 14 March 2026",
+   "char_recall_raw_tokens": 1.0,
+   "char_recall_final_document": 1.0,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "missing_string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw_tokens": 0.96,
+   "char_recall_final_document": 0.96,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "missing_string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw_tokens": 0.7,
+   "char_recall_final_document": 0.7,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "missing_string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw_tokens": 0.6875,
+   "char_recall_final_document": 0.6875,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "missing_string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+   "char_recall_raw_tokens": 0.9583,
+   "char_recall_final_document": 0.9583,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "missing_string": "Họ và tên người đề nghị: Nguyễn",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "missing_string": "Đồng ý",
+   "char_recall_raw_tokens": 0.8333,
+   "char_recall_final_document": 0.8333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_crosspage_vi",
+   "labels": [
+    "cross_page"
+   ],
+   "missing_string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_crosspage_vi",
+   "labels": [
+    "cross_page"
+   ],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.9565,
+   "char_recall_final_document": 0.9565,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "missing_string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw_tokens": 0.96,
+   "char_recall_final_document": 0.96,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "missing_string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw_tokens": 0.9,
+   "char_recall_final_document": 0.9,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "missing_string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw_tokens": 0.9375,
+   "char_recall_final_document": 0.9375,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_merged_en",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "missing_string": "Qty / Amount",
+   "char_recall_raw_tokens": 0.8333,
+   "char_recall_final_document": 0.8333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "missing_string": "Chứng nhận rằng hệ thống quản lý",
+   "char_recall_raw_tokens": 0.25,
+   "char_recall_final_document": 0.2188,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "missing_string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw_tokens": 0.25,
+   "char_recall_final_document": 0.2188,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_en",
+   "labels": [
+    "scan_quality"
+   ],
+   "missing_string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+   "char_recall_raw_tokens": 0.9623,
+   "char_recall_final_document": 0.9623,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "missing_string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+   "char_recall_raw_tokens": 0.9655,
+   "char_recall_final_document": 0.9655,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "missing_string": "Kính gửi: Phòng Tài chính - Kế",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "missing_string": "Dịch vụ lắp đặt",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_stamp_text_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Sản phẩm A-100",
+   "char_recall_raw_tokens": 0.9286,
+   "char_recall_final_document": 0.8571,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw_tokens": 0.9412,
+   "char_recall_final_document": 0.9412,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Dịch vụ lắp đặt",
+   "char_recall_raw_tokens": 0.8,
+   "char_recall_final_document": 0.8,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_en",
+   "labels": [
+    "tiny_text"
+   ],
+   "missing_string": "Section 1. Scope",
+   "char_recall_raw_tokens": 0.8125,
+   "char_recall_final_document": 0.8125,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_vi",
+   "labels": [
+    "tiny_text"
+   ],
+   "missing_string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_vi",
+   "labels": [
+    "tiny_text"
+   ],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.8261,
+   "char_recall_final_document": 0.8261,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_transparent_seal_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "missing_string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw_tokens": 0.96,
+   "char_recall_final_document": 0.96,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "missing_string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "missing_string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw_tokens": 0.8125,
+   "char_recall_final_document": 0.9375,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "long_policy_vi_60p",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "missing_string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "long_policy_vi_60p",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.9565,
+   "char_recall_final_document": 0.9565,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_business_license_vi",
+   "labels": [],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_certificate_vi",
+   "labels": [],
+   "missing_string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw_tokens": 0.9062,
+   "char_recall_final_document": 0.9688,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "missing_string": "HỒ SƠ NĂNG LỰC CÔNG TY",
+   "char_recall_raw_tokens": 0.9545,
+   "char_recall_final_document": 0.9545,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "missing_string": "Thành lập năm 2011, công ty hoạt",
+   "char_recall_raw_tokens": 0.9688,
+   "char_recall_final_document": 0.9688,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "missing_string": "Đội ngũ hiện tại gồm 148 nhân sự",
+   "char_recall_raw_tokens": 0.9688,
+   "char_recall_final_document": 0.9688,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "missing_string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw_tokens": 0.96,
+   "char_recall_final_document": 0.96,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "missing_string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "missing_string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw_tokens": 0.8125,
+   "char_recall_final_document": 0.9375,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_en",
+   "labels": [],
+   "missing_string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+   "char_recall_raw_tokens": 0.9444,
+   "char_recall_final_document": 0.9444,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_vi",
+   "labels": [],
+   "missing_string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+   "char_recall_raw_tokens": 0.9375,
+   "char_recall_final_document": 0.9375,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_vi",
+   "labels": [],
+   "missing_string": "Đơn vị tính: triệu đồng",
+   "char_recall_raw_tokens": 0.9565,
+   "char_recall_final_document": 0.9565,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "missing_string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw_tokens": 0.8519,
+   "char_recall_final_document": 0.8519,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "missing_string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+   "char_recall_raw_tokens": 0.9583,
+   "char_recall_final_document": 0.9583,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "missing_string": "Họ và tên người đề nghị: Nguyễn",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_invoice_vi",
+   "labels": [],
+   "missing_string": "Dịch vụ lắp đặt",
+   "char_recall_raw_tokens": 0.9333,
+   "char_recall_final_document": 0.9333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_policy_vi",
+   "labels": [],
+   "missing_string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_policy_vi",
+   "labels": [],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.9565,
+   "char_recall_final_document": 0.9565,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_purchase_order_vi",
+   "labels": [],
+   "missing_string": "ĐƠN ĐẶT HÀNG",
+   "char_recall_raw_tokens": 0.9167,
+   "char_recall_final_document": 0.9167,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_technical_report_vi",
+   "labels": [],
+   "missing_string": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+   "char_recall_raw_tokens": 0.9714,
+   "char_recall_final_document": 0.9714,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_technical_report_vi",
+   "labels": [],
+   "missing_string": "Thiết bị: Máy nén khí trục vít,",
+   "char_recall_raw_tokens": 0.9677,
+   "char_recall_final_document": 0.9677,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+   "char_recall_raw_tokens": 0.625,
+   "char_recall_final_document": 0.6875,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "Mã số doanh nghiệp: 0312998877",
+   "char_recall_raw_tokens": 0.3333,
+   "char_recall_final_document": 0.3333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_multicol_en",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "missing_string": "Section 2. Approval authority",
+   "char_recall_raw_tokens": 1.0,
+   "char_recall_final_document": 0.6552,
+   "exact_in_raw": true,
+   "exact_in_final": false,
+   "verdict": "assembly"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "missing_string": "Ký hiệu: MQ/2026E    Số: 0004417",
+   "char_recall_raw_tokens": 1.0,
+   "char_recall_final_document": 1.0,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "missing_string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw_tokens": 0.9565,
+   "char_recall_final_document": 0.4783,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "assembly"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "missing_string": "Số lượng / Thành tiền",
+   "char_recall_raw_tokens": 0.9524,
+   "char_recall_final_document": 0.9524,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Product A-100",
+   "char_recall_raw_tokens": 0.9231,
+   "char_recall_final_document": 0.9231,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "ambiguous"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Air filter type 22B",
+   "char_recall_raw_tokens": 0.7895,
+   "char_recall_final_document": 0.8421,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "missing_string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+   "char_recall_raw_tokens": 0.5263,
+   "char_recall_final_document": 0.7632,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "missing_string": "Chứng nhận rằng hệ thống quản lý",
+   "char_recall_raw_tokens": 0.4688,
+   "char_recall_final_document": 0.3438,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "missing_string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw_tokens": 0.375,
+   "char_recall_final_document": 0.3125,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Mô tả hàng hóa",
+   "char_recall_raw_tokens": 0.7857,
+   "char_recall_final_document": 0.7857,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Sản phẩm A-100",
+   "char_recall_raw_tokens": 0.6429,
+   "char_recall_final_document": 0.6429,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw_tokens": 0.5294,
+   "char_recall_final_document": 0.5294,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "missing_string": "Dịch vụ lắp đặt",
+   "char_recall_raw_tokens": 0.3333,
+   "char_recall_final_document": 0.3333,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_transparent_seal_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "missing_string": "ĐÃ DUYỆT",
+   "char_recall_raw_tokens": 0.5,
+   "char_recall_final_document": 0.5,
+   "exact_in_raw": false,
+   "exact_in_final": false,
+   "verdict": "acquisition"
+  }
+ ]
+}

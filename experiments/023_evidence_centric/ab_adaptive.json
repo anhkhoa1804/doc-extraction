@@ -1,0 +1,8038 @@
+{
+ "commit": "723d4cf3efc30f05ee0bcdefaf2a244be73d0286",
+ "strategy": "adaptive",
+ "device": "cpu",
+ "render_dpi": 200,
+ "n_documents": 49,
+ "gpu_state_start": {
+  "memory_used_mib": 12026,
+  "memory_total_mib": 23034,
+  "utilization_pct": 8,
+  "compute_processes": 1,
+  "process_rows": [
+   "12031, 12018 MiB"
+  ],
+  "classification": "LIMITED_OR_PROTECTED"
+ },
+ "cpu_state_start": {
+  "loadavg": [
+   1.9,
+   1.78,
+   2.57
+  ],
+  "cpu_count": 8,
+  "classification": "CLEAN"
+ },
+ "conditions": {
+  "easyocr": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.057,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.036,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.054,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.054,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.035,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 47.769,
+     "error": null,
+     "text_recall": 0.25,
+     "char_recall": 0.9377,
+     "found": 1,
+     "required": 4,
+     "missing": [
+      "Độc lập - Tự do - Hạnh phúc",
+      "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+      "Kính gửi: Phòng Tài chính - Kế"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 334,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 44.307,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.9874,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 203,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.053,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 51.835,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1671,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.096,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 24.922,
+     "error": null,
+     "text_recall": 0.0,
+     "char_recall": 0.7578,
+     "found": 0,
+     "required": 3,
+     "missing": [
+      "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+      "Điều 1. Phạm vi áp dụng",
+      "Quy chế này áp dụng cho toàn bộ"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 209,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 39.12,
+     "error": null,
+     "text_recall": 0.75,
+     "char_recall": 0.9837,
+     "found": 6,
+     "required": 8,
+     "missing": [
+      "Mô tả hàng hóa",
+      "Bộ lọc khí Mã 22B"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 424,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 26.663,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.068,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.996,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 237.8,
+   "ocr_invocations": null,
+   "pages_ocred": null,
+   "easyocr_s": null,
+   "tesseract_s": null,
+   "page_stats": [],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9456,
+    "mean_char_recall": 0.9909,
+    "docs_perfect": 44,
+    "docs_zero": 1,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 237.7,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9667,
+      "mean_char_recall": 0.9936
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.931,
+      "mean_char_recall": 0.9889
+     }
+    }
+   }
+  },
+  "tesseract": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.052,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.052,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 2.162,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 350,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 1.838,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 205,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.051,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.065,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 3.321,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1651,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.096,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 1.972,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8261,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 162,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 1.43,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 426,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 1.346,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.091,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.979,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 15.3,
+   "ocr_invocations": null,
+   "pages_ocred": null,
+   "easyocr_s": null,
+   "tesseract_s": null,
+   "page_stats": [],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 15.3,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9833,
+      "mean_char_recall": 0.9943
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.9842,
+      "mean_char_recall": 0.994
+     }
+    }
+   }
+  },
+  "selection": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.074,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 23.534,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 350,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 20.157,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 205,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 41.553,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1651,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.092,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.065,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 21.456,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8261,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 162,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 21.125,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 426,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 19.68,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.977,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 150.7,
+   "ocr_invocations": 14,
+   "pages_ocred": 7,
+   "easyocr_s": 135.23,
+   "tesseract_s": 5.67,
+   "page_stats": [
+    {
+     "page_index": 0,
+     "easyocr_tokens": 11,
+     "tesseract_tokens": 55,
+     "emitted_tokens": 55,
+     "easyocr_s": 21.127340248999644,
+     "tesseract_s": 0.7276994190006008,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.952 >= easyocr 0.873",
+     "groups": {},
+     "easyocr_mean_conf": 0.8728208329331802,
+     "tesseract_mean_conf": 0.9523636363636363,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 5,
+     "tesseract_tokens": 29,
+     "emitted_tokens": 29,
+     "easyocr_s": 18.429907997000555,
+     "tesseract_s": 0.8601906069998222,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.952 >= easyocr 0.869",
+     "groups": {},
+     "easyocr_mean_conf": 0.8689174937992439,
+     "tesseract_mean_conf": 0.9524137931034482,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 77,
+     "easyocr_s": 18.938825975999862,
+     "tesseract_s": 0.9065557410003748,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.941 >= easyocr 0.821",
+     "groups": {},
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 1,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 77,
+     "easyocr_s": 19.27975663399957,
+     "tesseract_s": 0.8751171450003312,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.941 >= easyocr 0.821",
+     "groups": {},
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 7,
+     "tesseract_tokens": 52,
+     "emitted_tokens": 52,
+     "easyocr_s": 19.403924663999533,
+     "tesseract_s": 0.6657013529993492,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.939 >= easyocr 0.597",
+     "groups": {},
+     "easyocr_mean_conf": 0.5971986511298291,
+     "tesseract_mean_conf": 0.9388461538461539,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 19,
+     "tesseract_tokens": 62,
+     "emitted_tokens": 62,
+     "easyocr_s": 19.676360542999646,
+     "tesseract_s": 0.8542774959996677,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.921 >= easyocr 0.813",
+     "groups": {},
+     "easyocr_mean_conf": 0.813460179839344,
+     "tesseract_mean_conf": 0.9211290322580645,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 9,
+     "tesseract_tokens": 34,
+     "emitted_tokens": 34,
+     "easyocr_s": 18.378469750000477,
+     "tesseract_s": 0.7773907760001748,
+     "invocations": 2,
+     "decision": "tesseract mean confidence 0.937 >= easyocr 0.808",
+     "groups": {},
+     "easyocr_mean_conf": 0.8081388395116412,
+     "tesseract_mean_conf": 0.9370588235294117,
+     "agreement": null
+    }
+   ],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 150.6,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9833,
+      "mean_char_recall": 0.9943
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.9842,
+      "mean_char_recall": 0.994
+     }
+    }
+   }
+  },
+  "union": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.046,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 23.19,
+     "error": null,
+     "text_recall": 0.75,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 4,
+     "missing": [
+      "Độc lập - Tự do - Hạnh phúc"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 738,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 20.651,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 409,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.052,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.045,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 42.715,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 3445,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.092,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 21.674,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8841,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 372,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 21.188,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 851,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 20.43,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.931,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 241,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.065,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.969,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 153.0,
+   "ocr_invocations": 14,
+   "pages_ocred": 7,
+   "easyocr_s": 137.15,
+   "tesseract_s": 5.61,
+   "page_stats": [
+    {
+     "page_index": 0,
+     "easyocr_tokens": 11,
+     "tesseract_tokens": 55,
+     "emitted_tokens": 66,
+     "easyocr_s": 20.8484653430005,
+     "tesseract_s": 0.7290539940004237,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.8728208329331802,
+     "tesseract_mean_conf": 0.9523636363636363,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 5,
+     "tesseract_tokens": 29,
+     "emitted_tokens": 34,
+     "easyocr_s": 18.741470907999428,
+     "tesseract_s": 0.8398849349996453,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.8689174937992439,
+     "tesseract_mean_conf": 0.9524137931034482,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 85,
+     "easyocr_s": 19.704562593000446,
+     "tesseract_s": 0.8455675720006184,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 1,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 85,
+     "easyocr_s": 19.64374377600052,
+     "tesseract_s": 0.906229526000061,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 7,
+     "tesseract_tokens": 52,
+     "emitted_tokens": 59,
+     "easyocr_s": 19.470266293999885,
+     "tesseract_s": 0.6385140180000235,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.5971986511298291,
+     "tesseract_mean_conf": 0.9388461538461539,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 19,
+     "tesseract_tokens": 62,
+     "emitted_tokens": 81,
+     "easyocr_s": 19.70054765199984,
+     "tesseract_s": 0.8852583749994665,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.813460179839344,
+     "tesseract_mean_conf": 0.9211290322580645,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 9,
+     "tesseract_tokens": 34,
+     "emitted_tokens": 43,
+     "easyocr_s": 19.039645734999795,
+     "tesseract_s": 0.7615946689993507,
+     "invocations": 2,
+     "decision": "naive union of both sources",
+     "groups": {},
+     "easyocr_mean_conf": 0.8081388395116412,
+     "tesseract_mean_conf": 0.9370588235294117,
+     "agreement": null
+    }
+   ],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9787,
+    "mean_char_recall": 0.9962,
+    "docs_perfect": 45,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 152.9,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9833,
+      "mean_char_recall": 0.9966
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.9756,
+      "mean_char_recall": 0.996
+     }
+    }
+   }
+  },
+  "fusion": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.038,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.046,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 24.054,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 556,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 20.035,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 205,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.069,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 41.719,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 2017,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.099,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.056,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 21.862,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8841,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 372,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 21.292,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 533,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 19.942,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.065,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.964,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 152.1,
+   "ocr_invocations": 14,
+   "pages_ocred": 7,
+   "easyocr_s": 136.27,
+   "tesseract_s": 5.63,
+   "page_stats": [
+    {
+     "page_index": 0,
+     "easyocr_tokens": 11,
+     "tesseract_tokens": 55,
+     "emitted_tokens": 58,
+     "easyocr_s": 21.59287662800034,
+     "tesseract_s": 0.7228590340000665,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 14
+     },
+     "easyocr_mean_conf": 0.8728208329331802,
+     "tesseract_mean_conf": 0.9523636363636363,
+     "agreement": 0.9386724386724388
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 5,
+     "tesseract_tokens": 29,
+     "emitted_tokens": 29,
+     "easyocr_s": 18.225955169000372,
+     "tesseract_s": 0.8407864620003238,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 6
+     },
+     "easyocr_mean_conf": 0.8689174937992439,
+     "tesseract_mean_conf": 0.9524137931034482,
+     "agreement": 1.0
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 78,
+     "easyocr_s": 18.875233886999922,
+     "tesseract_s": 0.9040227270006653,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 8
+     },
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": 0.9807692307692307
+    },
+    {
+     "page_index": 1,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 78,
+     "easyocr_s": 19.349511284000073,
+     "tesseract_s": 0.872330735000105,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 8
+     },
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": 0.9807692307692307
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 7,
+     "tesseract_tokens": 52,
+     "emitted_tokens": 59,
+     "easyocr_s": 19.855820777999725,
+     "tesseract_s": 0.6394483720005155,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 2,
+      "conflict": 5,
+      "suspicious": 1
+     },
+     "easyocr_mean_conf": 0.5971986511298291,
+     "tesseract_mean_conf": 0.9388461538461539,
+     "agreement": 0.23015873015873017
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 19,
+     "tesseract_tokens": 62,
+     "emitted_tokens": 65,
+     "easyocr_s": 19.744582059000095,
+     "tesseract_s": 0.8987621409996791,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 18,
+      "conflict": 1,
+      "suspicious": 1
+     },
+     "easyocr_mean_conf": 0.813460179839344,
+     "tesseract_mean_conf": 0.9211290322580645,
+     "agreement": 0.9210526315789473
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 9,
+     "tesseract_tokens": 34,
+     "emitted_tokens": 34,
+     "easyocr_s": 18.625213888999497,
+     "tesseract_s": 0.7498575879999407,
+     "invocations": 2,
+     "decision": "evidence_fusion.fuse_page(easyocr_anchors, tesseract)",
+     "groups": {
+      "trusted": 9
+     },
+     "easyocr_mean_conf": 0.8081388395116412,
+     "tesseract_mean_conf": 0.9370588235294117,
+     "agreement": 1.0
+    }
+   ],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 152.0,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9833,
+      "mean_char_recall": 0.9943
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.9842,
+      "mean_char_recall": 0.996
+     }
+    }
+   }
+  },
+  "fusion_recovery": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.046,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.063,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 342,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.044,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 215,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.04,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 199,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.059,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 262,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.039,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 139,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.042,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.048,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 24.101,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 556,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 20.719,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 205,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.052,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.041,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.058,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.061,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 305,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 42.137,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 2017,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.091,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1027,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.043,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 183,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.047,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 263,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.062,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 304,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.06,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 20.382,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8841,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 372,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.073,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 358,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 359,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.05,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 364,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 20.613,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 533,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 20.618,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 0.049,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 284,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 0.064,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 327,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 0.976,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 15082,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 151.7,
+   "ocr_invocations": 14,
+   "pages_ocred": 7,
+   "easyocr_s": 136.21,
+   "tesseract_s": 5.63,
+   "page_stats": [
+    {
+     "page_index": 0,
+     "easyocr_tokens": 11,
+     "tesseract_tokens": 55,
+     "emitted_tokens": 58,
+     "easyocr_s": 21.794066219999877,
+     "tesseract_s": 0.7306481480000002,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=0)",
+     "groups": {
+      "trusted": 14
+     },
+     "easyocr_mean_conf": 0.8728208329331802,
+     "tesseract_mean_conf": 0.9523636363636363,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 5,
+     "tesseract_tokens": 29,
+     "emitted_tokens": 29,
+     "easyocr_s": 18.833275967999725,
+     "tesseract_s": 0.8386859509992064,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=0)",
+     "groups": {
+      "trusted": 6
+     },
+     "easyocr_mean_conf": 0.8689174937992439,
+     "tesseract_mean_conf": 0.9524137931034482,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 78,
+     "easyocr_s": 19.34726662400044,
+     "tesseract_s": 0.8830241760006174,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=0)",
+     "groups": {
+      "trusted": 8
+     },
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 1,
+     "easyocr_tokens": 8,
+     "tesseract_tokens": 77,
+     "emitted_tokens": 78,
+     "easyocr_s": 19.437193715999456,
+     "tesseract_s": 0.8748259180001696,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=0)",
+     "groups": {
+      "trusted": 8
+     },
+     "easyocr_mean_conf": 0.8214653049815545,
+     "tesseract_mean_conf": 0.9406493506493507,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 7,
+     "tesseract_tokens": 52,
+     "emitted_tokens": 59,
+     "easyocr_s": 18.412007159000495,
+     "tesseract_s": 0.6446863439996378,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=6)",
+     "groups": {
+      "trusted": 2,
+      "conflict": 5,
+      "suspicious": 1
+     },
+     "easyocr_mean_conf": 0.5971986511298291,
+     "tesseract_mean_conf": 0.9388461538461539,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 19,
+     "tesseract_tokens": 62,
+     "emitted_tokens": 65,
+     "easyocr_s": 19.102471754000362,
+     "tesseract_s": 0.879411046000314,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=8)",
+     "groups": {
+      "trusted": 18,
+      "conflict": 1,
+      "suspicious": 1
+     },
+     "easyocr_mean_conf": 0.813460179839344,
+     "tesseract_mean_conf": 0.9211290322580645,
+     "agreement": null
+    },
+    {
+     "page_index": 0,
+     "easyocr_tokens": 9,
+     "tesseract_tokens": 34,
+     "emitted_tokens": 34,
+     "easyocr_s": 19.281446319999304,
+     "tesseract_s": 0.7761159850006152,
+     "invocations": 2,
+     "decision": "fusion + order_recovery (applied=0, declined=8)",
+     "groups": {
+      "trusted": 9
+     },
+     "easyocr_mean_conf": 0.8081388395116412,
+     "tesseract_mean_conf": 0.9370588235294117,
+     "agreement": null
+    }
+   ],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 46,
+    "errors": 0,
+    "total_runtime_s": 151.7,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.9833,
+      "mean_char_recall": 0.9943
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.9842,
+      "mean_char_recall": 0.996
+     }
+    }
+   }
+  }
+ },
+ "gpu_state_end": {
+  "memory_used_mib": 12224,
+  "memory_total_mib": 23034,
+  "utilization_pct": 16,
+  "compute_processes": 2,
+  "process_rows": [
+   "12031, 12024 MiB",
+   "12124, 186 MiB"
+  ],
+  "classification": "LIMITED_OR_PROTECTED"
+ },
+ "cpu_state_end": {
+  "loadavg": [
+   4.05,
+   4.01,
+   3.51
+  ],
+  "cpu_count": 8,
+  "classification": "CONTENDED"
+ },
+ "layout_cache": {
+  "hits": 36,
+  "misses": 6,
+  "note": "layout is identical across conditions; cached by image content hash. Runtime effect only."
+ }
+}

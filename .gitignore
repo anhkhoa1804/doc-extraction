@@ -34,6 +34,13 @@ experiments/**/outputs/
 experiments/**/rendered/
 experiments/**/*.png
 experiments/**/*.jpg
+# _runs/ holds per-document extraction output for an A/B (rendered pages,
+# OCR tokens, assembled IR) -- 192 MB / 11,718 files for experiment 023
+# alone. Same rule as research/**/_runs/: the measurement is committed as
+# the experiment's *.json, the working files are regenerable from the
+# tracked scripts plus the corpus, whose manifest carries a per-document
+# sha256.
+experiments/**/_runs/
 
 # experiments/005_omnidocbench — the evaluator (an external dependency, not
 # vendored — see experiments/005_omnidocbench/README.md), its own Python

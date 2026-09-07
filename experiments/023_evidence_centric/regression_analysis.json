@@ -1,0 +1,375 @@
+{
+ "dpi": 200,
+ "langs": "vie+eng",
+ "rows": [
+  {
+   "document_id": "hc_rotation_vi",
+   "is_regression": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.3333,
+    "tokens": 31,
+    "mean_conf": 0.3268
+   },
+   "osd": {
+    "Page number": "0",
+    "Orientation in degrees": "270",
+    "Rotate": "90",
+    "Orientation confidence": "5.96",
+    "Script": "Latin",
+    "Script confidence": "11.21"
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 0.0,
+    "tokens": 45,
+    "mean_conf": 0.7251
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 0.6667,
+    "tokens": 45,
+    "mean_conf": 0.9424
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 0.3333,
+    "tokens": 105,
+    "mean_conf": 0.5853
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 0.0,
+    "tokens": 105,
+    "mean_conf": 0.5793
+   },
+   "best_psm": {
+    "psm": 1,
+    "recall": 0.6667,
+    "tokens": 45,
+    "mean_conf": 0.9424
+   },
+   "mechanism": "orientation",
+   "psm_fixes_it": true
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "is_regression": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.5714,
+    "tokens": 20,
+    "mean_conf": 0.8063
+   },
+   "osd": {
+    "Page number": "0",
+    "Orientation in degrees": "0",
+    "Rotate": "0",
+    "Orientation confidence": "5.39",
+    "Script": "Latin",
+    "Script confidence": "1.67"
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 0.4286,
+    "tokens": 49,
+    "mean_conf": 0.8549
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 0.4286,
+    "tokens": 49,
+    "mean_conf": 0.8549
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 0.4286,
+    "tokens": 52,
+    "mean_conf": 0.8546
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 0.4286,
+    "tokens": 32,
+    "mean_conf": 0.9419
+   },
+   "best_psm": {
+    "psm": 4,
+    "recall": 0.4286,
+    "tokens": 52,
+    "mean_conf": 0.8546
+   },
+   "mechanism": "segmentation or confidence calibration (text found, not assembled)",
+   "psm_fixes_it": false
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "is_regression": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "easyocr": {
+    "recall": 0.8571,
+    "tokens": 18,
+    "mean_conf": 0.8642
+   },
+   "osd": {
+    "error": [
+     "Error during processing."
+    ]
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 0.7143,
+    "tokens": 44,
+    "mean_conf": 0.7875
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 0.7143,
+    "tokens": 44,
+    "mean_conf": 0.7875
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 0.5714,
+    "tokens": 45,
+    "mean_conf": 0.7782
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 0.1429,
+    "tokens": 17,
+    "mean_conf": 0.7612
+   },
+   "best_psm": {
+    "psm": 3,
+    "recall": 0.7143,
+    "tokens": 44,
+    "mean_conf": 0.7875
+   },
+   "mechanism": "segmentation or confidence calibration (text found, not assembled)",
+   "psm_fixes_it": false
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "is_regression": true,
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.8,
+    "tokens": 14,
+    "mean_conf": 0.8005
+   },
+   "osd": {
+    "Page number": "0",
+    "Orientation in degrees": "0",
+    "Rotate": "0",
+    "Orientation confidence": "2.36",
+    "Script": "Cyrillic",
+    "Script confidence": "6.33"
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 0.6,
+    "tokens": 28,
+    "mean_conf": 0.94
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 0.6,
+    "tokens": 28,
+    "mean_conf": 0.94
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 0.6,
+    "tokens": 28,
+    "mean_conf": 0.94
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 0.6,
+    "tokens": 28,
+    "mean_conf": 0.94
+   },
+   "best_psm": {
+    "psm": 3,
+    "recall": 0.6,
+    "tokens": 28,
+    "mean_conf": 0.94
+   },
+   "mechanism": "segmentation or confidence calibration (text found, not assembled)",
+   "psm_fixes_it": false
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "is_regression": false,
+   "labels": [],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.0,
+    "tokens": 14,
+    "mean_conf": 0.784
+   },
+   "osd": {
+    "Page number": "0",
+    "Orientation in degrees": "0",
+    "Rotate": "0",
+    "Orientation confidence": "13.57",
+    "Script": "Latin",
+    "Script confidence": "12.38"
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 1.0,
+    "tokens": 80,
+    "mean_conf": 0.955
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 1.0,
+    "tokens": 80,
+    "mean_conf": 0.955
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 1.0,
+    "tokens": 80,
+    "mean_conf": 0.955
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 1.0,
+    "tokens": 80,
+    "mean_conf": 0.955
+   },
+   "best_psm": {
+    "psm": 3,
+    "recall": 1.0,
+    "tokens": 80,
+    "mean_conf": 0.955
+   },
+   "mechanism": "no regression reproduced at this configuration",
+   "psm_fixes_it": false
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "is_regression": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.25,
+    "tokens": 11,
+    "mean_conf": 0.8728
+   },
+   "osd": {
+    "Page number": "0",
+    "Orientation in degrees": "0",
+    "Rotate": "0",
+    "Orientation confidence": "7.26",
+    "Script": "Latin",
+    "Script confidence": "4.58"
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 1.0,
+    "tokens": 55,
+    "mean_conf": 0.9524
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 1.0,
+    "tokens": 55,
+    "mean_conf": 0.9524
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 1.0,
+    "tokens": 55,
+    "mean_conf": 0.9524
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 1.0,
+    "tokens": 55,
+    "mean_conf": 0.9529
+   },
+   "best_psm": {
+    "psm": 3,
+    "recall": 1.0,
+    "tokens": 55,
+    "mean_conf": 0.9524
+   },
+   "mechanism": "no regression reproduced at this configuration",
+   "psm_fixes_it": false
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "is_regression": false,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "easyocr": {
+    "recall": 0.0,
+    "tokens": 7,
+    "mean_conf": 0.5972
+   },
+   "osd": {
+    "error": [
+     "Error during processing."
+    ]
+   },
+   "psm_3": {
+    "psm": 3,
+    "recall": 0.6667,
+    "tokens": 52,
+    "mean_conf": 0.9388
+   },
+   "psm_1": {
+    "psm": 1,
+    "recall": 0.6667,
+    "tokens": 52,
+    "mean_conf": 0.9388
+   },
+   "psm_4": {
+    "psm": 4,
+    "recall": 0.6667,
+    "tokens": 52,
+    "mean_conf": 0.9388
+   },
+   "psm_6": {
+    "psm": 6,
+    "recall": 0.6667,
+    "tokens": 52,
+    "mean_conf": 0.9394
+   },
+   "best_psm": {
+    "psm": 3,
+    "recall": 0.6667,
+    "tokens": 52,
+    "mean_conf": 0.9388
+   },
+   "mechanism": "no regression reproduced at this configuration",
+   "psm_fixes_it": false
+  }
+ ]
+}

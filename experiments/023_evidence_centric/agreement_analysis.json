@@ -1,0 +1,2665 @@
+{
+ "rows": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.9574,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.9347,
+   "tesseract_mean_conf": 0.952,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 44,
+   "geometric_overlap": 0.4820315345150192,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "TAX INVOICE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.3906,
+   "agreement_status": "suspicious",
+   "easyocr_recall": 0.8,
+   "tesseract_recall": 0.6,
+   "best_recall": 0.8,
+   "min_recall": 0.6,
+   "easyocr_mean_conf": 0.8005,
+   "tesseract_mean_conf": 0.94,
+   "easyocr_tokens": 14,
+   "tesseract_tokens": 28,
+   "geometric_overlap": 0.13028718964007824,
+   "vietnameseness": 0.2716,
+   "vietnameseness_tesseract": 0.2609,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.9828,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8571,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.8571,
+   "easyocr_mean_conf": 0.9401,
+   "tesseract_mean_conf": 0.9276,
+   "easyocr_tokens": 25,
+   "tesseract_tokens": 59,
+   "geometric_overlap": 0.4506870998784774,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Reporting currency: thousands of",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Net revenue for the period",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.6667,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.6667,
+   "easyocr_mean_conf": 0.8081,
+   "tesseract_mean_conf": 0.9371,
+   "easyocr_tokens": 9,
+   "tesseract_tokens": 34,
+   "geometric_overlap": 0.29443907997682456,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 1. Scope",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 2. Approval authority",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.8548,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.75,
+   "tesseract_recall": 0.875,
+   "best_recall": 0.875,
+   "min_recall": 0.75,
+   "easyocr_mean_conf": 0.8135,
+   "tesseract_mean_conf": 0.9211,
+   "easyocr_tokens": 19,
+   "tesseract_tokens": 62,
+   "geometric_overlap": 0.34073302730201116,
+   "vietnameseness": 0.2798,
+   "vietnameseness_tesseract": 0.2778,
+   "per_string": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.2361,
+   "agreement_status": "suspicious",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 0.6667,
+   "best_recall": 0.6667,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.5972,
+   "tesseract_mean_conf": 0.9388,
+   "easyocr_tokens": 7,
+   "tesseract_tokens": 52,
+   "geometric_overlap": 0.22221391561518114,
+   "vietnameseness": 0.0952,
+   "vietnameseness_tesseract": 0.2976,
+   "per_string": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.8621,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.875,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.875,
+   "easyocr_mean_conf": 0.8348,
+   "tesseract_mean_conf": 0.9163,
+   "easyocr_tokens": 19,
+   "tesseract_tokens": 59,
+   "geometric_overlap": 0.25669770431425554,
+   "vietnameseness": 0.283,
+   "vietnameseness_tesseract": 0.2829,
+   "per_string": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.8033,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.625,
+   "tesseract_recall": 0.875,
+   "best_recall": 0.875,
+   "min_recall": 0.625,
+   "easyocr_mean_conf": 0.8461,
+   "tesseract_mean_conf": 0.9307,
+   "easyocr_tokens": 21,
+   "tesseract_tokens": 59,
+   "geometric_overlap": 0.3634568616942154,
+   "vietnameseness": 0.2722,
+   "vietnameseness_tesseract": 0.2541,
+   "per_string": [
+    {
+     "string": "ĐƠN ĐẶT HÀNG",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Số lượng / Thành tiền",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.5455,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8571,
+   "tesseract_recall": 0.7143,
+   "best_recall": 0.8571,
+   "min_recall": 0.7143,
+   "easyocr_mean_conf": 0.8642,
+   "tesseract_mean_conf": 0.7875,
+   "easyocr_tokens": 18,
+   "tesseract_tokens": 44,
+   "geometric_overlap": 0.42031241731779106,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "TAX INVOICE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.5909,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.6394,
+   "tesseract_mean_conf": 0.9425,
+   "easyocr_tokens": 18,
+   "tesseract_tokens": 80,
+   "geometric_overlap": 0.2653061614739137,
+   "vietnameseness": 0.2893,
+   "vietnameseness_tesseract": 0.3158,
+   "per_string": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.9574,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.9275,
+   "tesseract_mean_conf": 0.9216,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 44,
+   "geometric_overlap": 0.4743289881941877,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "TAX INVOICE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8138,
+   "tesseract_mean_conf": 0.9395,
+   "easyocr_tokens": 8,
+   "tesseract_tokens": 22,
+   "geometric_overlap": 0.349133769597962,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "PAYMENT REQUISITION FORM",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Requested by: Alice Fairbanks",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Department: Finance",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Approved",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.7636,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.2,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.2,
+   "easyocr_mean_conf": 0.8775,
+   "tesseract_mean_conf": 0.9483,
+   "easyocr_tokens": 12,
+   "tesseract_tokens": 60,
+   "geometric_overlap": 0.20049874036255255,
+   "vietnameseness": 0.3048,
+   "vietnameseness_tesseract": 0.3085,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Họ và tên người đề nghị: Nguyễn",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bộ phận: Phòng Kế toán",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Đồng ý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "cross_page"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.8246,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.3333,
+   "easyocr_mean_conf": 0.8531,
+   "tesseract_mean_conf": 0.9545,
+   "easyocr_tokens": 49,
+   "tesseract_tokens": 220,
+   "geometric_overlap": 0.27615273637834925,
+   "vietnameseness": 0.2541,
+   "vietnameseness_tesseract": 0.265,
+   "per_string": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "encoding"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.9677,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8215,
+   "tesseract_mean_conf": 0.9406,
+   "easyocr_tokens": 16,
+   "tesseract_tokens": 154,
+   "geometric_overlap": 0.14397018343185697,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "Cong Hoa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Doanh Nghiep",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "low_contrast"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.8727,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.91,
+   "tesseract_mean_conf": 0.955,
+   "easyocr_tokens": 24,
+   "tesseract_tokens": 80,
+   "geometric_overlap": 0.30716607111327393,
+   "vietnameseness": 0.3158,
+   "vietnameseness_tesseract": 0.3158,
+   "per_string": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_merged_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.9333,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8571,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.8571,
+   "easyocr_mean_conf": 0.931,
+   "tesseract_mean_conf": 0.9296,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 45,
+   "geometric_overlap": 0.47505173728083555,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "TAX INVOICE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Qty / Amount",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8859,
+   "tesseract_mean_conf": 0.9447,
+   "easyocr_tokens": 8,
+   "tesseract_tokens": 34,
+   "geometric_overlap": 0.2511841307993833,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 1. Scope",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 2. Approval authority",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.0149,
+   "agreement_status": "suspicious",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 0.0,
+   "best_recall": 0.3333,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.3268,
+   "tesseract_mean_conf": 0.7251,
+   "easyocr_tokens": 31,
+   "tesseract_tokens": 45,
+   "geometric_overlap": 0.5002602640705017,
+   "vietnameseness": 0.3864,
+   "vietnameseness_tesseract": 0.0522,
+   "per_string": [
+    {
+     "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_scan_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "scan_quality"
+   ],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.6667,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.6667,
+   "easyocr_mean_conf": 0.8689,
+   "tesseract_mean_conf": 0.9524,
+   "easyocr_tokens": 5,
+   "tesseract_tokens": 29,
+   "geometric_overlap": 0.2065100739626946,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "To: Finance and Accounting",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Further to the reconciliation",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "scan_quality"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.8889,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.25,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.25,
+   "easyocr_mean_conf": 0.8728,
+   "tesseract_mean_conf": 0.9524,
+   "easyocr_tokens": 11,
+   "tesseract_tokens": 55,
+   "geometric_overlap": 0.25277261300150555,
+   "vietnameseness": 0.2963,
+   "vietnameseness_tesseract": 0.2981,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Kính gửi: Phòng Tài chính - Kế",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Căn cứ biên bản đối chiếu ngày 28",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "language": "vi",
+   "difficulty": "extreme",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.8413,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.875,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.875,
+   "easyocr_mean_conf": 0.8502,
+   "tesseract_mean_conf": 0.9242,
+   "easyocr_tokens": 19,
+   "tesseract_tokens": 64,
+   "geometric_overlap": 0.3445179770086574,
+   "vietnameseness": 0.2857,
+   "vietnameseness_tesseract": 0.2679,
+   "per_string": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.7714,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.8,
+   "easyocr_mean_conf": 0.7438,
+   "tesseract_mean_conf": 0.9393,
+   "easyocr_tokens": 12,
+   "tesseract_tokens": 70,
+   "geometric_overlap": 0.18633326117966945,
+   "vietnameseness": 0.2724,
+   "vietnameseness_tesseract": 0.265,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "expected_tables": 1,
+   "agreement": 0.5294,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.5714,
+   "tesseract_recall": 0.4286,
+   "best_recall": 0.5714,
+   "min_recall": 0.4286,
+   "easyocr_mean_conf": 0.8063,
+   "tesseract_mean_conf": 0.8549,
+   "easyocr_tokens": 20,
+   "tesseract_tokens": 49,
+   "geometric_overlap": 0.23622036775308586,
+   "vietnameseness": 0.2716,
+   "vietnameseness_tesseract": 0.2787,
+   "per_string": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": false,
+     "tesseract": false,
+     "outcome": "both_wrong"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "tiny_text"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.9032,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.6667,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.6667,
+   "easyocr_mean_conf": 0.8819,
+   "tesseract_mean_conf": 0.9391,
+   "easyocr_tokens": 8,
+   "tesseract_tokens": 34,
+   "geometric_overlap": 0.4462237910078434,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 1. Scope",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "This policy applies to all",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "tiny_text"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.72,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.3333,
+   "easyocr_mean_conf": 0.7134,
+   "tesseract_mean_conf": 0.9425,
+   "easyocr_tokens": 7,
+   "tesseract_tokens": 52,
+   "geometric_overlap": 0.2378592268183908,
+   "vietnameseness": 0.2798,
+   "vietnameseness_tesseract": 0.2917,
+   "per_string": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.6667,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8,
+   "tesseract_recall": 0.8,
+   "best_recall": 0.8,
+   "min_recall": 0.8,
+   "easyocr_mean_conf": 0.7169,
+   "tesseract_mean_conf": 0.9504,
+   "easyocr_tokens": 12,
+   "tesseract_tokens": 57,
+   "geometric_overlap": 0.11791260531807274,
+   "vietnameseness": 0.2691,
+   "vietnameseness_tesseract": 0.2623,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "easyocr": true,
+     "tesseract": false,
+     "outcome": "easyocr_only"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "watermark"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.8571,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.7987,
+   "tesseract_mean_conf": 0.955,
+   "easyocr_tokens": 16,
+   "tesseract_tokens": 80,
+   "geometric_overlap": 0.2230227778176081,
+   "vietnameseness": 0.3158,
+   "vietnameseness_tesseract": 0.3158,
+   "per_string": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "expected_tables": 0,
+   "agreement": 0.9107,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.3333,
+   "easyocr_mean_conf": 0.8295,
+   "tesseract_mean_conf": 0.9553,
+   "easyocr_tokens": 665,
+   "tesseract_tokens": 3188,
+   "geometric_overlap": 0.2626868062049391,
+   "vietnameseness": 0.2542,
+   "vietnameseness_tesseract": 0.2655,
+   "per_string": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.7861,
+   "tesseract_mean_conf": 0.9519,
+   "easyocr_tokens": 6,
+   "tesseract_tokens": 27,
+   "geometric_overlap": 0.20282325894119366,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "CERTIFICATE OF INCORPORATION",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Company name: Brightwater Trading",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Company number: 0312998877",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.8286,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.75,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.75,
+   "easyocr_mean_conf": 0.7854,
+   "tesseract_mean_conf": 0.952,
+   "easyocr_tokens": 11,
+   "tesseract_tokens": 71,
+   "geometric_overlap": 0.20252894756672327,
+   "vietnameseness": 0.2778,
+   "vietnameseness_tesseract": 0.2778,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8761,
+   "tesseract_mean_conf": 0.9475,
+   "easyocr_tokens": 5,
+   "tesseract_tokens": 28,
+   "geometric_overlap": 0.2582582108556476,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "This is to certify that the",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "conforms to the requirements of",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.9474,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.3333,
+   "easyocr_mean_conf": 0.8137,
+   "tesseract_mean_conf": 0.9474,
+   "easyocr_tokens": 7,
+   "tesseract_tokens": 43,
+   "geometric_overlap": 0.2174263113222952,
+   "vietnameseness": 0.2587,
+   "vietnameseness_tesseract": 0.2587,
+   "per_string": [
+    {
+     "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.7322,
+   "tesseract_mean_conf": 0.9188,
+   "easyocr_tokens": 3,
+   "tesseract_tokens": 24,
+   "geometric_overlap": 0.14457203330135568,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "COMPANY CAPABILITY PROFILE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Founded in 2011, the company",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "The current headcount is 148",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.7714,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.6943,
+   "tesseract_mean_conf": 0.958,
+   "easyocr_tokens": 3,
+   "tesseract_tokens": 35,
+   "geometric_overlap": 0.08312611035021887,
+   "vietnameseness": 0.2632,
+   "vietnameseness_tesseract": 0.2719,
+   "per_string": [
+    {
+     "string": "HỒ SƠ NĂNG LỰC CÔNG TY",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Thành lập năm 2011, công ty hoạt",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Đội ngũ hiện tại gồm 148 nhân sự",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_contract_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8537,
+   "tesseract_mean_conf": 0.9518,
+   "easyocr_tokens": 8,
+   "tesseract_tokens": 62,
+   "geometric_overlap": 0.1811627561261278,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "GOODS PURCHASE AGREEMENT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Article 1. Subject of the",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "The Seller agrees to sell and the",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.8727,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.784,
+   "tesseract_mean_conf": 0.955,
+   "easyocr_tokens": 14,
+   "tesseract_tokens": 80,
+   "geometric_overlap": 0.2543015811138759,
+   "vietnameseness": 0.3158,
+   "vietnameseness_tesseract": 0.3158,
+   "per_string": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8571,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.8571,
+   "easyocr_mean_conf": 0.9375,
+   "tesseract_mean_conf": 0.948,
+   "easyocr_tokens": 23,
+   "tesseract_tokens": 59,
+   "geometric_overlap": 0.47854028431997775,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Reporting currency: thousands of",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "These figures are unaudited and",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 0.8289,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.7143,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.7143,
+   "easyocr_mean_conf": 0.8686,
+   "tesseract_mean_conf": 0.9132,
+   "easyocr_tokens": 25,
+   "tesseract_tokens": 77,
+   "geometric_overlap": 0.38112088848286774,
+   "vietnameseness": 0.319,
+   "vietnameseness_tesseract": 0.3019,
+   "per_string": [
+    {
+     "string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Đơn vị tính: triệu đồng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Báo cáo này chưa được kiểm toán",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_form_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8341,
+   "tesseract_mean_conf": 0.9335,
+   "easyocr_tokens": 5,
+   "tesseract_tokens": 17,
+   "geometric_overlap": 0.25734309733967664,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "PAYMENT REQUISITION FORM",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Requested by: Alice Fairbanks",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Department: Finance",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_form_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.7917,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.25,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.25,
+   "easyocr_mean_conf": 0.862,
+   "tesseract_mean_conf": 0.9547,
+   "easyocr_tokens": 9,
+   "tesseract_tokens": 51,
+   "geometric_overlap": 0.17648190231607896,
+   "vietnameseness": 0.2945,
+   "vietnameseness_tesseract": 0.3006,
+   "per_string": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Họ và tên người đề nghị: Nguyễn",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Bộ phận: Phòng Kế toán",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 0.9574,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.9475,
+   "tesseract_mean_conf": 0.9239,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 44,
+   "geometric_overlap": 0.47954367203319764,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "TAX INVOICE",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 0.8438,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.8571,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.8571,
+   "easyocr_mean_conf": 0.8799,
+   "tesseract_mean_conf": 0.9073,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 66,
+   "geometric_overlap": 0.3818125814548745,
+   "vietnameseness": 0.3049,
+   "vietnameseness_tesseract": 0.2866,
+   "per_string": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_policy_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 1.0,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.8475,
+   "tesseract_mean_conf": 0.9215,
+   "easyocr_tokens": 5,
+   "tesseract_tokens": 34,
+   "geometric_overlap": 0.17257883460735549,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Section 1. Scope",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "This policy applies to all",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.7959,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.3333,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.3333,
+   "easyocr_mean_conf": 0.8794,
+   "tesseract_mean_conf": 0.9542,
+   "easyocr_tokens": 14,
+   "tesseract_tokens": 52,
+   "geometric_overlap": 0.2983657765063364,
+   "vietnameseness": 0.2798,
+   "vietnameseness_tesseract": 0.2917,
+   "per_string": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 0.9778,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.9387,
+   "tesseract_mean_conf": 0.9197,
+   "easyocr_tokens": 22,
+   "tesseract_tokens": 40,
+   "geometric_overlap": 0.49823599770661003,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "PURCHASE ORDER",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Order number: PO-2026-0318",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Supplier: Brightwater Trading",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Item description",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Product A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Air filter type 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Installation service",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 1,
+   "agreement": 0.8644,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.7143,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.7143,
+   "easyocr_mean_conf": 0.9014,
+   "tesseract_mean_conf": 0.9024,
+   "easyocr_tokens": 23,
+   "tesseract_tokens": 59,
+   "geometric_overlap": 0.41332665772660365,
+   "vietnameseness": 0.2857,
+   "vietnameseness_tesseract": 0.2671,
+   "per_string": [
+    {
+     "string": "ĐƠN ĐẶT HÀNG",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "language": "en",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.8966,
+   "agreement_status": "trusted",
+   "easyocr_recall": 1.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 1.0,
+   "easyocr_mean_conf": 0.7791,
+   "tesseract_mean_conf": 0.9219,
+   "easyocr_tokens": 4,
+   "tesseract_tokens": 27,
+   "geometric_overlap": 0.13585226406822606,
+   "vietnameseness": 0.0,
+   "vietnameseness_tesseract": 0.0,
+   "per_string": [
+    {
+     "string": "EQUIPMENT INSPECTION TECHNICAL REPORT",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Equipment: Screw-type air",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    },
+    {
+     "string": "Measured bearing vibration",
+     "easyocr": true,
+     "tesseract": true,
+     "outcome": "both_right"
+    }
+   ]
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "language": "vi",
+   "difficulty": "easy",
+   "labels": [],
+   "expected_tables": 0,
+   "agreement": 0.8085,
+   "agreement_status": "trusted",
+   "easyocr_recall": 0.0,
+   "tesseract_recall": 1.0,
+   "best_recall": 1.0,
+   "min_recall": 0.0,
+   "easyocr_mean_conf": 0.7569,
+   "tesseract_mean_conf": 0.9478,
+   "easyocr_tokens": 6,
+   "tesseract_tokens": 46,
+   "geometric_overlap": 0.13806361226077193,
+   "vietnameseness": 0.2878,
+   "vietnameseness_tesseract": 0.2993,
+   "per_string": [
+    {
+     "string": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Thiết bị: Máy nén khí trục vít,",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    },
+    {
+     "string": "Kết quả đo độ rung tại vị trí ổ",
+     "easyocr": false,
+     "tesseract": true,
+     "outcome": "tesseract_only"
+    }
+   ]
+  }
+ ],
+ "report": {
+  "n_documents": 49,
+  "string_outcomes": {
+   "both_right": 149,
+   "easyocr_only": 8,
+   "tesseract_only": 62,
+   "both_wrong": 7
+  },
+  "disagreements": 70,
+  "confidence_predictor": {
+   "decidable_documents": 34,
+   "correct_picks": 29,
+   "accuracy": 0.8529
+  },
+  "correlations": {
+   "agreement_vs_min_recall": 0.5433940970643982,
+   "agreement_vs_best_recall": 0.8424853211003389,
+   "geometric_overlap_vs_min_recall": 0.22954991354562393,
+   "easyocr_conf_vs_easyocr_recall": 0.3922744637760678,
+   "tesseract_conf_vs_tesseract_recall": 0.7773173619354752
+  },
+  "calibration": [
+   {
+    "band": "[0.0,0.3)",
+    "n": 2,
+    "mean_min_recall": 0.0,
+    "mean_best_recall": 0.5,
+    "documents": [
+     "cmb_scan_tiny_vi",
+     "hc_rotation_vi"
+    ]
+   },
+   {
+    "band": "[0.3,0.5)",
+    "n": 1,
+    "mean_min_recall": 0.6,
+    "mean_best_recall": 0.8,
+    "documents": [
+     "cmb_lowcontrast_stamp_vi"
+    ]
+   },
+   {
+    "band": "[0.5,0.7)",
+    "n": 4,
+    "mean_min_recall": 0.4857,
+    "mean_best_recall": 0.8071,
+    "documents": [
+     "cmb_tiny_table_en",
+     "cmb_watermark_tiny_vi",
+     "hc_tiny_cells_vi",
+     "hc_transparent_seal_vi"
+    ]
+   },
+   {
+    "band": "[0.7,0.9)",
+    "n": 21,
+    "mean_min_recall": 0.46,
+    "mean_best_recall": 0.9881,
+    "documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "hc_checkbox_vi",
+     "hc_crosspage_vi",
+     "hc_low_contrast_vi",
+     "hc_scan_vi",
+     "hc_stamp_table_vi",
+     "hc_stamp_text_vi",
+     "hc_tiny_text_vi",
+     "hc_watermark_vi",
+     "ord_business_license_vi",
+     "ord_company_profile_vi",
+     "ord_contract_vi",
+     "ord_financial_report_vi",
+     "ord_form_vi",
+     "ord_invoice_vi",
+     "ord_policy_vi",
+     "ord_purchase_order_vi",
+     "ord_technical_report_en",
+     "ord_technical_report_vi"
+    ]
+   },
+   {
+    "band": "[0.9,1.01)",
+    "n": 21,
+    "mean_min_recall": 0.8685,
+    "mean_best_recall": 1.0,
+    "documents": [
+     "cmb_borderless_lowcontrast_en",
+     "cmb_multicol_table_en",
+     "cmb_scan_multicol_en",
+     "hc_borderless_en",
+     "hc_checkbox_en",
+     "hc_encoding_vi",
+     "hc_merged_en",
+     "hc_multicolumn_en",
+     "hc_scan_en",
+     "hc_tiny_text_en",
+     "long_policy_vi_60p",
+     "ord_business_license_en",
+     "ord_certificate_en",
+     "ord_certificate_vi",
+     "ord_company_profile_en",
+     "ord_contract_en",
+     "ord_financial_report_en",
+     "ord_form_en",
+     "ord_invoice_en",
+     "ord_policy_en",
+     "ord_purchase_order_en"
+    ]
+   }
+  ],
+  "by_table_presence": {
+   "with_tables": {
+    "n": 16,
+    "mean_agreement": 0.8587,
+    "corr_agreement_vs_min_recall": 0.7905499933064264
+   },
+   "without_tables": {
+    "n": 33,
+    "mean_agreement": 0.821,
+    "corr_agreement_vs_min_recall": 0.5326357908496538
+   }
+  },
+  "threshold_behaviour": {
+   "threshold": 0.5,
+   "flagged": 3,
+   "flagged_mean_min_recall": 0.2,
+   "flagged_mean_best_recall": 0.6,
+   "unflagged_mean_min_recall": 0.6487,
+   "flagged_documents": [
+    "cmb_lowcontrast_stamp_vi",
+    "cmb_scan_tiny_vi",
+    "hc_rotation_vi"
+   ]
+  }
+ }
+}
