@@ -172,6 +172,12 @@ def _center_in(inner: BBox, outer: BBox) -> bool:
 # the identical result on all 49 documents.
 LINE_BAND_Y_OVERLAP_MIN = 0.5
 
+# How far apart two orphan line bands may sit and still be one recovered
+# block, as a multiple of the taller band's height. 1.5 is ordinary
+# paragraph leading with room to spare; it separates a dropped column from
+# a dropped footer rather than tuning any measured number.
+ORPHAN_LINE_GAP_RATIO = 1.5
+
 
 def _tokens_in_reading_order(tokens: list[OCRToken]) -> list[OCRToken]:
     """Order OCR tokens the way the page reads: line by line, left to right.
@@ -237,6 +243,109 @@ def _tokens_in_reading_order(tokens: list[OCRToken]) -> list[OCRToken]:
     for band in sorted(bands, key=lambda b: b["y0"]):
         ordered.extend(sorted(band["tokens"], key=lambda t: t.bbox.x0))
     return ordered
+
+
+# --- orphan OCR evidence recovery -------------------------------------------
+#
+# `_gather_region_text` keeps only the tokens whose centre falls inside a
+# detected layout region. Tokens no region claims are not mis-ordered and not
+# mis-assigned -- they are dropped, and nothing downstream ever sees them.
+#
+# Measured over the 49-PDF corpus (experiments/024_ocr_fidelity_recovery):
+# 1000 of 5845 recognised tokens, 17.1%, are orphaned this way. On
+# `cmb_scan_multicol_en` the orphans are the page's entire second column,
+# 15 of 34 tokens, including a `must_contain` string the recogniser had read
+# correctly. On `long_policy_vi_60p` -- a document that scores a perfect
+# recall -- 894 tokens are discarded. Sparse ground truth makes only a small
+# part of that visible as recall; all of it is real extracted text.
+#
+# What the same measurement says about *which* orphans to recover: of those
+# 1000 tokens, 0 are single characters, 0 are pure punctuation, 4 have
+# confidence below 0.5, and 12 (1.2%) fall inside a detected table. They are
+# overwhelmingly ordinary body words. So this does not filter on confidence
+# or token shape -- there is no measured basis for a threshold, and inventing
+# one would discard real text to guard against noise this corpus does not
+# contain. The only content guard is that a recovered block must carry at
+# least one alphanumeric character, which costs nothing and excludes runs of
+# rule/border glyphs.
+#
+# Tokens inside a detected table are deliberately NOT recovered here. Table
+# ownership has its own tiered rules and its own guarantees
+# (experiments/017_table_cell_geometry), and text that belongs to a table
+# belongs in its cells, not in a sibling text element. Leaving them alone
+# also makes duplication impossible by construction: a recovered token is by
+# definition claimed by no region and inside no table, so it cannot also have
+# reached a region's text or a cell's text.
+#
+# Recovered blocks carry real geometry, so `compute_reading_order` places
+# them by position like any other element rather than at the end of the page.
+
+
+def _orphan_tokens(
+    regions: list[Region], ocr_result: OCRResult, tables: list
+) -> list[OCRToken]:
+    """OCR tokens claimed by no layout region and inside no detected table.
+
+    Cell boxes are excluded as well as each table's outer box, because
+    `Table.bbox` is optional: a table that carries cells but no outer bbox
+    would otherwise leave its cells' own tokens looking unclaimed, and
+    `_fill_table_cell_text` will have put them in cells regardless. Checking
+    both is what makes "recovered tokens cannot also be cell text" true by
+    construction rather than by assumption.
+    """
+    boxes = [t.bbox for t in tables if getattr(t, "bbox", None) is not None]
+    boxes += [c.bbox for t in tables for c in (getattr(t, "cells", None) or [])
+              if getattr(c, "bbox", None) is not None]
+    return [
+        t for t in ocr_result.tokens
+        if not any(_center_in(t.bbox, r.bbox) for r in regions)
+        and not any(_center_in(t.bbox, b) for b in boxes)
+    ]
+
+
+def _cluster_orphans(tokens: list[OCRToken]) -> list[list[OCRToken]]:
+    """Group orphan tokens into contiguous blocks, one per run of lines.
+
+    Tokens are first banded into printed lines by the same mutual-vertical-
+    overlap rule `_tokens_in_reading_order` uses, then adjacent bands are
+    joined into a block while they are vertically close (within
+    `ORPHAN_LINE_GAP_RATIO` of the taller band's height) and horizontally
+    overlapping. That keeps a dropped column together as one element instead
+    of scattering it into one element per line, without merging a header and
+    a footer that merely share a page.
+    """
+    if not tokens:
+        return []
+    bands: list[dict] = []
+    for token in sorted(tokens, key=lambda t: (t.bbox.y0, t.bbox.x0)):
+        box = token.bbox
+        for band in bands:
+            overlap = min(band["y1"], box.y1) - max(band["y0"], box.y0)
+            shorter = min(band["y1"] - band["y0"], box.y1 - box.y0)
+            if overlap > 0 and shorter > 0 and overlap >= LINE_BAND_Y_OVERLAP_MIN * shorter:
+                band["tokens"].append(token)
+                band["y0"], band["y1"] = min(band["y0"], box.y0), max(band["y1"], box.y1)
+                band["x0"], band["x1"] = min(band["x0"], box.x0), max(band["x1"], box.x1)
+                break
+        else:
+            bands.append({"y0": box.y0, "y1": box.y1, "x0": box.x0, "x1": box.x1,
+                          "tokens": [token]})
+
+    bands.sort(key=lambda b: (b["y0"], b["x0"]))
+    blocks: list[list[dict]] = []
+    for band in bands:
+        if blocks:
+            prev = blocks[-1][-1]
+            gap = band["y0"] - prev["y1"]
+            tall = max(prev["y1"] - prev["y0"], band["y1"] - band["y0"], 1.0)
+            overlaps_x = min(prev["x1"], band["x1"]) > max(prev["x0"], band["x0"])
+            if overlaps_x and gap <= ORPHAN_LINE_GAP_RATIO * tall:
+                blocks[-1].append(band)
+                continue
+        blocks.append([band])
+
+    return [[t for band in block for t in _tokens_in_reading_order(band["tokens"])]
+            for block in blocks]
 
 
 def _gather_region_text(region: Region, ocr_result: OCRResult) -> str | None:
@@ -538,6 +647,45 @@ def merge_regions_into_page(
             )
         )
 
+    # Recover OCR evidence no region and no table claimed. Appended to
+    # `elements` after the detected ones so existing element ids and
+    # order_index values are untouched; `compute_reading_order` (stage H)
+    # then places them geometrically, which is where this page's canonical
+    # ordering actually lives.
+    orphans = _orphan_tokens(layout_result.regions, ocr_result, tables)
+    recovered_tokens = 0
+    for j, block in enumerate(_cluster_orphans(orphans)):
+        text = " ".join(t.text for t in block if t.text).strip()
+        if not any(ch.isalnum() for ch in text):
+            continue
+        confidences = [t.confidence for t in block if t.confidence is not None]
+        elements.append(
+            Element(
+                id=f"p{page_index}-r{j}",
+                type=ElementType.TEXT,
+                text=text,
+                bbox=BBox(
+                    x0=min(t.bbox.x0 for t in block), y0=min(t.bbox.y0 for t in block),
+                    x1=max(t.bbox.x1 for t in block), y1=max(t.bbox.y1 for t in block),
+                ),
+                page_number=page_index + 1,
+                # The recogniser's own confidence for this text, not a layout
+                # detector's -- there was no detection to take one from.
+                confidence=(sum(confidences) / len(confidences)) if confidences else None,
+                source_backend=ocr_result.backend,
+                order_index=len(elements),
+                extra={"recovered": "orphan_ocr_tokens", "token_count": len(block)},
+            )
+        )
+        recovered_tokens += len(block)
+
+    notes = list(table_result.warnings) if table_result else []
+    if orphans:
+        notes.append(
+            f"orphan OCR recovery: {recovered_tokens} of {len(orphans)} unclaimed "
+            f"token(s) recovered into text elements"
+        )
+
     return Page(
         index=page_index,
         width=width,
@@ -557,7 +705,7 @@ def merge_regions_into_page(
         # false for every table on this route -- a pre-existing gap this
         # milestone's own new warning (missing-row synthesis) would
         # otherwise have fallen into silently.
-        notes=list(table_result.warnings) if table_result else [],
+        notes=notes,
     )
 
 
