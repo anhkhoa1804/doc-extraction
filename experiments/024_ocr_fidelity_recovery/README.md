@@ -296,6 +296,154 @@ Reading order, on the two documents the contract named:
   score, because the recogniser read `Phạm vì` for `Phạm vi` -- a line 1
   fidelity failure, untouched by line 5 and correctly so.
 
+## Line 5 under the shipped router
+
+Everything above forces OCR on every page (`--strategy visual`). That is the
+right way to see a recogniser-side mechanism and it is not what production
+does: the shipped router sends a page to OCR only when its text layer is
+absent or fails the quality gate. Line 5 lives inside
+`merge_regions_into_page`, so under `--strategy adaptive` it can only act on
+the pages the router actually sends there.
+
+`line5_adaptive_ab.py` measures exactly that -- same 49 documents, 112
+pages, same scorer, thresholds, router, `tesseract` arm, layout and table
+backends. The only difference between the two arms is whether
+`_orphan_tokens` returns its orphans or an empty list, which is precisely
+pre-`1ae81e0` behaviour: with no orphans the recovery loop appends nothing
+and `notes` stays `list(table_result.warnings)`. No production code is
+modified. Layout is not shared between arms (that would give arm 2 free work
+arm 1 paid for); a per-page region fingerprint is recorded instead and is
+identical in both, `5217ebb6876b1536`.
+
+| metric | adaptive baseline | adaptive + L5 | delta |
+|---|---:|---:|---:|
+| exact recall | 0.9838 | **0.9906** | **+0.0068** |
+| char recall | 0.9941 | **0.9997** | **+0.0056** |
+| perfect documents | 46 | **47** | **+1** |
+| zero-recall documents | 0 | 0 | 0 |
+| `order_ok` | 46 | 46 | 0 |
+| `tables_ok` | 46 | 46 | 0 |
+| hallucinations | 0 | 0 | 0 |
+| errors | 0 | 0 | 0 |
+| OCR pages | 7 | 7 | 0 |
+| OCR invocations/document | 0.1429 | 0.1429 | 0 |
+| wall time | 80.3 s | 79.8 s | not quotable |
+
+By language: `en` 0.9833 -> **1.0000** exact and 0.9943 -> **1.0000** char;
+`vi` 0.9842 -> 0.9842 exact and 0.9940 -> **0.9995** char.
+
+### The adaptive workload
+
+The router is the dominant term. Of 112 pages, **7 reach OCR (6.25%)**,
+across **6 of 49 documents (12.2%)** -- 7 invocations, 0.1429 per document,
+1.1667 per OCR'd document. The other 105 pages take the `digital_pdf` route
+and never enter `merge_regions_into_page`. On this corpus the
+`digital_pdf+page_fallback` route -- the third caller of
+`run_scanned_page_pipeline`, and therefore a third route line 5 can reach --
+fired on **zero** pages.
+
+`long_policy_vi_60p` is the clearest illustration. Under `visual` it
+contributed 894 of the 1000 discarded tokens. Under `adaptive` all 60 of its
+pages route native, it is never OCR'd, and it is byte-identical in both arms
+(`37a3c21ccf8b0f20`, 15082 chars, recall 1.0). The document that made the
+data-loss case is not a document the router lets line 5 touch.
+
+### Mechanism, on the pages the router did send
+
+| | value |
+|---|---|
+| OCR tokens recognised | 386 |
+| tokens claimed by no region | 32 (8.3%) |
+| excluded as table/cell tokens | 0 |
+| orphan tokens detected | 32 |
+| orphan tokens recovered | **32 (100%)** |
+| recovered elements | 4, in 4 blocks |
+| pages carrying recovered evidence | 2 of 7 OCR'd (2 of 112) |
+| documents carrying recovered evidence | 2 of 6 OCR'd (2 of 49) |
+| empty recovered elements | 0 |
+| recovered text also present in a region or cell | **0** |
+| provenance | `source_backend='tesseract'`, `extra.recovered='orphan_ocr_tokens'`, `extra.token_count`, mean token confidence 0.915-0.956 |
+
+Five of the seven OCR'd pages have zero orphans and are byte-identical
+between the arms. Two changed:
+
+**`cmb_scan_multicol_en`** -- 0.6667 -> **1.0000** exact, 0.8851 ->
+**1.0000** char. Before: heading + left column only. After: one recovered
+block at x 876-1469, `'Section 2. Approval authority Expenditure above USD
+5,000 requires written approval from the Managing Director.'` -- 15 tokens,
+the page's entire second column, carrying the `must_contain` string
+`Section 2. Approval authority` that was missing. `reading_order` is
+`[heading, left column, recovered right column]`; `order_ok` stays true.
+
+**`cmb_scan_tiny_vi`** -- 0.6667 -> 0.6667 exact, 0.8261 -> **0.9855** char.
+Three recovered blocks, 17 tokens: `'Điều 1. Phạm vì áp dụng'` (a section
+heading), `'ty và các chỉ nhánh.'` and `'đốc phê duyệt bằng văn bản.'` --
+the second and third are the tails of two sentences the region filter had
+truncated mid-word (`...thuộc công` + `ty và các chỉ nhánh.`). `reading_order`
+places the heading *between* the title and the body:
+`[p0-e0, p0-r0, p0-e1, p0-r1, p0-r2]`. It still does not score exact,
+because the recogniser read `Phạm vì` for `Phạm vi` -- a line 1 fidelity
+failure, untouched by line 5 and correctly so.
+
+### Regression audit
+
+Measured on what the adaptive path actually exercises, not inferred:
+
+* **110 of 112 pages byte-identical** across both arms on route, native
+  element count, native element text, table count, cell count, cell text,
+  `reading_order` and `notes`.
+* **All 105 `digital_pdf` pages unchanged** -- zero differences of any kind.
+* **All 5 OCR'd pages with no orphans unchanged.**
+* **Tables unchanged**: 0 table/cell-box exclusions fired, table and cell
+  text hashes identical everywhere, `tables_ok` 46 in both arms.
+* **Reading order unchanged**: `order_ok` 46 in both arms; on the two
+  changed pages the existing element ids keep their relative order and the
+  recovered blocks are inserted by geometry.
+* **No duplication**: recovered text is disjoint from native element text on
+  both changed pages, and the native text hash is unchanged there.
+* **Office routes**: not exercised -- the frozen contract is 49 PDFs.
+  `pipelines/office.py` imports nothing from `pipelines/base.py`, so it has
+  no path to line 5, and the suite's 11 office tests pass (341 passed, 10
+  skipped, no failures; the known office-route flake did not reproduce).
+
+### Cost
+
+The wall-time delta is **-0.5 s (-0.62%)** and is **not quotable as a
+latency figure**: two runs of the *identical* L5 configuration differed by
+-1.4 s, so the A/B delta is smaller than the run-to-run spread. Per-document
+runtime delta has a median of +1.0 ms against a standard deviation of
+49.6 ms. OCR time is unchanged (5.332 s vs 5.323 s) because line 5 adds no
+invocation.
+
+What *is* isolatable is the L5 computation itself, timed directly on the
+captured adaptive inputs (`_orphan_tokens` + `_cluster_orphans` + the text
+join and alnum guard, median of 200 repeats per page):
+
+| | value |
+|---|---|
+| total over the adaptive workload | **0.543 ms** |
+| per OCR'd page | **0.078 ms** (range 0.034-0.125) |
+| per document (49) | **0.011 ms** |
+| as a share of OCR time (5.32 s) | **0.010%** |
+
+Line 5 is free at the resolution this corpus can measure.
+
+### Verdict
+
+**Outcome A -- a measurable adaptive quality gain.** L5 moves the shipped
+metric, not just the forced-OCR one: +0.0068 exact, +0.0056 char, one more
+perfect document, with zero regressions and no measurable cost. The gain is
+smaller than under `visual` (+0.0069 exact there) only because the router
+sends 6.25% of pages to OCR; on the pages it does send, the mechanism
+recovers 100% of what it detects.
+
+The corpus does bound the claim. Only 2 of 112 pages carry recovered
+evidence, so the +0.0068 rests on a single document's `must_contain` string
+and the second document's character recall. The adaptive corpus can prove
+line 5 fires correctly, in order, without duplication, and without touching
+the 105 pages it should not touch. It cannot size the production win on a
+scan-heavy input distribution, because 88% of this corpus is digital.
+
 ## Reproducibility
 
 - Interpreter: `~/.venvs/doc-extraction-gpu312/bin/python` (Python 3.12.14)
@@ -312,6 +460,10 @@ Reading order, on the two documents the contract named:
   - `line5_orphaned_tokens.py` → `line5_orphaned_tokens.json` (line 5)
   - `line7_region_reocr.py` → `line7_region_reocr.json` (line 7)
   - `composite.py` → `composite.json`; `mechanism_accounting.json`
+  - `line5_production_e2e.py` → `line5_production_ab_visual.json`
+    (line 5, full pipeline, `--strategy visual`)
+  - `line5_adaptive_ab.py` → `line5_adaptive_ab.json` (line 5 under the
+    shipped router, `--strategy adaptive`, both arms in one run)
 - Evidence read: `experiments/023_evidence_centric/_runs/visual/tesseract/`
   (untracked, 81 MB, regenerable from the tracked scripts and the seeded corpus)
 - `_runs/` produced here is excluded by `experiments/**/_runs/`
