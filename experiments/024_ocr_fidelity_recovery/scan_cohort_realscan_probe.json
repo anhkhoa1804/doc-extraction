@@ -1,0 +1,211 @@
+{
+ "commit": "65d05031e98e8c8e4a19c6765ef028fcf77920be",
+ "probe": "mechanism only -- no quality claim, no scorer, no ground truth",
+ "dataset": "experiments/005_omnidocbench/dataset/demo (real document page images)",
+ "selection": "page_attribute.language == 'english'; the 10 Simplified Chinese and 1 mixed pages are excluded because the pipeline is configured vie+eng and would measure the language configuration, not line 5",
+ "n_pages_dataset": 18,
+ "n_pages_probed": 7,
+ "tokens_recognised": 3026,
+ "orphan_tokens": 709,
+ "orphan_rate": 0.2343,
+ "recovered_tokens": 704,
+ "recovery_rate": 0.9929,
+ "table_excluded": 254,
+ "recovered_elements": 14,
+ "wall_s": 507.7,
+ "cpu_state": {
+  "loadavg": [
+   4.47,
+   4.25,
+   4.27
+  ],
+  "cpu_count": 8,
+  "classification": "CONTENDED"
+ },
+ "rows": [
+  {
+   "image": "yanbaopptmerge_SE05.pdf_7.jpg",
+   "data_source": "PPT2PDF",
+   "layout": "single_column",
+   "special_issue": [
+    "colorful_backgroud"
+   ],
+   "runtime_s": 55.68,
+   "error": null,
+   "tokens": 50,
+   "orphans": 3,
+   "table_excluded": 0,
+   "recovered_elements": 0,
+   "recovered_tokens": 0
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4.jpg",
+   "data_source": "academic_literature",
+   "layout": "double_column",
+   "special_issue": [
+    "table_fewer_line",
+    "table_horizontal",
+    "table_span",
+    "table_with_formula"
+   ],
+   "runtime_s": 128.43,
+   "error": null,
+   "tokens": 853,
+   "orphans": 20,
+   "table_excluded": 0,
+   "recovered_elements": 2,
+   "recovered_tokens": 20
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg",
+   "data_source": "academic_literature",
+   "layout": "single_column",
+   "special_issue": [
+    "None"
+   ],
+   "runtime_s": 52.87,
+   "error": null,
+   "tokens": 397,
+   "orphans": 15,
+   "table_excluded": 0,
+   "recovered_elements": 2,
+   "recovered_tokens": 15
+  },
+  {
+   "image": "jiaocaineedrop_Chapter9.pdf_46.jpg",
+   "data_source": "exam_paper",
+   "layout": "1andmore_column",
+   "special_issue": [
+    "table_horizontal",
+    "colorful_backgroud",
+    "table_wireless_line",
+    "table_span"
+   ],
+   "runtime_s": 97.99,
+   "error": null,
+   "tokens": 307,
+   "orphans": 7,
+   "table_excluded": 0,
+   "recovered_elements": 2,
+   "recovered_tokens": 7
+  },
+  {
+   "image": "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg",
+   "data_source": "exam_paper",
+   "layout": "single_column",
+   "special_issue": [
+    "colorful_backgroud"
+   ],
+   "runtime_s": 60.99,
+   "error": null,
+   "tokens": 352,
+   "orphans": 36,
+   "table_excluded": 0,
+   "recovered_elements": 4,
+   "recovered_tokens": 34
+  },
+  {
+   "image": "jiaocaineedrop_jiaocai_needrop_en_1898.jpg",
+   "data_source": "colorful_textbook",
+   "layout": "single_column",
+   "special_issue": [
+    "fuzzy_scan",
+    "colorful_backgroud",
+    "table_horizontal",
+    "table_full_line"
+   ],
+   "runtime_s": 57.85,
+   "error": null,
+   "tokens": 172,
+   "orphans": 117,
+   "table_excluded": 0,
+   "recovered_elements": 3,
+   "recovered_tokens": 117
+  },
+  {
+   "image": "newspaper_5e266dfd9c498cab274e12a7b4a75755_4.jpg",
+   "data_source": "newspaper",
+   "layout": "three_column",
+   "special_issue": [],
+   "runtime_s": 53.88,
+   "error": null,
+   "tokens": 895,
+   "orphans": 511,
+   "table_excluded": 254,
+   "recovered_elements": 1,
+   "recovered_tokens": 511
+  }
+ ],
+ "pages": [
+  {
+   "image": "yanbaopptmerge_SE05.pdf_7.jpg",
+   "tokens_recognised": 50,
+   "regions": 12,
+   "tables": 0,
+   "unclaimed_by_region": 3,
+   "table_excluded": 0,
+   "orphans": 3,
+   "orphan_blocks": 3
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4.jpg",
+   "tokens_recognised": 853,
+   "regions": 18,
+   "tables": 1,
+   "unclaimed_by_region": 20,
+   "table_excluded": 0,
+   "orphans": 20,
+   "orphan_blocks": 2
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg",
+   "tokens_recognised": 397,
+   "regions": 24,
+   "tables": 0,
+   "unclaimed_by_region": 15,
+   "table_excluded": 0,
+   "orphans": 15,
+   "orphan_blocks": 2
+  },
+  {
+   "image": "jiaocaineedrop_Chapter9.pdf_46.jpg",
+   "tokens_recognised": 307,
+   "regions": 38,
+   "tables": 1,
+   "unclaimed_by_region": 7,
+   "table_excluded": 0,
+   "orphans": 7,
+   "orphan_blocks": 2
+  },
+  {
+   "image": "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg",
+   "tokens_recognised": 352,
+   "regions": 16,
+   "tables": 0,
+   "unclaimed_by_region": 36,
+   "table_excluded": 0,
+   "orphans": 36,
+   "orphan_blocks": 6
+  },
+  {
+   "image": "jiaocaineedrop_jiaocai_needrop_en_1898.jpg",
+   "tokens_recognised": 172,
+   "regions": 11,
+   "tables": 1,
+   "unclaimed_by_region": 117,
+   "table_excluded": 0,
+   "orphans": 117,
+   "orphan_blocks": 3
+  },
+  {
+   "image": "newspaper_5e266dfd9c498cab274e12a7b4a75755_4.jpg",
+   "tokens_recognised": 895,
+   "regions": 13,
+   "tables": 1,
+   "unclaimed_by_region": 765,
+   "table_excluded": 254,
+   "orphans": 511,
+   "orphan_blocks": 1
+  }
+ ]
+}

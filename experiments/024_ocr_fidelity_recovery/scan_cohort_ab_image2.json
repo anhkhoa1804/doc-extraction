@@ -1,0 +1,596 @@
+{
+ "commit": "65d05031e98e8c8e4a19c6765ef028fcf77920be",
+ "strategy": "adaptive",
+ "device": "cpu",
+ "stratum": "IMAGE-2",
+ "cohort_rule": "Total membership, no selection freedom: SCAN-49 is every scored PDF of the production corpus (49/49); IMAGE-2 is both of its scored PNGs. A document already image-only on every page is copied verbatim; every other is flattened by the corpus generator's own _rasterize at 150 DPI, greyscale, JPEG q58-66, seed 20260902. must_contain / must_not_contain / expected_tables carry over unchanged. No document is selected on any observed outcome.",
+ "cohort_manifest": "experiments/024_ocr_fidelity_recovery/scan_cohort_manifest.json",
+ "render_dpi": 200,
+ "ocr_languages": [
+  "en",
+  "vi"
+ ],
+ "n_documents": 2,
+ "n_pages": 2,
+ "n_image_only_pages": 2,
+ "cpu_state_start": {
+  "loadavg": [
+   1.25,
+   1.17,
+   1.16
+  ],
+  "cpu_count": 8,
+  "classification": "CLEAN"
+ },
+ "gpu_state_start": {
+  "memory_used_mib": 12084,
+  "memory_total_mib": 23034,
+  "utilization_pct": 23,
+  "compute_processes": 1,
+  "process_rows": [
+   "37166, 12076 MiB"
+  ],
+  "classification": "LIMITED_OR_PROTECTED"
+ },
+ "arms": {
+  "baseline": {
+   "rows": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 15.083,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true,
+     "text_sha": "d800a400e76c054d",
+     "n_recovered_elements": 0
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 22.531,
+     "error": null,
+     "text_recall": 0.8571,
+     "char_recall": 0.9226,
+     "found": 6,
+     "required": 7,
+     "missing": [
+      "HÓA ĐƠN GIÁ TRỊ GIA TĂNG"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 277,
+     "tables_ok": true,
+     "text_sha": "5980c00726f273d4",
+     "n_recovered_elements": 0
+    }
+   ],
+   "captures": {
+    "ord_certificate_png_en": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 2,
+       "n_native_elements": 2,
+       "n_recovered_elements": 0,
+       "n_tables": 1,
+       "n_cells": 1,
+       "native_text_sha": "7c47dc097dd02a9d",
+       "table_text_sha": "e3b0c44298fc1c14",
+       "reading_order": [
+        "p0-e0",
+        "p0-e1"
+       ],
+       "notes": []
+      }
+     ],
+     "recovered": []
+    },
+    "ord_invoice_png_vi": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 3,
+       "n_native_elements": 3,
+       "n_recovered_elements": 0,
+       "n_tables": 1,
+       "n_cells": 16,
+       "native_text_sha": "f9e9fcf5660bdac8",
+       "table_text_sha": "d24a1cc246e5a55a",
+       "reading_order": [
+        "p0-e0",
+        "p0-e1",
+        "p0-e2"
+       ],
+       "notes": [
+        "table p0-t0: synthesized 1 row(s) Table Transformer's structure model did not detect, from corroborating OCR evidence across >= 2 columns"
+       ]
+      }
+     ],
+     "recovered": []
+    }
+   },
+   "timed": true,
+   "wall_s": 37.6,
+   "ocr_invocations": 2,
+   "ocr_pages": 2,
+   "ocr_documents": 2,
+   "ocr_seconds": 1.491,
+   "ocr_calls": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "page_index": 0,
+     "seconds": 0.7227,
+     "tokens": 28
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "page_index": 0,
+     "seconds": 0.7681,
+     "tokens": 66
+    }
+   ],
+   "layout_calls": 2,
+   "layout_fingerprint": "e70888cd90434be1",
+   "layout_prints": [
+    "28de9dd49cc8c1ec",
+    "b81a8b6ee9beb275"
+   ],
+   "aggregate": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 0.9613,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 2,
+    "docs_tables_ok": 2,
+    "errors": 0,
+    "total_runtime_s": 37.6,
+    "by_language": {
+     "en": {
+      "n": 1,
+      "mean_text_recall": 1.0,
+      "mean_char_recall": 1.0
+     },
+     "vi": {
+      "n": 1,
+      "mean_text_recall": 0.8571,
+      "mean_char_recall": 0.9226
+     }
+    }
+   }
+  },
+  "l5": {
+   "rows": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 15.234,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true,
+     "text_sha": "d800a400e76c054d",
+     "n_recovered_elements": 0
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 21.694,
+     "error": null,
+     "text_recall": 0.8571,
+     "char_recall": 1.0,
+     "found": 6,
+     "required": 7,
+     "missing": [
+      "HÓA ĐƠN GIÁ TRỊ GIA TĂNG"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 298,
+     "tables_ok": true,
+     "text_sha": "673e2c424107700c",
+     "n_recovered_elements": 1
+    }
+   ],
+   "captures": {
+    "ord_certificate_png_en": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 2,
+       "n_native_elements": 2,
+       "n_recovered_elements": 0,
+       "n_tables": 1,
+       "n_cells": 1,
+       "native_text_sha": "7c47dc097dd02a9d",
+       "table_text_sha": "e3b0c44298fc1c14",
+       "reading_order": [
+        "p0-e0",
+        "p0-e1"
+       ],
+       "notes": []
+      }
+     ],
+     "recovered": []
+    },
+    "ord_invoice_png_vi": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 4,
+       "n_native_elements": 3,
+       "n_recovered_elements": 1,
+       "n_tables": 1,
+       "n_cells": 16,
+       "native_text_sha": "f9e9fcf5660bdac8",
+       "table_text_sha": "d24a1cc246e5a55a",
+       "reading_order": [
+        "p0-e0",
+        "p0-r0",
+        "p0-e1",
+        "p0-e2"
+       ],
+       "notes": [
+        "table p0-t0: synthesized 1 row(s) Table Transformer's structure model did not detect, from corroborating OCR evidence across >= 2 columns",
+        "orphan OCR recovery: 5 of 5 unclaimed token(s) recovered into text elements"
+       ]
+      }
+     ],
+     "recovered": [
+      {
+       "document_id": "ord_invoice_png_vi-4635022a",
+       "page_index": 0,
+       "element_id": "p0-r0",
+       "text": "ĐƠN GIÁ TRỊ GIA TĂNG",
+       "type": "text",
+       "bbox": [
+        277.0,
+        131.0,
+        771.0,
+        175.0
+       ],
+       "confidence": 0.916,
+       "source_backend": "tesseract",
+       "token_count": 5,
+       "order_index": 3,
+       "reading_order_position": 1,
+       "reading_order_len": 4
+      }
+     ]
+    }
+   },
+   "timed": true,
+   "wall_s": 36.9,
+   "ocr_invocations": 2,
+   "ocr_pages": 2,
+   "ocr_documents": 2,
+   "ocr_seconds": 1.531,
+   "ocr_calls": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "page_index": 0,
+     "seconds": 0.7442,
+     "tokens": 28
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "page_index": 0,
+     "seconds": 0.7869,
+     "tokens": 66
+    }
+   ],
+   "layout_calls": 2,
+   "layout_fingerprint": "e70888cd90434be1",
+   "layout_prints": [
+    "28de9dd49cc8c1ec",
+    "b81a8b6ee9beb275"
+   ],
+   "aggregate": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 2,
+    "docs_tables_ok": 2,
+    "errors": 0,
+    "total_runtime_s": 36.9,
+    "by_language": {
+     "en": {
+      "n": 1,
+      "mean_text_recall": 1.0,
+      "mean_char_recall": 1.0
+     },
+     "vi": {
+      "n": 1,
+      "mean_text_recall": 0.8571,
+      "mean_char_recall": 1.0
+     }
+    }
+   }
+  },
+  "l5_audit": {
+   "rows": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 15.146,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true,
+     "text_sha": "d800a400e76c054d",
+     "n_recovered_elements": 0
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 22.254,
+     "error": null,
+     "text_recall": 0.8571,
+     "char_recall": 1.0,
+     "found": 6,
+     "required": 7,
+     "missing": [
+      "HÓA ĐƠN GIÁ TRỊ GIA TĂNG"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 298,
+     "tables_ok": true,
+     "text_sha": "673e2c424107700c",
+     "n_recovered_elements": 1
+    }
+   ],
+   "captures": {
+    "ord_certificate_png_en": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 2,
+       "n_native_elements": 2,
+       "n_recovered_elements": 0,
+       "n_tables": 1,
+       "n_cells": 1,
+       "native_text_sha": "7c47dc097dd02a9d",
+       "table_text_sha": "e3b0c44298fc1c14",
+       "reading_order": [
+        "p0-e0",
+        "p0-e1"
+       ],
+       "notes": []
+      }
+     ],
+     "recovered": []
+    },
+    "ord_invoice_png_vi": {
+     "pages": [
+      {
+       "index": 0,
+       "route": null,
+       "n_elements": 4,
+       "n_native_elements": 3,
+       "n_recovered_elements": 1,
+       "n_tables": 1,
+       "n_cells": 16,
+       "native_text_sha": "f9e9fcf5660bdac8",
+       "table_text_sha": "d24a1cc246e5a55a",
+       "reading_order": [
+        "p0-e0",
+        "p0-r0",
+        "p0-e1",
+        "p0-e2"
+       ],
+       "notes": [
+        "table p0-t0: synthesized 1 row(s) Table Transformer's structure model did not detect, from corroborating OCR evidence across >= 2 columns",
+        "orphan OCR recovery: 5 of 5 unclaimed token(s) recovered into text elements"
+       ]
+      }
+     ],
+     "recovered": [
+      {
+       "document_id": "ord_invoice_png_vi-4635022a",
+       "page_index": 0,
+       "element_id": "p0-r0",
+       "text": "ĐƠN GIÁ TRỊ GIA TĂNG",
+       "type": "text",
+       "bbox": [
+        277.0,
+        131.0,
+        771.0,
+        175.0
+       ],
+       "confidence": 0.916,
+       "source_backend": "tesseract",
+       "token_count": 5,
+       "order_index": 3,
+       "reading_order_position": 1,
+       "reading_order_len": 4
+      }
+     ]
+    }
+   },
+   "timed": false,
+   "wall_s": 37.4,
+   "ocr_invocations": 2,
+   "ocr_pages": 2,
+   "ocr_documents": 2,
+   "ocr_seconds": 1.493,
+   "ocr_calls": [
+    {
+     "document_id": "ord_certificate_png_en",
+     "page_index": 0,
+     "seconds": 0.7192,
+     "tokens": 28
+    },
+    {
+     "document_id": "ord_invoice_png_vi",
+     "page_index": 0,
+     "seconds": 0.7734,
+     "tokens": 66
+    }
+   ],
+   "layout_calls": 2,
+   "layout_fingerprint": "e70888cd90434be1",
+   "layout_prints": [
+    "28de9dd49cc8c1ec",
+    "b81a8b6ee9beb275"
+   ],
+   "aggregate": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 2,
+    "docs_tables_ok": 2,
+    "errors": 0,
+    "total_runtime_s": 37.4,
+    "by_language": {
+     "en": {
+      "n": 1,
+      "mean_text_recall": 1.0,
+      "mean_char_recall": 1.0
+     },
+     "vi": {
+      "n": 1,
+      "mean_text_recall": 0.8571,
+      "mean_char_recall": 1.0
+     }
+    }
+   }
+  }
+ },
+ "audit_pages": [
+  {
+   "document_id": "ord_certificate_png_en",
+   "page_index": 0,
+   "tokens_recognised": 28,
+   "regions": 2,
+   "tables": 1,
+   "unclaimed_by_region": 0,
+   "orphans": 0,
+   "table_excluded": 0,
+   "blocks": 0,
+   "l5_isolated_s": 3.5e-05,
+   "orphan_chars": 0,
+   "claimed_by_region": 28,
+   "orphan_also_claimed": 0
+  },
+  {
+   "document_id": "ord_invoice_png_vi",
+   "page_index": 0,
+   "tokens_recognised": 66,
+   "regions": 3,
+   "tables": 1,
+   "unclaimed_by_region": 5,
+   "orphans": 5,
+   "table_excluded": 0,
+   "blocks": 1,
+   "l5_isolated_s": 0.000244,
+   "orphan_chars": 16,
+   "claimed_by_region": 61,
+   "orphan_also_claimed": 0
+  }
+ ],
+ "cpu_state_end": {
+  "loadavg": [
+   4.52,
+   2.45,
+   1.64
+  ],
+  "cpu_count": 8,
+  "classification": "CONTENDED"
+ }
+}

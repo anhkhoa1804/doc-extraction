@@ -1,0 +1,758 @@
+{
+ "commit": "65d05031e98e8c8e4a19c6765ef028fcf77920be",
+ "question": "Does line 5's value scale with OCR exposure and orphan prevalence?",
+ "conditions": {
+  "production_corpus_adaptive": {
+   "source": "line5_adaptive_ab.json",
+   "commit": "40cef3f5e3426e733227012c21459c37d7f3e099",
+   "documents": 49,
+   "pages": 112,
+   "mechanism": {
+    "ocr_pages": 7,
+    "ocr_documents": 6,
+    "ocr_invocations": 7,
+    "total_pages": 112,
+    "total_documents": 49,
+    "ocr_page_pct": 0.0625,
+    "ocr_invocations_per_document": 0.1429,
+    "tokens_recognised": 386,
+    "unclaimed_by_region": 32,
+    "table_excluded": 0,
+    "orphan_tokens": 32,
+    "orphan_rate": 0.0829,
+    "recovered_tokens": 32,
+    "recovery_rate": 1.0,
+    "recovered_elements": 4,
+    "pages_with_recovery": 2,
+    "documents_with_recovery": 2,
+    "l5_trigger_rate_pages": 0.2857,
+    "orphan_also_claimed": 0,
+    "isolated_l5_s": 0.000599
+   },
+   "quality": {
+    "baseline": {
+     "n": 49,
+     "mean_text_recall": 0.9838,
+     "mean_char_recall": 0.9941,
+     "docs_perfect": 46,
+     "docs_zero": 0,
+     "docs_order_ok": 46,
+     "docs_tables_ok": 46,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": 80.3,
+     "ocr_seconds": 5.332,
+     "by_language": {
+      "en": {
+       "n": 20,
+       "mean_text_recall": 0.9833,
+       "mean_char_recall": 0.9943
+      },
+      "vi": {
+       "n": 29,
+       "mean_text_recall": 0.9842,
+       "mean_char_recall": 0.994
+      }
+     }
+    },
+    "l5": {
+     "n": 49,
+     "mean_text_recall": 0.9906,
+     "mean_char_recall": 0.9997,
+     "docs_perfect": 47,
+     "docs_zero": 0,
+     "docs_order_ok": 46,
+     "docs_tables_ok": 46,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": 79.8,
+     "ocr_seconds": 5.323,
+     "by_language": {
+      "en": {
+       "n": 20,
+       "mean_text_recall": 1.0,
+       "mean_char_recall": 1.0
+      },
+      "vi": {
+       "n": 29,
+       "mean_text_recall": 0.9842,
+       "mean_char_recall": 0.9995
+      }
+     }
+    },
+    "delta": {
+     "mean_text_recall": 0.0068,
+     "mean_char_recall": 0.0056,
+     "docs_perfect": 1,
+     "docs_zero": 0,
+     "docs_order_ok": 0,
+     "docs_tables_ok": 0,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": -0.5
+    }
+   }
+  },
+  "scan_cohort_adaptive": {
+   "source": "scan_cohort_ab.json",
+   "commit": "65d05031e98e8c8e4a19c6765ef028fcf77920be",
+   "cohort_rule": "Total membership, no selection freedom: SCAN-49 is every scored PDF of the production corpus (49/49); IMAGE-2 is both of its scored PNGs. A document already image-only on every page is copied verbatim; every other is flattened by the corpus generator's own _rasterize at 150 DPI, greyscale, JPEG q58-66, seed 20260902. must_contain / must_not_contain / expected_tables carry over unchanged. No document is selected on any observed outcome.",
+   "documents": 49,
+   "pages": 112,
+   "mechanism": {
+    "ocr_pages": 112,
+    "ocr_documents": 49,
+    "ocr_invocations": 112,
+    "total_pages": 112,
+    "total_documents": 49,
+    "ocr_page_pct": 1.0,
+    "ocr_invocations_per_document": 2.2857,
+    "tokens_recognised": 5925,
+    "unclaimed_by_region": 667,
+    "table_excluded": 3,
+    "orphan_tokens": 664,
+    "orphan_rate": 0.1121,
+    "recovered_tokens": 663,
+    "recovery_rate": 0.9985,
+    "recovered_elements": 140,
+    "pages_with_recovery": 70,
+    "documents_with_recovery": 8,
+    "l5_trigger_rate_pages": 0.625,
+    "orphan_also_claimed": 0,
+    "isolated_l5_s": 0.013744
+   },
+   "quality": {
+    "baseline": {
+     "n": 49,
+     "mean_text_recall": 0.8924,
+     "mean_char_recall": 0.9688,
+     "docs_perfect": 33,
+     "docs_zero": 1,
+     "docs_order_ok": 45,
+     "docs_tables_ok": 46,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": 1302.5,
+     "ocr_seconds": 92.822,
+     "by_language": {
+      "en": {
+       "n": 20,
+       "mean_text_recall": 0.9452,
+       "mean_char_recall": 0.9868
+      },
+      "vi": {
+       "n": 29,
+       "mean_text_recall": 0.856,
+       "mean_char_recall": 0.9564
+      }
+     }
+    },
+    "l5": {
+     "n": 49,
+     "mean_text_recall": 0.906,
+     "mean_char_recall": 0.9803,
+     "docs_perfect": 35,
+     "docs_zero": 1,
+     "docs_order_ok": 45,
+     "docs_tables_ok": 46,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": 1309.3,
+     "ocr_seconds": 93.064,
+     "by_language": {
+      "en": {
+       "n": 20,
+       "mean_text_recall": 0.9786,
+       "mean_char_recall": 0.9983
+      },
+      "vi": {
+       "n": 29,
+       "mean_text_recall": 0.856,
+       "mean_char_recall": 0.9678
+      }
+     }
+    },
+    "delta": {
+     "mean_text_recall": 0.0136,
+     "mean_char_recall": 0.0115,
+     "docs_perfect": 2,
+     "docs_zero": 0,
+     "docs_order_ok": 0,
+     "docs_tables_ok": 0,
+     "docs_hallucinated": 0,
+     "errors": 0,
+     "wall_s": 6.8
+    }
+   }
+  }
+ },
+ "distribution": {
+  "ocr_page_pct": [
+   0.0625,
+   1.0
+  ],
+  "ocr_exposure_ratio": 16.0,
+  "orphan_rate": [
+   0.0829,
+   0.1121
+  ],
+  "recovery_rate": [
+   1.0,
+   0.9985
+  ],
+  "l5_trigger_rate_pages": [
+   0.2857,
+   0.625
+  ],
+  "recovered_tokens": [
+   32,
+   663
+  ],
+  "exact_delta": [
+   0.0068,
+   0.0136
+  ],
+  "char_delta": [
+   0.0056,
+   0.0115
+  ],
+  "exact_delta_per_1000_recovered_tokens": [
+   0.2125,
+   0.020513
+  ],
+  "exact_delta_per_affected_document": [
+   0.0034,
+   0.0017
+  ],
+  "ocr_invocations_per_document": [
+   0.1429,
+   2.2857
+  ]
+ },
+ "changed_documents": [
+  {
+   "document_id": "long_policy_vi_60p",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "pages": 60,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.9355,
+   "char_after": 0.9355,
+   "chars_before": 12271,
+   "chars_after": 15082,
+   "missing_before": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ"
+   ],
+   "missing_after": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ"
+   ],
+   "recovered_elements": 120,
+   "recovered_tokens": 540,
+   "pages_with_recovery": 60,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 59,
+   "tables_after": 59,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": false
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "cross_page"
+   ],
+   "pages": 4,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.9355,
+   "char_after": 0.9355,
+   "chars_before": 847,
+   "chars_after": 1027,
+   "missing_before": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ"
+   ],
+   "missing_after": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ"
+   ],
+   "recovered_elements": 8,
+   "recovered_tokens": 36,
+   "pages_with_recovery": 4,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 3,
+   "tables_after": 3,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": false
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "tiny_text"
+   ],
+   "pages": 1,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.8261,
+   "char_after": 0.9855,
+   "chars_before": 162,
+   "chars_after": 235,
+   "missing_before": [
+    "Điều 1. Phạm vi áp dụng"
+   ],
+   "missing_after": [
+    "Điều 1. Phạm vi áp dụng"
+   ],
+   "recovered_elements": 3,
+   "recovered_tokens": 17,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 0,
+   "tables_after": 0,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": true
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "pages": 1,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.8261,
+   "char_after": 0.9855,
+   "chars_before": 162,
+   "chars_after": 235,
+   "missing_before": [
+    "Điều 1. Phạm vi áp dụng"
+   ],
+   "missing_after": [
+    "Điều 1. Phạm vi áp dụng"
+   ],
+   "recovered_elements": 3,
+   "recovered_tokens": 17,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 0,
+   "tables_after": 0,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": true
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "pages": 1,
+   "exact_before": 1.0,
+   "exact_after": 1.0,
+   "char_before": 1.0,
+   "char_after": 1.0,
+   "chars_before": 277,
+   "chars_after": 349,
+   "missing_before": [],
+   "missing_after": [],
+   "recovered_elements": 2,
+   "recovered_tokens": 17,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 0,
+   "tables_after": 0,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": false
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "language": "en",
+   "difficulty": "hard",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "pages": 1,
+   "exact_before": 0.6667,
+   "exact_after": 1.0,
+   "char_before": 0.8851,
+   "char_after": 1.0,
+   "chars_before": 120,
+   "chars_after": 232,
+   "missing_before": [
+    "Section 2. Approval authority"
+   ],
+   "missing_after": [],
+   "recovered_elements": 1,
+   "recovered_tokens": 15,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 0,
+   "tables_after": 0,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": true,
+   "char_moved": true
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "language": "en",
+   "difficulty": "extreme",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "pages": 1,
+   "exact_before": 0.6667,
+   "exact_after": 1.0,
+   "char_before": 0.8851,
+   "char_after": 1.0,
+   "chars_before": 120,
+   "chars_after": 232,
+   "missing_before": [
+    "Section 2. Approval authority"
+   ],
+   "missing_after": [],
+   "recovered_elements": 1,
+   "recovered_tokens": 15,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 0,
+   "tables_after": 0,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": true,
+   "char_moved": true
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "language": "vi",
+   "difficulty": "hard",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "pages": 1,
+   "exact_before": 0.0,
+   "exact_after": 0.0,
+   "char_before": 0.4836,
+   "char_after": 0.494,
+   "chars_before": 187,
+   "chars_after": 220,
+   "missing_before": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ],
+   "missing_after": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ],
+   "recovered_elements": 2,
+   "recovered_tokens": 6,
+   "pages_with_recovery": 1,
+   "order_ok_before": true,
+   "order_ok_after": true,
+   "tables_before": 1,
+   "tables_after": 1,
+   "tables_ok_before": true,
+   "tables_ok_after": true,
+   "hallucinated_before": [],
+   "hallucinated_after": [],
+   "native_text_identical": true,
+   "table_text_identical": true,
+   "exact_moved": false,
+   "char_moved": true
+  }
+ ],
+ "benchmark_insensitive": [
+  {
+   "document_id": "long_policy_vi_60p",
+   "recovered_tokens": 540,
+   "recovered_elements": 120,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.9355,
+   "char_after": 0.9355,
+   "chars_before": 12271,
+   "chars_after": 15082
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "recovered_tokens": 36,
+   "recovered_elements": 8,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.9355,
+   "char_after": 0.9355,
+   "chars_before": 847,
+   "chars_after": 1027
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "recovered_tokens": 17,
+   "recovered_elements": 3,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.8261,
+   "char_after": 0.9855,
+   "chars_before": 162,
+   "chars_after": 235
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "recovered_tokens": 17,
+   "recovered_elements": 3,
+   "exact_before": 0.6667,
+   "exact_after": 0.6667,
+   "char_before": 0.8261,
+   "char_after": 0.9855,
+   "chars_before": 162,
+   "chars_after": 235
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "recovered_tokens": 17,
+   "recovered_elements": 2,
+   "exact_before": 1.0,
+   "exact_after": 1.0,
+   "char_before": 1.0,
+   "char_after": 1.0,
+   "chars_before": 277,
+   "chars_after": 349
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "recovered_tokens": 6,
+   "recovered_elements": 2,
+   "exact_before": 0.0,
+   "exact_after": 0.0,
+   "char_before": 0.4836,
+   "char_after": 0.494,
+   "chars_before": 187,
+   "chars_after": 220
+  }
+ ],
+ "real_scan_probe": {
+  "dataset": "experiments/005_omnidocbench/dataset/demo (real document page images)",
+  "selection": "page_attribute.language == 'english'; the 10 Simplified Chinese and 1 mixed pages are excluded because the pipeline is configured vie+eng and would measure the language configuration, not line 5",
+  "n_pages_dataset": 18,
+  "n_pages_probed": 7,
+  "tokens_recognised": 3026,
+  "orphan_tokens": 709,
+  "orphan_rate": 0.2343,
+  "recovered_tokens": 704,
+  "recovery_rate": 0.9929,
+  "recovered_elements": 14,
+  "table_excluded": 254,
+  "note": "mechanism only -- no quality claim, no scorer, no ground truth"
+ },
+ "orphan_rate_by_condition": {
+  "production corpus, adaptive router (6.25% of pages OCR'd)": 0.0829,
+  "rasterized scan cohort, adaptive router (100% OCR'd)": 0.1121,
+  "real document scans, OmniDocBench english (100% OCR'd)": 0.2343
+ },
+ "regression_audit": {
+  "pages_identical": 41,
+  "pages_differing": 71,
+  "pages_changed_without_recovery": 0,
+  "documents_losing_order_ok": 0,
+  "documents_losing_tables_ok": 0,
+  "documents_recall_regressed": 0,
+  "documents_char_regressed": 0,
+  "documents_newly_hallucinating": 0,
+  "documents_newly_erroring": 0,
+  "native_text_changed_anywhere": 0,
+  "table_text_changed_anywhere": 0
+ },
+ "strata": {
+  "vietnamese": {
+   "n": 29,
+   "documents_affected": 6,
+   "recovered_tokens": 633,
+   "supported": true,
+   "exact_before": 0.856,
+   "exact_after": 0.856,
+   "exact_delta": 0.0,
+   "char_before": 0.9564,
+   "char_after": 0.9678,
+   "char_delta": 0.0114,
+   "documents_improved": 0,
+   "documents_regressed": 0
+  },
+  "english": {
+   "n": 20,
+   "documents_affected": 2,
+   "recovered_tokens": 30,
+   "supported": true,
+   "exact_before": 0.9452,
+   "exact_after": 0.9786,
+   "exact_delta": 0.0333,
+   "char_before": 0.9868,
+   "char_after": 0.9983,
+   "char_delta": 0.0115,
+   "documents_improved": 2,
+   "documents_regressed": 0
+  },
+  "multi_column": {
+   "n": 3,
+   "documents_affected": 2,
+   "recovered_tokens": 30,
+   "supported": true,
+   "exact_before": 0.7778,
+   "exact_after": 1.0,
+   "exact_delta": 0.2222,
+   "char_before": 0.9234,
+   "char_after": 1.0,
+   "char_delta": 0.0766,
+   "documents_improved": 2,
+   "documents_regressed": 0
+  },
+  "reading_order": {
+   "n": 4,
+   "documents_affected": 3,
+   "recovered_tokens": 36,
+   "supported": true,
+   "exact_before": 0.5834,
+   "exact_after": 0.75,
+   "exact_delta": 0.1667,
+   "char_before": 0.8135,
+   "char_after": 0.8735,
+   "char_delta": 0.0601,
+   "documents_improved": 2,
+   "documents_regressed": 0
+  },
+  "has_expected_tables": {
+   "n": 16,
+   "documents_affected": 0,
+   "recovered_tokens": 0,
+   "supported": true,
+   "exact_before": 0.8705,
+   "exact_after": 0.8705,
+   "exact_delta": 0.0,
+   "char_before": 0.9841,
+   "char_after": 0.9841,
+   "char_delta": 0.0,
+   "documents_improved": 0,
+   "documents_regressed": 0
+  },
+  "tiny_text": {
+   "n": 6,
+   "documents_affected": 3,
+   "recovered_tokens": 51,
+   "supported": true,
+   "exact_before": 0.6984,
+   "exact_after": 0.6984,
+   "exact_delta": 0.0,
+   "char_before": 0.9069,
+   "char_after": 0.9601,
+   "char_delta": 0.0531,
+   "documents_improved": 0,
+   "documents_regressed": 0
+  },
+  "low_quality_or_occluded": {
+   "n": 15,
+   "documents_affected": 3,
+   "recovered_tokens": 49,
+   "supported": true,
+   "exact_before": 0.9089,
+   "exact_after": 0.9311,
+   "exact_delta": 0.0222,
+   "char_before": 0.9774,
+   "char_after": 0.9957,
+   "char_delta": 0.0183,
+   "documents_improved": 1,
+   "documents_regressed": 0
+  },
+  "no_hard_labels": {
+   "n": 20,
+   "documents_affected": 0,
+   "recovered_tokens": 0,
+   "supported": true,
+   "exact_before": 0.9786,
+   "exact_after": 0.9786,
+   "exact_delta": 0.0,
+   "char_before": 0.9979,
+   "char_after": 0.9979,
+   "char_delta": 0.0,
+   "documents_improved": 0,
+   "documents_regressed": 0
+  },
+  "multi_page": {
+   "n": 3,
+   "documents_affected": 2,
+   "recovered_tokens": 576,
+   "supported": true,
+   "exact_before": 0.7778,
+   "exact_after": 0.7778,
+   "exact_delta": 0.0,
+   "char_before": 0.957,
+   "char_after": 0.957,
+   "char_delta": 0.0,
+   "documents_improved": 0,
+   "documents_regressed": 0
+  }
+ },
+ "must_not_contain_coverage": {
+  "documents_with_any": 1,
+  "total_strings": 2,
+  "documents": 51
+ }
+}
