@@ -1,4 +1,8 @@
-# Proposal — 024: Table-cell evidence recovery
+# Proposal — 024: OCR fidelity / acquisition recovery
+
+*(Renamed. This milestone was scoped as "table-cell evidence recovery"
+until the audit below falsified the hypothesis that named it. The old title
+described a problem the evidence says is not there.)*
 
 **Status: PROPOSED. Not started. No code written, no experiment run.**
 
@@ -30,6 +34,17 @@ intervention is OCR-side, not IR-side.** This proposal is re-pointed
 accordingly. The ownership investigation is retained, demoted, and scoped
 to the three confirmed region-ordering cases.
 
+## Research question
+
+> Can OCR-side intervention recover residual failures without sacrificing
+> the strong Tesseract quality/cost advantage?
+
+The "without sacrificing" half is not decoration. Tesseract's value in 023
+is that it is simultaneously more accurate and ~20x cheaper on this corpus;
+an intervention that recovers the residual by making the cheap engine
+expensive has not solved the problem this milestone exists to solve. Cost
+is therefore an acceptance criterion below, not a footnote.
+
 ## Objective
 
 Recover the text that both recognizers currently get *nearly* right —
@@ -45,15 +60,18 @@ sequence is preserved in the right-hand column so the change is auditable.
 
 | # | line of investigation | evidence share | was |
 |---|---|---|---|
-| 1 | **Character fidelity**: what are the last 4.3% of characters? Diacritics, digit/letter confusion, punctuation, whitespace, or normalization? | 58.0% | (6) |
-| 2 | **OCR token fragmentation**: does a cell's text arrive split across tokens whose join inserts or drops a separator? | part of 1 | (4) |
-| 3 | **Acquisition on tiny glyphs**: segmentation mode (PSM), per-region re-OCR at native cell scale, orientation | 38.3% | (8) |
-| 4 | **Ordering inside cells** and **geometry margins** — cheap to test, now known to be low-yield | ~0 measured | (5), (2) |
-| 5 | **Token-to-cell assignment** and **row/column reconstruction** | 0 of 18 in table docs | (1), (3) |
-| 6 | **Confidence-aware ownership** and **conflict detection** | untested | (6), (7) |
-| 7 | **Region-level re-OCR**, only if 1–6 leave deterministic evidence insufficient | — | (8) |
+| 1 | **Character fidelity** — what are the last 4.3% of characters? Diacritics, digit/letter confusion, punctuation, whitespace, or normalization | 58.0% | (6) |
+| 2 | **Token fragmentation** — does a cell's text arrive split across tokens whose join inserts or drops a separator | part of 1 | (4) |
+| 3 | **Acquisition of tiny glyphs** — segmentation mode (PSM), per-region re-OCR at native cell scale | 38.3% | (8) |
+| 4 | **Orientation** — OSD is already available and already diagnostic (`hc_rotation_vi`: `Rotate: 90`, `psm=1` lifts 0.0000 → 0.6667) | 1 document, worst absolute score | (8) |
+| 5 | **Ordering** — inside cells, and region ordering under multi-column scans (the 3 confirmed assembly losses) | 3.7% | (5) |
+| 6 | **Ownership / row-column reconstruction** — token-to-cell assignment, geometry margins, confidence-aware ownership, conflict detection. **Only if evidence from 1–5 warrants it**; 023 found 0 of 18 table-document failures here | 0 measured | (1), (2), (3), (7) |
+| 7 | **Region-level re-OCR** — only if 1–6 leave deterministic evidence insufficient | — | (8) |
+| 8 | **VLM** — only if deterministic OCR-side recovery reaches a *proven* capability boundary, i.e. the rejection threshold below is hit with 1–7 exhausted and documented | — | (new) |
 
-VLM is explicitly out of scope for 024.
+Line 8 is a gate, not a plan: VLM is out of scope unless 1-7 are exhausted
+and the rejection threshold is met. Reaching it is a finding in itself and
+should be recorded before any VLM work is scoped.
 
 ## Falsifiable experiment
 
@@ -134,5 +152,12 @@ GPU; if that changes, re-check before the run.
 
 ## Out of scope
 
-VLMs. A third OCR engine. Production architecture changes. Anything
-touching the `adaptive` router. All deferred until 024 returns a verdict.
+A third OCR engine. Production architecture changes, including implementing
+P7. Anything touching the `adaptive` router. VLM, except through the line-8
+gate above. All deferred until 024 returns a verdict.
+
+## Threshold integrity
+
+The baseline and the acceptance/rejection thresholds above were computed
+from `ab_visual.json` before any 024 work began, and are frozen. They must
+not be adjusted after results are seen.
