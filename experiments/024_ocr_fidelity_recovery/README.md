@@ -250,6 +250,52 @@ asserted, is **detection recall — layout regions and table rows — plus
 single-glyph fidelity on very small type**. Neither is an OCR-side problem,
 which is why an OCR-side milestone stops here.
 
+## Production implementation of line 5
+
+Line 5 was promoted and implemented in `merge_regions_into_page`
+(commit `1ae81e0`). The production run re-measures it on the frozen
+contract, through experiment 023's own `run_ab`, with the `tesseract` arm
+built exactly as production builds it.
+
+| metric | frozen baseline | proxy | **real production** |
+|---|---|---|---|
+| failure-corpus exact recall | 0.6038 | 0.6514 | **0.6514** |
+| control exact recall | 0.9857 | 0.9857 | **0.9857** |
+| failure-corpus char recall | 0.8430 | — | **0.8836** |
+| control char recall | 0.9930 | — | **0.9930** |
+| corpus-wide exact recall | 0.9311 | — | **0.9380** |
+| corpus-wide char recall | 0.9715 | — | **0.9773** |
+| documents perfect | 40 | — | **41** |
+| `order_ok` | 46 | — | 46 |
+| `tables_ok` | 47 | — | 47 |
+| errors | 0 | — | 0 |
+| OCR invocations/document | 1.000 | 1.000 | **1.000** |
+
+**The production implementation reproduces the proxy exactly** -- same
+failure-corpus recall to four decimals, same control, and it additionally
+lifts character recall and one more document to perfect, which the
+text-level proxy could not show. Exactly one document changed:
+`cmb_scan_multicol_en` 0.6667 -> 1.0000. Zero documents regressed.
+
+Mechanism validation, from the production run's own artifacts:
+
+| | value |
+|---|---|
+| orphan tokens detected | **988** (= the experiment's 1000 minus the 12 inside tables) |
+| orphan tokens recovered | **988** (100%) |
+| recovered elements | 135 across 7 documents |
+| empty recovered elements | 0 |
+| recovered tokens also claimed by a region or cell | **0** |
+
+Reading order, on the two documents the contract named:
+
+* `cmb_scan_multicol_en` -- recovered block at x 876-1469 (the right column);
+  `reading_order` is `[heading, left column, recovered right column]`.
+* `cmb_scan_tiny_vi` -- recovered `'Điều 1. Phạm vì áp dụng'` at y 240-253 is
+  ordered *between* the title and the body, not appended. It still does not
+  score, because the recogniser read `Phạm vì` for `Phạm vi` -- a line 1
+  fidelity failure, untouched by line 5 and correctly so.
+
 ## Reproducibility
 
 - Interpreter: `~/.venvs/doc-extraction-gpu312/bin/python` (Python 3.12.14)
