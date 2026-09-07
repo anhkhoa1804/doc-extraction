@@ -164,14 +164,88 @@ def _center_in(inner: BBox, outer: BBox) -> bool:
     return outer.x0 <= cx <= outer.x1 and outer.y0 <= cy <= outer.y1
 
 
+# Fraction of the *shorter* of two tokens' heights their y-ranges must
+# overlap to count as the same printed line. Words on one line share a
+# baseline and so overlap almost completely; the next line down overlaps
+# by roughly zero. 0.5 sits in the middle of that gap and is not a tuned
+# value -- measured over the 023 corpus, every threshold in 0.3-0.7 gives
+# the identical result on all 49 documents.
+LINE_BAND_Y_OVERLAP_MIN = 0.5
+
+
+def _tokens_in_reading_order(tokens: list[OCRToken]) -> list[OCRToken]:
+    """Order OCR tokens the way the page reads: line by line, left to right.
+
+    Sorting on the raw `(y0, x0)` tuple looks equivalent and is not. It is
+    correct only when a backend emits one token per printed line, which is
+    what EasyOCR does -- with a single token per line the sort cannot
+    reorder anything, so the defect was structurally invisible for as long
+    as EasyOCR was the only recognizer.
+
+    A word-level backend (Tesseract's TSV output) breaks it. Words sharing
+    a baseline differ in `y0` by a few pixels -- cap height, ascenders,
+    punctuation -- so a lexicographic `y0` sort interleaves them by glyph
+    height rather than by position: measured on `ord_policy_en`,
+    "INTERNAL EXPENDITURE POLICY" assembled as "POLICY INTERNAL
+    EXPENDITURE" (POLICY's y0 was 138 against 139 for the other two), and
+    "Section 1. Scope" as "Section Scope 1.".
+
+    The cost was not cosmetic. Experiment 023 measured Tesseract's
+    full-pipeline exact recall over the 49-PDF corpus at 0.2222 before this
+    change and 0.9311 after. That end-to-end delta is NOT attributable to
+    this function alone: `to_tesseract_langs`' `eng`-last ordering landed in
+    the same change, and the two were never measured apart end to end. What
+    is attributable here is the mechanism above -- a word-level backend's
+    lines were being emitted scrambled.
+
+    Tokens are grouped into line bands by mutual vertical overlap
+    (single-linkage, same construction as `_cluster_by_row_band` uses for
+    table rows), bands are ordered by their top edge, and tokens run left
+    to right inside a band.
+
+    What this guarantees, precisely: tokens that share a printed line come
+    out left to right, and lines come out top to bottom.
+
+    What it does NOT guarantee is that a one-token-per-line backend is
+    unaffected. An earlier version of this docstring claimed that, and it
+    is false. Two lines whose y-ranges overlap by at least
+    LINE_BAND_Y_OVERLAP_MIN of the shorter height merge into a single band
+    and are then ordered by x0 rather than by y0 -- so a backend emitting
+    one token per line can still be reordered wherever its lines overlap
+    vertically (tight leading, superscripts, a tall glyph reaching into the
+    line above). Measured on EasyOCR, which does emit one token per line:
+    corpus exact recall moved 0.6380 -> 0.6570, reproduced in two
+    independent runs. The direction happened to be favourable; the point is
+    that the output changed at all.
+    """
+    if not tokens:
+        return []
+    bands: list[dict] = []
+    for token in sorted(tokens, key=lambda t: (t.bbox.y0, t.bbox.x0)):
+        box = token.bbox
+        for band in bands:
+            overlap = min(band["y1"], box.y1) - max(band["y0"], box.y0)
+            shorter = min(band["y1"] - band["y0"], box.y1 - box.y0)
+            if overlap > 0 and shorter > 0 and overlap >= LINE_BAND_Y_OVERLAP_MIN * shorter:
+                band["tokens"].append(token)
+                band["y0"] = min(band["y0"], box.y0)
+                band["y1"] = max(band["y1"], box.y1)
+                break
+        else:
+            bands.append({"y0": box.y0, "y1": box.y1, "tokens": [token]})
+    ordered: list[OCRToken] = []
+    for band in sorted(bands, key=lambda b: b["y0"]):
+        ordered.extend(sorted(band["tokens"], key=lambda t: t.bbox.x0))
+    return ordered
+
+
 def _gather_region_text(region: Region, ocr_result: OCRResult) -> str | None:
     if not ocr_result.tokens:
         return None
     contained = [t for t in ocr_result.tokens if _center_in(t.bbox, region.bbox)]
     if not contained:
         return None
-    contained.sort(key=lambda t: (t.bbox.y0, t.bbox.x0))
-    text = " ".join(t.text for t in contained if t.text).strip()
+    text = " ".join(t.text for t in _tokens_in_reading_order(contained) if t.text).strip()
     return text or None
 
 
@@ -323,8 +397,9 @@ def _fill_table_cell_text(table_result: "TableResult", ocr_result: OCRResult) ->
             if not contained:
                 continue
             claimed_ids.update(id(t) for t in contained)
-            contained.sort(key=lambda t: (t.bbox.y0, t.bbox.x0))
-            cell.text = " ".join(t.text for t in contained if t.text).strip()
+            cell.text = " ".join(
+                t.text for t in _tokens_in_reading_order(contained) if t.text
+            ).strip()
 
         if table.bbox is None:
             continue

@@ -46,8 +46,27 @@ def test_defaults_to_en_and_vi():
 def test_language_codes_map_to_traineddata_names():
     """config speaks ISO 639-1; tesseract traineddata is ISO 639-2/T. A
     backend that passed "en+vi" through would fail to load any model."""
-    assert to_tesseract_langs(["en", "vi"]) == "eng+vie"
     assert to_tesseract_langs(["vi"]) == "vie"
+    assert to_tesseract_langs(["en"]) == "eng"
+
+
+def test_english_is_ordered_last_regardless_of_config_order():
+    """Tesseract's language order is significant: the first entry is the
+    primary model. Measured over the 49-PDF corpus, `eng+vie` scores 0.7488
+    on Vietnamese vs 0.9050 for `vie+eng`, at identical English quality --
+    English-primary drops tone marks on uppercase Vietnamese
+    (`HỢP ĐỒNG` -> `HOP DONG`). `config.ocr_languages` is naturally written
+    ["en", "vi"], so honouring its order literally would pick the worse
+    configuration by default.
+    """
+    assert to_tesseract_langs(["en", "vi"]) == "vie+eng"
+    assert to_tesseract_langs(["vi", "en"]) == "vie+eng"
+
+
+def test_non_english_language_order_is_otherwise_preserved():
+    """Only `eng` is demoted -- it is the fallback script, not the subject.
+    Any other ordering the caller chose is left alone."""
+    assert to_tesseract_langs(["vi", "deu", "en"]) == "vie+deu+eng"
 
 
 def test_unknown_language_code_passes_through():

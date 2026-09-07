@@ -80,7 +80,29 @@ DEFAULT_PSM = 3
 
 
 def to_tesseract_langs(languages: list[str]) -> str:
-    return "+".join(_LANG_MAP.get(code, code) for code in languages)
+    """Map to traineddata names, and put `eng` last.
+
+    Tesseract's language ORDER is significant -- the first entry acts as the
+    primary model -- and this is not a cosmetic detail. Measured over the
+    49-PDF production corpus at 200 DPI, changing only the order:
+
+        eng+vie   Vietnamese 0.7488   English 0.9857
+        vie+eng   Vietnamese 0.9050   English 0.9857
+
+    +0.156 absolute on Vietnamese (+21% relative) for zero English cost.
+    English-primary reads uppercase Vietnamese as English and silently
+    drops the tone marks (`HỢP ĐỒNG` -> `HOP DONG`), which is the exact
+    failure class experiment 021 traced. `config.ocr_languages` is
+    naturally written `["en", "vi"]`, so honouring its order literally
+    would select the worse configuration by default.
+
+    English is demoted rather than Vietnamese promoted so this stays
+    correct for a future third language: `eng` is the fallback script here,
+    not the subject.
+    """
+    mapped = [_LANG_MAP.get(code, code) for code in languages]
+    ordered = [m for m in mapped if m != "eng"] + [m for m in mapped if m == "eng"]
+    return "+".join(ordered)
 
 
 def is_available() -> bool:
