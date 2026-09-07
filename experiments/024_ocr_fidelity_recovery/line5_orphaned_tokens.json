@@ -1,0 +1,648 @@
+{
+ "line": 5,
+ "question": "how much recognised evidence is discarded for want of a region?",
+ "mechanism": "layout/structure detection emits no region; _center_in drops the tokens",
+ "not_this": "token-to-cell ownership, which experiment 023 ruled out and which stands",
+ "totals": {
+  "documents": 49,
+  "tokens": 5845,
+  "orphaned": 1000,
+  "orphan_rate": 0.1711,
+  "mean_orphan_rate_per_document": 0.0349,
+  "documents_with_recoverable_strings": 1,
+  "recoverable_strings": 1
+ },
+ "rows": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "regions": 3,
+   "tokens": 44,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "regions": 5,
+   "tokens": 28,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 2,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "regions": 4,
+   "tokens": 59,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "regions": 2,
+   "tokens": 34,
+   "orphaned": 15,
+   "orphan_rate": 0.4412,
+   "missing_strings": 1,
+   "recoverable_from_orphans": [
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "regions": 19,
+   "tokens": 62,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 1,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "regions": 2,
+   "tokens": 52,
+   "orphaned": 17,
+   "orphan_rate": 0.3269,
+   "missing_strings": 1,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "regions": 17,
+   "tokens": 59,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "regions": 21,
+   "tokens": 59,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 1,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "regions": 3,
+   "tokens": 44,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 2,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "regions": 2,
+   "tokens": 80,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "regions": 3,
+   "tokens": 44,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "regions": 9,
+   "tokens": 22,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "regions": 4,
+   "tokens": 60,
+   "orphaned": 1,
+   "orphan_rate": 0.0167,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page"
+   ],
+   "regions": 5,
+   "tokens": 220,
+   "orphaned": 54,
+   "orphan_rate": 0.2455,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "encoding"
+   ],
+   "regions": 2,
+   "tokens": 154,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast"
+   ],
+   "regions": 2,
+   "tokens": 80,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "regions": 3,
+   "tokens": 45,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "regions": 3,
+   "tokens": 34,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "regions": 4,
+   "tokens": 45,
+   "orphaned": 13,
+   "orphan_rate": 0.2889,
+   "missing_strings": 3,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "regions": 2,
+   "tokens": 29,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "regions": 3,
+   "tokens": 55,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "regions": 24,
+   "tokens": 64,
+   "orphaned": 3,
+   "orphan_rate": 0.0469,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "regions": 5,
+   "tokens": 70,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "regions": 3,
+   "tokens": 49,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 4,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "tiny_text"
+   ],
+   "regions": 3,
+   "tokens": 34,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "tiny_text"
+   ],
+   "regions": 2,
+   "tokens": 52,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "regions": 6,
+   "tokens": 57,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 1,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark"
+   ],
+   "regions": 2,
+   "tokens": 80,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "regions": 61,
+   "tokens": 3188,
+   "orphaned": 894,
+   "orphan_rate": 0.2804,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 27,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 71,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 28,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 43,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 24,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 35,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_contract_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 62,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 80,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 5,
+   "tokens": 59,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 77,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 17,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 51,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 44,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 66,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_policy_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 34,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 52,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 40,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 3,
+   "tokens": 59,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 27,
+   "orphaned": 0,
+   "orphan_rate": 0.0,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "regions": 2,
+   "tokens": 46,
+   "orphaned": 3,
+   "orphan_rate": 0.0652,
+   "missing_strings": 0,
+   "recoverable_from_orphans": []
+  }
+ ]
+}

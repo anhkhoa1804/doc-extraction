@@ -1,0 +1,4247 @@
+{
+ "line": 1,
+ "question": "what are the last 4-5% of characters?",
+ "baseline_commit": "723d4cf3efc30f05ee0bcdefaf2a244be73d0286",
+ "strategy": "visual",
+ "arms": [
+  "tesseract",
+  "easyocr"
+ ],
+ "n_missing_strings": 81,
+ "edit_mechanisms_raw_all": {
+  "insertion": 94,
+  "substitution": 81,
+  "diacritic": 49,
+  "deletion": 36,
+  "digit_letter": 5,
+  "whitespace": 2,
+  "punctuation": 1
+ },
+ "edit_mechanisms_final_all": {
+  "substitution": 92,
+  "insertion": 91,
+  "diacritic": 54,
+  "deletion": 27,
+  "digit_letter": 8,
+  "case": 2,
+  "whitespace": 2,
+  "punctuation": 1
+ },
+ "edit_mechanisms_raw_tesseract": {
+  "substitution": 48,
+  "insertion": 25,
+  "deletion": 7,
+  "diacritic": 4,
+  "digit_letter": 2
+ },
+ "edit_mechanisms_raw_tesseract_failure_corpus": {
+  "substitution": 40,
+  "insertion": 21,
+  "diacritic": 4,
+  "deletion": 4,
+  "digit_letter": 1
+ },
+ "scorer_artifacts": {
+  "n": 29,
+  "cases": [
+   {
+    "arm": "easyocr",
+    "document_id": "ord_contract_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_contract_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_contract_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_financial_report_vi",
+    "string": "Đơn vị tính: triệu đồng"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_company_profile_vi",
+    "string": "HỒ SƠ NĂNG LỰC CÔNG TY"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_company_profile_vi",
+    "string": "Đội ngũ hiện tại gồm 148 nhân sự"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_certificate_vi",
+    "string": "phù hợp với các yêu cầu của tiêu"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_policy_vi",
+    "string": "Điều 1. Phạm vi áp dụng"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_technical_report_vi",
+    "string": "Thiết bị: Máy nén khí trục vít,"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_purchase_order_vi",
+    "string": "ĐƠN ĐẶT HÀNG"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_form_vi",
+    "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "ord_form_vi",
+    "string": "Họ và tên người đề nghị: Nguyễn"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_low_contrast_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_low_contrast_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_watermark_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_watermark_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_watermark_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Sản phẩm A-100"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Bộ lọc khí Mã 22B"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Dịch vụ lắp đặt"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_crosspage_vi",
+    "string": "Điều 1. Phạm vi áp dụng"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_checkbox_vi",
+    "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_checkbox_vi",
+    "string": "Họ và tên người đề nghị: Nguyễn"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "hc_checkbox_vi",
+    "string": "Đồng ý"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "cmb_stamp_table_vi",
+    "string": "ĐƠN ĐẶT HÀNG"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "cmb_scan_tiny_vi",
+    "string": "Quy chế này áp dụng cho toàn bộ"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "cmb_watermark_tiny_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Bộ lọc khí Mã 22B"
+   },
+   {
+    "arm": "easyocr",
+    "document_id": "long_policy_vi_60p",
+    "string": "Điều 1. Phạm vi áp dụng"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "arm": "tesseract",
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "ĐÃ DUYỆT",
+   "char_recall_raw": 0.5,
+   "char_recall_final": 0.5,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Đ",
+     "got": "X"
+    },
+    {
+     "kind": "substitution",
+     "expected": "DUY",
+     "got": "HỘI CHỦ NGHĨA VI"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " N"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Đ",
+     "got": "X"
+    },
+    {
+     "kind": "substitution",
+     "expected": "DUY",
+     "got": "HỘI CHỦ NGHĨA VI"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " N"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+   "char_recall_raw": 0.5263,
+   "char_recall_final": 0.7632,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Ứ",
+     "got": "AT LU 2 CHU"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ậ",
+     "got": "A"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ệ",
+     "got": "E"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ố",
+     "got": "O"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "'8z0£ uieu 90 BueU1 0£ ÁeBu Uap IN| NIH 'ST0Z:T006 OSI uenu2 nại en2 nẹ2 nạÁ 2g2 IoA dỏu nud ONVNO HNIW IVW ONONHL HHNL AL SN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "UẢN",
+     "got": "D"
+    },
+    {
+     "kind": "substitution",
+     "expected": "LÝ",
+     "got": "end"
+    },
+    {
+     "kind": "substitution",
+     "expected": "CHẤT",
+     "got": "A]"
+    },
+    {
+     "kind": "substitution",
+     "expected": "LƯỢNG",
+     "got": "uenb B"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ứ",
+     "got": "U"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ậ",
+     "got": "A"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ệ",
+     "got": "E"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ố",
+     "got": "O"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ả",
+     "got": "A"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2 "
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ý",
+     "got": "Y"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "Ấ",
+     "got": "A"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ƯỢ",
+     "got": "U O"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " O"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "string": "Chứng nhận rằng hệ thống quản lý",
+   "char_recall_raw": 0.4688,
+   "char_recall_final": 0.3438,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "hứ",
+     "got": "HAT LU 2 CHUNG NHAN HE THONG '8z0£ uieu 90 BueU1 0£ ÁeBu Uap IN| NIH 'ST0Z:T006 OSI ue"
+    },
+    {
+     "kind": "substitution",
+     "expected": "g",
+     "got": "u2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hậ",
+     "got": "ại e"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2"
+    },
+    {
+     "kind": "deletion",
+     "expected": "rằ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ẹ2 nạÁ 2"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hệ",
+     "got": "IoA"
+    },
+    {
+     "kind": "substitution",
+     "expected": "thố",
+     "got": "dỏu "
+    },
+    {
+     "kind": "substitution",
+     "expected": "g",
+     "got": "ud"
+    },
+    {
+     "kind": "substitution",
+     "expected": "q",
+     "got": "ONVNO HNIW IVW ONONHL HHNL AL SNQD end A] "
+    },
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "e"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "b"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lý",
+     "got": "Buo"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "hứ",
+     "got": "HUNG NHAN HE THONG QUAN 2 LY CHAT LU ONG ONVNO HNIW IVW ONONHL HHNL AL SNQD e"
+    },
+    {
+     "kind": "substitution",
+     "expected": "g",
+     "got": "d A] uenb Buou1 $u 6Bue1 uẻuu 6unu2 OSI uenu2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hậ",
+     "got": "ại e"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "rằng",
+     "got": "90"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hệ",
+     "got": "BueU1"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "thống",
+     "got": "0£"
+    },
+    {
+     "kind": "substitution",
+     "expected": "q",
+     "got": "'8z0£ "
+    },
+    {
+     "kind": "substitution",
+     "expected": "ản",
+     "got": "ieu"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "lý",
+     "got": "90 "
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw": 0.375,
+   "char_recall_final": 0.3125,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "phù",
+     "got": "ONG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hợ",
+     "got": "QUAN LY CHAT LU 2 CHUNG NHAN HE THONG '8z0£ uieu 90 BueU1 0£ ÁeBu Ua"
+    },
+    {
+     "kind": "substitution",
+     "expected": "vớ",
+     "got": "IN| NIH 'ST0Z:T006 OSI uenu2 nạ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "các",
+     "got": "en2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "yê",
+     "got": "nẹ2 nạÁ 2g2 IoA dỏ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "cầ",
+     "got": "nud ONVNO HNIW IVW ONONHL HHNL AL SNQD end A] uenb Buou1 $"
+    },
+    {
+     "kind": "substitution",
+     "expected": "của",
+     "got": "6Bue1"
+    },
+    {
+     "kind": "deletion",
+     "expected": "tiê",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ẻ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "phù",
+     "got": "UNG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hợp",
+     "got": "NHAN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "vớ",
+     "got": "HE THONG QUAN 2 LY CHAT LU ONG ONVNO HNIW IVW ONONHL HHNL AL SNQD end A] uenb Buou1 $u 6Bue1 uẻuu 6unu2 OSI uenu2 nạ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "các",
+     "got": "en2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "yê",
+     "got": "90 BueU1 0£ '8z0£ uie"
+    },
+    {
+     "kind": "substitution",
+     "expected": "cầ",
+     "got": "90 BueU1 0£ ÁeB"
+    },
+    {
+     "kind": "substitution",
+     "expected": "củ",
+     "got": "ÁeBu U"
+    },
+    {
+     "kind": "substitution",
+     "expected": " tiêu",
+     "got": "p"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Mô tả hàng hóa",
+   "char_recall_raw": 0.7857,
+   "char_recall_final": 0.7857,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ô",
+     "got": "Q/2026E Số: 0004417 Ngày 14"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "háng 03 năm 2026 Đơn vị bán"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": ":"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số t"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ó",
+     "got": "uế: 0312998877 Đơn vị | Số lượng | Thành tiền C"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "i"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ô",
+     "got": "Q/2026E Số: 0004417 Ngày 14"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "háng 03 năm 2026 Đơn vị bán"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": ":"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số t"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ó",
+     "got": "uế: 0312998877 C"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "i"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Sản phẩm A-100",
+   "char_recall_raw": 0.6429,
+   "char_recall_final": 0.6429,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "ố: 0004417 Ngày 14 tháng 03 năm 2026 Đơ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "p",
+     "got": "vị bán "
+    },
+    {
+     "kind": "substitution",
+     "expected": "ẩm",
+     "got": "àng:"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "CÔNG TY TNHH THƯƠNG MẠI MINH QU"
+    },
+    {
+     "kind": "substitution",
+     "expected": "-",
+     "got": "NG Mã số thuế: 03"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2998877 Đơn vị | Số lượng | Thành tiền Cai iz 8."
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "0."
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "ố: 0004417 Ngày 14 tháng 03 năm 2026 Đơ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "p",
+     "got": "vị bán "
+    },
+    {
+     "kind": "substitution",
+     "expected": "ẩm",
+     "got": "àng:"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "CÔNG TY TNHH THƯƠNG MẠI MINH QU"
+    },
+    {
+     "kind": "substitution",
+     "expected": "-",
+     "got": "NG Mã số thuế: 03"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "2998877 Cai iz 8."
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "0."
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw": 0.5294,
+   "char_recall_final": 0.5294,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Bộ",
+     "got": "ÓA"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lọc",
+     "got": "ĐƠN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "k",
+     "got": "GIÁ TRỊ GIA TĂNG Ký "
+    },
+    {
+     "kind": "substitution",
+     "expected": "í",
+     "got": "iệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "số thuế: 031"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "2",
+     "got": "998877 Đơn vị | Số lượng | Thành tiền Cai iz 8.000.000 "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ộ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Bộ",
+     "got": "ÓA"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lọc",
+     "got": "ĐƠN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "k",
+     "got": "GIÁ TRỊ GIA TĂNG Ký "
+    },
+    {
+     "kind": "substitution",
+     "expected": "í",
+     "got": "iệu: MQ/2026E Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "số thuế: 031"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "2",
+     "got": "998877 Cai iz 8.000.000 "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ộ"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Dịch vụ lắp đặt",
+   "char_recall_raw": 0.3333,
+   "char_recall_final": 0.3333,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "D",
+     "got": "v"
+    },
+    {
+     "kind": "substitution",
+     "expected": "c",
+     "got": " bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số thuế: 0312998877 Đơn vị | Số lượng | Thàn"
+    },
+    {
+     "kind": "substitution",
+     "expected": "vụ",
+     "got": "tiền"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lắp",
+     "got": "Cai"
+    },
+    {
+     "kind": "substitution",
+     "expected": "đặt",
+     "got": "iz 8"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "D",
+     "got": "v"
+    },
+    {
+     "kind": "substitution",
+     "expected": "c",
+     "got": " bán hàng: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Mã số thuế: 0312998877 Cai iz 8.000.000 Bộ + 6:400.000 Đơn vị | Số lượng | Thàn"
+    },
+    {
+     "kind": "substitution",
+     "expected": "vụ",
+     "got": "tiền"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lắp",
+     "got": "Gái"
+    },
+    {
+     "kind": "substitution",
+     "expected": "đặt",
+     "got": "T 50"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Số lượng / Thành tiền",
+   "char_recall_raw": 0.9524,
+   "char_recall_final": 0.9524,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ố đơn hàng: PO-2026-0318 Nhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điều kiện giao hàng: DDP kho Bên mua STT |Mô tả hàng hóa Số lugnyrhanh tién 1 Sản phẩm A-100 b"
+    },
+    {
+     "kind": "substitution",
+     "expected": " ",
+     "got": "|"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 2 Bộ lọc kh"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ố đơn hàng: PO-2026-0318 Nhà cung cấp: CÔNG TY TNHH THƯƠNG MẠI MINH QUANG Điều kiện giao hàng: DDP kho Bên mua STT |Mô tả hàng hóa Số lugnyrhanh tién 1 Sản phẩm A-100 b"
+    },
+    {
+     "kind": "substitution",
+     "expected": " ",
+     "got": "|"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 2 Bộ lọc kh"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "string": "Product A-100",
+   "char_recall_raw": 0.9231,
+   "char_recall_final": 0.9231,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "-",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PS"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "-",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PS"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "string": "Air filter type 22B",
+   "char_recall_raw": 0.7895,
+   "char_recall_final": 0.8421,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": " f",
+     "got": "t"
+    },
+    {
+     "kind": "deletion",
+     "expected": "l",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "B",
+     "got": "5 set + 6400"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "X INVOICE Invo"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ce numbe"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": ":"
+    },
+    {
+     "kind": "substitution",
+     "expected": "f",
+     "got": "INV-2026-004417 Issue date: 14 March 2026 Suppl"
+    },
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "er: Brightwa"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Trading Limited VAT registration: GB 0312998877 Product A100 PS 1 78,000.00,"
+    },
+    {
+     "kind": "substitution",
+     "expected": "B",
+     "got": "5 2__[Air"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.9565,
+   "char_recall_final": 0.4783,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "i",
+     "got": "ì"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Điề",
+     "got": "Ộ Q"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "y"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "1.",
+     "got": "chế"
+    },
+    {
+     "kind": "substitution",
+     "expected": "Phạm vi",
+     "got": "này"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " cho toà"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+   "char_recall_raw": 0.625,
+   "char_recall_final": 0.6875,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ê",
+     "got": " NAM Độc lập - Tự do - Hạ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "h"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "phú"
+    },
+    {
+     "kind": "deletion",
+     "expected": "ông",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "ty:",
+     "got": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ĐÃ DUYỆ"
+    },
+    {
+     "kind": "deletion",
+     "expected": "HƯƠNG",
+     "got": ""
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ê",
+     "got": " NAM Độc lập - Tự do - Hạ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "h"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "phú"
+    },
+    {
+     "kind": "deletion",
+     "expected": "ông",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "ty:",
+     "got": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ĐÃ DUYỆ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "HƯƠ",
+     "got": " CÔ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " T"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "Mã số doanh nghiệp: 0312998877",
+   "char_recall_raw": 0.3333,
+   "char_recall_final": 0.3333,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "ã",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "số",
+     "got": "Độc lập - Tự"
+    },
+    {
+     "kind": "substitution",
+     "expected": "a",
+     "got": " - Hạ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ng",
+     "got": "p"
+    },
+    {
+     "kind": "substitution",
+     "expected": "iệp:",
+     "got": "úc"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "0312998877",
+     "got": "GIẤY CHỨNG "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "ã",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "số",
+     "got": "Độc lập - Tự"
+    },
+    {
+     "kind": "substitution",
+     "expected": "a",
+     "got": " - Hạ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ng",
+     "got": "p"
+    },
+    {
+     "kind": "substitution",
+     "expected": "iệp:",
+     "got": "úc"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "0312998877",
+     "got": "GIẤY CHỨNG "
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+   "char_recall_raw": 1.0,
+   "char_recall_final": 1.0,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "_"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Ngày 14 thá"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "_"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Ngày 14 thá"
+    }
+   ]
+  },
+  {
+   "arm": "tesseract",
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "string": "Section 2. Approval authority",
+   "char_recall_raw": 1.0,
+   "char_recall_final": 0.6552,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " This policy applies to all e"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "2",
+     "got": "1"
+    },
+    {
+     "kind": "substitution",
+     "expected": "A",
+     "got": "Scope This policy a"
+    },
+    {
+     "kind": "substitution",
+     "expected": "r",
+     "got": "lies t"
+    },
+    {
+     "kind": "substitution",
+     "expected": "v",
+     "got": " "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "l employees of the company"
+    },
+    {
+     "kind": "substitution",
+     "expected": "uthor",
+     "got": "nd "
+    },
+    {
+     "kind": "substitution",
+     "expected": "y",
+     "got": "s b"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw": 0.96,
+   "char_recall_final": 0.96,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1. Đối tượng "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1. Đối tượng "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw": 0.8125,
+   "char_recall_final": 0.9375,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": " đồng",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Dịch vụ lắp đặt",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Gói 3"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Gói 3"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+   "char_recall_raw": 0.9375,
+   "char_recall_final": 0.9375,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "I",
+     "got": "1"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đơn vị t"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "I",
+     "got": "1"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đơn vị t"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Đơn vị tính: triệu đồng",
+   "char_recall_raw": 0.9565,
+   "char_recall_final": 0.9565,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "en",
+   "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+   "char_recall_raw": 0.9444,
+   "char_recall_final": 0.9444,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "— ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Report"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "— ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Report"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "HỒ SƠ NĂNG LỰC CÔNG TY",
+   "char_recall_raw": 0.9545,
+   "char_recall_final": 0.9545,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thành Iập năm 2011,"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thành Iập năm 2011,"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Thành lập năm 2011, công ty hoạt",
+   "char_recall_raw": 0.9688,
+   "char_recall_final": 0.9688,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " động trong lĩnh vực phân"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " động trong lĩnh vực phân"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Đội ngũ hiện tại gồm 148 nhân sự",
+   "char_recall_raw": 0.9688,
+   "char_recall_final": 0.9688,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " tại ba chi n"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " tại ba chi n"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_certificate_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw": 0.9062,
+   "char_recall_final": 0.9688,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "p",
+     "got": "C"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ù",
+     "got": "ứng nhận hệ thống quản lý của CÔNG TY TNHH THƯƠNG MẠI MINH QUANG"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ầ",
+     "got": "ẩ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " chuẩn ISO"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ầ",
+     "got": "ẩ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " chuẩn ISO"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.9565,
+   "char_recall_final": 0.9565,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+   "char_recall_raw": 0.9714,
+   "char_recall_final": 0.9714,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thiết bị: Máy nén khí tr"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thiết bị: Máy nén khí tr"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Thiết bị: Máy nén khí trục vít,",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " công "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " công "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "ĐƠN ĐẶT HÀNG",
+   "char_recall_raw": 0.9167,
+   "char_recall_final": 0.9167,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ặ",
+     "got": "Ă"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số đơ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ặ",
+     "got": "Ă"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số đơ"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PHIẾU ĐỂ "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PHIẾU ĐỂ "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+   "char_recall_raw": 0.9583,
+   "char_recall_final": 0.9583,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ề",
+     "got": "Ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Họ và tên người"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ề",
+     "got": "Ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Họ và tên người"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "labels": [],
+   "language": "vi",
+   "string": "Họ và tên người đề nghị: Nguyễn",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thị Hương Bộ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thị Hương Bộ"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.8261,
+   "char_recall_final": 0.8261,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "é"
+    },
+    {
+     "kind": "deletion",
+     "expected": " 1.",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "é"
+    },
+    {
+     "kind": "deletion",
+     "expected": " 1.",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_text_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "en",
+   "string": "Section 1. Scope",
+   "char_recall_raw": 0.8125,
+   "char_recall_final": 0.8125,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "1. ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " This"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "1. ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " This"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast"
+   ],
+   "language": "vi",
+   "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw": 0.96,
+   "char_recall_final": 0.96,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1- Đối tượng "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1- Đối tượng "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw": 0.9,
+   "char_recall_final": 0.9,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "punctuation",
+     "expected": ".",
+     "got": "-"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "Bên A đổng ý bán và Bên B đổng ý mua hàng hóa theo danh mục đính kèm Điêu 2 Giá trị đổng và phương thức thanh toán Tổng trị "
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " l"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "punctuation",
+     "expected": ".",
+     "got": "-"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast"
+   ],
+   "language": "vi",
+   "string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw": 0.9375,
+   "char_recall_final": 0.9375,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " CÔNG VĂN "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " CÔNG VĂN "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+   "char_recall_raw": 0.9655,
+   "char_recall_final": 0.9655,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "/",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Kính gửi: Phòng T"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "/",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Kính gửi: Phòng T"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "string": "Kính gửi: Phòng Tài chính - Kế",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " t"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " t"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "en",
+   "string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+   "char_recall_raw": 0.9623,
+   "char_recall_final": 0.9623,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": " —",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " To: Finance and Accounting Departme"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": " —",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " To: Finance and Accounting Departme"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Dịch vụ lắp đặt",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " ĐÃ DU"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " ĐÃ DU"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark"
+   ],
+   "language": "vi",
+   "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw": 0.96,
+   "char_recall_final": 0.96,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1. Đối tượng "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điêu 1. Đối tượng "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ê"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark"
+   ],
+   "language": "vi",
+   "string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw": 0.8125,
+   "char_recall_final": 0.9375,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": " đồng",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " mua"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "string": "Chứng nhận rằng hệ thống quản lý",
+   "char_recall_raw": 0.25,
+   "char_recall_final": 0.2188,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "hứn",
+     "got": "HỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG ẳ z 2 , 4 P 1 ; 8 8 1i 2 { ẵ ẻ 8 8 ẵ ', \" 8 ắ ẳ { 9 ' "
+    },
+    {
+     "kind": "deletion",
+     "expected": "nhận rằn",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "hệ",
+     "got": "ẵỉ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "thống",
+     "got": ":"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "quản",
+     "got": "2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lý",
+     "got": ":"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "case",
+     "expected": "hứng",
+     "got": "HỨNG"
+    },
+    {
+     "kind": "case",
+     "expected": "nhận",
+     "got": "NHẬN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "rằng",
+     "got": "HỆ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hệ",
+     "got": "THỐNG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "thống",
+     "got": "QUẢN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "quản",
+     "got": "LÝ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "lý",
+     "got": "CHẤ"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "string": "phù hợp với các yêu cầu của tiêu",
+   "char_recall_raw": 0.25,
+   "char_recall_final": 0.2188,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "phù",
+     "got": "ỨNG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hợp",
+     "got": "NHẬN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "vớ",
+     "got": "HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG ẳ z 2 , 4 P 1 ; 8 8 1"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "các",
+     "got": "2"
+    },
+    {
+     "kind": "substitution",
+     "expected": "yêu",
+     "got": "{"
+    },
+    {
+     "kind": "substitution",
+     "expected": "cầu",
+     "got": "ẵ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "của",
+     "got": "ẻ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "tiêu",
+     "got": "8 8 ẵ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "phù",
+     "got": "ỨNG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "hợp",
+     "got": "NHẬN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "với",
+     "got": "HỆ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "các",
+     "got": "THỐNG"
+    },
+    {
+     "kind": "substitution",
+     "expected": "yêu",
+     "got": "QUẢN"
+    },
+    {
+     "kind": "substitution",
+     "expected": "cầu",
+     "got": "LÝ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "của",
+     "got": "CHẤT"
+    },
+    {
+     "kind": "substitution",
+     "expected": "tiêu",
+     "got": "LƯỢNG"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "en",
+   "string": "Qty / Amount",
+   "char_recall_raw": 0.8333,
+   "char_recall_final": 0.8333,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": " /",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Produc"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": " /",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Produc"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Sản phẩm A-100",
+   "char_recall_raw": 0.9286,
+   "char_recall_final": 0.8571,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ố: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô t"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " hàng hóa Đon vị Sổ luợng Thành tiển Sá"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ẩ",
+     "got": "a"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Cal 18"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ả",
+     "got": "ố: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 Sá"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ẩ",
+     "got": "a"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Cal 18"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw": 0.9412,
+   "char_recall_final": 0.9412,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ã",
+     "got": "à"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 6.4"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ã",
+     "got": "à"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 6.4"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Dịch vụ lắp đặt",
+   "char_recall_raw": 0.8,
+   "char_recall_final": 0.8,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "D",
+     "got": "v"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " bán hàng: CÔNG TY TNHH THƯƠNG MẠl MINH QUANG Mã số thuế: 0312998877 STT Mô tả hàng hóa Đon vị Sổ luợng Thành tiển Sán pham A-100 Cal 18.000.000 Bộ lọ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " k"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "í Mà 22B 6.400.000"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ắ",
+     "got": "à"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ặ",
+     "got": "ạ"
+    },
+    {
+     "kind": "whitespace",
+     "expected": "",
+     "got": " "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ị",
+     "got": "i"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ắ",
+     "got": "à"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ặ",
+     "got": "ạ"
+    },
+    {
+     "kind": "whitespace",
+     "expected": "",
+     "got": " "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page"
+   ],
+   "language": "vi",
+   "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.9565,
+   "char_recall_final": 0.9565,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PHIẾU ĐỂ "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " PHIẾU ĐỂ "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+   "char_recall_raw": 0.9583,
+   "char_recall_final": 0.9583,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ề",
+     "got": "Ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Họ và tên người"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ề",
+     "got": "Ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Họ và tên người"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "string": "Họ và tên người đề nghị: Nguyễn",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thị Hương Bộ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Thị Hương Bộ"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "string": "Đồng ý",
+   "char_recall_raw": 0.8333,
+   "char_recall_final": 0.8333,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ồ",
+     "got": "ộc lập Tự do Hạnh phúc PHIẾU ĐỂ NGHỊ THANH TOÁN Họ và tên người để nghị: Nguyễn Thị Hương Bộ phận: Phòng Kế toán Số tiển để nghị: 24.750.000 đổng Lý do: Thanh toán chi phí vận chuyển tháng 02 Đổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Khô"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "ồ",
+     "got": "ộc lập Tự do Hạnh phúc PHIẾU ĐỂ NGHỊ THANH TOÁN Họ và tên người để nghị: Nguyễn Thị Hương Bộ phận: Phòng Kế toán Số tiển để nghị: 24.750.000 đổng Lý do: Thanh toán chi phí vận chuyển tháng 02 Đổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Khô"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "ĐƠN ĐẶT HÀNG",
+   "char_recall_raw": 0.9167,
+   "char_recall_final": 0.9167,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ặ",
+     "got": "Ă"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số đơ"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ặ",
+     "got": "Ă"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số đơ"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Số lượng / Thành tiền",
+   "char_recall_raw": 0.9048,
+   "char_recall_final": 0.9048,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "Thành"
+    },
+    {
+     "kind": "substitution",
+     "expected": "/",
+     "got": "tiển 1 Sản phẩm A-100 6ố Iượng]"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "whitespace",
+     "expected": "",
+     "got": " "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "Thành"
+    },
+    {
+     "kind": "substitution",
+     "expected": "/",
+     "got": "tiển 1 Sản phẩm A-100 6ố Iượng]"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "whitespace",
+     "expected": "",
+     "got": " "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "string": "Issue date: 14 March 2026",
+   "char_recall_raw": 1.0,
+   "char_recall_final": 1.0,
+   "raw_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "NVOICE Invoice number: INV-2026-004417 "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Supplier: Brightwater T"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "NVOICE Invoice number: INV-2026-004417 "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Supplier: Brightwater T"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Di"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Qu"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.7391,
+   "char_recall_final": 0.4348,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Đ",
+     "got": "D"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "e"
+    },
+    {
+     "kind": "deletion",
+     "expected": " 1.",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "ap dung Quy che nay "
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " c"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "Điề",
+     "got": "Ộ Q"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "y"
+    },
+    {
+     "kind": "digit_letter",
+     "expected": "1.",
+     "got": "che"
+    },
+    {
+     "kind": "substitution",
+     "expected": "Phạm vi",
+     "got": "nay"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " c"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Quy chế này áp dụng cho toàn bộ",
+   "char_recall_raw": 0.871,
+   "char_recall_final": 0.871,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ế",
+     "got": "e"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "à",
+     "got": "a"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "à",
+     "got": "a"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " nha"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ế",
+     "got": "e"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "à",
+     "got": "a"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ụ",
+     "got": "u"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "à",
+     "got": "a"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " nha"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "language": "en",
+   "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+   "char_recall_raw": 0.9444,
+   "char_recall_final": 0.9444,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "— ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Report"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "— ",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Report"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+   "char_recall_raw": 0.96,
+   "char_recall_final": 0.96,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điéu Đỗi tuong của"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "Ồ",
+     "got": "Ổ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Điéu Đỗi tuong của"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Đối tượng của hợp đồng",
+   "char_recall_raw": 0.7,
+   "char_recall_final": 0.7,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "é"
+    },
+    {
+     "kind": "deletion",
+     "expected": "1. ",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ố",
+     "got": "ỗ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ượ",
+     "got": "uo"
+    },
+    {
+     "kind": "substitution",
+     "expected": "đồ",
+     "got": "dỏ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "é"
+    },
+    {
+     "kind": "deletion",
+     "expected": "1. ",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ố",
+     "got": "ỗ"
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ượ",
+     "got": "uo"
+    },
+    {
+     "kind": "substitution",
+     "expected": "đồ",
+     "got": "dỏ"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " B"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "string": "Bên A đồng ý bán và Bên B đồng ý",
+   "char_recall_raw": 0.6875,
+   "char_recall_final": 0.6875,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "A ",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "deletion",
+     "expected": " ý",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "B đồ",
+     "got": "dỏ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ý",
+     "got": "mua "
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "A ",
+     "got": ""
+    },
+    {
+     "kind": "diacritic",
+     "expected": "ồ",
+     "got": "ổ"
+    },
+    {
+     "kind": "deletion",
+     "expected": " ý",
+     "got": ""
+    },
+    {
+     "kind": "substitution",
+     "expected": "B đồ",
+     "got": "dỏ"
+    },
+    {
+     "kind": "substitution",
+     "expected": "ý",
+     "got": "mua "
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "string": "Độc lập - Tự do - Hạnh phúc",
+   "char_recall_raw": 0.8519,
+   "char_recall_final": 0.8519,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "deletion",
+     "expected": "- ",
+     "got": ""
+    },
+    {
+     "kind": "deletion",
+     "expected": " -",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " GIẤY CHỨN"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Mô tả hàng hóa",
+   "char_recall_raw": 0.9286,
+   "char_recall_final": 0.9286,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": " ",
+     "got": "_"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số IượngTh"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": " ",
+     "got": "_"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Số IượngTh"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Bộ lọc khí Mã 22B",
+   "char_recall_raw": 0.9412,
+   "char_recall_final": 0.9412,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ọ",
+     "got": "o"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " CÔNG TY TNH"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ọ",
+     "got": "o"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " CÔNG TY TNH"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "string": "Section 2. Approval authority",
+   "char_recall_raw": 0.9655,
+   "char_recall_final": 0.6552,
+   "raw_edits": [
+    {
+     "kind": "deletion",
+     "expected": ".",
+     "got": ""
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " This policy applie"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "2",
+     "got": "1"
+    },
+    {
+     "kind": "substitution",
+     "expected": "A",
+     "got": "Scope This policy a"
+    },
+    {
+     "kind": "substitution",
+     "expected": "r",
+     "got": "lies t"
+    },
+    {
+     "kind": "substitution",
+     "expected": "v",
+     "got": " "
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": "l employees of the company"
+    },
+    {
+     "kind": "substitution",
+     "expected": "uthor",
+     "got": "nd "
+    },
+    {
+     "kind": "substitution",
+     "expected": "y",
+     "got": "s b"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "string": "Dịch vụ lắp đặt",
+   "char_recall_raw": 0.9333,
+   "char_recall_final": 0.9333,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 3.500"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "l",
+     "got": "I"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " 3.500"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "language": "vi",
+   "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+   "char_recall_raw": 0.9677,
+   "char_recall_final": 0.9677,
+   "raw_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "substitution",
+     "expected": "I",
+     "got": "l"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Đi"
+    }
+   ]
+  },
+  {
+   "arm": "easyocr",
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "language": "vi",
+   "string": "Điều 1. Phạm vi áp dụng",
+   "char_recall_raw": 0.9565,
+   "char_recall_final": 0.9565,
+   "raw_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ],
+   "final_edits": [
+    {
+     "kind": "diacritic",
+     "expected": "ề",
+     "got": "ể"
+    },
+    {
+     "kind": "insertion",
+     "expected": "",
+     "got": " Quy chế này áp dụng"
+    }
+   ]
+  }
+ ]
+}

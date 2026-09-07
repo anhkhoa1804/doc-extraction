@@ -1,0 +1,479 @@
+{
+ "line": 7,
+ "question": "can a cheap targeted second pass recover what the normal pass misses?",
+ "trigger": "detected table with >=50% empty cells after normal assembly",
+ "second_pass": "one OCR call per detected column, 600 DPI, psm 6",
+ "note": "proxy: recovered text is appended to the document, not routed into cells",
+ "failure_corpus_recall": {
+  "base": 0.6037,
+  "after": 0.6854
+ },
+ "control_recall": {
+  "base": 0.9857,
+  "after": 0.9857
+ },
+ "cost": {
+  "documents": 49,
+  "extra_ocr_calls": 120,
+  "invocations_per_document": 3.449,
+  "reocr_seconds": 57.4
+ },
+ "gained": [
+  {
+   "document_id": "cmb_tiny_table_en",
+   "string": "Air filter type 22B"
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "string": "Product A-100"
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "string": "Sản phẩm A-100"
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "string": "Bộ lọc khí Mã 22B"
+  }
+ ],
+ "lost": [],
+ "rows": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 3,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 8,
+   "new_found": 8,
+   "required": 8
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 3,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 8
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 5,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 3,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 4,
+   "new_found": 4,
+   "required": 4
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 5,
+   "new_found": 5,
+   "required": 5
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p1t0",
+    "p2t0",
+    "p3t0"
+   ],
+   "extra_ocr_calls": 3,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0",
+    "p1t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 2,
+   "new_found": 2,
+   "required": 2
+  },
+  {
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 3,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 0,
+   "new_found": 0,
+   "required": 3
+  },
+  {
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 4,
+   "new_found": 4,
+   "required": 4
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 5,
+   "new_found": 5,
+   "required": 5
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 4,
+   "base_found": 3,
+   "new_found": 5,
+   "required": 7
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 4,
+   "new_found": 4,
+   "required": 5
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p1t0",
+    "p2t0",
+    "p3t0",
+    "p4t0",
+    "p5t0",
+    "p6t0",
+    "p7t0",
+    "p8t0",
+    "p9t0",
+    "p10t0",
+    "p11t0",
+    "p12t0",
+    "p13t0",
+    "p14t0",
+    "p15t0",
+    "p16t0",
+    "p17t0",
+    "p18t0",
+    "p19t0",
+    "p20t0",
+    "p21t0",
+    "p22t0",
+    "p23t0",
+    "p24t0",
+    "p25t0",
+    "p26t0",
+    "p27t0",
+    "p28t0",
+    "p29t0",
+    "p30t0",
+    "p31t0",
+    "p32t0",
+    "p33t0",
+    "p34t0",
+    "p35t0",
+    "p36t0",
+    "p37t0",
+    "p38t0",
+    "p39t0",
+    "p40t0",
+    "p41t0",
+    "p42t0",
+    "p43t0",
+    "p44t0",
+    "p45t0",
+    "p46t0",
+    "p47t0",
+    "p48t0",
+    "p49t0",
+    "p50t0",
+    "p51t0",
+    "p52t0",
+    "p53t0",
+    "p54t0",
+    "p55t0",
+    "p56t0",
+    "p57t0",
+    "p58t0",
+    "p59t0"
+   ],
+   "extra_ocr_calls": 59,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 4,
+   "new_found": 4,
+   "required": 4
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 4,
+   "new_found": 4,
+   "required": 4
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 2,
+   "base_found": 7,
+   "new_found": 7,
+   "required": 7
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0",
+    "p0t1",
+    "p0t2"
+   ],
+   "extra_ocr_calls": 5,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "triggered_tables": [
+    "p0t0"
+   ],
+   "extra_ocr_calls": 1,
+   "base_found": 3,
+   "new_found": 3,
+   "required": 3
+  }
+ ]
+}

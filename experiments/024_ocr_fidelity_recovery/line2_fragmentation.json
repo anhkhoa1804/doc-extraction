@@ -1,0 +1,822 @@
+{
+ "line": 2,
+ "question": "is correct OCR evidence fragmented across tokens?",
+ "note": "raw-token proxy for an assembly-side join change, not an end-to-end run",
+ "gap_ratio": 0.3,
+ "glue_chars": [
+  "-",
+  ".",
+  "/",
+  ":"
+ ],
+ "rules": {
+  "J0_space": {
+   "failure_corpus_recall": 0.6514,
+   "control_recall": 0.9857,
+   "n_failure": 7,
+   "n_control": 42
+  },
+  "J1_gap": {
+   "failure_corpus_recall": 0.6335,
+   "control_recall": 0.9721,
+   "n_failure": 7,
+   "n_control": 42
+  },
+  "J2_punct": {
+   "failure_corpus_recall": 0.4592,
+   "control_recall": 0.6799,
+   "n_failure": 7,
+   "n_control": 42
+  },
+  "J3_gap_punct": {
+   "failure_corpus_recall": 0.4592,
+   "control_recall": 0.6697,
+   "n_failure": 7,
+   "n_control": 42
+  }
+ },
+ "changed_strings": [
+  {
+   "rule": "J1_gap",
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG"
+   ]
+  },
+  {
+   "rule": "J1_gap",
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B"
+   ]
+  },
+  {
+   "rule": "J1_gap",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B"
+   ]
+  },
+  {
+   "rule": "J1_gap",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG"
+   ]
+  },
+  {
+   "rule": "J1_gap",
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Số đơn hàng: PO-2026-0318"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Qty / Amount"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Equipment: Screw-type air"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Order number: PO-2026-0318",
+    "Supplier: Brightwater Trading"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Thiết bị: Máy nén khí trục vít,"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_multicolumn_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_contract_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Article 1. Subject of the"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Bộ phận: Phòng Kế toán",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Bộ phận: Phòng Kế toán",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Reporting currency: thousands of"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Company name: Brightwater Trading",
+    "Company number: 0312998877"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_policy_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "To: Finance and Accounting"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Số đơn hàng: PO-2026-0318"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Department: Finance",
+    "Requested by: Alice Fairbanks"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Kính gửi: Phòng Tài chính - Kế",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Department: Finance",
+    "Requested by: Alice Fairbanks"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Reporting currency: thousands of"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J2_punct",
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Đơn vị tính: triệu đồng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Số đơn hàng: PO-2026-0318"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Qty / Amount"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Equipment: Screw-type air"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Order number: PO-2026-0318",
+    "Supplier: Brightwater Trading"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Thiết bị: Máy nén khí trục vít,"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_multicolumn_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_contract_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Article 1. Subject of the"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Bộ phận: Phòng Kế toán",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Bộ phận: Phòng Kế toán",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Reporting currency: thousands of"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Company name: Brightwater Trading",
+    "Company number: 0312998877"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_policy_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Section 1. Scope"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "To: Finance and Accounting"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Số đơn hàng: PO-2026-0318"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Department: Finance",
+    "Requested by: Alice Fairbanks"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Kính gửi: Phòng Tài chính - Kế",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "gained": [],
+   "lost": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Mã số doanh nghiệp: 0312998877",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Độc lập - Tự do - Hạnh phúc"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Department: Finance",
+    "Requested by: Alice Fairbanks"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Air filter type 22B",
+    "Reporting currency: thousands of"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Điều 1. Đối tượng của hợp đồng"
+   ]
+  },
+  {
+   "rule": "J3_gap_punct",
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "gained": [],
+   "lost": [
+    "Đơn vị tính: triệu đồng"
+   ]
+  }
+ ]
+}

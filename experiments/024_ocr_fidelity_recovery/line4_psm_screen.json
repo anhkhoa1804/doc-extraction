@@ -1,0 +1,1340 @@
+{
+ "line": 4,
+ "question": "does --psm 1 pay for itself corpus-wide?",
+ "note": "raw-recogniser screen at 200 DPI; not the contract metric",
+ "langs": "vie+eng",
+ "dpi": 200,
+ "psm": {
+  "3": {
+   "failure_corpus_acquisition": 0.6335,
+   "control_acquisition": 0.9778,
+   "ocr_seconds": 80.2,
+   "n_failure": 7,
+   "n_control": 42
+  },
+  "1": {
+   "failure_corpus_acquisition": 0.7287,
+   "control_acquisition": 0.9778,
+   "ocr_seconds": 121.1,
+   "n_failure": 7,
+   "n_control": 42
+  }
+ },
+ "changed_documents": [
+  {
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "psm3": 0,
+   "psm1": 2,
+   "required": 3,
+   "gained": [
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ],
+   "lost": []
+  }
+ ],
+ "rows": [
+  {
+   "psm": 3,
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_contract_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "GOODS PURCHASE AGREEMENT",
+    "Article 1. Subject of the",
+    "The Seller agrees to sell and the"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+    "Đơn vị tính: triệu đồng",
+    "Báo cáo này chưa được kiểm toán",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "These figures are unaudited and",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỒ SƠ NĂNG LỰC CÔNG TY",
+    "Thành lập năm 2011, công ty hoạt",
+    "Đội ngũ hiện tại gồm 148 nhân sự"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_company_profile_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "COMPANY CAPABILITY PROFILE",
+    "Founded in 2011, the company",
+    "The current headcount is 148"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "CERTIFICATE OF INCORPORATION",
+    "Company name: Brightwater Trading",
+    "Company number: 0312998877"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_certificate_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_certificate_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+    "This is to certify that the",
+    "conforms to the requirements of"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_policy_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "This policy applies to all"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+    "Thiết bị: Máy nén khí trục vít,",
+    "Kết quả đo độ rung tại vị trí ổ"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "EQUIPMENT INSPECTION TECHNICAL REPORT",
+    "Equipment: Screw-type air",
+    "Measured bearing vibration"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "PURCHASE ORDER",
+    "Order number: PO-2026-0318",
+    "Supplier: Brightwater Trading",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_tiny_text_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_tiny_text_en",
+   "in_failure_corpus": false,
+   "acquired": 2,
+   "required": 3,
+   "found": [
+    "Section 1. Scope",
+    "This policy applies to all"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+    "Kính gửi: Phòng Tài chính - Kế",
+    "Căn cứ biên bản đối chiếu ngày 28"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+    "To: Finance and Accounting",
+    "Further to the reconciliation"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "acquired": 5,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "acquired": 8,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_multicolumn_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "acquired": 0,
+   "required": 3,
+   "found": []
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Qty / Amount",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "acquired": 4,
+   "required": 7,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_encoding_vi",
+   "in_failure_corpus": false,
+   "acquired": 2,
+   "required": 2,
+   "found": [
+    "Cong Hoa",
+    "Doanh Nghiep"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance",
+    "Approved"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "acquired": 5,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán",
+    "Đồng ý"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "acquired": 7,
+   "required": 8,
+   "found": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "acquired": 4,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "acquired": 2,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "Net revenue for the period",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "acquired": 6,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "acquired": 8,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 3,
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_contract_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_contract_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "GOODS PURCHASE AGREEMENT",
+    "Article 1. Subject of the",
+    "The Seller agrees to sell and the"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_invoice_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_invoice_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_financial_report_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+    "Đơn vị tính: triệu đồng",
+    "Báo cáo này chưa được kiểm toán",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_financial_report_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "These figures are unaudited and",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_company_profile_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỒ SƠ NĂNG LỰC CÔNG TY",
+    "Thành lập năm 2011, công ty hoạt",
+    "Đội ngũ hiện tại gồm 148 nhân sự"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_company_profile_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "COMPANY CAPABILITY PROFILE",
+    "Founded in 2011, the company",
+    "The current headcount is 148"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_business_license_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_business_license_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "CERTIFICATE OF INCORPORATION",
+    "Company name: Brightwater Trading",
+    "Company number: 0312998877"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_certificate_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_certificate_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+    "This is to certify that the",
+    "conforms to the requirements of"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_policy_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_policy_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "This policy applies to all"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_technical_report_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+    "Thiết bị: Máy nén khí trục vít,",
+    "Kết quả đo độ rung tại vị trí ổ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_technical_report_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "EQUIPMENT INSPECTION TECHNICAL REPORT",
+    "Equipment: Screw-type air",
+    "Measured bearing vibration"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_purchase_order_vi",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_purchase_order_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "PURCHASE ORDER",
+    "Order number: PO-2026-0318",
+    "Supplier: Brightwater Trading",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_form_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "ord_form_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_tiny_text_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_tiny_text_en",
+   "in_failure_corpus": false,
+   "acquired": 2,
+   "required": 3,
+   "found": [
+    "Section 1. Scope",
+    "This policy applies to all"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_low_contrast_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_scan_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+    "Kính gửi: Phòng Tài chính - Kế",
+    "Căn cứ biên bản đối chiếu ngày 28"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_scan_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+    "To: Finance and Accounting",
+    "Further to the reconciliation"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_stamp_text_vi",
+   "in_failure_corpus": false,
+   "acquired": 5,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_stamp_table_vi",
+   "in_failure_corpus": false,
+   "acquired": 8,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_transparent_seal_vi",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "Mã số doanh nghiệp: 0312998877"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_watermark_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_multicolumn_en",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_rotation_vi",
+   "in_failure_corpus": true,
+   "acquired": 2,
+   "required": 3,
+   "found": [
+    "Chứng nhận rằng hệ thống quản lý",
+    "phù hợp với các yêu cầu của tiêu"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_borderless_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_merged_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Qty / Amount",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_tiny_cells_vi",
+   "in_failure_corpus": true,
+   "acquired": 4,
+   "required": 7,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_encoding_vi",
+   "in_failure_corpus": false,
+   "acquired": 2,
+   "required": 2,
+   "found": [
+    "Cong Hoa",
+    "Doanh Nghiep"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_crosspage_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_checkbox_en",
+   "in_failure_corpus": false,
+   "acquired": 4,
+   "required": 4,
+   "found": [
+    "PAYMENT REQUISITION FORM",
+    "Requested by: Alice Fairbanks",
+    "Department: Finance",
+    "Approved"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "hc_checkbox_vi",
+   "in_failure_corpus": false,
+   "acquired": 5,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "Họ và tên người đề nghị: Nguyễn",
+    "Bộ phận: Phòng Kế toán",
+    "Đồng ý"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_stamp_table_vi",
+   "in_failure_corpus": true,
+   "acquired": 7,
+   "required": 8,
+   "found": [
+    "ĐƠN ĐẶT HÀNG",
+    "Số đơn hàng: PO-2026-0318",
+    "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "Mô tả hàng hóa",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_tiny_table_en",
+   "in_failure_corpus": true,
+   "acquired": 4,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_scan_tiny_vi",
+   "in_failure_corpus": true,
+   "acquired": 2,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_multicol_table_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "Reporting currency: thousands of",
+    "Net revenue for the period",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_watermark_tiny_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "Điều 1. Đối tượng của hợp đồng",
+    "Bên A đồng ý bán và Bên B đồng ý"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 5,
+   "found": [
+    "Độc lập - Tự do - Hạnh phúc",
+    "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "in_failure_corpus": true,
+   "acquired": 6,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_scan_multicol_en",
+   "in_failure_corpus": true,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "INTERNAL EXPENDITURE POLICY",
+    "Section 1. Scope",
+    "Section 2. Approval authority"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "in_failure_corpus": false,
+   "acquired": 7,
+   "required": 7,
+   "found": [
+    "TAX INVOICE",
+    "Invoice number: INV-2026-004417",
+    "Issue date: 14 March 2026",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "cmb_stamp_boundary_vi",
+   "in_failure_corpus": false,
+   "acquired": 8,
+   "required": 8,
+   "found": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Ngày 14 tháng 03 năm 2026",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "psm": 1,
+   "document_id": "long_policy_vi_60p",
+   "in_failure_corpus": false,
+   "acquired": 3,
+   "required": 3,
+   "found": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  }
+ ]
+}

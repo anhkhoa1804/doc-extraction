@@ -1,0 +1,1329 @@
+{
+ "commit": "bdbe5c99ef2cbcb28396746e02c1f69370caaeb0",
+ "strategy": "visual",
+ "device": "cpu",
+ "render_dpi": 200,
+ "n_documents": 49,
+ "gpu_state_start": {
+  "memory_used_mib": 7832,
+  "memory_total_mib": 23034,
+  "utilization_pct": 91,
+  "compute_processes": 1,
+  "process_rows": [
+   "21517, 7824 MiB"
+  ],
+  "classification": "LIMITED_OR_PROTECTED"
+ },
+ "cpu_state_start": {
+  "loadavg": [
+   2.2,
+   2.23,
+   2.04
+  ],
+  "cpu_count": 8,
+  "classification": "CLEAN"
+ },
+ "conditions": {
+  "tesseract": {
+   "rows": [
+    {
+     "document_id": "ord_contract_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 28.805,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_contract_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 14.487,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 371,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 18.926,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 298,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_invoice_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 15.904,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 275,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 18.575,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 335,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_financial_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 18.723,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 349,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 6.778,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 158,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_company_profile_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 7.07,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 174,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 16.533,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 464,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_business_license_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 12.385,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 314,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 10.305,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 204,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_certificate_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 9.738,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 187,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 11.37,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_policy_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 26.026,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 10.506,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 185,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_technical_report_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 3,
+     "tables_expected": 0,
+     "runtime_s": 11.388,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 211,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 18.44,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 267,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_purchase_order_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 16.005,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 253,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_vi",
+     "language": "vi",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 12.325,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 417,
+     "tables_ok": true
+    },
+    {
+     "document_id": "ord_form_en",
+     "language": "en",
+     "difficulty": "easy",
+     "pages": 1,
+     "labels": [],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 7.961,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 266,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 7.292,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 235,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_text_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 6.453,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 231,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_low_contrast_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "low_contrast"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 15.021,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 12.884,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 350,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_scan_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 25.496,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 205,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_text_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 22.712,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 535,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 20.634,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 442,
+     "tables_ok": false
+    },
+    {
+     "document_id": "hc_transparent_seal_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 22.255,
+     "error": null,
+     "text_recall": 0.8,
+     "char_recall": 0.9,
+     "found": 4,
+     "required": 5,
+     "missing": [
+      "ĐÃ DUYỆT"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 376,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_watermark_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 14.739,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_multicolumn_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 9.046,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_rotation_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "rotation",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 10.849,
+     "error": null,
+     "text_recall": 0.0,
+     "char_recall": 0.5959,
+     "found": 0,
+     "required": 3,
+     "missing": [
+      "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+      "Chứng nhận rằng hệ thống quản lý",
+      "phù hợp với các yêu cầu của tiêu"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 180,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_borderless_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 14.791,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_merged_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 15.949,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 275,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_tiny_cells_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 14.076,
+     "error": null,
+     "text_recall": 0.4286,
+     "char_recall": 0.7559,
+     "found": 3,
+     "required": 7,
+     "missing": [
+      "Mô tả hàng hóa",
+      "Sản phẩm A-100",
+      "Bộ lọc khí Mã 22B",
+      "Dịch vụ lắp đặt"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 232,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_encoding_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 2,
+     "labels": [
+      "encoding"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 2,
+     "tables_expected": 0,
+     "runtime_s": 15.359,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 2,
+     "required": 2,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 1651,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_crosspage_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 4,
+     "labels": [
+      "cross_page"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 3,
+     "tables_expected": 0,
+     "runtime_s": 43.932,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 775,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 13.398,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 4,
+     "required": 4,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 320,
+     "tables_ok": true
+    },
+    {
+     "document_id": "hc_checkbox_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "form",
+      "checkbox",
+      "key_value"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 0,
+     "runtime_s": 13.512,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 5,
+     "required": 5,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 351,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "merged_cells",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 19.969,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 0.994,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Số lượng / Thành tiền"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 569,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_tiny_table_en",
+     "language": "en",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "tiny_text",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 8.296,
+     "error": null,
+     "text_recall": 0.7143,
+     "char_recall": 0.9665,
+     "found": 5,
+     "required": 7,
+     "missing": [
+      "Product A-100",
+      "Air filter type 22B"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 7.717,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8261,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Điều 1. Phạm vi áp dụng"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 162,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_multicol_table_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "multi_column",
+      "reading_order",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 17.517,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 349,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_watermark_tiny_vi",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 1,
+     "labels": [
+      "watermark",
+      "tiny_text"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 21.508,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 350,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_lowcontrast_stamp_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "low_contrast",
+      "stamp",
+      "occlusion"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 20.911,
+     "error": null,
+     "text_recall": 0.6,
+     "char_recall": 0.8042,
+     "found": 3,
+     "required": 5,
+     "missing": [
+      "Tên công ty: CÔNG TY TNHH THƯƠNG",
+      "Mã số doanh nghiệp: 0312998877"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 143,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_scan_stamp_table_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 1,
+     "runtime_s": 20.334,
+     "error": null,
+     "text_recall": 0.875,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 8,
+     "missing": [
+      "Ký hiệu: MQ/2026E    Số: 0004417"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 426,
+     "tables_ok": false
+    },
+    {
+     "document_id": "cmb_scan_multicol_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "scan_quality",
+      "multi_column",
+      "reading_order"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 0,
+     "tables_expected": 0,
+     "runtime_s": 9.072,
+     "error": null,
+     "text_recall": 0.6667,
+     "char_recall": 0.8851,
+     "found": 2,
+     "required": 3,
+     "missing": [
+      "Section 2. Approval authority"
+     ],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 120,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_borderless_lowcontrast_en",
+     "language": "en",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "borderless_table",
+      "low_contrast",
+      "table_detection"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 14.365,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 7,
+     "required": 7,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 274,
+     "tables_ok": true
+    },
+    {
+     "document_id": "cmb_stamp_boundary_vi",
+     "language": "vi",
+     "difficulty": "extreme",
+     "pages": 1,
+     "labels": [
+      "stamp",
+      "occlusion",
+      "table_structure"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 1,
+     "tables_expected": 1,
+     "runtime_s": 20.437,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 8,
+     "required": 8,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": false,
+     "chars": 382,
+     "tables_ok": true
+    },
+    {
+     "document_id": "long_policy_vi_60p",
+     "language": "vi",
+     "difficulty": "hard",
+     "pages": 60,
+     "labels": [
+      "cross_page",
+      "long_document"
+     ],
+     "routes": [
+      "?"
+     ],
+     "tables_found": 59,
+     "tables_expected": 0,
+     "runtime_s": 627.676,
+     "error": null,
+     "text_recall": 1.0,
+     "char_recall": 1.0,
+     "found": 3,
+     "required": 3,
+     "missing": [],
+     "hallucinated": [],
+     "order_ok": true,
+     "chars": 10855,
+     "tables_ok": true
+    }
+   ],
+   "wall_s": 1378.5,
+   "ocr_invocations": null,
+   "pages_ocred": null,
+   "easyocr_s": null,
+   "tesseract_s": null,
+   "page_stats": [],
+   "aggregate": {
+    "n": 49,
+    "mean_text_recall": 0.9311,
+    "mean_char_recall": 0.974,
+    "docs_perfect": 40,
+    "docs_zero": 1,
+    "docs_hallucinated": 0,
+    "docs_order_ok": 46,
+    "docs_tables_ok": 47,
+    "errors": 0,
+    "total_runtime_s": 1378.5,
+    "by_language": {
+     "en": {
+      "n": 20,
+      "mean_text_recall": 0.969,
+      "mean_char_recall": 0.9926
+     },
+     "vi": {
+      "n": 29,
+      "mean_text_recall": 0.905,
+      "mean_char_recall": 0.9612
+     }
+    }
+   }
+  }
+ },
+ "gpu_state_end": {
+  "memory_used_mib": 8024,
+  "memory_total_mib": 23034,
+  "utilization_pct": 100,
+  "compute_processes": 2,
+  "process_rows": [
+   "21517, 7824 MiB",
+   "27354, 186 MiB"
+  ],
+  "classification": "LIMITED_OR_PROTECTED"
+ },
+ "cpu_state_end": {
+  "loadavg": [
+   4.4,
+   4.54,
+   4.06
+  ],
+  "cpu_count": 8,
+  "classification": "CONTENDED"
+ },
+ "layout_cache": {
+  "hits": 1,
+  "misses": 111,
+  "note": "layout is identical across conditions; cached by image content hash. Runtime effect only."
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "before": {
+  "acquisition": 8,
+  "fidelity": 4,
+  "assembly": 1
+ },
+ "after_line5_line7": {
+  "acquisition": 5,
+  "fidelity": 3
+ },
+ "after_including_line4": {
+  "acquisition": 3,
+  "fidelity": 3
+ },
+ "note": "line 4 acts only on hc_rotation_vi; disjoint from lines 5/7, so exactly additive"
+}

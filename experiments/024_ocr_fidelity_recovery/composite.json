@@ -1,0 +1,89 @@
+{
+ "experiment": "composite_line5_line7",
+ "interventions": [
+  "line5_recover_orphaned_tokens",
+  "line7_reocr_first_column_when_table_conf<0.7"
+ ],
+ "excluded": "line4_psm1 -- acts on a disjoint document, measured end to end separately",
+ "note": "text-level proxy; recovered text appended, not routed into elements/cells",
+ "failure_corpus_recall": {
+  "base": 0.6037,
+  "after": 0.733
+ },
+ "control_recall": {
+  "base": 0.9857,
+  "after": 0.9857
+ },
+ "cost": {
+  "documents": 49,
+  "extra_ocr_calls": 3,
+  "invocations_per_document": 1.0612
+ },
+ "thresholds": {
+  "acceptance_failure": 0.75,
+  "acceptance_control": 0.9807,
+  "rejection_failure": 0.68,
+  "rejection_control": 0.9757,
+  "max_invocations": 1.1
+ },
+ "per_failure_document": {
+  "cmb_scan_multicol_en": {
+   "base": 2,
+   "after": 3,
+   "required": 3
+  },
+  "cmb_scan_stamp_table_vi": {
+   "base": 7,
+   "after": 7,
+   "required": 8
+  },
+  "cmb_scan_tiny_vi": {
+   "base": 2,
+   "after": 2,
+   "required": 3
+  },
+  "cmb_stamp_table_vi": {
+   "base": 7,
+   "after": 7,
+   "required": 8
+  },
+  "cmb_tiny_table_en": {
+   "base": 5,
+   "after": 7,
+   "required": 7
+  },
+  "hc_rotation_vi": {
+   "base": 0,
+   "after": 0,
+   "required": 3
+  },
+  "hc_tiny_cells_vi": {
+   "base": 3,
+   "after": 5,
+   "required": 7
+  }
+ },
+ "gained": [
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "string": "Section 2. Approval authority"
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "string": "Air filter type 22B"
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "string": "Product A-100"
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "string": "Bộ lọc khí Mã 22B"
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "string": "Sản phẩm A-100"
+  }
+ ],
+ "lost": []
+}

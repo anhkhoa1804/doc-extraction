@@ -1,0 +1,308 @@
+{
+ "line": 3,
+ "question": "did OCR acquire new evidence at greater effective scale?",
+ "note": "raw-recognizer probe on 5 small-text failure-corpus documents; not an end-to-end pipeline run",
+ "langs": "vie+eng",
+ "documents": [
+  "hc_tiny_cells_vi",
+  "cmb_tiny_table_en",
+  "cmb_stamp_table_vi",
+  "cmb_scan_tiny_vi",
+  "cmb_scan_stamp_table_vi"
+ ],
+ "configs": {
+  "A_200dpi_psm3": {
+   "dpi": 200,
+   "psm": 3,
+   "strings_acquired": 23,
+   "strings_required": 33,
+   "acquisition_rate": 0.697,
+   "ocr_seconds": 3.6
+  },
+  "B_400dpi_psm3": {
+   "dpi": 400,
+   "psm": 3,
+   "strings_acquired": 20,
+   "strings_required": 33,
+   "acquisition_rate": 0.6061,
+   "ocr_seconds": 8.9
+  },
+  "C_600dpi_psm3": {
+   "dpi": 600,
+   "psm": 3,
+   "strings_acquired": 20,
+   "strings_required": 33,
+   "acquisition_rate": 0.6061,
+   "ocr_seconds": 18.4
+  },
+  "D_600dpi_psm6": {
+   "dpi": 600,
+   "psm": 6,
+   "strings_acquired": 10,
+   "strings_required": 33,
+   "acquisition_rate": 0.303,
+   "ocr_seconds": 11.3
+  }
+ },
+ "rows": [
+  {
+   "config": "A_200dpi_psm3",
+   "dpi": 200,
+   "psm": 3,
+   "document_id": "hc_tiny_cells_vi",
+   "acquired": 4,
+   "required": 7,
+   "missing": [
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "config": "A_200dpi_psm3",
+   "dpi": 200,
+   "psm": 3,
+   "document_id": "cmb_tiny_table_en",
+   "acquired": 4,
+   "required": 7,
+   "missing": [
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "config": "A_200dpi_psm3",
+   "dpi": 200,
+   "psm": 3,
+   "document_id": "cmb_stamp_table_vi",
+   "acquired": 7,
+   "required": 8,
+   "missing": [
+    "Số lượng / Thành tiền"
+   ]
+  },
+  {
+   "config": "A_200dpi_psm3",
+   "dpi": 200,
+   "psm": 3,
+   "document_id": "cmb_scan_tiny_vi",
+   "acquired": 2,
+   "required": 3,
+   "missing": [
+    "Điều 1. Phạm vi áp dụng"
+   ]
+  },
+  {
+   "config": "A_200dpi_psm3",
+   "dpi": 200,
+   "psm": 3,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "acquired": 6,
+   "required": 8,
+   "missing": [
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "config": "B_400dpi_psm3",
+   "dpi": 400,
+   "psm": 3,
+   "document_id": "hc_tiny_cells_vi",
+   "acquired": 2,
+   "required": 7,
+   "missing": [
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "config": "B_400dpi_psm3",
+   "dpi": 400,
+   "psm": 3,
+   "document_id": "cmb_tiny_table_en",
+   "acquired": 4,
+   "required": 7,
+   "missing": [
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "config": "B_400dpi_psm3",
+   "dpi": 400,
+   "psm": 3,
+   "document_id": "cmb_stamp_table_vi",
+   "acquired": 7,
+   "required": 8,
+   "missing": [
+    "Số lượng / Thành tiền"
+   ]
+  },
+  {
+   "config": "B_400dpi_psm3",
+   "dpi": 400,
+   "psm": 3,
+   "document_id": "cmb_scan_tiny_vi",
+   "acquired": 1,
+   "required": 3,
+   "missing": [
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "config": "B_400dpi_psm3",
+   "dpi": 400,
+   "psm": 3,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "acquired": 6,
+   "required": 8,
+   "missing": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "config": "C_600dpi_psm3",
+   "dpi": 600,
+   "psm": 3,
+   "document_id": "hc_tiny_cells_vi",
+   "acquired": 1,
+   "required": 7,
+   "missing": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "config": "C_600dpi_psm3",
+   "dpi": 600,
+   "psm": 3,
+   "document_id": "cmb_tiny_table_en",
+   "acquired": 4,
+   "required": 7,
+   "missing": [
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "config": "C_600dpi_psm3",
+   "dpi": 600,
+   "psm": 3,
+   "document_id": "cmb_stamp_table_vi",
+   "acquired": 7,
+   "required": 8,
+   "missing": [
+    "Số lượng / Thành tiền"
+   ]
+  },
+  {
+   "config": "C_600dpi_psm3",
+   "dpi": 600,
+   "psm": 3,
+   "document_id": "cmb_scan_tiny_vi",
+   "acquired": 1,
+   "required": 3,
+   "missing": [
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "config": "C_600dpi_psm3",
+   "dpi": 600,
+   "psm": 3,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "acquired": 7,
+   "required": 8,
+   "missing": [
+    "Ký hiệu: MQ/2026E    Số: 0004417"
+   ]
+  },
+  {
+   "config": "D_600dpi_psm6",
+   "dpi": 600,
+   "psm": 6,
+   "document_id": "hc_tiny_cells_vi",
+   "acquired": 2,
+   "required": 7,
+   "missing": [
+    "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "Mô tả hàng hóa",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt"
+   ]
+  },
+  {
+   "config": "D_600dpi_psm6",
+   "dpi": 600,
+   "psm": 6,
+   "document_id": "cmb_tiny_table_en",
+   "acquired": 2,
+   "required": 7,
+   "missing": [
+    "TAX INVOICE",
+    "Item description",
+    "Product A-100",
+    "Air filter type 22B",
+    "Installation service"
+   ]
+  },
+  {
+   "config": "D_600dpi_psm6",
+   "dpi": 600,
+   "psm": 6,
+   "document_id": "cmb_stamp_table_vi",
+   "acquired": 3,
+   "required": 8,
+   "missing": [
+    "Mô tả hàng hóa",
+    "Số lượng / Thành tiền",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  },
+  {
+   "config": "D_600dpi_psm6",
+   "dpi": 600,
+   "psm": 6,
+   "document_id": "cmb_scan_tiny_vi",
+   "acquired": 0,
+   "required": 3,
+   "missing": [
+    "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "Điều 1. Phạm vi áp dụng",
+    "Quy chế này áp dụng cho toàn bộ"
+   ]
+  },
+  {
+   "config": "D_600dpi_psm6",
+   "dpi": 600,
+   "psm": 6,
+   "document_id": "cmb_scan_stamp_table_vi",
+   "acquired": 3,
+   "required": 8,
+   "missing": [
+    "Ký hiệu: MQ/2026E    Số: 0004417",
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B",
+    "Dịch vụ lắp đặt",
+    "ĐÃ DUYỆT"
+   ]
+  }
+ ]
+}
