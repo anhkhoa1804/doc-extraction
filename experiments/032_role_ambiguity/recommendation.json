@@ -1,0 +1,44 @@
+{
+ "phase_19_research_frontier": {
+  "case_1_ambiguity_real_and_measurable": {
+   "supported": true,
+   "evidence": "role_stability.json: 3/7 documents show the evidence vector strictly more stable than the observed role across repeated arms of the SAME document (table_shape_score constant at 4 across 19 arms each for cmb_stamp_table_vi and hc_stamp_table_vi, while the observed role flips); 0/7 show the reverse."
+  },
+  "case_2_evidence_too_weak_currently": {
+   "supported": true,
+   "evidence": "adversarial_controls.json: 6/20 synthetic misfires against the current scoring rule, including a SEVERE one -- ordinary single-column prose (justified paragraphs, bullet lists) can reach the conservative threshold using ONLY row-based criteria, with zero column evidence required, because table_shape_score accumulates points from 5 independently-scored criteria rather than requiring row AND column evidence jointly."
+  },
+  "case_3_hard_label_not_true_bottleneck": {
+   "supported": "PARTIALLY",
+   "evidence": "role_contract.json Phase 2: the label-collapsing pattern recurs beyond table/picture -- 18/28 detector-label keys map INCONSISTENTLY between the scanned-page route and the whole-document route (checkbox_selected/unselected, 57 real historical instances, silently becomes ElementType.OTHER on the route this repository actually exercises, despite being correctly wired for the unused route). The table/picture question 031 and 032 both centered on is ONE instance of a broader label-consistency problem, not the sole bottleneck."
+  },
+  "case_4_helps_table_recovery_hurts_general_semantics": {
+   "supported": false,
+   "evidence": "routing_policy_results.json: the tested dual-candidate policy (2/3) shows ZERO change to Layer-1 text/char recall on the negative and 'other' document populations, in either direction (031 intervention_results.json, reused here) -- no evidence of general-semantics harm was found. This does not mean no harm exists (adversarial_controls.json's prose misfire was never tested against real running text in the historical corpus), but the CASE-4 specific claim (helps tables, hurts general semantics) has no supporting evidence found this milestone."
+  },
+  "conclusion": "Case 1 AND Case 2 are BOTH supported simultaneously -- this is not a contradiction: ambiguity is real and measurable (Case 1) AND the current evidence model is not yet reliable enough to act on unconditionally (Case 2). Case 3 adds that the SCOPE of the underlying problem (label collapsing/inconsistency) is broader than table-label gating alone."
+ },
+ "next_milestone_candidates_ranked": [
+  {
+   "target": "fix table_shape_score's scoring-rule gap (require row_bands>=2 AND col_bands>=2 jointly)",
+   "prevalence": "affects every future use of this probe, including 031's own conservative arm",
+   "severity": "HIGH -- the current rule can be satisfied by ordinary prose, which is far more common in real documents than table-shaped stamps",
+   "recoverability": "TRIVIAL -- a small, fully-simulable code change against the existing adversarial_controls.json test set",
+   "priority": 1
+  },
+  {
+   "target": "fix the two-mapping-table label inconsistency (pipelines/base.py's _LABEL_TO_ELEMENT_TYPE vs docling_backend.py's _LABEL_MAP)",
+   "prevalence": "57 real historical checkbox instances silently mis-mapped; scope beyond table/picture",
+   "severity": "MEDIUM -- checkboxes/forms are a real document type, not merely a research edge case, though no downstream consumer of ElementType.CHECKBOX was found to exist yet",
+   "recoverability": "LOW RISK, MEDIUM EFFORT -- align one table to the other's vocabulary, or have one call the other; needs a real code change to src/, out of scope for a research-only milestone",
+   "priority": 2
+  },
+  {
+   "target": "expand the negative-control corpus with real, diverse non-table pictures/forms/charts",
+   "prevalence": "blocks safe validation of ANY evidence-based routing decision, not just this one (031's own priority-1 recommendation, reaffirmed)",
+   "severity": "HIGH -- this milestone's own adversarial cases are SYNTHETIC; a real corpus is still missing",
+   "recoverability": "MEDIUM -- a data-collection task",
+   "priority": 3
+  }
+ ]
+}

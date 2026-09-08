@@ -1,0 +1,617 @@
+{
+ "method": "20 synthetic geometries run through the REAL compute_signals/table_shape_score functions (031/table_shape_probe.py, imported not reimplemented). Ground truth is defined by construction and explicitly marked AMBIGUOUS_BY_DESIGN for 2 cases where the milestone brief's own instruction ('do not force a binary answer where semantics are genuinely uncertain') applies.",
+ "cases": [
+  {
+   "n": 1,
+   "name": "obvious table",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth_by_construction": "table",
+   "reasoning": "regular 4x4 grid, every cell populated, no occlusion",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 2,
+   "name": "obvious picture",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "zero nested text children -- a genuine photo/graphic",
+   "n_children": 0,
+   "computed_signals": {
+    "n_nested_text_regions": 0,
+    "aspect_ratio": 1.6,
+    "row_bands": 0,
+    "col_bands": 0,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.0,
+    "children_per_row_band": 0.0
+   },
+   "table_shape_score": 0,
+   "score_reasons": [],
+   "gate_passes_conservative_threshold_3": false,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 3,
+   "name": "obvious paragraph",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth_by_construction": "text",
+   "reasoning": "single text child, no internal structure",
+   "n_children": 1,
+   "computed_signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 6.667,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 1.0,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 0,
+   "score_reasons": [],
+   "gate_passes_conservative_threshold_3": false,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 4,
+   "name": "table under stamp",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "table",
+   "reasoning": "regular grid with a contiguous missing patch -- occlusion, not a different structure; a human recognizes this as a partially occluded table",
+   "n_children": 13,
+   "computed_signals": {
+    "n_nested_text_regions": 13,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.5889,
+    "children_per_row_band": 3.25
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 5,
+   "name": "table under heavy occlusion",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "table",
+   "reasoning": "checkerboard-pattern occlusion leaves only 8/16 cells -- genuinely marginal: row/col band counts may still register, but children_per_row_band drops sharply. Tests whether the score degrades gracefully or falls off a cliff.",
+   "n_children": 8,
+   "computed_signals": {
+    "n_nested_text_regions": 8,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.3624,
+    "children_per_row_band": 2.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 6,
+   "name": "table with sparse cells",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "table",
+   "reasoning": "a real but very sparse table (mostly-empty cells) -- few children relative to declared shape; tests whether low child count alone suppresses recovery of a genuinely sparse table",
+   "n_children": 4,
+   "computed_signals": {
+    "n_nested_text_regions": 4,
+    "aspect_ratio": 2.263,
+    "row_bands": 2,
+    "col_bands": 3,
+    "row_regularity_cv": null,
+    "col_regularity_cv": 0.486,
+    "text_density": 0.1175,
+    "children_per_row_band": 2.0
+   },
+   "table_shape_score": 3,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 7,
+   "name": "table with merged cells",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "table",
+   "reasoning": "row 0 is one wide merged header cell (col-span), rows 1-3 are a normal 4-col grid -- children_per_row_band varies sharply by row, which the CURRENT rank-based reconstruction (031 controlled_intervention.py) is known to handle poorly (cols_horizontally_coherent failures, 73/79 in 031's real population)",
+   "n_children": 14,
+   "computed_signals": {
+    "n_nested_text_regions": 14,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 3,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7838,
+    "children_per_row_band": 3.5
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 8,
+   "name": "aligned paragraph",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "text",
+   "reasoning": "justified prose wraps into short lines of similar width -- single column (col_bands=1), so table_shape_score's multi-column criterion should reject it, but a POORLY chosen column-band tolerance could conceivably misfire; ground truth is text by construction (only one 'column' of content exists)",
+   "n_children": 8,
+   "computed_signals": {
+    "n_nested_text_regions": 8,
+    "aspect_ratio": 1.5,
+    "row_bands": 8,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.7467,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 3,
+   "score_reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 9,
+   "name": "form",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "a label/value form is STRUCTURALLY indistinguishable from a genuine 2-column table using ONLY geometric evidence (regular 6x2 grid) -- this is exactly Phase 2's 'form' category, and this repository's evidence model (031 Phase 4-6, 032 role_evidence_schema.json) has NO signal that distinguishes 'table' from 'form' when both are regular grids. Reported as genuinely ambiguous, not resolved by fiat.",
+   "n_children": 12,
+   "computed_signals": {
+    "n_nested_text_regions": 12,
+    "aspect_ratio": 1.667,
+    "row_bands": 6,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.5625,
+    "children_per_row_band": 2.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": null
+  },
+  {
+   "n": 10,
+   "name": "chart",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "axis labels + title + legend are scattered, LOW density, irregular spacing -- geometrically closer to the confirmed-negative population (table_shape_probe.json) than to the confirmed-table population; ground truth: chart, not table, by construction",
+   "n_children": 5,
+   "computed_signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 1.333,
+    "row_bands": 5,
+    "col_bands": 3,
+    "row_regularity_cv": 0.449,
+    "col_regularity_cv": 0.655,
+    "text_density": 0.0387,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 3,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "regular row spacing"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 11,
+   "name": "stamp with aligned text",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "circular/ring text around a seal graphic -- only 3 children, row_bands likely <2 given the ring layout -- should score low; ground truth picture",
+   "n_children": 3,
+   "computed_signals": {
+    "n_nested_text_regions": 3,
+    "aspect_ratio": 1.0,
+    "row_bands": 3,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.2,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 2,
+   "score_reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_passes_conservative_threshold_3": false,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 12,
+   "name": "photo containing text",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "a photograph with one embedded sign/label -- 1 child, should score 0 (below AMBIGUOUS threshold in Phase 2's own scheme)",
+   "n_children": 1,
+   "computed_signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 1.333,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.05,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 0,
+   "score_reasons": [],
+   "gate_passes_conservative_threshold_3": false,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 13,
+   "name": "screenshot of a table",
+   "group": "misleading",
+   "ambiguity_kind": "evaluator_uncertainty",
+   "ground_truth_by_construction": "table",
+   "reasoning": "a screenshot of a REAL table, rendered as a picture element by the detector, but structurally IS a genuine table -- identical geometry to case 1. Ground truth 'table' is NOT evaluator-uncertain semantically (it really is a table), but WOULD be uncertain for a real detector deciding picture-vs-table from pixels alone -- the uncertainty here is about the DETECTOR's task, not this script's labeling.",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 14,
+   "name": "decorative grid",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "a regular 4x4 grid of EMPTY boxes (decorative table-look border, no text content at all) -- geometrically identical to case 1 (obvious table), text-content-empty. This is the sharpest test of whether text CONTENT (not just geometry) should gate recovery -- 031's actual reconstruct_table() does not check text emptiness at all, so this case would score identically to a real table and produce an all-empty pseudo-table if fired on.",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 15,
+   "name": "textbook banner",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "EXACT geometry of the real confirmed false positive (jiaocaineedrop_Chapter9.pdf_46 region 0, negative_controls.json) -- included here as a synthetic control reproducing a REAL confirmed case, not a hypothetical one",
+   "n_children": 6,
+   "computed_signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 4.874,
+    "row_bands": 2,
+    "col_bands": 4,
+    "row_regularity_cv": 0.732,
+    "col_regularity_cv": 1.056,
+    "text_density": 0.1703,
+    "children_per_row_band": 3.0
+   },
+   "table_shape_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 16,
+   "name": "signature block",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "picture",
+   "reasoning": "3 short children, 3 row bands, 1 column -- low children_per_row_band (1.0), should score low despite multi-row",
+   "n_children": 3,
+   "computed_signals": {
+    "n_nested_text_regions": 3,
+    "aspect_ratio": 3.125,
+    "row_bands": 3,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.45,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 2,
+   "score_reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_passes_conservative_threshold_3": false,
+   "gate_matches_ground_truth": true
+  },
+  {
+   "n": 17,
+   "name": "multi-column paragraph",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "text",
+   "reasoning": "2 newspaper-style columns of prose -- col_bands=2, row_bands could register as high as the line count (8), children_per_row_band=2.0 -- this is GENUINELY the hardest misleading case: it can satisfy every criterion in table_shape_score (multi-row, multi-column, multiple children per row, regular spacing, high count) while being pure prose. Ground truth text by construction; flagged as the single most concerning case in this control set -- see FINAL_REPORT.",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.0,
+    "row_bands": 8,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.72,
+    "children_per_row_band": 2.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 18,
+   "name": "dense bullet list",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "text",
+   "reasoning": "single column, many rows -- col_bands=1 should reject it via the multi-column criterion",
+   "n_children": 10,
+   "computed_signals": {
+    "n_nested_text_regions": 10,
+    "aspect_ratio": 1.25,
+    "row_bands": 10,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.7778,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 3,
+   "score_reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": false
+  },
+  {
+   "n": 19,
+   "name": "pseudo-table (coincidental alignment)",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth_by_construction": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "repeated 'Label: value' lines align into a perfect 2-column grid purely because every line uses the same template -- geometrically IDENTICAL to case 9 (form). This is exactly the milestone's own named alternative explanation ('nested text children happen to form approximately aligned blocks... that does NOT prove they are table cells', 031's Phase 13 instruction) -- reported as ambiguous, not resolved.",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.0,
+    "row_bands": 8,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.58,
+    "children_per_row_band": 2.0
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": null
+  },
+  {
+   "n": 20,
+   "name": "malformed table",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth_by_construction": "table",
+   "reasoning": "a REAL table with inconsistent per-row cell counts (bad OCR fragmentation, not occlusion) -- structurally messy but genuinely a table; tests whether irregular-but-real tables score similarly to occluded-but-real tables (case 4/5) or get penalized differently",
+   "n_children": 16,
+   "computed_signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 3,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.346,
+    "text_density": 0.8656,
+    "children_per_row_band": 5.33
+   },
+   "table_shape_score": 5,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_passes_conservative_threshold_3": true,
+   "gate_matches_ground_truth": true
+  }
+ ],
+ "by_group": {
+  "clear": {
+   "n": 3,
+   "gate_correct": 3,
+   "gate_wrong": 0,
+   "undecidable": 0
+  },
+  "ambiguous": {
+   "n": 7,
+   "gate_correct": 4,
+   "gate_wrong": 2,
+   "undecidable": 1
+  },
+  "misleading": {
+   "n": 10,
+   "gate_correct": 5,
+   "gate_wrong": 4,
+   "undecidable": 1
+  }
+ },
+ "gate_misfires": [
+  {
+   "n": 8,
+   "name": "aligned paragraph",
+   "group": "ambiguous",
+   "score": 3,
+   "ground_truth": "text"
+  },
+  {
+   "n": 10,
+   "name": "chart",
+   "group": "ambiguous",
+   "score": 3,
+   "ground_truth": "picture"
+  },
+  {
+   "n": 14,
+   "name": "decorative grid",
+   "group": "misleading",
+   "score": 5,
+   "ground_truth": "picture"
+  },
+  {
+   "n": 15,
+   "name": "textbook banner",
+   "group": "misleading",
+   "score": 4,
+   "ground_truth": "picture"
+  },
+  {
+   "n": 17,
+   "name": "multi-column paragraph",
+   "group": "misleading",
+   "score": 5,
+   "ground_truth": "text"
+  },
+  {
+   "n": 18,
+   "name": "dense bullet list",
+   "group": "misleading",
+   "score": 3,
+   "ground_truth": "text"
+  }
+ ],
+ "finding": "6 of 18 decidable cases misfire against the current conservative threshold (score>=3). The most important is case 17 (multi-column paragraph): pure prose that satisfies every criterion in table_shape_score. Cases 9 and 19 (form / pseudo-table) are marked AMBIGUOUS_BY_DESIGN rather than forced to a binary verdict, because this repository's current evidence model genuinely cannot distinguish them from a real table using only geometry -- this is not a probe bug, it is a real limit of geometry-only evidence."
+}

@@ -1,0 +1,61 @@
+{
+ "method": "reuse 031's already-executed control/conservative/aggressive intervention arms as the offline test of each policy, rather than re-running extraction. Where a policy has no faithful 031 analog (Policy 1's literal override semantics), this is stated explicitly, and the closest available proxy is used with its limitations named, not hidden.",
+ "policies": {
+  "policy_0_current_hard_gate": {
+   "definition": "label == 'table' -> table pipeline; else -> no table, ever, for that region.",
+   "implementation_status": "PRODUCTION, as-is",
+   "031_analog": "control arm, exact match",
+   "results": {
+    "n_rows": 118,
+    "mean_text_recall": 0.7269,
+    "mean_char_recall": 0.9564,
+    "docs_hallucinated": 0,
+    "tables_reconstructed": 0,
+    "false_tables_on_negatives": 0,
+    "true_recovery_on_confirmed_docs": 0
+   }
+  },
+  "policy_1_evidence_override": {
+   "definition": "strong table evidence -> table, UNCONDITIONALLY (no ambiguity defer, no dual-candidate retention -- a true override would REPLACE the label).",
+   "implementation_status": "NEVER IMPLEMENTED as literally specified -- 031 Phase 9 explicitly rejected this (Option A, 'label relaxation') on provenance grounds before any implementation was attempted.",
+   "031_analog": "AGGRESSIVE arm is the closest PROXY (acts on any evidence >=1 child, no ambiguity gate) but is NOT a true override -- it still preserves the original picture label, so its false-positive numbers UNDERSTATE what a true Policy 1 override would risk (a true override could not be walked back; the aggressive arm's mistakes can be, since the original label survives).",
+   "results": {
+    "n_rows": 118,
+    "mean_text_recall": 0.7364,
+    "mean_char_recall": 0.9585,
+    "docs_hallucinated": 0,
+    "tables_reconstructed": 118,
+    "false_tables_on_negatives": 39,
+    "true_recovery_on_confirmed_docs": 66
+   },
+   "caveat": "39/39 false tables on known negatives under this proxy -- and a TRUE override (no fallback label) would make every one of those 39 a silent, unrecoverable mislabeling, not merely an added (reversible) candidate."
+  },
+  "policy_2_ambiguity_aware_defer": {
+   "definition": "clear role -> normal route; ambiguous role (evidence conflicts with label, score >= threshold) -> targeted specialist, ORIGINAL LABEL PRESERVED.",
+   "implementation_status": "IMPLEMENTED AND TESTED -- 031 CONSERVATIVE arm, probe threshold=3.",
+   "031_analog": "conservative arm, exact match",
+   "results": {
+    "n_rows": 118,
+    "mean_text_recall": 0.7364,
+    "mean_char_recall": 0.9585,
+    "docs_hallucinated": 0,
+    "tables_reconstructed": 79,
+    "false_tables_on_negatives": 0,
+    "true_recovery_on_confirmed_docs": 66,
+    "recovery_verdict_breakdown": {
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "TRUE_RECOVERY": 38
+    }
+   }
+  },
+  "policy_3_candidate_role_routing": {
+   "definition": "region -> candidate roles (evidence-ranked) -> specialist(s) selected by evidence, BOTH surviving results kept with provenance.",
+   "implementation_status": "IDENTICAL MECHANISM to Policy 2 in this repository's actual artifacts -- 031's conservative-mode reconstruction ALREADY keeps the original picture element AND adds a provenance-marked table candidate alongside it (controlled_intervention.py: pg.setdefault('tables', []).append(...), plus el.extra['031_table_candidate_added']). Policy 2 and Policy 3 are NOT two different tested mechanisms -- 031 never built a version of Policy 2 that discards the runner-up.",
+   "031_analog": "conservative arm, same underlying result as Policy 2",
+   "results": "IDENTICAL to policy_2_ambiguity_aware_defer -- see above; not restated to avoid implying a second, independent measurement exists."
+  }
+ },
+ "stability_across_arms": "all 4 policies were evaluated over the IDENTICAL 118-row population (031 intervention_results.json), so a policy's behavior is directly comparable across the SAME documents and arms -- not measured on different samples.",
+ "verdict": "Policy 2/3 (evidence-gated, dual-candidate, provenance-preserving) is the only policy tested this milestone or 031 that shows zero false tables on the known negative population while recovering true structure on the confirmed documents. Policy 1 (proxy) shows real recall gain but 39/39 false positives on the same negatives -- and, taken literally (actual label override, not the tested proxy), would make every one of those unrecoverable. Policy 0 recovers nothing. Policy 3 is not a distinct measurement from Policy 2 in this repository's history -- an important finding in itself: the 'candidate-role routing' architecture this milestone set out to evaluate as a NEW idea (Phase 9's framing) was already implicitly built by 031, under a different name."
+}

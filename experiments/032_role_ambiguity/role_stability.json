@@ -1,0 +1,141 @@
+{
+ "method": "per document, compare the number of distinct table_shape_score values observed across every arm (evidence stability) against the number of distinct observed-role states from role_transition_matrix.json (role stability). Source data: 031's table_shape_probe.json (re-read, not recomputed) and this milestone's own role_transition_matrix.json.",
+ "per_document": [
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "n_arms_observed": 28,
+   "distinct_table_shape_scores": [
+    4
+   ],
+   "distinct_row_band_counts": [
+    4
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    3.08
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "STABLE (never flips in any recorded arm)",
+   "n_distinct_role_states": 1,
+   "evidence_more_stable_than_role": false,
+   "evidence_equally_stable": true
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "n_arms_observed": 13,
+   "distinct_table_shape_scores": [
+    0
+   ],
+   "distinct_row_band_counts": [
+    1
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    1.08
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "STABLE (never flips in any recorded arm)",
+   "n_distinct_role_states": 1,
+   "evidence_more_stable_than_role": false,
+   "evidence_equally_stable": true
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "n_arms_observed": 13,
+   "distinct_table_shape_scores": [
+    4
+   ],
+   "distinct_row_band_counts": [
+    3
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    3.21
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "UNSTABLE_COEXISTENCE",
+   "n_distinct_role_states": 2,
+   "evidence_more_stable_than_role": true,
+   "evidence_equally_stable": false
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "n_arms_observed": 19,
+   "distinct_table_shape_scores": [
+    4
+   ],
+   "distinct_row_band_counts": [
+    4
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    3.09,
+    3.11
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "UNSTABLE_CLEAN_FLIP",
+   "n_distinct_role_states": 2,
+   "evidence_more_stable_than_role": true,
+   "evidence_equally_stable": false
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "n_arms_observed": 19,
+   "distinct_table_shape_scores": [
+    4
+   ],
+   "distinct_row_band_counts": [
+    4
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    3.08,
+    3.09
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "UNSTABLE_CLEAN_FLIP",
+   "n_distinct_role_states": 2,
+   "evidence_more_stable_than_role": true,
+   "evidence_equally_stable": false
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "n_arms_observed": 13,
+   "distinct_table_shape_scores": [
+    0
+   ],
+   "distinct_row_band_counts": [
+    1
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    1.09
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "STABLE (never flips in any recorded arm)",
+   "n_distinct_role_states": 1,
+   "evidence_more_stable_than_role": false,
+   "evidence_equally_stable": true
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "n_arms_observed": 13,
+   "distinct_table_shape_scores": [
+    1
+   ],
+   "distinct_row_band_counts": [
+    2
+   ],
+   "distinct_aspect_ratios_rounded_2dp": [
+    1.16
+   ],
+   "n_distinct_evidence_states": 1,
+   "role_stability_classification": "STABLE (never flips in any recorded arm)",
+   "n_distinct_role_states": 1,
+   "evidence_more_stable_than_role": false,
+   "evidence_equally_stable": true
+  }
+ ],
+ "summary": {
+  "n_documents": 7,
+  "evidence_strictly_more_stable_than_role": 3,
+  "evidence_and_role_equally_stable": 4,
+  "evidence_less_stable_than_role": 0
+ },
+ "finding": "3/7 documents show the evidence vector (table_shape_score) STRICTLY more stable than the observed role across arms -- concretely: cmb_stamp_table_vi and hc_stamp_table_vi each show table_shape_score=4 in literally EVERY one of 19 arms (n_distinct_evidence_states=1) while the observed role flips (UNSTABLE_CLEAN_FLIP, n_distinct_role_states=2) across those same arms. Zero documents show the reverse (evidence less stable than role). This is genuine, if narrow (7 documents), support for Phase 13's predictiveness question -- see FINAL_REPORT.",
+ "limitation": "n=7 documents, all from one small corpus family (031's own limitation, inherited here). The finding is a real, exact measurement over this population, not a claim about the general document population."
+}

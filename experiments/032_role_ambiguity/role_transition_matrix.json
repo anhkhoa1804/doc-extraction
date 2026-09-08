@@ -1,0 +1,82 @@
+{
+ "source": "reshaped from 031/paired_gating_cases.json and 031/causal_models.json -- no new per-arm classification computed, only re-presented as a transition matrix.",
+ "per_document_transitions": [
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "observed_picture_stays_picture": 0,
+   "observed_picture_becomes_table_ONLY_no_coexist": 0,
+   "observed_table_and_picture_coexist": 13,
+   "table_only_never_gated": 15,
+   "gated_only_route_families": [],
+   "tabled_only_route_families": [
+    "adaptive (native, non-rasterized)",
+    "scan_cohort/coverage (rasterized)"
+   ],
+   "coexist_route_families": [
+    "visual (forced-OCR, not rasterized)"
+   ],
+   "clean_route_driven_flip": false,
+   "stability_classification": "UNSTABLE_COEXISTENCE"
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "observed_picture_stays_picture": 6,
+   "observed_picture_becomes_table_ONLY_no_coexist": 0,
+   "observed_table_and_picture_coexist": 13,
+   "table_only_never_gated": 9,
+   "gated_only_route_families": [
+    "scan_cohort/coverage (rasterized)"
+   ],
+   "tabled_only_route_families": [
+    "adaptive (native, non-rasterized)"
+   ],
+   "coexist_route_families": [
+    "visual (forced-OCR, not rasterized)"
+   ],
+   "clean_route_driven_flip": true,
+   "stability_classification": "UNSTABLE_CLEAN_FLIP"
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "observed_picture_stays_picture": 19,
+   "observed_picture_becomes_table_ONLY_no_coexist": 0,
+   "observed_table_and_picture_coexist": 0,
+   "table_only_never_gated": 9,
+   "gated_only_route_families": [
+    "scan_cohort/coverage (rasterized)",
+    "visual (forced-OCR, not rasterized)"
+   ],
+   "tabled_only_route_families": [
+    "adaptive (native, non-rasterized)"
+   ],
+   "coexist_route_families": [],
+   "clean_route_driven_flip": true,
+   "stability_classification": "UNSTABLE_CLEAN_FLIP"
+  }
+ ],
+ "route_family_outcome_matrix": {
+  "adaptive (native, non-rasterized)": {
+   "table_only": 3,
+   "picture_only": 0,
+   "coexist": 0
+  },
+  "scan_cohort/coverage (rasterized)": {
+   "table_only": 1,
+   "picture_only": 2,
+   "coexist": 0
+  },
+  "visual (forced-OCR, not rasterized)": {
+   "table_only": 0,
+   "picture_only": 1,
+   "coexist": 2
+  }
+ },
+ "earliest_observable_divergence": {
+  "question": "for the same document, at what stage does a table-producing arm first diverge from a picture-gated arm?",
+  "answer": "ROUTE (whether the page is rasterized before Docling sees it), which acts BEFORE Docling's own layout classification runs -- not at the OCR-recognizer stage.",
+  "classification": "routing-driven, with a layout-driven mediating step (rasterization changes what Docling's layout model sees; the recognizer identity used afterward to fill in text does not change the picture-vs-table classification within a route family in any paired case examined).",
+  "evidence": "031 FINAL_REPORT.md section 10; causal_models.json Model C SUPPORTED, Model A REJECTED.",
+  "caveat": "NOT independently re-traced to Docling's internal model at the pixel level this milestone either -- carried forward from 031 as INFERENCE, not re-elevated to FACT."
+ },
+ "note_on_reverse_direction": "no case exists anywhere in the replayed corpus of a genuinely table-labelled region becoming picture-labelled in a DIFFERENT arm while no picture-labelled duplicate ever coexists -- the only observed direction is picture-only <-> {picture+table coexisting, table-only}. This is consistent with Docling's traverse_pictures=True behavior (031 gating_contract.json) always being the SOURCE of the ambiguity: a table region can additionally spawn a duplicate picture-labelled superset, but the reverse (a table spontaneously vanishing into a picture with no trace) was not observed."
+}

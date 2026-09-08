@@ -1,0 +1,381 @@
+{
+ "method": "assembled from real historical IR + 031's already-validated artifacts (recovery_verdicts.json, negative_controls.json, table_shape_probe.json, role_ambiguity_analysis.json) -- no synthetic ground truth invented for any item in this section (adversarial controls, Phase 12, are separately and explicitly labelled synthetic).",
+ "categories": {
+  "confirmed_tables_agreement_baseline": [
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "route": "experiments/023_evidence_centric/_runs/visual/tesseract",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 165.0041103670674,
+     "y0": 549.5252535220835,
+     "x1": 1083.557782523863,
+     "y1": 743.9815952557656
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "route": "experiments/023_evidence_centric/_runs/visual/tesseract",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 164.43108545734037,
+     "y0": 726.5733526701799,
+     "x1": 1201.5291917370212,
+     "y1": 950.1962044693043
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "route": "experiments/023_evidence_centric/_runs/visual/tesseract",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 164.04047818952992,
+     "y0": 464.10304573433143,
+     "x1": 1200.34949798584,
+     "y1": 689.2460930192484
+    },
+    "matched_table_shape": [
+     4,
+     3
+    ],
+    "matched_table_populated_cells": 10,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "route": "experiments/023_evidence_centric/_runs/visual/tesseract",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 164.59756596472954,
+     "y0": 404.01493336102305,
+     "x1": 811.9608583019626,
+     "y1": 505.4043417814246
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "route": "experiments/023_evidence_centric/_runs/visual/tesseract",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 165.92884047723587,
+     "y0": 549.2956472329429,
+     "x1": 1080.7251017908895,
+     "y1": 741.2845149284892
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "route": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 165.21229999296128,
+     "y0": 548.4932460980648,
+     "x1": 1083.0722033592963,
+     "y1": 744.099938943965
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "route": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 163.76918076545962,
+     "y0": 725.9852968605243,
+     "x1": 1201.6068128032068,
+     "y1": 950.7376227732258
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "route": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 164.13449406162385,
+     "y0": 403.1844927484387,
+     "x1": 812.9024002075196,
+     "y1": 505.83128250800604
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "route": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 165.7410935063516,
+     "y0": 548.0802233705768,
+     "x1": 1081.434675499701,
+     "y1": 741.3599651341019
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   },
+   {
+    "document_id": "hc_merged_en",
+    "route": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+    "observed_label": "table",
+    "region_bbox": {
+     "x0": 163.31882195626537,
+     "y0": 525.8526090754615,
+     "x1": 1201.382248712355,
+     "y1": 750.6851059186145
+    },
+    "matched_table_shape": [
+     4,
+     4
+    ],
+    "matched_table_populated_cells": 16,
+    "classification": "CONFIRMED",
+    "role": "table",
+    "agreement": "AGREEMENT -- observed label 'table' and a real, populated Table object both agree this region is a table."
+   }
+  ],
+  "confirmed_pictures_agreement_baseline": [
+   {
+    "document_id": "yanbaopptmerge_SE05.pdf_7",
+    "route": "unspecified (0-child in every arm observed)",
+    "observed_label": "picture",
+    "region_bbox": null,
+    "n_nested_children": 0,
+    "table_shape_score": null,
+    "classification": "CONFIRMED",
+    "role": "picture",
+    "agreement": "AGREEMENT -- negative_controls.json Phase 13 exhaustive search: zero nested children in every arm this document was ever replayed under."
+   }
+  ],
+  "table_shaped_pictures_conflict_population": [
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "observed_label": "picture",
+    "candidate_role_evidence": "table_shape_evidence_score >= 3 (table_shape_probe.json)",
+    "recovery_verdicts": {
+     "PLAUSIBLE_RECOVERY": 28
+    },
+    "ground_truth": "NO_ORACLE_AVAILABLE (factual_oracle_comparison.json: factual_oracle_exists=false)",
+    "classification": "PLAUSIBLE",
+    "role": "table (structurally coherent, no factual oracle exists anywhere in the corpus to confirm)",
+    "agreement": "CONFLICT -- observed label says picture; structural evidence (multi-row, multi-column nested children) says table."
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "observed_label": "picture",
+    "candidate_role_evidence": "table_shape_evidence_score >= 3 (table_shape_probe.json)",
+    "recovery_verdicts": {
+     "PSEUDO_TABLE": 13
+    },
+    "ground_truth": "CONFIRMED_NOT_TABLE (rows_vertically_coherent fails at reconstruction; factual oracle covers only a small fraction of the region's own area -- recovery_verdicts.json)",
+    "classification": "CONFIRMED",
+    "role": "picture (region mixes non-table content)",
+    "agreement": "CONFLICT -- observed label says picture; structural evidence (multi-row, multi-column nested children) says table."
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "observed_label": "picture",
+    "candidate_role_evidence": "table_shape_evidence_score >= 3 (table_shape_probe.json)",
+    "recovery_verdicts": {
+     "TRUE_RECOVERY": 19
+    },
+    "ground_truth": "CONFIRMED_TABLE (factual historical oracle agrees, same physical region YES/PROBABLE -- factual_oracle_comparison.json)",
+    "classification": "CONFIRMED",
+    "role": "table (mislabelled picture)",
+    "agreement": "CONFLICT -- observed label says picture; structural evidence (multi-row, multi-column nested children) says table."
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "observed_label": "picture",
+    "candidate_role_evidence": "table_shape_evidence_score >= 3 (table_shape_probe.json)",
+    "recovery_verdicts": {
+     "TRUE_RECOVERY": 19
+    },
+    "ground_truth": "CONFIRMED_TABLE (factual historical oracle agrees, same physical region YES/PROBABLE -- factual_oracle_comparison.json)",
+    "classification": "CONFIRMED",
+    "role": "table (mislabelled picture)",
+    "agreement": "CONFLICT -- observed label says picture; structural evidence (multi-row, multi-column nested children) says table."
+   }
+  ],
+  "misleading_nontable_conflict_population": [
+   {
+    "document_id": "jiaocaineedrop_Chapter9.pdf_46#region0",
+    "observed_label": "picture",
+    "table_shape_score": 4,
+    "recovered_child_texts": [
+     "",
+     "macmillanmh.com",
+     "",
+     "Practice",
+     "3",
+     "Cumulative, Chapters 1-9"
+    ],
+    "classification": "CONFIRMED",
+    "role": "picture",
+    "agreement": "CONFLICT, MISLEADING -- structural evidence says table-shaped, manually confirmed picture (header/banner)."
+   },
+   {
+    "document_id": "jiaocaineedrop_Chapter9.pdf_46#region1",
+    "observed_label": "picture",
+    "table_shape_score": 0,
+    "recovered_child_texts": [
+     "Multipic Choice"
+    ],
+    "classification": "UNKNOWN",
+    "role": "unverified",
+    "agreement": "INSUFFICIENT -- region scored but not individually verified this milestone."
+   },
+   {
+    "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898#region0",
+    "observed_label": "picture",
+    "table_shape_score": 0,
+    "recovered_child_texts": [
+     ""
+    ],
+    "classification": "UNKNOWN",
+    "role": "unverified",
+    "agreement": "INSUFFICIENT -- region scored but not individually verified this milestone."
+   },
+   {
+    "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898#region1",
+    "observed_label": "picture",
+    "table_shape_score": 0,
+    "recovered_child_texts": [
+     ""
+    ],
+    "classification": "UNKNOWN",
+    "role": "unverified",
+    "agreement": "INSUFFICIENT -- region scored but not individually verified this milestone."
+   }
+  ],
+  "text_agreement_baseline": [
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "observed_label": "section_header",
+    "region_bbox": {
+     "x0": 164.9095,
+     "y0": 132.9055000000001,
+     "x1": 448.94499999999994,
+     "y1": 172.4659999999999
+    },
+    "classification": "CONFIRMED",
+    "role": "text",
+    "agreement": "AGREEMENT -- plain text/heading region, no structural signal conflicts with the label; included as a baseline, not a research finding."
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "observed_label": "section_header",
+    "region_bbox": {
+     "x0": 412.94049999999993,
+     "y0": 136.4614999999999,
+     "x1": 1053.9095,
+     "y1": 222.69449999999998
+    },
+    "classification": "CONFIRMED",
+    "role": "text",
+    "agreement": "AGREEMENT -- plain text/heading region, no structural signal conflicts with the label; included as a baseline, not a research finding."
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "observed_label": "section_header",
+    "region_bbox": {
+     "x0": 164.46499999999997,
+     "y0": 128.016,
+     "x1": 1114.3615,
+     "y1": 178.2445000000001
+    },
+    "classification": "CONFIRMED",
+    "role": "text",
+    "agreement": "AGREEMENT -- plain text/heading region, no structural signal conflicts with the label; included as a baseline, not a research finding."
+   },
+   {
+    "document_id": "cmb_scan_multicol_en",
+    "observed_label": "section_header",
+    "region_bbox": {
+     "x0": 165.35399999999998,
+     "y0": 131.5720000000001,
+     "x1": 878.7764999999999,
+     "y1": 172.4659999999999
+    },
+    "classification": "CONFIRMED",
+    "role": "text",
+    "agreement": "AGREEMENT -- plain text/heading region, no structural signal conflicts with the label; included as a baseline, not a research finding."
+   }
+  ]
+ },
+ "absent_categories_explicitly_not_invented": {
+  "form": "Docling's detector vocabulary DEFINES 'form' (docling_backend.py _LABEL_MAP) but ZERO instances were observed in the 2,210 historical layout-json files scanned (role_contract.json observed_label_frequencies) -- not present in this corpus.",
+  "chart": "Docling's detector vocabulary DEFINES 'chart' but ZERO instances were observed historically. 031's own population scripts scanned for label in ('picture','chart') defensively but never matched a literal 'chart' label.",
+  "signature": "ElementType.SIGNATURE is DECLARED in the schema (schemas/element.py:29) but structurally UNREACHABLE -- no key in either label-mapping table produces it (role_contract.json). Zero corpus instances.",
+  "logo": "not a Docling detector label at all, and not separately identifiable from any field in the IR. Where a logo exists in this corpus's documents (e.g. the Chapter9 header's 'macmillanmh.com' publisher watermark region), it is invisible as a distinct category -- it is just an empty-text nested child inside a picture-labelled region.",
+  "stamp": "NOT a Docling detector label -- confirmed by the full observed-label frequency scan (role_contract.json: text, section_header, table, picture, checkbox_unselected, list_item, checkbox_selected, formula, caption -- no 'stamp'). Every stamp/seal document in this corpus's picture-gated population (031's 7 documents) is labelled 'picture' by Docling; 'stamp' is a DOWNSTREAM HUMAN/DOMAIN semantic interpretation this milestone's own document-naming convention applies, not a role the detector or the IR represents anywhere. This is itself significant evidence for Phase 2's taxonomy question -- see FINAL_REPORT.",
+  "decorative": "not a Docling label, not an ElementType value, and not evidenced by any distinguishing signal available in this corpus -- would need to be entirely invented; not included in the population."
+ },
+ "summary": {
+  "total_real_items": 23,
+  "by_classification": {
+   "CONFIRMED": 19,
+   "PLAUSIBLE": 1,
+   "UNKNOWN": 3
+  }
+ }
+}

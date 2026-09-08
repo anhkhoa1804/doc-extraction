@@ -1,0 +1,262 @@
+{
+ "method": "fully unconstrained experiments/**/layout glob, compared against 031's own experiments/*/_runs/**/layout pattern to find what it missed.",
+ "truly_exhaustive_layout_dirs": 1053,
+ "031_pattern_layout_dirs": 1004,
+ "missed_by_031_pattern": 49,
+ "missed_pocket_paths_sample": [
+  "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_borderless_lowcontrast_en-9e3139a8/layout",
+  "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_lowcontrast_stamp_vi-4fb3258c/layout",
+  "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_multicol_table_en-f7bb95b0/layout"
+ ],
+ "missed_pocket_label_frequencies": {
+  "section_header": 55,
+  "text": 197,
+  "table": 13,
+  "picture": 7,
+  "checkbox_selected": 1,
+  "checkbox_unselected": 2
+ },
+ "new_picture_with_children_candidates": [
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_lowcontrast_stamp_vi-4fb3258c/layout",
+   "region_index": 0,
+   "n_children": 1,
+   "signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 1.085,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.1367,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 0,
+   "score_reasons": [],
+   "recovered_child_texts": [
+    "CÔNG TY TNHH ĐÃ DUYỆT"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_scan_stamp_table_vi-45fa1db7/layout",
+   "region_index": 0,
+   "n_children": 16,
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 3.081,
+    "row_bands": 4,
+    "col_bands": 7,
+    "row_regularity_cv": 1.399,
+    "col_regularity_cv": 1.058,
+    "text_density": 0.1491,
+    "children_per_row_band": 4.0
+   },
+   "table_shape_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "recovered_child_texts": [
+    "STT",
+    "|Mô tả hàng hóa",
+    "1",
+    "Sản phẩm A-100",
+    "",
+    "18.000.000",
+    "2",
+    "Bộ lọc khí Mã 22B",
+    "CÔNG TY TNHH",
+    "6.400.000",
+    "3",
+    "|Dịch vụ",
+    "đặt",
+    "ĐÃ DUYỆT",
+    "3.500.000",
+    "lắp"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_stamp_boundary_vi-c4938f2d/layout",
+   "region_index": 0,
+   "n_children": 14,
+   "signals": {
+    "n_nested_text_regions": 14,
+    "aspect_ratio": 3.214,
+    "row_bands": 3,
+    "col_bands": 4,
+    "row_regularity_cv": 1.192,
+    "col_regularity_cv": 1.685,
+    "text_density": 0.1629,
+    "children_per_row_band": 4.67
+   },
+   "table_shape_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "recovered_child_texts": [
+    "STT",
+    "|Mô tả hàng hóa",
+    "",
+    "CÔNG TY TNHH",
+    "1",
+    "Sản phẩm - A-100",
+    "",
+    "ĐÃ DUYỆT",
+    "2",
+    "|Bộ lọc khí Mã 22B",
+    "",
+    "3",
+    "|Dịch vụ lắp đặt",
+    ".500.000"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/cmb_stamp_table_vi-30346360/layout",
+   "region_index": 0,
+   "n_children": 17,
+   "signals": {
+    "n_nested_text_regions": 17,
+    "aspect_ratio": 3.109,
+    "row_bands": 4,
+    "col_bands": 7,
+    "row_regularity_cv": 1.491,
+    "col_regularity_cv": 1.221,
+    "text_density": 0.1932,
+    "children_per_row_band": 4.25
+   },
+   "table_shape_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "recovered_child_texts": [
+    "STT",
+    "|Mô tả hàng hóa",
+    "Số lugnyrhanh tién",
+    "1",
+    "Sản phẩm A-100",
+    "bố lượng|/",
+    "Thành tiền",
+    "2",
+    "Bộ lọc khí Mã 22B",
+    "CÔNG TY TNHH",
+    "6.400.000",
+    "3",
+    "|Dịch vụ",
+    "đặt",
+    "ĐÃ DUYỆT",
+    "3.500.000",
+    "lắp"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/hc_stamp_table_vi-0c03eed2/layout",
+   "region_index": 0,
+   "n_children": 17,
+   "signals": {
+    "n_nested_text_regions": 17,
+    "aspect_ratio": 3.092,
+    "row_bands": 4,
+    "col_bands": 7,
+    "row_regularity_cv": 1.444,
+    "col_regularity_cv": 1.179,
+    "text_density": 0.1845,
+    "children_per_row_band": 4.25
+   },
+   "table_shape_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "recovered_child_texts": [
+    "STT",
+    "|Mô tả hàng hóa",
+    "Số lugnyrhanh tién",
+    "1",
+    "Sản phẩm A-100",
+    "42",
+    "18.000.000",
+    "2",
+    "Bộ lọc khí Mã 22B",
+    "CÔNG TY TNHH",
+    "6.400.000",
+    "3",
+    "|Dịch vụ",
+    "đặt",
+    "ĐÃ DUYỆT",
+    "3.500.000",
+    "lắp"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/hc_stamp_text_vi-411521c2/layout",
+   "region_index": 0,
+   "n_children": 1,
+   "signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 1.094,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.1367,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 0,
+   "score_reasons": [],
+   "recovered_child_texts": [
+    "CÔNG TY TNHH ĐÃ DUYỆT"
+   ],
+   "already_known_from_031": true
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "layout_dir": "experiments/024_ocr_fidelity_recovery/_l5prod/_runs/visual/tesseract/hc_transparent_seal_vi-022a0eb5/layout",
+   "region_index": 0,
+   "n_children": 2,
+   "signals": {
+    "n_nested_text_regions": 2,
+    "aspect_ratio": 1.157,
+    "row_bands": 2,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.0994,
+    "children_per_row_band": 1.0
+   },
+   "table_shape_score": 1,
+   "score_reasons": [
+    "multi-row"
+   ],
+   "recovered_child_texts": [
+    "",
+    ""
+   ],
+   "already_known_from_031": true
+  }
+ ],
+ "n_new_candidates": 7,
+ "n_genuinely_new_documents": 0,
+ "finding": "The _l5prod pocket (49 layout directories, missed by 031's own search pattern) was scanned in full. 7 picture-with-nested-children candidates were found, all belonging to documents already known from 031's original search (checked via already_known_from_031) -- no genuinely new document surfaced. This CONFIRMS (rather than contradicts) 031's population count of 7 documents, but by a MORE completely verified search than 031 itself performed -- 031's claim of exhaustiveness was not fully accurate as stated, even though its final population number happens to still be correct.",
+ "conclusion": "The negative-control corpus limitation stands as 031 stated it: no new hard negative was found in the previously-unscanned pocket. 031's realscan_probe discovery (jiaocaineedrop_Chapter9.pdf_46's confirmed false positive) remains the strongest and only confirmed false-positive evidence available in this repository's artifacts. This milestone did not find grounds to either strengthen or weaken that conclusion -- restated here as CONFIRMED BY A MORE COMPLETE SEARCH, not newly discovered."
+}

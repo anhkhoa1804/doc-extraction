@@ -1,0 +1,38 @@
+{
+ "commit": "10ad80b5c7617fe76d225c69d23b9533e7097550",
+ "branch": "fix/table-text-ownership",
+ "origin_head": "10ad80b5c7617fe76d225c69d23b9533e7097550",
+ "local_eq_origin": true,
+ "test_baseline": "341 passed, 10 skipped",
+ "uv_lock_tracked": false,
+ "source_hashes": {
+  "research/production_corpus/run_benchmark.py": "b69d85dc1a2d3438",
+  "experiments/023_evidence_centric/run_ab.py": "26332fe14748b464",
+  "src/doc_extraction/pipelines/base.py": "5f3f4c803375af43",
+  "src/doc_extraction/backends/docling_backend.py": "10d55aef0f8d7abf",
+  "src/doc_extraction/backends/table_backend.py": "23b1443d606c0de3",
+  "src/doc_extraction/stages/table.py": "63012fc3608f7239",
+  "src/doc_extraction/schemas/document.py": "5cdf72eca7a19129",
+  "experiments/028_layer2_evaluation/structural_integrity.py": "21e64167781e9ea2"
+ },
+ "source_hashes_match_031_baseline": true,
+ "milestone_031_decision": "EXPERIMENTAL",
+ "milestone_031_commit": "10ad80b",
+ "029_030_031_untouched": true,
+ "gpu_check_at_032_start": "nvidia-smi --query-compute-apps returned no active compute processes at Phase-0 time; not interpreted as a persistent guarantee -- re-check before any GPU workload, though 032 is planned CPU-only throughout, per its own instructions.",
+ "prior_artifacts_read_this_milestone": [
+  "experiments/029_deep_forensic_replay/FINAL_REPORT.md",
+  "experiments/030_resolve_h1_h2/FINAL_REPORT.md",
+  "experiments/031_table_label_gating/FINAL_REPORT.md",
+  "experiments/031_table_label_gating/gating_contract.json",
+  "experiments/031_table_label_gating/gated_table_population.json",
+  "experiments/031_table_label_gating/paired_gating_cases.json",
+  "experiments/031_table_label_gating/table_shape_probe.json",
+  "experiments/031_table_label_gating/intervention_results.json",
+  "experiments/031_table_label_gating/recovery_verdicts.json",
+  "experiments/031_table_label_gating/factual_oracle_comparison.json",
+  "experiments/031_table_label_gating/negative_controls.json",
+  "experiments/031_table_label_gating/role_ambiguity_analysis.json",
+  "experiments/031_table_label_gating/recommendation.json"
+ ]
+}
