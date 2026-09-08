@@ -1,0 +1,89 @@
+{
+ "commit": "c92eb8bdeba4a7b58579bfdf9a3240ef871d73f3",
+ "read_only": true,
+ "files": {
+  "serializer": {
+   "path": "research/production_corpus/run_benchmark.py",
+   "sha256": "b69d85dc1a2d3438e36f02dacd3b1183815a29e2b8049e34c0fb31b90fde4df8",
+   "bytes": 15070
+  },
+  "scorer": {
+   "path": "experiments/023_evidence_centric/run_ab.py",
+   "sha256": "26332fe14748b464bc15bae4f18eb3765665b0599d6c311bd727909a8c707886",
+   "bytes": 16371
+  },
+  "table_schema": {
+   "path": "src/doc_extraction/schemas/table.py",
+   "sha256": "663497ebf4226653672fbc192d13fdcf9bc06e4137a90f5b4b8484acd89dfb4c",
+   "bytes": 1957
+  }
+ },
+ "functions": {
+  "document_text": {
+   "name": "document_text",
+   "file": "research/production_corpus/run_benchmark.py",
+   "first_line": 67,
+   "last_line": 80,
+   "source_sha256": "945c0eb0e3246e62"
+  },
+  "_norm": {
+   "name": "_norm",
+   "file": "research/production_corpus/run_benchmark.py",
+   "first_line": 52,
+   "last_line": 64,
+   "source_sha256": "12eca173f219571c"
+  },
+  "score": {
+   "name": "score",
+   "file": "experiments/023_evidence_centric/run_ab.py",
+   "first_line": 186,
+   "last_line": 205,
+   "source_sha256": "d7455348be142657"
+  },
+  "char_recall": {
+   "name": "char_recall",
+   "file": "experiments/023_evidence_centric/run_ab.py",
+   "first_line": 167,
+   "last_line": 175,
+   "source_sha256": "1ab06d7ef75b9925"
+  },
+  "order_ok": {
+   "name": "order_ok",
+   "file": "experiments/023_evidence_centric/run_ab.py",
+   "first_line": 178,
+   "last_line": 183,
+   "source_sha256": "734e8dd52d1c7cfa"
+  },
+  "aggregate": {
+   "name": "aggregate",
+   "file": "experiments/023_evidence_centric/run_ab.py",
+   "first_line": 323,
+   "last_line": 337,
+   "source_sha256": "118936213626df95"
+  }
+ },
+ "behaviour": {
+  "page_elements": "iterated in `page.elements` list order; each element's `text` appended if truthy. `order_index` is NOT consulted.",
+  "tables": "iterated in `page.tables` list order; within a table `tbl.cells` is iterated in RAW LIST ORDER via `for row in tbl.cells: for cell in (row if isinstance(row, list) else [row])`, which tolerates a flat list or a list-of-lists grid. `Table.cells` is `list[Cell]`, so the flat branch is taken.",
+  "row_col_ignored": true,
+  "row_col_evidence": "`cell.row` / `cell.col` appear nowhere in the function body.",
+  "tables_appended_after_elements": "all element text for a page precedes all table cell text for that page, so a table sitting visually mid-page is serialized after every text element on that page.",
+  "normalization": "`_norm` = NFC + collapse whitespace runs + strip. NO case folding. Applied to the joined string and to each `must_contain` needle.",
+  "exact_recall": "`text.find(_norm(s)) >= 0` per required string; found/required.",
+  "char_recall": "difflib.SequenceMatcher(needle, haystack) matching-block sizes summed / len(needle). SEQUENCE-ORDER SENSITIVE: matching blocks must be non-decreasing in both strings, so permuting the haystack can change the score even when its character multiset is unchanged.",
+  "order_ok": "positions of the FOUND required strings must be non-decreasing in the flattened text; strings not found contribute no position. Because table cells are appended after element text AND in raw list order, this is sensitive to table detector emission order, not only to page reading order.",
+  "perfect_document": "text_recall == 1.0 (`docs_perfect`).",
+  "zero_document": "text_recall == 0.0 (`docs_zero`).",
+  "tables_ok": "computed by the CALLER, not by `score`: `tables_found >= tables_expected`. Independent of serialization.",
+  "must_contain": "strings in manifest document order; drives text_recall, char_recall and order_ok.",
+  "must_not_contain": "`_norm(s) in text` -> hallucination. Order-insensitive except across join boundaries."
+ },
+ "sequence_sensitivity": {
+  "exact_recall": "insensitive, except a needle spanning a join boundary",
+  "char_recall": "SENSITIVE (difflib in-order matching blocks)",
+  "order_ok": "SENSITIVE by design -- that is what it measures",
+  "must_not_contain": "sensitive only across join boundaries",
+  "tables_ok": "insensitive"
+ },
+ "document_text_source": "def document_text(document) -> str:\n    parts: list[str] = []\n    for page in document.pages:\n        for el in getattr(page, \"elements\", []) or []:\n            t = getattr(el, \"text\", None)\n            if t:\n                parts.append(t)\n        for tbl in getattr(page, \"tables\", []) or []:\n            for row in getattr(tbl, \"cells\", []) or []:\n                for cell in row if isinstance(row, list) else [row]:\n                    t = getattr(cell, \"text\", None) if not isinstance(cell, str) else cell\n                    if t:\n                        parts.append(t)\n    return _norm(\"\\n\".join(parts))\n"
+}

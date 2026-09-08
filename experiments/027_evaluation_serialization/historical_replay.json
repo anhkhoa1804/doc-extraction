@@ -1,0 +1,6834 @@
+{
+ "commit": "c92eb8bdeba4a7b58579bfdf9a3240ef871d73f3",
+ "control": "frozen run_benchmark.document_text (raw cell list order)",
+ "counterfactual": "identical, except table cells iterated in (row, col) order",
+ "transcription_check": {
+  "checked": 25,
+  "identical": 25
+ },
+ "invariant_failures": [],
+ "all_invariants_hold": true,
+ "note": "evidence coverage / orphan rate / overlap rate / evidence duplication are token-and-region properties. The serializer reads neither, so they are invariant under this counterfactual by construction; 025's values stand unchanged. tables_ok is computed by the caller from tables_found vs tables_expected and is likewise serializer-invariant.",
+ "arms": [
+  {
+   "milestone": "023",
+   "arm": "adaptive/easyocr",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9456,
+    "mean_char_recall": 0.9909,
+    "docs_perfect": 44,
+    "docs_zero": 1,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 216,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9456,
+    "mean_char_recall": 0.9909,
+    "docs_perfect": 44,
+    "docs_zero": 1,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 216,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 17,
+    "tables": 17,
+    "value": 1.0
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9953,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9787,
+    "mean_char_recall": 0.9962,
+    "docs_perfect": 45,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 222,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9787,
+    "mean_char_recall": 0.9962,
+    "docs_perfect": 45,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 222,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.657,
+    "mean_char_recall": 0.9577,
+    "docs_perfect": 14,
+    "docs_zero": 6,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 161,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.657,
+    "mean_char_recall": 0.9579,
+    "docs_perfect": 14,
+    "docs_zero": 6,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 161,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 5,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 92,
+    "tables": 97,
+    "value": 0.9485
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9026,
+    "mean_char_recall": 0.985,
+    "docs_perfect": 35,
+    "docs_zero": 0,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 207,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9026,
+    "mean_char_recall": 0.9852,
+    "docs_perfect": 35,
+    "docs_zero": 0,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 207,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9026,
+    "mean_char_recall": 0.985,
+    "docs_perfect": 35,
+    "docs_zero": 0,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 207,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9026,
+    "mean_char_recall": 0.9852,
+    "docs_perfect": 35,
+    "docs_zero": 0,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 207,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9282,
+    "mean_char_recall": 0.9716,
+    "docs_perfect": 38,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 209,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9282,
+    "mean_char_recall": 0.9716,
+    "docs_perfect": 38,
+    "docs_zero": 1,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 209,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9311,
+    "mean_char_recall": 0.9715,
+    "docs_perfect": 40,
+    "docs_zero": 1,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 210,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9311,
+    "mean_char_recall": 0.9715,
+    "docs_perfect": 40,
+    "docs_zero": 1,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 210,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.8519,
+    "mean_char_recall": 0.9859,
+    "docs_perfect": 26,
+    "docs_zero": 0,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 196,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.8519,
+    "mean_char_recall": 0.9861,
+    "docs_perfect": 26,
+    "docs_zero": 0,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 196,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 17,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.638,
+    "mean_char_recall": 0.9405,
+    "docs_perfect": 14,
+    "docs_zero": 7,
+    "docs_order_ok": 42,
+    "docs_hallucinated": 0,
+    "must_contain_found": 157,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.638,
+    "mean_char_recall": 0.9407,
+    "docs_perfect": 14,
+    "docs_zero": 7,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 157,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 5,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 92,
+    "tables": 97,
+    "value": 0.9485
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.2807,
+    "mean_char_recall": 0.9047,
+    "docs_perfect": 1,
+    "docs_zero": 13,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 68,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.2807,
+    "mean_char_recall": 0.9049,
+    "docs_perfect": 1,
+    "docs_zero": 13,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 68,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.2807,
+    "mean_char_recall": 0.9047,
+    "docs_perfect": 1,
+    "docs_zero": 13,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 68,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.2807,
+    "mean_char_recall": 0.9049,
+    "docs_perfect": 1,
+    "docs_zero": 13,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 68,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.2775,
+    "mean_char_recall": 0.8578,
+    "docs_perfect": 4,
+    "docs_zero": 20,
+    "docs_order_ok": 44,
+    "docs_hallucinated": 0,
+    "must_contain_found": 75,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.2775,
+    "mean_char_recall": 0.8578,
+    "docs_perfect": 4,
+    "docs_zero": 20,
+    "docs_order_ok": 47,
+    "docs_hallucinated": 0,
+    "must_contain_found": 75,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.2222,
+    "mean_char_recall": 0.8472,
+    "docs_perfect": 1,
+    "docs_zero": 20,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 56,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.2222,
+    "mean_char_recall": 0.8472,
+    "docs_perfect": 1,
+    "docs_zero": 20,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 56,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.6518,
+    "mean_char_recall": 0.9608,
+    "docs_perfect": 16,
+    "docs_zero": 7,
+    "docs_order_ok": 42,
+    "docs_hallucinated": 0,
+    "must_contain_found": 160,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.6518,
+    "mean_char_recall": 0.9611,
+    "docs_perfect": 16,
+    "docs_zero": 7,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 160,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0003,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 3,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 17,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/_warmup",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 4,
+    "must_contain_required": 4
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 4,
+    "must_contain_required": 4
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 1,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 0,
+    "tables": 1,
+    "value": 0.0
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9838,
+    "mean_char_recall": 0.9941,
+    "docs_perfect": 46,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 223,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9906,
+    "mean_char_recall": 0.9997,
+    "docs_perfect": 47,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 224,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9906,
+    "mean_char_recall": 0.9997,
+    "docs_perfect": 47,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 224,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9906,
+    "mean_char_recall": 0.9997,
+    "docs_perfect": 47,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 224,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9906,
+    "mean_char_recall": 0.9997,
+    "docs_perfect": 47,
+    "docs_zero": 0,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 224,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 2,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 14,
+    "tables": 17,
+    "value": 0.8235
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/smoke_off",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 0.6667,
+    "mean_char_recall": 0.8851,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 2,
+    "must_contain_required": 3
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 0.6667,
+    "mean_char_recall": 0.8851,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 2,
+    "must_contain_required": 3
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 0,
+    "tables": 0,
+    "value": null
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/smoke_on",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 0,
+    "tables": 0,
+    "value": null
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/_warmup",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 1,
+    "tables": 1,
+    "value": 1.0
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/baseline",
+   "documents": 2,
+   "control": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 0.9613,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "counterfactual": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 0.9613,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 2,
+    "tables": 2,
+    "value": 1.0
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/l5",
+   "documents": 2,
+   "control": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "counterfactual": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 2,
+    "tables": 2,
+    "value": 1.0
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/l5_audit",
+   "documents": 2,
+   "control": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "counterfactual": {
+    "n": 2,
+    "mean_text_recall": 0.9285,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 9,
+    "must_contain_required": 10
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 2,
+    "tables": 2,
+    "value": 1.0
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/_warmup",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 0,
+    "tables": 0,
+    "value": null
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.8924,
+    "mean_char_recall": 0.9688,
+    "docs_perfect": 33,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 201,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.8924,
+    "mean_char_recall": 0.9686,
+    "docs_perfect": 33,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 201,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9803,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9801,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9803,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9801,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.9311,
+    "mean_char_recall": 0.974,
+    "docs_perfect": 40,
+    "docs_zero": 1,
+    "docs_order_ok": 46,
+    "docs_hallucinated": 0,
+    "must_contain_found": 210,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.9311,
+    "mean_char_recall": 0.974,
+    "docs_perfect": 40,
+    "docs_zero": 1,
+    "docs_order_ok": 48,
+    "docs_hallucinated": 0,
+    "must_contain_found": 210,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 2,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 9,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 87,
+    "tables": 97,
+    "value": 0.8969
+   }
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9803,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9801,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9803,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9801,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "documents": 49,
+   "control": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9803,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 45,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "counterfactual": {
+    "n": 49,
+    "mean_text_recall": 0.906,
+    "mean_char_recall": 0.9801,
+    "docs_perfect": 35,
+    "docs_zero": 1,
+    "docs_order_ok": 49,
+    "docs_hallucinated": 0,
+    "must_contain_found": 203,
+    "must_contain_required": 226
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": -0.0002,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 4,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 11,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 83,
+    "tables": 94,
+    "value": 0.883
+   }
+  },
+  {
+   "milestone": "025",
+   "arm": "smoke",
+   "documents": 1,
+   "control": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "counterfactual": {
+    "n": 1,
+    "mean_text_recall": 1.0,
+    "mean_char_recall": 1.0,
+    "docs_perfect": 1,
+    "docs_zero": 0,
+    "docs_order_ok": 1,
+    "docs_hallucinated": 0,
+    "must_contain_found": 3,
+    "must_contain_required": 3
+   },
+   "delta": {
+    "mean_text_recall": 0.0,
+    "mean_char_recall": 0.0,
+    "docs_perfect": 0,
+    "docs_zero": 0,
+    "docs_order_ok": 0,
+    "docs_hallucinated": 0,
+    "must_contain_found": 0,
+    "must_contain_required": 0
+   },
+   "documents_with_changed_text": 0,
+   "documents_with_changed_multiset": 0,
+   "structural_integrity": {
+    "ordered": 0,
+    "tables": 0,
+    "value": null
+   }
+  }
+ ],
+ "changed_documents": [
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 14,
+     "raw_sequence": [
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Qty",
+      "Installation service",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Installation service",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cal",
+      "",
+      "18.000.000",
+      "Bộ lọc khí Mà 22B",
+      "",
+      "",
+      "6.400.000",
+      "Mô tả hàng hóa",
+      "Đon vị",
+      "Sổ luợng",
+      "Thành tiển",
+      "Dich vụ làp đạt",
+      "Gói",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị",
+      "Sổ luợng",
+      "Thành tiển",
+      "Sán pham A-100",
+      "Cal",
+      "",
+      "18.000.000",
+      "Bộ lọc khí Mà 22B",
+      "",
+      "",
+      "6.400.000",
+      "Dich vụ làp đạt",
+      "Gói",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "‘Amount",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "‘Amount",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 14,
+     "raw_sequence": [
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Qty",
+      "Installation service",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Installation service",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air Air filter type 22B filter type 22B",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Installation service Installation service",
+      "job job",
+      "3,500.00 3,500.00",
+      "1"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air Air filter type 22B filter type 22B",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Installation service Installation service",
+      "job job",
+      "1",
+      "3,500.00 3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Amount ‘Amount",
+      "Qty Qty",
+      "Installation service [Installation service",
+      "3,500.00 3500.00",
+      "job",
+      "T"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount ‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B type 225 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Installation service [Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air Air filter type 22B filter type 22B",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Installation service Installation service",
+      "job job",
+      "3,500.00 3,500.00",
+      "1"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air Air filter type 22B filter type 22B",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Installation service Installation service",
+      "job job",
+      "1",
+      "3,500.00 3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6.400.000 6:400.000",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "3.500.000 500.000",
+      "T"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cal Cai",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6.400.000 6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 14,
+     "raw_sequence": [
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Qty",
+      "Installation service",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Installation service",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cal",
+      "",
+      "18.000.000",
+      "Bộ lọc khí Mà 22B",
+      "",
+      "",
+      "6.400.000",
+      "Mô tả hàng hóa",
+      "Đon vị",
+      "Sổ luợng",
+      "Thành tiển",
+      "Dich vụ làp đạt",
+      "Gói",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị",
+      "Sổ luợng",
+      "Thành tiển",
+      "Sán pham A-100",
+      "Cal",
+      "",
+      "18.000.000",
+      "Bộ lọc khí Mà 22B",
+      "",
+      "",
+      "6.400.000",
+      "Dich vụ làp đạt",
+      "Gói",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9481,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9481,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "‘Amount",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": false,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.1429,
+    "char_recall": 0.882,
+    "order_ok": true,
+    "found": 1,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.1429,
+    "char_recall": 0.8922,
+    "order_ok": true,
+    "found": 1,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9481,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9481,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "‘Amount",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "[Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": false,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Qty",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.1429,
+    "char_recall": 0.882,
+    "order_ok": true,
+    "found": 1,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.1429,
+    "char_recall": 0.8922,
+    "order_ok": true,
+    "found": 1,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 14,
+     "raw_sequence": [
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Amount",
+      "Qty",
+      "Installation service",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pCs",
+      "",
+      "18,000.00",
+      "Air filter type 22B",
+      "sel",
+      "",
+      "6,400.00",
+      "Installation service",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 15,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": false,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "order_ok": true,
+    "found": 5,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": false,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter 22B type",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air filter type 22B Air filter 22B type",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Installation service Installation service",
+      "job job",
+      "3,500.00 3,500.00",
+      "1"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air filter type 22B Air filter 22B type",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Installation service Installation service",
+      "job job",
+      "1",
+      "3,500.00 3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_tiny_table_en",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Amount ‘Amount",
+      "Qty Qty",
+      "Installation service [Installation service",
+      "3,500.00 3500.00",
+      "job",
+      "T"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount ‘Amount",
+      "Product A-100 Product A100",
+      "pCs PS",
+      "1",
+      "18,000.00 78,000.00,",
+      "Air filter type 22B 225 type 2__[Airtiter",
+      "set sel",
+      "+",
+      "6,400.00 6400.00",
+      "Installation service [Installation service",
+      "job",
+      "T",
+      "3,500.00 3500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air filter type 22B Air filter 22B type",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Installation service Installation service",
+      "job job",
+      "3,500.00 3,500.00",
+      "1"
+     ],
+     "canonical_sequence": [
+      "Item description Item description",
+      "Unit Unit",
+      "Qty Qty",
+      "Amount Amount",
+      "Product A-100 Product A-100",
+      "pcs pcs",
+      "12 12",
+      "18,000.00 18,000.00",
+      "Air filter type 22B Air filter 22B type",
+      "set set",
+      "4",
+      "6,400.00 6,400.00",
+      "Installation service Installation service",
+      "job job",
+      "1",
+      "3,500.00 3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9528,
+    "order_ok": true,
+    "found": 4,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6.400.000 6:400.000",
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "3.500.000 500.000",
+      "T"
+     ],
+     "canonical_sequence": [
+      "Mô tả hàng hóa",
+      "Đon vị Đơn vị",
+      "| Sổ luợng Số lượng",
+      "| Thành tiển Thành tiền",
+      "Sán pham A-100",
+      "Cai Cal",
+      "iz",
+      "18.000.000 8.000.000",
+      "Bộ lọc khí Mà 22B",
+      "Bộ",
+      "+",
+      "6.400.000 6:400.000",
+      "Dich vụ làp đạt",
+      "Gói Gái",
+      "T",
+      "3.500.000 500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "12",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "a",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_borderless_en",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "canonical_sequence": [
+      "Item description",
+      "Unit",
+      "Qty",
+      "Amount",
+      "Product A-100",
+      "pcs",
+      "a2",
+      "18,000.00",
+      "Air filter type 22B",
+      "set",
+      "4",
+      "6,400.00",
+      "Installation service",
+      "job",
+      "1",
+      "3,500.00"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_tiny_cells_vi",
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "found": 2,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000",
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000"
+     ],
+     "canonical_sequence": [
+      "[Mã tả hàng hóa.",
+      "[on vi",
+      "[Số lượng",
+      "| Thành tiền",
+      "[Semone e100",
+      "cá",
+      "TZ",
+      "18000000",
+      "Bren va tap ast",
+      "joa",
+      "T",
+      "3500.000",
+      "[Selec knrme 226",
+      "[Bẽ",
+      "a",
+      "8.400.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_invoice_vi",
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 6,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "|Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_purchase_order_vi",
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "counterfactual": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "found": 7,
+    "missing": [],
+    "hallucinated": []
+   },
+   "text_multiset_identical": true,
+   "tables_reordered": 1,
+   "sequences": [
+    {
+     "table_id": "p0-t0",
+     "page": 0,
+     "n_cells": 16,
+     "raw_sequence": [
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "canonical_sequence": [
+      "(Mô tả hàng hóa",
+      "Đơn vị",
+      "|Số",
+      "lượngThành tiền",
+      "Sản phẩm A-100",
+      "Cái",
+      "12",
+      "18.000.000",
+      "Bộ lọc khí Mã 22B",
+      "Bộ",
+      "4",
+      "6.400.000",
+      "Dịch vụ lắp đặt",
+      "Gói",
+      "1",
+      "3.500.000"
+     ],
+     "differs": true
+    }
+   ]
+  }
+ ]
+}

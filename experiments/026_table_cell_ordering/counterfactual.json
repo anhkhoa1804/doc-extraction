@@ -1,0 +1,1361 @@
+{
+ "baseline_commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "source": "frozen 025 baseline IR; offline transformation only",
+ "intervention": "sort each table's cells list by (row, col); nothing else",
+ "tables_reordered": 11,
+ "documents": 49,
+ "invariant_failures": [],
+ "all_invariants_hold": true,
+ "control": {
+  "mean_text_recall": 0.906,
+  "mean_char_recall": 0.9803,
+  "docs_perfect": 35,
+  "docs_order_ok": 45,
+  "docs_hallucinated": 0
+ },
+ "intervention_result": {
+  "mean_text_recall": 0.906,
+  "mean_char_recall": 0.9801,
+  "docs_perfect": 35,
+  "docs_order_ok": 49,
+  "docs_hallucinated": 0
+ },
+ "order_repaired": [
+  "cmb_borderless_lowcontrast_en",
+  "hc_borderless_en",
+  "ord_invoice_vi",
+  "ord_purchase_order_vi"
+ ],
+ "order_broken": [],
+ "documents_with_changed_text": [
+  "cmb_borderless_lowcontrast_en",
+  "cmb_stamp_boundary_vi",
+  "cmb_tiny_table_en",
+  "hc_borderless_en",
+  "hc_encoding_vi",
+  "hc_scan_vi",
+  "hc_tiny_cells_vi",
+  "ord_financial_report_vi",
+  "ord_form_en",
+  "ord_invoice_vi",
+  "ord_purchase_order_vi"
+ ],
+ "documents_with_changed_text_multiset": [],
+ "rows": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": true,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "intervention": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "control": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9855,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9855,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "intervention": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "intervention": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9665,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9665,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": true,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "labels": [
+    "cross_page"
+   ],
+   "control": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9355,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9355,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "labels": [
+    "encoding"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 2
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 2
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_merged_en",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "control": {
+    "text_recall": 0.0,
+    "char_recall": 0.494,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 0,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 0.0,
+    "char_recall": 0.494,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 0,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_scan_en",
+   "labels": [
+    "scan_quality"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "intervention": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 8
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 5
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "control": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8228,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8133,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "labels": [
+    "tiny_text"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "labels": [
+    "tiny_text"
+   ],
+   "control": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9855,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9855,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "control": {
+    "text_recall": 0.8,
+    "char_recall": 0.95,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 5
+   },
+   "intervention": {
+    "text_recall": 0.8,
+    "char_recall": 0.95,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 5
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "control": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9355,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9355,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 2,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_contract_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 0.7143,
+    "char_recall": 0.957,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 0.7143,
+    "char_recall": 0.957,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 5,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_form_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 4,
+    "required": 4
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "hallucinated": [],
+    "found": 6,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 6,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": true,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_policy_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": false,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 7,
+    "required": 7
+   },
+   "text_identical": false,
+   "text_multiset_identical": true,
+   "order_repaired": true,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "labels": [],
+   "control": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "intervention": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "order_ok": true,
+    "hallucinated": [],
+    "found": 3,
+    "required": 3
+   },
+   "text_identical": true,
+   "text_multiset_identical": true,
+   "order_repaired": false,
+   "order_broken": false,
+   "invariants_ok": true
+  }
+ ]
+}
