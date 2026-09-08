@@ -1,0 +1,350 @@
+{
+ "cases": 12,
+ "passed": 12,
+ "failed": [],
+ "results": [
+  {
+   "case": "01_correct_table",
+   "expected": {
+    "structurally_valid": true,
+    "list_order_canonical": true,
+    "failed": []
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": true,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "02_shuffled_list_correct_rowcol",
+   "expected": {
+    "structurally_valid": true,
+    "list_order_canonical": false,
+    "failed": []
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": false,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": true,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "03_duplicate_rowcol",
+   "expected": {
+    "structurally_valid": false,
+    "failed": [
+     "no_duplicate_coordinates",
+     "rows_vertically_coherent",
+     "cols_horizontally_coherent"
+    ]
+   },
+   "structurally_valid": false,
+   "failed_checks": [
+    "no_duplicate_coordinates",
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "list_order_canonical": false,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "04_missing_cell",
+   "expected": {
+    "structurally_valid": true,
+    "note": "a hole is not incoherence; n_cells < dense shape is reported separately"
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 3,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": null,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "05_invalid_row",
+   "expected": {
+    "structurally_valid": false,
+    "failed": [
+     "coords_in_declared_range",
+     "rows_contiguous"
+    ]
+   },
+   "structurally_valid": false,
+   "failed_checks": [
+    "coords_in_declared_range",
+    "rows_contiguous"
+   ],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    3,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "06_invalid_col",
+   "expected": {
+    "structurally_valid": false,
+    "failed": [
+     "coords_in_declared_range",
+     "cols_contiguous"
+    ]
+   },
+   "structurally_valid": false,
+   "failed_checks": [
+    "coords_in_declared_range",
+    "cols_contiguous"
+   ],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    3
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "07_invalid_bbox",
+   "expected": {
+    "structurally_valid": false,
+    "failed": [
+     "all_cell_bboxes_valid"
+    ]
+   },
+   "structurally_valid": false,
+   "failed_checks": [
+    "all_cell_bboxes_valid"
+   ],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "08_cell_outside_table_bbox",
+   "expected": {
+    "structurally_valid": false,
+    "failed": [
+     "cells_within_table_bbox",
+     "rows_vertically_coherent",
+     "cols_horizontally_coherent"
+    ]
+   },
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent",
+    "cells_within_table_bbox"
+   ],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": true,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "09_duplicate_text_distinct_cells",
+   "expected": {
+    "structurally_valid": true,
+    "note": "identical text in distinct valid cells is not a structural defect"
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": null,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "10_empty_cell",
+   "expected": {
+    "structurally_valid": true
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 4,
+   "declared_shape": [
+    2,
+    2
+   ],
+   "observed_shape": [
+    2,
+    2
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": null,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "11_multi_row_single_col",
+   "expected": {
+    "structurally_valid": true
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 5,
+   "declared_shape": [
+    5,
+    1
+   ],
+   "observed_shape": [
+    5,
+    1
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": null,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  },
+  {
+   "case": "12_multi_col_single_row",
+   "expected": {
+    "structurally_valid": true
+   },
+   "structurally_valid": true,
+   "failed_checks": [],
+   "list_order_canonical": true,
+   "n_cells": 5,
+   "declared_shape": [
+    1,
+    5
+   ],
+   "observed_shape": [
+    1,
+    5
+   ],
+   "checks": {
+    "structurally_valid": true,
+    "failed_checks_expected": null,
+    "list_order_canonical": null,
+    "text_multiset_preserved": true
+   },
+   "passed": true
+  }
+ ]
+}

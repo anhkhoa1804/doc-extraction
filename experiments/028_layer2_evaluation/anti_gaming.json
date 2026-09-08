@@ -1,0 +1,219 @@
+{
+ "baseline": {
+  "structurally_valid": true,
+  "failed_checks": [],
+  "list_order_canonical": true,
+  "n_cells": 4,
+  "non_empty_cells": 4,
+  "duplicate_coordinates": 0,
+  "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+ },
+ "attacks": [
+  {
+   "attack": "sorting the cell list",
+   "invariant": "text metrics unchanged; only ORDER changes",
+   "why": "sorting is free and must never look like a text-fidelity gain",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "text_unchanged": true,
+   "structure_still_valid": true,
+   "cells_visible_change": 0,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "shuffle then re-sort",
+   "invariant": "returns to the baseline exactly",
+   "why": "the metric must be a function of content, not of history",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "text_unchanged": true,
+   "structure_still_valid": true,
+   "cells_visible_change": 0,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "duplicating a correct cell",
+   "invariant": "structural validity FAILS on duplicate coordinates",
+   "why": "duplicated evidence must not read as more evidence",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": false,
+    "failed_checks": [
+     "no_duplicate_coordinates"
+    ],
+    "list_order_canonical": false,
+    "n_cells": 5,
+    "non_empty_cells": 5,
+    "duplicate_coordinates": 1,
+    "canonical_text": "r0c0 r0c0 r0c1 r1c0 r1c1"
+   },
+   "text_unchanged": false,
+   "structure_still_valid": false,
+   "cells_visible_change": 1,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "deleting a hard cell",
+   "invariant": "cell count drops and is visible",
+   "why": "removing what you cannot extract must not raise a score",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 3,
+    "non_empty_cells": 3,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0"
+   },
+   "text_unchanged": false,
+   "structure_still_valid": true,
+   "cells_visible_change": -1,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "moving every cell out of the table",
+   "invariant": "structure FAILS; canonical text unchanged",
+   "why": "geometry damage must hit structure, not text fidelity",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": false,
+    "failed_checks": [
+     "cells_within_table_bbox"
+    ],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "text_unchanged": true,
+   "structure_still_valid": false,
+   "cells_visible_change": 0,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "concatenating all cells into one",
+   "invariant": "cell count collapses 4 -> 1 and is visible",
+   "why": "flattening structure away must not look like a clean table",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 1,
+    "non_empty_cells": 1,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "text_unchanged": true,
+   "structure_still_valid": true,
+   "cells_visible_change": -3,
+   "metric_rewarded_the_attack": false
+  },
+  {
+   "attack": "renumbering row/col to match storage order",
+   "invariant": "structure FAILS on geometry-order mismatch",
+   "why": "you must not be able to fake canonical order by relabelling",
+   "base": {
+    "structurally_valid": true,
+    "failed_checks": [],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r0c0 r0c1 r1c0 r1c1"
+   },
+   "after": {
+    "structurally_valid": false,
+    "failed_checks": [
+     "rows_vertically_coherent",
+     "cols_horizontally_coherent"
+    ],
+    "list_order_canonical": true,
+    "n_cells": 4,
+    "non_empty_cells": 4,
+    "duplicate_coordinates": 0,
+    "canonical_text": "r1c1 r0c0 r1c0 r0c1"
+   },
+   "text_unchanged": false,
+   "structure_still_valid": false,
+   "cells_visible_change": 0,
+   "metric_rewarded_the_attack": false
+  }
+ ],
+ "any_attack_rewarded": false,
+ "documented_invariants": [
+  "sorting a list changes ORDER only, never TEXT",
+  "duplicating a cell is caught by no_duplicate_coordinates, never rewarded",
+  "deleting a cell is visible as a cell-count drop, never rewarded",
+  "moving geometry damages STRUCTURE and leaves TEXT untouched",
+  "collapsing a table into one cell is visible as a shape change",
+  "relabelling row/col to fake canonical storage order is caught by row_order_matches_geometry / col_order_matches_geometry",
+  "TEXT is reported UNMEASURABLE rather than proxied, so no transformation can improve a text score that does not exist"
+ ]
+}
