@@ -1,0 +1,638 @@
+[
+ {
+  "document_id": "hc_multicolumn_en",
+  "labels": [
+   "multi_column",
+   "reading_order"
+  ],
+  "language": "en",
+  "exact": 1.0,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": true,
+  "tables_expected": 0,
+  "tables_found": 0,
+  "missing_strings": [],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 2,
+    "region_labels": [
+     "section_header",
+     "text"
+    ],
+    "region_bboxes": [
+     [
+      165.35,
+      131.57,
+      878.78,
+      172.47
+     ],
+     [
+      160.91,
+      249.81,
+      756.09,
+      355.16
+     ]
+    ],
+    "region_claimed": [
+     3,
+     16
+    ],
+    "n_tables": 0,
+    "table_bboxes": [],
+    "table_cells": [],
+    "tokens": 34,
+    "claims": {
+     "region": 19,
+     "orphan": 15
+    },
+    "orphan_rate": 0.4412,
+    "orphan_classes": {
+     "lateral_band": 14,
+     "outside_corner": 1
+    },
+    "orphan_text": "Section 2. Approval authority Expenditure above USD 5,000 requires written approval from the Managing Director."
+   }
+  ]
+ },
+ {
+  "document_id": "cmb_scan_multicol_en",
+  "labels": [
+   "scan_quality",
+   "multi_column",
+   "reading_order"
+  ],
+  "language": "en",
+  "exact": 1.0,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": true,
+  "tables_expected": 0,
+  "tables_found": 0,
+  "missing_strings": [],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 2,
+    "region_labels": [
+     "section_header",
+     "text"
+    ],
+    "region_bboxes": [
+     [
+      165.35,
+      131.57,
+      878.78,
+      172.47
+     ],
+     [
+      160.91,
+      249.81,
+      756.09,
+      355.16
+     ]
+    ],
+    "region_claimed": [
+     3,
+     16
+    ],
+    "n_tables": 0,
+    "table_bboxes": [],
+    "table_cells": [],
+    "tokens": 34,
+    "claims": {
+     "region": 19,
+     "orphan": 15
+    },
+    "orphan_rate": 0.4412,
+    "orphan_classes": {
+     "lateral_band": 14,
+     "outside_corner": 1
+    },
+    "orphan_text": "Section 2. Approval authority Expenditure above USD 5,000 requires written approval from the Managing Director."
+   }
+  ]
+ },
+ {
+  "document_id": "cmb_scan_tiny_vi",
+  "labels": [
+   "scan_quality",
+   "tiny_text"
+  ],
+  "language": "vi",
+  "exact": 0.6667,
+  "char": 0.9855,
+  "order_ok": true,
+  "tables_ok": true,
+  "tables_expected": 0,
+  "tables_found": 0,
+  "missing_strings": [
+   "Điều 1. Phạm vi áp dụng"
+  ],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 2,
+    "region_labels": [
+     "section_header",
+     "text"
+    ],
+    "region_bboxes": [
+     [
+      163.13,
+      120.46,
+      941.9,
+      178.69
+     ],
+     [
+      164.91,
+      265.42,
+      506.73,
+      347.55
+     ]
+    ],
+    "region_claimed": [
+     8,
+     27
+    ],
+    "n_tables": 0,
+    "table_bboxes": [],
+    "table_cells": [],
+    "tokens": 52,
+    "claims": {
+     "region": 35,
+     "orphan": 17
+    },
+    "orphan_rate": 0.3269,
+    "orphan_classes": {
+     "interior_gap": 16,
+     "edge_adjacent": 1
+    },
+    "orphan_text": "Điều 1. Phạm vì áp dụng ty và các chỉ nhánh. đốc phê duyệt bằng văn bản."
+   }
+  ]
+ },
+ {
+  "document_id": "hc_tiny_cells_vi",
+  "labels": [
+   "tiny_text",
+   "table_structure"
+  ],
+  "language": "vi",
+  "exact": 0.2857,
+  "char": 0.8228,
+  "order_ok": true,
+  "tables_ok": true,
+  "tables_expected": 1,
+  "tables_found": 1,
+  "missing_strings": [
+   "Ký hiệu: MQ/2026E    Số: 0004417",
+   "Mô tả hàng hóa",
+   "Sản phẩm A-100",
+   "Bộ lọc khí Mã 22B",
+   "Dịch vụ lắp đặt"
+  ],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 3,
+    "region_labels": [
+     "section_header",
+     "text",
+     "table"
+    ],
+    "region_bboxes": [
+     [
+      166.24,
+      125.35,
+      777.87,
+      176.91
+     ],
+     [
+      161.8,
+      220.47,
+      1109.92,
+      438.28
+     ],
+     [
+      163.63,
+      525.47,
+      812.39,
+      628.37
+     ]
+    ],
+    "region_claimed": [
+     6,
+     26,
+     34
+    ],
+    "n_tables": 1,
+    "table_bboxes": [
+     [
+      163.63,
+      525.47,
+      812.39,
+      628.37
+     ]
+    ],
+    "table_cells": [
+     16
+    ],
+    "tokens": 66,
+    "claims": {
+     "region": 66
+    },
+    "orphan_rate": 0.0,
+    "orphan_classes": {},
+    "orphan_text": ""
+   }
+  ]
+ },
+ {
+  "document_id": "cmb_stamp_table_vi",
+  "labels": [
+   "stamp",
+   "occlusion",
+   "merged_cells",
+   "table_structure"
+  ],
+  "language": "vi",
+  "exact": 0.875,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": false,
+  "tables_expected": 1,
+  "tables_found": 0,
+  "missing_strings": [
+   "Số lượng / Thành tiền"
+  ],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 16,
+    "region_labels": [
+     "section_header",
+     "text",
+     "picture",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text"
+    ],
+    "region_bboxes": [
+     [
+      163.13,
+      125.35,
+      511.62,
+      172.02
+     ],
+     [
+      161.8,
+      217.8,
+      1067.69,
+      384.05
+     ],
+     [
+      161.69,
+      463.41,
+      1201.34,
+      800.25
+     ],
+     [
+      170.24,
+      490.73,
+      228.03,
+      517.4
+     ],
+     [
+      243.14,
+      486.28,
+      467.17,
+      523.62
+     ],
+     [
+      173.35,
+      545.4,
+      187.58,
+      564.96
+     ],
+     [
+      241.36,
+      534.73,
+      456.5,
+      574.29
+     ],
+     [
+      171.13,
+      598.3,
+      188.91,
+      621.41
+     ],
+     [
+      243.14,
+      595.63,
+      469.39,
+      624.97
+     ],
+     [
+      564.07,
+      600.07,
+      758.76,
+      626.75
+     ],
+     [
+      948.12,
+      597.41,
+      1080.58,
+      624.97
+     ],
+     [
+      172.02,
+      653.41,
+      188.91,
+      676.53
+     ],
+     [
+      242.7,
+      647.64,
+      439.17,
+      683.2
+     ],
+     [
+      607.63,
+      642.75,
+      741.87,
+      671.2
+     ],
+     [
+      949.01,
+      653.41,
+      968.57,
+      677.42
+     ],
+     [
+      971.23,
+      651.64,
+      1080.58,
+      679.2
+     ]
+    ],
+    "region_claimed": [
+     3,
+     22,
+     33,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "n_tables": 0,
+    "table_bboxes": [],
+    "table_cells": [],
+    "tokens": 58,
+    "claims": {
+     "region": 58
+    },
+    "orphan_rate": 0.0,
+    "orphan_classes": {},
+    "orphan_text": ""
+   }
+  ]
+ },
+ {
+  "document_id": "cmb_scan_stamp_table_vi",
+  "labels": [
+   "scan_quality",
+   "stamp",
+   "occlusion",
+   "table_structure"
+  ],
+  "language": "vi",
+  "exact": 0.875,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": false,
+  "tables_expected": 1,
+  "tables_found": 0,
+  "missing_strings": [
+   "Ký hiệu: MQ/2026E    Số: 0004417"
+  ],
+  "pages": [
+   {
+    "page_index": 0,
+    "page_size": [
+     1653,
+     2339
+    ],
+    "n_regions": 19,
+    "region_labels": [
+     "section_header",
+     "text",
+     "picture",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text",
+     "text"
+    ],
+    "region_bboxes": [
+     [
+      165.35,
+      125.35,
+      778.32,
+      178.69
+     ],
+     [
+      161.8,
+      220.47,
+      1109.92,
+      438.28
+     ],
+     [
+      161.14,
+      524.32,
+      1200.73,
+      861.76
+     ],
+     [
+      170.24,
+      552.51,
+      228.92,
+      579.18
+     ],
+     [
+      242.7,
+      548.07,
+      466.72,
+      584.07
+     ],
+     [
+      173.35,
+      606.3,
+      187.58,
+      626.75
+     ],
+     [
+      241.36,
+      596.52,
+      455.61,
+      635.19
+     ],
+     [
+      846.77,
+      603.19,
+      865.44,
+      627.19
+     ],
+     [
+      948.12,
+      602.3,
+      1095.69,
+      629.86
+     ],
+     [
+      171.13,
+      658.3,
+      188.91,
+      681.42
+     ],
+     [
+      243.14,
+      655.64,
+      469.84,
+      684.97
+     ],
+     [
+      564.51,
+      662.31,
+      758.32,
+      687.2
+     ],
+     [
+      948.12,
+      657.42,
+      1080.58,
+      684.97
+     ],
+     [
+      172.02,
+      715.2,
+      188.91,
+      738.31
+     ],
+     [
+      243.14,
+      713.42,
+      342.71,
+      742.76
+     ],
+     [
+      388.94,
+      712.53,
+      437.83,
+      740.98
+     ],
+     [
+      608.52,
+      703.64,
+      741.87,
+      732.98
+     ],
+     [
+      948.12,
+      713.42,
+      1080.58,
+      740.98
+     ],
+     [
+      343.99,
+      704.56,
+      384.54,
+      748.06
+     ]
+    ],
+    "region_claimed": [
+     6,
+     26,
+     30,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "n_tables": 0,
+    "table_bboxes": [],
+    "table_cells": [],
+    "tokens": 62,
+    "claims": {
+     "region": 62
+    },
+    "orphan_rate": 0.0,
+    "orphan_classes": {},
+    "orphan_text": ""
+   }
+  ]
+ }
+]

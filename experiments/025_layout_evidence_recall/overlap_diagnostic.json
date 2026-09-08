@@ -1,0 +1,341 @@
+{
+ "commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "definitions": {
+  "class_B": "token inside 0 regions -- evidence LOST (L5 rescues it)",
+  "class_C": "token inside >=2 regions -- evidence DUPLICATED (_gather_region_text runs per region)",
+  "note": "B and C are never summed; they are opposite defects."
+ },
+ "table": {
+  "total_ocr_tokens": 5925,
+  "tokens_in_0_regions": 667,
+  "tokens_in_1_region": 5176,
+  "tokens_in_2_regions": 82,
+  "tokens_in_3plus_regions": 0,
+  "fraction_multiply_owned": 0.01384,
+  "pages_affected": 3,
+  "documents_affected": 3,
+  "duplicated_characters": 292
+ },
+ "multiply_owned_kinds": {
+  "nested_in_picture_labelled_block": 82
+ },
+ "per_document": {
+  "hc_stamp_table_vi": {
+   "tokens": 62,
+   "multiply_owned": 28,
+   "rate": 0.4516
+  },
+  "cmb_scan_stamp_table_vi": {
+   "tokens": 62,
+   "multiply_owned": 28,
+   "rate": 0.4516
+  },
+  "cmb_stamp_table_vi": {
+   "tokens": 58,
+   "multiply_owned": 26,
+   "rate": 0.4483
+  }
+ },
+ "examples": [
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "STT",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     170.24,
+     552.51,
+     228.92,
+     579.18
+    ]
+   ],
+   "pair_iou": 0.0045
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "|Mô",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     242.7,
+     548.07,
+     466.72,
+     584.07
+    ]
+   ],
+   "pair_iou": 0.023
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "tả",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     242.7,
+     548.07,
+     466.72,
+     584.07
+    ]
+   ],
+   "pair_iou": 0.023
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "hàng",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     242.7,
+     548.07,
+     466.72,
+     584.07
+    ]
+   ],
+   "pair_iou": 0.023
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "hóa",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     242.7,
+     548.07,
+     466.72,
+     584.07
+    ]
+   ],
+   "pair_iou": 0.023
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "1",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     173.35,
+     606.3,
+     187.58,
+     626.75
+    ]
+   ],
+   "pair_iou": 0.0008
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "Sản",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     241.36,
+     596.52,
+     455.61,
+     635.19
+    ]
+   ],
+   "pair_iou": 0.0236
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "phẩm",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     241.36,
+     596.52,
+     455.61,
+     635.19
+    ]
+   ],
+   "pair_iou": 0.0236
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "A-100",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     241.36,
+     596.52,
+     455.61,
+     635.19
+    ]
+   ],
+   "pair_iou": 0.0236
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "18.000.000",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     948.12,
+     602.3,
+     1095.69,
+     629.86
+    ]
+   ],
+   "pair_iou": 0.0116
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "2",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     171.13,
+     658.3,
+     188.91,
+     681.42
+    ]
+   ],
+   "pair_iou": 0.0012
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "page_index": 0,
+   "text": "Bộ",
+   "kind": "nested_in_picture_labelled_block",
+   "owner_labels": [
+    "picture",
+    "text"
+   ],
+   "owner_bboxes": [
+    [
+     161.14,
+     524.32,
+     1200.73,
+     861.76
+    ],
+    [
+     243.14,
+     655.64,
+     469.84,
+     684.97
+    ]
+   ],
+   "pair_iou": 0.019
+  }
+ ]
+}

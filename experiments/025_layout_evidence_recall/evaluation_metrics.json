@@ -1,0 +1,407 @@
+{
+ "commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "status": "RESEARCH FRAMEWORK -- not wired into the scorer or any gate",
+ "motivation": {
+  "recall_is_blind_to": [
+   "orphaned evidence (024)",
+   "duplicated evidence (025)",
+   "repeated page furniture counted as recovered content",
+   "content absent from sparse must_contain"
+  ],
+  "reason": "text_recall and char_recall count ground-truth strings FOUND, never output EMITTED"
+ },
+ "metrics": {
+  "evidence_coverage": {
+   "definition": "fraction of OCR tokens claimed by EXACTLY ONE region",
+   "value": 0.8736,
+   "numerator": 5176,
+   "denominator": 5925,
+   "why": "the only state in which a token is neither lost nor duplicated"
+  },
+  "orphan_rate": {
+   "definition": "fraction of OCR tokens claimed by ZERO regions",
+   "value": 0.1126,
+   "numerator": 667,
+   "why": "class B. L5 rescues these; without L5 they are discarded"
+  },
+  "overlap_rate": {
+   "definition": "fraction of OCR tokens claimed by TWO OR MORE regions",
+   "value": 0.0138,
+   "numerator": 82,
+   "why": "class C. each such token is emitted once per owning region"
+  },
+  "evidence_duplication": {
+   "definition": "token emissions across all regions, minus the distinct tokens that any region owns",
+   "token_emissions": 5340,
+   "distinct_tokens_owned_by_at_least_one_region": 5258,
+   "duplicate_emissions": 82,
+   "rate": 0.0138,
+   "denominator_note": "orphans are in no region and contribute no emission, so they are excluded from the distinct-token baseline; including them made this negative.",
+   "why": "what actually reaches document_text twice; strictly >= overlap_rate because a token owned by k regions contributes k-1 duplicates"
+  },
+  "structural_integrity": {
+   "definition": "fraction of detected tables whose cells are emitted in non-decreasing bbox y0 order",
+   "tables": 94,
+   "ordered": 83,
+   "value": 0.883,
+   "why": "class E. document_text serializes cells in list order, so a table failing this emits its rows out of sequence",
+   "documents_with_a_misordered_table": 11,
+   "surfaced_as_order_ok_false": 4,
+   "invisible_to_benchmark": [
+    "cmb_stamp_boundary_vi",
+    "cmb_tiny_table_en",
+    "hc_encoding_vi",
+    "hc_scan_vi",
+    "hc_tiny_cells_vi",
+    "ord_financial_report_vi",
+    "ord_form_en"
+   ],
+   "benchmark_detection_rate": 0.3636
+  }
+ },
+ "per_document": {
+  "hc_stamp_table_vi": {
+   "tokens": 62,
+   "orphan": 0,
+   "exactly_one": 34,
+   "multi": 28,
+   "evidence_coverage": 0.5484
+  },
+  "cmb_scan_stamp_table_vi": {
+   "tokens": 62,
+   "orphan": 0,
+   "exactly_one": 34,
+   "multi": 28,
+   "evidence_coverage": 0.5484
+  },
+  "cmb_stamp_table_vi": {
+   "tokens": 58,
+   "orphan": 0,
+   "exactly_one": 32,
+   "multi": 26,
+   "evidence_coverage": 0.5517
+  },
+  "hc_multicolumn_en": {
+   "tokens": 34,
+   "orphan": 15,
+   "exactly_one": 19,
+   "multi": 0,
+   "evidence_coverage": 0.5588
+  },
+  "cmb_scan_multicol_en": {
+   "tokens": 34,
+   "orphan": 15,
+   "exactly_one": 19,
+   "multi": 0,
+   "evidence_coverage": 0.5588
+  },
+  "hc_tiny_text_vi": {
+   "tokens": 52,
+   "orphan": 17,
+   "exactly_one": 35,
+   "multi": 0,
+   "evidence_coverage": 0.6731
+  },
+  "cmb_scan_tiny_vi": {
+   "tokens": 52,
+   "orphan": 17,
+   "exactly_one": 35,
+   "multi": 0,
+   "evidence_coverage": 0.6731
+  },
+  "cmb_watermark_tiny_vi": {
+   "tokens": 80,
+   "orphan": 17,
+   "exactly_one": 63,
+   "multi": 0,
+   "evidence_coverage": 0.7875
+  },
+  "hc_rotation_vi": {
+   "tokens": 45,
+   "orphan": 9,
+   "exactly_one": 36,
+   "multi": 0,
+   "evidence_coverage": 0.8
+  },
+  "long_policy_vi_60p": {
+   "tokens": 3188,
+   "orphan": 540,
+   "exactly_one": 2648,
+   "multi": 0,
+   "evidence_coverage": 0.8306
+  },
+  "hc_crosspage_vi": {
+   "tokens": 220,
+   "orphan": 36,
+   "exactly_one": 184,
+   "multi": 0,
+   "evidence_coverage": 0.8364
+  },
+  "hc_transparent_seal_vi": {
+   "tokens": 70,
+   "orphan": 1,
+   "exactly_one": 69,
+   "multi": 0,
+   "evidence_coverage": 0.9857
+  },
+  "ord_contract_vi": {
+   "tokens": 80,
+   "orphan": 0,
+   "exactly_one": 80,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_contract_en": {
+   "tokens": 62,
+   "orphan": 0,
+   "exactly_one": 62,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_invoice_vi": {
+   "tokens": 66,
+   "orphan": 0,
+   "exactly_one": 66,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_invoice_en": {
+   "tokens": 44,
+   "orphan": 0,
+   "exactly_one": 44,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_financial_report_vi": {
+   "tokens": 80,
+   "orphan": 0,
+   "exactly_one": 80,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_financial_report_en": {
+   "tokens": 59,
+   "orphan": 0,
+   "exactly_one": 59,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_company_profile_vi": {
+   "tokens": 35,
+   "orphan": 0,
+   "exactly_one": 35,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_company_profile_en": {
+   "tokens": 24,
+   "orphan": 0,
+   "exactly_one": 24,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_business_license_vi": {
+   "tokens": 71,
+   "orphan": 0,
+   "exactly_one": 71,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_business_license_en": {
+   "tokens": 27,
+   "orphan": 0,
+   "exactly_one": 27,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_certificate_vi": {
+   "tokens": 43,
+   "orphan": 0,
+   "exactly_one": 43,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_certificate_en": {
+   "tokens": 28,
+   "orphan": 0,
+   "exactly_one": 28,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_policy_vi": {
+   "tokens": 52,
+   "orphan": 0,
+   "exactly_one": 52,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_policy_en": {
+   "tokens": 34,
+   "orphan": 0,
+   "exactly_one": 34,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_technical_report_vi": {
+   "tokens": 46,
+   "orphan": 0,
+   "exactly_one": 46,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_technical_report_en": {
+   "tokens": 27,
+   "orphan": 0,
+   "exactly_one": 27,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_purchase_order_vi": {
+   "tokens": 59,
+   "orphan": 0,
+   "exactly_one": 59,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_purchase_order_en": {
+   "tokens": 40,
+   "orphan": 0,
+   "exactly_one": 40,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_form_vi": {
+   "tokens": 51,
+   "orphan": 0,
+   "exactly_one": 51,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "ord_form_en": {
+   "tokens": 17,
+   "orphan": 0,
+   "exactly_one": 17,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_tiny_text_en": {
+   "tokens": 34,
+   "orphan": 0,
+   "exactly_one": 34,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_low_contrast_vi": {
+   "tokens": 80,
+   "orphan": 0,
+   "exactly_one": 80,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_scan_vi": {
+   "tokens": 55,
+   "orphan": 0,
+   "exactly_one": 55,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_scan_en": {
+   "tokens": 29,
+   "orphan": 0,
+   "exactly_one": 29,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_stamp_text_vi": {
+   "tokens": 74,
+   "orphan": 0,
+   "exactly_one": 74,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_watermark_vi": {
+   "tokens": 80,
+   "orphan": 0,
+   "exactly_one": 80,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_borderless_en": {
+   "tokens": 44,
+   "orphan": 0,
+   "exactly_one": 44,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_merged_en": {
+   "tokens": 45,
+   "orphan": 0,
+   "exactly_one": 45,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_tiny_cells_vi": {
+   "tokens": 66,
+   "orphan": 0,
+   "exactly_one": 66,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_encoding_vi": {
+   "tokens": 154,
+   "orphan": 0,
+   "exactly_one": 154,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_checkbox_en": {
+   "tokens": 22,
+   "orphan": 0,
+   "exactly_one": 22,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "hc_checkbox_vi": {
+   "tokens": 59,
+   "orphan": 0,
+   "exactly_one": 59,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "cmb_tiny_table_en": {
+   "tokens": 45,
+   "orphan": 0,
+   "exactly_one": 45,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "cmb_multicol_table_en": {
+   "tokens": 59,
+   "orphan": 0,
+   "exactly_one": 59,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "cmb_lowcontrast_stamp_vi": {
+   "tokens": 75,
+   "orphan": 0,
+   "exactly_one": 75,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "cmb_borderless_lowcontrast_en": {
+   "tokens": 44,
+   "orphan": 0,
+   "exactly_one": 44,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  },
+  "cmb_stamp_boundary_vi": {
+   "tokens": 58,
+   "orphan": 0,
+   "exactly_one": 58,
+   "multi": 0,
+   "evidence_coverage": 1.0
+  }
+ }
+}

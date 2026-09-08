@@ -1,0 +1,325 @@
+{
+ "commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "note": "order_ok comes from run_ab.score over document_text(), which serializes elements then table cells; it is not a direct test of compute_reading_order.",
+ "documents": [
+  {
+   "document_id": "ord_invoice_vi",
+   "regions": 3,
+   "region_labels": {
+    "section_header": 1,
+    "text": 1,
+    "table": 1
+   },
+   "tokens": 66,
+   "orphans": 0,
+   "orphan_rate": 0.0,
+   "overlap_tokens": 0,
+   "overlap_rate": 0.0,
+   "tables_found": 1,
+   "tables_expected": 1,
+   "n_elements": 3,
+   "element_order_index": [
+    0,
+    1,
+    2
+   ],
+   "elements_monotonic": true,
+   "n_cells": 16,
+   "cells_with_row_index": 0,
+   "cells_sorted_by_y": false,
+   "cell_y0_sequence": [
+    595.9108732912939,
+    595.9108732912939,
+    595.9108732912939,
+    595.9108732912939,
+    640.3561247561377,
+    640.3561247561377,
+    640.3561247561377,
+    640.3561247561377,
+    553.0,
+    553.0,
+    553.0,
+    553.0,
+    712.0,
+    712.0,
+    712.0,
+    712.0
+   ],
+   "positions": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "pos": 0
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "pos": -1
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "pos": 56
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "pos": 224
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "pos": 157
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "pos": 190
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "pos": 266
+    }
+   ],
+   "out_of_order_strings": [
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B"
+   ],
+   "attribution": "cell_ordering"
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "regions": 3,
+   "region_labels": {
+    "section_header": 1,
+    "text": 1,
+    "table": 1
+   },
+   "tokens": 59,
+   "orphans": 0,
+   "orphan_rate": 0.0,
+   "overlap_tokens": 0,
+   "overlap_rate": 0.0,
+   "tables_found": 1,
+   "tables_expected": 1,
+   "n_elements": 3,
+   "element_order_index": [
+    0,
+    1,
+    2
+   ],
+   "elements_monotonic": true,
+   "n_cells": 16,
+   "cells_with_row_index": 0,
+   "cells_sorted_by_y": false,
+   "cell_y0_sequence": [
+    535.559554827526,
+    535.559554827526,
+    535.559554827526,
+    535.559554827526,
+    580.1533124569205,
+    580.1533124569205,
+    580.1533124569205,
+    580.1533124569205,
+    491.0,
+    491.0,
+    491.0,
+    491.0,
+    650.0,
+    650.0,
+    650.0,
+    650.0
+   ],
+   "positions": [
+    {
+     "string": "ĐƠN ĐẶT HÀNG",
+     "pos": 0
+    },
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "pos": 13
+    },
+    {
+     "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "pos": 39
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "pos": 192
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "pos": 125
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "pos": 158
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "pos": 234
+    }
+   ],
+   "out_of_order_strings": [
+    "Sản phẩm A-100",
+    "Bộ lọc khí Mã 22B"
+   ],
+   "attribution": "cell_ordering"
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "regions": 3,
+   "region_labels": {
+    "section_header": 1,
+    "text": 1,
+    "table": 1
+   },
+   "tokens": 44,
+   "orphans": 0,
+   "orphan_rate": 0.0,
+   "overlap_tokens": 0,
+   "overlap_rate": 0.0,
+   "tables_found": 1,
+   "tables_expected": 1,
+   "n_elements": 3,
+   "element_order_index": [
+    0,
+    1,
+    2
+   ],
+   "elements_monotonic": true,
+   "n_cells": 16,
+   "cells_with_row_index": 0,
+   "cells_sorted_by_y": false,
+   "cell_y0_sequence": [
+    598.9294703493366,
+    598.9294703493366,
+    598.9294703493366,
+    598.9294703493366,
+    643.1448901186237,
+    643.1448901186237,
+    643.1448901186237,
+    643.1448901186237,
+    551.0,
+    551.0,
+    551.0,
+    551.0,
+    717.0,
+    717.0,
+    717.0,
+    717.0
+   ],
+   "positions": [
+    {
+     "string": "TAX INVOICE",
+     "pos": 0
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "pos": 12
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "pos": 44
+    },
+    {
+     "string": "Item description",
+     "pos": 206
+    },
+    {
+     "string": "Product A-100",
+     "pos": 140
+    },
+    {
+     "string": "Air filter type 22B",
+     "pos": 171
+    },
+    {
+     "string": "Installation service",
+     "pos": 239
+    }
+   ],
+   "out_of_order_strings": [
+    "Product A-100",
+    "Air filter type 22B"
+   ],
+   "attribution": "cell_ordering"
+  },
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "regions": 3,
+   "region_labels": {
+    "section_header": 1,
+    "text": 1,
+    "table": 1
+   },
+   "tokens": 44,
+   "orphans": 0,
+   "orphan_rate": 0.0,
+   "overlap_tokens": 0,
+   "overlap_rate": 0.0,
+   "tables_found": 1,
+   "tables_expected": 1,
+   "n_elements": 3,
+   "element_order_index": [
+    0,
+    1,
+    2
+   ],
+   "elements_monotonic": true,
+   "n_cells": 16,
+   "cells_with_row_index": 0,
+   "cells_sorted_by_y": false,
+   "cell_y0_sequence": [
+    598.962659855389,
+    598.962659855389,
+    598.962659855389,
+    598.962659855389,
+    644.5845012860531,
+    644.5845012860531,
+    644.5845012860531,
+    644.5845012860531,
+    552.0,
+    552.0,
+    552.0,
+    552.0,
+    717.0,
+    717.0,
+    717.0,
+    717.0
+   ],
+   "positions": [
+    {
+     "string": "TAX INVOICE",
+     "pos": 0
+    },
+    {
+     "string": "Invoice number: INV-2026-004417",
+     "pos": 12
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "pos": 44
+    },
+    {
+     "string": "Item description",
+     "pos": 206
+    },
+    {
+     "string": "Product A-100",
+     "pos": 140
+    },
+    {
+     "string": "Air filter type 22B",
+     "pos": 171
+    },
+    {
+     "string": "Installation service",
+     "pos": 239
+    }
+   ],
+   "out_of_order_strings": [
+    "Product A-100",
+    "Air filter type 22B"
+   ],
+   "attribution": "cell_ordering"
+  }
+ ],
+ "attribution_histogram": {
+  "cell_ordering": 4
+ }
+}

@@ -1,0 +1,199 @@
+[
+ {
+  "document_id": "hc_stamp_table_vi",
+  "labels": [
+   "stamp",
+   "occlusion",
+   "table_structure"
+  ],
+  "exact": 0.875,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": false,
+  "tables_expected": 1,
+  "tables_found": 0,
+  "link_1_classifier": {
+   "picture_regions": [
+    {
+     "idx": 2,
+     "bbox": [
+      161.14,
+      524.32,
+      1200.73,
+      861.76
+     ],
+     "w": 1039.6,
+     "h": 337.4
+    }
+   ],
+   "verdict": "geometry correct, label wrong -- classifier failure"
+  },
+  "link_2_gating": {
+   "regions_labelled_table": 0,
+   "table_backend_invoked_on": 0,
+   "tables_in_ir": 0,
+   "code": "pipelines/base.py:747 -- label.lower() == 'table'",
+   "verdict": "table structure recognition never ran -- gating failure, not table-detection failure"
+  },
+  "link_3_cells_exist": {
+   "nested_regions": 16,
+   "nested_labels": {
+    "text": 16
+   },
+   "median_nested_w": 132.5,
+   "median_nested_h": 27.6,
+   "verdict": "cell-level geometry is present in the detector output and is discarded by link 2"
+  },
+  "link_4_duplication": {
+   "page_tokens": 62,
+   "token_emissions_over_all_regions": 90,
+   "duplicate_emissions": 28,
+   "multiply_owned_tokens": 28,
+   "image_elements_carrying_text": 1,
+   "image_element_chars": 140,
+   "verdict": "picture element and its nested cell elements both emit the same tokens into document_text"
+  },
+  "link_5_invisibility": {
+   "char_recall": 1.0,
+   "verdict": "duplication cannot reduce exact or char recall; the benchmark cannot see it at all"
+  },
+  "failure_attribution": {
+   "detector_failure": "partial -- classification, not localisation",
+   "postprocessing_failure": "PRIMARY -- a single label-equality test discards a correctly localised table and its cells",
+   "ownership_failure": "secondary -- _center_in has no nesting rule, so a token inside parent and child belongs to both",
+   "assembly_failure": "consequence only"
+  }
+ },
+ {
+  "document_id": "cmb_stamp_table_vi",
+  "labels": [
+   "stamp",
+   "occlusion",
+   "merged_cells",
+   "table_structure"
+  ],
+  "exact": 0.875,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": false,
+  "tables_expected": 1,
+  "tables_found": 0,
+  "link_1_classifier": {
+   "picture_regions": [
+    {
+     "idx": 2,
+     "bbox": [
+      161.69,
+      463.41,
+      1201.34,
+      800.25
+     ],
+     "w": 1039.6,
+     "h": 336.8
+    }
+   ],
+   "verdict": "geometry correct, label wrong -- classifier failure"
+  },
+  "link_2_gating": {
+   "regions_labelled_table": 0,
+   "table_backend_invoked_on": 0,
+   "tables_in_ir": 0,
+   "code": "pipelines/base.py:747 -- label.lower() == 'table'",
+   "verdict": "table structure recognition never ran -- gating failure, not table-detection failure"
+  },
+  "link_3_cells_exist": {
+   "nested_regions": 13,
+   "nested_labels": {
+    "text": 13
+   },
+   "median_nested_w": 132.5,
+   "median_nested_h": 27.6,
+   "verdict": "cell-level geometry is present in the detector output and is discarded by link 2"
+  },
+  "link_4_duplication": {
+   "page_tokens": 58,
+   "token_emissions_over_all_regions": 84,
+   "duplicate_emissions": 26,
+   "multiply_owned_tokens": 26,
+   "image_elements_carrying_text": 1,
+   "image_element_chars": 156,
+   "verdict": "picture element and its nested cell elements both emit the same tokens into document_text"
+  },
+  "link_5_invisibility": {
+   "char_recall": 1.0,
+   "verdict": "duplication cannot reduce exact or char recall; the benchmark cannot see it at all"
+  },
+  "failure_attribution": {
+   "detector_failure": "partial -- classification, not localisation",
+   "postprocessing_failure": "PRIMARY -- a single label-equality test discards a correctly localised table and its cells",
+   "ownership_failure": "secondary -- _center_in has no nesting rule, so a token inside parent and child belongs to both",
+   "assembly_failure": "consequence only"
+  }
+ },
+ {
+  "document_id": "cmb_scan_stamp_table_vi",
+  "labels": [
+   "scan_quality",
+   "stamp",
+   "occlusion",
+   "table_structure"
+  ],
+  "exact": 0.875,
+  "char": 1.0,
+  "order_ok": true,
+  "tables_ok": false,
+  "tables_expected": 1,
+  "tables_found": 0,
+  "link_1_classifier": {
+   "picture_regions": [
+    {
+     "idx": 2,
+     "bbox": [
+      161.14,
+      524.32,
+      1200.73,
+      861.76
+     ],
+     "w": 1039.6,
+     "h": 337.4
+    }
+   ],
+   "verdict": "geometry correct, label wrong -- classifier failure"
+  },
+  "link_2_gating": {
+   "regions_labelled_table": 0,
+   "table_backend_invoked_on": 0,
+   "tables_in_ir": 0,
+   "code": "pipelines/base.py:747 -- label.lower() == 'table'",
+   "verdict": "table structure recognition never ran -- gating failure, not table-detection failure"
+  },
+  "link_3_cells_exist": {
+   "nested_regions": 16,
+   "nested_labels": {
+    "text": 16
+   },
+   "median_nested_w": 132.5,
+   "median_nested_h": 27.6,
+   "verdict": "cell-level geometry is present in the detector output and is discarded by link 2"
+  },
+  "link_4_duplication": {
+   "page_tokens": 62,
+   "token_emissions_over_all_regions": 90,
+   "duplicate_emissions": 28,
+   "multiply_owned_tokens": 28,
+   "image_elements_carrying_text": 1,
+   "image_element_chars": 140,
+   "verdict": "picture element and its nested cell elements both emit the same tokens into document_text"
+  },
+  "link_5_invisibility": {
+   "char_recall": 1.0,
+   "verdict": "duplication cannot reduce exact or char recall; the benchmark cannot see it at all"
+  },
+  "failure_attribution": {
+   "detector_failure": "partial -- classification, not localisation",
+   "postprocessing_failure": "PRIMARY -- a single label-equality test discards a correctly localised table and its cells",
+   "ownership_failure": "secondary -- _center_in has no nesting rule, so a token inside parent and child belongs to both",
+   "assembly_failure": "consequence only"
+  }
+ }
+]

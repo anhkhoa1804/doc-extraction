@@ -1,0 +1,509 @@
+{
+ "commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "classes": {
+  "A": "OCR acquisition failure -- the recognizer never produced usable evidence",
+  "B": "layout detection/coverage failure -- evidence exists, no region covers it",
+  "C": "region ownership failure -- region covers it, assignment puts it elsewhere",
+  "D": "reading-order failure -- regions and ownership right, sequence wrong"
+ },
+ "token_accounting": {
+  "tokens_recognised": 5925,
+  "claimed_by_region": 5258,
+  "claimed_by_cell": 2,
+  "inside_table_not_cell": 1,
+  "class_B_orphans": 664,
+  "class_B_rate": 0.1121,
+  "class_C_ownership_conflicts": 82,
+  "class_C_evidence": "tokens whose centre falls inside two regions at once. `_gather_region_text` runs per region, so each such token is emitted into BOTH elements -- duplicated evidence. 024 measured orphan_also_claimed = 0, which is a different and still-true statement: recovered orphans are not duplicates. Region-on-region overlap was never measured until now.",
+  "class_C_by_document": {
+   "hc_stamp_table_vi": 28,
+   "cmb_scan_stamp_table_vi": 28,
+   "cmb_stamp_table_vi": 26
+  },
+  "class_B_split": {
+   "running_page_furniture_header_footer": 576,
+   "unique_content": 88,
+   "furniture_share": 0.8675
+  },
+  "orphan_repetition": {
+   "orphan_tokens": 664,
+   "distinct_strings": 128,
+   "top_repeats": [
+    [
+     "ty",
+     66
+    ],
+    [
+     "tnhh",
+     64
+    ],
+    [
+     "minh",
+     64
+    ],
+    [
+     "quang",
+     64
+    ],
+    [
+     "trang",
+     64
+    ],
+    [
+     "công",
+     62
+    ],
+    [
+     "thương",
+     62
+    ],
+    [
+     "mại",
+     62
+    ],
+    [
+     "approval",
+     4
+    ],
+    [
+     "điều",
+     2
+    ]
+   ]
+  }
+ },
+ "document_accounting": {
+  "documents": 49,
+  "documents_defective": 17,
+  "documents_whose_defect_could_be_coverage": 6,
+  "defect_histogram": {
+   "A_ocr_acquisition_or_fidelity": 9,
+   "D_reading_order": 4,
+   "B2_table_region_not_emitted": 3,
+   "A_exact_only": 1
+  },
+  "defective": {
+   "ord_invoice_vi": {
+    "defects": [
+     "D_reading_order"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 66,
+    "exact": 0.8571,
+    "char": 1.0,
+    "order_ok": false,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": []
+   },
+   "ord_financial_report_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 80,
+    "exact": 0.7143,
+    "char": 0.957,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": []
+   },
+   "ord_purchase_order_vi": {
+    "defects": [
+     "D_reading_order"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 59,
+    "exact": 1.0,
+    "char": 1.0,
+    "order_ok": false,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": []
+   },
+   "hc_tiny_text_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.6731,
+    "orphans": 17,
+    "tokens": 52,
+    "exact": 0.6667,
+    "char": 0.9855,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 0,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1
+    },
+    "labels": [
+     "tiny_text"
+    ]
+   },
+   "hc_stamp_table_vi": {
+    "defects": [
+     "B2_table_region_not_emitted"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 62,
+    "exact": 0.875,
+    "char": 1.0,
+    "order_ok": true,
+    "tables_ok": false,
+    "tables_found": 0,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 17,
+     "picture": 1
+    },
+    "labels": [
+     "stamp",
+     "occlusion",
+     "table_structure"
+    ]
+   },
+   "hc_transparent_seal_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.9857,
+    "orphans": 1,
+    "tokens": 70,
+    "exact": 0.8,
+    "char": 0.95,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 0,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 2,
+     "text": 2
+    },
+    "labels": [
+     "stamp",
+     "occlusion"
+    ]
+   },
+   "hc_rotation_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.8667,
+    "orphans": 6,
+    "tokens": 45,
+    "exact": 0.0,
+    "char": 0.494,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 1,
+     "text": 3
+    },
+    "labels": [
+     "rotation",
+     "reading_order"
+    ]
+   },
+   "hc_borderless_en": {
+    "defects": [
+     "D_reading_order"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 44,
+    "exact": 1.0,
+    "char": 1.0,
+    "order_ok": false,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": [
+     "borderless_table",
+     "table_detection"
+    ]
+   },
+   "hc_tiny_cells_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 66,
+    "exact": 0.2857,
+    "char": 0.8228,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": [
+     "tiny_text",
+     "table_structure"
+    ]
+   },
+   "hc_crosspage_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.8364,
+    "orphans": 36,
+    "tokens": 220,
+    "exact": 0.6667,
+    "char": 0.9355,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 3,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 1,
+     "text": 4
+    },
+    "labels": [
+     "cross_page"
+    ]
+   },
+   "cmb_stamp_table_vi": {
+    "defects": [
+     "B2_table_region_not_emitted"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 58,
+    "exact": 0.875,
+    "char": 1.0,
+    "order_ok": true,
+    "tables_ok": false,
+    "tables_found": 0,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 14,
+     "picture": 1
+    },
+    "labels": [
+     "stamp",
+     "occlusion",
+     "merged_cells",
+     "table_structure"
+    ]
+   },
+   "cmb_tiny_table_en": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 45,
+    "exact": 0.5714,
+    "char": 0.9665,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": [
+     "tiny_text",
+     "table_structure"
+    ]
+   },
+   "cmb_scan_tiny_vi": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.6731,
+    "orphans": 17,
+    "tokens": 52,
+    "exact": 0.6667,
+    "char": 0.9855,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 0,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1
+    },
+    "labels": [
+     "scan_quality",
+     "tiny_text"
+    ]
+   },
+   "cmb_scan_stamp_table_vi": {
+    "defects": [
+     "B2_table_region_not_emitted"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 62,
+    "exact": 0.875,
+    "char": 1.0,
+    "order_ok": true,
+    "tables_ok": false,
+    "tables_found": 0,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 17,
+     "picture": 1
+    },
+    "labels": [
+     "scan_quality",
+     "stamp",
+     "occlusion",
+     "table_structure"
+    ]
+   },
+   "cmb_borderless_lowcontrast_en": {
+    "defects": [
+     "D_reading_order"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 44,
+    "exact": 1.0,
+    "char": 1.0,
+    "order_ok": false,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 1,
+     "table": 1
+    },
+    "labels": [
+     "borderless_table",
+     "low_contrast",
+     "table_detection"
+    ]
+   },
+   "cmb_stamp_boundary_vi": {
+    "defects": [
+     "A_exact_only"
+    ],
+    "coverage_recall": 1.0,
+    "orphans": 0,
+    "tokens": 58,
+    "exact": 0.875,
+    "char": 1.0,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 1,
+    "tables_expected": 1,
+    "region_labels": {
+     "section_header": 1,
+     "text": 14
+    },
+    "labels": [
+     "stamp",
+     "occlusion",
+     "table_structure"
+    ]
+   },
+   "long_policy_vi_60p": {
+    "defects": [
+     "A_ocr_acquisition_or_fidelity"
+    ],
+    "coverage_recall": 0.8306,
+    "orphans": 540,
+    "tokens": 3188,
+    "exact": 0.6667,
+    "char": 0.9355,
+    "order_ok": true,
+    "tables_ok": true,
+    "tables_found": 59,
+    "tables_expected": 0,
+    "region_labels": {
+     "section_header": 1,
+     "text": 60
+    },
+    "labels": [
+     "cross_page",
+     "long_document"
+    ]
+   }
+  }
+ },
+ "verdict": {
+  "dominant_by_token_volume": "B -- but 86.7% of it is running page header/footer furniture on 2 documents",
+  "dominant_by_residual_failure": "not B -- 7 of 8 defective documents have coverage recall 1.000"
+ },
+ "per_document_orphan_classes": {
+  "hc_tiny_text_vi": {
+   "interior_gap": 16,
+   "edge_adjacent": 1
+  },
+  "hc_transparent_seal_vi": {
+   "edge_adjacent": 1
+  },
+  "hc_multicolumn_en": {
+   "lateral_band": 14,
+   "outside_corner": 1
+  },
+  "hc_rotation_vi": {
+   "table_adjacent": 1,
+   "interior_gap": 4,
+   "edge_adjacent": 1
+  },
+  "hc_crosspage_vi": {
+   "header_band": 28,
+   "footer_band": 8
+  },
+  "cmb_scan_tiny_vi": {
+   "interior_gap": 16,
+   "edge_adjacent": 1
+  },
+  "cmb_watermark_tiny_vi": {
+   "interior_gap": 17
+  },
+  "cmb_scan_multicol_en": {
+   "lateral_band": 14,
+   "outside_corner": 1
+  },
+  "long_policy_vi_60p": {
+   "header_band": 420,
+   "footer_band": 120
+  }
+ }
+}

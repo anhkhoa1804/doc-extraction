@@ -1,0 +1,2932 @@
+{
+ "commit": "0355e79476f87d4613dd4d470518eabcfc73909a",
+ "source": "coverage_dataset.json",
+ "note": "diagnostic metrics; they do not replace the extraction metrics",
+ "totals": {
+  "documents": 49,
+  "pages": 112,
+  "tokens_recognised": 5925,
+  "claimed_by_region": 5258,
+  "claimed_by_cell": 2,
+  "inside_table_not_cell": 1,
+  "orphan": 664,
+  "regions": 258,
+  "tables": 94,
+  "regions_per_page": 2.304
+ },
+ "region_coverage_recall": 0.8874,
+ "region_coverage_recall_incl_table_ownership": 0.8879,
+ "orphan_rate": 0.1121,
+ "region_label_histogram": {
+  "text": 185,
+  "section_header": 55,
+  "table": 12,
+  "picture": 3,
+  "checkbox_unselected": 2,
+  "checkbox_selected": 1
+ },
+ "tokens_claimed_by_region_label": {
+  "text": 4448,
+  "section_header": 363,
+  "table": 349,
+  "picture": 93,
+  "checkbox_unselected": 4,
+  "checkbox_selected": 1
+ },
+ "region_confidence_available": {
+  "regions_total": 258,
+  "with_confidence": 0,
+  "note": "Docling's layout backend emits no per-region confidence; a confidence-gated fallback (proposal intervention 4) has no signal to gate on and is not testable as specified."
+ },
+ "required_string_coverage": {
+  "strings_total": 226,
+  "verdicts": {
+   "covered": 189,
+   "partially_recognised": 28,
+   "not_recognised": 7,
+   "partially_covered": 2
+  },
+  "rows": [
+   {
+    "document_id": "ord_contract_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_contract_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_contract_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý",
+    "verdict": "covered",
+    "words": 10,
+    "words_recognised": 10,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_contract_en",
+    "string": "GOODS PURCHASE AGREEMENT",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_contract_en",
+    "string": "Article 1. Subject of the",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_contract_en",
+    "string": "The Seller agrees to sell and the",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "TAX INVOICE",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Invoice number: INV-2026-004417",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Issue date: 14 March 2026",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Item description",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_invoice_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Đơn vị tính: triệu đồng",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Báo cáo này chưa được kiểm toán",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "not_recognised",
+    "words": 4,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "Reporting currency: thousands of",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "These figures are unaudited and",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "Item description",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "Air filter type 22B",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_financial_report_en",
+    "string": "Installation service",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_vi",
+    "string": "HỒ SƠ NĂNG LỰC CÔNG TY",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_vi",
+    "string": "Thành lập năm 2011, công ty hoạt",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_vi",
+    "string": "Đội ngũ hiện tại gồm 148 nhân sự",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_en",
+    "string": "COMPANY CAPABILITY PROFILE",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_en",
+    "string": "Founded in 2011, the company",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_company_profile_en",
+    "string": "The current headcount is 148",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_vi",
+    "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_vi",
+    "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_vi",
+    "string": "Mã số doanh nghiệp: 0312998877",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_en",
+    "string": "CERTIFICATE OF INCORPORATION",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_en",
+    "string": "Company name: Brightwater Trading",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_business_license_en",
+    "string": "Company number: 0312998877",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_vi",
+    "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_vi",
+    "string": "Chứng nhận rằng hệ thống quản lý",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_vi",
+    "string": "phù hợp với các yêu cầu của tiêu",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_en",
+    "string": "QUALITY MANAGEMENT SYSTEM CERTIFICATE",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_en",
+    "string": "This is to certify that the",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_certificate_en",
+    "string": "conforms to the requirements of",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_vi",
+    "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_vi",
+    "string": "Điều 1. Phạm vi áp dụng",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_vi",
+    "string": "Quy chế này áp dụng cho toàn bộ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_en",
+    "string": "INTERNAL EXPENDITURE POLICY",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_en",
+    "string": "Section 1. Scope",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_policy_en",
+    "string": "This policy applies to all",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_vi",
+    "string": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_vi",
+    "string": "Thiết bị: Máy nén khí trục vít,",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_vi",
+    "string": "Kết quả đo độ rung tại vị trí ổ",
+    "verdict": "covered",
+    "words": 9,
+    "words_recognised": 9,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_en",
+    "string": "EQUIPMENT INSPECTION TECHNICAL REPORT",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_en",
+    "string": "Equipment: Screw-type air",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_technical_report_en",
+    "string": "Measured bearing vibration",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "ĐƠN ĐẶT HÀNG",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Số đơn hàng: PO-2026-0318",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "PURCHASE ORDER",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Order number: PO-2026-0318",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Supplier: Brightwater Trading",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Item description",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_purchase_order_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_vi",
+    "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_vi",
+    "string": "Họ và tên người đề nghị: Nguyễn",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_vi",
+    "string": "Bộ phận: Phòng Kế toán",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_en",
+    "string": "PAYMENT REQUISITION FORM",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_en",
+    "string": "Requested by: Alice Fairbanks",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "ord_form_en",
+    "string": "Department: Finance",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_text_vi",
+    "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_text_vi",
+    "string": "Điều 1. Phạm vi áp dụng",
+    "verdict": "partially_recognised",
+    "words": 6,
+    "words_recognised": 5,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_tiny_text_vi",
+    "string": "Quy chế này áp dụng cho toàn bộ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_text_en",
+    "string": "INTERNAL EXPENDITURE POLICY",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_text_en",
+    "string": "Section 1. Scope",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_text_en",
+    "string": "This policy applies to all",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_low_contrast_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_low_contrast_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_low_contrast_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý",
+    "verdict": "covered",
+    "words": 10,
+    "words_recognised": 10,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_vi",
+    "string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_vi",
+    "string": "Kính gửi: Phòng Tài chính - Kế",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_vi",
+    "string": "Căn cứ biên bản đối chiếu ngày 28",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_en",
+    "string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_en",
+    "string": "To: Finance and Accounting",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_scan_en",
+    "string": "Further to the reconciliation",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_text_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_text_vi",
+    "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_text_vi",
+    "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_text_vi",
+    "string": "Mã số doanh nghiệp: 0312998877",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_text_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_stamp_table_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_transparent_seal_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_transparent_seal_vi",
+    "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_transparent_seal_vi",
+    "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_transparent_seal_vi",
+    "string": "Mã số doanh nghiệp: 0312998877",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_transparent_seal_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "not_recognised",
+    "words": 2,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_watermark_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_watermark_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_watermark_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý",
+    "verdict": "covered",
+    "words": 10,
+    "words_recognised": 10,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_multicolumn_en",
+    "string": "INTERNAL EXPENDITURE POLICY",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_multicolumn_en",
+    "string": "Section 1. Scope",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_multicolumn_en",
+    "string": "Section 2. Approval authority",
+    "verdict": "partially_covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_rotation_vi",
+    "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+    "verdict": "not_recognised",
+    "words": 8,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_rotation_vi",
+    "string": "Chứng nhận rằng hệ thống quản lý",
+    "verdict": "not_recognised",
+    "words": 7,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_rotation_vi",
+    "string": "phù hợp với các yêu cầu của tiêu",
+    "verdict": "not_recognised",
+    "words": 8,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "TAX INVOICE",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Invoice number: INV-2026-004417",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Issue date: 14 March 2026",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Item description",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_borderless_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "TAX INVOICE",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Invoice number: INV-2026-004417",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Issue date: 14 March 2026",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Item description",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Qty / Amount",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_merged_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "not_recognised",
+    "words": 3,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 1,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_tiny_cells_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "not_recognised",
+    "words": 4,
+    "words_recognised": 0,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_encoding_vi",
+    "string": "Cong Hoa",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_encoding_vi",
+    "string": "Doanh Nghiep",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_crosspage_vi",
+    "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "verdict": "partially_recognised",
+    "words": 8,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "hc_crosspage_vi",
+    "string": "Điều 1. Phạm vi áp dụng",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_crosspage_vi",
+    "string": "Quy chế này áp dụng cho toàn bộ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_en",
+    "string": "PAYMENT REQUISITION FORM",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_en",
+    "string": "Requested by: Alice Fairbanks",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_en",
+    "string": "Department: Finance",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_en",
+    "string": "Approved",
+    "verdict": "covered",
+    "words": 1,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_vi",
+    "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_vi",
+    "string": "Họ và tên người đề nghị: Nguyễn",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_vi",
+    "string": "Bộ phận: Phòng Kế toán",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "hc_checkbox_vi",
+    "string": "Đồng ý",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "ĐƠN ĐẶT HÀNG",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Số đơn hàng: PO-2026-0318",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Số lượng / Thành tiền",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 3,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_table_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "TAX INVOICE",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Invoice number: INV-2026-004417",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Issue date: 14 March 2026",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Item description",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Product A-100",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Air filter type 22B",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 1,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_tiny_table_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_scan_tiny_vi",
+    "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_tiny_vi",
+    "string": "Điều 1. Phạm vi áp dụng",
+    "verdict": "partially_recognised",
+    "words": 6,
+    "words_recognised": 5,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_scan_tiny_vi",
+    "string": "Quy chế này áp dụng cho toàn bộ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Reporting currency: thousands of",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Net revenue for the period",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Item description",
+    "verdict": "partially_recognised",
+    "words": 2,
+    "words_recognised": 1,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_multicol_table_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_watermark_tiny_vi",
+    "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_watermark_tiny_vi",
+    "string": "Điều 1. Đối tượng của hợp đồng",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_watermark_tiny_vi",
+    "string": "Bên A đồng ý bán và Bên B đồng ý",
+    "verdict": "covered",
+    "words": 10,
+    "words_recognised": 10,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "string": "Độc lập - Tự do - Hạnh phúc",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+    "verdict": "covered",
+    "words": 7,
+    "words_recognised": 7,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "string": "Mã số doanh nghiệp: 0312998877",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_lowcontrast_stamp_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_multicol_en",
+    "string": "INTERNAL EXPENDITURE POLICY",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_multicol_en",
+    "string": "Section 1. Scope",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_scan_multicol_en",
+    "string": "Section 2. Approval authority",
+    "verdict": "partially_covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "TAX INVOICE",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Invoice number: INV-2026-004417",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Issue date: 14 March 2026",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Item description",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Product A-100",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Air filter type 22B",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_borderless_lowcontrast_en",
+    "string": "Installation service",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "verdict": "partially_recognised",
+    "words": 5,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Mô tả hàng hóa",
+    "verdict": "partially_recognised",
+    "words": 4,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Sản phẩm A-100",
+    "verdict": "covered",
+    "words": 3,
+    "words_recognised": 3,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Bộ lọc khí Mã 22B",
+    "verdict": "covered",
+    "words": 5,
+    "words_recognised": 5,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "Dịch vụ lắp đặt",
+    "verdict": "covered",
+    "words": 4,
+    "words_recognised": 4,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "cmb_stamp_boundary_vi",
+    "string": "ĐÃ DUYỆT",
+    "verdict": "covered",
+    "words": 2,
+    "words_recognised": 2,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "long_policy_vi_60p",
+    "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+    "verdict": "partially_recognised",
+    "words": 8,
+    "words_recognised": 4,
+    "in_missing_list": true
+   },
+   {
+    "document_id": "long_policy_vi_60p",
+    "string": "Điều 1. Phạm vi áp dụng",
+    "verdict": "covered",
+    "words": 6,
+    "words_recognised": 6,
+    "in_missing_list": false
+   },
+   {
+    "document_id": "long_policy_vi_60p",
+    "string": "Quy chế này áp dụng cho toàn bộ",
+    "verdict": "covered",
+    "words": 8,
+    "words_recognised": 8,
+    "in_missing_list": false
+   }
+  ]
+ },
+ "per_document": [
+  {
+   "document_id": "hc_multicolumn_en",
+   "language": "en",
+   "document_type": "policy",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "pages": 1,
+   "tokens": 34,
+   "regions": 2,
+   "region_covered": 19,
+   "cell": 0,
+   "table": 0,
+   "orphan": 15,
+   "coverage_recall": 0.5588,
+   "orphan_rate": 0.4412,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "language": "en",
+   "document_type": "policy",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "pages": 1,
+   "tokens": 34,
+   "regions": 2,
+   "region_covered": 19,
+   "cell": 0,
+   "table": 0,
+   "orphan": 15,
+   "coverage_recall": 0.5588,
+   "orphan_rate": 0.4412,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "language": "vi",
+   "document_type": "policy",
+   "labels": [
+    "tiny_text"
+   ],
+   "pages": 1,
+   "tokens": 52,
+   "regions": 2,
+   "region_covered": 35,
+   "cell": 0,
+   "table": 0,
+   "orphan": 17,
+   "coverage_recall": 0.6731,
+   "orphan_rate": 0.3269,
+   "regions_per_page": 2.0,
+   "exact": 0.6667,
+   "char": 0.9855,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "language": "vi",
+   "document_type": "policy",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "pages": 1,
+   "tokens": 52,
+   "regions": 2,
+   "region_covered": 35,
+   "cell": 0,
+   "table": 0,
+   "orphan": 17,
+   "coverage_recall": 0.6731,
+   "orphan_rate": 0.3269,
+   "regions_per_page": 2.0,
+   "exact": 0.6667,
+   "char": 0.9855,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "language": "vi",
+   "document_type": "contract",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "pages": 1,
+   "tokens": 80,
+   "regions": 4,
+   "region_covered": 63,
+   "cell": 0,
+   "table": 0,
+   "orphan": 17,
+   "coverage_recall": 0.7875,
+   "orphan_rate": 0.2125,
+   "regions_per_page": 4.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "language": "vi",
+   "document_type": "policy",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "pages": 60,
+   "tokens": 3188,
+   "regions": 61,
+   "region_covered": 2648,
+   "cell": 0,
+   "table": 0,
+   "orphan": 540,
+   "coverage_recall": 0.8306,
+   "orphan_rate": 0.1694,
+   "regions_per_page": 1.02,
+   "exact": 0.6667,
+   "char": 0.9355,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "language": "vi",
+   "document_type": "policy",
+   "labels": [
+    "cross_page"
+   ],
+   "pages": 4,
+   "tokens": 220,
+   "regions": 5,
+   "region_covered": 184,
+   "cell": 0,
+   "table": 0,
+   "orphan": 36,
+   "coverage_recall": 0.8364,
+   "orphan_rate": 0.1636,
+   "regions_per_page": 1.25,
+   "exact": 0.6667,
+   "char": 0.9355,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "language": "vi",
+   "document_type": "certificate",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "pages": 1,
+   "tokens": 45,
+   "regions": 4,
+   "region_covered": 36,
+   "cell": 2,
+   "table": 1,
+   "orphan": 6,
+   "coverage_recall": 0.8,
+   "orphan_rate": 0.1333,
+   "regions_per_page": 4.0,
+   "exact": 0.0,
+   "char": 0.494,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "language": "vi",
+   "document_type": "business_license",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "pages": 1,
+   "tokens": 70,
+   "regions": 4,
+   "region_covered": 69,
+   "cell": 0,
+   "table": 0,
+   "orphan": 1,
+   "coverage_recall": 0.9857,
+   "orphan_rate": 0.0143,
+   "regions_per_page": 4.0,
+   "exact": 0.8,
+   "char": 0.95,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "language": "vi",
+   "document_type": "contract",
+   "labels": [],
+   "pages": 1,
+   "tokens": 80,
+   "regions": 2,
+   "region_covered": 80,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_contract_en",
+   "language": "en",
+   "document_type": "contract",
+   "labels": [],
+   "pages": 1,
+   "tokens": 62,
+   "regions": 3,
+   "region_covered": 62,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "language": "vi",
+   "document_type": "invoice",
+   "labels": [],
+   "pages": 1,
+   "tokens": 66,
+   "regions": 3,
+   "region_covered": 66,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 0.8571,
+   "char": 1.0,
+   "order_ok": false,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "language": "en",
+   "document_type": "invoice",
+   "labels": [],
+   "pages": 1,
+   "tokens": 44,
+   "regions": 3,
+   "region_covered": 44,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "language": "vi",
+   "document_type": "financial_report",
+   "labels": [],
+   "pages": 1,
+   "tokens": 80,
+   "regions": 3,
+   "region_covered": 80,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 0.7143,
+   "char": 0.957,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "language": "en",
+   "document_type": "financial_report",
+   "labels": [],
+   "pages": 1,
+   "tokens": 59,
+   "regions": 3,
+   "region_covered": 59,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "language": "vi",
+   "document_type": "company_profile",
+   "labels": [],
+   "pages": 1,
+   "tokens": 35,
+   "regions": 2,
+   "region_covered": 35,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "language": "en",
+   "document_type": "company_profile",
+   "labels": [],
+   "pages": 1,
+   "tokens": 24,
+   "regions": 2,
+   "region_covered": 24,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "language": "vi",
+   "document_type": "business_license",
+   "labels": [],
+   "pages": 1,
+   "tokens": 71,
+   "regions": 3,
+   "region_covered": 71,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "language": "en",
+   "document_type": "business_license",
+   "labels": [],
+   "pages": 1,
+   "tokens": 27,
+   "regions": 2,
+   "region_covered": 27,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "language": "vi",
+   "document_type": "certificate",
+   "labels": [],
+   "pages": 1,
+   "tokens": 43,
+   "regions": 2,
+   "region_covered": 43,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "language": "en",
+   "document_type": "certificate",
+   "labels": [],
+   "pages": 1,
+   "tokens": 28,
+   "regions": 2,
+   "region_covered": 28,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "language": "vi",
+   "document_type": "policy",
+   "labels": [],
+   "pages": 1,
+   "tokens": 52,
+   "regions": 2,
+   "region_covered": 52,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_policy_en",
+   "language": "en",
+   "document_type": "policy",
+   "labels": [],
+   "pages": 1,
+   "tokens": 34,
+   "regions": 2,
+   "region_covered": 34,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "language": "vi",
+   "document_type": "technical_report",
+   "labels": [],
+   "pages": 1,
+   "tokens": 46,
+   "regions": 2,
+   "region_covered": 46,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "language": "en",
+   "document_type": "technical_report",
+   "labels": [],
+   "pages": 1,
+   "tokens": 27,
+   "regions": 2,
+   "region_covered": 27,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "language": "vi",
+   "document_type": "purchase_order",
+   "labels": [],
+   "pages": 1,
+   "tokens": 59,
+   "regions": 3,
+   "region_covered": 59,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": false,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "language": "en",
+   "document_type": "purchase_order",
+   "labels": [],
+   "pages": 1,
+   "tokens": 40,
+   "regions": 3,
+   "region_covered": 40,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_form_vi",
+   "language": "vi",
+   "document_type": "form",
+   "labels": [],
+   "pages": 1,
+   "tokens": 51,
+   "regions": 3,
+   "region_covered": 51,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "ord_form_en",
+   "language": "en",
+   "document_type": "form",
+   "labels": [],
+   "pages": 1,
+   "tokens": 17,
+   "regions": 2,
+   "region_covered": 17,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "language": "en",
+   "document_type": "policy",
+   "labels": [
+    "tiny_text"
+   ],
+   "pages": 1,
+   "tokens": 34,
+   "regions": 3,
+   "region_covered": 34,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "language": "vi",
+   "document_type": "contract",
+   "labels": [
+    "low_contrast"
+   ],
+   "pages": 1,
+   "tokens": 80,
+   "regions": 2,
+   "region_covered": 80,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "language": "vi",
+   "document_type": "scanned_admin",
+   "labels": [
+    "scan_quality"
+   ],
+   "pages": 1,
+   "tokens": 55,
+   "regions": 3,
+   "region_covered": 55,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_scan_en",
+   "language": "en",
+   "document_type": "scanned_admin",
+   "labels": [
+    "scan_quality"
+   ],
+   "pages": 1,
+   "tokens": 29,
+   "regions": 2,
+   "region_covered": 29,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "language": "vi",
+   "document_type": "business_license",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "pages": 1,
+   "tokens": 74,
+   "regions": 4,
+   "region_covered": 74,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 4.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "language": "vi",
+   "document_type": "invoice",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 62,
+   "regions": 19,
+   "region_covered": 62,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 19.0,
+   "exact": 0.875,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": false
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "language": "vi",
+   "document_type": "contract",
+   "labels": [
+    "watermark"
+   ],
+   "pages": 1,
+   "tokens": 80,
+   "regions": 2,
+   "region_covered": 80,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 2.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "language": "en",
+   "document_type": "invoice",
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "pages": 1,
+   "tokens": 44,
+   "regions": 3,
+   "region_covered": 44,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": false,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_merged_en",
+   "language": "en",
+   "document_type": "invoice",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 45,
+   "regions": 3,
+   "region_covered": 45,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "language": "vi",
+   "document_type": "invoice",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 66,
+   "regions": 3,
+   "region_covered": 66,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 0.2857,
+   "char": 0.8228,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "language": "vi",
+   "document_type": "business_license",
+   "labels": [
+    "encoding"
+   ],
+   "pages": 2,
+   "tokens": 154,
+   "regions": 2,
+   "region_covered": 154,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 1.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "language": "en",
+   "document_type": "form",
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "pages": 1,
+   "tokens": 22,
+   "regions": 9,
+   "region_covered": 22,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 9.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "language": "vi",
+   "document_type": "form",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "pages": 1,
+   "tokens": 59,
+   "regions": 4,
+   "region_covered": 59,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 4.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "language": "vi",
+   "document_type": "purchase_order",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 58,
+   "regions": 16,
+   "region_covered": 58,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 16.0,
+   "exact": 0.875,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": false
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "language": "en",
+   "document_type": "invoice",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 45,
+   "regions": 3,
+   "region_covered": 45,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 0.5714,
+   "char": 0.9665,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "language": "en",
+   "document_type": "financial_report",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "pages": 1,
+   "tokens": 59,
+   "regions": 4,
+   "region_covered": 59,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 4.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "language": "vi",
+   "document_type": "business_license",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "pages": 1,
+   "tokens": 75,
+   "regions": 4,
+   "region_covered": 75,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 4.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "language": "vi",
+   "document_type": "invoice",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 62,
+   "regions": 19,
+   "region_covered": 62,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 19.0,
+   "exact": 0.875,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": false
+  },
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "language": "en",
+   "document_type": "invoice",
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "pages": 1,
+   "tokens": 44,
+   "regions": 3,
+   "region_covered": 44,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 3.0,
+   "exact": 1.0,
+   "char": 1.0,
+   "order_ok": false,
+   "tables_ok": true
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "language": "vi",
+   "document_type": "invoice",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "pages": 1,
+   "tokens": 58,
+   "regions": 15,
+   "region_covered": 58,
+   "cell": 0,
+   "table": 0,
+   "orphan": 0,
+   "coverage_recall": 1.0,
+   "orphan_rate": 0.0,
+   "regions_per_page": 15.0,
+   "exact": 0.875,
+   "char": 1.0,
+   "order_ok": true,
+   "tables_ok": true
+  }
+ ]
+}
