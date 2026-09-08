@@ -1,0 +1,28 @@
+{
+ "git_sha": "d224cbf7acfd389f66fe8e2ac1f3a9bec2f7a3bf",
+ "test_baseline": "341 passed, 10 skipped",
+ "layer1_frozen_scan49_l5": {
+  "mean_text_recall": 0.906,
+  "mean_char_recall": 0.9803,
+  "docs_perfect": 35,
+  "docs_order_ok": 45,
+  "docs_hallucinated": 0
+ },
+ "known_gated_tables_from_025": {
+  "count": 3,
+  "documents": [
+   "hc_stamp_table_vi",
+   "cmb_stamp_table_vi",
+   "cmb_scan_stamp_table_vi"
+  ],
+  "source": "experiments/025_layout_evidence_recall/stamp_causal_chain.json"
+ },
+ "source_hashes": {
+  "run_benchmark.py": "b69d85dc1a2d3438",
+  "run_ab.py": "26332fe14748b464",
+  "pipelines/base.py": "5f3f4c803375af43",
+  "backends/docling_backend.py": "10d55aef0f8d7abf",
+  "backends/table_backend.py": "23b1443d606c0de3"
+ },
+ "029_030_untouched": true
+}

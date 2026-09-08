@@ -1,0 +1,174 @@
+{
+ "concept": "region -> role_candidates(evidence) -> routing, instead of region.label == 'table' -> table_pipeline. This is an OFFLINE CONCEPTUAL EXPERIMENT ONLY -- not implemented in production.",
+ "legitimate_evidence_available": {
+  "table_likelihood": "table_shape_evidence_score (0-5), a deterministic geometric heuristic over Docling's own nested-child regions -- named to NEVER be confused with a model confidence (Phase 17 rule).",
+  "picture_likelihood": "NONE -- Docling's stable API exposes no confidence field for the 'picture' label either (same gap documented in gating_contract.json stage 1). No synthetic picture-confidence is fabricated here."
+ },
+ "conservative_threshold_used": 3,
+ "rows": [
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "label_vs_evidence_conflict": true,
+   "recovery_verdicts_observed": [
+    "PLAUSIBLE_RECOVERY"
+   ],
+   "ground_truth": "CONFIRMED_TABLE (factual oracle or TRUE_RECOVERY/PLAUSIBLE_RECOVERY verdict exists)"
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 0,
+   "score_reasons": [],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "CONFIRMED_NOT_TABLE (Phase 4-6 negative population / PSEUDO_TABLE verdict)"
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "label_vs_evidence_conflict": true,
+   "recovery_verdicts_observed": [
+    "PSEUDO_TABLE"
+   ],
+   "ground_truth": "CONFIRMED_NOT_TABLE (Phase 4-6 negative population / PSEUDO_TABLE verdict)"
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "label_vs_evidence_conflict": true,
+   "recovery_verdicts_observed": [
+    "TRUE_RECOVERY"
+   ],
+   "ground_truth": "CONFIRMED_TABLE (factual oracle or TRUE_RECOVERY/PLAUSIBLE_RECOVERY verdict exists)"
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "label_vs_evidence_conflict": true,
+   "recovery_verdicts_observed": [
+    "TRUE_RECOVERY"
+   ],
+   "ground_truth": "CONFIRMED_TABLE (factual oracle or TRUE_RECOVERY/PLAUSIBLE_RECOVERY verdict exists)"
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 0,
+   "score_reasons": [],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "CONFIRMED_NOT_TABLE (Phase 4-6 negative population / PSEUDO_TABLE verdict)"
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "source_corpus": "031_known_population (stamp-vi synthetic + scan_cohort)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 1,
+   "score_reasons": [
+    "multi-row"
+   ],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "CONFIRMED_NOT_TABLE (Phase 4-6 negative population / PSEUDO_TABLE verdict)"
+  },
+  {
+   "document_id": "jiaocaineedrop_Chapter9.pdf_46#region0",
+   "source_corpus": "realscan_probe (Phase 13 discovery -- genuinely diverse real-world documents, no relation to the stamp-vi corpus)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 4,
+   "score_reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "label_vs_evidence_conflict": true,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "CONFIRMED_NOT_TABLE (recovered nested-child text = ['macmillanmh.com', 'Practice', '3', 'Cumulative, Chapters 1-9'] (2 of 6 children empty-text, likely a logo glyph and a page-number icon) -- a worksheet page HEADER/BANNER (publisher watermark + unit/chapter title + practice-set label), not tabular data.)"
+  },
+  {
+   "document_id": "jiaocaineedrop_Chapter9.pdf_46#region1",
+   "source_corpus": "realscan_probe (Phase 13 discovery -- genuinely diverse real-world documents, no relation to the stamp-vi corpus)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 0,
+   "score_reasons": [],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "NOT_MANUALLY_VERIFIED"
+  },
+  {
+   "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898#region0",
+   "source_corpus": "realscan_probe (Phase 13 discovery -- genuinely diverse real-world documents, no relation to the stamp-vi corpus)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 0,
+   "score_reasons": [],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "NOT_MANUALLY_VERIFIED"
+  },
+  {
+   "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898#region1",
+   "source_corpus": "realscan_probe (Phase 13 discovery -- genuinely diverse real-world documents, no relation to the stamp-vi corpus)",
+   "original_docling_label": "picture",
+   "docling_confidence_available": false,
+   "table_shape_evidence_score": 0,
+   "score_reasons": [],
+   "label_vs_evidence_conflict": false,
+   "recovery_verdicts_observed": null,
+   "ground_truth": "NOT_MANUALLY_VERIFIED"
+  }
+ ],
+ "summary": {
+  "n_regions_evaluated": 11,
+  "n_label_vs_evidence_conflicts": 5,
+  "conflicts_that_were_confirmed_tables": 3,
+  "conflicts_that_were_confirmed_NOT_tables": 2
+ },
+ "finding": "5 of 11 evaluated picture-labelled regions produce a label/evidence conflict (hard label says 'picture', structural evidence exceeds the conservative threshold). Of these, 3 were independently confirmed as actual missed tables (factual_oracle_comparison.json / recovery_verdicts.json) and 2 were independently confirmed NOT to be tables (negative_controls.json's realscan_probe false positive, and/or the PSEUDO_TABLE-verdict document). This is the central Phase 16 result: the hard single-label gate DOES discard a real, recoverable uncertainty signal (evidence conflicts with the label on genuine tables) -- but the CURRENT evidence set is not yet sufficient to cleanly separate those conflicts into 'promote' vs 'leave alone' (the SAME conflict pattern fires on a confirmed non-table). This argues for keeping role uncertainty VISIBLE (e.g. a role_candidates list carried alongside the primary label) rather than either (a) collapsing it to a single hard label as today, or (b) automatically resolving it to a second hard label (promote-to-table) without a stronger discriminating signal than exists today.",
+ "architectural_recommendation": "Option B/D from intervention_candidates.json (031 Phase 9) is already evidence-based routing in miniature: it does not replace the label, it adds a table CANDIDATE alongside it, gated by evidence -- this is structurally closer to 'region -> role_candidates -> routing' than to the current hard gate, without requiring an IR schema change. A full role_candidates redesign of the IR schema is a LARGER change than this milestone's evidence justifies shipping; recorded here as a architecture-level finding for future work, not a Phase-031 implementation target."
+}

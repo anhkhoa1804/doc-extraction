@@ -1,0 +1,778 @@
+{
+ "documents": [
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "factual_oracle_exists": false,
+   "note": "no factual (historically-produced) table exists for this document in ANY replayed arm -- any reconstruction is a geometric simulation only, consistent with counterfactual_replay.json's SIMULATED_COUNTERFACTUAL classification",
+   "same_arm_pairs": [],
+   "cross_arm_pairs": []
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "factual_oracle_exists": true,
+   "gated_arms_observed": 13,
+   "tabled_arms_observed": 25,
+   "arms_overlap_same_arm_pair_available": true,
+   "same_arm_pairs": [
+    {
+     "milestone": "023",
+     "arm": "visual/easyocr",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 0,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/fusion",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/fusion_recovery",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/selection",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/tesseract",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/union",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/easyocr",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 0,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/fusion",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/fusion_recovery",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/selection",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/tesseract",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/union",
+     "picture_bbox": {
+      "x0": 160.03267024870843,
+      "y0": 457.7687690065008,
+      "x1": 1204.0309658911922,
+      "y1": 782.605751968436
+     },
+     "table_bbox": {
+      "x0": 171.3148651123047,
+      "y0": 551.1653442382812,
+      "x1": 521.5470581054688,
+      "y1": 740.7359619140625
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "024",
+     "arm": "visual/tesseract",
+     "picture_bbox": {
+      "x0": 160.0325176915815,
+      "y0": 457.7689724860195,
+      "x1": 1204.0308845273912,
+      "y1": 782.6058333602434
+     },
+     "table_bbox": {
+      "x0": 171.31483459472656,
+      "y0": 551.1653442382812,
+      "x1": 521.5469360351562,
+      "y1": 740.73583984375
+     },
+     "bbox_iou": 0.1958,
+     "table_contained_in_picture_frac": 1.0,
+     "same_physical_region": "PROBABLE",
+     "factual_table_shape": [
+      2,
+      1
+     ],
+     "factual_table_n_cells": 2,
+     "factual_table_populated_cells": 1,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    }
+   ],
+   "cross_arm_pairs": []
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "factual_oracle_exists": true,
+   "gated_arms_observed": 16,
+   "tabled_arms_observed": 22,
+   "arms_overlap_same_arm_pair_available": true,
+   "same_arm_pairs": [
+    {
+     "milestone": "023",
+     "arm": "visual/easyocr",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 10,
+     "factual_table_populated_cells": 9,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/fusion",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/fusion_recovery",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/selection",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/tesseract",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual/union",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/easyocr",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 10,
+     "factual_table_populated_cells": 9,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/fusion",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/fusion_recovery",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/selection",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/tesseract",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "023",
+     "arm": "visual_pre_reading_order_fix/union",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    },
+    {
+     "milestone": "024",
+     "arm": "visual/tesseract",
+     "picture_bbox": {
+      "x0": 164.04274620548372,
+      "y0": 464.1761762734286,
+      "x1": 1200.7087191674018,
+      "y1": 797.6295401596017
+     },
+     "table_bbox": {
+      "x0": 164.04047818952992,
+      "y0": 464.10304573433143,
+      "x1": 1200.34949798584,
+      "y1": 689.2460930192484
+     },
+     "bbox_iou": 0.6746,
+     "table_contained_in_picture_frac": 0.9997,
+     "same_physical_region": "YES",
+     "factual_table_shape": [
+      4,
+      3
+     ],
+     "factual_table_n_cells": 11,
+     "factual_table_populated_cells": 10,
+     "reasoning": "bbox_iou>0.3 -> direct overlap in the SAME coordinate system (strong identity evidence); else table>70% contained within the picture's own bbox -> PROBABLE (table is a narrower sub-region of the picture block, consistent with 025's known picture/nested-text duplication); else UNKNOWN"
+    }
+   ],
+   "cross_arm_pairs": [
+    {
+     "gated_arm": "025/coverage",
+     "tabled_arm": "023/adaptive/easyocr",
+     "coordinate_systems_comparable": false,
+     "factual_table_shape": [
+      4,
+      5
+     ],
+     "factual_table_token_count": 39,
+     "candidate_nested_children": 13,
+     "candidate_token_count": 30,
+     "shared_token_count": 30,
+     "shared_tokens_sample": [
+      "000",
+      "1",
+      "100",
+      "2",
+      "22b",
+      "3",
+      "400",
+      "500",
+      "6",
+      "a",
+      "bộ",
+      "công"
+     ],
+     "factual_text_token_recall_in_candidate": 0.7692,
+     "same_physical_region": "PROBABLE",
+     "reasoning": "different arms use different coordinate systems (native PDF points vs rasterized pixels) so bbox IoU is not meaningful here; token-overlap recall >=0.5 -> PROBABLE (majority of the factual table's own text content is present among the candidate's nested children); otherwise UNKNOWN, not NO -- absence of token overlap can also mean the OCR/recognizer differs between arms, not that the region differs"
+    }
+   ]
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "factual_oracle_exists": true,
+   "gated_arms_observed": 16,
+   "tabled_arms_observed": 9,
+   "arms_overlap_same_arm_pair_available": false,
+   "same_arm_pairs": [],
+   "cross_arm_pairs": [
+    {
+     "gated_arm": "023/visual/easyocr",
+     "tabled_arm": "023/adaptive/easyocr",
+     "coordinate_systems_comparable": false,
+     "factual_table_shape": [
+      4,
+      5
+     ],
+     "factual_table_token_count": 41,
+     "candidate_nested_children": 17,
+     "candidate_token_count": 33,
+     "shared_token_count": 30,
+     "shared_tokens_sample": [
+      "000",
+      "100",
+      "18",
+      "2",
+      "22b",
+      "3",
+      "400",
+      "500",
+      "6",
+      "a",
+      "bộ",
+      "công"
+     ],
+     "factual_text_token_recall_in_candidate": 0.7317,
+     "same_physical_region": "PROBABLE",
+     "reasoning": "different arms use different coordinate systems (native PDF points vs rasterized pixels) so bbox IoU is not meaningful here; token-overlap recall >=0.5 -> PROBABLE (majority of the factual table's own text content is present among the candidate's nested children); otherwise UNKNOWN, not NO -- absence of token overlap can also mean the OCR/recognizer differs between arms, not that the region differs"
+    }
+   ]
+  }
+ ]
+}

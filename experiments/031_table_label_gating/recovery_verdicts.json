@@ -1,0 +1,1995 @@
+{
+ "method": "conservative-mode reconstructions only (probe-gated, the candidate production design per intervention_candidates.json 'B'/'D'); classify() logic documented inline in this script's module docstring and classify() function -- structural_integrity (028) + factual_oracle_comparison (031 Phase 12) + Phase 4-6 negative-control membership, never shape alone.",
+ "total_classified": 79,
+ "counts": {
+  "PLAUSIBLE_RECOVERY": 28,
+  "PSEUDO_TABLE": 13,
+  "TRUE_RECOVERY": 38
+ },
+ "counts_by_document": {
+  "cmb_scan_stamp_table_vi": {
+   "PLAUSIBLE_RECOVERY": 28
+  },
+  "cmb_stamp_boundary_vi": {
+   "PSEUDO_TABLE": 13
+  },
+  "cmb_stamp_table_vi": {
+   "TRUE_RECOVERY": 19
+  },
+  "hc_stamp_table_vi": {
+   "TRUE_RECOVERY": 19
+  }
+ },
+ "verdicts": [
+  {
+   "milestone": "023",
+   "arm": "adaptive/easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    3,
+    8
+   ],
+   "n_cells": 14,
+   "structurally_valid": false,
+   "failed_checks": [
+    "rows_vertically_coherent",
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     2,
+     1
+    ],
+    "bbox_iou": 0.1958,
+    "table_contained_in_picture_frac": 1.0
+   },
+   "verdict": "PSEUDO_TABLE",
+   "reasoning": "rows_vertically_coherent=False: cells assigned to the same row index do not even share a common y-band. This is the reconstruction imposing row/col structure on children whose geometry does not actually support it -- not a column-assignment artifact, a row-level failure. Consistent with factual_oracle_comparison.json showing the real table for this document occupies only 1.0 of the picture region's own area (region likely mixes table + non-table content, e.g. a stamp/boundary block around a genuine but much smaller table)."
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t2",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 17,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": false
+   },
+   "verdict": "PLAUSIBLE_RECOVERY",
+   "reasoning": "rows_vertically_coherent=True (row bands are geometrically real) but no factual oracle exists to confirm cell-level correctness; cols_horizontally_coherent=False."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    5
+   ],
+   "n_cells": 13,
+   "structurally_valid": true,
+   "failed_checks": [],
+   "oracle": {
+    "exists": true,
+    "regime": "SAME_ARM",
+    "same_physical_region": "YES",
+    "oracle_shape": [
+     4,
+     3
+    ],
+    "bbox_iou": 0.6746,
+    "table_contained_in_picture_frac": 0.9997
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=YES) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=True -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_stamp_table_vi",
+   "table_id": "031-recon-t1",
+   "observed_shape": [
+    4,
+    6
+   ],
+   "n_cells": 16,
+   "structurally_valid": false,
+   "failed_checks": [
+    "cols_horizontally_coherent"
+   ],
+   "oracle": {
+    "exists": true,
+    "regime": "CROSS_ARM",
+    "same_physical_region": "PROBABLE",
+    "oracle_shape": [
+     4,
+     5
+    ],
+    "token_recall": 0.7317
+   },
+   "verdict": "TRUE_RECOVERY",
+   "reasoning": "independent oracle evidence (factual_oracle_comparison.json, same_physical_region=PROBABLE) says this document's picture-gated region corresponds to an actual historically-produced table with row count 4, matching this reconstruction's 4 rows. cols_horizontally_coherent=False -- if False, column INDEX alignment is approximate (rank-based assignment, see reconstruct_table docstring) and should not be read as cell-level ground truth, but row-level recovery is supported by evidence independent of the reconstruction itself."
+  }
+ ]
+}

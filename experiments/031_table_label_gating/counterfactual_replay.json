@@ -1,0 +1,68 @@
+[
+ {
+  "document_id": "cmb_stamp_table_vi",
+  "type": "FACTUAL_REPLAY",
+  "source": "023/adaptive/tesseract, real production output, not simulated",
+  "table_found": true,
+  "table_summary": {
+   "n_rows": 4,
+   "n_cols": 5,
+   "n_cells": 20,
+   "non_empty_cells": 19,
+   "sample_cell_texts": [
+    "STT",
+    "Mô tả hàng hóa",
+    "Đơn vị",
+    "Số lượng",
+    "Thành tiền",
+    "1"
+   ]
+  }
+ },
+ {
+  "document_id": "hc_stamp_table_vi",
+  "type": "FACTUAL_REPLAY",
+  "source": "023/adaptive/tesseract, real production output, not simulated",
+  "table_found": true,
+  "table_summary": {
+   "n_rows": 4,
+   "n_cols": 5,
+   "n_cells": 20,
+   "non_empty_cells": 20,
+   "sample_cell_texts": [
+    "STT",
+    "Mô tả hàng hóa",
+    "Đơn vị",
+    "Số lượng",
+    "Thành tiền",
+    "1"
+   ]
+  }
+ },
+ {
+  "document_id": "cmb_scan_stamp_table_vi",
+  "type": "SIMULATED_COUNTERFACTUAL",
+  "source": "no factual table_transformer output exists for this document in any replayed arm (Phase 3: zero tabled-only arms) -- this is a GEOMETRIC SIMULATION from nested text-region positions only, not historical behavior",
+  "n_confirmed_picture_candidates": 28,
+  "sample_candidate": {
+   "milestone": "023",
+   "arm": "adaptive/easyocr",
+   "document_id": "cmb_scan_stamp_table_vi",
+   "layout_file": "page-001.json",
+   "region_bbox": {
+    "x0": 161.13970612556705,
+    "y0": 524.3237453621631,
+    "x1": 1200.7332910353139,
+    "y1": 861.755215234876
+   },
+   "region_label": "picture",
+   "area": 350791.6,
+   "aspect_ratio": 3.081,
+   "n_nested_regions": 16,
+   "n_nested_text_regions": 16,
+   "n_distinct_x_bands": 12,
+   "n_distinct_y_bands": 14,
+   "classification": "CONFIRMED"
+  }
+ }
+]

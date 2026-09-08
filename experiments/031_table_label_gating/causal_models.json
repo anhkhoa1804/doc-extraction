@@ -1,0 +1,65 @@
+{
+ "models": {
+  "A": "stamp/occlusion DIRECTLY causes picture label (deterministic: stamp present -> always picture-labelled)",
+  "B": "stamp/occlusion DEGRADES layout evidence, indirectly causing picture label (probabilistic, mediated by evidence quality)",
+  "C": "OCR/layout backend interaction causes picture label; stamp merely increases probability (route/backend is the proximate cause)",
+  "D": "stamp is incidental; another document property is causal"
+ },
+ "paired_flip_evidence": [
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "stamp_occlusion_present": true,
+   "gated_only_route_families": [],
+   "tabled_only_route_families": [
+    "adaptive (native/digital-PDF route where applicable)",
+    "other",
+    "scan_cohort (rasterized image, forced-scan)"
+   ],
+   "clean_flip_by_route": false
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "stamp_occlusion_present": true,
+   "gated_only_route_families": [
+    "other",
+    "scan_cohort (rasterized image, forced-scan)"
+   ],
+   "tabled_only_route_families": [
+    "adaptive (native/digital-PDF route where applicable)"
+   ],
+   "clean_flip_by_route": true
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "stamp_occlusion_present": true,
+   "gated_only_route_families": [
+    "other",
+    "scan_cohort (rasterized image, forced-scan)",
+    "visual (forced OCR route, NOT rasterized)"
+   ],
+   "tabled_only_route_families": [
+    "adaptive (native/digital-PDF route where applicable)"
+   ],
+   "clean_flip_by_route": true
+  }
+ ],
+ "documents_with_clean_route_flip": 2,
+ "verdicts": {
+  "A": {
+   "verdict": "REJECTED",
+   "reasoning": "2/3 documents show the SAME document, with the SAME stamp/occlusion content present in every arm, flipping between gated and tabled depending on ROUTE FAMILY alone (paired_gating_cases.json). A deterministic 'stamp -> picture label' rule cannot produce this: cmb_stamp_table_vi is gated under scan_cohort/coverage but tabled under adaptive/023-024, hc_stamp_table_vi is gated under visual+scan_cohort but tabled under adaptive. The stamp itself is present identically in all these runs -- only the route differs."
+  },
+  "C": {
+   "verdict": "SUPPORTED",
+   "reasoning": "The SAME flip evidence that rejects A directly supports C: route family (adaptive/native vs scan_cohort/rasterized vs visual/forced-OCR) is the variable that changes while stamp content stays constant. This is consistent with 030's H1 finding that OCR-recognizer choice, not document visual properties, gates the DOWNSTREAM row-synthesis mechanism -- here the same kind of route/backend sensitivity appears one stage earlier, at the LAYOUT LABEL itself, not just at cell recovery. INFERENCE, not proven at the pixel level: WHY route changes Docling's layout classification (different rendering DPI/quality between adaptive's native extraction and scan_cohort's rasterization?) was not traced to Docling's internal model this milestone."
+  },
+  "B": {
+   "verdict": "PARTIALLY SUPPORTED",
+   "reasoning": "Consistent with the evidence but not independently distinguished from C -- 'degraded layout evidence' (B) and 'backend/route interaction' (C) are not mutually exclusive: rasterization (scan_cohort) could BOTH change the route AND degrade the visual evidence Docling's layout model sees (lower effective resolution, JPEG compression per 024's own _rasterize method at q58-66). This milestone cannot cleanly separate 'route changed' from 'route changed AND evidence degraded' without inspecting Docling's layout model output at matched resolution, which was not done."
+  },
+  "D": {
+   "verdict": "REJECTED as the SOLE explanation, not as a contributing factor",
+   "reasoning": "The route-family flip pattern is consistent across cmb_stamp_table_vi and hc_stamp_table_vi -- not idiosyncratic to one document -- which argues against 'incidental, another property is causal' as the primary story. Some OTHER document-specific property may still contribute (document layout complexity, e.g.) but route family alone already explains the flip pattern well enough that a fully independent cause is not needed to explain the data."
+  }
+ }
+}
