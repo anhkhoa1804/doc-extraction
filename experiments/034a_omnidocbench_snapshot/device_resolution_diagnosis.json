@@ -1,0 +1,187 @@
+{
+ "call_graph": {
+  "cli_command_path": "CLI: `doc_extraction run/compare` -> argparse main() -> cmd_run/cmd_compare -> resolve_device(config) [cli.py:51, called at line(s) [268, 350, 394]] -> process_file(config) [config.device already concrete] -> _get_component_backends/build_whole_document_backend -> TableTransformerBackend(device=config.device)",
+  "library_caller_path": "library caller (e.g. experiments/005_omnidocbench/prepare.py) -> process_file(config) directly [cli.py:246, verified this function's body does NOT call resolve_device: False] -> backend construction with WHATEVER config.device currently is -> if the caller set device=\"auto\" and never called resolve_device() itself, the literal string \"auto\" reaches TableTransformerBackend(device=\"auto\") -> .to(\"auto\") -> RuntimeError"
+ },
+ "exact_source_locations": {
+  "resolve_device_definition": "src/doc_extraction/cli.py:51",
+  "resolve_device_call_sites": [
+   "src/doc_extraction/cli.py:268",
+   "src/doc_extraction/cli.py:350",
+   "src/doc_extraction/cli.py:394"
+  ],
+  "process_file_definition": "src/doc_extraction/cli.py:246",
+  "process_file_calls_resolve_device": true,
+  "table_backend_to_device_calls": [
+   "src/doc_extraction/backends/table_backend.py:64",
+   "src/doc_extraction/backends/table_backend.py:70",
+   "src/doc_extraction/backends/table_backend.py:111",
+   "src/doc_extraction/backends/table_backend.py:127"
+  ],
+  "config_device_field_doc": "src/doc_extraction/config.py (PipelineConfig.device): ['# \"cpu\" | \"cuda\" | \"auto\". \"auto\" inspects the GPU\\'s *current* state', '# VRAM this workload should assume it needs, for `device: auto` only.', '# VRAM left unclaimed for co-tenants when `auto` decides. A courtesy']"
+ },
+ "failure_condition": "A caller constructs or loads a PipelineConfig with device==\"auto\" and calls process_file(path, config, ...) WITHOUT first calling resolve_device(config) itself. process_file() passes config.device verbatim into backend constructors (_get_component_backends -> TableTransformerBackend(device=config.device), DoclingBackend(device=config.device)). TableTransformerBackend crashes immediately (.to(\"auto\") is not a valid torch device string). DoclingBackend does NOT crash on \"auto\" (confirmed empirically this milestone: layout+ocr stages succeeded in the smoke test log, only the table stage failed) -- Docling's own device handling appears to tolerate or ignore an unrecognized string rather than raising, which is a SEPARATE, smaller finding (Docling silently not-erroring on a bad device string is arguably its own minor correctness gap, out of scope to fix here).",
+ "why_cli_and_library_paths_differ": "resolve_device() is a manual step every caller must remember to invoke -- it is not enforced by process_file()'s own signature or body. The CLI's cmd_run/cmd_compare, and the two production-adjacent research benchmarks (production_corpus/run_benchmark.py, hardcases/run_benchmark.py), all independently established the convention of calling it themselves before process_file(). Every OTHER historical caller never needed to, because none of them ever constructed a config with device==\"auto\" in the first place -- configs/cpu.yaml and configs/default.yaml (the only historically-used config files) both hardcode device: \"cpu\" literally. This milestone is the first to deliberately request \"auto\" through prepare.py's direct process_file() call, which is exactly why this gap was never discovered before Milestone 034a.",
+ "correct_fix_boundary": {
+  "chosen": "process_file() itself, guarded",
+  "why_not_elsewhere": "NOT configuration normalization (e.g. resolving 'auto' at PipelineConfig construction/load_config() time) -- 'auto' is EXPLICITLY documented (config.py) as meaning 'inspect the GPU's CURRENT state', which is only meaningful right before use, not at config-load time (a config can be loaded long before a run starts). NOT backend construction (_get_component_backends/build_whole_document_backend) -- would require duplicating the resolve-or-skip guard in every backend-construction call site (_get_component_backends AND build_whole_document_backend AND any future one), violating 'prefer one centralized resolution boundary, not duplicated logic'. process_file() is the SINGLE function every caller (CLI and library) already goes through before any backend is touched -- the correct, minimal, centralized boundary.",
+  "exact_guard": "if config.device == \"auto\": config = resolve_device(config)  -- placed at the top of process_file(), before route_decision/backend construction. Guarded (not an unconditional call) specifically to avoid double-invoking resolve_device() for callers that already resolved it themselves (cmd_run/cmd_compare/the two research benchmarks) -- an unconditional call would be idempotent for config.device's VALUE (select_device returns the already-concrete value unchanged) but would CLOBBER the process-global _DEVICE_DECISION metadata (overwriting a rich state=clear/limited/protected+gpu-stats decision with a bland state='not_probed' one), a real metadata-quality regression for every existing protected caller."
+ },
+ "concurrency_relevant_finding": "src/doc_extraction/cli.py's _get_component_backends() docstring explicitly states: 'the runner is sequential and these backends hold no per-document state... A future parallel runner must not share them across threads without checking that assumption again.' Backends are cached in a MODULE-LEVEL dict (_COMPONENT_BACKEND_CACHE) keyed by (device, ocr_languages, ocr_backend) for the PROCESS lifetime -- safe across separate OS processes (each gets its own cache/module state) but explicitly NOT asserted safe across threads within one process. This governs how the later concurrency experiment (Phase 7-9) must be structured: separate processes, not threads.",
+ "caller_classification": [
+  {
+   "file": "src/doc_extraction/cli.py",
+   "line": 360,
+   "site": "cmd_run",
+   "kind": "CLI dispatch",
+   "protected": true,
+   "why": "resolve_device(config) called at cli.py:339, BEFORE this call -- config.device is already concrete."
+  },
+  {
+   "file": "src/doc_extraction/cli.py",
+   "line": 406,
+   "site": "cmd_compare",
+   "kind": "CLI dispatch",
+   "protected": true,
+   "why": "resolve_device(config) called at cli.py:383, BEFORE this call."
+  },
+  {
+   "file": "research/production_corpus/run_benchmark.py",
+   "line": 205,
+   "site": "module-level run loop",
+   "kind": "research/production-adjacent benchmark (Layer-1 scorer's own document producer, cited by docs/production-contract.md's Capabilities table)",
+   "protected": true,
+   "why": "its own configure() helper (line 137-141) calls resolve_device(config) explicitly before process_file() is ever invoked -- an established, correct convention, not an accident."
+  },
+  {
+   "file": "research/hardcases/run_benchmark.py",
+   "line": 147,
+   "site": "module-level run loop",
+   "kind": "research/production-adjacent benchmark (source of production-contract.md's hardcase capability claims)",
+   "protected": true,
+   "why": "same configure()-calls-resolve_device() convention (line 125), confirmed by direct read."
+  },
+  {
+   "file": "experiments/015_scan_recovery/run_production_recovery.py",
+   "line": 91,
+   "site": "main",
+   "kind": "experiment (named production-adjacent)",
+   "protected": "LIKELY (uses --device with an explicit default of \"cuda\", never \"auto\"; not exhaustively traced further this milestone)",
+   "why": "CLI flag default is device=\"cuda\" (literal), not \"auto\" -- the bug requires the literal string \"auto\" to reach process_file(); a literal cuda/cpu never triggers it regardless of whether resolve_device() ran."
+  },
+  {
+   "file": "tests/test_determinism.py",
+   "line": 49,
+   "site": "test_process_file_is_deterministic (or similar)",
+   "kind": "production test suite",
+   "protected": true,
+   "why": "hardcodes PipelineConfig(device=\"cpu\") explicitly (line 46) -- never \"auto\"."
+  },
+  {
+   "file": "experiments/023_evidence_centric/run_ab.py",
+   "line": 320,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "no resolve_device call found, AND no \"auto\" default found -- this script never constructs a config with device=\"auto\" in the first place."
+  },
+  {
+   "file": "experiments/018_bottleneck_discovery/run_order_recovery_hardcases.py",
+   "line": 74,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same as above -- never uses \"auto\"."
+  },
+  {
+   "file": "experiments/018_bottleneck_discovery/run_order_recovery.py",
+   "line": 91,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/024_ocr_fidelity_recovery/scan_cohort_realscan_probe.py",
+   "line": 101,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/016_scan_failure_boundary/forensics.py",
+   "line": 171,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/024_ocr_fidelity_recovery/scan_cohort_ab.py",
+   "line": 242,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/024_ocr_fidelity_recovery/line5_adaptive_ab.py",
+   "line": 245,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/025_layout_evidence_recall/coverage_instrument.py",
+   "line": 148,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/025_layout_evidence_recall/intervention_ab.py",
+   "line": 172,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/015_scan_recovery/run_scan_recovery.py",
+   "line": 95,
+   "kind": "research experiment",
+   "protected": true,
+   "why": "same."
+  },
+  {
+   "file": "experiments/005_omnidocbench/prepare.py",
+   "line": 44,
+   "site": "_process_sample",
+   "kind": "BENCHMARK caller (this milestone)",
+   "protected": false,
+   "why": "THE VULNERABLE CALLER. run.py's config default is configs/cpu.yaml (device=\"cpu\" literal) -- also never \"auto\" BY DEFAULT. This milestone is the FIRST caller in this repository's entire history to deliberately pass device=\"auto\" through this path (chosen because docs/production-contract.md describes \"auto\" as the correct resource-aware production posture on a shared machine), which is exactly what exposed the gap."
+  }
+ ],
+ "summary_counts": {
+  "total_callers_found": 17,
+  "protected_already": 15,
+  "vulnerable": 1,
+  "likely_protected_not_exhaustively_traced": 1
+ },
+ "phase_2_classification": "REAL PRODUCTION INFRASTRUCTURE BUG -- process_file() is a genuine, actively-used library entry point (the CLI's own cmd_run/cmd_compare are thin wrappers around it; two production-adjacent research benchmarks that back docs/production-contract.md's own capability claims call it directly), and PipelineConfig.device=\"auto\" is a documented, first-class, supported value (config.py's own docstring) -- but process_file() silently assumes the value it receives is already concrete, with no validation and no docstring warning. The blast radius has been LATENT/ZERO in practice (every historical caller either avoided \"auto\" entirely or resolved it themselves by convention), not something that has caused a past production incident -- both facts are true simultaneously and neither should be overstated.",
+ "phase_3_minimal_fix": {
+  "file": "src/doc_extraction/cli.py",
+  "function": "process_file (line 246)",
+  "diff": "diff --git a/src/doc_extraction/cli.py b/src/doc_extraction/cli.py\nindex 22f082a..e8ccedb 100644\n--- a/src/doc_extraction/cli.py\n+++ b/src/doc_extraction/cli.py\n@@ -254,7 +254,18 @@ def process_file(\n     whole-document backend over one file. Writes every stage's intermediate\n     output under `output_dir` (default: `output_root/<document_id>/`).\n     Never swallows an exception — metadata.json + the stage log always\n-    record a failure before it propagates.\"\"\"\n+    record a failure before it propagates.\n+\n+    Resolves `config.device == \"auto\"` if the caller hasn't already (guarded,\n+    not unconditional: cmd_run/cmd_compare call resolve_device() themselves\n+    before this, and re-resolving an already-concrete device would clobber\n+    the richer _DEVICE_DECISION metadata they recorded with a bland\n+    \"not_probed\" one). Every backend constructed below must receive a\n+    concrete device string, never the literal \"auto\" — see\n+    experiments/034a_omnidocbench_snapshot/device_resolution_diagnosis.json\n+    for the failure this fixes.\"\"\"\n+    if config.device == \"auto\":\n+        config = resolve_device(config)\n     if output_dir is None:\n         if output_root is None:\n             raise ValueError(\"process_file requires output_root or output_dir\")\n",
+  "invariant_established": "every backend constructed downstream of process_file() receives a concrete resolved device string, never the literal \"auto\" -- REGARDLESS of whether the caller went through the CLI (cmd_run/cmd_compare, which already resolved it) or called process_file() directly as a library function (which previously did not).",
+  "why_minimal": "1 guarded call (2 lines of logic + docstring), reuses the EXISTING resolve_device() function verbatim -- no new resolution logic, no duplication across the multiple backend-construction call sites (_get_component_backends, build_whole_document_backend).",
+  "regression_surface": "process_file() is called by 17 known sites (caller_classification above). For the 15 already-protected callers, config.device is already concrete when process_file() runs, so the guard condition (config.device == \"auto\") is False and this is a strict no-op -- zero behavior change. For the 1 vulnerable caller (this milestone's own prepare.py) and any future caller passing \"auto\" directly, this is the fix. No other code path is touched.",
+  "not_committed_separately": "left in the working tree as part of this milestone's changes; FINAL_REPORT.md's production recommendation states explicitly whether this should become its OWN standalone production commit (Phase 18's instruction) rather than being silently folded into a benchmark-snapshot commit."
+ },
+ "phase_4_regression_test": {
+  "file": "tests/test_cli_device_resolution.py (new)",
+  "tests": [
+   "test_process_file_resolves_auto_device_before_any_backend_is_touched -- THE core regression test; confirmed to FAIL without the fix (git-stash-verified this milestone: AssertionError: assert 'auto' == 'cpu') and PASS with it",
+   "test_process_file_does_not_reprobe_an_already_resolved_device -- guards against a naive unconditional-call fix that would clobber already-resolved _DEVICE_DECISION metadata for protected callers",
+   "test_process_file_honours_an_explicit_device_verbatim[cpu/cuda] -- confirms the existing 'explicit device is never overridden or probed' contract (tests/test_resources.py) still holds through process_file(), not just select_device() in isolation"
+  ],
+  "falsification_performed": "git stash push -- src/doc_extraction/cli.py; ran the core test (FAILED as expected: assert 'auto' == 'cpu'); git stash pop (restored the fix); re-ran (PASSED) -- proves this is a genuine regression test, not a tautology.",
+  "new_test_suite_result": "4 passed in 0.83s",
+  "full_suite_result": "345 passed, 10 skipped, 6 warnings in 15.55s",
+  "baseline_was": "341 passed, 10 skipped"
+ }
+}

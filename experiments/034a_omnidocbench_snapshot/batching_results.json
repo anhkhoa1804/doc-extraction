@@ -1,0 +1,12 @@
+{
+ "method": "grep every backend's core method signature directly -- does any accept a list/batch of pages, or exactly one?",
+ "signatures_found": {
+  "TableTransformerBackend.extract": "page: PageInput, regions: list[Region]",
+  "DoclingBackend.analyze": "page: PageInput",
+  "DoclingBackend.convert": "path: Path, config: Any"
+ },
+ "finding": "Every backend method takes exactly ONE page/path per call -- TableTransformerBackend.extract(page, regions), DoclingBackend.analyze(page), DoclingBackend.convert(path, config). No batch dimension, no list-of-pages parameter, anywhere in the current backend architecture. Confirmed by direct signature inspection, not inferred.",
+ "current_processing_granularity": "strictly page-by-page, document-by-document -- prepare.py's own loop calls process_file() once per image, sequentially, with no batching at any layer.",
+ "why_no_batching_experiment_was_run": "there is no existing batching toggle to compare against -- 'batched' is not a configuration option, it is an architecture that does not exist yet. Building one (padding/collating multiple page images into one forward pass through Docling's layout model and Table Transformer) would be a genuine new architecture change, explicitly out of scope per this milestone's own instruction ('do not implement a large batching architecture').",
+ "conclusion": "GPU underutilization (if found in concurrency_results.json / pipeline_timing.json) cannot be attributed to a missing batching TOGGLE that could simply be flipped -- it would require new engineering. The scheduling-granularity question this phase asks about is answered structurally: granularity is fixed at 'one page, one forward pass' throughout the current codebase."
+}

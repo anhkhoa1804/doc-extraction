@@ -1,0 +1,43 @@
+{
+ "source": "configs/cpu.yaml, the ONLY validated production profile per its own header comment (\"CPU is the default because it is the only configuration actually validated in this project\") -- with ONE field changed: device \"cpu\" -> \"auto\".",
+ "why_device_auto_not_cpu_or_cuda_literal": "configs/gpu.yaml (device: cuda unconditional) explicitly recommends against itself on a shared machine: \"On a SHARED machine prefer device: auto over cuda: it inspects free VRAM, utilization and other compute processes first, and falls back to CPU rather than competing with another project's job.\" This machine IS shared (Research-No.1). device=auto is genuine, already-implemented, already-validated production logic (src/doc_extraction/utils/resources.py select_device()) -- not a benchmark-special override. Verified this phase: select_device(\"auto\") resolves to cuda right now given the actual observed GPU state (baseline_environment.json).",
+ "why_not_change_ocr_languages": "docs/production-contract.md: \"OCR is configured [en, vi], which is a deliberate choice for this corpus -- experiment 007 measured that swapping to a Chinese model to chase a public benchmark costs 43.6% on English and collapses English table structure from 0.715 to 0.000.\" OmniDocBench is majority Chinese-language content; changing ocr_languages to add zh would be exactly the prohibited benchmark-chasing change (Phase 16). ocr_languages remains [\"en\", \"vi\"], unchanged from production.",
+ "full_config": {
+  "input_dir": "data",
+  "output_dir": "outputs",
+  "device": "auto",
+  "render_dpi": 200,
+  "digital_pdf_min_chars_per_page": 40,
+  "digital_pdf_page_ratio": 0.6,
+  "digital_pdf_sample_pages": 5,
+  "text_quality_min_chars": 200,
+  "text_quality_max_mixed_script_word_ratio": 0.1,
+  "text_quality_max_unexpected_script_ratio": 0.1,
+  "text_quality_max_replacement_ratio": 0.02,
+  "text_quality_max_control_ratio": 0.02,
+  "text_quality_min_alpha_ratio": 0.3,
+  "text_quality_max_digit_in_word_ratio": 0.3,
+  "text_quality_expected_scripts": [
+   "LATIN"
+  ],
+  "text_quality_max_suspicious_page_ratio": 0.34,
+  "digital_pdf_page_fallback": true,
+  "digital_pdf_tables": true,
+  "ocr_languages": [
+   "en",
+   "vi"
+  ],
+  "layout_backend": "docling",
+  "ocr_backend": "docling",
+  "table_backend": "table_transformer",
+  "backends": {
+   "docling": true,
+   "mineru": false,
+   "paddleocr": false,
+   "vlm": false
+  },
+  "cache_dir": ".cache",
+  "log_level": "INFO"
+ },
+ "unvalidated_alternative_not_used": "configs/gpu.yaml (device: cuda literal, unconditional -- would contend with another project's job if one started mid-run; auto degrades gracefully instead)"
+}

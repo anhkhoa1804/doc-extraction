@@ -1,0 +1,24 @@
+{
+ "label": "c2",
+ "n_concurrent_processes": 2,
+ "wall_seconds": 324.191924934,
+ "total_pages": 77,
+ "total_succeeded": 77,
+ "total_failed": 0,
+ "pages_per_second_aggregate": 0.2375,
+ "sec_per_page_effective": 4.2103,
+ "gpu": {
+  "n_samples": 160,
+  "peak_vram_mib": 22378.0,
+  "mean_utilization_pct": 32.91,
+  "max_utilization_pct": 100.0,
+  "vram_total_mib": 23034,
+  "peak_vram_fraction_of_total": 0.972
+ },
+ "determinism_vs_serial_baseline": {
+  "n_checked_against_serial_baseline": 77,
+  "n_mismatches": 0,
+  "mismatches": []
+ },
+ "any_chunk_failed": false
+}

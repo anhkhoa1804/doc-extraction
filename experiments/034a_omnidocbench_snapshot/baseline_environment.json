@@ -1,0 +1,37 @@
+{
+ "commit": "02a78a1c98d9347fcc435df9c1667ae194d11d13",
+ "branch": "fix/table-text-ownership",
+ "origin_head": "02a78a1c98d9347fcc435df9c1667ae194d11d13",
+ "local_eq_origin": true,
+ "git_status_short": "?? experiments/034a_omnidocbench_snapshot/\n?? uv.lock\n",
+ "python_gpu_venv": "/home/leanhkhoa150204/.venvs/doc-extraction-gpu312",
+ "python_version_gpu_venv": "3.12.14",
+ "torch_version": "2.11.0+cu128",
+ "torch_cuda_version": "12.8",
+ "cuda_available": true,
+ "transformers_version": "5.16.1",
+ "docling_version": "2.124.0",
+ "easyocr_version": "1.7.2",
+ "gpu_state": {
+  "name": "NVIDIA L4",
+  "driver_version": "580.173.02",
+  "total_mib": 23034,
+  "used_mib": 0,
+  "free_mib": 22564,
+  "utilization_pct": 0,
+  "processes": []
+ },
+ "device_auto_decision": {
+  "device": "cuda",
+  "state": "clear",
+  "reason": "auto -> cuda: no other compute process; 22561 MiB free, 0% utilization"
+ },
+ "omnidocbench_evaluator": {
+  "repo_path": ".external/OmniDocBench",
+  "pinned_commit_expected": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+  "venv_path": "/home/leanhkhoa150204/.venvs/omnidoc-evaluator",
+  "venv_python_version": "3.11.16"
+ },
+ "test_baseline": "341 passed, 10 skipped",
+ "uv_lock_tracked": false
+}

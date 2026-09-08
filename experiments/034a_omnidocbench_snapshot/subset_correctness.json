@@ -1,0 +1,26 @@
+{
+ "config_A": "config_A_workaround_cuda_literal.yaml (device: \"cuda\" literal, configs/gpu.yaml unmodified -- the workaround used before the fix)",
+ "config_B": "config_B_fixed_auto.yaml (device: \"auto\", configs/cpu.yaml + one field -- the TRUE intended production config, now safe with the process_file() guard fix)",
+ "device_actually_resolved_A": "cuda",
+ "device_actually_resolved_B": "cuda",
+ "n_predictions_A": 77,
+ "n_predictions_B": 77,
+ "only_in_A": [],
+ "only_in_B": [],
+ "n_identical_byte_for_byte": 77,
+ "n_different": 0,
+ "different_predictions": [],
+ "runtime_A": {
+  "succeeded": 77,
+  "failed": 0,
+  "mean_seconds_per_page": 7.2535,
+  "total_runtime_seconds": 558.523
+ },
+ "runtime_B": {
+  "succeeded": 77,
+  "failed": 0,
+  "mean_seconds_per_page": 7.1376,
+  "total_runtime_seconds": 549.595
+ },
+ "verdict": "SEMANTICALLY EQUIVALENT -- 100% byte-identical predictions, fix is a pure resolution-boundary correctness fix with zero output-affecting side effect"
+}

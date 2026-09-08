@@ -1,0 +1,178 @@
+{
+    "text_block": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.5321996495575616,
+                "edit_whole": 0.46664300922640173,
+                "edit_sample_avg": 0.836530016453388
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.5321996495575616,
+                "data_source: PPT2PDF": 0.9166666666666666,
+                "data_source: academic_literature": 0.29003021148036257,
+                "data_source: book": 0.22715068482038928,
+                "data_source: historical_document": 1.0,
+                "geometric_deformation": 1.0,
+                "language: english": 0.24811052704038036,
+                "language: simplified_chinese": 0.9166666666666666,
+                "language: traditional_chinese": 1.0,
+                "layout: 1andmore_column": 0.9166666666666666,
+                "layout: other_layout": 1.0,
+                "layout: single_column": 0.24811052704038036,
+                "subset: equation_hard": 0.30683915739474144,
+                "subset: layout_hard": 1.0,
+                "subset: v1.5": 0.5236599664991625,
+                "watermark": 0.9166666666666666
+            }
+        }
+    },
+    "display_formula": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 1.0,
+                "edit_whole": 1.0,
+                "edit_sample_avg": 1.0
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 1.0,
+                "data_source: academic_literature": 1.0,
+                "data_source: book": 1.0,
+                "language: english": 1.0,
+                "layout: single_column": 1.0,
+                "subset: equation_hard": 1.0
+            }
+        }
+    },
+    "table": {
+        "all": {
+            "TEDS": {
+                "all": 0.6438034188034187
+            },
+            "TEDS_structure_only": {
+                "all": 0.6666666666666666
+            },
+            "Edit_dist": {
+                "ALL_page_avg": 0.6908561228435377,
+                "edit_whole": 0.7343228627315613,
+                "edit_sample_avg": 0.6451136485601037
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.6908561228435376,
+                "data_source: book": 0.5535353535353534,
+                "data_source: research_report": 0.8281768921517217,
+                "language: english": 0.5535353535353534,
+                "language: traditional_chinese": 0.8281768921517217,
+                "layout: single_column": 0.6908561228435376,
+                "subset: table_hard": 0.8281768921517217,
+                "subset: v1.5": 0.5535353535353534
+            },
+            "TEDS": {
+                "ALL": 0.48285256410256405,
+                "data_source: book": 0.9657051282051281,
+                "data_source: research_report": 0.0,
+                "language: english": 0.9657051282051281,
+                "language: traditional_chinese": 0.0,
+                "layout: single_column": 0.48285256410256405,
+                "subset: table_hard": 0.0,
+                "subset: v1.5": 0.9657051282051281
+            },
+            "TEDS_structure_only": {
+                "ALL": 0.5,
+                "data_source: book": 1.0,
+                "data_source: research_report": 0.0,
+                "language: english": 1.0,
+                "language: traditional_chinese": 0.0,
+                "layout: single_column": 0.5,
+                "subset: table_hard": 0.0,
+                "subset: v1.5": 1.0
+            }
+        },
+        "metric_debug": {
+            "TEDS": {
+                "stage": "TEDS",
+                "workers": 13,
+                "timeout_sec": 120.0,
+                "sample_count": 3,
+                "timeout_case_count": 0,
+                "timeout_cases": [],
+                "error_case_count": 1,
+                "error_cases": [
+                    {
+                        "case_name": "page-c7792da7-4167-4f5c-a7ca-ec0f8833f83b.png[gt=[0], pred=[0]]",
+                        "img_id": "page-c7792da7-4167-4f5c-a7ca-ec0f8833f83b.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    }
+                ]
+            }
+        }
+    },
+    "reading_order": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.5083333333333333,
+                "edit_whole": 0.22058823529411764,
+                "edit_sample_avg": 0.5083333333333334
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.5083333333333333,
+                "data_source: PPT2PDF": 0.8,
+                "data_source: academic_literature": 0.5,
+                "data_source: book": 0.375,
+                "data_source: historical_document": 0.0,
+                "data_source: research_report": 1.0,
+                "geometric_deformation": 0.0,
+                "language: english": 0.4166666666666667,
+                "language: simplified_chinese": 0.8,
+                "language: traditional_chinese": 0.5,
+                "layout: 1andmore_column": 0.8,
+                "layout: other_layout": 0.0,
+                "layout: single_column": 0.5625,
+                "subset: equation_hard": 0.45833333333333337,
+                "subset: layout_hard": 0.0,
+                "subset: table_hard": 1.0,
+                "subset: v1.5": 0.5666666666666667,
+                "watermark": 0.8
+            }
+        }
+    },
+    "match_debug": {
+        "workers": 4,
+        "page_count": 6,
+        "quick_match_truncated_timeout_sec": 300,
+        "match_timeout_sec": 420,
+        "text_match_fallback_pages": {
+            "quick_match_timeout": [],
+            "page_timeout": []
+        },
+        "text_match_fallback_counts": {
+            "quick_match_timeout": 0,
+            "page_timeout": 0
+        }
+    }
+}

@@ -63,6 +63,19 @@ experiments/005_omnidocbench/results/**/*run_summary.json
 experiments/005_omnidocbench/results/**/*runtime_environment.json
 experiments/005_omnidocbench/kaggle/*.output.ipynb
 
+# experiments/034a_omnidocbench_snapshot — external validation snapshot
+# against the full public OmniDocBench (1651 pages, 1.4 GB of images +
+# a 41 MB ground-truth annotation file). The raw dataset and per-page
+# run output are not committed; the experiment's own scripts, JSON
+# summaries, and reports are — see that experiment's README.md.
+experiments/034a_omnidocbench_snapshot/dataset/
+experiments/034a_omnidocbench_snapshot/results/**/predictions/
+experiments/034a_omnidocbench_snapshot/results/**/_doc_extraction_runs/
+# Same reason as the 005_omnidocbench rule above: these embed this
+# machine's hostname via the evaluator's own `uname` fingerprint.
+experiments/034a_omnidocbench_snapshot/results/**/*run_summary.json
+experiments/034a_omnidocbench_snapshot/results/**/*runtime_environment.json
+
 # Environment / secrets
 .env
 .env.*

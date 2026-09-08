@@ -1,0 +1,1012 @@
+{
+ "method": "APPROXIMATE proxy only -- difflib.SequenceMatcher ratio between the prediction markdown and a naive newline-joined concatenation of the ground truth's own text_block/title spans. NOT the official OmniDocBench edit-distance metric (which normalizes/tokenizes text and handles reading order explicitly) -- used ONLY to rank pages for qualitative worst/best/median inspection, since the official evaluator's own collected output does not expose per-page scores through any file available to this milestone (see module docstring).",
+ "n_scored": 72,
+ "worst_10": [
+  {
+   "prediction_file": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.md",
+   "image": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png",
+   "data_source": "note",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 4,
+   "gt_len": 792,
+   "approx_similarity_ratio": 0.0
+  },
+  {
+   "prediction_file": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.md",
+   "image": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.png",
+   "data_source": "academic_literature",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 3639,
+   "gt_len": 10,
+   "approx_similarity_ratio": 0.0
+  },
+  {
+   "prediction_file": "yanbaopptmerge_yanbaoPPT_4570.md",
+   "image": "yanbaopptmerge_yanbaoPPT_4570.jpg",
+   "data_source": "PPT2PDF",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 86,
+   "gt_len": 1074,
+   "approx_similarity_ratio": 0.0034
+  },
+  {
+   "prediction_file": "page-49776237-a9be-441d-a326-002eb7084385.md",
+   "image": "page-49776237-a9be-441d-a326-002eb7084385.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 1,
+   "gt_len": 547,
+   "approx_similarity_ratio": 0.0036
+  },
+  {
+   "prediction_file": "newspaper_4790b51e8fa793743699647c09a93ccb_1.md",
+   "image": "newspaper_4790b51e8fa793743699647c09a93ccb_1.jpg",
+   "data_source": "newspaper",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 69,
+   "gt_len": 8090,
+   "approx_similarity_ratio": 0.0039
+  },
+  {
+   "prediction_file": "page-52875b3d-f4dc-44c2-a9bb-514b0763833d.md",
+   "image": "page-52875b3d-f4dc-44c2-a9bb-514b0763833d.png",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 40,
+   "gt_len": 1781,
+   "approx_similarity_ratio": 0.0055
+  },
+  {
+   "prediction_file": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.md",
+   "image": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 490,
+   "gt_len": 212,
+   "approx_similarity_ratio": 0.0057
+  },
+  {
+   "prediction_file": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.md",
+   "image": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg",
+   "data_source": "magazine",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 16,
+   "gt_len": 327,
+   "approx_similarity_ratio": 0.0058
+  },
+  {
+   "prediction_file": "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.md",
+   "image": "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 8,
+   "gt_len": 991,
+   "approx_similarity_ratio": 0.006
+  },
+  {
+   "prediction_file": "notes_1ba14cb325bc448f7201b20502ecf2b5_8.md",
+   "image": "notes_1ba14cb325bc448f7201b20502ecf2b5_8.jpg",
+   "data_source": "note",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 27,
+   "gt_len": 507,
+   "approx_similarity_ratio": 0.0075
+  }
+ ],
+ "best_10": [
+  {
+   "prediction_file": "PPT_The Right Moves_page_010.md",
+   "image": "PPT_The Right Moves_page_010.png",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 340,
+   "gt_len": 301,
+   "approx_similarity_ratio": 0.9204
+  },
+  {
+   "prediction_file": "PPT_lay_linalg5_01_05_page_004.md",
+   "image": "PPT_lay_linalg5_01_05_page_004.png",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 186,
+   "gt_len": 168,
+   "approx_similarity_ratio": 0.8192
+  },
+  {
+   "prediction_file": "page-2861127b-41a4-44d5-b026-2de9cb408347.md",
+   "image": "page-2861127b-41a4-44d5-b026-2de9cb408347.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 2467,
+   "gt_len": 2655,
+   "approx_similarity_ratio": 0.7552
+  },
+  {
+   "prediction_file": "jiaocaineedrop_jiaocai_needrop_en_3375.md",
+   "image": "jiaocaineedrop_jiaocai_needrop_en_3375.jpg",
+   "data_source": "exam_paper",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 3052,
+   "gt_len": 3154,
+   "approx_similarity_ratio": 0.7538
+  },
+  {
+   "prediction_file": "scihub_j.jmb.2003.10.009.pdf_4.md",
+   "image": "scihub_j.jmb.2003.10.009.pdf_4.jpg",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 4475,
+   "gt_len": 3553,
+   "approx_similarity_ratio": 0.7474
+  },
+  {
+   "prediction_file": "yanbaopptmerge_yanbaoPPT_1120.md",
+   "image": "yanbaopptmerge_yanbaoPPT_1120.jpg",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 155,
+   "gt_len": 103,
+   "approx_similarity_ratio": 0.7442
+  },
+  {
+   "prediction_file": "page-ae356bde-652d-44a9-9e21-76cadf5a9dea.md",
+   "image": "page-ae356bde-652d-44a9-9e21-76cadf5a9dea.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 721,
+   "gt_len": 867,
+   "approx_similarity_ratio": 0.733
+  },
+  {
+   "prediction_file": "docstructbench_enbook-zlib-o.O-17208435.pdf_57.md",
+   "image": "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg",
+   "data_source": "book",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 6186,
+   "gt_len": 6520,
+   "approx_similarity_ratio": 0.679
+  },
+  {
+   "prediction_file": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.md",
+   "image": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.jpg",
+   "data_source": "book",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 1811,
+   "gt_len": 1718,
+   "approx_similarity_ratio": 0.624
+  },
+  {
+   "prediction_file": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.md",
+   "image": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 1678,
+   "gt_len": 3094,
+   "approx_similarity_ratio": 0.5889
+  }
+ ],
+ "median_3": [
+  {
+   "prediction_file": "eastmoney_66eea274d39b939da0f10253d279e119d87646f10fd21b3942eaf6c5d93b8134.pdf_0.md",
+   "image": "eastmoney_66eea274d39b939da0f10253d279e119d87646f10fd21b3942eaf6c5d93b8134.pdf_0.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 885,
+   "gt_len": 1352,
+   "approx_similarity_ratio": 0.0653
+  },
+  {
+   "prediction_file": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.md",
+   "image": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 115,
+   "gt_len": 33,
+   "approx_similarity_ratio": 0.0676
+  },
+  {
+   "prediction_file": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.md",
+   "image": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 795,
+   "gt_len": 1442,
+   "approx_similarity_ratio": 0.0778
+  }
+ ],
+ "all_rows": [
+  {
+   "prediction_file": "PPT_The Right Moves_page_010.md",
+   "image": "PPT_The Right Moves_page_010.png",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 340,
+   "gt_len": 301,
+   "approx_similarity_ratio": 0.9204
+  },
+  {
+   "prediction_file": "PPT_lay_linalg5_01_05_page_004.md",
+   "image": "PPT_lay_linalg5_01_05_page_004.png",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 186,
+   "gt_len": 168,
+   "approx_similarity_ratio": 0.8192
+  },
+  {
+   "prediction_file": "book_en_40.Puzzles.and.Problems.in.Probability.and.Mathematical.Statistics,.Schwarz,.Springer,.2008_page_115.md",
+   "image": "book_en_40.Puzzles.and.Problems.in.Probability.and.Mathematical.Statistics,.Schwarz,.Springer,.2008_page_115.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 1500,
+   "gt_len": 2063,
+   "approx_similarity_ratio": 0.1948
+  },
+  {
+   "prediction_file": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.md",
+   "image": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png",
+   "data_source": "colorful_textbook",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 369,
+   "gt_len": 419,
+   "approx_similarity_ratio": 0.3604
+  },
+  {
+   "prediction_file": "docstructbench_enbook-zlib-o.O-17208435.pdf_57.md",
+   "image": "docstructbench_enbook-zlib-o.O-17208435.pdf_57.jpg",
+   "data_source": "book",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 6186,
+   "gt_len": 6520,
+   "approx_similarity_ratio": 0.679
+  },
+  {
+   "prediction_file": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.md",
+   "image": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg",
+   "data_source": "colorful_textbook",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 2185,
+   "gt_len": 2296,
+   "approx_similarity_ratio": 0.5521
+  },
+  {
+   "prediction_file": "docstructbench_llm-raw-scihub-o.O-ceat.200407001.pdf_3.md",
+   "image": "docstructbench_llm-raw-scihub-o.O-ceat.200407001.pdf_3.jpg",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 3882,
+   "gt_len": 3838,
+   "approx_similarity_ratio": 0.4259
+  },
+  {
+   "prediction_file": "docstructbench_llm-raw-scihub-o.O-chin.201023119.pdf_1.md",
+   "image": "docstructbench_llm-raw-scihub-o.O-chin.201023119.pdf_1.jpg",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 926,
+   "gt_len": 550,
+   "approx_similarity_ratio": 0.5799
+  },
+  {
+   "prediction_file": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.md",
+   "image": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 795,
+   "gt_len": 1442,
+   "approx_similarity_ratio": 0.0778
+  },
+  {
+   "prediction_file": "eastmoney_66eea274d39b939da0f10253d279e119d87646f10fd21b3942eaf6c5d93b8134.pdf_0.md",
+   "image": "eastmoney_66eea274d39b939da0f10253d279e119d87646f10fd21b3942eaf6c5d93b8134.pdf_0.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 885,
+   "gt_len": 1352,
+   "approx_similarity_ratio": 0.0653
+  },
+  {
+   "prediction_file": "eastmoney_7c25f92e2ab21d83e1eada0e40a68e3151e7c1c2d673ddb12b0242fa3ab931ab.pdf_13.md",
+   "image": "eastmoney_7c25f92e2ab21d83e1eada0e40a68e3151e7c1c2d673ddb12b0242fa3ab931ab.pdf_13.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 392,
+   "gt_len": 960,
+   "approx_similarity_ratio": 0.034
+  },
+  {
+   "prediction_file": "eastmoney_c683eb2923c442ad9fd8c1f25abb7b1b35b359611d5b8a07d1eede7a81983769.pdf_21.md",
+   "image": "eastmoney_c683eb2923c442ad9fd8c1f25abb7b1b35b359611d5b8a07d1eede7a81983769.pdf_21.jpg",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 132,
+   "gt_len": 533,
+   "approx_similarity_ratio": 0.018
+  },
+  {
+   "prediction_file": "jiaocai_jiaocai_en_91.md",
+   "image": "jiaocai_jiaocai_en_91.jpg",
+   "data_source": "exam_paper",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 1337,
+   "gt_len": 998,
+   "approx_similarity_ratio": 0.1456
+  },
+  {
+   "prediction_file": "jiaocaineedrop_7bc671081823aec9e2a6ef2a011c3fbb.pdf_20.md",
+   "image": "jiaocaineedrop_7bc671081823aec9e2a6ef2a011c3fbb.pdf_20.jpg",
+   "data_source": "magazine",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 770,
+   "gt_len": 795,
+   "approx_similarity_ratio": 0.3361
+  },
+  {
+   "prediction_file": "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.md",
+   "image": "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.jpg",
+   "data_source": "colorful_textbook",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 2129,
+   "gt_len": 0,
+   "approx_similarity_ratio": null
+  },
+  {
+   "prediction_file": "jiaocaineedrop_jiaocai_needrop_en_1358.md",
+   "image": "jiaocaineedrop_jiaocai_needrop_en_1358.jpg",
+   "data_source": "exam_paper",
+   "language": "en_ch_mixed",
+   "subset": "v1.5",
+   "pred_len": 692,
+   "gt_len": 748,
+   "approx_similarity_ratio": 0.2986
+  },
+  {
+   "prediction_file": "jiaocaineedrop_jiaocai_needrop_en_3375.md",
+   "image": "jiaocaineedrop_jiaocai_needrop_en_3375.jpg",
+   "data_source": "exam_paper",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 3052,
+   "gt_len": 3154,
+   "approx_similarity_ratio": 0.7538
+  },
+  {
+   "prediction_file": "jiaocaineedrop_jiaocai_needrop_en_3685.md",
+   "image": "jiaocaineedrop_jiaocai_needrop_en_3685.jpg",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 370,
+   "gt_len": 485,
+   "approx_similarity_ratio": 0.0187
+  },
+  {
+   "prediction_file": "jiaocaineedrop_jiaocai_needrop_en_769.md",
+   "image": "jiaocaineedrop_jiaocai_needrop_en_769.jpg",
+   "data_source": "exam_paper",
+   "language": "en_ch_mixed",
+   "subset": "v1.5",
+   "pred_len": 672,
+   "gt_len": 494,
+   "approx_similarity_ratio": 0.1458
+  },
+  {
+   "prediction_file": "magazine_TheEconomist.2024.03.02_page_075.md",
+   "image": "magazine_TheEconomist.2024.03.02_page_075.png",
+   "data_source": "magazine",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 5269,
+   "gt_len": 5264,
+   "approx_similarity_ratio": 0.566
+  },
+  {
+   "prediction_file": "newspaper_4790b51e8fa793743699647c09a93ccb_1.md",
+   "image": "newspaper_4790b51e8fa793743699647c09a93ccb_1.jpg",
+   "data_source": "newspaper",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 69,
+   "gt_len": 8090,
+   "approx_similarity_ratio": 0.0039
+  },
+  {
+   "prediction_file": "newspaper_e3842a5681ef54c62a58804adec06c3f_1.md",
+   "image": "newspaper_e3842a5681ef54c62a58804adec06c3f_1.jpg",
+   "data_source": "newspaper",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 133,
+   "gt_len": 7187,
+   "approx_similarity_ratio": 0.012
+  },
+  {
+   "prediction_file": "notes_1ba14cb325bc448f7201b20502ecf2b5_8.md",
+   "image": "notes_1ba14cb325bc448f7201b20502ecf2b5_8.jpg",
+   "data_source": "note",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 27,
+   "gt_len": 507,
+   "approx_similarity_ratio": 0.0075
+  },
+  {
+   "prediction_file": "notes_1ba14cb325bc448f7201b20502ecf2b5_81.md",
+   "image": "notes_1ba14cb325bc448f7201b20502ecf2b5_81.jpg",
+   "data_source": "note",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 180,
+   "gt_len": 168,
+   "approx_similarity_ratio": 0.0517
+  },
+  {
+   "prediction_file": "page-01700769-1314-4880-83ab-af23bee36da3.md",
+   "image": "page-01700769-1314-4880-83ab-af23bee36da3.png",
+   "data_source": "book",
+   "language": "en_ch_mixed",
+   "subset": "layout_hard",
+   "pred_len": 704,
+   "gt_len": 10,
+   "approx_similarity_ratio": 0.0112
+  },
+  {
+   "prediction_file": "page-07d333cf-4ebf-427c-b146-e419962b81fa.md",
+   "image": "page-07d333cf-4ebf-427c-b146-e419962b81fa.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 634,
+   "gt_len": 132,
+   "approx_similarity_ratio": 0.0392
+  },
+  {
+   "prediction_file": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.md",
+   "image": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 115,
+   "gt_len": 33,
+   "approx_similarity_ratio": 0.0676
+  },
+  {
+   "prediction_file": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.md",
+   "image": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png",
+   "data_source": "note",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 4,
+   "gt_len": 792,
+   "approx_similarity_ratio": 0.0
+  },
+  {
+   "prediction_file": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.md",
+   "image": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 241,
+   "gt_len": 385,
+   "approx_similarity_ratio": 0.0415
+  },
+  {
+   "prediction_file": "page-2861127b-41a4-44d5-b026-2de9cb408347.md",
+   "image": "page-2861127b-41a4-44d5-b026-2de9cb408347.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 2467,
+   "gt_len": 2655,
+   "approx_similarity_ratio": 0.7552
+  },
+  {
+   "prediction_file": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.md",
+   "image": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png",
+   "data_source": "academic_literature",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 23,
+   "gt_len": 720,
+   "approx_similarity_ratio": 0.0431
+  },
+  {
+   "prediction_file": "page-2ff22832-e343-46a7-b94f-47ed864ce486.md",
+   "image": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 746,
+   "gt_len": 0,
+   "approx_similarity_ratio": null
+  },
+  {
+   "prediction_file": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.md",
+   "image": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 501,
+   "gt_len": 40,
+   "approx_similarity_ratio": 0.0185
+  },
+  {
+   "prediction_file": "page-4254323d-8940-46fc-8cbb-b255c26b9693.md",
+   "image": "page-4254323d-8940-46fc-8cbb-b255c26b9693.png",
+   "data_source": "PPT2PDF",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 28,
+   "gt_len": 295,
+   "approx_similarity_ratio": 0.0124
+  },
+  {
+   "prediction_file": "page-49746735-505c-442d-b3f6-c55b1bf9e48b.md",
+   "image": "page-49746735-505c-442d-b3f6-c55b1bf9e48b.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "table_hard",
+   "pred_len": 5698,
+   "gt_len": 4272,
+   "approx_similarity_ratio": 0.531
+  },
+  {
+   "prediction_file": "page-49776237-a9be-441d-a326-002eb7084385.md",
+   "image": "page-49776237-a9be-441d-a326-002eb7084385.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 1,
+   "gt_len": 547,
+   "approx_similarity_ratio": 0.0036
+  },
+  {
+   "prediction_file": "page-52875b3d-f4dc-44c2-a9bb-514b0763833d.md",
+   "image": "page-52875b3d-f4dc-44c2-a9bb-514b0763833d.png",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 40,
+   "gt_len": 1781,
+   "approx_similarity_ratio": 0.0055
+  },
+  {
+   "prediction_file": "page-550c6f8b-929c-46c8-a3b6-264be02d2993.md",
+   "image": "page-550c6f8b-929c-46c8-a3b6-264be02d2993.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 1318,
+   "gt_len": 1488,
+   "approx_similarity_ratio": 0.382
+  },
+  {
+   "prediction_file": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.md",
+   "image": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 490,
+   "gt_len": 212,
+   "approx_similarity_ratio": 0.0057
+  },
+  {
+   "prediction_file": "page-573c437e-c309-4483-a038-ef2f440b104a.md",
+   "image": "page-573c437e-c309-4483-a038-ef2f440b104a.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 1026,
+   "gt_len": 601,
+   "approx_similarity_ratio": 0.2311
+  },
+  {
+   "prediction_file": "page-57d5842c-85c2-41c9-9d37-65aad59c1277.md",
+   "image": "page-57d5842c-85c2-41c9-9d37-65aad59c1277.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 133,
+   "gt_len": 708,
+   "approx_similarity_ratio": 0.2021
+  },
+  {
+   "prediction_file": "page-67013be9-58e5-4842-809d-7a3c1fc91fc7.md",
+   "image": "page-67013be9-58e5-4842-809d-7a3c1fc91fc7.png",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 73,
+   "gt_len": 1417,
+   "approx_similarity_ratio": 0.0242
+  },
+  {
+   "prediction_file": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.md",
+   "image": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.png",
+   "data_source": "academic_literature",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 3639,
+   "gt_len": 10,
+   "approx_similarity_ratio": 0.0
+  },
+  {
+   "prediction_file": "page-6e75aef4-33d0-478a-a3a3-489c782bfa39.md",
+   "image": "page-6e75aef4-33d0-478a-a3a3-489c782bfa39.png",
+   "data_source": "magazine",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 63,
+   "gt_len": 1045,
+   "approx_similarity_ratio": 0.009
+  },
+  {
+   "prediction_file": "page-74749e1d-5239-4d8e-b89c-6d83f5e59374.md",
+   "image": "page-74749e1d-5239-4d8e-b89c-6d83f5e59374.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 114,
+   "gt_len": 19,
+   "approx_similarity_ratio": 0.1203
+  },
+  {
+   "prediction_file": "page-776044e4-c33c-420d-84a8-acbffad569bd.md",
+   "image": "page-776044e4-c33c-420d-84a8-acbffad569bd.png",
+   "data_source": "magazine",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 1982,
+   "gt_len": 1600,
+   "approx_similarity_ratio": 0.2479
+  },
+  {
+   "prediction_file": "page-7dfc88d8-6d95-446c-b910-2410e8552f76.md",
+   "image": "page-7dfc88d8-6d95-446c-b910-2410e8552f76.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 51,
+   "gt_len": 697,
+   "approx_similarity_ratio": 0.0321
+  },
+  {
+   "prediction_file": "page-8524b54d-6372-4f9e-a662-5254349cfda3.md",
+   "image": "page-8524b54d-6372-4f9e-a662-5254349cfda3.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 262,
+   "gt_len": 529,
+   "approx_similarity_ratio": 0.4728
+  },
+  {
+   "prediction_file": "page-85377cdf-d6a2-4611-bd50-08795bf7acb6.md",
+   "image": "page-85377cdf-d6a2-4611-bd50-08795bf7acb6.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 334,
+   "gt_len": 451,
+   "approx_similarity_ratio": 0.4408
+  },
+  {
+   "prediction_file": "page-87866578-c897-404e-b751-51fd444f59b2.md",
+   "image": "page-87866578-c897-404e-b751-51fd444f59b2.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 22,
+   "gt_len": 216,
+   "approx_similarity_ratio": 0.0924
+  },
+  {
+   "prediction_file": "page-8792f466-c570-468c-86dc-402a510e9bb7.md",
+   "image": "page-8792f466-c570-468c-86dc-402a510e9bb7.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 103,
+   "gt_len": 203,
+   "approx_similarity_ratio": 0.0392
+  },
+  {
+   "prediction_file": "page-8d885b06-4da2-453f-84f7-2f43bc4ae2dd.md",
+   "image": "page-8d885b06-4da2-453f-84f7-2f43bc4ae2dd.png",
+   "data_source": "colorful_textbook",
+   "language": "en_ch_mixed",
+   "subset": "layout_hard",
+   "pred_len": 275,
+   "gt_len": 359,
+   "approx_similarity_ratio": 0.4069
+  },
+  {
+   "prediction_file": "page-8f6792bd-b5e4-435e-b1b0-1b2daa3f7234.md",
+   "image": "page-8f6792bd-b5e4-435e-b1b0-1b2daa3f7234.png",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 218,
+   "gt_len": 266,
+   "approx_similarity_ratio": 0.0289
+  },
+  {
+   "prediction_file": "page-91b20bf2-3ad5-41f4-b739-4cc4b18ab1eb.md",
+   "image": "page-91b20bf2-3ad5-41f4-b739-4cc4b18ab1eb.png",
+   "data_source": "academic_literature",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 141,
+   "gt_len": 0,
+   "approx_similarity_ratio": null
+  },
+  {
+   "prediction_file": "page-942ac90d-4704-43f3-9286-719c7be9e655.md",
+   "image": "page-942ac90d-4704-43f3-9286-719c7be9e655.png",
+   "data_source": "historical_document",
+   "language": "traditional_chinese",
+   "subset": "layout_hard",
+   "pred_len": 38,
+   "gt_len": 726,
+   "approx_similarity_ratio": 0.0183
+  },
+  {
+   "prediction_file": "page-a31baeee-95aa-4758-8d3a-ebf33fdc1626.md",
+   "image": "page-a31baeee-95aa-4758-8d3a-ebf33fdc1626.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 564,
+   "gt_len": 541,
+   "approx_similarity_ratio": 0.5412
+  },
+  {
+   "prediction_file": "page-a70b2ec9-379a-4e83-9f64-852c343ec8cd.md",
+   "image": "page-a70b2ec9-379a-4e83-9f64-852c343ec8cd.png",
+   "data_source": "colorful_textbook",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 177,
+   "gt_len": 283,
+   "approx_similarity_ratio": 0.0391
+  },
+  {
+   "prediction_file": "page-ae356bde-652d-44a9-9e21-76cadf5a9dea.md",
+   "image": "page-ae356bde-652d-44a9-9e21-76cadf5a9dea.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 721,
+   "gt_len": 867,
+   "approx_similarity_ratio": 0.733
+  },
+  {
+   "prediction_file": "page-b13fef06-6ae9-4b2d-a948-0340e03f97ce.md",
+   "image": "page-b13fef06-6ae9-4b2d-a948-0340e03f97ce.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 46,
+   "gt_len": 491,
+   "approx_similarity_ratio": 0.0186
+  },
+  {
+   "prediction_file": "page-b145da5c-182f-4d4e-813a-28b8d6971b0f.md",
+   "image": "page-b145da5c-182f-4d4e-813a-28b8d6971b0f.png",
+   "data_source": "exam_paper",
+   "language": "simplified_chinese",
+   "subset": "layout_hard",
+   "pred_len": 186,
+   "gt_len": 446,
+   "approx_similarity_ratio": 0.0222
+  },
+  {
+   "prediction_file": "page-ba4443e6-f432-435f-89e7-ddf0a571d2cd.md",
+   "image": "page-ba4443e6-f432-435f-89e7-ddf0a571d2cd.png",
+   "data_source": "PPT2PDF",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 4,
+   "gt_len": 123,
+   "approx_similarity_ratio": 0.0472
+  },
+  {
+   "prediction_file": "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.md",
+   "image": "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 1107,
+   "gt_len": 293,
+   "approx_similarity_ratio": 0.0229
+  },
+  {
+   "prediction_file": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.md",
+   "image": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 1678,
+   "gt_len": 3094,
+   "approx_similarity_ratio": 0.5889
+  },
+  {
+   "prediction_file": "page-c7792da7-4167-4f5c-a7ca-ec0f8833f83b.md",
+   "image": "page-c7792da7-4167-4f5c-a7ca-ec0f8833f83b.png",
+   "data_source": "research_report",
+   "language": "traditional_chinese",
+   "subset": "table_hard",
+   "pred_len": 887,
+   "gt_len": 0,
+   "approx_similarity_ratio": null
+  },
+  {
+   "prediction_file": "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.md",
+   "image": "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.png",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "equation_hard",
+   "pred_len": 8,
+   "gt_len": 991,
+   "approx_similarity_ratio": 0.006
+  },
+  {
+   "prediction_file": "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.md",
+   "image": "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.png",
+   "data_source": "book",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 1727,
+   "gt_len": 4717,
+   "approx_similarity_ratio": 0.2942
+  },
+  {
+   "prediction_file": "page-dad0f4e5-290f-496f-bbdd-099ad75c6ff0.md",
+   "image": "page-dad0f4e5-290f-496f-bbdd-099ad75c6ff0.png",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "equation_hard",
+   "pred_len": 2058,
+   "gt_len": 5204,
+   "approx_similarity_ratio": 0.3467
+  },
+  {
+   "prediction_file": "page-ed0f3b67-a631-4e9d-b8d8-d9594a5aa652.md",
+   "image": "page-ed0f3b67-a631-4e9d-b8d8-d9594a5aa652.png",
+   "data_source": "magazine",
+   "language": "english",
+   "subset": "layout_hard",
+   "pred_len": 197,
+   "gt_len": 193,
+   "approx_similarity_ratio": 0.3641
+  },
+  {
+   "prediction_file": "page-f245e436-c16e-4d7c-8797-c473bf25880a.md",
+   "image": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png",
+   "data_source": "research_report",
+   "language": "simplified_chinese",
+   "subset": "table_hard",
+   "pred_len": 339,
+   "gt_len": 45,
+   "approx_similarity_ratio": 0.0365
+  },
+  {
+   "prediction_file": "scihub_j.jmb.2003.10.009.pdf_4.md",
+   "image": "scihub_j.jmb.2003.10.009.pdf_4.jpg",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 4475,
+   "gt_len": 3553,
+   "approx_similarity_ratio": 0.7474
+  },
+  {
+   "prediction_file": "scihub_s00381-021-05138-3.pdf_3.md",
+   "image": "scihub_s00381-021-05138-3.pdf_3.jpg",
+   "data_source": "academic_literature",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 537,
+   "gt_len": 0,
+   "approx_similarity_ratio": null
+  },
+  {
+   "prediction_file": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.md",
+   "image": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.jpg",
+   "data_source": "book",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 1811,
+   "gt_len": 1718,
+   "approx_similarity_ratio": 0.624
+  },
+  {
+   "prediction_file": "yanbaopptmerge_yanbaoPPT_1120.md",
+   "image": "yanbaopptmerge_yanbaoPPT_1120.jpg",
+   "data_source": "PPT2PDF",
+   "language": "english",
+   "subset": "v1.5",
+   "pred_len": 155,
+   "gt_len": 103,
+   "approx_similarity_ratio": 0.7442
+  },
+  {
+   "prediction_file": "yanbaopptmerge_yanbaoPPT_4570.md",
+   "image": "yanbaopptmerge_yanbaoPPT_4570.jpg",
+   "data_source": "PPT2PDF",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 86,
+   "gt_len": 1074,
+   "approx_similarity_ratio": 0.0034
+  },
+  {
+   "prediction_file": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.md",
+   "image": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg",
+   "data_source": "book",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 104,
+   "gt_len": 920,
+   "approx_similarity_ratio": 0.0566
+  },
+  {
+   "prediction_file": "yanbaor2_864cbd5f0adeb98dea6cf7105cc8dfb272a9be974757633b2db8cf3f9a11c92b.pdf_33.md",
+   "image": "yanbaor2_864cbd5f0adeb98dea6cf7105cc8dfb272a9be974757633b2db8cf3f9a11c92b.pdf_33.jpg",
+   "data_source": "magazine",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 30,
+   "gt_len": 1497,
+   "approx_similarity_ratio": 0.0131
+  },
+  {
+   "prediction_file": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.md",
+   "image": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg",
+   "data_source": "magazine",
+   "language": "simplified_chinese",
+   "subset": "v1.5",
+   "pred_len": 16,
+   "gt_len": 327,
+   "approx_similarity_ratio": 0.0058
+  }
+ ]
+}

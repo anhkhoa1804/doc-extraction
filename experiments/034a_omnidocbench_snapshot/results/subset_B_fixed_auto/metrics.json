@@ -1,0 +1,530 @@
+{
+    "text_block": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.6250481790251847,
+                "edit_whole": 0.4879524886877828,
+                "edit_sample_avg": 0.6801093838699017
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.6250481790251847,
+                "None": 0.4266943034684964,
+                "colorful_backgroud": 0.4800601556510034,
+                "data_source: PPT2PDF": 0.5251358499260438,
+                "data_source: academic_literature": 0.35225564785071745,
+                "data_source: book": 0.5367799902933964,
+                "data_source: colorful_textbook": 0.7216819926309577,
+                "data_source: exam_paper": 0.39534157880186915,
+                "data_source: historical_document": 1.0,
+                "data_source: magazine": 0.5319983116580631,
+                "data_source: newspaper": 0.9966749653802471,
+                "data_source: note": 0.9979215229215229,
+                "data_source: research_report": 0.9492762760602411,
+                "geometric_deformation": 0.6613625738450423,
+                "handwriting": 0.996969696969697,
+                "language: en_ch_mixed": 0.5091534680849803,
+                "language: english": 0.18118131709593277,
+                "language: simplified_chinese": 0.966120968991877,
+                "language: traditional_chinese": 1.0,
+                "layout: 1andmore_column": 0.5944066404341324,
+                "layout: double_column": 0.5221204084011342,
+                "layout: other_layout": 0.6735380232144581,
+                "layout: single_column": 0.6265885137538242,
+                "layout: three_column": 0.2865641575683839,
+                "subset: equation_hard": 0.6327621306275464,
+                "subset: layout_hard": 0.6374160666093618,
+                "subset: table_hard": 0.8889492319252583,
+                "subset: v1.5": 0.5094468382718859,
+                "text_L-shaped_wrap": 0.6253219568752869,
+                "text_O-shaped_wrap": 0.8711340206185567,
+                "watermark": 0.28706855373253687,
+                "with_watermark": 0.5068887775551102
+            }
+        }
+    },
+    "display_formula": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.9579507333901182,
+                "edit_whole": 0.9945547037328939,
+                "edit_sample_avg": 0.9778066424494196
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.9579507333901182,
+                "None": 1.0,
+                "colorful_backgroud": 1.0,
+                "data_source: PPT2PDF": 1.0,
+                "data_source: academic_literature": 0.9982683982683982,
+                "data_source: book": 0.9569321638672869,
+                "data_source: colorful_textbook": 0.8383218455921694,
+                "data_source: note": 1.0,
+                "geometric_deformation": 1.0,
+                "handwriting": 1.0,
+                "language: english": 0.9668333220346644,
+                "language: simplified_chinese": 0.9461072818640565,
+                "layout: 1andmore_column": 1.0,
+                "layout: other_layout": 0.9029931073553016,
+                "layout: single_column": 0.9734666576277315,
+                "subset: equation_hard": 0.9908618792413377,
+                "subset: layout_hard": 0.7647058823529411,
+                "subset: table_hard": 1.0,
+                "subset: v1.5": 0.9412698412698413,
+                "text_O-shaped_wrap": 0.5294117647058824
+            }
+        }
+    },
+    "table": {
+        "all": {
+            "TEDS": {
+                "all": 0.09650809963085537
+            },
+            "TEDS_structure_only": {
+                "all": 0.1988253235717739
+            },
+            "Edit_dist": {
+                "ALL_page_avg": 0.6839850282593632,
+                "edit_whole": 0.687388682119124,
+                "edit_sample_avg": 0.6982716123531979
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.683985028259363,
+                "colorful_backgroud": 0.24654218533886585,
+                "data_source: academic_literature": 0.7435428124069122,
+                "data_source: book": 0.680093016948172,
+                "data_source: colorful_textbook": 0.24654218533886585,
+                "data_source: exam_paper": 0.5250015479465384,
+                "data_source: note": 0.7325436408977556,
+                "data_source: research_report": 0.7055295093885404,
+                "geometric_deformation": 0.7229166666666667,
+                "language: en_ch_mixed": 0.645422943221321,
+                "language: english": 0.5833461133079798,
+                "language: simplified_chinese": 0.7228451138569603,
+                "language: traditional_chinese": 0.8281768921517217,
+                "layout: 1andmore_column": 0.6305477378063556,
+                "layout: double_column": 0.6975466861955327,
+                "layout: single_column": 0.6926888327757048,
+                "subset: equation_hard": 0.7246022031823746,
+                "subset: table_hard": 0.7443775393560661,
+                "subset: v1.5": 0.6051096248115667
+            },
+            "TEDS": {
+                "ALL": 0.1101478513018314,
+                "colorful_backgroud": 0.0,
+                "data_source: academic_literature": 0.19480861292022394,
+                "data_source: book": 0.0,
+                "data_source: colorful_textbook": 0.0,
+                "data_source: exam_paper": 0.0,
+                "data_source: note": 0.0,
+                "data_source: research_report": 0.12289139614355084,
+                "geometric_deformation": 0.0,
+                "language: en_ch_mixed": 0.0,
+                "language: english": 0.17045753630519594,
+                "language: simplified_chinese": 0.0889778024203664,
+                "language: traditional_chinese": 0.11887910244311628,
+                "layout: 1andmore_column": 0.47149417785564174,
+                "layout: double_column": 0.0,
+                "layout: single_column": 0.05209404891429182,
+                "subset: equation_hard": 0.0,
+                "subset: table_hard": 0.06763720765258636,
+                "subset: v1.5": 0.17246514347187367
+            },
+            "TEDS_structure_only": {
+                "ALL": 0.23026593082374017,
+                "colorful_backgroud": 0.0,
+                "data_source: academic_literature": 0.38111888111888115,
+                "data_source: book": 0.0,
+                "data_source: colorful_textbook": 0.0,
+                "data_source: exam_paper": 0.0,
+                "data_source: note": 0.0,
+                "data_source: research_report": 0.26997242108803976,
+                "geometric_deformation": 0.0,
+                "language: en_ch_mixed": 0.0,
+                "language: english": 0.333479020979021,
+                "language: simplified_chinese": 0.18799399833882594,
+                "language: traditional_chinese": 0.39572192513368987,
+                "layout: 1andmore_column": 0.7048368298368298,
+                "layout: double_column": 0.0,
+                "layout: single_column": 0.15774342363988716,
+                "subset: equation_hard": 0.0,
+                "subset: table_hard": 0.15458658988070753,
+                "subset: v1.5": 0.34405393457117595
+            }
+        },
+        "metric_debug": {
+            "TEDS": {
+                "stage": "TEDS",
+                "workers": 13,
+                "timeout_sec": 120.0,
+                "sample_count": 37,
+                "timeout_case_count": 0,
+                "timeout_cases": [],
+                "error_case_count": 26,
+                "error_cases": [
+                    {
+                        "case_name": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg[gt=[1], pred=[1]]",
+                        "img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "eastmoney_7c25f92e2ab21d83e1eada0e40a68e3151e7c1c2d673ddb12b0242fa3ab931ab.pdf_13.jpg[gt=[0], pred=[0]]",
+                        "img_id": "eastmoney_7c25f92e2ab21d83e1eada0e40a68e3151e7c1c2d673ddb12b0242fa3ab931ab.pdf_13.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "jiaocai_jiaocai_en_91.jpg[gt=[0], pred=[0]]",
+                        "img_id": "jiaocai_jiaocai_en_91.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.jpg[gt=[0], pred=[0]]",
+                        "img_id": "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "jiaocaineedrop_jiaocai_needrop_en_1358.jpg[gt=[0], pred=[0]]",
+                        "img_id": "jiaocaineedrop_jiaocai_needrop_en_1358.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "notes_1ba14cb325bc448f7201b20502ecf2b5_81.jpg[gt=[0], pred=[0]]",
+                        "img_id": "notes_1ba14cb325bc448f7201b20502ecf2b5_81.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-07d333cf-4ebf-427c-b146-e419962b81fa.png[gt=[0], pred=[0]]",
+                        "img_id": "page-07d333cf-4ebf-427c-b146-e419962b81fa.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-07d333cf-4ebf-427c-b146-e419962b81fa.png[gt=[1], pred=['']]",
+                        "img_id": "page-07d333cf-4ebf-427c-b146-e419962b81fa.png",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            ""
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png[gt=[0], pred=[0]]",
+                        "img_id": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png[gt=[0], pred=[0]]",
+                        "img_id": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png[gt=[1], pred=[1]]",
+                        "img_id": "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png[gt=[0], pred=['']]",
+                        "img_id": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            ""
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png[gt=[0], pred=[0]]",
+                        "img_id": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png[gt=[1], pred=[1]]",
+                        "img_id": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png[gt=[2], pred=[2]]",
+                        "img_id": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+                        "gt_idx": [
+                            2
+                        ],
+                        "pred_idx": [
+                            2
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png[gt=[0], pred=[0]]",
+                        "img_id": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png[gt=[1], pred=[1]]",
+                        "img_id": "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-49746735-505c-442d-b3f6-c55b1bf9e48b.png[gt=[0], pred=[0]]",
+                        "img_id": "page-49746735-505c-442d-b3f6-c55b1bf9e48b.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.png[gt=[0], pred=[0]]",
+                        "img_id": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-573c437e-c309-4483-a038-ef2f440b104a.png[gt=[0], pred=[0]]",
+                        "img_id": "page-573c437e-c309-4483-a038-ef2f440b104a.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.png[gt=[0], pred=[0]]",
+                        "img_id": "page-68e347d8-6f34-431b-a2a2-549b3634dabc.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-91b20bf2-3ad5-41f4-b739-4cc4b18ab1eb.png[gt=[0], pred=[0]]",
+                        "img_id": "page-91b20bf2-3ad5-41f4-b739-4cc4b18ab1eb.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.png[gt=[0], pred=[0]]",
+                        "img_id": "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png[gt=[0], pred=[0]]",
+                        "img_id": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png[gt=[1], pred=[1]]",
+                        "img_id": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png",
+                        "gt_idx": [
+                            1
+                        ],
+                        "pred_idx": [
+                            1
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    },
+                    {
+                        "case_name": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.jpg[gt=[0], pred=[0]]",
+                        "img_id": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.jpg",
+                        "gt_idx": [
+                            0
+                        ],
+                        "pred_idx": [
+                            0
+                        ],
+                        "reason": "AssertionError: can only join a started process"
+                    }
+                ]
+            }
+        }
+    },
+    "reading_order": {
+        "all": {
+            "Edit_dist": {
+                "ALL_page_avg": 0.6016489534203339,
+                "edit_whole": 0.6717557251908397,
+                "edit_sample_avg": 0.6016489534203339
+            }
+        },
+        "group": {
+            "sample_count": {}
+        },
+        "page": {
+            "Edit_dist": {
+                "ALL": 0.6016489534203339,
+                "None": 0.5352783580056307,
+                "colorful_backgroud": 0.654048236709527,
+                "data_source: PPT2PDF": 0.5299761051373955,
+                "data_source: academic_literature": 0.5732280261544476,
+                "data_source: book": 0.45087856729800463,
+                "data_source: colorful_textbook": 0.7381278240927364,
+                "data_source: exam_paper": 0.36267206477732794,
+                "data_source: historical_document": 0.14285714285714285,
+                "data_source: magazine": 0.7774071166928309,
+                "data_source: newspaper": 0.944375,
+                "data_source: note": 0.9236111111111112,
+                "data_source: research_report": 0.6663865546218488,
+                "geometric_deformation": 0.7222222222222222,
+                "handwriting": 0.9375,
+                "language: en_ch_mixed": 0.4688162714478504,
+                "language: english": 0.43632228687628405,
+                "language: simplified_chinese": 0.7445714072888091,
+                "language: traditional_chinese": 0.5714285714285714,
+                "layout: 1andmore_column": 0.7358823529411764,
+                "layout: double_column": 0.6573426573426573,
+                "layout: other_layout": 0.7151928307379284,
+                "layout: single_column": 0.5486814172272553,
+                "layout: three_column": 0.34615384615384615,
+                "subset: equation_hard": 0.6989665249150375,
+                "subset: layout_hard": 0.4466365486365486,
+                "subset: table_hard": 0.6424747474747474,
+                "subset: v1.5": 0.6095563155615846,
+                "text_L-shaped_wrap": 0.16666666666666666,
+                "text_O-shaped_wrap": 0.8888888888888888,
+                "watermark": 0.34615384615384615,
+                "with_watermark": 0.38095238095238093
+            }
+        }
+    },
+    "match_debug": {
+        "workers": 4,
+        "page_count": 77,
+        "quick_match_truncated_timeout_sec": 300,
+        "match_timeout_sec": 420,
+        "text_match_fallback_pages": {
+            "quick_match_timeout": [],
+            "page_timeout": []
+        },
+        "text_match_fallback_counts": {
+            "quick_match_timeout": 0,
+            "page_timeout": 0
+        }
+    }
+}

@@ -1,0 +1,175 @@
+{
+ "prior_omnidocbench_runs_found": [
+  "experiments/005_omnidocbench/results/baseline",
+  "experiments/005_omnidocbench/results/docling"
+ ],
+ "comparisons": [
+  {
+   "pair": "005 baseline (demo, 18 pages) vs 034a smoke (hand-picked, 6 pages)",
+   "classification": "PARTIALLY COMPARABLE",
+   "why": "same evaluator commit (193627a...) and same doc_extraction 'baseline' backend logic, but DIFFERENT machine (Windows vs Linux), DIFFERENT device (cpu vs cuda), DIFFERENT dataset sample (18 fixed demo pages vs 6 hand-picked from the full 1651), DIFFERENT docling/torch versions (2.120.3/2.8.0 vs 2.124.0/2.11.0+cu128 -- both installed AFTER 005 ran, consistent with normal dependency drift over time, not a deliberate change this milestone made).",
+   "005_config_device": "cpu",
+   "034a_config_device": "cuda",
+   "005_docling_version": "2.120.3",
+   "034a_docling_version": "2.124.0",
+   "005_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.7447517081853917,
+      "edit_whole": 0.7614409115971329,
+      "edit_sample_avg": 0.7729143487429578
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.996031746031746,
+      "edit_whole": 0.9964497041420118,
+      "edit_sample_avg": 0.9952569169960475
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.1526047579951521
+     },
+     "TEDS_structure_only": {
+      "all": 0.609455762764876
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.7024441548085875,
+      "edit_whole": 0.6831071677105081,
+      "edit_sample_avg": 0.695812478314095
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.6463238925547549,
+      "edit_whole": 0.7722419928825622,
+      "edit_sample_avg": 0.6463238925547548
+     }
+    }
+   },
+   "034a_smoke_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.5321996495575616,
+      "edit_whole": 0.46664300922640173,
+      "edit_sample_avg": 0.836530016453388
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 1.0,
+      "edit_whole": 1.0,
+      "edit_sample_avg": 1.0
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.6438034188034187
+     },
+     "TEDS_structure_only": {
+      "all": 0.6666666666666666
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.6908561228435377,
+      "edit_whole": 0.7343228627315613,
+      "edit_sample_avg": 0.6451136485601037
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.5083333333333333,
+      "edit_whole": 0.22058823529411764,
+      "edit_sample_avg": 0.5083333333333334
+     }
+    }
+   },
+   "qualitative_consistency_check": "table TEDS is LOW in both (005: 0.1526, 034a smoke: 0.6438 on different pages -- both far from 1.0), text_block edit distance is moderate-to-poor in both (005: 0.7448, 034a smoke: 0.5322) -- directionally consistent (this pipeline struggles with OmniDocBench-shaped content in both measurements), not a contradiction, though the SPECIFIC numbers are not directly averaged together since the page sets differ entirely."
+  },
+  {
+   "pair": "005 baseline vs 005 docling (both demo, 18 pages, same run)",
+   "classification": "DIRECTLY COMPARABLE",
+   "why": "identical dataset, identical machine/run, identical evaluator invocation -- differ ONLY in backend (doc_extraction's own composed pipeline vs Docling's own whole-document WholeDocumentBackend.convert()). This is 005's OWN internal comparator, reused here as the historical precedent for 034a Phase 13's optional control arm.",
+   "baseline_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.7447517081853917,
+      "edit_whole": 0.7614409115971329,
+      "edit_sample_avg": 0.7729143487429578
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.996031746031746,
+      "edit_whole": 0.9964497041420118,
+      "edit_sample_avg": 0.9952569169960475
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.1526047579951521
+     },
+     "TEDS_structure_only": {
+      "all": 0.609455762764876
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.7024441548085875,
+      "edit_whole": 0.6831071677105081,
+      "edit_sample_avg": 0.695812478314095
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.6463238925547549,
+      "edit_whole": 0.7722419928825622,
+      "edit_sample_avg": 0.6463238925547548
+     }
+    }
+   },
+   "docling_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.7509948758098542,
+      "edit_whole": 0.7687359392575928,
+      "edit_sample_avg": 0.7776798554647847
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.996031746031746,
+      "edit_whole": 0.9964497041420118,
+      "edit_sample_avg": 0.9952569169960475
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.45620986915081974
+     },
+     "TEDS_structure_only": {
+      "all": 0.6112120181405896
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.6830518990321566,
+      "edit_whole": 0.6436819531507754,
+      "edit_sample_avg": 0.6757832267910451
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.6511966804422484,
+      "edit_whole": 0.7402135231316725,
+      "edit_sample_avg": 0.6511966804422484
+     }
+    }
+   },
+   "baseline_mean_sec_per_page": 58.2873,
+   "docling_mean_sec_per_page": 46.075
+  },
+  {
+   "pair": "005 baseline vs 034a full",
+   "classification": "NOT YET AVAILABLE",
+   "why": "the full 1651-page run had not completed when this script last ran -- rerun after full_baseline/metrics.json exists."
+  }
+ ],
+ "note": "005's runs are the ONLY prior OmniDocBench results found anywhere in this repository's history (029-033 never ran OmniDocBench -- confirmed by their own FINAL_REPORT.md scopes, all CPU-only historical-IR-replay milestones with no new extraction)."
+}

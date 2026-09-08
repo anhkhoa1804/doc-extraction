@@ -1,0 +1,123 @@
+{
+ "smoke_6_pages_gpu_cuda": {
+  "wall_seconds": 58.063,
+  "mean_sec_per_page": 9.6713
+ },
+ "subset_77_pages_serial_gpu": {
+  "config_A_workaround_cuda_literal": {
+   "wall_seconds": 558.977,
+   "mean_sec_per_page": 7.2535,
+   "pages_per_second": 0.1379
+  },
+  "config_B_fixed_auto": {
+   "wall_seconds": 553.088,
+   "mean_sec_per_page": 7.1376,
+   "pages_per_second": 0.1401
+  },
+  "A_vs_B_byte_identical": true
+ },
+ "concurrency_gpu": {
+  "C1_serial": {
+   "pages_per_second": 0.1392
+  },
+  "C2": {
+   "pages_per_second": 0.2375,
+   "peak_vram_fraction": 0.972,
+   "determinism_mismatches": 0
+  },
+  "C4": {
+   "pages_per_second": 0.3619,
+   "peak_vram_fraction": 0.979,
+   "determinism_mismatches": 0
+  },
+  "C8": "NOT ATTEMPTED -- C4 already demonstrated VRAM free dropping to as low as 96 MiB (0.4% of total capacity) multiple times on a 77-page subset; extrapolating to C8 would predict certain OOM, and the milestone's own instruction gates C8 on headroom 'clearly supporting' it, which C4's data clearly does not."
+ },
+ "pipeline_stage_breakdown_20_page_gpu_probe": {
+  "render": {
+   "n": 20,
+   "mean": 0.6396,
+   "median": 0.3231,
+   "p90": 1.3536,
+   "p95": 2.4049,
+   "p99": 3.8373,
+   "min": 0.1498,
+   "max": 4.1954,
+   "total": 12.7919
+  },
+  "layout": {
+   "n": 20,
+   "mean": 7.6736,
+   "median": 5.7756,
+   "p90": 14.0736,
+   "p95": 18.0655,
+   "p99": 26.5209,
+   "min": 1.6401,
+   "max": 28.6348,
+   "total": 153.4724
+  },
+  "ocr": {
+   "n": 20,
+   "mean": 0.0014,
+   "median": 0.0006,
+   "p90": 0.0025,
+   "p95": 0.0031,
+   "p99": 0.0096,
+   "min": 0.0003,
+   "max": 0.0112,
+   "total": 0.0289
+  },
+  "table": {
+   "n": 20,
+   "mean": 0.335,
+   "median": 0.1655,
+   "p90": 0.4802,
+   "p95": 1.2404,
+   "p99": 2.0832,
+   "min": 0.1061,
+   "max": 2.2938,
+   "total": 6.6995
+  },
+  "reading_order": {
+   "n": 20,
+   "mean": 0.0001,
+   "median": 0.0001,
+   "p90": 0.0001,
+   "p95": 0.0001,
+   "p99": 0.0002,
+   "min": 0.0,
+   "max": 0.0002,
+   "total": 0.0013
+  },
+  "verify": {
+   "n": 20,
+   "mean": 0.0007,
+   "median": 0.0001,
+   "p90": 0.0021,
+   "p95": 0.0024,
+   "p99": 0.0049,
+   "min": 0.0,
+   "max": 0.0056,
+   "total": 0.014
+  },
+  "assemble": {
+   "n": 20,
+   "mean": 0.004,
+   "median": 0.0022,
+   "p90": 0.0076,
+   "p95": 0.0106,
+   "p99": 0.02,
+   "min": 0.0011,
+   "max": 0.0223,
+   "total": 0.0795
+  }
+ },
+ "dominant_stage": "layout",
+ "dominant_stage_fraction": 0.8867,
+ "full_benchmark_1651_pages": {
+  "device_history": "GPU (config_B_fixed_auto.yaml, device=auto -> cuda) from launch. Interrupted once mid-run: Research-No.1's training job (PID 99970, openvocab_rel.train) started actively computing on the shared L4 while this run was in progress; select_device('auto') re-classified the GPU as PROTECTED at that moment (100% utilization, 2 compute processes). The GPU run was stopped immediately (clean SIGTERM on this project's own PID only, no interference with PID 99970) and restarted CPU-only for the duration of that window. Once PID 99970 exited, select_device('auto') reconfirmed CLEAR and the run was switched back to GPU, where it has remained since (a second, single-poll Research-No.1 flicker was observed and resolved itself before any manual action was needed -- see FINAL_REPORT.md Sec. 8/12).",
+  "device_current": "cuda (config_B_fixed_auto.yaml, device=auto)",
+  "status": "IN PROGRESS / PARTIAL -- see FINAL_REPORT.md for exact page count reached and why",
+  "runtime": null
+ },
+ "extrapolated_full_corpus_estimate_note": "not directly extrapolated from the 77-page subset (mixed CPU/GPU history, live GPU-sharing interruption -- see device_history above); see full_benchmark_1651_pages.runtime for actual measured throughput once available"
+}
