@@ -1,0 +1,73 @@
+{
+ "cases": 11,
+ "passed": 11,
+ "failed": [],
+ "results": [
+  {
+   "case": "01_valid_structure_noncanonical_order",
+   "note": "structure valid, order non-canonical -- must be independently true",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "02_canonical_order_invalid_geometry",
+   "note": "order canonical, structure invalid -- the two axes must not correlate by construction",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "03_correct_page_order_incorrect_table_order",
+   "note": "page order correct via reading_order; table order independently wrong",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "04_incorrect_page_order_correct_table_order",
+   "note": "reading_order reversed relative to list order; table order independently correct",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "05_table_contained_required_text",
+   "note": "required text living only in a table cell is retrievable via table_text",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "06_non_table_required_text",
+   "note": "required text living in a non-table element is retrievable via page_order's view",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "09_picture_labelled_table_shaped_region",
+   "note": "a picture-labelled region and a table can share identical geometry; the IR alone cannot distinguish 'picture that is really a table' from 'picture' -- this is why 025's fix targets the LABEL, not a geometric heuristic",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "10_synthesized_cell_escapes_table_bbox",
+   "note": "reproduces the EXACT 029 mechanism: a confidence=0.5 cell whose bbox pokes past the table's own bbox is caught by cells_within_table_bbox",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "13_reordered_reading_order",
+   "note": "ordered_elements must honor an explicit reading_order that contradicts list order",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "14_missing_reading_order",
+   "note": "empty reading_order falls back to list order, matching Document.to_markdown's documented behaviour -- not an invented fallback",
+   "passed": true,
+   "error": null
+  },
+  {
+   "case": "15_contradictory_page_vs_geometric_order",
+   "note": "reading_order can contradict raw geometry (y-position); the view must honor reading_order as authoritative and MUST NOT silently re-sort by y -- catches an evaluator that 'helpfully' second-guesses production's own computed order",
+   "passed": true,
+   "error": null
+  }
+ ]
+}

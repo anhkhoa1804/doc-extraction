@@ -1,0 +1,1572 @@
+{
+ "milestone": "023",
+ "arm": "visual/union",
+ "documents": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 545
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.8,
+    "char_recall": 1.0,
+    "found": 4,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 504
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 692
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 0.931,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Section 2. Approval authority"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 241
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Section 2. Approval authority",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.875,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 8,
+    "missing": [
+     "Ký hiệu: MQ/2026E    Số: 0004417"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 851
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 0.8841,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Điều 1. Phạm vi áp dụng"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 372
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 8,
+    "required": 8,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 794
+   },
+   "layer2_page_order_ok": false,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 0.75,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 8,
+    "missing": [
+     "Số đơn hàng: PO-2026-0318",
+     "Số lượng / Thành tiền"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 1130
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Số lượng / Thành tiền",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 7,
+    "missing": [
+     "Issue date: 14 March 2026"
+    ],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 537
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 1.0,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 685
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 545
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "language": "en",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 4,
+    "required": 4,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 641
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.8,
+    "char_recall": 1.0,
+    "found": 4,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 730
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "labels": [
+    "cross_page"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 1551
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 3,
+   "layer2_tables_valid": 3,
+   "layer2_tables_canonical": 3
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "labels": [
+    "encoding"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 2,
+    "required": 2,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 3445
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 2,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 1.0,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 700
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_merged_en",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 7,
+    "missing": [
+     "Qty / Amount"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 545
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Qty / Amount",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 465
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.5521,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Chứng nhận rằng hệ thống quản lý",
+     "phù hợp với các yêu cầu của tiêu"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 266
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_scan_en",
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "en",
+   "document_type": "scanned_admin",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 409
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "document_type": "scanned_admin",
+   "layer1": {
+    "text_recall": 0.75,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 738
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 8,
+    "required": 8,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 886
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.8,
+    "char_recall": 1.0,
+    "found": 4,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 1154
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.5714,
+    "char_recall": 0.9426,
+    "found": 4,
+    "required": 7,
+    "missing": [
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 518
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 456
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 464
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.8,
+    "char_recall": 1.0,
+    "found": 4,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 949
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 1.0,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 703
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 21711
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 59,
+   "layer2_tables_valid": 59,
+   "layer2_tables_canonical": 59
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 648
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.75,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 971
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 375
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 1.0,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Chứng nhận rằng hệ thống quản lý",
+     "phù hợp với các yêu cầu của tiêu"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 409
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "company_profile",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 349
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "company_profile",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 317
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_contract_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 743
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 1.0,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 703
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 692
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 7,
+    "missing": [
+     "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 663
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_form_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 521
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.75,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 910
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 546
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 589
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_policy_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 465
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 471
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 7,
+    "required": 7,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 502
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 7,
+    "missing": [
+     "Số đơn hàng: PO-2026-0318"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 527
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "technical_report",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 423
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 3,
+   "layer2_tables_valid": 3,
+   "layer2_tables_canonical": 3
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "technical_report",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 1.0,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Kết quả đo độ rung tại vị trí ổ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 385
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Kết quả đo độ rung tại vị trí ổ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  }
+ ],
+ "documents_scored": 49,
+ "documents_errored": 0,
+ "layer1": {
+  "mean_text_recall": 0.8519,
+  "mean_char_recall": 0.9859,
+  "docs_perfect": 26,
+  "docs_order_ok": 45,
+  "docs_hallucinated": 0
+ },
+ "layer2": {
+  "page_order_ok_documents": 48,
+  "tables": 97,
+  "structurally_valid_tables": 90,
+  "structurally_invalid_tables": 7,
+  "list_order_canonical_tables": 79,
+  "list_order_non_canonical_tables": 18,
+  "unmeasurable_strings_total": 74,
+  "documents_with_unmeasurable_strings": 30
+ }
+}

@@ -1,0 +1,366 @@
+{
+ "document_id": "cmb_stamp_boundary_vi",
+ "labels": [
+  "stamp",
+  "occlusion",
+  "table_structure"
+ ],
+ "layer1": {
+  "order_ok": true,
+  "positions": [
+   {
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "position": 0,
+    "found": true
+   },
+   {
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "position": -1,
+    "found": false
+   },
+   {
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "position": 56,
+    "found": true
+   },
+   {
+    "string": "Mô tả hàng hóa",
+    "position": 168,
+    "found": true
+   },
+   {
+    "string": "Sản phẩm A-100",
+    "position": 183,
+    "found": true
+   },
+   {
+    "string": "Bộ lọc khí Mã 22B",
+    "position": 198,
+    "found": true
+   },
+   {
+    "string": "Dịch vụ lắp đặt",
+    "position": 216,
+    "found": true
+   },
+   {
+    "string": "ĐÃ DUYỆT",
+    "position": 254,
+    "found": true
+   }
+  ],
+  "text_recall": 0.875,
+  "char_recall": 1.0
+ },
+ "layer1_counterfactual_canonical_tables": {
+  "order_ok": true,
+  "positions": [
+   {
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "position": 0,
+    "found": true
+   },
+   {
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "position": -1,
+    "found": false
+   },
+   {
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "position": 56,
+    "found": true
+   },
+   {
+    "string": "Mô tả hàng hóa",
+    "position": 168,
+    "found": true
+   },
+   {
+    "string": "Sản phẩm A-100",
+    "position": 183,
+    "found": true
+   },
+   {
+    "string": "Bộ lọc khí Mã 22B",
+    "position": 198,
+    "found": true
+   },
+   {
+    "string": "Dịch vụ lắp đặt",
+    "position": 216,
+    "found": true
+   },
+   {
+    "string": "ĐÃ DUYỆT",
+    "position": 254,
+    "found": true
+   }
+  ]
+ },
+ "layer2_page_order": {
+  "page_order_ok": false,
+  "positions_non_table_only": [
+   {
+    "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+    "position": 0,
+    "found": true
+   },
+   {
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "position": -1,
+    "found": false
+   },
+   {
+    "string": "Ngày 14 tháng 03 năm 2026",
+    "position": 56,
+    "found": true
+   },
+   {
+    "string": "Mô tả hàng hóa",
+    "position": 179,
+    "found": true
+   },
+   {
+    "string": "Sản phẩm A-100",
+    "position": 163,
+    "found": true
+   },
+   {
+    "string": "Bộ lọc khí Mã 22B",
+    "position": 218,
+    "found": true
+   },
+   {
+    "string": "Dịch vụ lắp đặt",
+    "position": 238,
+    "found": true
+   },
+   {
+    "string": "ĐÃ DUYỆT",
+    "position": 207,
+    "found": true
+   }
+  ],
+  "strings_measurable": 7,
+  "strings_unmeasurable": 1,
+  "unmeasurable_detail": [
+   {
+    "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+    "reason": "not found in non-table text"
+   }
+  ]
+ },
+ "element_reading_order_chain": [
+  {
+   "id": "p0-e0",
+   "type": "heading",
+   "order_index": 0,
+   "bbox": {
+    "x0": 164.9095,
+    "y0": 125.34899999999999,
+    "x1": 777.4304999999999,
+    "y1": 178.689
+   },
+   "text": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG"
+  },
+  {
+   "id": "p0-e1",
+   "type": "text",
+   "order_index": 1,
+   "bbox": {
+    "x0": 161.3535,
+    "y0": 220.4719999999999,
+    "x1": 1109.472,
+    "y1": 438.27699999999976
+   },
+   "text": "Ký hiệu: MQ/2026E_ Số: 0004417 Ngày 14 tháng 03 năm 2026 Đơn vị bán hàng: CÔNG T"
+  },
+  {
+   "id": "p0-e2",
+   "type": "text",
+   "order_index": 2,
+   "bbox": {
+    "x0": 169.79899999999998,
+    "y0": 552.069,
+    "x1": 228.47299999999998,
+    "y1": 578.7389999999999
+   },
+   "text": "STT"
+  },
+  {
+   "id": "p0-e3",
+   "type": "text",
+   "order_index": 3,
+   "bbox": {
+    "x0": 172.466,
+    "y0": 605.409,
+    "x1": 188.468,
+    "y1": 626.745
+   },
+   "text": "1"
+  },
+  {
+   "id": "p0-e7",
+   "type": "text",
+   "order_index": 7,
+   "bbox": {
+    "x0": 240.919,
+    "y0": 596.5189999999999,
+    "x1": 456.05699999999996,
+    "y1": 634.3015
+   },
+   "text": "Sản phẩm A-100"
+  },
+  {
+   "id": "p0-e6",
+   "type": "text",
+   "order_index": 6,
+   "bbox": {
+    "x0": 242.69699999999997,
+    "y0": 547.624,
+    "x1": 466.72499999999997,
+    "y1": 584.9620000000001
+   },
+   "text": "|Mô tả hàng hóa"
+  },
+  {
+   "id": "p0-e13",
+   "type": "text",
+   "order_index": 13,
+   "bbox": {
+    "x0": 702.3100000000001,
+    "y0": 576.072,
+    "x1": 897.89,
+    "y1": 603.6310000000001
+   },
+   "text": "CÔNG TY TNHH"
+  },
+  {
+   "id": "p0-e14",
+   "type": "text",
+   "order_index": 14,
+   "bbox": {
+    "x0": 746.76,
+    "y0": 619.633,
+    "x1": 880.9989999999999,
+    "y1": 648.0809999999999
+   },
+   "text": "ĐÃ DUYỆT"
+  },
+  {
+   "id": "p0-e9",
+   "type": "text",
+   "order_index": 9,
+   "bbox": {
+    "x0": 989.4569999999999,
+    "y0": 549.4019999999999,
+    "x1": 1103.249,
+    "y1": 578.7389999999999
+   },
+   "text": ""
+  },
+  {
+   "id": "p0-e4",
+   "type": "text",
+   "order_index": 4,
+   "bbox": {
+    "x0": 170.688,
+    "y0": 658.7489999999999,
+    "x1": 189.357,
+    "y1": 681.8629999999998
+   },
+   "text": "2"
+  },
+  {
+   "id": "p0-e8",
+   "type": "text",
+   "order_index": 8,
+   "bbox": {
+    "x0": 242.2525,
+    "y0": 654.7484999999999,
+    "x1": 470.72549999999995,
+    "y1": 687.6414999999997
+   },
+   "text": "Bộ lọc khí Mã 22B"
+  },
+  {
+   "id": "p0-e10",
+   "type": "text",
+   "order_index": 10,
+   "bbox": {
+    "x0": 986.79,
+    "y0": 657.8599999999999,
+    "x1": 1080.135,
+    "y1": 684.5300000000002
+   },
+   "text": ""
+  },
+  {
+   "id": "p0-e5",
+   "type": "text",
+   "order_index": 5,
+   "bbox": {
+    "x0": 172.466,
+    "y0": 715.6449999999998,
+    "x1": 188.468,
+    "y1": 737.8700000000001
+   },
+   "text": "3"
+  },
+  {
+   "id": "p0-e11",
+   "type": "text",
+   "order_index": 11,
+   "bbox": {
+    "x0": 243.14149999999995,
+    "y0": 709.8665000000002,
+    "x1": 438.7215,
+    "y1": 744.5375000000001
+   },
+   "text": "Dịch vụ lắp đặt"
+  },
+  {
+   "id": "p0-e12",
+   "type": "text",
+   "order_index": 12,
+   "bbox": {
+    "x0": 947.6739999999999,
+    "y0": 712.9779999999997,
+    "x1": 1081.024,
+    "y1": 740.5370000000001
+   },
+   "text": ".500.000"
+  }
+ ],
+ "table_cell_sequences": [
+  {
+   "table_id": "p0-t0",
+   "raw_sequence": [
+    "Sản",
+    "A-100",
+    "Bộ",
+    "Mã 22B",
+    "|Mô",
+    "hàng hóa",
+    "Dịch",
+    "lắp đặt"
+   ],
+   "canonical_sequence": [
+    "|Mô",
+    "hàng hóa",
+    "Sản",
+    "A-100",
+    "Bộ",
+    "Mã 22B",
+    "Dịch",
+    "lắp đặt"
+   ]
+  }
+ ],
+ "geometric_interleaving": [],
+ "classification": "COMPOUND: two distinct facts, both verified directly from the IR. (1) production's own compute_reading_order output for this page is itself non-monotonic in y -- element e7 ('San pham A-100', y0=596.5, a table-like data cell) is placed BEFORE e6 ('Mo ta hang hoa', y0=547.6, the header cell immediately above it) in Page.reading_order. This is a genuine defect in compute_reading_order's column-banding heuristic when applied to the scattered small text fragments a shattered/undetected table produces (the same picture-label table-gating failure documented in 025's causal chain for sibling documents cmb_stamp_table_vi / hc_stamp_table_vi). (2) Layer 1's document_text (and 027's canonical-table counterfactual, which only reorders TABLE cells) both iterate page.elements in raw creation-order, NEVER consulting Page.reading_order or order_index at all. For THIS document raw creation order happens to place e6 before e7 (168 < 183), so order_ok reads True by coincidence, while page_order_ok -- which is the first Layer-2 or Layer-1 metric to actually read Page.reading_order -- correctly reports False. FORMAL RESULT: Layer 1 cannot distinguish 'the element list was appended in an order that happens to look right' from 'the computed reading order is right' -- it never inspects the field production computes for this exact purpose. 025's claim that compute_reading_order is exonerated on SCAN-49 (0 order failures after canonical table serialization) was itself measured through this same blind raw-list channel and did not detect this case; page_order_ok is the first metric in the whole 023-029 lineage to read reading_order directly.",
+ "formal_counterexample": {
+  "statement": "Let e_a, e_b be two elements on the same page with true reading positions y0(e_a) < y0(e_b) (e_a is visually above e_b). Layer 1's document_text serializes elements in `page.elements` LIST order, which is creation/detection order and is NOT required to equal either geometric y-order or Page.reading_order. If list order happens to place e_a before e_b, Layer 1 scores any required strings in e_a, e_b as correctly ordered -- REGARDLESS of what Page.reading_order (production's own computed answer to 'what order does this page read in') says. Concretely: reading_order = [..., e7, e6, ...] (e7 before e6) while list order and Layer 1's serialization = [..., e6, e7, ...] (e6 before e7). Layer 1 reports order_ok=True; the field production computes specifically to answer this question says the opposite.",
+  "concrete_evidence": "e6 'Mo ta hang hoa' y0=547.6, e7 'San pham A-100' y0=596.5. list/Layer1 order: e6,e7 (matches y0, coincidentally). Page.reading_order: e7,e6 (inverts y0 -- itself the defect). Layer1 order_ok reads list order (e6,e7) -> True. page_order_ok reads Page.reading_order (e7,e6) -> False."
+ }
+}

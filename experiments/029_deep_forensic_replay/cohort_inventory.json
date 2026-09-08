@@ -1,0 +1,1999 @@
+{
+ "commit": "b9b87d1be5edc4238140c2342661ef4121912378",
+ "generated_by": "cohort_inventory.py",
+ "note": "Every field is read directly from a document.json's metadata or pages; nothing is inferred from milestone write-ups. UNKNOWN means no direct evidence was found in the artifact.",
+ "totals": {
+  "milestones": 3,
+  "arms": 38,
+  "arms_excluding_smoke_warmup": 32,
+  "documents_total_non_distinct": 1391,
+  "pages_total": 3155
+ },
+ "arms": [
+  {
+   "milestone": "023",
+   "arm": "adaptive/easyocr",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/easyocr",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/fusion",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/fusion_recovery",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/selection",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/tesseract",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/adaptive/union",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/easyocr",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/fusion",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/fusion_recovery",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/selection",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/tesseract",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual/union",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/easyocr",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/fusion",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/fusion_recovery",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/selection",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/tesseract",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/023_evidence_centric/_runs/visual_pre_reading_order_fix/union",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/_warmup",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/_warmup",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/baseline",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/l5",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "digital_pdf": 43,
+    "scanned_pdf": 6
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/l5_audit",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/smoke_off",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/smoke_off",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/smoke_on",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "adaptive",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/adaptive/smoke_on",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  },
+  {
+   "milestone": "024",
+   "arm": "realscan_probe",
+   "document_count": 7,
+   "page_count": 7,
+   "files_unreadable": 0,
+   "manifest": "NONE (OmniDocBench probe, no must_contain)",
+   "routes_observed": {
+    "image": 7
+   },
+   "backends_observed": {
+    "baseline": 7
+   },
+   "devices_observed": {
+    "cpu": 7
+   },
+   "dpi_observed": {
+    "200": 7
+   },
+   "ocr_languages_observed": {
+    "en": 7,
+    "vi": 7
+   },
+   "adaptive_visual_native": "OmniDocBench(real-scan, mechanism-only)",
+   "has_scanned_route_pages": false,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/realscan_probe",
+   "layer1_available": false,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/_warmup",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "image": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": false,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/IMAGE-2/_warmup",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/baseline",
+   "document_count": 2,
+   "page_count": 2,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "image": 2
+   },
+   "backends_observed": {
+    "baseline": 2
+   },
+   "devices_observed": {
+    "cpu": 2
+   },
+   "dpi_observed": {
+    "200": 2
+   },
+   "ocr_languages_observed": {
+    "en": 2,
+    "vi": 2
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": false,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/IMAGE-2/baseline",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/l5",
+   "document_count": 2,
+   "page_count": 2,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "image": 2
+   },
+   "backends_observed": {
+    "baseline": 2
+   },
+   "devices_observed": {
+    "cpu": 2
+   },
+   "dpi_observed": {
+    "200": 2
+   },
+   "ocr_languages_observed": {
+    "en": 2,
+    "vi": 2
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": false,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/IMAGE-2/l5",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/IMAGE-2/l5_audit",
+   "document_count": 2,
+   "page_count": 2,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "image": 2
+   },
+   "backends_observed": {
+    "baseline": 2
+   },
+   "devices_observed": {
+    "cpu": 2
+   },
+   "dpi_observed": {
+    "200": 2
+   },
+   "ocr_languages_observed": {
+    "en": 2,
+    "vi": 2
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": false,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/IMAGE-2/l5_audit",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/_warmup",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/_warmup",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/baseline",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/l5",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/scan_cohort/SCAN-49/l5_audit",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "corpus_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "visual",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/024_ocr_fidelity_recovery/_runs/visual/tesseract",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/025_layout_evidence_recall/_runs/coverage",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/025_layout_evidence_recall/_runs/intervention/gap_region",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_count": 49,
+   "page_count": 112,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 49
+   },
+   "backends_observed": {
+    "baseline": 49
+   },
+   "devices_observed": {
+    "cpu": 49
+   },
+   "dpi_observed": {
+    "200": 112
+   },
+   "ocr_languages_observed": {
+    "en": 49,
+    "vi": 49
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/025_layout_evidence_recall/_runs/intervention/none",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": false
+  },
+  {
+   "milestone": "025",
+   "arm": "smoke",
+   "document_count": 1,
+   "page_count": 1,
+   "files_unreadable": 0,
+   "manifest": "scan_cohort_manifest",
+   "routes_observed": {
+    "scanned_pdf": 1
+   },
+   "backends_observed": {
+    "baseline": 1
+   },
+   "devices_observed": {
+    "cpu": 1
+   },
+   "dpi_observed": {
+    "200": 1
+   },
+   "ocr_languages_observed": {
+    "en": 1,
+    "vi": 1
+   },
+   "adaptive_visual_native": "scan_cohort(adaptive, forced-scan)",
+   "has_scanned_route_pages": true,
+   "artifact_root": "experiments/025_layout_evidence_recall/_runs/smoke",
+   "layer1_available": true,
+   "layer2_available": true,
+   "raw_ir_available": true,
+   "source_provenance_available": true,
+   "mutation_replay_possible": true,
+   "sample_metadata_keys": [
+    "backend",
+    "config_snapshot",
+    "device",
+    "device_decision",
+    "errors",
+    "file_hash_sha256",
+    "file_type",
+    "input_filename",
+    "input_path",
+    "model_versions",
+    "pipeline",
+    "route",
+    "route_reason",
+    "runtime_seconds",
+    "text_profile",
+    "timestamp",
+    "warnings"
+   ],
+   "is_smoke_or_warmup": true
+  }
+ ]
+}

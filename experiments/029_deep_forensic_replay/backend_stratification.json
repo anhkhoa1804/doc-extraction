@@ -1,0 +1,70 @@
+{
+ "signature_1_backend": {
+  "pymupdf_tables": {
+   "total": 117,
+   "invalid": 0,
+   "invalid_rate": 0.0,
+   "noncanonical": 0,
+   "noncanonical_rate": 0.0
+  },
+  "table_transformer": {
+   "total": 1867,
+   "invalid": 102,
+   "invalid_rate": 0.0546,
+   "noncanonical": 226,
+   "noncanonical_rate": 0.121
+  }
+ },
+ "signature_2_stamp_occlusion_within_table_transformer": {
+  "no_stamp_occlusion": {
+   "total": 1809,
+   "invalid": 85,
+   "invalid_rate": 0.047
+  },
+  "stamp_or_occlusion": {
+   "total": 58,
+   "invalid": 17,
+   "invalid_rate": 0.2931
+  }
+ },
+ "signature_3_paired_adaptive_vs_visual_same_document": {
+  "pairs": 8,
+  "concordant": 8,
+  "concordant_rate": 1.0,
+  "adaptive_valid_visual_invalid": 0,
+  "visual_valid_adaptive_invalid": 0,
+  "interpretation": "If routing mode alone caused invalidity we would expect strong asymmetric disagreement. Concordance close to 1.0 would mean the SOURCE DOCUMENT drives the outcome, not adaptive/visual routing; routing determines WHETHER table_transformer runs at all (adaptive often uses pymupdf_tables on digital PDFs) but conditional on it running, the same document tends to produce the same verdict."
+ },
+ "signature_4_language": {
+  "vi": {
+   "total": 1538,
+   "invalid": 76,
+   "invalid_rate": 0.0494
+  },
+  "en": {
+   "total": 329,
+   "invalid": 26,
+   "invalid_rate": 0.079
+  }
+ },
+ "labels_observed_on_table_transformer_tables": [
+  "borderless_table",
+  "checkbox",
+  "cross_page",
+  "encoding",
+  "form",
+  "key_value",
+  "long_document",
+  "low_contrast",
+  "merged_cells",
+  "multi_column",
+  "occlusion",
+  "reading_order",
+  "rotation",
+  "scan_quality",
+  "stamp",
+  "table_detection",
+  "table_structure",
+  "tiny_text"
+ ]
+}

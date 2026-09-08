@@ -1,0 +1,2219 @@
+{
+ "milestone": "023",
+ "arm": "visual_pre_reading_order_fix/tesseract",
+ "documents": [
+  {
+   "document_id": "cmb_borderless_lowcontrast_en",
+   "labels": [
+    "borderless_table",
+    "low_contrast",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9489,
+    "found": 5,
+    "required": 7,
+    "missing": [
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 274
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_lowcontrast_stamp_vi",
+   "labels": [
+    "low_contrast",
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.2,
+    "char_recall": 0.7061,
+    "found": 1,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "Mã số doanh nghiệp: 0312998877"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 143
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_multicol_table_en",
+   "labels": [
+    "multi_column",
+    "reading_order",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 0.2857,
+    "char_recall": 0.8919,
+    "found": 2,
+    "required": 7,
+    "missing": [
+     "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "Reporting currency: thousands of",
+     "Net revenue for the period",
+     "Item description",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 349
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Reporting currency: thousands of",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Net revenue for the period",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "cmb_scan_multicol_en",
+   "labels": [
+    "scan_quality",
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.7995,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "INTERNAL EXPENDITURE POLICY",
+     "Section 2. Approval authority"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 120
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Section 2. Approval authority",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_scan_stamp_table_vi",
+   "labels": [
+    "scan_quality",
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.125,
+    "char_recall": 0.8603,
+    "found": 1,
+    "required": 8,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 426
+   },
+   "layer2_page_order_ok": false,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_scan_tiny_vi",
+   "labels": [
+    "scan_quality",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.654,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "Điều 1. Phạm vi áp dụng",
+     "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 162
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_stamp_boundary_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.25,
+    "char_recall": 0.9086,
+    "found": 2,
+    "required": 8,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Mô tả hàng hóa",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 382
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "cmb_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 0.375,
+    "char_recall": 0.8727,
+    "found": 3,
+    "required": 8,
+    "missing": [
+     "ĐƠN ĐẶT HÀNG",
+     "Số đơn hàng: PO-2026-0318",
+     "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "Số lượng / Thành tiền",
+     "Bộ lọc khí Mã 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 569
+   },
+   "layer2_page_order_ok": false,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "ĐƠN ĐẶT HÀNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Số lượng / Thành tiền",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_tiny_table_en",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.4286,
+    "char_recall": 0.8956,
+    "found": 3,
+    "required": 7,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Product A-100",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 274
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "TAX INVOICE",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "cmb_watermark_tiny_vi",
+   "labels": [
+    "watermark",
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8621,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 350
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_borderless_en",
+   "labels": [
+    "borderless_table",
+    "table_detection"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.5714,
+    "char_recall": 0.8969,
+    "found": 4,
+    "required": 7,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": false,
+    "chars": 274
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "TAX INVOICE",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_checkbox_en",
+   "labels": [
+    "form",
+    "checkbox"
+   ],
+   "language": "en",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.5,
+    "char_recall": 0.9167,
+    "found": 2,
+    "required": 4,
+    "missing": [
+     "PAYMENT REQUISITION FORM",
+     "Department: Finance"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 320
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "PAYMENT REQUISITION FORM",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Department: Finance",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_checkbox_vi",
+   "labels": [
+    "form",
+    "checkbox",
+    "key_value"
+   ],
+   "language": "vi",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.2,
+    "char_recall": 0.8856,
+    "found": 1,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "Họ và tên người đề nghị: Nguyễn",
+     "Bộ phận: Phòng Kế toán"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 351
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Họ và tên người đề nghị: Nguyễn",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ phận: Phòng Kế toán",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_crosspage_vi",
+   "labels": [
+    "cross_page"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8742,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "Điều 1. Phạm vi áp dụng",
+     "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 775
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 3,
+   "layer2_tables_valid": 3,
+   "layer2_tables_canonical": 3
+  },
+  {
+   "document_id": "hc_encoding_vi",
+   "labels": [
+    "encoding"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.5,
+    "char_recall": 1.0,
+    "found": 1,
+    "required": 2,
+    "missing": [
+     "Cong Hoa"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 1651
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Cong Hoa",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 2,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_low_contrast_vi",
+   "labels": [
+    "low_contrast"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7954,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 351
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_merged_en",
+   "labels": [
+    "merged_cells",
+    "table_structure"
+   ],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.4286,
+    "char_recall": 0.8969,
+    "found": 3,
+    "required": 7,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Item description",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 275
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "TAX INVOICE",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Qty / Amount",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_multicolumn_en",
+   "labels": [
+    "multi_column",
+    "reading_order"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.8634,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "INTERNAL EXPENDITURE POLICY",
+     "Section 1. Scope"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 232
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Section 1. Scope",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_rotation_vi",
+   "labels": [
+    "rotation",
+    "reading_order"
+   ],
+   "language": "vi",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.4117,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "Chứng nhận rằng hệ thống quản lý",
+     "phù hợp với các yêu cầu của tiêu"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 181
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_scan_en",
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "en",
+   "document_type": "scanned_admin",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8833,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+     "To: Finance and Accounting",
+     "Further to the reconciliation"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 205
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "OFFICIAL LETTER — CONFIRMATION OF OUTSTANDING BALANCE",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "To: Finance and Accounting",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Further to the reconciliation",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_scan_vi",
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "vi",
+   "document_type": "scanned_admin",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8757,
+    "found": 0,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+     "Kính gửi: Phòng Tài chính - Kế",
+     "Căn cứ biên bản đối chiếu ngày 28"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 350
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "CÔNG VĂN V/V XÁC NHẬN CÔNG NỢ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Kính gửi: Phòng Tài chính - Kế",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Căn cứ biên bản đối chiếu ngày 28",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_stamp_table_vi",
+   "labels": [
+    "stamp",
+    "occlusion",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.25,
+    "char_recall": 0.8925,
+    "found": 2,
+    "required": 8,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ngày 14 tháng 03 năm 2026",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 442
+   },
+   "layer2_page_order_ok": false,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_stamp_text_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.2,
+    "char_recall": 0.8894,
+    "found": 1,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "Mã số doanh nghiệp: 0312998877"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 535
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_tiny_cells_vi",
+   "labels": [
+    "tiny_text",
+    "table_structure"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.6952,
+    "found": 0,
+    "required": 7,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B",
+     "Dịch vụ lắp đặt"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 232
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_tiny_text_en",
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.9003,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "INTERNAL EXPENDITURE POLICY",
+     "This policy applies to all"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 231
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "This policy applies to all",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_tiny_text_vi",
+   "labels": [
+    "tiny_text"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.784,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "Điều 1. Phạm vi áp dụng",
+     "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 235
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "hc_transparent_seal_vi",
+   "labels": [
+    "stamp",
+    "occlusion"
+   ],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7526,
+    "found": 0,
+    "required": 5,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "Mã số doanh nghiệp: 0312998877",
+     "ĐÃ DUYỆT"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 376
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 5,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "ĐÃ DUYỆT",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "hc_watermark_vi",
+   "labels": [
+    "watermark"
+   ],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7954,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 351
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "long_policy_vi_60p",
+   "labels": [
+    "cross_page",
+    "long_document"
+   ],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8742,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "Điều 1. Phạm vi áp dụng",
+     "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 10855
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 59,
+   "layer2_tables_valid": 59,
+   "layer2_tables_canonical": 59
+  },
+  {
+   "document_id": "ord_business_license_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.6667,
+    "char_recall": 0.9394,
+    "found": 2,
+    "required": 3,
+    "missing": [
+     "Company name: Brightwater Trading"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 314
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 1,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Company name: Brightwater Trading",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_business_license_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "business_license",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8157,
+    "found": 0,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "Mã số doanh nghiệp: 0312998877"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 464
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "GIẤY CHỨNG NHẬN ĐĂNG KÝ DOANH NGHIỆP",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Tên công ty: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mã số doanh nghiệp: 0312998877",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_certificate_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.9307,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "This is to certify that the",
+     "conforms to the requirements of"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 187
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "This is to certify that the",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "conforms to the requirements of",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_certificate_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.6201,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "Chứng nhận rằng hệ thống quản lý",
+     "phù hợp với các yêu cầu của tiêu"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 204
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "CHỨNG NHẬN HỆ THỐNG QUẢN LÝ CHẤT LƯỢNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Chứng nhận rằng hệ thống quản lý",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "phù hợp với các yêu cầu của tiêu",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_company_profile_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "company_profile",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.9048,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Founded in 2011, the company",
+     "The current headcount is 148"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 174
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Founded in 2011, the company",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "The current headcount is 148",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_company_profile_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "company_profile",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7689,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "HỒ SƠ NĂNG LỰC CÔNG TY",
+     "Thành lập năm 2011, công ty hoạt",
+     "Đội ngũ hiện tại gồm 148 nhân sự"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 158
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HỒ SƠ NĂNG LỰC CÔNG TY",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Thành lập năm 2011, công ty hoạt",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Đội ngũ hiện tại gồm 148 nhân sự",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_contract_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.859,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "Article 1. Subject of the",
+     "The Seller agrees to sell and the"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 371
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Article 1. Subject of the",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "The Seller agrees to sell and the",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_contract_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "contract",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7954,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "Điều 1. Đối tượng của hợp đồng",
+     "Bên A đồng ý bán và Bên B đồng ý"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 351
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HỢP ĐỒNG MUA BÁN HÀNG HÓA",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Đối tượng của hợp đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bên A đồng ý bán và Bên B đồng ý",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_financial_report_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 0.2857,
+    "char_recall": 0.9064,
+    "found": 2,
+    "required": 7,
+    "missing": [
+     "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "Reporting currency: thousands of",
+     "These figures are unaudited and",
+     "Item description",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 349
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUARTERLY FINANCIAL REPORT — Q1 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Reporting currency: thousands of",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "These figures are unaudited and",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_financial_report_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "financial_report",
+   "layer1": {
+    "text_recall": 0.1429,
+    "char_recall": 0.8844,
+    "found": 1,
+    "required": 7,
+    "missing": [
+     "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+     "Đơn vị tính: triệu đồng",
+     "Báo cáo này chưa được kiểm toán",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 335
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "BÁO CÁO TÀI CHÍNH QUÝ I NĂM 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Đơn vị tính: triệu đồng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Báo cáo này chưa được kiểm toán",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_form_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.3333,
+    "char_recall": 0.8889,
+    "found": 1,
+    "required": 3,
+    "missing": [
+     "PAYMENT REQUISITION FORM",
+     "Department: Finance"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 266
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 2,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "PAYMENT REQUISITION FORM",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Department: Finance",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_form_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "form",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.9063,
+    "found": 0,
+    "required": 4,
+    "missing": [
+     "Độc lập - Tự do - Hạnh phúc",
+     "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "Họ và tên người đề nghị: Nguyễn",
+     "Bộ phận: Phòng Kế toán"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 417
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Độc lập - Tự do - Hạnh phúc",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "PHIẾU ĐỀ NGHỊ THANH TOÁN",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Họ và tên người đề nghị: Nguyễn",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ phận: Phòng Kế toán",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_invoice_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.4286,
+    "char_recall": 0.8969,
+    "found": 3,
+    "required": 7,
+    "missing": [
+     "TAX INVOICE",
+     "Issue date: 14 March 2026",
+     "Item description",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 275
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 6,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "TAX INVOICE",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Issue date: 14 March 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Item description",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_invoice_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.1429,
+    "char_recall": 0.8955,
+    "found": 1,
+    "required": 7,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "Ký hiệu: MQ/2026E    Số: 0004417",
+     "Ngày 14 tháng 03 năm 2026",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 298
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "HÓA ĐƠN GIÁ TRỊ GIA TĂNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ký hiệu: MQ/2026E    Số: 0004417",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Ngày 14 tháng 03 năm 2026",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_policy_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.8634,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "INTERNAL EXPENDITURE POLICY",
+     "Section 1. Scope",
+     "This policy applies to all"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 232
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "INTERNAL EXPENDITURE POLICY",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Section 1. Scope",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "This policy applies to all",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_policy_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "policy",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.842,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "Điều 1. Phạm vi áp dụng",
+     "Quy chế này áp dụng cho toàn bộ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 235
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "QUY CHẾ QUẢN LÝ CHI TIÊU NỘI BỘ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Điều 1. Phạm vi áp dụng",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Quy chế này áp dụng cho toàn bộ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 0,
+   "layer2_tables_valid": 0,
+   "layer2_tables_canonical": 0
+  },
+  {
+   "document_id": "ord_purchase_order_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 0.7143,
+    "char_recall": 0.9685,
+    "found": 5,
+    "required": 7,
+    "missing": [
+     "Item description",
+     "Air filter type 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 253
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Item description",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Product A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Air filter type 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Installation service",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_purchase_order_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "purchase_order",
+   "layer1": {
+    "text_recall": 0.1429,
+    "char_recall": 0.8251,
+    "found": 1,
+    "required": 7,
+    "missing": [
+     "ĐƠN ĐẶT HÀNG",
+     "Số đơn hàng: PO-2026-0318",
+     "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "Mô tả hàng hóa",
+     "Sản phẩm A-100",
+     "Bộ lọc khí Mã 22B"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 267
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 7,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "ĐƠN ĐẶT HÀNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Số đơn hàng: PO-2026-0318",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Nhà cung cấp: CÔNG TY TNHH THƯƠNG",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_technical_report_en",
+   "labels": [],
+   "language": "en",
+   "document_type": "technical_report",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 211
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 3,
+   "layer2_tables_valid": 3,
+   "layer2_tables_canonical": 3
+  },
+  {
+   "document_id": "ord_technical_report_vi",
+   "labels": [],
+   "language": "vi",
+   "document_type": "technical_report",
+   "layer1": {
+    "text_recall": 0.0,
+    "char_recall": 0.7161,
+    "found": 0,
+    "required": 3,
+    "missing": [
+     "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+     "Thiết bị: Máy nén khí trục vít,",
+     "Kết quả đo độ rung tại vị trí ổ"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 185
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 3,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "BÁO CÁO KIỂM ĐỊNH KỸ THUẬT THIẾT BỊ",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Thiết bị: Máy nén khí trục vít,",
+     "reason": "not found in non-table text"
+    },
+    {
+     "string": "Kết quả đo độ rung tại vị trí ổ",
+     "reason": "not found in non-table text"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  }
+ ],
+ "documents_scored": 49,
+ "documents_errored": 0,
+ "layer1": {
+  "mean_text_recall": 0.2222,
+  "mean_char_recall": 0.8472,
+  "docs_perfect": 1,
+  "docs_order_ok": 46,
+  "docs_hallucinated": 0
+ },
+ "layer2": {
+  "page_order_ok_documents": 46,
+  "tables": 97,
+  "structurally_valid_tables": 92,
+  "structurally_invalid_tables": 5,
+  "list_order_canonical_tables": 87,
+  "list_order_non_canonical_tables": 10,
+  "unmeasurable_strings_total": 190,
+  "documents_with_unmeasurable_strings": 48
+ }
+}

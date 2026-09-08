@@ -1,0 +1,93 @@
+{
+ "milestone": "024",
+ "arm": "scan_cohort/IMAGE-2/l5",
+ "documents": [
+  {
+   "document_id": "ord_certificate_png_en",
+   "labels": [
+    "scan_quality"
+   ],
+   "language": "en",
+   "document_type": "certificate",
+   "layer1": {
+    "text_recall": 1.0,
+    "char_recall": 1.0,
+    "found": 3,
+    "required": 3,
+    "missing": [],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 187
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 0,
+   "layer2_unmeasurable_detail": [],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  },
+  {
+   "document_id": "ord_invoice_png_vi",
+   "labels": [
+    "scan_quality",
+    "table_detection"
+   ],
+   "language": "vi",
+   "document_type": "invoice",
+   "layer1": {
+    "text_recall": 0.8571,
+    "char_recall": 1.0,
+    "found": 6,
+    "required": 7,
+    "missing": [
+     "HÓA ĐƠN GIÁ TRỊ GIA TĂNG"
+    ],
+    "hallucinated": [],
+    "order_ok": true,
+    "chars": 298
+   },
+   "layer2_page_order_ok": true,
+   "layer2_strings_unmeasurable": 4,
+   "layer2_unmeasurable_detail": [
+    {
+     "string": "Mô tả hàng hóa",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Sản phẩm A-100",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Bộ lọc khí Mã 22B",
+     "reason": "lives in a table cell"
+    },
+    {
+     "string": "Dịch vụ lắp đặt",
+     "reason": "lives in a table cell"
+    }
+   ],
+   "layer2_n_tables": 1,
+   "layer2_tables_valid": 1,
+   "layer2_tables_canonical": 1
+  }
+ ],
+ "documents_scored": 2,
+ "documents_errored": 0,
+ "layer1": {
+  "mean_text_recall": 0.9285,
+  "mean_char_recall": 1.0,
+  "docs_perfect": 1,
+  "docs_order_ok": 2,
+  "docs_hallucinated": 0
+ },
+ "layer2": {
+  "page_order_ok_documents": 2,
+  "tables": 2,
+  "structurally_valid_tables": 2,
+  "structurally_invalid_tables": 0,
+  "list_order_canonical_tables": 2,
+  "list_order_non_canonical_tables": 0,
+  "unmeasurable_strings_total": 4,
+  "documents_with_unmeasurable_strings": 1
+ }
+}
