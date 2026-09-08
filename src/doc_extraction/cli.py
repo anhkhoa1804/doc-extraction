@@ -255,6 +255,13 @@ def process_file(
     output under `output_dir` (default: `output_root/<document_id>/`).
     Never swallows an exception — metadata.json + the stage log always
     record a failure before it propagates."""
+    if config.device == "auto":
+        # Guarded, not unconditional: cmd_run/cmd_compare already resolve
+        # the device before calling this, and re-resolving would clobber
+        # the richer _DEVICE_DECISION metadata they recorded with a bland
+        # "not_probed" one. Every backend constructed below needs a
+        # concrete device string — never the literal "auto".
+        config = resolve_device(config)
     if output_dir is None:
         if output_root is None:
             raise ValueError("process_file requires output_root or output_dir")
