@@ -1,0 +1,49 @@
+{
+ "principle": "every candidate is derived from compute_signals()'s EXISTING 8 fields -- no new geometric feature is introduced. Candidates differ only in how those fields combine into a decision.",
+ "candidates": {
+  "A_conjunctive_gate": {
+   "exact_rule": "table_shape_score (UNCHANGED, 5 additive criteria, threshold>=3) AND row_bands>=2 AND col_bands>=2",
+   "rationale": "smallest possible diff from the shipped 031 rule -- adds exactly the AND-gate 031/032's own recommendation already specified, changes nothing else",
+   "expected_TP_impact": "should retain every known TRUE_RECOVERY/PLAUSIBLE_RECOVERY case (031 recovery_verdicts.json), since all 4 confirmed positive documents have col_bands>=4 (table_shape_probe.json)",
+   "expected_FP_impact": "should reject known_failure.json's single-column prose case (col_bands=1 always) and 032's real Chapter9 case IF its col_bands<2 -- Chapter9 actually has col_bands=4 (negative_controls.json), so Candidate A alone does NOT fix the Chapter9 false positive, only the prose one. Tested in Phase 4.",
+   "failure_modes": "does not address Chapter9-style false positives that DO have genuine multi-column evidence (banner/header layouts with multiple aligned text blocks are not exclusively single-column)",
+   "complexity": "LOW -- one boolean AND"
+  },
+  "B_2d_or_strict_column": {
+   "exact_rule": "A's rule OR (col_bands>=3 AND col_regularity_cv<0.3 AND children_per_row_band>=2)",
+   "rationale": "handles a structural edge case A might unfairly reject -- a real table fragment with very few rows but strong, regular multi-column evidence",
+   "expected_TP_impact": "same as A plus recovers any hypothetical column-dominant fragment A would reject; no such case is KNOWN to exist in the current corpus (tested in Phase 4/6)",
+   "expected_FP_impact": "HIGHER RISK than A -- the fallback clause could admit a genuinely multi-column, regularly-spaced NON-table (e.g. a real multi-column newspaper layout, 032's own case 17 'multi-column paragraph' from adversarial_controls.json, flagged there as 'the single most concerning case')",
+   "failure_modes": "multi-column prose is the direct adversarial target this fallback is most likely to admit incorrectly -- tested explicitly in Phase 5",
+   "complexity": "MEDIUM -- two rule branches, more parameters"
+  },
+  "C_pure_structural_predicate": {
+   "exact_rule": "row_bands>=2 AND col_bands>=2 AND children_per_row_band>=1.5 (no point system, no regularity/count criteria in the gate)",
+   "rationale": "tests whether row_regularity_cv/n_nested_text_regions were adding real discriminating signal beyond the two structural axis checks, or were corpus-tuned coincidence -- the milestone's own 'do not train a black-box, prefer the smallest interpretable rule' principle taken to its logical conclusion",
+   "expected_TP_impact": "UNKNOWN without running it -- the 4 confirmed positives all have children_per_row_band 4.0-4.67 (table_shape_probe.json), comfortably above 1.5, so likely retained; tested in Phase 4",
+   "expected_FP_impact": "removes regularity as a shield -- a genuinely irregular but 2D-structured false positive would pass here where A/B's regularity criterion (inherited from the original score) might have excluded it. No point-count safety net at all.",
+   "failure_modes": "the simplest rule, so the least defended against any failure mode NOT captured by row+col+density -- e.g. would not catch a chart with scattered but coincidentally 2-banded annotations",
+   "complexity": "LOWEST -- 3 boolean predicates, no scoring, no point threshold to tune"
+  },
+  "D_conjunctive_gate_tighter_rows": {
+   "exact_rule": "table_shape_score (unchanged) >= 3 AND row_bands>=3 AND col_bands>=2",
+   "rationale": "ADDED AFTER Phase 4's first run showed A/B/C all still wrongly admit the REAL Chapter9 false positive (negative_controls.json: row_bands=2, col_bands=4 -- col evidence was never the missing piece for this real case). Directly tests 031 FINAL_REPORT.md section 9's own row_bands>=3 hypothesis, previously unvalidated beyond n=1.",
+   "expected_TP_impact": "031's own table_shape_probe.json shows all 4 confirmed positives have row_bands 3-4 -- should retain all of them",
+   "expected_FP_impact": "should reject Chapter9 (row_bands=2) where A/B/C do not; still needs testing against known_failure.json's prose case and the expanded adversarial suite",
+   "failure_modes": "raises the row floor specifically to exclude ONE real observed case (n=1) -- exactly the kind of narrow fit this milestone's own rule #9 warns against optimizing for; reported with that caveat explicitly, not hidden",
+   "complexity": "LOW -- same shape as A, one constant changed"
+  },
+  "E_density_plus_tighter_rows": {
+   "exact_rule": "row_bands>=3 AND col_bands>=2 AND children_per_row_band>=1.5 (C's density predicate, D's row floor, no score/regularity dependency at all)",
+   "rationale": "ADDED AFTER Phase 5's 42-case synthetic sweep found C and D each independently fix problems the other does not (C: correctly handles sparse 2-row tables D wrongly rejects; D: correctly rejects the REAL Chapter9 false positive that C does not) -- tests whether the combination dominates both.",
+   "expected_TP_impact": "same as D on the real corpus (row_bands 3-4 for all 4 confirmed positives); may still reject synthetic sparse 2-row cases like D does, since it inherits D's row floor -- tested directly, not assumed",
+   "expected_FP_impact": "should match or beat both C and D individually on the 42-case suite; tested directly",
+   "failure_modes": "inherits BOTH candidates' individual failure modes where they overlap (multi-column prose, empty-text decorative grids, sparse 2-row tables)",
+   "complexity": "LOW-MEDIUM -- 3 predicates, no score"
+  }
+ },
+ "not_selected_but_considered": {
+  "raise_the_threshold_to_4_or_5": "EXPLICITLY REJECTED per this milestone's non-negotiable rule #1 ('do not simply raise the threshold') -- also would not even fix known_failure.json's case, since a sufficiently long single-column block still accumulates the same 3 points regardless of threshold; a 4th/5th point never becomes available without column evidence existing as its own criterion, but raising the bar to 4 would ALSO reject some genuine positives without addressing the mechanism.",
+  "require_n_cols_greater_than_1_alone": "EXPLICITLY REJECTED per non-negotiable rule #2 -- this is literally Candidate A/B/C's col_bands>=2 term in isolation, without the row+density companions; tested separately in Phase 8 against synthetic one-column tables specifically to check whether it wrongly excludes legitimate one-column tables."
+ }
+}

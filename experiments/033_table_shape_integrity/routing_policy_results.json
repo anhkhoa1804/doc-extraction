@@ -1,0 +1,114 @@
+{
+ "method": "recovery_verdicts.json's 79 conservative-mode instances (031, unchanged) filtered by each candidate's gate decision (candidate_results.json, this milestone) -- no new reconstruction run, no divergence from 031's verified reconstruct_table() logic.",
+ "policies": {
+  "policy_0_current_hard_gate": {
+   "definition": "unchanged from 031/032 -- label=='table' only",
+   "results": {
+    "tables_reconstructed": 0,
+    "false_tables_on_negatives": 0,
+    "true_recovery_instances": 0,
+    "pseudo_table_instances": 0
+   }
+  },
+  "policy_1_evidence_override_proxy": {
+   "definition": "unchanged from 032 -- 031's AGGRESSIVE arm, no gate at all, proxy for a true override",
+   "results": {
+    "tables_reconstructed": 118,
+    "false_tables_on_negatives": 39,
+    "true_recovery_instances": null,
+    "note": "not re-evaluated against recovery_verdicts.json per-instance breakdown -- unchanged from 032, reported for reference only"
+   }
+  },
+  "policy_2_3_A_conjunctive_gate": {
+   "definition": "031's conservative-mode dual-candidate design (original Policy 2/3, unchanged mechanism), gated by candidate A_conjunctive_gate instead of raw table_shape_score>=3",
+   "results": {
+    "instances_admitted_to_reconstruction": 79,
+    "instances_rejected_before_reconstruction": 0,
+    "recovery_verdict_breakdown_of_admitted_instances": {
+     "TRUE_RECOVERY": 38,
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "INVALID": 0
+    },
+    "true_recovery_retained": 38,
+    "plausible_recovery_retained": 28,
+    "pseudo_table_STILL_admitted": 13,
+    "false_tables_on_known_negatives": 0,
+    "chapter9_real_false_positive_admitted": 1
+   }
+  },
+  "policy_2_3_B_2d_or_strict_column": {
+   "definition": "031's conservative-mode dual-candidate design (original Policy 2/3, unchanged mechanism), gated by candidate B_2d_or_strict_column instead of raw table_shape_score>=3",
+   "results": {
+    "instances_admitted_to_reconstruction": 79,
+    "instances_rejected_before_reconstruction": 0,
+    "recovery_verdict_breakdown_of_admitted_instances": {
+     "TRUE_RECOVERY": 38,
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "INVALID": 0
+    },
+    "true_recovery_retained": 38,
+    "plausible_recovery_retained": 28,
+    "pseudo_table_STILL_admitted": 13,
+    "false_tables_on_known_negatives": 0,
+    "chapter9_real_false_positive_admitted": 1
+   }
+  },
+  "policy_2_3_C_pure_structural_predicate": {
+   "definition": "031's conservative-mode dual-candidate design (original Policy 2/3, unchanged mechanism), gated by candidate C_pure_structural_predicate instead of raw table_shape_score>=3",
+   "results": {
+    "instances_admitted_to_reconstruction": 79,
+    "instances_rejected_before_reconstruction": 0,
+    "recovery_verdict_breakdown_of_admitted_instances": {
+     "TRUE_RECOVERY": 38,
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "INVALID": 0
+    },
+    "true_recovery_retained": 38,
+    "plausible_recovery_retained": 28,
+    "pseudo_table_STILL_admitted": 13,
+    "false_tables_on_known_negatives": 0,
+    "chapter9_real_false_positive_admitted": 1
+   }
+  },
+  "policy_2_3_D_conjunctive_gate_tighter_rows": {
+   "definition": "031's conservative-mode dual-candidate design (original Policy 2/3, unchanged mechanism), gated by candidate D_conjunctive_gate_tighter_rows instead of raw table_shape_score>=3",
+   "results": {
+    "instances_admitted_to_reconstruction": 79,
+    "instances_rejected_before_reconstruction": 0,
+    "recovery_verdict_breakdown_of_admitted_instances": {
+     "TRUE_RECOVERY": 38,
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "INVALID": 0
+    },
+    "true_recovery_retained": 38,
+    "plausible_recovery_retained": 28,
+    "pseudo_table_STILL_admitted": 13,
+    "false_tables_on_known_negatives": 0,
+    "chapter9_real_false_positive_admitted": 0
+   }
+  },
+  "policy_2_3_E_density_plus_tighter_rows": {
+   "definition": "031's conservative-mode dual-candidate design (original Policy 2/3, unchanged mechanism), gated by candidate E_density_plus_tighter_rows instead of raw table_shape_score>=3",
+   "results": {
+    "instances_admitted_to_reconstruction": 79,
+    "instances_rejected_before_reconstruction": 0,
+    "recovery_verdict_breakdown_of_admitted_instances": {
+     "TRUE_RECOVERY": 38,
+     "PLAUSIBLE_RECOVERY": 28,
+     "PSEUDO_TABLE": 13,
+     "INVALID": 0
+    },
+    "true_recovery_retained": 38,
+    "plausible_recovery_retained": 28,
+    "pseudo_table_STILL_admitted": 13,
+    "false_tables_on_known_negatives": 0,
+    "chapter9_real_false_positive_admitted": 0
+   }
+  }
+ },
+ "key_result": "policy_2_3_E_density_plus_tighter_rows retains the SAME 38 TRUE_RECOVERY instances as the original conservative gate (031 recovery_verdicts.json total: 38), while additionally rejecting the real Chapter9 false positive that the ORIGINAL gate admitted -- the ORIGINAL gate never had a Chapter9 INSTANCE in this specific 79-row population (Chapter9 is a separate realscan_probe document, not one of the 4 gated_table_population documents), so this is evaluated SEPARATELY via candidate_results.json's dedicated Chapter9 check, cross-referenced here for completeness, not double-counted into the 79-instance verdict breakdown."
+}

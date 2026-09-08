@@ -1,0 +1,308 @@
+{
+ "family_A_in_population": {
+  "corpus": "stamp-vi synthetic (023-025)",
+  "documents": [
+   "cmb_scan_stamp_table_vi",
+   "cmb_stamp_boundary_vi",
+   "cmb_stamp_table_vi",
+   "hc_stamp_table_vi"
+  ],
+  "n_documents": 4,
+  "role": "the population every candidate design in this milestone was informally tuned against (structural floors chosen by inspecting exactly these documents' signals) -- retention here (candidate_results.json: 100% for all candidates) is NOT independent evidence of generalization."
+ },
+ "family_B_held_out": {
+  "corpus": "experiments/024_ocr_fidelity_recovery/_runs/realscan_probe/ -- genuinely diverse real-world documents (scientific papers, textbook/math excerpts, newspaper, slide deck)",
+  "documents": [
+   "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+   "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3",
+   "jiaocaineedrop_Chapter9.pdf_46",
+   "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5",
+   "jiaocaineedrop_jiaocai_needrop_en_1898",
+   "newspaper_5e266dfd9c498cab274e12a7b4a75755_4",
+   "yanbaopptmerge_SE05.pdf_7"
+  ],
+  "n_documents": 7,
+  "role": "NO candidate design in this milestone was tuned against ANY document in this family -- this is the correct holdout, and is the SAME family that originally falsified 031's precision claim.",
+  "known_picture_candidates": [
+   {
+    "document_id": "jiaocaineedrop_Chapter9.pdf_46",
+    "region_index": 0,
+    "page_file": "page-001.json",
+    "region_bbox": {
+     "x0": 0.0,
+     "y0": 0.2840924859046936,
+     "x1": 1628.4932861328125,
+     "y1": 333.83575439453125
+    },
+    "n_children": 6,
+    "signals": {
+     "n_nested_text_regions": 6,
+     "aspect_ratio": 4.882,
+     "row_bands": 2,
+     "col_bands": 4,
+     "row_regularity_cv": 0.732,
+     "col_regularity_cv": 1.056,
+     "text_density": 0.1704,
+     "children_per_row_band": 3.0
+    },
+    "table_shape_score": 4,
+    "score_reasons": [
+     "multi-row",
+     "multi-column",
+     "multiple children per row (grid, not a list)",
+     "high nested-text-region count"
+    ],
+    "recovered_child_texts": [
+     "",
+     "macmillanmh.com",
+     "",
+     "Practice",
+     "3",
+     "Cumulative, Chapters 1-9"
+    ],
+    "ground_truth": "NOT_A_TABLE",
+    "ground_truth_evidence": "recovered nested-child text = ['macmillanmh.com', 'Practice', '3', 'Cumulative, Chapters 1-9'] (2 of 6 children empty-text, likely a logo glyph and a page-number icon) -- a worksheet page HEADER/BANNER (publisher watermark + unit/chapter title + practice-set label), not tabular data.",
+    "false_positive_at_threshold_3": true
+   },
+   {
+    "document_id": "jiaocaineedrop_Chapter9.pdf_46",
+    "region_index": 1,
+    "page_file": "page-001.json",
+    "region_bbox": {
+     "x0": 121.42101287841797,
+     "y0": 371.7419128417969,
+     "x1": 785.231201171875,
+     "y1": 450.720947265625
+    },
+    "n_children": 1,
+    "signals": {
+     "n_nested_text_regions": 1,
+     "aspect_ratio": 8.405,
+     "row_bands": 1,
+     "col_bands": 1,
+     "row_regularity_cv": null,
+     "col_regularity_cv": null,
+     "text_density": 0.1714,
+     "children_per_row_band": 1.0
+    },
+    "table_shape_score": 0,
+    "score_reasons": [],
+    "recovered_child_texts": [
+     "Multipic Choice"
+    ],
+    "ground_truth": "NOT_MANUALLY_VERIFIED",
+    "ground_truth_evidence": "not individually inspected this milestone -- score/signals reported for completeness, no verdict claimed",
+    "false_positive_at_threshold_3": false
+   },
+   {
+    "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898",
+    "region_index": 0,
+    "page_file": "page-001.json",
+    "region_bbox": {
+     "x0": 198.93466186523438,
+     "y0": 165.56494140625,
+     "x1": 1055.1822509765625,
+     "y1": 360.72625732421875
+    },
+    "n_children": 1,
+    "signals": {
+     "n_nested_text_regions": 1,
+     "aspect_ratio": 4.387,
+     "row_bands": 1,
+     "col_bands": 1,
+     "row_regularity_cv": null,
+     "col_regularity_cv": null,
+     "text_density": 0.1149,
+     "children_per_row_band": 1.0
+    },
+    "table_shape_score": 0,
+    "score_reasons": [],
+    "recovered_child_texts": [
+     ""
+    ],
+    "ground_truth": "NOT_MANUALLY_VERIFIED",
+    "ground_truth_evidence": "not individually inspected this milestone -- score/signals reported for completeness, no verdict claimed",
+    "false_positive_at_threshold_3": false
+   },
+   {
+    "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898",
+    "region_index": 1,
+    "page_file": "page-001.json",
+    "region_bbox": {
+     "x0": 204.2816619873047,
+     "y0": 492.5155944824219,
+     "x1": 579.24462890625,
+     "y1": 644.0501098632812
+    },
+    "n_children": 1,
+    "signals": {
+     "n_nested_text_regions": 1,
+     "aspect_ratio": 2.474,
+     "row_bands": 1,
+     "col_bands": 1,
+     "row_regularity_cv": null,
+     "col_regularity_cv": null,
+     "text_density": 0.0762,
+     "children_per_row_band": 1.0
+    },
+    "table_shape_score": 0,
+    "score_reasons": [],
+    "recovered_child_texts": [
+     ""
+    ],
+    "ground_truth": "NOT_MANUALLY_VERIFIED",
+    "ground_truth_evidence": "not individually inspected this milestone -- score/signals reported for completeness, no verdict claimed",
+    "false_positive_at_threshold_3": false
+   }
+  ],
+  "whole_page_text_sweep": {
+   "n_pages_scored": 7,
+   "generalization_by_rule": {
+    "ORIGINAL_rule": {
+     "n": 7,
+     "n_gate_pass": 6,
+     "rate": 0.8571
+    },
+    "A_conjunctive_gate": {
+     "n": 7,
+     "n_gate_pass": 4,
+     "rate": 0.5714
+    },
+    "B_2d_or_strict_column": {
+     "n": 7,
+     "n_gate_pass": 4,
+     "rate": 0.5714
+    },
+    "C_pure_structural_predicate": {
+     "n": 7,
+     "n_gate_pass": 2,
+     "rate": 0.2857
+    },
+    "D_conjunctive_gate_tighter_rows": {
+     "n": 7,
+     "n_gate_pass": 4,
+     "rate": 0.5714
+    },
+    "E_density_plus_tighter_rows": {
+     "n": 7,
+     "n_gate_pass": 2,
+     "rate": 0.2857
+    }
+   },
+   "sample_rows": [
+    {
+     "document_id": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "page_file": "page-001.json",
+     "n_text_regions": 17,
+     "signals": {
+      "n_nested_text_regions": 17,
+      "aspect_ratio": 0.754,
+      "row_bands": 11,
+      "col_bands": 2,
+      "row_regularity_cv": 0.806,
+      "col_regularity_cv": 2.665,
+      "text_density": 0.6815,
+      "children_per_row_band": 1.55
+     },
+     "original_score": 3,
+     "original_gate_pass": true,
+     "A_conjunctive_gate_gate_pass": true,
+     "B_2d_or_strict_column_gate_pass": true,
+     "C_pure_structural_predicate_gate_pass": true,
+     "D_conjunctive_gate_tighter_rows_gate_pass": true,
+     "E_density_plus_tighter_rows_gate_pass": true
+    },
+    {
+     "document_id": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3",
+     "page_file": "page-001.json",
+     "n_text_regions": 12,
+     "signals": {
+      "n_nested_text_regions": 12,
+      "aspect_ratio": 0.826,
+      "row_bands": 12,
+      "col_bands": 1,
+      "row_regularity_cv": 0.365,
+      "col_regularity_cv": 0.0,
+      "text_density": 0.3697,
+      "children_per_row_band": 1.0
+     },
+     "original_score": 3,
+     "original_gate_pass": true,
+     "A_conjunctive_gate_gate_pass": false,
+     "B_2d_or_strict_column_gate_pass": false,
+     "C_pure_structural_predicate_gate_pass": false,
+     "D_conjunctive_gate_tighter_rows_gate_pass": false,
+     "E_density_plus_tighter_rows_gate_pass": false
+    },
+    {
+     "document_id": "jiaocaineedrop_Chapter9.pdf_46",
+     "page_file": "page-001.json",
+     "n_text_regions": 34,
+     "signals": {
+      "n_nested_text_regions": 34,
+      "aspect_ratio": 0.656,
+      "row_bands": 11,
+      "col_bands": 5,
+      "row_regularity_cv": 1.152,
+      "col_regularity_cv": 2.033,
+      "text_density": 0.4294,
+      "children_per_row_band": 3.09
+     },
+     "original_score": 4,
+     "original_gate_pass": true,
+     "A_conjunctive_gate_gate_pass": true,
+     "B_2d_or_strict_column_gate_pass": true,
+     "C_pure_structural_predicate_gate_pass": true,
+     "D_conjunctive_gate_tighter_rows_gate_pass": true,
+     "E_density_plus_tighter_rows_gate_pass": true
+    },
+    {
+     "document_id": "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5",
+     "page_file": "page-001.json",
+     "n_text_regions": 10,
+     "signals": {
+      "n_nested_text_regions": 10,
+      "aspect_ratio": 0.69,
+      "row_bands": 10,
+      "col_bands": 1,
+      "row_regularity_cv": 0.557,
+      "col_regularity_cv": 1.725,
+      "text_density": 0.2761,
+      "children_per_row_band": 1.0
+     },
+     "original_score": 2,
+     "original_gate_pass": false,
+     "A_conjunctive_gate_gate_pass": false,
+     "B_2d_or_strict_column_gate_pass": false,
+     "C_pure_structural_predicate_gate_pass": false,
+     "D_conjunctive_gate_tighter_rows_gate_pass": false,
+     "E_density_plus_tighter_rows_gate_pass": false
+    },
+    {
+     "document_id": "jiaocaineedrop_jiaocai_needrop_en_1898",
+     "page_file": "page-001.json",
+     "n_text_regions": 8,
+     "signals": {
+      "n_nested_text_regions": 8,
+      "aspect_ratio": 0.579,
+      "row_bands": 8,
+      "col_bands": 3,
+      "row_regularity_cv": 0.419,
+      "col_regularity_cv": 1.169,
+      "text_density": 0.0857,
+      "children_per_row_band": 1.0
+     },
+     "original_score": 4,
+     "original_gate_pass": true,
+     "A_conjunctive_gate_gate_pass": true,
+     "B_2d_or_strict_column_gate_pass": true,
+     "C_pure_structural_predicate_gate_pass": false,
+     "D_conjunctive_gate_tighter_rows_gate_pass": true,
+     "E_density_plus_tighter_rows_gate_pass": false
+    }
+   ]
+  }
+ },
+ "qualitative_note": "sample size on Family B is small (7 documents, 7 pages with >=2 text regions) -- per this milestone's own rule against fake statistical confidence with insufficient sample size, rates here are reported as exact counts over this specific small population, NOT generalized into a production false-positive-rate estimate.",
+ "finding": "On Family B's known picture-candidates: the ORIGINAL rule wrongly admits Chapter9 (region 0); Candidates D and E correctly reject it, A/B/C do not (candidate_results.json). On Family B's whole-page text sweep (7 pages): ORIGINAL rule triggers on 6/7; Candidate E triggers on 2/7 -- a real reduction, though not to zero, on a family none of the candidates were tuned against."
+}

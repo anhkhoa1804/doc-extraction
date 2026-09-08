@@ -1,0 +1,250 @@
+{
+ "part_1_picture_population_reverification": {
+  "layout_dirs_found_this_run": 1053,
+  "layout_files_scanned": 2322,
+  "all_label_frequencies": {
+   "section_header": 1178,
+   "text": 4153,
+   "picture": 132,
+   "table": 260,
+   "checkbox_selected": 20,
+   "checkbox_unselected": 40,
+   "caption": 2,
+   "formula": 18,
+   "list_item": 25
+  },
+  "distinct_documents_with_nested_child_picture_candidates": [
+   "cmb_lowcontrast_stamp_vi",
+   "cmb_scan_stamp_table_vi",
+   "cmb_stamp_boundary_vi",
+   "cmb_stamp_table_vi",
+   "hc_stamp_table_vi",
+   "hc_stamp_text_vi",
+   "hc_transparent_seal_vi",
+   "jiaocaineedrop_Chapter9.pdf_46",
+   "jiaocaineedrop_jiaocai_needrop_en_1898"
+  ],
+  "n_distinct_candidate_documents": 9,
+  "distinct_documents_with_zero_child_pictures_only": [
+   "jiaocaineedrop_Chapter9.pdf_46",
+   "yanbaopptmerge_SE05.pdf_7"
+  ],
+  "reconciliation_with_031_032": "9 total = 031's original 7-document population (023-025 corpus) + the 2 realscan_probe documents 031/032 already found and discussed SEPARATELY (031 FINAL_REPORT.md section 2: 'which added 2 more documents...(section 8)') -- NOT a contradiction of the '7' figure, which always excluded realscan_probe by construction. This script's single combined count reconciles exactly: ['cmb_lowcontrast_stamp_vi', 'cmb_scan_stamp_table_vi', 'cmb_stamp_boundary_vi', 'cmb_stamp_table_vi', 'hc_stamp_table_vi', 'hc_stamp_text_vi', 'hc_transparent_seal_vi'] (7) + ['jiaocaineedrop_Chapter9.pdf_46', 'jiaocaineedrop_jiaocai_needrop_en_1898'] (2) = 9."
+ },
+ "part_2_real_prose_sweep": {
+  "method": "every page with >=2 text/section_header/paragraph/caption/footnote/list_item-labelled regions, treated as ONE candidate block (page bbox = union of all such regions on the page, children = those regions themselves) -- the only way to construct a comparable input to compute_signals for content Docling did not already group under a picture parent. This directly answers 032 FINAL_REPORT.md section 22's stated next research question.",
+  "n_pages_scored": 1024,
+  "IMPORTANT_dedup_note": "the same physical page is replayed near-identically across dozens of arms (different OCR recognizer/route configurations, IDENTICAL underlying layout) -- raw page-INSTANCE counts below grossly overstate the number of distinct real documents affected. dedup_by_rule gives the honest distinct-document count, matching this milestone's own rule against reporting misleading precision/rate numbers from an inflated or duplicated population.",
+  "raw_page_instance_counts": {
+   "ORIGINAL_rule": 121,
+   "A_conjunctive_gate": 119,
+   "B_2d_or_strict_column": 119,
+   "C_pure_structural_predicate": 111,
+   "D_conjunctive_gate_tighter_rows": 99,
+   "E_density_plus_tighter_rows": 91
+  },
+  "dedup_by_rule": {
+   "ORIGINAL_rule": {
+    "n_page_instances": 121,
+    "n_distinct_documents": 12,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3",
+     "hc_rotation_vi",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46",
+     "jiaocaineedrop_jiaocai_needrop_en_1898",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4",
+     "yanbaopptmerge_SE05.pdf_7"
+    ],
+    "n_novel_documents_not_already_known_candidates": 6,
+    "novel_documents": [
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3",
+     "hc_rotation_vi",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4",
+     "yanbaopptmerge_SE05.pdf_7"
+    ]
+   },
+   "A_conjunctive_gate": {
+    "n_page_instances": 119,
+    "n_distinct_documents": 10,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46",
+     "jiaocaineedrop_jiaocai_needrop_en_1898",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ],
+    "n_novel_documents_not_already_known_candidates": 4,
+    "novel_documents": [
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ]
+   },
+   "B_2d_or_strict_column": {
+    "n_page_instances": 119,
+    "n_distinct_documents": 10,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46",
+     "jiaocaineedrop_jiaocai_needrop_en_1898",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ],
+    "n_novel_documents_not_already_known_candidates": 4,
+    "novel_documents": [
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ]
+   },
+   "C_pure_structural_predicate": {
+    "n_page_instances": 111,
+    "n_distinct_documents": 7,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46"
+    ],
+    "n_novel_documents_not_already_known_candidates": 2,
+    "novel_documents": [
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_rotation_vi"
+    ]
+   },
+   "D_conjunctive_gate_tighter_rows": {
+    "n_page_instances": 99,
+    "n_distinct_documents": 9,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46",
+     "jiaocaineedrop_jiaocai_needrop_en_1898",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ],
+    "n_novel_documents_not_already_known_candidates": 3,
+    "novel_documents": [
+     "cmb_watermark_tiny_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "newspaper_5e266dfd9c498cab274e12a7b4a75755_4"
+    ]
+   },
+   "E_density_plus_tighter_rows": {
+    "n_page_instances": 91,
+    "n_distinct_documents": 6,
+    "distinct_documents": [
+     "cmb_scan_stamp_table_vi",
+     "cmb_stamp_boundary_vi",
+     "cmb_stamp_table_vi",
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+     "hc_stamp_table_vi",
+     "jiaocaineedrop_Chapter9.pdf_46"
+    ],
+    "n_novel_documents_not_already_known_candidates": 1,
+    "novel_documents": [
+     "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4"
+    ]
+   }
+  },
+  "sample_original_rule_hits": [
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "layout_dir": "experiments/023_evidence_centric/_runs/adaptive/easyocr/cmb_scan_stamp_table_vi-45fa1db7/layout",
+    "page_file": "page-001.json",
+    "n_text_regions": 18,
+    "signals": {
+     "n_nested_text_regions": 18,
+     "aspect_ratio": 1.523,
+     "row_bands": 6,
+     "col_bands": 7,
+     "row_regularity_cv": 2.073,
+     "col_regularity_cv": 1.206,
+     "text_density": 0.4937,
+     "children_per_row_band": 3.0
+    },
+    "score": 4,
+    "reasons": [
+     "multi-row",
+     "multi-column",
+     "multiple children per row (grid, not a list)",
+     "high nested-text-region count"
+    ]
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "layout_dir": "experiments/023_evidence_centric/_runs/adaptive/fusion/cmb_scan_stamp_table_vi-45fa1db7/layout",
+    "page_file": "page-001.json",
+    "n_text_regions": 18,
+    "signals": {
+     "n_nested_text_regions": 18,
+     "aspect_ratio": 1.523,
+     "row_bands": 6,
+     "col_bands": 7,
+     "row_regularity_cv": 2.073,
+     "col_regularity_cv": 1.206,
+     "text_density": 0.4937,
+     "children_per_row_band": 3.0
+    },
+    "score": 4,
+    "reasons": [
+     "multi-row",
+     "multi-column",
+     "multiple children per row (grid, not a list)",
+     "high nested-text-region count"
+    ]
+   },
+   {
+    "document_id": "cmb_scan_stamp_table_vi",
+    "layout_dir": "experiments/023_evidence_centric/_runs/adaptive/fusion_recovery/cmb_scan_stamp_table_vi-45fa1db7/layout",
+    "page_file": "page-001.json",
+    "n_text_regions": 18,
+    "signals": {
+     "n_nested_text_regions": 18,
+     "aspect_ratio": 1.523,
+     "row_bands": 6,
+     "col_bands": 7,
+     "row_regularity_cv": 2.073,
+     "col_regularity_cv": 1.206,
+     "text_density": 0.4937,
+     "children_per_row_band": 3.0
+    },
+    "score": 4,
+    "reasons": [
+     "multi-row",
+     "multi-column",
+     "multiple children per row (grid, not a list)",
+     "high nested-text-region count"
+    ]
+   }
+  ]
+ },
+ "finding": "ORIGINAL rule: 121 page-instances but only 12 DISTINCT documents (['cmb_scan_stamp_table_vi', 'cmb_stamp_boundary_vi', 'cmb_stamp_table_vi', 'cmb_watermark_tiny_vi', 'docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4', 'docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3', 'hc_rotation_vi', 'hc_stamp_table_vi', 'jiaocaineedrop_Chapter9.pdf_46', 'jiaocaineedrop_jiaocai_needrop_en_1898', 'newspaper_5e266dfd9c498cab274e12a7b4a75755_4', 'yanbaopptmerge_SE05.pdf_7']) cross the conservative threshold as a whole-page prose block, with ZERO picture-labelled parent involved. Of these, 6 are documents NOT already known from the 9-document picture-candidate population: ['cmb_watermark_tiny_vi', 'docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4', 'docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3', 'hc_rotation_vi', 'newspaper_5e266dfd9c498cab274e12a7b4a75755_4', 'yanbaopptmerge_SE05.pdf_7'] -- this is REAL (not synthetic) confirmation that ordinary page content, unrelated to any picture/stamp/table question, can satisfy table_shape_score at the whole-page granularity. Candidate E reduces novel-document false positives to 1 (documents: ['docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4']) -- an 83% reduction (6 -> 1) but not a full fix.",
+ "IMPORTANT_scope_caveat": "this page-level sweep tests the RULE's intrinsic discriminative power in a GENERALIZED application (any text-region grouping), not current production risk: in actual production, table_shape_score is only ever invoked on a Docling picture/chart-labelled region's own nested children (base.py:747's gate must already have excluded the region, and Phase 2's OWN candidate design in 031/032 never proposed scoring arbitrary text regions). This test is relevant to the BROADER question of whether this evidence vector could safely generalize beyond its current narrow trigger condition (e.g. if a future Policy 3-style routing layer considered scoring more region types) -- it is not a claim that current production behavior is affected today."
+}

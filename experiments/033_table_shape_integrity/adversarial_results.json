@@ -1,0 +1,4670 @@
+{
+ "method": "42 synthetic cases (032's original 20, reproduced identically, plus 22 new -- 5 one-dimensional-evidence, 7 two-dimensional-evidence including the critical single-column-table case (Phase 8), 6 deceptive-structure, 8 adversarial-geometry) run through the real table_shape_score AND all 4 candidate rules.",
+ "cases": [
+  {
+   "n": 1,
+   "name": "obvious table",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "regular 4x4 grid, every cell populated"
+  },
+  {
+   "n": 2,
+   "name": "obvious picture",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth": "picture",
+   "reasoning": "zero nested text children"
+  },
+  {
+   "n": 3,
+   "name": "obvious paragraph",
+   "group": "clear",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "single text child"
+  },
+  {
+   "n": 4,
+   "name": "table under stamp",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "contiguous occlusion patch"
+  },
+  {
+   "n": 5,
+   "name": "table under heavy occlusion",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "checkerboard occlusion, 8/16 cells"
+  },
+  {
+   "n": 6,
+   "name": "table with sparse cells",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "sparse real table"
+  },
+  {
+   "n": 7,
+   "name": "table with merged cells",
+   "group": "ambiguous",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "row-span header + regular body"
+  },
+  {
+   "n": 8,
+   "name": "aligned paragraph",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "single column, even spacing"
+  },
+  {
+   "n": 9,
+   "name": "form",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "regular 6x2 grid, geometrically identical to a table"
+  },
+  {
+   "n": 10,
+   "name": "chart",
+   "group": "ambiguous",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "scattered axis/title/legend, low density"
+  },
+  {
+   "n": 11,
+   "name": "stamp with aligned text",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "3 children, ring layout"
+  },
+  {
+   "n": 12,
+   "name": "photo containing text",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "1 child"
+  },
+  {
+   "n": 13,
+   "name": "screenshot of a table",
+   "group": "misleading",
+   "ambiguity_kind": "evaluator_uncertainty",
+   "ground_truth": "table",
+   "reasoning": "IS a real table, rendered as a picture element"
+  },
+  {
+   "n": 14,
+   "name": "decorative grid",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "regular grid, all cells empty text"
+  },
+  {
+   "n": 15,
+   "name": "textbook banner",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "EXACT geometry of the real confirmed Chapter9 false positive"
+  },
+  {
+   "n": 16,
+   "name": "signature block",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "3 short children, 1 column"
+  },
+  {
+   "n": 17,
+   "name": "multi-column paragraph",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "2-column prose, the hardest misleading case"
+  },
+  {
+   "n": 18,
+   "name": "dense bullet list",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "1 column, many rows"
+  },
+  {
+   "n": 19,
+   "name": "pseudo-table (coincidental alignment)",
+   "group": "misleading",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "repeated template creates a perfect 2-col grid"
+  },
+  {
+   "n": 20,
+   "name": "malformed table",
+   "group": "misleading",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "real but structurally messy table"
+  },
+  {
+   "n": 21,
+   "name": "ragged-right paragraph",
+   "group": "1d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "natural ragged-right prose, unlike case 8's uniform width"
+  },
+  {
+   "n": 22,
+   "name": "numbered bullet list",
+   "group": "1d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "numbered list, 1 column, moderately regular"
+  },
+  {
+   "n": 23,
+   "name": "wide-numbered list",
+   "group": "1d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "double-digit numbers, still 1 column"
+  },
+  {
+   "n": 24,
+   "name": "loosely spaced prose",
+   "group": "1d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "irregular gaps between lines -- row_regularity_cv should be HIGH"
+  },
+  {
+   "n": 25,
+   "name": "aligned headings",
+   "group": "1d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "text",
+   "reasoning": "repeated centered short headings, 1 column, 7 rows"
+  },
+  {
+   "n": 26,
+   "name": "true table 5x5",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "larger regular grid"
+  },
+  {
+   "n": 27,
+   "name": "sparse real table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "only every 3rd cell populated, still real 2D structure"
+  },
+  {
+   "n": 28,
+   "name": "single-row table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "1 row, 5 columns -- header-only fragment"
+  },
+  {
+   "n": 29,
+   "name": "single-column table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "5 rows, 1 column -- Phase 8's critical case: geometrically IDENTICAL to case 8 (aligned paragraph) and case 18 (bullet list). Ground truth 'table' asserted by construction ONLY -- this is exactly the case Phase 8 asks whether current evidence can actually recognize."
+  },
+  {
+   "n": 30,
+   "name": "merged-cell table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "1 merged header row + 3x4 body"
+  },
+  {
+   "n": 31,
+   "name": "borderless noisy table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "real 3x4 grid with a few px of OCR/render noise on every edge"
+  },
+  {
+   "n": 32,
+   "name": "highly irregular real table",
+   "group": "2d_evidence",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "real 3x3 table but with widely uneven row gaps (30, 90) -- row_regularity_cv will be high despite genuine 2D structure"
+  },
+  {
+   "n": 33,
+   "name": "diagram with labels",
+   "group": "deceptive",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "4 scattered labeled boxes, no grid regularity"
+  },
+  {
+   "n": 34,
+   "name": "large form",
+   "group": "deceptive",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "9-row form, same structural ambiguity as case 9 at larger scale"
+  },
+  {
+   "n": 35,
+   "name": "app screenshot",
+   "group": "deceptive",
+   "ambiguity_kind": "semantic_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "UI screenshot, scattered irregular elements"
+  },
+  {
+   "n": 36,
+   "name": "multi-column article (3 col)",
+   "group": "deceptive",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "3-column newspaper layout, even more table-like than case 17"
+  },
+  {
+   "n": 37,
+   "name": "grid-like decorative border",
+   "group": "deceptive",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "duplicated empty grid (rendering artifact), still zero text content"
+  },
+  {
+   "n": 38,
+   "name": "textbook banner variant (narrower)",
+   "group": "deceptive",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "picture",
+   "reasoning": "same header/banner PATTERN as case 15, different scale"
+  },
+  {
+   "n": 39,
+   "name": "fake columns from short lines",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "varying line widths create ACCIDENTAL x1 alignment clusters at multiple positions -- tests whether col_bands (built from x0/x1 overlap) is fooled by ragged-right prose"
+  },
+  {
+   "n": 40,
+   "name": "unequal row spacing table",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "real 4-row table split into two visually separated groups (e.g. a page break or section gap) -- row_regularity_cv will be high"
+  },
+  {
+   "n": 41,
+   "name": "fake repeated x from different-sized boxes",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "text",
+   "reasoning": "3 left-aligned children of very different sizes -- all share x0=0 (1 col by construction) but heights vary a lot"
+  },
+  {
+   "n": 42,
+   "name": "interleaved short/long rows",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "reasoning": "alternating 3-col rows and 1-col wide rows -- a genuinely ambiguous mixed layout (could be a table with merged rows, or a document alternating a caption and a data row)"
+  },
+  {
+   "n": 43,
+   "name": "misaligned/staggered cells",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "real 3x3 table but each cell is randomly jittered +/-10px -- tests robustness of band-clustering to realistic OCR positional noise"
+  },
+  {
+   "n": 44,
+   "name": "partial grid (top-left quadrant only)",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "only the top-left 2x2 of a declared 4x4 region has content -- rest of the region is genuinely empty (e.g. a form partially filled in, or a table cut off mid-page)"
+  },
+  {
+   "n": 45,
+   "name": "cropped table (right edge cut)",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "evidence_ambiguity",
+   "ground_truth": "table",
+   "reasoning": "region bbox (x1=250) is NARROWER than the 4th column's true extent (which runs to x1=344 in the underlying grid geometry) -- simulates a table whose region boundary was detected short, cropping the last column's visible portion"
+  },
+  {
+   "n": 46,
+   "name": "true one-column table with header",
+   "group": "adversarial_geometry",
+   "ambiguity_kind": "none",
+   "ground_truth": "table",
+   "reasoning": "one-column table with a distinct header cell ('STT' -- Vietnamese sequence-number column header, matching the REAL cmb_stamp_table_vi/hc_stamp_table_vi factual oracle's own first column, counterfactual_replay.json) followed by short numeric rows -- geometrically STILL indistinguishable from case 22 (numbered list) using only bbox evidence; the difference is semantic (a short numeral vs 'N. text') and requires reading content"
+  }
+ ],
+ "n_total_cases": 46,
+ "original_rule_results": [
+  {
+   "n": 1,
+   "name": "obvious table",
+   "group": "clear",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 2,
+   "name": "obvious picture",
+   "group": "clear",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 0,
+    "aspect_ratio": 1.6,
+    "row_bands": 0,
+    "col_bands": 0,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.0,
+    "children_per_row_band": 0.0
+   },
+   "score": 0,
+   "reasons": [],
+   "gate_pass": false
+  },
+  {
+   "n": 3,
+   "name": "obvious paragraph",
+   "group": "clear",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 6.667,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 1.0,
+    "children_per_row_band": 1.0
+   },
+   "score": 0,
+   "reasons": [],
+   "gate_pass": false
+  },
+  {
+   "n": 4,
+   "name": "table under stamp",
+   "group": "ambiguous",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 13,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.5889,
+    "children_per_row_band": 3.25
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 5,
+   "name": "table under heavy occlusion",
+   "group": "ambiguous",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 8,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.3624,
+    "children_per_row_band": 2.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 6,
+   "name": "table with sparse cells",
+   "group": "ambiguous",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 4,
+    "aspect_ratio": 2.263,
+    "row_bands": 2,
+    "col_bands": 3,
+    "row_regularity_cv": null,
+    "col_regularity_cv": 0.486,
+    "text_density": 0.1175,
+    "children_per_row_band": 2.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 7,
+   "name": "table with merged cells",
+   "group": "ambiguous",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 14,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 3,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7838,
+    "children_per_row_band": 3.5
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 8,
+   "name": "aligned paragraph",
+   "group": "ambiguous",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 8,
+    "aspect_ratio": 1.5,
+    "row_bands": 8,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.7467,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 9,
+   "name": "form",
+   "group": "ambiguous",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "signals": {
+    "n_nested_text_regions": 12,
+    "aspect_ratio": 1.667,
+    "row_bands": 6,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.5625,
+    "children_per_row_band": 2.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 10,
+   "name": "chart",
+   "group": "ambiguous",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 1.333,
+    "row_bands": 5,
+    "col_bands": 3,
+    "row_regularity_cv": 0.449,
+    "col_regularity_cv": 0.655,
+    "text_density": 0.0387,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "regular row spacing"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 11,
+   "name": "stamp with aligned text",
+   "group": "misleading",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 3,
+    "aspect_ratio": 1.0,
+    "row_bands": 3,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.2,
+    "children_per_row_band": 1.0
+   },
+   "score": 2,
+   "reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_pass": false
+  },
+  {
+   "n": 12,
+   "name": "photo containing text",
+   "group": "misleading",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 1,
+    "aspect_ratio": 1.333,
+    "row_bands": 1,
+    "col_bands": 1,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.05,
+    "children_per_row_band": 1.0
+   },
+   "score": 0,
+   "reasons": [],
+   "gate_pass": false
+  },
+  {
+   "n": 13,
+   "name": "screenshot of a table",
+   "group": "misleading",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 14,
+   "name": "decorative grid",
+   "group": "misleading",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7249,
+    "children_per_row_band": 4.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 15,
+   "name": "textbook banner",
+   "group": "misleading",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 4.874,
+    "row_bands": 2,
+    "col_bands": 4,
+    "row_regularity_cv": 0.732,
+    "col_regularity_cv": 1.056,
+    "text_density": 0.1703,
+    "children_per_row_band": 3.0
+   },
+   "score": 4,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 16,
+   "name": "signature block",
+   "group": "misleading",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 3,
+    "aspect_ratio": 3.125,
+    "row_bands": 3,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.45,
+    "children_per_row_band": 1.0
+   },
+   "score": 2,
+   "reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_pass": false
+  },
+  {
+   "n": 17,
+   "name": "multi-column paragraph",
+   "group": "misleading",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.0,
+    "row_bands": 8,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.72,
+    "children_per_row_band": 2.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 18,
+   "name": "dense bullet list",
+   "group": "misleading",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 10,
+    "aspect_ratio": 1.25,
+    "row_bands": 10,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.7778,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 19,
+   "name": "pseudo-table (coincidental alignment)",
+   "group": "misleading",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.0,
+    "row_bands": 8,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.58,
+    "children_per_row_band": 2.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 20,
+   "name": "malformed table",
+   "group": "misleading",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 2.234,
+    "row_bands": 3,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.346,
+    "text_density": 0.8656,
+    "children_per_row_band": 5.33
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 21,
+   "name": "ragged-right paragraph",
+   "group": "1d_evidence",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 1.714,
+    "row_bands": 6,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.48,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 22,
+   "name": "numbered bullet list",
+   "group": "1d_evidence",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 9,
+    "aspect_ratio": 1.455,
+    "row_bands": 9,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.8438,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 23,
+   "name": "wide-numbered list",
+   "group": "1d_evidence",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 1.778,
+    "row_bands": 6,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.6875,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 24,
+   "name": "loosely spaced prose",
+   "group": "1d_evidence",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 1.154,
+    "row_bands": 6,
+    "col_bands": 1,
+    "row_regularity_cv": 0.268,
+    "col_regularity_cv": null,
+    "text_density": 0.4308,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 25,
+   "name": "aligned headings",
+   "group": "1d_evidence",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 7,
+    "aspect_ratio": 1.364,
+    "row_bands": 7,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.4773,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 26,
+   "name": "true table 5x5",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 25,
+    "aspect_ratio": 2.263,
+    "row_bands": 5,
+    "col_bands": 5,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7344,
+    "children_per_row_band": 5.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 27,
+   "name": "sparse real table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 7,
+    "aspect_ratio": 2.263,
+    "row_bands": 4,
+    "col_bands": 5,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.2056,
+    "children_per_row_band": 1.75
+   },
+   "score": 4,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 28,
+   "name": "single-row table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 12.647,
+    "row_bands": 1,
+    "col_bands": 5,
+    "row_regularity_cv": null,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.8208,
+    "children_per_row_band": 5.0
+   },
+   "score": 2,
+   "reasons": [
+    "multi-column",
+    "multiple children per row (grid, not a list)"
+   ],
+   "gate_pass": false
+  },
+  {
+   "n": 29,
+   "name": "single-column table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 0.442,
+    "row_bands": 5,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.7519,
+    "children_per_row_band": 1.0
+   },
+   "score": 2,
+   "reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_pass": false
+  },
+  {
+   "n": 30,
+   "name": "merged-cell table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 13,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.7384,
+    "children_per_row_band": 3.25
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 31,
+   "name": "borderless noisy table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 12,
+    "aspect_ratio": 2.15,
+    "row_bands": 3,
+    "col_bands": 4,
+    "row_regularity_cv": 1.806,
+    "col_regularity_cv": 1.563,
+    "text_density": 0.4884,
+    "children_per_row_band": 4.0
+   },
+   "score": 4,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 32,
+   "name": "highly irregular real table",
+   "group": "2d_evidence",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 9,
+    "aspect_ratio": 1.333,
+    "row_bands": 3,
+    "col_bands": 3,
+    "row_regularity_cv": 0.333,
+    "col_regularity_cv": 0.13,
+    "text_density": 0.285,
+    "children_per_row_band": 3.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 33,
+   "name": "diagram with labels",
+   "group": "deceptive",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 4,
+    "aspect_ratio": 1.5,
+    "row_bands": 3,
+    "col_bands": 3,
+    "row_regularity_cv": 0.067,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.1067,
+    "children_per_row_band": 1.33
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "regular row spacing"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 34,
+   "name": "large form",
+   "group": "deceptive",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "signals": {
+    "n_nested_text_regions": 18,
+    "aspect_ratio": 1.111,
+    "row_bands": 9,
+    "col_bands": 2,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.5625,
+    "children_per_row_band": 2.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 35,
+   "name": "app screenshot",
+   "group": "deceptive",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 1.0,
+    "row_bands": 3,
+    "col_bands": 2,
+    "row_regularity_cv": 0.053,
+    "col_regularity_cv": 0.789,
+    "text_density": 0.1667,
+    "children_per_row_band": 1.67
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "regular row spacing"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 36,
+   "name": "multi-column article (3 col)",
+   "group": "deceptive",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 24,
+    "aspect_ratio": 3.0,
+    "row_bands": 8,
+    "col_bands": 3,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.72,
+    "children_per_row_band": 3.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 37,
+   "name": "grid-like decorative border",
+   "group": "deceptive",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 32,
+    "aspect_ratio": 2.234,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 1.4497,
+    "children_per_row_band": 8.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 38,
+   "name": "textbook banner variant (narrower)",
+   "group": "deceptive",
+   "ground_truth": "picture",
+   "signals": {
+    "n_nested_text_regions": 5,
+    "aspect_ratio": 4.0,
+    "row_bands": 2,
+    "col_bands": 4,
+    "row_regularity_cv": 0.655,
+    "col_regularity_cv": 0.747,
+    "text_density": 0.1512,
+    "children_per_row_band": 2.5
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 39,
+   "name": "fake columns from short lines",
+   "group": "adversarial_geometry",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 1.714,
+    "row_bands": 6,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.3276,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 40,
+   "name": "unequal row spacing table",
+   "group": "adversarial_geometry",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 1.323,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.63,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.4293,
+    "children_per_row_band": 4.0
+   },
+   "score": 4,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 41,
+   "name": "fake repeated x from different-sized boxes",
+   "group": "adversarial_geometry",
+   "ground_truth": "text",
+   "signals": {
+    "n_nested_text_regions": 3,
+    "aspect_ratio": 2.0,
+    "row_bands": 3,
+    "col_bands": 1,
+    "row_regularity_cv": 0.111,
+    "col_regularity_cv": null,
+    "text_density": 0.1378,
+    "children_per_row_band": 1.0
+   },
+   "score": 2,
+   "reasons": [
+    "multi-row",
+    "regular row spacing"
+   ],
+   "gate_pass": false
+  },
+  {
+   "n": 42,
+   "name": "interleaved short/long rows",
+   "group": "adversarial_geometry",
+   "ground_truth": "AMBIGUOUS_BY_DESIGN",
+   "signals": {
+    "n_nested_text_regions": 11,
+    "aspect_ratio": 1.905,
+    "row_bands": 5,
+    "col_bands": 3,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.3524,
+    "children_per_row_band": 2.2
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 43,
+   "name": "misaligned/staggered cells",
+   "group": "adversarial_geometry",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 9,
+    "aspect_ratio": 2.5,
+    "row_bands": 3,
+    "col_bands": 3,
+    "row_regularity_cv": 1.18,
+    "col_regularity_cv": 1.459,
+    "text_density": 0.3375,
+    "children_per_row_band": 3.0
+   },
+   "score": 4,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 44,
+   "name": "partial grid (top-left quadrant only)",
+   "group": "adversarial_geometry",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 4,
+    "aspect_ratio": 2.234,
+    "row_bands": 2,
+    "col_bands": 2,
+    "row_regularity_cv": null,
+    "col_regularity_cv": null,
+    "text_density": 0.1812,
+    "children_per_row_band": 2.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 45,
+   "name": "cropped table (right edge cut)",
+   "group": "adversarial_geometry",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 16,
+    "aspect_ratio": 1.623,
+    "row_bands": 4,
+    "col_bands": 4,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": 0.0,
+    "text_density": 0.9974,
+    "children_per_row_band": 4.0
+   },
+   "score": 5,
+   "reasons": [
+    "multi-row",
+    "multi-column",
+    "multiple children per row (grid, not a list)",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  },
+  {
+   "n": 46,
+   "name": "true one-column table with header",
+   "group": "adversarial_geometry",
+   "ground_truth": "table",
+   "signals": {
+    "n_nested_text_regions": 6,
+    "aspect_ratio": 0.727,
+    "row_bands": 6,
+    "col_bands": 1,
+    "row_regularity_cv": 0.0,
+    "col_regularity_cv": null,
+    "text_density": 0.8182,
+    "children_per_row_band": 1.0
+   },
+   "score": 3,
+   "reasons": [
+    "multi-row",
+    "regular row spacing",
+    "high nested-text-region count"
+   ],
+   "gate_pass": true
+  }
+ ],
+ "candidate_results": {
+  "A_conjunctive_gate": [
+   {
+    "n": 1,
+    "name": "obvious table",
+    "group": "clear",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 2,
+    "name": "obvious picture",
+    "group": "clear",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 3,
+    "name": "obvious paragraph",
+    "group": "clear",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 4,
+    "name": "table under stamp",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 5,
+    "name": "table under heavy occlusion",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 6,
+    "name": "table with sparse cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 7,
+    "name": "table with merged cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 8,
+    "name": "aligned paragraph",
+    "group": "ambiguous",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 9,
+    "name": "form",
+    "group": "ambiguous",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 10,
+    "name": "chart",
+    "group": "ambiguous",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 11,
+    "name": "stamp with aligned text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 12,
+    "name": "photo containing text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 13,
+    "name": "screenshot of a table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 14,
+    "name": "decorative grid",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 15,
+    "name": "textbook banner",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 16,
+    "name": "signature block",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 17,
+    "name": "multi-column paragraph",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 18,
+    "name": "dense bullet list",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 19,
+    "name": "pseudo-table (coincidental alignment)",
+    "group": "misleading",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 20,
+    "name": "malformed table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 21,
+    "name": "ragged-right paragraph",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 22,
+    "name": "numbered bullet list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 23,
+    "name": "wide-numbered list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 24,
+    "name": "loosely spaced prose",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 25,
+    "name": "aligned headings",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 26,
+    "name": "true table 5x5",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 27,
+    "name": "sparse real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 28,
+    "name": "single-row table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 29,
+    "name": "single-column table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 30,
+    "name": "merged-cell table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 31,
+    "name": "borderless noisy table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 32,
+    "name": "highly irregular real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 33,
+    "name": "diagram with labels",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 34,
+    "name": "large form",
+    "group": "deceptive",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 35,
+    "name": "app screenshot",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 36,
+    "name": "multi-column article (3 col)",
+    "group": "deceptive",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 37,
+    "name": "grid-like decorative border",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 38,
+    "name": "textbook banner variant (narrower)",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 39,
+    "name": "fake columns from short lines",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 40,
+    "name": "unequal row spacing table",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 41,
+    "name": "fake repeated x from different-sized boxes",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 42,
+    "name": "interleaved short/long rows",
+    "group": "adversarial_geometry",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 43,
+    "name": "misaligned/staggered cells",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 44,
+    "name": "partial grid (top-left quadrant only)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 45,
+    "name": "cropped table (right edge cut)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 46,
+    "name": "true one-column table with header",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false
+    }
+   }
+  ],
+  "B_2d_or_strict_column": [
+   {
+    "n": 1,
+    "name": "obvious table",
+    "group": "clear",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 2,
+    "name": "obvious picture",
+    "group": "clear",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 3,
+    "name": "obvious paragraph",
+    "group": "clear",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 4,
+    "name": "table under stamp",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 5,
+    "name": "table under heavy occlusion",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 6,
+    "name": "table with sparse cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 7,
+    "name": "table with merged cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 8,
+    "name": "aligned paragraph",
+    "group": "ambiguous",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 9,
+    "name": "form",
+    "group": "ambiguous",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 10,
+    "name": "chart",
+    "group": "ambiguous",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 11,
+    "name": "stamp with aligned text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 12,
+    "name": "photo containing text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 13,
+    "name": "screenshot of a table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 14,
+    "name": "decorative grid",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 15,
+    "name": "textbook banner",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 16,
+    "name": "signature block",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 17,
+    "name": "multi-column paragraph",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 18,
+    "name": "dense bullet list",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 19,
+    "name": "pseudo-table (coincidental alignment)",
+    "group": "misleading",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 20,
+    "name": "malformed table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 21,
+    "name": "ragged-right paragraph",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 22,
+    "name": "numbered bullet list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 23,
+    "name": "wide-numbered list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 24,
+    "name": "loosely spaced prose",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 25,
+    "name": "aligned headings",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 26,
+    "name": "true table 5x5",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 27,
+    "name": "sparse real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 28,
+    "name": "single-row table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": false,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 29,
+    "name": "single-column table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 30,
+    "name": "merged-cell table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 31,
+    "name": "borderless noisy table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 32,
+    "name": "highly irregular real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 33,
+    "name": "diagram with labels",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 34,
+    "name": "large form",
+    "group": "deceptive",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 35,
+    "name": "app screenshot",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 36,
+    "name": "multi-column article (3 col)",
+    "group": "deceptive",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 37,
+    "name": "grid-like decorative border",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 38,
+    "name": "textbook banner variant (narrower)",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 39,
+    "name": "fake columns from short lines",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 40,
+    "name": "unequal row spacing table",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 41,
+    "name": "fake repeated x from different-sized boxes",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 42,
+    "name": "interleaved short/long rows",
+    "group": "adversarial_geometry",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 43,
+    "name": "misaligned/staggered cells",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 44,
+    "name": "partial grid (top-left quadrant only)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": false
+    }
+   },
+   {
+    "n": 45,
+    "name": "cropped table (right edge cut)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "two_axis_gate": true,
+     "row_evidence": true,
+     "col_evidence": true,
+     "strong_column_fallback": true
+    }
+   },
+   {
+    "n": 46,
+    "name": "true one-column table with header",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "two_axis_gate": false,
+     "row_evidence": true,
+     "col_evidence": false,
+     "strong_column_fallback": false
+    }
+   }
+  ],
+  "C_pure_structural_predicate": [
+   {
+    "n": 1,
+    "name": "obvious table",
+    "group": "clear",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 2,
+    "name": "obvious picture",
+    "group": "clear",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 3,
+    "name": "obvious paragraph",
+    "group": "clear",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 4,
+    "name": "table under stamp",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 5,
+    "name": "table under heavy occlusion",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 6,
+    "name": "table with sparse cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 7,
+    "name": "table with merged cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 8,
+    "name": "aligned paragraph",
+    "group": "ambiguous",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 9,
+    "name": "form",
+    "group": "ambiguous",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 10,
+    "name": "chart",
+    "group": "ambiguous",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 11,
+    "name": "stamp with aligned text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 12,
+    "name": "photo containing text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 13,
+    "name": "screenshot of a table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 14,
+    "name": "decorative grid",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 15,
+    "name": "textbook banner",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 16,
+    "name": "signature block",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 17,
+    "name": "multi-column paragraph",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 18,
+    "name": "dense bullet list",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 19,
+    "name": "pseudo-table (coincidental alignment)",
+    "group": "misleading",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 20,
+    "name": "malformed table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 21,
+    "name": "ragged-right paragraph",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 22,
+    "name": "numbered bullet list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 23,
+    "name": "wide-numbered list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 24,
+    "name": "loosely spaced prose",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 25,
+    "name": "aligned headings",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 26,
+    "name": "true table 5x5",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 27,
+    "name": "sparse real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 28,
+    "name": "single-row table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 29,
+    "name": "single-column table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 30,
+    "name": "merged-cell table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 31,
+    "name": "borderless noisy table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 32,
+    "name": "highly irregular real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 33,
+    "name": "diagram with labels",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 34,
+    "name": "large form",
+    "group": "deceptive",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 35,
+    "name": "app screenshot",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 36,
+    "name": "multi-column article (3 col)",
+    "group": "deceptive",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 37,
+    "name": "grid-like decorative border",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 38,
+    "name": "textbook banner variant (narrower)",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 39,
+    "name": "fake columns from short lines",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 40,
+    "name": "unequal row spacing table",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 41,
+    "name": "fake repeated x from different-sized boxes",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 42,
+    "name": "interleaved short/long rows",
+    "group": "adversarial_geometry",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 43,
+    "name": "misaligned/staggered cells",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 44,
+    "name": "partial grid (top-left quadrant only)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 45,
+    "name": "cropped table (right edge cut)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 46,
+    "name": "true one-column table with header",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   }
+  ],
+  "D_conjunctive_gate_tighter_rows": [
+   {
+    "n": 1,
+    "name": "obvious table",
+    "group": "clear",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 2,
+    "name": "obvious picture",
+    "group": "clear",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 3,
+    "name": "obvious paragraph",
+    "group": "clear",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 4,
+    "name": "table under stamp",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 5,
+    "name": "table under heavy occlusion",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 6,
+    "name": "table with sparse cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 7,
+    "name": "table with merged cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 8,
+    "name": "aligned paragraph",
+    "group": "ambiguous",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 9,
+    "name": "form",
+    "group": "ambiguous",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 10,
+    "name": "chart",
+    "group": "ambiguous",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 11,
+    "name": "stamp with aligned text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 12,
+    "name": "photo containing text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 13,
+    "name": "screenshot of a table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 14,
+    "name": "decorative grid",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 15,
+    "name": "textbook banner",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 16,
+    "name": "signature block",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 17,
+    "name": "multi-column paragraph",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 18,
+    "name": "dense bullet list",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 19,
+    "name": "pseudo-table (coincidental alignment)",
+    "group": "misleading",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 20,
+    "name": "malformed table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 21,
+    "name": "ragged-right paragraph",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 22,
+    "name": "numbered bullet list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 23,
+    "name": "wide-numbered list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 24,
+    "name": "loosely spaced prose",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 25,
+    "name": "aligned headings",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 26,
+    "name": "true table 5x5",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 27,
+    "name": "sparse real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 28,
+    "name": "single-row table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 29,
+    "name": "single-column table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 30,
+    "name": "merged-cell table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 31,
+    "name": "borderless noisy table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 32,
+    "name": "highly irregular real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 33,
+    "name": "diagram with labels",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 34,
+    "name": "large form",
+    "group": "deceptive",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 35,
+    "name": "app screenshot",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 36,
+    "name": "multi-column article (3 col)",
+    "group": "deceptive",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 37,
+    "name": "grid-like decorative border",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 38,
+    "name": "textbook banner variant (narrower)",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 39,
+    "name": "fake columns from short lines",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 40,
+    "name": "unequal row spacing table",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 41,
+    "name": "fake repeated x from different-sized boxes",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   },
+   {
+    "n": 42,
+    "name": "interleaved short/long rows",
+    "group": "adversarial_geometry",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 43,
+    "name": "misaligned/staggered cells",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 44,
+    "name": "partial grid (top-left quadrant only)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 45,
+    "name": "cropped table (right edge cut)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true
+    }
+   },
+   {
+    "n": 46,
+    "name": "true one-column table with header",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false
+    }
+   }
+  ],
+  "E_density_plus_tighter_rows": [
+   {
+    "n": 1,
+    "name": "obvious table",
+    "group": "clear",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 2,
+    "name": "obvious picture",
+    "group": "clear",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 3,
+    "name": "obvious paragraph",
+    "group": "clear",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 4,
+    "name": "table under stamp",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 5,
+    "name": "table under heavy occlusion",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 6,
+    "name": "table with sparse cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 7,
+    "name": "table with merged cells",
+    "group": "ambiguous",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 8,
+    "name": "aligned paragraph",
+    "group": "ambiguous",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 9,
+    "name": "form",
+    "group": "ambiguous",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 10,
+    "name": "chart",
+    "group": "ambiguous",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 11,
+    "name": "stamp with aligned text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 12,
+    "name": "photo containing text",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 13,
+    "name": "screenshot of a table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 14,
+    "name": "decorative grid",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 15,
+    "name": "textbook banner",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 16,
+    "name": "signature block",
+    "group": "misleading",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 17,
+    "name": "multi-column paragraph",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 18,
+    "name": "dense bullet list",
+    "group": "misleading",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 19,
+    "name": "pseudo-table (coincidental alignment)",
+    "group": "misleading",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 20,
+    "name": "malformed table",
+    "group": "misleading",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 21,
+    "name": "ragged-right paragraph",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 22,
+    "name": "numbered bullet list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 23,
+    "name": "wide-numbered list",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 24,
+    "name": "loosely spaced prose",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 25,
+    "name": "aligned headings",
+    "group": "1d_evidence",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 26,
+    "name": "true table 5x5",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 27,
+    "name": "sparse real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 28,
+    "name": "single-row table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 29,
+    "name": "single-column table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 30,
+    "name": "merged-cell table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 31,
+    "name": "borderless noisy table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 32,
+    "name": "highly irregular real table",
+    "group": "2d_evidence",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 33,
+    "name": "diagram with labels",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 34,
+    "name": "large form",
+    "group": "deceptive",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 35,
+    "name": "app screenshot",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 36,
+    "name": "multi-column article (3 col)",
+    "group": "deceptive",
+    "ground_truth": "text",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 37,
+    "name": "grid-like decorative border",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 38,
+    "name": "textbook banner variant (narrower)",
+    "group": "deceptive",
+    "ground_truth": "picture",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 39,
+    "name": "fake columns from short lines",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 40,
+    "name": "unequal row spacing table",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 41,
+    "name": "fake repeated x from different-sized boxes",
+    "group": "adversarial_geometry",
+    "ground_truth": "text",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   },
+   {
+    "n": 42,
+    "name": "interleaved short/long rows",
+    "group": "adversarial_geometry",
+    "ground_truth": "AMBIGUOUS_BY_DESIGN",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 43,
+    "name": "misaligned/staggered cells",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 44,
+    "name": "partial grid (top-left quadrant only)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": false,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 45,
+    "name": "cropped table (right edge cut)",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": true,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": true,
+     "grid_density": true
+    }
+   },
+   {
+    "n": 46,
+    "name": "true one-column table with header",
+    "group": "adversarial_geometry",
+    "ground_truth": "table",
+    "gate_pass": false,
+    "detail": {
+     "row_evidence_floor_3": true,
+     "col_evidence": false,
+     "grid_density": false
+    }
+   }
+  ]
+ },
+ "summary": {
+  "ORIGINAL_rule": {
+   "n_cases": 46,
+   "correct": 23,
+   "wrong": 19,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 8,
+     "name": "aligned paragraph",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 10,
+     "name": "chart",
+     "ground_truth": "picture",
+     "score": 3
+    },
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture",
+     "score": 5
+    },
+    {
+     "n": 15,
+     "name": "textbook banner",
+     "ground_truth": "picture",
+     "score": 4
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text",
+     "score": 5
+    },
+    {
+     "n": 18,
+     "name": "dense bullet list",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 21,
+     "name": "ragged-right paragraph",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 22,
+     "name": "numbered bullet list",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 23,
+     "name": "wide-numbered list",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 24,
+     "name": "loosely spaced prose",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 25,
+     "name": "aligned headings",
+     "ground_truth": "text",
+     "score": 3
+    },
+    {
+     "n": 28,
+     "name": "single-row table",
+     "ground_truth": "table",
+     "score": 2
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table",
+     "score": 2
+    },
+    {
+     "n": 33,
+     "name": "diagram with labels",
+     "ground_truth": "picture",
+     "score": 3
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture",
+     "score": 3
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text",
+     "score": 5
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture",
+     "score": 5
+    },
+    {
+     "n": 38,
+     "name": "textbook banner variant (narrower)",
+     "ground_truth": "picture",
+     "score": 3
+    },
+    {
+     "n": 39,
+     "name": "fake columns from short lines",
+     "ground_truth": "text",
+     "score": 3
+    }
+   ]
+  },
+  "A_conjunctive_gate": {
+   "n_cases": 46,
+   "correct": 30,
+   "wrong": 12,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 10,
+     "name": "chart",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 15,
+     "name": "textbook banner",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text"
+    },
+    {
+     "n": 28,
+     "name": "single-row table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 33,
+     "name": "diagram with labels",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text"
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 38,
+     "name": "textbook banner variant (narrower)",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 46,
+     "name": "true one-column table with header",
+     "ground_truth": "table"
+    }
+   ]
+  },
+  "B_2d_or_strict_column": {
+   "n_cases": 46,
+   "correct": 31,
+   "wrong": 11,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 10,
+     "name": "chart",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 15,
+     "name": "textbook banner",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text"
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 33,
+     "name": "diagram with labels",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text"
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 38,
+     "name": "textbook banner variant (narrower)",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 46,
+     "name": "true one-column table with header",
+     "ground_truth": "table"
+    }
+   ]
+  },
+  "C_pure_structural_predicate": {
+   "n_cases": 46,
+   "correct": 32,
+   "wrong": 10,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 15,
+     "name": "textbook banner",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text"
+    },
+    {
+     "n": 28,
+     "name": "single-row table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text"
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 38,
+     "name": "textbook banner variant (narrower)",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 46,
+     "name": "true one-column table with header",
+     "ground_truth": "table"
+    }
+   ]
+  },
+  "D_conjunctive_gate_tighter_rows": {
+   "n_cases": 46,
+   "correct": 30,
+   "wrong": 12,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 6,
+     "name": "table with sparse cells",
+     "ground_truth": "table"
+    },
+    {
+     "n": 10,
+     "name": "chart",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text"
+    },
+    {
+     "n": 28,
+     "name": "single-row table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 33,
+     "name": "diagram with labels",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text"
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 44,
+     "name": "partial grid (top-left quadrant only)",
+     "ground_truth": "table"
+    },
+    {
+     "n": 46,
+     "name": "true one-column table with header",
+     "ground_truth": "table"
+    }
+   ]
+  },
+  "E_density_plus_tighter_rows": {
+   "n_cases": 46,
+   "correct": 32,
+   "wrong": 10,
+   "undecidable_by_design": 4,
+   "misfires": [
+    {
+     "n": 6,
+     "name": "table with sparse cells",
+     "ground_truth": "table"
+    },
+    {
+     "n": 14,
+     "name": "decorative grid",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 17,
+     "name": "multi-column paragraph",
+     "ground_truth": "text"
+    },
+    {
+     "n": 28,
+     "name": "single-row table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 29,
+     "name": "single-column table",
+     "ground_truth": "table"
+    },
+    {
+     "n": 35,
+     "name": "app screenshot",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 36,
+     "name": "multi-column article (3 col)",
+     "ground_truth": "text"
+    },
+    {
+     "n": 37,
+     "name": "grid-like decorative border",
+     "ground_truth": "picture"
+    },
+    {
+     "n": 44,
+     "name": "partial grid (top-left quadrant only)",
+     "ground_truth": "table"
+    },
+    {
+     "n": 46,
+     "name": "true one-column table with header",
+     "ground_truth": "table"
+    }
+   ]
+  }
+ },
+ "phase_8_single_column_table_finding": "case 29 (single-column table, ground truth 'table' by construction) has IDENTICAL geometric signals in kind to case 8 (aligned paragraph) and case 22 (numbered bullet list) -- col_bands=1 in all three. EVERY candidate (A/B/C/D) REJECTS case 29, because every candidate requires col_bands>=2. This is a KNOWN, DELIBERATE trade-off, not an oversight: see FINAL_REPORT.md Phase 8 for the full limitation statement -- no signal in role_evidence_schema.json's retained dimensions (032) distinguishes a genuine one-column table from one-column prose/lists using geometry alone. Case 46 (one-column table WITH a semantically distinct header, matching the REAL corpus's own STT-column pattern) is geometrically identical to case 22 as well -- confirming the limitation is not fixable by adding a 'header looks different' geometric rule without reading text content."
+}

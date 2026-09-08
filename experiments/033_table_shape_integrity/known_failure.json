@@ -1,0 +1,116 @@
+{
+ "counterexample_shape": "single_column_prose -> strong_row_regularity -> enough_score -> conservative_gate_passes -> no_column_evidence",
+ "minimal_reproduction": {
+  "n_rows_in_the_synthetic_region": 6,
+  "n_cols_in_the_synthetic_region": 1,
+  "region_bbox": {
+   "x0": 0,
+   "y0": 0,
+   "x1": 280,
+   "y1": 145
+  },
+  "children": [
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 280,
+     "y1": 20
+    },
+    "text": "line 0"
+   },
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 25,
+     "x1": 280,
+     "y1": 45
+    },
+    "text": "line 1"
+   },
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 50,
+     "x1": 280,
+     "y1": 70
+    },
+    "text": "line 2"
+   },
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 75,
+     "x1": 280,
+     "y1": 95
+    },
+    "text": "line 3"
+   },
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 100,
+     "x1": 280,
+     "y1": 120
+    },
+    "text": "line 4"
+   },
+   {
+    "bbox": {
+     "x0": 0,
+     "y0": 125,
+     "x1": 280,
+     "y1": 145
+    },
+    "text": "line 5"
+   }
+  ],
+  "computed_signals": {
+   "n_nested_text_regions": 6,
+   "aspect_ratio": 1.931,
+   "row_bands": 6,
+   "col_bands": 1,
+   "row_regularity_cv": 0.0,
+   "col_regularity_cv": null,
+   "text_density": 0.8276,
+   "children_per_row_band": 1.0
+  },
+  "table_shape_score": 3,
+  "conservative_threshold": 3,
+  "gate_passes": true,
+  "score_reasons": [
+   "multi-row",
+   "regular row spacing",
+   "high nested-text-region count"
+  ],
+  "column_evidence_present": false
+ },
+ "n8_reference_case_from_032_adversarial_controls": {
+  "note": "032's adversarial_controls.json case 8 used n=8 lines; recorded here for direct lineage, re-derived from the real function rather than copied from the prior JSON.",
+  "n_rows": 8,
+  "region_bbox": {
+   "x0": 0,
+   "y0": 0,
+   "x1": 280,
+   "y1": 195
+  },
+  "computed_signals": {
+   "n_nested_text_regions": 8,
+   "aspect_ratio": 1.436,
+   "row_bands": 8,
+   "col_bands": 1,
+   "row_regularity_cv": 0.0,
+   "col_regularity_cv": null,
+   "text_density": 0.8205,
+   "children_per_row_band": 1.0
+  },
+  "table_shape_score": 3,
+  "score_reasons": [
+   "multi-row",
+   "regular row spacing",
+   "high nested-text-region count"
+  ]
+ },
+ "interpretation": "the SMALLEST single-column prose block that passes the conservative gate has n=6 lines (score=3, threshold=3), reached via ['multi-row', 'regular row spacing', 'high nested-text-region count'] -- 'multi-column' is NEVER among the score_reasons for ANY single-column geometry, by construction (col_bands=1 always for a single x-position), confirming the gate can be satisfied with ZERO column evidence whenever a document has >= 6 evenly-spaced single-column text lines within a bbox Docling groups under one picture/chart-labelled parent.",
+ "reproducibility": "deterministic -- compute_signals/table_shape_score imported directly from 031/table_shape_probe.py, not reimplemented; rerunning this script reproduces byte-identical output."
+}

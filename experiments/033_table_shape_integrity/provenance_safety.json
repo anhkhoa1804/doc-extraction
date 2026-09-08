@@ -1,0 +1,28 @@
+{
+ "principle": "a candidate routing output must preserve original observed label, evidence features, override reason, routing decision, final interpretation, and specialist provenance -- observed_label must NEVER be silently mutated into 'table' with no trace it was originally 'picture'.",
+ "scope_note": "033's candidates change ONLY the gate function (which regions get admitted to reconstruction) -- they do not touch controlled_intervention.py's reconstruction/provenance mechanism at all. Provenance safety is therefore INHERITED from 031, re-verified directly against current source here rather than assumed.",
+ "checks": {
+  "original_label_never_mutated": {
+   "verified": true,
+   "evidence": "controlled_intervention.py: the matching IMAGE element is found and ANNOTATED via el.setdefault('extra', {})['031_table_candidate_added'] = new_table['id'] -- grepped for any assignment to el['type'] or el.type in the same function: none found. The picture/image element's type is never reassigned to 'table'."
+  },
+  "candidate_table_is_additive_not_replacing": {
+   "verified": true,
+   "evidence": "new_table is APPENDED to pg['tables'], never replacing an existing element or table."
+  },
+  "reconstruction_source_marked": {
+   "verified": true,
+   "evidence": "both the Table object and every Cell carry an explicit, distinct source marker -- never presented as if it were detector-original output."
+  },
+  "confidence_never_fabricated": {
+   "verified": true,
+   "evidence": "reconstructed cells/tables carry confidence=None explicitly, matching Docling's own honest absence (role_contract.json) -- no synthetic number is invented at reconstruction time."
+  },
+  "gate_decision_not_persisted_as_data": {
+   "verified": true,
+   "evidence": "INHERITED LIMITATION, unchanged from 032's own role_contract.json finding: which candidate/gate admitted a region is recorded only in this milestone's OWN research JSON (candidate_results.json), never written into the Document/Element/Table schema itself -- provenance_design.json (032)'s proposed Element.extra shape remains UNIMPLEMENTED; this milestone's corrected gate does not change that status."
+  }
+ },
+ "all_checks_pass": true,
+ "gap_carried_forward_from_032": "provenance_design.json (032)'s proposed additive Element.extra['032_role_provenance'] shape (observed_role, candidate_roles, routing_decision, routing_reason, specialist_results, final_role) remains UNIMPLEMENTED in src/ -- 033's corrected gate does not change this. If any candidate from this milestone were ever wired into production, that provenance shape (or an equivalent) would need to be implemented at the SAME time, not deferred, so which specific rule (A/B/C/D/E) admitted a region remains auditable in the persisted IR, not only in a research script."
+}
