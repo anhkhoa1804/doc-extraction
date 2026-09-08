@@ -1,0 +1,129 @@
+"""030 Phase 8 & 10 -- severity/impact model, and mechanism-vs-symptom classification.
+
+FACT / INFERENCE / PROJECTION labeled throughout. No RAG/GraphRAG benchmark
+numbers invented -- downstream impact assessed only from IR semantics where
+evidence permits.
+"""
+from __future__ import annotations
+import json
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
+
+h1 = json.loads((HERE / "h1_resolution.json").read_text())
+h2 = json.loads((HERE / "h2_resolution.json").read_text())
+
+MECHANISM_VS_SYMPTOM = {
+    "symptom": {
+        "label": "SYMPTOM",
+        "description": "structural_integrity check `cells_within_table_bbox` reports "
+                       "False; Table.bbox does not contain the union of its own cells' "
+                       "geometry",
+        "observability": "visible only via 028's Layer-2 view; invisible to Layer 1 "
+                         "(text/char recall unaffected -- 026/028 both confirmed byte-"
+                         "identical text output)",
+    },
+    "immediate_mechanism": {
+        "label": "IMMEDIATE MECHANISM (FACT, code-traced)",
+        "description": "tier-3 row synthesis (base.py:505-576) builds a synthesized "
+                       "cell's bbox from raw OCR token edges (min/max) after admitting "
+                       "the token via CENTER-only containment against table.bbox",
+        "provenance": "provenance.json claims 1-6",
+    },
+    "upstream_mechanism": {
+        "label": "UPSTREAM MECHANISM (FACT, code-traced)",
+        "description": "Table Transformer's OWN detected table.bbox did not extend far "
+                       "enough to contain a real row (the row tier-3 synthesis exists "
+                       "specifically to recover) -- i.e. the detector's bbox undershoots "
+                       "the table's true extent by some margin, and that margin is what "
+                       "tier-3 synthesis's admitted tokens then poke through",
+        "confidence": "FACT that undershoot exists and correlates with synthesis "
+                      "(0/1867 tables show undershoot without synthesis, "
+                      "h1_resolution.json 2_2_component_attribution); "
+                      "INFERENCE that detector bbox undershoot specifically (as opposed "
+                      "to some other property) is the reason synthesis's admitted "
+                      "tokens exceed it -- not independently verified against Table "
+                      "Transformer's own confidence scores this milestone",
+    },
+    "trigger": {
+        "label": "TRIGGER (INFERENCE, partially supported)",
+        "description": "document/OCR-recognizer properties that determine WHETHER "
+                       "enough corroborating text is recognized near a missed row to "
+                       "clear MIN_CORROBORATING_COLUMNS=2 and fire synthesis at all",
+        "evidence": "paired_comparisons.json pairing 1: hc_encoding_vi fires under "
+                   "fusion/tesseract/selection/union (14.4-15.4px) but NOT under "
+                   "easyocr (0px), same document, same route, same milestone -- proves "
+                   "recognizer choice is A trigger",
+        "stamp_occlusion_as_trigger": "PARTIALLY SUPPORTED, not primary -- stamp/"
+                                      "occlusion labeling correlates with elevated FIRING "
+                                      "RATE (29.31% vs 4.70%) but not with elevated "
+                                      "SEVERITY when it fires (see H1 resolution); "
+                                      "OCR-recognizer choice (proven above) and possibly "
+                                      "other untested document properties are triggers "
+                                      "of comparable or greater apparent effect",
+    },
+    "root_cause": {
+        "label": "ROOT CAUSE -- NOT CLAIMED",
+        "description": "insufficient evidence to name a single root cause. The "
+                       "IMMEDIATE MECHANISM (center-vs-edge containment mismatch, "
+                       "base.py:559-567) is the only fully code-and-IR-traced causal "
+                       "link at 100% confirmation rate (029). Everything upstream of it "
+                       "(why Table Transformer's bbox undershoots on specific documents) "
+                       "was not traced to Table Transformer's own model internals -- "
+                       "that would require inspecting the model's confidence outputs or "
+                       "attention, which this milestone (and 029) did not do.",
+    },
+}
+
+# --- severity/impact table ---
+n_invalid_tables = 102
+n_distinct_docs_affected = len({r["document_id"] for r in h1["all_rows"] if r["undershoot_px"] > 1.0})
+n_escaping_cells = h2["total_escaping_cells_found"]
+
+IMPACT = {
+    "frequency": {"label": "FACT", "value": f"{n_invalid_tables} table instances "
+                 f"(9 distinct documents) across 1,867 table_transformer instances in "
+                 f"the replayed 023-025 corpus; rate 5.46% overall"},
+    "severity": {"label": "FACT", "value": f"bounded: {h2['escape_magnitude_bound_check']['max_escape_px']}px "
+                "max escape at 200 DPI (sub-mm at physical scale); 0/265 escaping "
+                "cells intersect a neighboring table (H2 resolution)"},
+    "recoverability": {"label": "INFERENCE", "value": "LOW EFFORT if pursued: the fix "
+                       "candidates in counterfactuals.json are read-only-simulable and "
+                       "small in scope (one function, base.py:505-576)"},
+    "effect_on_text": {"label": "FACT", "value": "NONE -- 026 proved cell text multiset "
+                       "is identical regardless of geometry; the defect is purely "
+                       "geometric metadata, text content is untouched"},
+    "effect_on_table_structure": {"label": "FACT", "value": "row/col VALUES are correct "
+                                  "(94/94 -> generalized to 1867/1867 here via the same "
+                                  "_renumber_rows_by_position mechanism); only Cell.bbox "
+                                  "vs Table.bbox containment is violated"},
+    "effect_on_provenance": {"label": "INFERENCE", "value": "a consumer trusting "
+                             "Table.bbox as the authoritative visual extent of a table "
+                             "(e.g. for cropping, highlighting, or citation bounding-"
+                             "box display) would draw a box that excludes 1-2 real rows "
+                             "of that table's own content"},
+    "effect_on_rag_retrieval": {"label": "PROJECTION -- no experiment run", "value": "IF "
+                                "a RAG system chunks by Table.bbox region rather than by "
+                                "cell text, a synthesized row's text could be attributed "
+                                "to a chunk boundary inconsistent with its table -- NOT "
+                                "measured; text itself remains retrievable via cell "
+                                "content regardless (table_text.py, 028) since chunking "
+                                "by cell text would be unaffected"},
+    "effect_on_graphrag": {"label": "PROJECTION -- no experiment run", "value": "no "
+                           "GraphRAG entity/relationship extraction experiment exists in "
+                           "this repository to project onto; cell text and row/col "
+                           "structure (the fields a GraphRAG cell-to-entity mapping would "
+                           "most plausibly use) are unaffected by this specific defect, "
+                           "so a first-order guess is LOW impact, but this is not "
+                           "evidence-backed and should not be treated as a finding"},
+    "production_observability": {"label": "FACT", "value": "currently ZERO -- no "
+                                 "existing metric (Layer 1 or Layer 2's other checks) "
+                                 "surfaces this except structural_integrity's "
+                                 "cells_within_table_bbox, which is a 028/029 research "
+                                 "instrument, not a production signal"},
+}
+
+payload = {"mechanism_vs_symptom": MECHANISM_VS_SYMPTOM, "severity_impact": IMPACT,
+          "distinct_documents_with_confirmed_undershoot": n_distinct_docs_affected}
+(HERE / "severity_impact.json").write_text(json.dumps(payload, indent=1, ensure_ascii=False))
+print(json.dumps({"mechanism_vs_symptom_keys": list(MECHANISM_VS_SYMPTOM),
+                  "distinct_docs_affected": n_distinct_docs_affected}, indent=1))

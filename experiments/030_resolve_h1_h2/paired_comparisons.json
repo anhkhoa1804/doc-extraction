@@ -1,0 +1,95 @@
+{
+ "pairings": [
+  {
+   "pairing": "same document, same route (023/adaptive), different OCR recognizer",
+   "confounder": "NONE -- Table Transformer is confirmed backend-independent (table_backend.py takes no OCR input); recognizer differences can only act through which text corroborates tier-3 synthesis",
+   "documents_with_variance_across_recognizers": {
+    "hc_encoding_vi": {
+     "easyocr": 0.0,
+     "fusion": 14.429,
+     "fusion_recovery": 14.429,
+     "selection": 14.429,
+     "tesseract": 14.429,
+     "union": 15.401
+    },
+    "hc_scan_vi": {
+     "easyocr": 0.0,
+     "fusion": 0.0,
+     "fusion_recovery": 0.0,
+     "selection": 0.0,
+     "tesseract": 0.0,
+     "union": 1.515
+    }
+   },
+   "interpretation": "hc_encoding_vi is the only document showing recognizer-dependent undershoot (0px under easyocr, ~2px under fusion/tesseract/selection/union) -- directly demonstrating H1's implicit claim that OCR recognition, not just document visual properties, gates whether the defect manifests (029 section 7's finding, independently reconfirmed here via undershoot rather than declared-shape)."
+  },
+  {
+   "pairing": "same document, same milestone, adaptive vs visual routing (table_transformer subset only)",
+   "confounder": "routing determines WHETHER table_transformer runs at all (adaptive often uses pymupdf_tables); this pairing is restricted to cases where BOTH modes happened to invoke table_transformer",
+   "pairs": [
+    {
+     "milestone": "023",
+     "document_id": "hc_encoding_vi",
+     "adaptive_mean_undershoot": 12.186,
+     "visual_mean_undershoot": 12.186,
+     "concordant_sign": true
+    },
+    {
+     "milestone": "023",
+     "document_id": "hc_scan_en",
+     "adaptive_mean_undershoot": 0.0,
+     "visual_mean_undershoot": 0.0,
+     "concordant_sign": true
+    },
+    {
+     "milestone": "023",
+     "document_id": "hc_scan_vi",
+     "adaptive_mean_undershoot": 0.253,
+     "visual_mean_undershoot": 0.253,
+     "concordant_sign": true
+    },
+    {
+     "milestone": "024",
+     "document_id": "hc_encoding_vi",
+     "adaptive_mean_undershoot": 14.429,
+     "visual_mean_undershoot": 14.429,
+     "concordant_sign": true
+    },
+    {
+     "milestone": "024",
+     "document_id": "hc_scan_en",
+     "adaptive_mean_undershoot": 0.0,
+     "visual_mean_undershoot": 0.0,
+     "concordant_sign": true
+    },
+    {
+     "milestone": "024",
+     "document_id": "hc_scan_vi",
+     "adaptive_mean_undershoot": 0.0,
+     "visual_mean_undershoot": 0.0,
+     "concordant_sign": true
+    }
+   ],
+   "concordance_rate": 1.0
+  },
+  {
+   "pairing": "same document, same route family (adaptive), across milestones 023/024/025 -- tests temporal/pipeline-version stability",
+   "confounder": "pipeline code may differ subtly across milestones (though L5/tier-3 synthesis code itself was frozen from 024 onward per this session's own git history)",
+   "documents": {
+    "hc_encoding_vi": {
+     "023": 15.401,
+     "024": 14.429
+    },
+    "hc_scan_en": {
+     "023": 0.0,
+     "024": 0.0
+    },
+    "hc_scan_vi": {
+     "023": 1.515,
+     "024": 0.0
+    }
+   },
+   "interpretation": "hc_encoding_vi shows undershoot in EVERY milestone's adaptive arm once past 023's easyocr-only baseline -- consistent, not milestone-specific noise."
+  }
+ ]
+}

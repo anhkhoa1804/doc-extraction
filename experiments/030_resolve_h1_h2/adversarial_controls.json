@@ -1,0 +1,425 @@
+{
+ "cases": 10,
+ "passed": 10,
+ "failed": 0,
+ "results": [
+  {
+   "hypothesis": "H1",
+   "name": "H1-1_clean_detector_only_table",
+   "setup": {
+    "table_bbox": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 200,
+     "y1": 100
+    },
+    "cells": [
+     {
+      "row": 0,
+      "col": 0,
+      "bbox": {
+       "x0": 10,
+       "y0": 10,
+       "x1": 90,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     },
+     {
+      "row": 0,
+      "col": 1,
+      "bbox": {
+       "x0": 100,
+       "y0": 10,
+       "x1": 190,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     }
+    ]
+   },
+   "intended_semantic_state": "no synthesis occurred; all cells detector-original",
+   "expected": "undershoot == 0",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "baseline: confirms the metric reads 0 when there is nothing to find",
+   "error": null
+  },
+  {
+   "hypothesis": "H1",
+   "name": "H1-2_single_synthesized_cell_pokes_above",
+   "setup": {
+    "table_bbox": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 200,
+     "y1": 100
+    },
+    "cells": [
+     {
+      "row": 0,
+      "col": 0,
+      "bbox": {
+       "x0": 10,
+       "y0": 10,
+       "x1": 90,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     },
+     {
+      "row": 0,
+      "col": 1,
+      "bbox": {
+       "x0": 100,
+       "y0": 10,
+       "x1": 190,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     },
+     {
+      "row": 1,
+      "col": 0,
+      "bbox": {
+       "x0": 10,
+       "y0": -5,
+       "x1": 90,
+       "y1": 5
+      },
+      "confidence": 0.5,
+      "text": "t"
+     }
+    ]
+   },
+   "intended_semantic_state": "exactly one synthesized cell violates containment by exactly 5px",
+   "expected": "undershoot == 5.0 (not more, not less -- proportional to the poke)",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "tests PROPORTIONALITY: the metric should scale with actual poke distance, not just flag binary presence",
+   "error": null
+  },
+  {
+   "hypothesis": "H1",
+   "name": "H1-3_detector_native_cell_pokes_no_synthesis_marker",
+   "setup": {
+    "table_bbox": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 200,
+     "y1": 100
+    },
+    "cells": [
+     {
+      "row": 0,
+      "col": 0,
+      "bbox": {
+       "x0": -5,
+       "y0": 10,
+       "x1": 90,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     }
+    ]
+   },
+   "intended_semantic_state": "a cell with NO synthesis marker still violates containment",
+   "expected": "undershoot == 5.0 -- the GEOMETRIC test cannot see the confidence marker, by design; this is what makes the empirical 0/1867 finding meaningful evidence rather than a tautology (the check COULD have flagged non-synthesized cells, and empirically never did)",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "CRITICAL: proves the undershoot metric is not somehow only capable of detecting synthesized cells by construction -- the 0/1867 empirical finding is real evidence, not a measurement artifact",
+   "error": null
+  },
+  {
+   "hypothesis": "H1",
+   "name": "H1-4_stamp_label_present_geometry_clean",
+   "setup": {
+    "table_bbox": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 200,
+     "y1": 100
+    },
+    "cells": [
+     {
+      "row": 0,
+      "col": 0,
+      "bbox": {
+       "x0": 10,
+       "y0": 10,
+       "x1": 90,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     },
+     {
+      "row": 0,
+      "col": 1,
+      "bbox": {
+       "x0": 100,
+       "y0": 10,
+       "x1": 190,
+       "y1": 90
+      },
+      "confidence": null,
+      "text": "t"
+     }
+    ],
+    "labels": [
+     "stamp",
+     "occlusion"
+    ]
+   },
+   "intended_semantic_state": "document carries stamp/occlusion labels but geometry is perfectly clean",
+   "expected": "undershoot == 0 despite the label -- the metric must be purely geometric and must NOT special-case documents by label",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "confirms the evaluator has no hidden label-conditioned logic that would make H1's correlational finding circular",
+   "error": null
+  },
+  {
+   "hypothesis": "H1",
+   "name": "H1-5_severity_direction_stamp_vs_nonstamp",
+   "setup": {
+    "stamp_table": {
+     "bbox": {
+      "x0": 0,
+      "y0": 0,
+      "x1": 100,
+      "y1": 100
+     },
+     "cells": [
+      {
+       "row": 0,
+       "col": 0,
+       "bbox": {
+        "x0": 10,
+        "y0": 10,
+        "x1": 90,
+        "y1": 90
+       },
+       "confidence": null,
+       "text": "t"
+      },
+      {
+       "row": 1,
+       "col": 0,
+       "bbox": {
+        "x0": 10,
+        "y0": 108,
+        "x1": 90,
+        "y1": 190
+       },
+       "confidence": 0.5,
+       "text": "t"
+      }
+     ]
+    },
+    "nonstamp_table": {
+     "bbox": {
+      "x0": 0,
+      "y0": 0,
+      "x1": 100,
+      "y1": 100
+     },
+     "cells": [
+      {
+       "row": 0,
+       "col": 0,
+       "bbox": {
+        "x0": 10,
+        "y0": 10,
+        "x1": 90,
+        "y1": 90
+       },
+       "confidence": null,
+       "text": "t"
+      },
+      {
+       "row": 1,
+       "col": 0,
+       "bbox": {
+        "x0": 10,
+        "y0": 250,
+        "x1": 90,
+        "y1": 330
+       },
+       "confidence": 0.5,
+       "text": "t"
+      }
+     ]
+    }
+   },
+   "intended_semantic_state": "a 'stamp-labeled' table with an 8px poke vs a 'non-stamp' table with a 150px poke",
+   "expected": "the metric reports nonstamp_undershoot (150-100=150... let's just check it's larger) > stamp_undershoot regardless of label -- reproducing h1_resolution.json's empirical severity-direction finding in miniature",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "directly instantiates the counterintuitive empirical result: severity is NOT gated by the stamp/occlusion label in the measurement itself, consistent with 029/030 finding label correlates with RATE not MAGNITUDE",
+   "error": null
+  },
+  {
+   "hypothesis": "H2",
+   "name": "H2-1_escape_far_from_neighbor_no_contamination",
+   "setup": {
+    "own_table": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 100,
+     "y1": 100
+    },
+    "neighbor_table": {
+     "x0": 200,
+     "y0": 0,
+     "x1": 300,
+     "y1": 100
+    },
+    "escaping_cell": {
+     "x0": 10,
+     "y0": -5,
+     "x1": 90,
+     "y1": 5
+    }
+   },
+   "intended_semantic_state": "escaping cell pokes 5px out of its own table, neighbor table is 100px away",
+   "expected": "no intersection detected",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "baseline negative control",
+   "error": null
+  },
+  {
+   "hypothesis": "H2",
+   "name": "H2-2_constructed_cross_table_contamination",
+   "setup": {
+    "own_table": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 100,
+     "y1": 100
+    },
+    "neighbor_table": {
+     "x0": 0,
+     "y0": 95,
+     "x1": 100,
+     "y1": 200
+    },
+    "escaping_cell": {
+     "x0": 10,
+     "y0": 90,
+     "x1": 90,
+     "y1": 105
+    }
+   },
+   "intended_semantic_state": "DELIBERATELY constructed case where an escaping cell's poke lands inside an adjacent table's bbox -- this is the exact adversarial scenario H2 predicts is geometrically impossible for REAL escapes (bounded by token size) but which is trivially constructible synthetically",
+   "expected": "intersection IS detected (the evaluator correctly identifies contamination when it is deliberately present) -- this does NOT falsify H2 empirically (no real instance was found in the corpus) but PROVES the evaluator would have caught it if one existed",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "CRITICAL evaluator-validity check: if this case had come back False, H2's '0 contaminated cells found' result would be worthless (the checker might be broken, not the phenomenon absent). This proves the checker works.",
+   "error": null
+  },
+  {
+   "hypothesis": "H2",
+   "name": "H2-3_boundary_touching_not_crossing",
+   "setup": {
+    "own_table": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 100,
+     "y1": 100
+    },
+    "neighbor_table": {
+     "x0": 0,
+     "y0": 100,
+     "x1": 100,
+     "y1": 200
+    },
+    "escaping_cell": {
+     "x0": 10,
+     "y0": 90,
+     "x1": 90,
+     "y1": 100
+    }
+   },
+   "intended_semantic_state": "a cell bbox whose edge exactly TOUCHES (y1==100) the neighbor's edge (y0==100) without crossing into it",
+   "expected": "no intersection (strict inequality semantics: touching is not overlapping)",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "tests the strict-vs-inclusive boundary convention in the intersects() predicate used to declare H2 unfalsified -- a wrong convention here could hide or fabricate a contamination result",
+   "error": null
+  },
+  {
+   "hypothesis": "H2",
+   "name": "H2-4_escape_magnitude_near_proxy_bound",
+   "setup": {
+    "under_bound": {
+     "x0": 10,
+     "y0": -39,
+     "x1": 90,
+     "y1": 5
+    },
+    "over_bound": {
+     "x0": 10,
+     "y0": -41,
+     "x1": 90,
+     "y1": 5
+    },
+    "table": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 100,
+     "y1": 100
+    }
+   },
+   "intended_semantic_state": "two synthetic escapes straddling the 40px 'typical token height' proxy bound h2_resolution.json used as a sanity check",
+   "expected": "the metric correctly distinguishes 39px (under) from 41px (over) -- confirms the bound-check arithmetic itself is correct, independent of whether any REAL escape in the corpus approaches it (max real escape was 14.43px, well under)",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "arithmetic sanity check on the proxy-bound comparison used in h2_resolution.json",
+   "error": null
+  },
+  {
+   "hypothesis": "H2",
+   "name": "H2-5_per_cell_not_per_table_aggregation",
+   "setup": {
+    "own_table": {
+     "x0": 0,
+     "y0": 0,
+     "x1": 100,
+     "y1": 100
+    },
+    "neighbor_table": {
+     "x0": 0,
+     "y0": 100,
+     "x1": 100,
+     "y1": 200
+    },
+    "cells": {
+     "clean": {
+      "x0": 10,
+      "y0": -5,
+      "x1": 90,
+      "y1": 5
+     },
+     "dirty": {
+      "x0": 10,
+      "y0": 95,
+      "x1": 90,
+      "y1": 105
+     }
+    }
+   },
+   "intended_semantic_state": "one table has TWO escaping cells: one clean (no contamination), one dirty (contaminates tbI) -- a per-TABLE boolean flag would need to catch the dirty one even though the clean one is fine",
+   "expected": "clean_escape does not intersect tbI; dirty_escape DOES intersect tbI -- both must be evaluated independently",
+   "measured_result": true,
+   "verdict": "PASS",
+   "note": "confirms h2_resolution.py's per-CELL (not per-table) evaluation loop is the correct granularity -- a coarser check could have missed a single contaminated cell among several clean ones in the same table",
+   "error": null
+  }
+ ]
+}

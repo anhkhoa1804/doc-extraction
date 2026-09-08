@@ -1,0 +1,12 @@
+{
+ "relationship_type": null,
+ "reasoning": "H2's precondition (an escaping cell exists) is entailed by H1's mechanism having fired at all (undershoot > 0 is definitionally the same event as 'a cell escaped its table'). So quadrant 'H1 false AND H2 true/false' is UNDEFINED, not merely unobserved -- H2 has no truth value for a table that never had an escaping cell in the first place. This means H1 and H2 are NOT independent hypotheses in the classical 2x2 sense: H2 is a hypothesis about the CONSEQUENCE of the mechanism H1 studies the CAUSE of, conditional on it having fired. They are NESTED, not orthogonal: H1 asks 'when/how much does the mechanism activate', H2 asks 'given activation, how far can it reach'.",
+ "quadrants": {
+  "H1_fires_AND_H2_contaminates": 0,
+  "H1_fires_AND_H2_does_not": 265,
+  "H1_does_not_fire_AND_H2_contaminates": "undefined -- H2 only applies where a cell already escapes, which requires H1's mechanism to have fired",
+  "H1_does_not_fire_AND_H2_does_not": 1765
+ },
+ "classification": "NESTED (H2 is conditional on H1's mechanism having fired at all; not the same phenomenon under different wording -- they ask genuinely different questions about the SAME event, frequency vs spatial-extent -- but not logically independent either)",
+ "recommendation_for_lineage": "Do not merge H1 and H2 into one hypothesis -- they have different evidence, different falsification conditions, and different production implications (H1 bears on WHEN to worry, H2 bears on HOW BAD it is when you should). But record their shared root explicitly in the lineage: both are downstream of 029's single traced mechanism (base.py:505-576), and a fix to that mechanism would address both simultaneously."
+}

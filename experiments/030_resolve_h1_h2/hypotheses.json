@@ -1,0 +1,73 @@
+{
+ "source_file": "experiments/029_deep_forensic_replay/FINAL_REPORT.md",
+ "source_authority": "This file is a transcription for auditability. FINAL_REPORT.md remains authoritative if they diverge.",
+ "H1": {
+  "id": "H1",
+  "title": "Stamp/occlusion visual noise causally elevates row-synthesis escape rate through Table Transformer's own uncertainty",
+  "exact_statement": "stamp/occlusion artifacts near a table's true boundary increase the likelihood that Table Transformer's detected table.bbox undershoots the table's real extent, which increases both (a) how often tier-3 synthesis fires (more real rows fall outside the under-detected bbox) and (b) how often a synthesized cell's raw token edge crosses that same undershot boundary.",
+  "supporting_evidence_cited_in_029": {
+   "stratification": {
+    "no_stamp_occlusion": {
+     "total": 1809,
+     "invalid": 85,
+     "invalid_rate": 0.047
+    },
+    "stamp_or_occlusion": {
+     "total": 58,
+     "invalid": 17,
+     "invalid_rate": 0.2931
+    }
+   },
+   "note": "29.31% (17/58) vs 4.70% (85/1809) invalid rate, 6.2x elevated",
+   "paired_concordance": {
+    "pairs": 8,
+    "concordant": 8,
+    "concordant_rate": 1.0,
+    "adaptive_valid_visual_invalid": 0,
+    "visual_valid_adaptive_invalid": 0,
+    "interpretation": "If routing mode alone caused invalidity we would expect strong asymmetric disagreement. Concordance close to 1.0 would mean the SOURCE DOCUMENT drives the outcome, not adaptive/visual routing; routing determines WHETHER table_transformer runs at all (adaptive often uses pymupdf_tables on digital PDFs) but conditional on it running, the same document tends to produce the same verdict."
+   }
+  },
+  "counterevidence_cited_in_029": "measured at document-label level, not pixel-verified; possibly confounded by document TYPE (stamped docs tend to be Vietnamese invoices with a specific dense-table layout) rather than the stamp itself",
+  "minimal_discriminating_experiment_specified_in_029": "for the 58 stamp/occlusion table_transformer table instances, measure each detected table.bbox's IoU against the union of all OCR token bboxes plausibly belonging to that table; compare against the 1,809 non-stamp instances. H true -> materially lower IoU on stamp/occlusion.",
+  "falsification_condition": "IoU (or the adapted cell-union-containment measure, see 030 §2) distributions overlap between stamp/occlusion and non-stamp tables -> elevated rate is confounded by something else, not bbox undershoot",
+  "production_relevance_cited": "MEDIUM",
+  "risk_cited": "LOW"
+ },
+ "H2": {
+  "id": "H2",
+  "title": "The row-synthesis bbox-escape defect is strictly bounded and never crosses into a neighboring table or region",
+  "exact_statement": "because synthesized-row tokens must first pass _center_in(token, table.bbox) (their center is always inside), the maximum possible escape of any single cell edge is bounded by that token's own bbox height/width -- synthesis can never attribute a token whose entire extent lies in a different table or a different page region.",
+  "supporting_evidence_cited_in_029": {
+   "magnitude_distribution": {
+    "invalid_table_instances_in_corpus": 102,
+    "distinct_(milestone,arm,doc,table)_invalid": 102,
+    "checked_successfully": 102,
+    "checked_errors": 0,
+    "total_escaping_cells": 265,
+    "escaping_cells_synth_marked": 265,
+    "escaping_cells_non_synth_marked": 0,
+    "mechanism_confirmed_rate": 1.0
+   },
+   "note": "max 14.4px, 0/102 instances exceed 20px, consistent with typical body-text token heights at 200 DPI"
+  },
+  "counterevidence_cited_in_029": "12/102 escapes are BELOW the table (not above), and a page with two tables stacked closely could in principle place an escaping bottom-row cell inside the next table's bbox -- not checked in 029",
+  "minimal_discriminating_experiment_specified_in_029": "for every escaping cell in causal_attribution.json, test whether its bbox intersects any OTHER table's bbox on the same page. If any escaping cell's bbox overlaps a second table, H2 is falsified.",
+  "falsification_condition": "at least one escaping cell's bbox intersects a table other than its own",
+  "production_relevance_cited": "LOW if confirmed, HIGH if falsified (binary severity swing)",
+  "risk_cited": "LOW",
+  "escape_direction_distribution_from_029": {
+   "above_table_top": 90,
+   "below_table_bottom": 12
+  }
+ },
+ "H3": {
+  "id": "H3",
+  "title": "Layer 1's reading_order-blindness specifically and disproportionately hides defects on the same document class where table-label gating fails",
+  "exact_statement": "the 19 document-arm pairs where reading_order reveals a hidden Layer-1-invisible order failure are concentrated in documents that also exhibit table-label gating failures (025's Class D) -- i.e., the evaluation blind spot and the production defect are not independent; they co-occur on the same shattered-table document class.",
+  "status_in_this_milestone": "OUT OF SCOPE for 030 per explicit user instruction (Resolve H1 and H2 only). Recorded here for completeness and lineage continuity only."
+ },
+ "full_raw_text_H1": "### H1 — Stamp/occlusion visual noise causally elevates row-synthesis escape rate through Table Transformer's own uncertainty\n\n**Mechanistic statement:** stamp/occlusion artifacts near a table's true\nboundary increase the likelihood that Table Transformer's detected\n`table.bbox` undershoots the table's real extent, which increases both (a)\nhow often tier-3 synthesis fires (more real rows fall outside the\nunder-detected bbox) and (b) how often a synthesized cell's raw token edge\ncrosses that same undershot boundary.\n\n**Why:** §8's stratification (29.31% vs 4.70% invalid rate, 6.2× elevated)\nis consistent with this; the paired concordance result (§8) rules out\nrouting mode as the driver, leaving document content as the remaining\nvariable, and stamp/occlusion is the labeled document property most\ndirectly implicated.\n\n**Counterevidence:** the correlation was measured at the document-label\nlevel, not verified at the pixel level — no per-page visual inspection of\nwhether the stamp actually overlaps the specific escaping row was performed\nthis milestone. It is also possible the correlation is confounded by\ndocument *type* (stamped documents in this corpus tend to be Vietnamese\ninvoices with a specific dense-table layout) rather than the stamp itself.\n\n**Minimal discriminating experiment:** for the 58 stamp/occlusion\n`table_transformer` table instances, measure each detected `table.bbox`'s\nIoU against the union of all OCR token bboxes plausibly belonging to that\ntable (from region/token geometry already in 025's `coverage_dataset.json`\nshape); compare that IoU distribution against the 1,809 non-stamp instances.\nIf H1 is true, stamp/occlusion tables should show systematically lower\nbbox-to-evidence IoU.\n\n**Expected outcomes:** H true → materially lower IoU on stamp/occlusion\ntables, explaining both symptoms as one geometric-undershoot cause. H false\n→ IoU distributions overlap, meaning the elevated rate is confounded by\nsomething else (document type, layout density) not yet isolated.\n\n**Production relevance: MEDIUM.** Explains a mechanism but the practical\nfix (§6, bound cell geometry to table geometry) is the same regardless of\nwhether H1 is confirmed.\n\n**Risk: LOW.** Pure measurement, no code change implied by the experiment\nitself.\n\n---",
+ "full_raw_text_H2": "### H2 — The row-synthesis bbox-escape defect is strictly bounded and never crosses into a neighboring table or region\n\n**Mechanistic statement:** because synthesized-row tokens must first pass\n`_center_in(token, table.bbox)` (their *center* is always inside), the\nmaximum possible escape of any single cell edge is bounded by that token's\nown bbox height/width — synthesis can never attribute a token whose entire\nextent lies in a different table or a different page region.\n\n**Why:** §6's magnitude data already supports this at the sample level (max\n14.4px, 0/102 instances exceed 20px, consistent with typical body-text\ntoken heights at 200 DPI) — but the full population of 265 escaping cells'\nneighboring-region overlap was not explicitly tested this milestone.\n\n**Counterevidence:** 12/102 escapes are *below* the table (not above), and\na page with two tables stacked closely could in principle place an escaping\nbottom-row cell inside the *next* table's bbox — a scenario not checked.\n\n**Minimal discriminating experiment:** for every escaping cell in\n`causal_attribution.json`, test whether its bbox intersects any OTHER\ntable's bbox on the same page (not just its own). If any escaping cell's\nbbox overlaps a second table, H2 is falsified and the defect's severity\nmust be reclassified as HIGH (cross-table contamination), not LOW.\n\n**Expected outcomes:** H true → confirms §14's LOW-severity classification\nand the recommendation to treat this as a cheap, deprioritized fix rather\nthan urgent. H false → at least one instance of cross-table contamination\nfound, which would immediately elevate this above table-label gating as the\nhighest-value target, since silently-wrong table attribution is worse than\na lost table (a lost table is at least visibly absent; a contaminated one\nlooks correct and is not).\n\n**Production relevance: LOW if confirmed, HIGH if falsified** (binary\nseverity swing).\n\n**Risk: LOW.** Measurement only; the corpus and the exact escaping-cell list\nalready exist in `causal_attribution.json`.\n\n---",
+ "full_raw_text_H3_for_reference_only": "### H3 — Layer 1's `reading_order`-blindness specifically and disproportionately hides defects on the same document class where table-label gating fails\n\n**Mechanistic statement:** the 19 document-arm pairs where `reading_order`\nreveals a hidden Layer-1-invisible order failure (§9-10) are concentrated in\ndocuments that also exhibit table-label gating failures (025's Class D) —\ni.e., the evaluation blind spot and the production defect are not\nindependent; they co-occur on the same shattered-table document class.\n\n**Why:** of the 19 hidden-failure document-arm pairs listed in §10, the\nunderlying documents (`cmb_scan_stamp_table_vi`, `cmb_stamp_table_vi`,\n`hc_stamp_table_vi`, `cmb_stamp_boundary_vi`) are exactly the stamp/table\nfamily 025 named as gating failures — not a random sample of the corpus.\n\n**Counterevidence:** the overlap could be coincidental — these are simply\nthe corpus's hardest documents by several unrelated measures (they also\ncarry the highest orphan rates, per 025), so co-occurrence with *any*\ndefect class might be expected regardless of a shared cause.\n\n**Minimal discriminating experiment:** compute, for every document in the\ncorpus (not just the 19), whether it has (a) a table-label gating flag\n(025's method, reproducible from the frozen IR) and (b) a `reading_order`-\nvs-list-order divergence (this milestone's method). Cross-tabulate. If H3 is\ntrue, divergence should be strongly conditional on gating failure and rare\notherwise; if false, divergence should be roughly uniform across documents\nregardless of gating status.\n\n**Expected outcomes:** H true → strengthens §14's recommendation that fixing\ntable-label gating is the single highest-leverage intervention (it would\nsilently repair the evaluation blind spot too). H false → the reading_order\ngap must be treated as a separate, independent research target.\n\n**Production relevance: HIGH if confirmed** (one fix, two problems solved).\n\n**Risk: LOW.** Cross-tabulation over existing artifacts; no new extraction.\n\n---"
+}

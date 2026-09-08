@@ -1,0 +1,6390 @@
+{
+ "hypothesis": "H2",
+ "method": "every escaping cell (bbox outside its own table.bbox, tol=1.0px) re-derived directly from source IR and tested for geometric intersection against every OTHER table on the same page",
+ "total_escaping_cells_found": 265,
+ "matches_029_reported_count_265": true,
+ "pages_with_zero_other_tables": 102,
+ "pages_with_zero_other_tables_fraction": 1.0,
+ "H2_CORE_RESULT": {
+  "escaping_cells_intersecting_another_table": 0,
+  "falsifies_H2": false,
+  "contaminated_cells_detail": []
+ },
+ "escape_magnitude_bound_check": {
+  "note": "weaker proxy test: is escape ever larger than ~1 typical OCR token dimension (40px threshold, conservative)",
+  "escapes_exceeding_40px": 0,
+  "max_escape_px": 14.429
+ },
+ "all_escaping_cells": [
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 256.9120788574219,
+    "y0": 387.0,
+    "x1": 815.6143341064453,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.51458740234375,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "adaptive/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 644.0025482177734,
+    "y0": 387.0,
+    "x1": 989.5716094970703,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.51458740234375,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04465468622024,
+    "y0": 712.0,
+    "x1": 585.2116468737203,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.0206373522359,
+    "y0": 712.0,
+    "x1": 791.3163526842671,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7451246569234,
+    "y0": 712.0,
+    "x1": 1045.8879469225483,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017285623857,
+    "y0": 402.0,
+    "x1": 627.0963452616045,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58022053626274,
+    "y0": 402.0,
+    "x1": 410.9913342752764,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.2791455545733,
+    "y0": 402.0,
+    "x1": 553.4959119119951,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9443372049639,
+    "y0": 402.0,
+    "x1": 769.6642773905107,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 227.0,
+    "x1": 543.5921630859375,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 227.0,
+    "x1": 645.390869140625,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017285623857,
+    "y0": 402.0,
+    "x1": 627.0963452616045,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58022053626274,
+    "y0": 402.0,
+    "x1": 410.9913342752764,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.2791455545733,
+    "y0": 402.0,
+    "x1": 553.4959119119951,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9443372049639,
+    "y0": 402.0,
+    "x1": 769.6642773905107,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 227.0,
+    "x1": 543.5921630859375,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/fusion_recovery",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 227.0,
+    "x1": 645.390869140625,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04465468622024,
+    "y0": 712.0,
+    "x1": 585.2116468737203,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.0206373522359,
+    "y0": 712.0,
+    "x1": 791.3163526842671,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7451246569234,
+    "y0": 712.0,
+    "x1": 1045.8879469225483,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 227.0,
+    "x1": 543.5921630859375,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/selection",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 227.0,
+    "x1": 645.390869140625,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58022053626274,
+    "y0": 402.0,
+    "x1": 410.9913342752764,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.2791455545733,
+    "y0": 402.0,
+    "x1": 553.4959119119951,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017285623857,
+    "y0": 402.0,
+    "x1": 627.0963452616045,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9443372049639,
+    "y0": 402.0,
+    "x1": 769.6642773905107,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 227.0,
+    "x1": 543.5921630859375,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 227.0,
+    "x1": 645.390869140625,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58022053626274,
+    "y0": 402.0,
+    "x1": 410.9913342752764,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.2791455545733,
+    "y0": 402.0,
+    "x1": 553.4959119119951,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9443372049639,
+    "y0": 402.0,
+    "x1": 769.6642773905107,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017285623857,
+    "y0": 402.0,
+    "x1": 627.0963452616045,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04465468622024,
+    "y0": 712.0,
+    "x1": 585.2116468737203,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.0206373522359,
+    "y0": 712.0,
+    "x1": 791.3163526842671,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7451246569234,
+    "y0": 712.0,
+    "x1": 1045.8879469225483,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 795.0946119616109,
+    "y0": 712.0,
+    "x1": 910.0909498522359,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92884047723587,
+    "y0": 549.2956472329429,
+    "x1": 1080.7251017908895,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 256.9120788574219,
+    "y0": 387.0,
+    "x1": 815.6143341064453,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.51458740234375,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 644.0025482177734,
+    "y0": 387.0,
+    "x1": 989.5716094970703,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.51458740234375,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 221.0,
+    "x1": 543.5921630859375,
+    "y1": 263.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual/union",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 221.0,
+    "x1": 645.390869140625,
+    "y1": 263.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04470807352374,
+    "y0": 712.0,
+    "x1": 585.2117078904182,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.020728886512,
+    "y0": 712.0,
+    "x1": 791.3164442185432,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/easyocr",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7452161911995,
+    "y0": 712.0,
+    "x1": 1045.8880384568245,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.30276151472523,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2374386387487,
+    "y0": 463.0,
+    "x1": 1104.7603878574987,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017183980635,
+    "y0": 402.0,
+    "x1": 627.0963350972822,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58017985436226,
+    "y0": 402.0,
+    "x1": 410.99129359337593,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.27908961388374,
+    "y0": 402.0,
+    "x1": 553.4959017476729,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9442354879072,
+    "y0": 402.0,
+    "x1": 769.6642977437666,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24163818359375,
+    "y0": 227.0,
+    "x1": 543.5920867919922,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0991973876953,
+    "y0": 227.0,
+    "x1": 645.3907928466797,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.30276151472523,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2374386387487,
+    "y0": 463.0,
+    "x1": 1104.7603878574987,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 525.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017183980635,
+    "y0": 402.0,
+    "x1": 627.0963350972822,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58017985436226,
+    "y0": 402.0,
+    "x1": 410.99129359337593,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.27908961388374,
+    "y0": 402.0,
+    "x1": 553.4959017476729,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9442354879072,
+    "y0": 402.0,
+    "x1": 769.6642977437666,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24163818359375,
+    "y0": 227.0,
+    "x1": 543.5920867919922,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/fusion_recovery",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0991973876953,
+    "y0": 227.0,
+    "x1": 645.3907928466797,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.30276151472523,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2374386387487,
+    "y0": 463.0,
+    "x1": 1104.7603878574987,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04470807352374,
+    "y0": 712.0,
+    "x1": 585.2117078904182,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.020728886512,
+    "y0": 712.0,
+    "x1": 791.3164442185432,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7452161911995,
+    "y0": 712.0,
+    "x1": 1045.8880384568245,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24163818359375,
+    "y0": 227.0,
+    "x1": 543.5920867919922,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/selection",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0991973876953,
+    "y0": 227.0,
+    "x1": 645.3907928466797,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.30276151472523,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2374386387487,
+    "y0": 463.0,
+    "x1": 1104.7603878574987,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58017985436226,
+    "y0": 402.0,
+    "x1": 410.99129359337593,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.27908961388374,
+    "y0": 402.0,
+    "x1": 553.4959017476729,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017183980635,
+    "y0": 402.0,
+    "x1": 627.0963350972822,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9442354879072,
+    "y0": 402.0,
+    "x1": 769.6642977437666,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24163818359375,
+    "y0": 227.0,
+    "x1": 543.5920867919922,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0991973876953,
+    "y0": 227.0,
+    "x1": 645.3907928466797,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.30276151472523,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2374386387487,
+    "y0": 463.0,
+    "x1": 1104.7603878574987,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 526.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58017985436226,
+    "y0": 402.0,
+    "x1": 410.99129359337593,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.27908961388374,
+    "y0": 402.0,
+    "x1": 553.4959017476729,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9442354879072,
+    "y0": 402.0,
+    "x1": 769.6642977437666,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017183980635,
+    "y0": 402.0,
+    "x1": 627.0963350972822,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59752528282905,
+    "y0": 404.01493336102305,
+    "x1": 811.9607769381615,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 245.04470807352374,
+    "y0": 712.0,
+    "x1": 585.2117078904182,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 587.020728886512,
+    "y0": 712.0,
+    "x1": 791.3164442185432,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 909.7452161911995,
+    "y0": 712.0,
+    "x1": 1045.8880384568245,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_borderless_en",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 795.094703495887,
+    "y0": 712.0,
+    "x1": 910.091041386512,
+    "y1": 746.0
+   },
+   "own_table_bbox": {
+    "x0": 165.92893201151202,
+    "y0": 549.2955658411354,
+    "x1": 1080.7250204270886,
+    "y1": 741.2845149284892
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357660293579,
+    "y0": 256.0,
+    "x1": 927.7449188232422,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415588378906,
+    "y0": 256.0,
+    "x1": 1085.952133178711,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1884002685547,
+    "y0": 270.42913818359375,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 256.9120788574219,
+    "y0": 387.0,
+    "x1": 815.6143341064453,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.5147705078125,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "hc_scan_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 644.0024871826172,
+    "y0": 387.0,
+    "x1": 989.5715484619141,
+    "y1": 437.0
+   },
+   "own_table_bbox": {
+    "x0": 191.37355041503906,
+    "y0": 388.5147705078125,
+    "x1": 1078.8128662109375,
+    "y1": 1136.986572265625
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24163818359375,
+    "y0": 221.0,
+    "x1": 543.5920867919922,
+    "y1": 263.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "023",
+   "arm": "visual_pre_reading_order_fix/union",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0991973876953,
+    "y0": 221.0,
+    "x1": 645.3907928466797,
+    "y1": 263.0
+   },
+   "own_table_bbox": {
+    "x0": 174.7985382080078,
+    "y0": 229.71578979492188,
+    "x1": 693.5004272460938,
+    "y1": 521.5004272460938
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "adaptive/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/baseline",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "scan_cohort/SCAN-49/l5_audit",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 250.3027309971471,
+    "y0": 463.0,
+    "x1": 527.1438412266393,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 759.708202798905,
+    "y0": 463.0,
+    "x1": 945.9483151035924,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_stamp_table_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 946.2373776035924,
+    "y0": 463.0,
+    "x1": 1104.7603268223424,
+    "y1": 523.0
+   },
+   "own_table_bbox": {
+    "x0": 164.04047818952992,
+    "y0": 464.10304573433143,
+    "x1": 1200.34949798584,
+    "y1": 689.2460930192484
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 218.58022053626274,
+    "y0": 402.0,
+    "x1": 410.9913342752764,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 415.2791455545733,
+    "y0": 402.0,
+    "x1": 553.4959119119951,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.3017285623857,
+    "y0": 402.0,
+    "x1": 627.0963452616045,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "cmb_tiny_table_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.9443372049639,
+    "y0": 402.0,
+    "x1": 769.6642773905107,
+    "y1": 452.0
+   },
+   "own_table_bbox": {
+    "x0": 164.59756596472954,
+    "y0": 404.01493336102305,
+    "x1": 811.9608583019626,
+    "y1": 505.4043417814246
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 200.6357479095459,
+    "y0": 256.0,
+    "x1": 927.7449340820312,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p1-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 412.4415283203125,
+    "y0": 256.0,
+    "x1": 1085.9520263671875,
+    "y1": 285.0
+   },
+   "own_table_bbox": {
+    "x0": 185.1883544921875,
+    "y0": 270.4291687011719,
+    "x1": 1103.4251708984375,
+    "y1": 622.0283203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 206.24172973632812,
+    "y0": 227.0,
+    "x1": 543.5921630859375,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "024",
+   "arm": "visual/tesseract",
+   "document_id": "ord_form_en",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 496.0992736816406,
+    "y0": 227.0,
+    "x1": 645.390869140625,
+    "y1": 256.0
+   },
+   "own_table_bbox": {
+    "x0": 174.79861450195312,
+    "y0": 229.71585083007812,
+    "x1": 693.50048828125,
+    "y1": 521.5005493164062
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "coverage",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/gap_region",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 239.87528228759766,
+    "y0": 714.0,
+    "x1": 289.53917694091797,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "cmb_stamp_boundary_vi",
+   "table_id": "p0-t0",
+   "row": 3,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 363.5650634765625,
+    "y0": 714.0,
+    "x1": 463.2525177001953,
+    "y1": 741.0
+   },
+   "own_table_bbox": {
+    "x0": 171.4447479248047,
+    "y0": 548.3126220703125,
+    "x1": 526.7926635742188,
+    "y1": 739.52783203125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 254.13483428955078,
+    "y0": 254.0,
+    "x1": 964.0549163818359,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_encoding_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 427.74131774902344,
+    "y0": 254.0,
+    "x1": 1084.6837005615234,
+    "y1": 284.0
+   },
+   "own_table_bbox": {
+    "x0": 187.3951873779297,
+    "y0": 258.6727600097656,
+    "x1": 1105.6591796875,
+    "y1": 584.686767578125
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 217.60699146024643,
+    "y0": 524.0,
+    "x1": 411.98615329496323,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 424.96547763578354,
+    "y0": 524.0,
+    "x1": 552.4538809560961,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 553.7445608877367,
+    "y0": 524.0,
+    "x1": 626.6301810049242,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "hc_tiny_cells_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 626.6104361318773,
+    "y0": 524.0,
+    "x1": 764.972893407268,
+    "y1": 554.0
+   },
+   "own_table_bbox": {
+    "x0": 163.62957065336167,
+    "y0": 525.473323252209,
+    "x1": 812.3862282537646,
+    "y1": 628.3736077964372
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 0,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 248.14695927404588,
+    "y0": 462.0,
+    "x1": 591.3897494962139,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 1,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 585.6769809415264,
+    "y0": 462.0,
+    "x1": 813.669809310667,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 2,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 813.1931247403545,
+    "y0": 462.0,
+    "x1": 905.0423068692608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  },
+  {
+   "milestone": "025",
+   "arm": "intervention/none",
+   "document_id": "ord_financial_report_vi",
+   "table_id": "p0-t0",
+   "row": 0,
+   "col": 3,
+   "confidence": 0.5,
+   "cell_bbox": {
+    "x0": 902.3297824551983,
+    "y0": 462.0,
+    "x1": 1095.3333224942608,
+    "y1": 530.0
+   },
+   "own_table_bbox": {
+    "x0": 163.85047337316698,
+    "y0": 464.04419945746207,
+    "x1": 1201.127417287519,
+    "y1": 689.0380555591124
+   },
+   "other_tables_on_page": 0,
+   "intersects_another_table": false,
+   "overlap_detail": []
+  }
+ ],
+ "same_page_multi_table_precondition_check": {
+  "question": "does the corpus ever contain the precondition for H2's adversarial scenario (2+ tables on the SAME page) at all, or is the '0 contaminated cells' result vacuous because the precondition never occurs?",
+  "same_page_multi_table_instances": 25,
+  "same_page_multi_table_documents": [
+   "hc_checkbox_vi",
+   "ord_technical_report_en"
+  ],
+  "overlap_with_escaping_cell_pages": 0,
+  "interpretation": "NOT vacuous: same-page multi-table instances exist in the corpus (see same_page_multi_table_documents), but ZERO of them coincide with a page that also has a row-synthesis-escaping table. The precondition for contamination is real elsewhere in the corpus; it simply never co-occurs with the defect in the replayed data. The geometric argument in H2's own statement (escape is centre-bounded by construction) remains the primary evidence; this check is corroborating, not conclusive on its own."
+ }
+}
