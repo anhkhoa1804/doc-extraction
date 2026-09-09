@@ -1,0 +1,72 @@
+"""035 Phase 13 support -- build a stratified sample of pages WITHOUT a GT
+table, for the false-positive side (internal regions labelled 'table' that
+overlap no GT table at all). Exhaustively processing all 1193 non-table
+pages is not justified given this milestone's CPU-only constraint (the
+458-page GT-table population already costs several hours) -- a stratified
+sample large enough for a meaningful false-positive RATE estimate is used
+instead, consistent with 033's own adversarial-suite sampling precedent.
+Deliberately launched sequentially AFTER the gt_tables_chunk0/1 extraction
+finishes, not concurrently, to avoid CPU contention with the primary
+population.
+
+Stratified by data_source (proportional, capped) so the false-positive
+check isn't biased toward one genre.
+
+    python experiments/035_mechanism_d_gating/build_non_table_sample.py
+"""
+from __future__ import annotations
+import json, random, shutil
+from collections import defaultdict
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
+FULL = HERE.parents[1] / "experiments" / "034a_omnidocbench_snapshot" / "dataset" / "full"
+OUT = HERE / "dataset" / "non_table_sample"
+SEED = 35
+TARGET_N = 150
+
+
+def main():
+    raw = json.loads((FULL / "OmniDocBench.json").read_text())
+    no_table = [r for r in raw if not any(d.get("category_type") == "table" for d in r.get("layout_dets", []))]
+
+    by_source = defaultdict(list)
+    for r in no_table:
+        by_source[r["page_info"].get("page_attribute", {}).get("data_source", "?")].append(r)
+
+    rng = random.Random(SEED)
+    per_source_target = max(1, TARGET_N // len(by_source))
+    picked = []
+    for source, recs in sorted(by_source.items()):
+        k = min(per_source_target, len(recs))
+        picked.extend(rng.sample(recs, k))
+    # top up to TARGET_N if under, from the remaining pool
+    if len(picked) < TARGET_N:
+        remaining = [r for recs in by_source.values() for r in recs if r not in picked]
+        rng.shuffle(remaining)
+        picked.extend(remaining[:TARGET_N - len(picked)])
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "images").mkdir(exist_ok=True)
+    for r in picked:
+        name = Path(r["page_info"]["image_path"]).name
+        src, dst = FULL / "images" / name, OUT / "images" / name
+        if not dst.exists():
+            shutil.copy2(src, dst)
+    (OUT / "OmniDocBench.json").write_text(json.dumps(picked, ensure_ascii=False))
+
+    manifest = {
+        "method": f"stratified by data_source (seed={SEED}), proportional-capped sample "
+            f"of pages WITHOUT any GT table, target n={TARGET_N}",
+        "n_no_table_pages_in_full_dataset": len(no_table),
+        "n_sampled": len(picked),
+        "distribution": {s: sum(1 for r in picked if r["page_info"]["page_attribute"].get("data_source") == s)
+                          for s in sorted(by_source)},
+        "image_names": [Path(r["page_info"]["image_path"]).name for r in picked],
+    }
+    Path(HERE / "non_table_sample_manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False))
+    print(f"sampled {len(picked)} / {len(no_table)} no-table pages")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

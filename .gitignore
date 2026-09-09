@@ -76,6 +76,16 @@ experiments/034a_omnidocbench_snapshot/results/**/_doc_extraction_runs/
 experiments/034a_omnidocbench_snapshot/results/**/*run_summary.json
 experiments/034a_omnidocbench_snapshot/results/**/*runtime_environment.json
 
+# experiments/035_mechanism_d_gating — Mechanism-D forensic re-extraction
+# (targeted --keep-runs population, not the full corpus). Same rule as
+# 034a: raw dataset image copies and per-page run output are regenerable
+# (via this experiment's own build_*.py scripts + the 034a full dataset)
+# and are not committed; the matching/analysis scripts and their JSON
+# summaries are.
+experiments/035_mechanism_d_gating/dataset/
+experiments/035_mechanism_d_gating/results/**/predictions/
+experiments/035_mechanism_d_gating/results/**/_doc_extraction_runs/
+
 # Environment / secrets
 .env
 .env.*
