@@ -6,9 +6,9 @@ human-readable entry point for 035 — read it before any phase script.
 
 ## Authoritative current state
 
-- One CPU-only 035 worker is processing the frozen Phase 13 non-table sample.
-  Batch9 exited genuinely, passed validation, and RAM released to 29 GiB
-  available before this launch; no swap or usable NVIDIA driver exists.
+- One CPU-only 035 worker is processing Phase 13 continuation batch0. Batch9
+  exited genuinely, passed validation, and RAM released to 29 GiB available
+  before this launch; no swap or usable NVIDIA driver exists.
 - Chunk1 is **COMPLETE: 229/229** (199 original + 30 recovered), with both
   recovery batches validated and audited.
 - Chunk0 is **COMPLETE: 229/229** validated page-runs (32 original + 20
@@ -48,10 +48,13 @@ human-readable entry point for 035 — read it before any phase script.
   objects to `ElementType.TABLE` regions, so a globally detected table may
   also be present but unowned in the final IR. Do not revise D2 denominators
   or the routing hypothesis until this is explicitly decided and measured.
-- Phase 13 extraction is running as the sole CPU worker over the frozen,
-  stratified 150-page non-table sample. Its annotation-mismatch accounting
-  bug is fixed in source; no false-positive result is claimed until the
-  extraction exits and the analysis script completes.
+- Phase 13's original direct 150-page worker was intentionally interrupted
+  after preserving **33 valid complete page-runs** and one incomplete run:
+  that direct process violated the established process-recycling execution
+  policy. The frozen sample is unchanged; the remaining 117 identities are
+  now split into six non-overlapping <=20-page continuation batches. Its
+  annotation-mismatch accounting bug is fixed in source; no false-positive
+  result is claimed until all batches validate and the analysis completes.
 
 ## Objective
 
@@ -150,7 +153,7 @@ these as final Mechanism-D findings.
 | 10 Stamp/occlusion | READY for full rerun |
 | 11 Historical cross-reference | DONE (final) |
 | 12 Table-shape-on-GT | READY for full rerun |
-| 13 False positives | **RUNNING** — frozen 150-page sample is the sole CPU extraction workload; analyze only after a genuine exit |
+| 13 False positives | **READY** — 33 immutable valid original runs + 117 identities in six process-recycled batches; analyze only after every batch passes validation |
 | 14 Specialist invocation map | READY for full rerun |
 | 15 External metric reconciliation | READY, mechanics verified |
 | 16 Root-cause distribution | Not yet written — pure synthesis over Phase 4 data, no blocker |
@@ -256,9 +259,9 @@ observed behavior, not either historical number.
 ## Technical debt
 
 - **P0**: none currently open.
-- **P1**: Phase 13's actual extraction is in progress and must complete,
-  validate, and be analyzed before the full analysis rerun. It remains the
-  sole extraction worker.
+- **P1**: Phase 13 needs six process-recycled continuation batches. The
+  original 33 valid runs are immutable; every continuation batch must exit,
+  validate, and be admitted only through its PASS-selected root.
 - **P2**: `phase4_9_14_funnel.py` is doing the work of 7 phases (4–9, 14)
   in one file for shared-classifier-consistency reasons (documented in
   its own module docstring) — readable but dense; a future pass could
@@ -288,15 +291,16 @@ observed behavior, not either historical number.
 
 ## Next execution gate
 
-Immediate: **monitor Phase 13 non-table false-positive extraction** — the
-primary 458-page GT-table corpus is complete and both chunks independently
-audit to 229/229. The already frozen 150-page stratified non-table sample is
-now the sole worker under the same CPU-only, cached-model offline environment.
-This is an execution continuation, not a scientific-methodology change.
+Immediate: **run Phase 13 continuation batch0** — the primary 458-page
+GT-table corpus is complete and both chunks independently audit to 229/229.
+The already frozen 150-page stratified non-table sample has 33 immutable
+complete original runs; its remaining 117 identities are six single-worker,
+process-recycled batches. This is an ENGINEERING CHANGE to execution safety,
+not a scientific-methodology change.
 
 Full Phase 3–17 analysis at final numbers requires, in order:
-1. Phase 13's false-positive extraction run (150 pages, single worker,
-   after recovery completes and CPU/RAM are available).
+1. Phase 13's six continuation batches (117 pages, one worker at a time),
+   each with genuine exit verification and PASS validation.
 2. Phase 3 rerun using original plus recovery run roots (458 complete pages /
    665 GT tables), then Phases 4–17 rerun in sequence.
 

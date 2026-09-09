@@ -273,3 +273,39 @@ def gt_table_run_dirs(
     for root in gt_table_run_roots(experiment_dir, source_names):
         run_dirs.extend(sorted(p for p in root.iterdir() if p.is_dir()))
     return run_dirs
+
+
+def phase13_run_roots(experiment_dir: Path) -> list[Path]:
+    """Return Phase 13's original and PASS-validated resumed run roots.
+
+    Phase 13 deliberately uses a frozen 150-page non-table sample.  If that
+    sample must be process-recycled, this keeps the original partial root
+    immutable and admits only resumed roots named by a passing validation.
+    It is execution infrastructure only: the sample, model configuration,
+    and Phase 13 classification definitions are unchanged.
+    """
+    roots: list[Path] = []
+    original = experiment_dir / "results" / "non_table_sample" / "_doc_extraction_runs"
+    if original.is_dir():
+        roots.append(original)
+
+    manifest_path = experiment_dir / "non_table_recovery_batches_manifest.json"
+    if not manifest_path.is_file():
+        return roots
+    manifest = json.loads(manifest_path.read_text())
+    for batch in sorted(manifest.get("batches", []), key=lambda b: b["batch_index"]):
+        batch_index = batch["batch_index"]
+        validation_path = experiment_dir / f"non_table_batch{batch_index}_validation.json"
+        if not validation_path.is_file():
+            continue
+        validation = json.loads(validation_path.read_text())
+        if not validation.get("PASS"):
+            continue
+        relative_runs_dir = validation.get(
+            "runs_dir",
+            f"results/non_table_sample_recovery/batch{batch_index}/_doc_extraction_runs",
+        )
+        root = experiment_dir / relative_runs_dir
+        if root.is_dir():
+            roots.append(root)
+    return roots

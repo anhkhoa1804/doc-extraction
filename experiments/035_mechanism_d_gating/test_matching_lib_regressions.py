@@ -202,6 +202,27 @@ def test_recovery_root_comes_from_passed_validation_not_interrupted_attempt():
     print("PASS: test_recovery_root_comes_from_passed_validation_not_interrupted_attempt")
 
 
+def test_phase13_roots_exclude_unvalidated_resume_attempts():
+    """Phase 13 must keep valid original pages but ingest resumed pages only
+    from roots selected by a PASS validation, never from an interrupted root."""
+    with tempfile.TemporaryDirectory() as tmp:
+        experiment_dir = Path(tmp)
+        original = experiment_dir / "results/non_table_sample/_doc_extraction_runs"
+        original.mkdir(parents=True)
+        interrupted = experiment_dir / "results/non_table_sample_recovery/batch0/_doc_extraction_runs"
+        interrupted.mkdir(parents=True)
+        retry = experiment_dir / "results/non_table_sample_recovery/batch0_retry0/_doc_extraction_runs"
+        retry.mkdir(parents=True)
+        (experiment_dir / "non_table_recovery_batches_manifest.json").write_text(
+            '{"batches": [{"batch_index": 0}]}'
+        )
+        (experiment_dir / "non_table_batch0_validation.json").write_text(
+            '{"PASS": true, "runs_dir": "results/non_table_sample_recovery/batch0_retry0/_doc_extraction_runs"}'
+        )
+        assert ml.phase13_run_roots(experiment_dir) == [original, retry]
+    print("PASS: test_phase13_roots_exclude_unvalidated_resume_attempts")
+
+
 def main():
     test_region_reuse_across_two_gt_tables_is_flagged()
     test_multiple_match_mixed_labels_counted_in_effective_loss()
@@ -210,6 +231,7 @@ def main():
     test_incomplete_page_run_is_rejected()
     test_recovery_roots_are_discovered()
     test_recovery_root_comes_from_passed_validation_not_interrupted_attempt()
+    test_phase13_roots_exclude_unvalidated_resume_attempts()
     print("ALL PASS")
     return 0
 
