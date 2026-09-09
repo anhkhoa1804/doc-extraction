@@ -4,43 +4,43 @@
  "dataset": "OmniDocBench v1.6, 1651 pages (full, not demo)",
  "device": "cuda",
  "match_method": "quick_match",
- "num_samples": 77,
- "total_available_samples": 77,
- "timestamp": "2026-09-08T17:25:15.519906+00:00",
+ "num_samples": 1651,
+ "total_available_samples": 1651,
+ "timestamp": "2026-09-08T21:37:18.742116+00:00",
  "overall_score_note": "OmniDocBench's own Overall formula ((1-TextEditDist)*100 + TableTEDS + FormulaCDM)/3 requires the formula CDM metric, which needs a Linux-only TeX Live/ImageMagick/Ghostscript toolchain not verified present this milestone -- NOT computed. Reporting the evaluator's own per-metric numbers directly, not a substitute composite.",
  "metrics_by_category": {
   "text_block": {
    "Edit_dist": {
-    "ALL_page_avg": 0.6250481790251847,
-    "edit_whole": 0.4879524886877828,
-    "edit_sample_avg": 0.6801093838699017
+    "ALL_page_avg": 0.5836654200084279,
+    "edit_whole": 0.4410279467999143,
+    "edit_sample_avg": 0.6222221390614845
    }
   },
   "display_formula": {
    "Edit_dist": {
-    "ALL_page_avg": 0.9579507333901182,
-    "edit_whole": 0.9945547037328939,
-    "edit_sample_avg": 0.9778066424494196
+    "ALL_page_avg": 0.9755954913919687,
+    "edit_whole": 0.9893073696564014,
+    "edit_sample_avg": 0.9732694435433716
    }
   },
   "table": {
    "TEDS": {
-    "all": 0.09650809963085537
+    "all": 0.3224374240222796
    },
    "TEDS_structure_only": {
-    "all": 0.1988253235717739
+    "all": 0.5247025899893422
    },
    "Edit_dist": {
-    "ALL_page_avg": 0.6839850282593632,
-    "edit_whole": 0.687388682119124,
-    "edit_sample_avg": 0.6982716123531979
+    "ALL_page_avg": 0.7017997644947642,
+    "edit_whole": 0.719560621194222,
+    "edit_sample_avg": 0.7171584800369782
    }
   },
   "reading_order": {
    "Edit_dist": {
-    "ALL_page_avg": 0.6016489534203339,
-    "edit_whole": 0.6717557251908397,
-    "edit_sample_avg": 0.6016489534203339
+    "ALL_page_avg": 0.5966756385868858,
+    "edit_whole": 0.7192327720881792,
+    "edit_sample_avg": 0.5966756385868859
    }
   }
  },

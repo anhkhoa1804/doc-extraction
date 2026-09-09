@@ -1,203 +1,247 @@
 {
  "text_block": {
   "overall_ALL": {
-   "Edit_dist": 0.6250481790251847
+   "Edit_dist": 0.5836654200084279
   },
   "by_attribute": [
    {
     "attribute": "None",
-    "Edit_dist": 0.4266943034684964
+    "Edit_dist": 0.314878648202675
    },
    {
     "attribute": "colorful_backgroud",
-    "Edit_dist": 0.4800601556510034
+    "Edit_dist": 0.7567795851670512
    },
    {
     "attribute": "data_source: PPT2PDF",
-    "Edit_dist": 0.5251358499260438
+    "Edit_dist": 0.5589849155055128
    },
    {
     "attribute": "data_source: academic_literature",
-    "Edit_dist": 0.35225564785071745
+    "Edit_dist": 0.18447454966590154
    },
    {
     "attribute": "data_source: book",
-    "Edit_dist": 0.5367799902933964
+    "Edit_dist": 0.5735402875731285
    },
    {
     "attribute": "data_source: colorful_textbook",
-    "Edit_dist": 0.7216819926309577
+    "Edit_dist": 0.6790919885050841
    },
    {
     "attribute": "data_source: exam_paper",
-    "Edit_dist": 0.39534157880186915
+    "Edit_dist": 0.5573321213142192
    },
    {
     "attribute": "data_source: historical_document",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9956639566395664
    },
    {
     "attribute": "data_source: magazine",
-    "Edit_dist": 0.5319983116580631
+    "Edit_dist": 0.4984368173181801
    },
    {
     "attribute": "data_source: newspaper",
-    "Edit_dist": 0.9966749653802471
+    "Edit_dist": 0.5756795251528946
    },
    {
     "attribute": "data_source: note",
-    "Edit_dist": 0.9979215229215229
+    "Edit_dist": 0.9821763541721334
    },
    {
     "attribute": "data_source: research_report",
-    "Edit_dist": 0.9492762760602411
+    "Edit_dist": 0.9643109851852031
+   },
+   {
+    "attribute": "fuzzy_content",
+    "Edit_dist": 0.9914148856048812
+   },
+   {
+    "attribute": "fuzzy_scan",
+    "Edit_dist": 0.8432021575328957
    },
    {
     "attribute": "geometric_deformation",
-    "Edit_dist": 0.6613625738450423
+    "Edit_dist": 0.8162785582315444
    },
    {
     "attribute": "handwriting",
-    "Edit_dist": 0.996969696969697
+    "Edit_dist": 0.7073944838338468
    },
    {
     "attribute": "language: en_ch_mixed",
-    "Edit_dist": 0.5091534680849803
+    "Edit_dist": 0.7270724158040338
    },
    {
     "attribute": "language: english",
-    "Edit_dist": 0.18118131709593277
+    "Edit_dist": 0.172831407748269
+   },
+   {
+    "attribute": "language: other",
+    "Edit_dist": 0.12299714946682211
    },
    {
     "attribute": "language: simplified_chinese",
-    "Edit_dist": 0.966120968991877
+    "Edit_dist": 0.9729540052386809
    },
    {
     "attribute": "language: traditional_chinese",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9733471148476157
    },
    {
     "attribute": "layout: 1andmore_column",
-    "Edit_dist": 0.5944066404341324
+    "Edit_dist": 0.41039243707487716
    },
    {
     "attribute": "layout: double_column",
-    "Edit_dist": 0.5221204084011342
+    "Edit_dist": 0.4812355407721221
    },
    {
     "attribute": "layout: other_layout",
-    "Edit_dist": 0.6735380232144581
+    "Edit_dist": 0.6254975612313729
    },
    {
     "attribute": "layout: single_column",
-    "Edit_dist": 0.6265885137538242
+    "Edit_dist": 0.6460969722157185
    },
    {
     "attribute": "layout: three_column",
-    "Edit_dist": 0.2865641575683839
+    "Edit_dist": 0.20622867524696548
    },
    {
     "attribute": "subset: equation_hard",
-    "Edit_dist": 0.6327621306275464
+    "Edit_dist": 0.4899607921943583
    },
    {
     "attribute": "subset: layout_hard",
-    "Edit_dist": 0.6374160666093618
+    "Edit_dist": 0.7334145910625082
    },
    {
     "attribute": "subset: table_hard",
-    "Edit_dist": 0.8889492319252583
+    "Edit_dist": 0.7534821110510089
    },
    {
     "attribute": "subset: v1.5",
-    "Edit_dist": 0.5094468382718859
+    "Edit_dist": 0.5704698326721248
    },
    {
     "attribute": "text_L-shaped_wrap",
-    "Edit_dist": 0.6253219568752869
+    "Edit_dist": 0.7917017839490372
    },
    {
     "attribute": "text_O-shaped_wrap",
     "Edit_dist": 0.8711340206185567
    },
    {
+    "attribute": "text_embedded_in_image",
+    "Edit_dist": 0.9968152866242038
+   },
+   {
+    "attribute": "transparent_pages",
+    "Edit_dist": 0.9161489205582822
+   },
+   {
     "attribute": "watermark",
-    "Edit_dist": 0.28706855373253687
+    "Edit_dist": 0.6928717129129439
    },
    {
     "attribute": "with_watermark",
-    "Edit_dist": 0.5068887775551102
+    "Edit_dist": 0.8297272541549908
    }
   ]
  },
  "display_formula": {
   "overall_ALL": {
-   "Edit_dist": 0.9579507333901182
+   "Edit_dist": 0.9755954913919689
   },
   "by_attribute": [
    {
     "attribute": "None",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9799599605257235
    },
    {
     "attribute": "colorful_backgroud",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9280848902428646
    },
    {
     "attribute": "data_source: PPT2PDF",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9811439668384517
    },
    {
     "attribute": "data_source: academic_literature",
-    "Edit_dist": 0.9982683982683982
+    "Edit_dist": 0.996455446019802
    },
    {
     "attribute": "data_source: book",
-    "Edit_dist": 0.9569321638672869
+    "Edit_dist": 0.9836472473909041
    },
    {
     "attribute": "data_source: colorful_textbook",
-    "Edit_dist": 0.8383218455921694
+    "Edit_dist": 0.9255764735991421
+   },
+   {
+    "attribute": "data_source: exam_paper",
+    "Edit_dist": 0.9565556970976024
    },
    {
     "attribute": "data_source: note",
+    "Edit_dist": 0.9858659100462379
+   },
+   {
+    "attribute": "fuzzy_content",
     "Edit_dist": 1.0
    },
    {
+    "attribute": "fuzzy_scan",
+    "Edit_dist": 0.9597600619195046
+   },
+   {
     "attribute": "geometric_deformation",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9956167021384412
    },
    {
     "attribute": "handwriting",
     "Edit_dist": 1.0
    },
    {
+    "attribute": "language: en_ch_mixed",
+    "Edit_dist": 0.9835164835164835
+   },
+   {
     "attribute": "language: english",
-    "Edit_dist": 0.9668333220346644
+    "Edit_dist": 0.9830908300645708
    },
    {
     "attribute": "language: simplified_chinese",
-    "Edit_dist": 0.9461072818640565
+    "Edit_dist": 0.9567260361547245
    },
    {
     "attribute": "layout: 1andmore_column",
-    "Edit_dist": 1.0
+    "Edit_dist": 0.9556586567044433
+   },
+   {
+    "attribute": "layout: double_column",
+    "Edit_dist": 0.9690998605300017
    },
    {
     "attribute": "layout: other_layout",
-    "Edit_dist": 0.9029931073553016
+    "Edit_dist": 0.9389580449707373
    },
    {
     "attribute": "layout: single_column",
-    "Edit_dist": 0.9734666576277315
+    "Edit_dist": 0.9862132220895238
+   },
+   {
+    "attribute": "layout: three_column",
+    "Edit_dist": 0.9562004711929749
    },
    {
     "attribute": "subset: equation_hard",
-    "Edit_dist": 0.9908618792413377
+    "Edit_dist": 0.9925512507360298
    },
    {
     "attribute": "subset: layout_hard",
-    "Edit_dist": 0.7647058823529411
+    "Edit_dist": 0.9619501915882006
    },
    {
     "attribute": "subset: table_hard",
@@ -205,259 +249,351 @@
    },
    {
     "attribute": "subset: v1.5",
-    "Edit_dist": 0.9412698412698413
+    "Edit_dist": 0.968762669072758
+   },
+   {
+    "attribute": "text_L-shaped_wrap",
+    "Edit_dist": 1.0
    },
    {
     "attribute": "text_O-shaped_wrap",
     "Edit_dist": 0.5294117647058824
+   },
+   {
+    "attribute": "watermark",
+    "Edit_dist": 0.8935364817550416
+   },
+   {
+    "attribute": "with_watermark",
+    "Edit_dist": 1.0
    }
   ]
  },
  "table": {
   "overall_ALL": {
-   "Edit_dist": 0.683985028259363,
-   "TEDS": 0.1101478513018314,
-   "TEDS_structure_only": 0.23026593082374017
+   "Edit_dist": 0.7017997644947642,
+   "TEDS": 0.3526450949656218,
+   "TEDS_structure_only": 0.5647383253354076
   },
   "by_attribute": [
    {
+    "attribute": "None",
+    "Edit_dist": 0.8650213821090492,
+    "TEDS": 0.2636507936507937,
+    "TEDS_structure_only": 0.4
+   },
+   {
     "attribute": "colorful_backgroud",
-    "Edit_dist": 0.24654218533886585,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.6783307523543947,
+    "TEDS": 0.4331889709746876,
+    "TEDS_structure_only": 0.6102540768426618
+   },
+   {
+    "attribute": "data_source: PPT2PDF",
+    "Edit_dist": 0.7276844457766084,
+    "TEDS": 0.3908705892275118,
+    "TEDS_structure_only": 0.6507649181071956
    },
    {
     "attribute": "data_source: academic_literature",
-    "Edit_dist": 0.7435428124069122,
-    "TEDS": 0.19480861292022394,
-    "TEDS_structure_only": 0.38111888111888115
+    "Edit_dist": 0.6581683426043223,
+    "TEDS": 0.5111293836176314,
+    "TEDS_structure_only": 0.7220423204771069
    },
    {
     "attribute": "data_source: book",
-    "Edit_dist": 0.680093016948172,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.6854158340724811,
+    "TEDS": 0.39050508961600594,
+    "TEDS_structure_only": 0.6411622568124672
    },
    {
     "attribute": "data_source: colorful_textbook",
-    "Edit_dist": 0.24654218533886585,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.6352306234549573,
+    "TEDS": 0.4543579439457744,
+    "TEDS_structure_only": 0.6220963631035878
    },
    {
     "attribute": "data_source: exam_paper",
-    "Edit_dist": 0.5250015479465384,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.7919581771428976,
+    "TEDS": 0.2013943933641381,
+    "TEDS_structure_only": 0.28372748922869373
+   },
+   {
+    "attribute": "data_source: magazine",
+    "Edit_dist": 0.7035068288538959,
+    "TEDS": 0.4671682654142532,
+    "TEDS_structure_only": 0.6813124441695871
+   },
+   {
+    "attribute": "data_source: newspaper",
+    "Edit_dist": 0.7483258972279468,
+    "TEDS": 0.23625078385967,
+    "TEDS_structure_only": 0.3806335605059004
    },
    {
     "attribute": "data_source: note",
-    "Edit_dist": 0.7325436408977556,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.6934525160713648,
+    "TEDS": 0.10391931801016643,
+    "TEDS_structure_only": 0.45879862953138817
    },
    {
     "attribute": "data_source: research_report",
-    "Edit_dist": 0.7055295093885404,
-    "TEDS": 0.12289139614355084,
-    "TEDS_structure_only": 0.26997242108803976
+    "Edit_dist": 0.7105057663775619,
+    "TEDS": 0.31283337984739307,
+    "TEDS_structure_only": 0.5394945046951948
+   },
+   {
+    "attribute": "fuzzy_scan",
+    "Edit_dist": 0.7260290657742787,
+    "TEDS": 0.24676531112920003,
+    "TEDS_structure_only": 0.324
    },
    {
     "attribute": "geometric_deformation",
-    "Edit_dist": 0.7229166666666667,
+    "Edit_dist": 0.6303685897435898,
     "TEDS": 0.0,
     "TEDS_structure_only": 0.0
    },
    {
     "attribute": "language: en_ch_mixed",
-    "Edit_dist": 0.645422943221321,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.7517128103227164,
+    "TEDS": 0.2616075886091738,
+    "TEDS_structure_only": 0.41906793065378944
    },
    {
     "attribute": "language: english",
-    "Edit_dist": 0.5833461133079798,
-    "TEDS": 0.17045753630519594,
-    "TEDS_structure_only": 0.333479020979021
+    "Edit_dist": 0.647555804768011,
+    "TEDS": 0.5218542368346445,
+    "TEDS_structure_only": 0.6877056863596731
    },
    {
     "attribute": "language: simplified_chinese",
-    "Edit_dist": 0.7228451138569603,
-    "TEDS": 0.0889778024203664,
-    "TEDS_structure_only": 0.18799399833882594
+    "Edit_dist": 0.7264965752083,
+    "TEDS": 0.2799057116377163,
+    "TEDS_structure_only": 0.5259897229325117
    },
    {
     "attribute": "language: traditional_chinese",
-    "Edit_dist": 0.8281768921517217,
-    "TEDS": 0.11887910244311628,
-    "TEDS_structure_only": 0.39572192513368987
+    "Edit_dist": 0.674715408772342,
+    "TEDS": 0.02618507720548537,
+    "TEDS_structure_only": 0.06235827664399093
    },
    {
     "attribute": "layout: 1andmore_column",
-    "Edit_dist": 0.6305477378063556,
-    "TEDS": 0.47149417785564174,
-    "TEDS_structure_only": 0.7048368298368298
+    "Edit_dist": 0.6322549754878176,
+    "TEDS": 0.5740575765201721,
+    "TEDS_structure_only": 0.7749596661302561
    },
    {
     "attribute": "layout: double_column",
-    "Edit_dist": 0.6975466861955327,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.7882932798021446,
+    "TEDS": 0.24284779911363855,
+    "TEDS_structure_only": 0.3524650026694769
+   },
+   {
+    "attribute": "layout: other_layout",
+    "Edit_dist": 0.7155392001502316,
+    "TEDS": 0.3531651223973998,
+    "TEDS_structure_only": 0.5346516846716852
    },
    {
     "attribute": "layout: single_column",
-    "Edit_dist": 0.6926888327757048,
-    "TEDS": 0.05209404891429182,
-    "TEDS_structure_only": 0.15774342363988716
+    "Edit_dist": 0.7009400854855532,
+    "TEDS": 0.32645953488404067,
+    "TEDS_structure_only": 0.5611464764126987
+   },
+   {
+    "attribute": "layout: three_column",
+    "Edit_dist": 0.6306872597540554,
+    "TEDS": 0.3165622831812205,
+    "TEDS_structure_only": 0.3944444444444445
    },
    {
     "attribute": "subset: equation_hard",
-    "Edit_dist": 0.7246022031823746,
-    "TEDS": 0.0,
-    "TEDS_structure_only": 0.0
+    "Edit_dist": 0.6725705844753824,
+    "TEDS": 0.46746031746031746,
+    "TEDS_structure_only": 0.5
+   },
+   {
+    "attribute": "subset: layout_hard",
+    "Edit_dist": 0.7008155472773415,
+    "TEDS": 0.1616161673821218,
+    "TEDS_structure_only": 0.23214285714285715
    },
    {
     "attribute": "subset: table_hard",
-    "Edit_dist": 0.7443775393560661,
-    "TEDS": 0.06763720765258636,
-    "TEDS_structure_only": 0.15458658988070753
+    "Edit_dist": 0.710887501785457,
+    "TEDS": 0.2654078827096206,
+    "TEDS_structure_only": 0.44888167651794303
    },
    {
     "attribute": "subset: v1.5",
-    "Edit_dist": 0.6051096248115667,
-    "TEDS": 0.17246514347187367,
-    "TEDS_structure_only": 0.34405393457117595
+    "Edit_dist": 0.6994773188553939,
+    "TEDS": 0.3804531022719202,
+    "TEDS_structure_only": 0.6047050926616334
+   },
+   {
+    "attribute": "watermark",
+    "Edit_dist": 0.7719229840185119,
+    "TEDS": 0.2888024264840582,
+    "TEDS_structure_only": 0.42160441782034325
+   },
+   {
+    "attribute": "with_watermark",
+    "Edit_dist": 0.6766668757476626,
+    "TEDS": 0.5939322384098835,
+    "TEDS_structure_only": 0.793755488400371
    }
   ]
  },
  "reading_order": {
   "overall_ALL": {
-   "Edit_dist": 0.6016489534203339
+   "Edit_dist": 0.5966756385868859
   },
   "by_attribute": [
    {
     "attribute": "None",
-    "Edit_dist": 0.5352783580056307
+    "Edit_dist": 0.46634003477232755
    },
    {
     "attribute": "colorful_backgroud",
-    "Edit_dist": 0.654048236709527
+    "Edit_dist": 0.5890923765773199
    },
    {
     "attribute": "data_source: PPT2PDF",
-    "Edit_dist": 0.5299761051373955
+    "Edit_dist": 0.43088374529045453
    },
    {
     "attribute": "data_source: academic_literature",
-    "Edit_dist": 0.5732280261544476
+    "Edit_dist": 0.5441707836833025
    },
    {
     "attribute": "data_source: book",
-    "Edit_dist": 0.45087856729800463
+    "Edit_dist": 0.5732020055305694
    },
    {
     "attribute": "data_source: colorful_textbook",
-    "Edit_dist": 0.7381278240927364
+    "Edit_dist": 0.5779207096409887
    },
    {
     "attribute": "data_source: exam_paper",
-    "Edit_dist": 0.36267206477732794
+    "Edit_dist": 0.634278885049659
    },
    {
     "attribute": "data_source: historical_document",
-    "Edit_dist": 0.14285714285714285
+    "Edit_dist": 0.46159754224270355
    },
    {
     "attribute": "data_source: magazine",
-    "Edit_dist": 0.7774071166928309
+    "Edit_dist": 0.5341306597391791
    },
    {
     "attribute": "data_source: newspaper",
-    "Edit_dist": 0.944375
+    "Edit_dist": 0.7868376515142426
    },
    {
     "attribute": "data_source: note",
-    "Edit_dist": 0.9236111111111112
+    "Edit_dist": 0.7651315299693882
    },
    {
     "attribute": "data_source: research_report",
-    "Edit_dist": 0.6663865546218488
+    "Edit_dist": 0.7194616234012519
+   },
+   {
+    "attribute": "fuzzy_content",
+    "Edit_dist": 0.8630952380952381
+   },
+   {
+    "attribute": "fuzzy_scan",
+    "Edit_dist": 0.6827033163488271
    },
    {
     "attribute": "geometric_deformation",
-    "Edit_dist": 0.7222222222222222
+    "Edit_dist": 0.7026248685904548
    },
    {
     "attribute": "handwriting",
-    "Edit_dist": 0.9375
+    "Edit_dist": 0.9020833333333333
    },
    {
     "attribute": "language: en_ch_mixed",
-    "Edit_dist": 0.4688162714478504
+    "Edit_dist": 0.6719180998897838
    },
    {
     "attribute": "language: english",
-    "Edit_dist": 0.43632228687628405
+    "Edit_dist": 0.4511903159631467
+   },
+   {
+    "attribute": "language: other",
+    "Edit_dist": 0.5163398692810457
    },
    {
     "attribute": "language: simplified_chinese",
-    "Edit_dist": 0.7445714072888091
+    "Edit_dist": 0.7298686779801737
    },
    {
     "attribute": "language: traditional_chinese",
-    "Edit_dist": 0.5714285714285714
+    "Edit_dist": 0.575091575091575
    },
    {
     "attribute": "layout: 1andmore_column",
-    "Edit_dist": 0.7358823529411764
+    "Edit_dist": 0.556177315497499
    },
    {
     "attribute": "layout: double_column",
-    "Edit_dist": 0.6573426573426573
+    "Edit_dist": 0.6299254183433594
    },
    {
     "attribute": "layout: other_layout",
-    "Edit_dist": 0.7151928307379284
+    "Edit_dist": 0.6457189608166458
    },
    {
     "attribute": "layout: single_column",
-    "Edit_dist": 0.5486814172272553
+    "Edit_dist": 0.5734223869800179
    },
    {
     "attribute": "layout: three_column",
-    "Edit_dist": 0.34615384615384615
+    "Edit_dist": 0.6478642342568008
    },
    {
     "attribute": "subset: equation_hard",
-    "Edit_dist": 0.6989665249150375
+    "Edit_dist": 0.674029601302724
    },
    {
     "attribute": "subset: layout_hard",
-    "Edit_dist": 0.4466365486365486
+    "Edit_dist": 0.5951800069917
    },
    {
     "attribute": "subset: table_hard",
-    "Edit_dist": 0.6424747474747474
+    "Edit_dist": 0.6923807579609293
    },
    {
     "attribute": "subset: v1.5",
-    "Edit_dist": 0.6095563155615846
+    "Edit_dist": 0.5842735488353693
    },
    {
     "attribute": "text_L-shaped_wrap",
-    "Edit_dist": 0.16666666666666666
+    "Edit_dist": 0.4869047619047619
    },
    {
     "attribute": "text_O-shaped_wrap",
     "Edit_dist": 0.8888888888888888
    },
    {
+    "attribute": "text_embedded_in_image",
+    "Edit_dist": 0.6893939393939394
+   },
+   {
+    "attribute": "transparent_pages",
+    "Edit_dist": 0.8162049144600632
+   },
+   {
     "attribute": "watermark",
-    "Edit_dist": 0.34615384615384615
+    "Edit_dist": 0.5652001258295846
    },
    {
     "attribute": "with_watermark",
-    "Edit_dist": 0.38095238095238093
+    "Edit_dist": 0.74951535578268
    }
   ]
  }

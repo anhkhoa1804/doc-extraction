@@ -166,9 +166,81 @@
    "docling_mean_sec_per_page": 46.075
   },
   {
-   "pair": "005 baseline vs 034a full",
-   "classification": "NOT YET AVAILABLE",
-   "why": "the full 1651-page run had not completed when this script last ran -- rerun after full_baseline/metrics.json exists."
+   "pair": "005 baseline (demo, 18 pages, CPU) vs 034a full (1651 pages, GPU)",
+   "classification": "PARTIALLY COMPARABLE",
+   "why": "same evaluator commit and backend logic, but different scale (18 vs 1651 pages -- 034a is the genuine full benchmark, 005 was always a demo-scale integration check per its own README), different device, different machine, dependency drift as above.",
+   "005_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.7447517081853917,
+      "edit_whole": 0.7614409115971329,
+      "edit_sample_avg": 0.7729143487429578
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.996031746031746,
+      "edit_whole": 0.9964497041420118,
+      "edit_sample_avg": 0.9952569169960475
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.1526047579951521
+     },
+     "TEDS_structure_only": {
+      "all": 0.609455762764876
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.7024441548085875,
+      "edit_whole": 0.6831071677105081,
+      "edit_sample_avg": 0.695812478314095
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.6463238925547549,
+      "edit_whole": 0.7722419928825622,
+      "edit_sample_avg": 0.6463238925547548
+     }
+    }
+   },
+   "034a_full_headline_metrics": {
+    "text_block": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.5836654200084279,
+      "edit_whole": 0.4410279467999143,
+      "edit_sample_avg": 0.6222221390614845
+     }
+    },
+    "display_formula": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.9755954913919687,
+      "edit_whole": 0.9893073696564014,
+      "edit_sample_avg": 0.9732694435433716
+     }
+    },
+    "table": {
+     "TEDS": {
+      "all": 0.3224374240222796
+     },
+     "TEDS_structure_only": {
+      "all": 0.5247025899893422
+     },
+     "Edit_dist": {
+      "ALL_page_avg": 0.7017997644947642,
+      "edit_whole": 0.719560621194222,
+      "edit_sample_avg": 0.7171584800369782
+     }
+    },
+    "reading_order": {
+     "Edit_dist": {
+      "ALL_page_avg": 0.5966756385868858,
+      "edit_whole": 0.7192327720881792,
+      "edit_sample_avg": 0.5966756385868859
+     }
+    }
+   }
   }
  ],
  "note": "005's runs are the ONLY prior OmniDocBench results found anywhere in this repository's history (029-033 never ran OmniDocBench -- confirmed by their own FINAL_REPORT.md scopes, all CPU-only historical-IR-replay milestones with no new extraction)."

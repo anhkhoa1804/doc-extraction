@@ -18,15 +18,63 @@ OmniDocBench v1.6 benchmark (1651 pages, HuggingFace
 `193627ae9e97d89188468ed1ee3b7a856ff76044`, package `omnidocbench_eval`
 1.6.0). It does not redirect 023–033's research program.
 
-**FACT, status at close**: the full 1651-page benchmark was launched
-using the selected configuration (`selected_benchmark_config.json`) and
-was **in progress** (partial page count — see `results/full_baseline/
-runtime.json` for the exact count at any checkpoint) when this report was
-written. All accuracy claims below are drawn from a **complete, real,
-official-evaluator-scored 77-page representative subset**
-(`results/subset_B_fixed_auto/metrics.json`), not the full corpus, unless
-explicitly marked otherwise. This is stated plainly, not hidden — see §12
-for exactly why, and how to resume.
+**FACT, status at close (updated)**: the full 1651-page benchmark
+launched on the selected configuration (`selected_benchmark_config.json`)
+completed cleanly — `results/full_baseline/runtime.json`: 1651/1651
+succeeded, 0 failed, 13665.5s runtime (13687.1s wall clock), device=cuda.
+Prediction generation finished at 2026-09-08T21:37:18Z. The official
+evaluator was then run against these 1651 predictions
+(`results/full_baseline/metrics.json`, produced 2026-09-09, after a VM
+reboot that occurred ~2h after prediction generation finished — the
+reboot did not interrupt or corrupt the run; see §1a). **All accuracy
+numbers in this report are now drawn from the complete, real,
+official-evaluator-scored full 1651-page corpus**, not the subset. The
+77-page subset's own numbers (`results/subset_B_fixed_auto/metrics.json`)
+are retained throughout as an explicit comparison column — they are not
+discarded, since the subset-vs-full delta is itself a finding (§11).
+
+### 1a. Post-reboot recovery note
+
+**FACT**: a VM reboot occurred between 2026-09-08 23:39 and
+2026-09-09 01:21 (`last reboot`), roughly 2 hours after prediction
+generation completed (21:37) and well before this milestone was resumed
+(01:2x). Recovery-time verification, performed before trusting any
+existing artifact: `git status`/`git log`/`git reflog` confirmed HEAD and
+working tree were exactly as left (only `results/full_baseline/` and
+`uv.lock` untracked, matching the milestone commit's own description of
+an in-progress run); the CPU test suite was rerun and reconfirmed `345
+passed, 10 skipped`; `dataset_manifest.json`'s ground-truth content hash
+(`a45cd84b...`) was cross-checked byte-for-byte against
+`run_metadata.json`'s `ground_truth_sha256` and matched exactly, so the
+1.446 GB dataset on disk was unmodified by the reboot; the GPU was
+reconfirmed CLEAR (0% util, 0 MiB used, no processes) and `Research-No.1`
+was confirmed idle before any further action. **INFERENCE**: `report.md`'s
+"No metrics.json found — evaluate.py has not run (or failed)" message,
+and the absence of `evaluator_config.yaml` in `results/full_baseline/` at
+recovery time, together with the evaluator's own `result/` output
+directory showing no file newer than the *subset* run's own 17:46
+timestamp, indicate the full run had been launched with prediction
+generation only (`run.py`'s evaluate step not yet reached) — not that
+evaluate.py crashed or was interrupted by the reboot. Re-running
+`load_dataset()`/`check_evaluator_available()` (the two pre-flight checks
+`evaluate.py` performs before touching the evaluator subprocess) against
+the exact same paths succeeded cleanly at recovery time, which is
+consistent with this being a deliberately staged two-step process (GPU
+prediction generation, then a separate CPU-only scoring pass) rather than
+a failure. The evaluator was then invoked
+(`experiments/005_omnidocbench/evaluate.py --dataset dataset/full
+--output results/full_baseline --omnidoc-python
+~/.venvs/omnidoc-evaluator/bin/python3 --match-workers 4`, unmodified
+from the exact command already recorded in
+`selected_benchmark_config.json`), completing in ~6 minutes, exit code 0,
+`metric groups reported: ['text_block', 'display_formula', 'table',
+'reading_order', 'match_debug']`. No production source, no `029`–`033`
+artifact, and no existing result file was modified in this recovery — only
+`results/full_baseline/` was completed (predictions were already present
+and untouched) and the three downstream scripts named in this report's
+own §21 (`extract_official_metrics.py`, `failure_analysis.py`,
+`historical_comparison.py`) were rerun against it, exactly as previously
+planned.
 
 ---
 
@@ -193,50 +241,104 @@ margin that thin at 1/21 scale is not trusted to hold at full scale.
 
 ---
 
-## 11. Official accuracy metrics (Phase 7, subset — Phase 6/13 pending full run)
+## 11. Official accuracy metrics (Phase 7/13, full corpus — COMPLETE)
 
-**FACT** (`official_metrics.json`, `results/subset_B_fixed_auto/
-metrics.json`, 77 pages, real official evaluator, not a substitute):
+**FACT** (`official_metrics.json`, `results/full_baseline/metrics.json`,
+**1651 of 1651 pages**, real official evaluator, not a substitute), shown
+alongside the original 77-page subset for comparison:
 
-| Category | Metric | Value |
-|---|---|---:|
-| text_block | Edit_dist.ALL_page_avg | 0.6250 |
-| display_formula | Edit_dist.ALL_page_avg | 0.9580 |
-| table | TEDS.all | 0.0965 *(see caveat below)* |
-| table | TEDS_structure_only.all | 0.1988 |
-| reading_order | Edit_dist.ALL_page_avg | 0.6016 |
+| Category | Metric | Subset (77p) | **Full (1651p)** |
+|---|---|---:|---:|
+| text_block | Edit_dist.ALL_page_avg | 0.6250 | **0.5837** |
+| display_formula | Edit_dist.ALL_page_avg | 0.9580 | **0.9756** |
+| table | TEDS.all | 0.0965 *(caveat)* | **0.3224** *(caveat)* |
+| table | TEDS_structure_only.all | 0.1988 | **0.5247** |
+| table | Edit_dist.ALL_page_avg | 0.6840 | **0.7018** |
+| reading_order | Edit_dist.ALL_page_avg | 0.6016 | **0.5967** |
+
+(Edit_dist is a distance — lower is better; TEDS is a score — higher is
+better.)
 
 No aggregate "Overall" score: OmniDocBench's own formula requires formula
 CDM (Linux TeX Live/ImageMagick/Ghostscript toolchain, not verified
 present) — per-metric numbers reported directly, never a substitute
 composite.
 
-**FACT — evaluator-side bug, external to this project**: `metrics.json`'s
-own `table.all.metric_debug.TEDS` shows **26 of 37** TEDS sample
-computations failed with `AssertionError: can only join a started
-process` (a multiprocessing race inside `omnidocbench_eval`'s own worker
-pool). The reported TEDS numbers are computed from the 11 surviving
-samples (30%), not the full 37 — flagged prominently, not silently
-absorbed into a clean-looking number.
+**INFERENCE — the subset understated table performance, not the reverse**:
+table TEDS more than tripled (0.0965 → 0.3224) and TEDS_structure_only
+also improved sharply (0.1988 → 0.5247) at full scale, while text_block
+and reading_order moved only marginally and display_formula got
+marginally *worse*. The most plausible explanation, given the subset's
+own construction (`subset_manifest.json`): 15 of the subset's 77 pages
+were drawn specifically from the official `table_hard` pool — a
+deliberate oversample of difficult tables for stratified qualitative
+coverage, not a size-matched random sample of the full corpus's table
+population. The subset's table numbers were therefore a legitimate
+lower-bound/hard-case measurement, not a biased or wrong one — but they
+should not have been read as representative of average full-corpus table
+difficulty, and now don't need to be: the full number is the real one.
+
+**FACT — evaluator-side bug, external to this project, reproduced at full
+scale with a materially different failure rate**: `metrics.json`'s own
+`table.metric_debug.TEDS` shows **94 of 665** TEDS sample computations
+failed with `AssertionError: can only join a started process` (the same
+multiprocessing race inside `omnidocbench_eval`'s own worker pool found
+at subset scale) — **14.1%** of samples, vs **70.3%** (26/37) at subset
+scale. `timeout_case_count: 0` both times — this is a race, not a
+timeout. The reported TEDS numbers are computed from the 571 surviving
+samples (85.9% coverage) at full scale, a substantially cleaner signal
+than the subset's 30% coverage, though still not 100%. **INFERENCE**: the
+failure rate is not a fixed proportion of this bug — consistent with a
+genuine multiprocessing race (whose trigger probability depends on
+runtime scheduling/timing, not sample count) rather than a deterministic
+per-sample defect. This project does not own or attempt to fix
+`omnidocbench_eval`.
+
+**FACT — the language-gap finding is confirmed, not an artifact of subset
+stratification** (full per-page proxy ranking, §12): mean approximate
+similarity is 0.4357 (n=715) for English pages vs 0.0307 (n=710) for
+Simplified Chinese at full scale — a **14.2x gap**, closely matching the
+subset's 16.7x. This is the single most direct piece of evidence that the
+subset's headline findings (other than table TEDS, addressed above)
+generalize to the full corpus rather than being a 77-page artifact.
 
 ---
 
 ## 12. Worst / best failures (Phase 9, approximate proxy — see caveat)
 
-**FACT** (`failure_analysis_subset_B_fixed_auto.json`): the official
-evaluator's own collected output does not expose per-page scores through
-any file `evaluate.py` collects (`page` is keyed by metric name → an
-attribute-grouped breakdown, not per-image; `group.sample_count` is
-empty at both n=6 and n=77) — verified directly, not assumed. Per-page
-ranking here uses a clearly-labeled **approximate** `difflib` text-
-similarity proxy, not the official metric.
+**FACT** (`failure_analysis_full_baseline.json`, 1551 of 1651 pages
+scored — 100 unscored because their ground truth has zero text_block/
+title spans, giving an undefined similarity ratio, not a pipeline
+failure): the official evaluator's own collected output still does not
+expose per-page scores through any file `evaluate.py` collects (verified
+again at n=1651, same property found at n=6/n=77 — a property of this
+evaluator version, not a sample-size artifact). Per-page ranking uses the
+same clearly-labeled **approximate** `difflib` text-similarity proxy as
+the subset, not the official metric.
 
-**FACT, the dramatic result**: **every one of the 10 worst-ranked pages
-is `simplified_chinese`; every one of the 10 best-ranked pages is
-`english`.** Mean similarity by language: english 0.5028 (n=29),
-simplified_chinese 0.0301 (n=38) — a **16.7x gap**. This directly
-confirms, at much larger and more dramatic scale, experiment 007's prior
+**FACT, the language-gap result reproduces at full scale**: mean
+similarity by language across all 1551 scored pages — english 0.4357
+(n=715), simplified_chinese 0.0307 (n=710), en_ch_mixed 0.1493 (n=112),
+traditional_chinese 0.0469 (n=12) — a **14.2x** English/Chinese gap,
+closely matching the subset's 16.7x (§11). This directly confirms, now on
+the full corpus rather than a 77-page sample, experiment 007's prior
 finding that this system's OCR scope is EN/VI-only by deliberate design.
+
+**FACT, refinement over the subset's simpler picture**: the subset's
+worst-10 were unanimously `simplified_chinese` and best-10 unanimously
+`english`; at full scale the worst-10 by this proxy include 4 English
+pages scoring exactly 0.0 (e.g. `book_en_[...]Pyomo—Optimization
+Modeling in Python[...]_page_016.png`,
+`docstructbench_llm-raw-the-eye-o.O-Chapter14.pdf_2.jpg`) alongside
+Chinese ones. **INFERENCE**: this is not evidence against the language
+gap — the *aggregate* means above are unambiguous and computed over 700+
+samples per language, not 10 — but it does mean a small number of
+English pages fail for a different reason than language scope (candidates
+not distinguished by this proxy: possible OCR acquisition failure,
+extreme layout complexity, or a genuinely near-empty ground-truth
+text_block span inflating the difflib denominator — not investigated
+further here, flagged as a small follow-up rather than a headline
+finding).
 
 ---
 
@@ -295,22 +397,30 @@ full scale).
 
 **FACT** (`historical_comparison.json`): experiment 005 (2026-08-20, demo
 dataset, 18 pages, Windows, CPU, docling 2.120.3/torch 2.8.0) is the
-**only** prior OmniDocBench result in this repository. Classified
-**PARTIALLY COMPARABLE** to this milestone's subset run — same evaluator
-commit and backend logic, different machine/device/dataset scale.
-Directionally consistent: both runs show LOW table TEDS (005: 0.1526,
-034a: 0.0965) and moderate-to-poor text edit distance (005: 0.7448, 034a:
-0.6250) — not contradictory, though not directly averaged given the
-disjoint page sets.
+**only** prior OmniDocBench result in this repository. Three comparisons
+are recorded: 005 vs this milestone's 6-page smoke run (PARTIALLY
+COMPARABLE), 005's own internal baseline-vs-docling control arm (DIRECTLY
+COMPARABLE, unchanged by this update), and — now available — **005 vs
+this milestone's full 1651-page run** (PARTIALLY COMPARABLE: same
+evaluator commit and backend logic, different machine/device/dataset
+scale — 18 demo pages, CPU, Windows vs 1651 pages, CUDA, Linux).
+Directionally consistent across all three: table TEDS is LOW in every one
+(005: 0.1526, 034a smoke: 0.6438, 034a full: 0.3224 — noisy at small n,
+converging at full scale) and text edit distance is moderate-to-poor in
+every one (005: 0.7448, 034a full: 0.5837) — not contradictory, though
+still not directly averaged given entirely disjoint page sets across a
+demo dataset and the full public benchmark.
 
 ---
 
 ## 17. Research interpretation — five explicit answers
 
 **1. Current system performance**: mixed and sharply language-dependent
-— strong-ish on English (0.50 mean similarity), near-zero on Chinese
-(0.03), consistent with a documented, deliberate scope boundary, not a
-new defect.
+— strong-ish on English (0.44 mean similarity, n=715), near-zero on
+Chinese (0.03, n=710), full-corpus numbers, consistent with a documented,
+deliberate scope boundary, not a new defect. Table structure recovery is
+notably better than the subset alone suggested (TEDS 0.32, up from a
+subset measurement of 0.10 that oversampled hard tables — §11).
 
 **2. External validity**: OmniDocBench validates this system's text-
 fidelity and reading-order behavior directly (§13), and is silent on the
@@ -334,19 +444,27 @@ critical phenomenon this whole research chain has found (§14).
 
 ---
 
-## 18. Decision (Phase 19)
+## 18. Decision (Phase 19, reaffirmed on the completed full corpus)
 
 # **PARTIALLY_VALIDATES**
 
-Text fidelity and reading-order dimensions genuinely validate against an
-independent external benchmark (§13, direct reproduction). Table accuracy
-is inconclusive due to a confirmed evaluator-side bug (§11), not this
-system's fault. The benchmark's dominant signal (the language gap) is a
-known, deliberate scope boundary, not a challenge to the architecture.
-Three of the research chain's most important findings (evidence
-ownership, duplication, role ambiguity) are simply not measurable by this
-benchmark's methodology — this is a genuine, honest **blind-spot finding**
-in its own right, not a failure of this milestone.
+This decision was originally reached on the 77-page subset (4.7% of the
+corpus) and is **reaffirmed, now on the complete 1651-page corpus**
+(§1a, §11) — not merely carried forward unchanged. Text fidelity and
+reading-order dimensions genuinely validate against an independent
+external benchmark, at full scale (§13, direct reproduction, numbers
+updated in §11). The language gap, the single largest measured effect,
+reproduces at full scale within 2.5 percentage points of its subset value
+(16.7x → 14.2x, §11/§12) — a known, deliberate scope boundary, not a
+challenge to the architecture. Table accuracy is **less** inconclusive
+than the subset suggested — TEDS more than tripled at full scale once the
+subset's own `table_hard` oversampling is accounted for (§11) — though
+still not a clean signal, given the evaluator-side race still affects
+14.1% of table samples (down from 70.3% at subset scale, §11). Three of
+the research chain's most important findings (evidence ownership,
+duplication, role ambiguity) remain simply not measurable by this
+benchmark's methodology at any scale — this is a genuine, honest
+**blind-spot finding** in its own right, not a failure of this milestone.
 
 ---
 
@@ -376,30 +494,45 @@ Transformers/Docling versions, GPU driver/CUDA version, and the exact
 commit this milestone ran against are all recorded verbatim in `environment.
 json` (§2). `git diff --check` is clean; the full CPU test suite was
 rerun and reconfirmed `345 passed, 10 skipped` (0 regressions) after all
-work in this milestone. No file under `experiments/029_*` through
-`experiments/033_*` was modified (`git status` confirms zero touches).
+work in this milestone, including after the full-run recovery in §1a. No
+file under `experiments/029_*` through `experiments/033_*` was modified
+(`git status` confirms zero touches).
+
+**FACT — the full run's own recovery introduced no code changes**: the
+gap between prediction generation (21:37) and evaluation (§1a) spans a VM
+reboot but zero commits to `src/` — `git log` on `src/doc_extraction/`
+shows no commit between `623f240` (the device fix, already present when
+predictions were generated) and this milestone's close. The predictions
+scored in §11 are therefore the same predictions `run_metadata.json`
+already fingerprinted (`ground_truth_sha256`, model versions, config)
+before the reboot — evaluation added a scoring pass, not a re-run.
 
 ---
 
 ## 19. Limitations
 
-- The full 1651-page benchmark was in progress, not complete, when this
-  report was written (§1, §12) — all accuracy numbers are subset-based
-  (77/1651 pages, 4.7%), though stratified for genre/difficulty diversity,
-  not random.
 - Per-page failure ranking uses an approximate proxy, not the official
   metric (§12) — the official evaluator's own collected output does not
-  expose per-page scores through any file available to this milestone.
-- Table TEDS is computed from 30% of intended samples due to a confirmed,
-  external evaluator bug (§11) — not remediated (out of scope: this
-  project does not own `omnidocbench_eval`).
-- Mechanisms D (region-label gating) and H (role ambiguity) were judged
+  expose per-page scores through any file available to this milestone, at
+  any scale tested (n=6, 77, or 1651).
+- Table TEDS is computed from 85.9% of intended samples (571/665) due to
+  a confirmed, external evaluator bug (§11) — a real improvement over the
+  subset's 30% coverage, but still not 100% — not remediated (out of
+  scope: this project does not own `omnidocbench_eval`).
+- Mechanisms D (region-label gating) and H (role ambiguity) remain judged
   "partially observable"/"not measurable" without a per-page cross-
   reference against this system's own internal layout JSON — not
-  performed this milestone given the full-run time budget; flagged as
-  the single most valuable follow-up.
+  performed this milestone even at full scale, given this is a
+  fundamentally different kind of investigation (internal IR inspection,
+  not corpus-scale scoring); flagged as the single most valuable
+  follow-up (§22, unchanged).
 - Formula CDM and the OmniDocBench "Overall" composite score were not
   computed (Linux toolchain not verified present).
+- A handful (~4) of full-corpus English pages score 0.0 on the
+  approximate proxy for a reason not yet distinguished from the language
+  gap (§12) — noted, not investigated further, since the aggregate
+  per-language means (n=715/n=710) are the load-bearing evidence here,
+  not the extreme tail.
 
 ---
 
@@ -418,16 +551,33 @@ for production use given the VRAM margin found unsafe at scale.
 
 ---
 
-## 21. Final recommendation
+## 21. Final recommendation — DONE, this update
 
-Resume this milestone (not a new one) once the full 1651-page CPU/GPU run
-completes: rerun `extract_official_metrics.py results/full_baseline`,
-`failure_analysis.py results/full_baseline dataset/full`, and
-`historical_comparison.py` to replace the subset-based numbers throughout
-this report with full-corpus ones, and re-verify the language-gap finding
-holds at full scale (expected: yes, given the subset was stratified, not
-cherry-picked, and the gap is dramatic — 16.7x — not a marginal effect
-likely to wash out).
+The prior version of this section planned exactly this: resume once the
+full run completes, rerun the three post-processing scripts, replace
+subset numbers with full-corpus ones, and re-verify the language gap
+holds at scale. All of that is now done (§1a, §11, §12, §16) — the
+language gap does hold (16.7x → 14.2x), as predicted. This milestone is
+now considered **closed** as an external validation snapshot. Next-step
+options, in priority order, per this report's own findings:
+
+1. **Highest value** (§22, unchanged from the original plan): close the
+   "partially observable, unconfirmed" status of mechanism D
+   (region-label gating, 031's central finding) by cross-referencing this
+   system's own internal layout JSON against OmniDocBench's `table`
+   ground-truth regions on a targeted subset — the one 023–033 mechanism
+   this benchmark could plausibly help confirm or falsify but hasn't yet.
+2. Prepare the device-resolution fix (`623f240`, already committed to
+   this branch) as a clean, independently reviewable production change —
+   it is unrelated to any benchmark-specific content and was committed
+   here only because this milestone found it (§5, §20).
+3. Do **not** rerun the full benchmark for a prettier throughput number —
+   C1/serial is already frozen as the accuracy baseline (§10); a
+   concurrency-with-safety-margin follow-up (§8's `not_a_rejection_of_
+   concurrency` note) is a distinct, lower-priority efficiency project,
+   not a correctness one.
+4. Return to Milestone 034 (semantic/role-ambiguity research) or a new
+   milestone only after (1) is addressed or explicitly deprioritized.
 
 ---
 

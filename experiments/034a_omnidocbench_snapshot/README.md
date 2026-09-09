@@ -46,9 +46,18 @@ to it?
 
 ## Status at close
 
-The full 1651-page benchmark was launched on the selected (C1/serial,
-GPU) configuration and was still in progress when this milestone closed.
-All accuracy numbers in `FINAL_REPORT.md` are drawn from the complete,
-real, official-evaluator-scored 77-page representative subset unless
-stated otherwise — see `FINAL_REPORT.md` §1 and §12 for the exact status
-and how to pick this back up.
+The full 1651-page benchmark completed (1651/1651 pages, 0 failures) and
+has been scored by the official evaluator (665 table samples, all 1651
+pages matched, 0 timeouts). All accuracy numbers in `FINAL_REPORT.md` are
+now drawn from the complete, real, official-evaluator-scored **full
+1651-page corpus** (`results/full_baseline/metrics.json`), with the
+original 77-page subset kept as an explicit comparison column — see
+`FINAL_REPORT.md` §1, §1a, §11, §12 for the full recovery/completion
+account (including a VM reboot that occurred between prediction
+generation and scoring, verified not to have affected either).
+
+Headline update from full-corpus scoring: the English/Chinese language
+gap reproduces almost exactly (16.7x subset → 14.2x full), while table
+TEDS more than tripled (0.10 → 0.32) once the subset's own `table_hard`
+oversampling is accounted for — the subset's table number was a
+legitimate hard-case measurement, not a representative one.
