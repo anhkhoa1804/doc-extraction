@@ -1,21 +1,24 @@
 # Milestone 035 — Mechanism D: Table-Gating Forensic Study
 
-Status snapshot updated during cold-start takeover on 2026-09-09T13:43Z.
+Status snapshot updated during cold-start takeover on 2026-09-09T14:48Z.
 This document is the primary
 human-readable entry point for 035 — read it before any phase script.
 
 ## Authoritative current state
 
-- One 035 CPU-only worker is running: chunk0 recovery batch7 retry0. It is
-  the only extraction worker. The VM had 25 GiB available RAM immediately
-  before launch, no swap, and no usable NVIDIA driver.
+- One CPU-only 035 worker is processing the frozen Phase 13 non-table sample.
+  Batch9 exited genuinely, passed validation, and RAM released to 29 GiB
+  available before this launch; no swap or usable NVIDIA driver exists.
 - Chunk1 is **COMPLETE: 229/229** (199 original + 30 recovered), with both
   recovery batches validated and audited.
-- Chunk0 currently has **172/229** validated page-runs (32 original + 20
+- Chunk0 is **COMPLETE: 229/229** validated page-runs (32 original + 20
   recovery batch0 + 20 recovery batch1 + 20 recovery batch2 + 20 recovery
-  batch3 + 20 recovery batch4 + 20 recovery batch5 + 20 recovery batch6).
-  Batch6 was structurally revalidated from disk after the VM restart. Batch7
-  is active; batches8–9 have not started.
+  batch3 + 20 recovery batch4 + 20 recovery batch5 + 20 recovery batch6 +
+  20 recovery batch7 + 20 recovery batch8 + 17 recovery batch9). Batch6 was
+  structurally revalidated from disk after the VM restart. The final audit
+  confirms 197 recovered + 32 immutable original runs, zero duplicate
+  identities, zero unresolved incomplete runs, zero schema errors, and all
+  ten recovery-batch validations PASS.
 - The first batch7 attempt was interrupted by the tool-session transition
   after layout/OCR on its first page and before table/final/metadata output.
   It has **zero valid page-runs** and remains preserved at the canonical
@@ -45,8 +48,10 @@ human-readable entry point for 035 — read it before any phase script.
   objects to `ElementType.TABLE` regions, so a globally detected table may
   also be present but unowned in the final IR. Do not revise D2 denominators
   or the routing hypothesis until this is explicitly decided and measured.
-- Phase 13 extraction remains pending. Its annotation-mismatch accounting bug
-  is fixed in source; no new false-positive result is claimed.
+- Phase 13 extraction is running as the sole CPU worker over the frozen,
+  stratified 150-page non-table sample. Its annotation-mismatch accounting
+  bug is fixed in source; no false-positive result is claimed until the
+  extraction exits and the analysis script completes.
 
 ## Objective
 
@@ -145,7 +150,7 @@ these as final Mechanism-D findings.
 | 10 Stamp/occlusion | READY for full rerun |
 | 11 Historical cross-reference | DONE (final) |
 | 12 Table-shape-on-GT | READY for full rerun |
-| 13 False positives | **BLOCKED** — dataset ready, extraction not yet launched (deliberately, to avoid CPU/RAM competition with the primary + recovery extraction) |
+| 13 False positives | **RUNNING** — frozen 150-page sample is the sole CPU extraction workload; analyze only after a genuine exit |
 | 14 Specialist invocation map | READY for full rerun |
 | 15 External metric reconciliation | READY, mechanics verified |
 | 16 Root-cause distribution | Not yet written — pure synthesis over Phase 4 data, no blocker |
@@ -159,9 +164,9 @@ these as final Mechanism-D findings.
 The first Linux OOM remains **PROVEN** and the second termination remains a
 **high-confidence, not directly verifiable harness-level classification**;
 the evidence and uncertainty are preserved below. Recovery is now serial,
-single-worker, and process-recycled. Chunk0 batches 0–6 completed 20/20 with
+single-worker, and process-recycled. Chunk0 batches 0–7 completed 20/20 with
 zero schema errors or collisions. The current chunk0 recovery count is
-140/197, leaving 57 pages in batches 7–9. Chunk1's recovery is complete and
+197/197, leaving no recovery pages. Chunk1's recovery is complete and
 independently audited at 229/229.
 
 The two incomplete directories left by the interrupted original chunk1 run
@@ -207,10 +212,13 @@ validation. Batch2 completed 20/20 and passed structural validation; its
 first launch used the repository `.venv` and produced 0/20 because Docling
 was unavailable, so it was not counted and did not overwrite valid output.
 The retry used the validated CPU runtime `doc-extraction-linux312`.
-Combined chunk0 total is now **32 original + 140 recovered = 172/229**.
+Combined chunk0 total is now **32 original + 197 recovered = 229/229**;
+`chunk0_recovery_final_audit.json` is COMPLETE with all ten batches PASS.
 
-**Incident status: CONTAINED, not SOLVED** — will not be called solved
-until the remaining 77 recovery pages complete without another OOM.
+**Incident status: RECOVERY COMPLETE** — all remaining pages completed
+serially without a recurrent OOM. The aggregate-pressure explanation remains
+PROBABLE rather than a claim that every possible single-worker workload is
+memory-safe indefinitely.
 
 ### MEMORY INCIDENT DECISION
 
@@ -248,12 +256,9 @@ observed behavior, not either historical number.
 ## Technical debt
 
 - **P0**: none currently open.
-- **P1**: Chunk0 recovery batches 7–9 and their validation/audit are still
-  required before the full analysis rerun.
-- **P1**: Phase 13's actual extraction is blocked pending recovery
-  completion (by design, not a defect) — must be launched once the
-  primary + recovery workers are done, still single-worker, still not
-  concurrent with anything else.
+- **P1**: Phase 13's actual extraction is in progress and must complete,
+  validate, and be analyzed before the full analysis rerun. It remains the
+  sole extraction worker.
 - **P2**: `phase4_9_14_funnel.py` is doing the work of 7 phases (4–9, 14)
   in one file for shared-classifier-consistency reasons (documented in
   its own module docstring) — readable but dense; a future pass could
@@ -276,29 +281,26 @@ observed behavior, not either historical number.
 
 ## Pending decisions
 
-- Continue the remaining three chunk0 recovery batches serially; no evidence
-  currently argues for stopping early, but each batch still requires genuine
-  exit verification and validation before the next.
-- Batch size remains 20. It is an execution policy, not a scientific
-  threshold; revisit only if later telemetry shows a qualitatively different
-  memory pattern.
+- Preserve the completed recovery outputs as immutable evidence; no
+  recomputation is authorized or needed.
+- Phase 13 remains a 150-page frozen stratified sample. Its sequential
+  scheduling is an execution policy, not a scientific threshold.
 
 ## Next execution gate
 
-Immediate: **complete and validate chunk0 recovery batch7 retry0**. Then,
-only after genuine worker exit and RAM release, run batches8–9 one at a time.
+Immediate: **monitor Phase 13 non-table false-positive extraction** — the
+primary 458-page GT-table corpus is complete and both chunks independently
+audit to 229/229. The already frozen 150-page stratified non-table sample is
+now the sole worker under the same CPU-only, cached-model offline environment.
 This is an execution continuation, not a scientific-methodology change.
 
 Full Phase 3–17 analysis at final numbers requires, in order:
-1. Chunk0 recovery batches 7–9 (57 pages) resume, one worker at a time,
-   with genuine exit verification, validation, and evidence preservation.
-2. `chunk0_recovery_final_audit.json` shows 229/229.
-3. Phase 13's false-positive extraction run (150 pages, single worker,
+1. Phase 13's false-positive extraction run (150 pages, single worker,
    after recovery completes and CPU/RAM are available).
-4. Phase 3 rerun using original plus recovery run roots (458 complete pages /
+2. Phase 3 rerun using original plus recovery run roots (458 complete pages /
    665 GT tables), then Phases 4–17 rerun in sequence.
 
-Only after (4) should Phases 16 (root-cause distribution), 18 (production
+Only after (2) should Phases 16 (root-cause distribution), 18 (production
 options), 19 (031–034 reassessment), and 20 (final decision) be written.
 
 ## SECOND EXECUTION INTERRUPTION (2026-09-09 ~06:07Z)
