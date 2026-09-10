@@ -1,0 +1,325 @@
+{
+ "n_batches": 10,
+ "batch_size_nominal": 20,
+ "total_pages": 197,
+ "matches_recovery_manifest": true,
+ "batches": [
+  {
+   "batch_index": 0,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 19,
+    "INCOMPLETE_RETRY": 1
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch0",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch0",
+   "image_names": [
+    "page-f6b6cfb8-3bb5-4393-b3fb-70efef72aca5.png",
+    "page-3bed7e71-905d-4f69-aabe-dbff56d7ac4c.png",
+    "page-d5a3ea83-5427-4f90-a157-7b39b784b26e.png",
+    "page-c99421f9-4435-44a9-82f8-7b044bb0ee1d.png",
+    "page-d627077d-61cd-45c5-936f-a2c306ec3b5b.png",
+    "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+    "page-472c26e2-6bc2-4c05-9889-05132c87a8a9.png",
+    "page-66aa2b38-32c0-4222-839a-50df648218df.png",
+    "page-3f872a77-3faf-47d6-8574-bd2e5806ff98.png",
+    "page-d5e0cd38-ac0f-422c-b6d5-c8f001720491.png",
+    "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png",
+    "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png",
+    "page-74961b9a-ef4c-42d8-a95f-406e6b84cf63.png",
+    "page-8792f466-c570-468c-86dc-402a510e9bb7.png",
+    "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png",
+    "page-9a25d716-f3a8-42e6-9a4d-e5e49a71ab41.png",
+    "page-6c29d065-b8f0-4bb0-b7c3-779f9cbab09a.png",
+    "page-b4d4cf5b-0a0e-454b-8220-8c7f58402791.png",
+    "page-fd7003ba-9af2-4b60-8c45-1e2ac1c7f474.png",
+    "page-f46e72b1-865d-43e6-ab94-afae16c5f178.png"
+   ]
+  },
+  {
+   "batch_index": 1,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch1",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch1",
+   "image_names": [
+    "page-91460e0a-922c-4f9b-9d11-d1a7981c3a05.png",
+    "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.png",
+    "page-349417c3-e5f4-4dae-b018-7323ef36b04e.png",
+    "page-07d333cf-4ebf-427c-b146-e419962b81fa.png",
+    "page-a8d87718-ab19-4fc0-9ef5-3611ad10f88e.png",
+    "page-d8376ede-3935-4a80-8acb-525b14796774.png",
+    "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png",
+    "page-94600a77-35db-4549-b505-3dadc092b3f4.png",
+    "page-e7681b54-2c4a-40a2-9abe-caebba01cefb.png",
+    "page-2abc2a95-d39a-48db-9b6d-f40410412694.png",
+    "page-3f8eed58-8b86-4f3a-958d-13671977d3c6.png",
+    "page-dd5b0a99-4cc6-4fa9-ab63-a277947735b1.png",
+    "page-219a47e5-3b78-4fa4-9066-3b95bb342a87.png",
+    "page-1f03d0f2-1166-4b9b-9609-94bf8bfd29b2.png",
+    "page-2deb83b3-abe2-442c-a544-0b6a8db464f1.png",
+    "page-bf2cd266-22b7-41d7-a244-28595d23974f.png",
+    "page-00b6ac57-4466-4eb0-937d-bb29a44fa0d3.png",
+    "page-fd04ea51-677c-4de2-8e8e-adfd791e2957.png",
+    "page-232d386f-6c9d-4b50-9463-89dedce995e5.png",
+    "page-cb30bac7-d4bd-47d0-ac84-e0b46d051fe9.png"
+   ]
+  },
+  {
+   "batch_index": 2,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch2",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch2",
+   "image_names": [
+    "page-1955f827-fb35-4806-b3a4-463d9e0d6cc8.png",
+    "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11.png",
+    "page-dbed9c07-e155-4ba1-92f9-a2962dc9a8f9.png",
+    "page-69c15957-4d6d-485c-a244-04a1a8d29d37.png",
+    "page-d2cdac80-318c-4157-ac6e-bdab333f66bd.png",
+    "page-632fad6b-6da9-4567-bd2d-a4763a03a314.png",
+    "page-1cecd66d-3563-422a-a204-999bba0bb528.png",
+    "page-25cb2b2a-e44a-4043-90e1-3f7058d8b99e.png",
+    "page-fe0bca35-a6c4-4591-a6dc-c5649c01ba6d.png",
+    "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png",
+    "page-be2ebf31-5f24-4d3e-97f0-4a8df7e773b4.png",
+    "page-8d707810-de48-43ba-81a7-b976918e7be2.png",
+    "page-035cb436-c01e-41db-b40e-8977678777eb.png",
+    "page-49746735-505c-442d-b3f6-c55b1bf9e48b.png",
+    "page-9390721f-e06c-47ea-8b21-0f27c72df7b7.png",
+    "page-5d58cdf7-6d00-4ea5-97b2-358cbc0cab21.png",
+    "page-3ce15378-6ffd-4f3c-9473-8b897451c770.png",
+    "page-f222e5f3-8628-47cd-a0b6-40f62123228f.png",
+    "page-c7771a62-5b6b-48f0-b591-6b657d26e125.png",
+    "page-5cb4b2fe-c14d-450e-9b97-4b6e7c99493b.png"
+   ]
+  },
+  {
+   "batch_index": 3,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch3",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch3",
+   "image_names": [
+    "page-eff3dc3a-8d44-4c68-9c3a-55df4aaf1e36.png",
+    "page-9f6bc620-1983-4503-bb0f-f9c7949ccb77.png",
+    "page-213e6a57-ba81-4afb-8184-2e1cf2a7664d.png",
+    "page-14a6b411-9097-4eec-86da-92075868d243.png",
+    "page-0cbdcfa9-3248-4e54-8704-2bc73e6d29e7.png",
+    "page-458ab820-615f-42fe-af33-3a8fb15ad691.png",
+    "page-b23ec9d4-e4aa-458f-8e65-c2c7f8e9dd46.png",
+    "page-68e347d8-6f34-431b-a2a2-549b3634dabc.png",
+    "page-f8c08102-a96d-4533-b3a1-dac6020513b5.png",
+    "page-38fc7c6b-80ed-46be-bb53-29986a63ad3e.png",
+    "page-f3e750d8-8201-4a22-9419-9776798b7a32.png",
+    "page-ab4f331b-e8f3-41fb-ba6b-8da5ade54983.png",
+    "page-92062914-ea02-4640-8f54-24623dba4388.png",
+    "page-35ecd651-17dd-43e6-8a6f-8f55d6796d96.png",
+    "page-f5b824d0-be81-48a9-aae6-3060d11a6503.png",
+    "eastmoney_7cae1642250a3dbabfef7624d3424ec6e162ae91c8de4acfa89a9779092b0189.pdf_16.jpg",
+    "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg",
+    "yanbaopptmerge_6b6ed54523980841c1a28a656d0295ec638cf50c991c16cafec715237c83919f.pdf_31.jpg",
+    "yanbaopptmerge_PattPatelCh12.pdf_27.jpg",
+    "yanbaopptmerge_yanbaoPPT_1020.jpg"
+   ]
+  },
+  {
+   "batch_index": 4,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch4",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch4",
+   "image_names": [
+    "yanbaopptmerge_yanbaoPPT_1695.jpg",
+    "yanbaopptmerge_yanbaoPPT_3395.jpg",
+    "yanbaopptmerge_yanbaoPPT_4275.jpg",
+    "yanbaopptmerge_yanbaoPPT_4285.jpg",
+    "yanbaor2_4862cd850679e945a98c54c8d4c37be0154b5790d2c32da35d0f5ca0be413693.pdf_9.jpg",
+    "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg",
+    "yanbaor2_6a016aa81b2fc8281a2a51bae6417769e4cae7fbe161cbc4351596b82e7002fa.pdf_8.jpg",
+    "yanbaor2_75f9d788216f5e26469269defcd466aa8d250542b2142c72782103913bc6e61b.pdf_6.jpg",
+    "yanbaor2_afad9eb86f2a04271428aa988aec7d1949713bb5a5ce5c0cf26f320650b7966a.pdf_14.jpg",
+    "yanbaor2_yanbaoPPT_916.jpg",
+    "docstructbench_llm-raw-scihub-o.O-ceat.200600266.pdf_2.jpg",
+    "docstructbench_llm-raw-scihub-o.O-ceat.200600410.pdf_5.jpg",
+    "docstructbench_llm-raw-scihub-o.O-hup.777.pdf_7.jpg",
+    "docstructbench_llm-raw-scihub-o.O-hup.908.pdf_5.jpg",
+    "docstructbench_llm-raw-scihub-o.O-ijc.22994.pdf_3.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.02.018.pdf_6.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.03.134.pdf_6.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.08.021.pdf_7.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00374-003-0589-2.pdf_6.jpg"
+   ]
+  },
+  {
+   "batch_index": 5,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch5",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch5",
+   "image_names": [
+    "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00374-006-0103-8.pdf_11.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-60368448.pdf_343.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-60403612.pdf_179.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-60482015.pdf_56.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61323717.pdf_203.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61510621.pdf_161.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61520553.pdf_328.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61520612.pdf_140.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61520779.pdf_76.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61520788.pdf_391.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61521384.pdf_750.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61521429.pdf_358.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61521600.pdf_210.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61522126.pdf_206.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61522235.pdf_170.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61523162.pdf_276.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61569751.pdf_155.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61570078.pdf_315.jpg"
+   ]
+  },
+  {
+   "batch_index": 6,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch6",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch6",
+   "image_names": [
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61571237.pdf_81.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61571259.pdf_239.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63674848.pdf_101.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63675767.pdf_66.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63677793.pdf_332.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63684502.pdf_263.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63688043.pdf_110.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63708140.pdf_170.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63709763.pdf_72.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63710191.pdf_336.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63711094.pdf_34.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-63711094.pdf_56.jpg",
+    "docstructbench_enbook-zlib-o.O-15322190.pdf_138.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-chap08.pdf_12.jpg",
+    "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327.jpg",
+    "yanbaopptmerge_d346b889f1d85c61950a71d4b0ac2752.pdf_89.jpg",
+    "yanbaopptmerge_d4fc7cba428625974e93183edfccea73.pdf_89.jpg",
+    "yanbaopptmerge_e60b3b61281e87ddf42f9321a9e6ef9d.pdf_159.jpg",
+    "yanbaor2_4e9a940b90058ba924ee3a9a659167960bfe5b595134f556aad6a9d2ff004f73.pdf_1.jpg"
+   ]
+  },
+  {
+   "batch_index": 7,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch7",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch7",
+   "image_names": [
+    "yanbaor2_4f58b4bb233e5ccdf512d286d177cb94e6f6ae91d5b089ac841727067a20a510.pdf_3.jpg",
+    "yanbaor2_5e780ffd1efcf79950df199abb69a114dd782d5b549ecd025b640f29a4feabef.pdf_2.jpg",
+    "yanbaor2_ey-global-fintech-adoption-index.pdf_30.jpg",
+    "yanbaor2_yanbaoPPT_2098.jpg",
+    "yanbaor2_yanbaoPPT_5544.jpg",
+    "yanbaor2_yanbaoPPT_569.jpg",
+    "yanbaor2_yanbaoPPT_5877.jpg",
+    "jiaocai_71434495.pdf_0.jpg",
+    "jiaocai_jiaocai_en_310.jpg",
+    "jiaocai_jiaocai_en_595.jpg",
+    "jiaocai_jiaocai_en_91.jpg",
+    "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg",
+    "docstructbench_enbook-zlib-o.O-17761417.pdf_894.jpg",
+    "docstructbench_llm-raw-scihub-o.O-bf03175144.pdf_4.jpg",
+    "docstructbench_llm-raw-scihub-o.O-ceat.200407001.pdf_3.jpg",
+    "docstructbench_llm-raw-scihub-o.O-ceat.200600410.pdf_8.jpg",
+    "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+    "docstructbench_llm-raw-scihub-o.O-hup.777.pdf_8.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.1444-2906.2002.00466.x.pdf_4.jpg",
+    "docstructbench_llm-raw-scihub-o.O-j.eswa.2008.01.070.pdf_5.jpg"
+   ]
+  },
+  {
+   "batch_index": 8,
+   "n_pages": 20,
+   "reasons": {
+    "NOT_STARTED": 20,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch8",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch8",
+   "image_names": [
+    "docstructbench_llm-raw-scihub-o.O-s00128-007-9171-1.pdf_3.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00128-008-9367-z.pdf_4.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00128-010-0006-0.pdf_5.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00348-003-0689-7.pdf_3.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s003950050126.pdf_6.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s00396-003-0935-9.pdf_2.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s0167-8655%2800%2900107-0.pdf_6.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s0167-8655%2801%2900019-8.pdf_10.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s0362-546x%2897%2900070-9.pdf_7.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s10555-005-1578-8.pdf_5.jpg",
+    "docstructbench_llm-raw-scihub-o.O-s10653-010-9369-8.pdf_11.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-1995_2418.pdf_1.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-Player%27s%20Options%20-%20Halflings.pdf_11.jpg",
+    "docstructbench_llm-raw-the-eye-o.O-TFT-Traveller.pdf_6.jpg",
+    "jiaocaineedrop_2005_QP.pdf_5.jpg",
+    "jiaocaineedrop_2017.pdf_0.jpg",
+    "jiaocaineedrop_20608808.pdf_0.jpg",
+    "jiaocaineedrop_33137159.pdf_3.jpg",
+    "jiaocaineedrop_38247658.pdf_0.jpg"
+   ]
+  },
+  {
+   "batch_index": 9,
+   "n_pages": 17,
+   "reasons": {
+    "NOT_STARTED": 17,
+    "INCOMPLETE_RETRY": 0
+   },
+   "dataset_dir": "dataset/chunk0_recovery_batch9",
+   "output_dir": "results/gt_tables_chunk0_recovery/batch9",
+   "image_names": [
+    "jiaocaineedrop_42351289.pdf_1.jpg",
+    "jiaocaineedrop_46.pdf_1.jpg",
+    "jiaocaineedrop_55196913.pdf_0.jpg",
+    "jiaocaineedrop_96657786.pdf_0.jpg",
+    "jiaocaineedrop_Chapter9.pdf_46.jpg",
+    "jiaocaineedrop_biz-96816.pdf_48.jpg",
+    "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84.jpg",
+    "jiaocaineedrop_chap02.pdf_16.jpg",
+    "jiaocaineedrop_chap5.pdf_4.jpg",
+    "jiaocaineedrop_chem-323236.pdf_183.jpg",
+    "jiaocaineedrop_chem-354334.pdf_20.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1118.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1141.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1271.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1349.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1358.jpg",
+    "jiaocaineedrop_jiaocai_needrop_en_1381.jpg"
+   ]
+  }
+ ]
+}

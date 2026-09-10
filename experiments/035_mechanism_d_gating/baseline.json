@@ -1,0 +1,42 @@
+{
+ "phase": "0 -- freeze/baseline",
+ "git": {
+  "head": "55d71cb2a9526eb4fc9eae177d09d958e8cee8c7",
+  "branch": "fix/table-text-ownership",
+  "origin_head": "55d71cb2a9526eb4fc9eae177d09d958e8cee8c7",
+  "local_eq_origin": true,
+  "status_short": "?? experiments/035_mechanism_d_gating/\n?? uv.lock",
+  "expected_untracked": "uv.lock only",
+  "status_matches_expected": false
+ },
+ "frozen_milestones_last_touched_by": {
+  "experiments/029_deep_forensic_replay": "d8f38f7f8980d899f34be5b0833afbbe9679011f",
+  "experiments/030_resolve_h1_h2": "d224cbf7acfd389f66fe8e2ac1f3a9bec2f7a3bf",
+  "experiments/031_table_label_gating": "10ad80b5c7617fe76d225c69d23b9533e7097550",
+  "experiments/032_role_ambiguity": "c5497648367a8417ab29fe26b97e5663e9c1b22c",
+  "experiments/033_table_shape_integrity": "02a78a1c98d9347fcc435df9c1667ae194d11d13",
+  "experiments/034a_omnidocbench_snapshot": "55d71cb2a9526eb4fc9eae177d09d958e8cee8c7"
+ },
+ "frozen_milestones_integrity": {
+  "all_last_touched_by_034a_close_commit": false
+ },
+ "source_hashes_git_blob_sha1": {
+  "table_gate (pipelines/base.py:747, r.label.lower() == 'table')": "be2ae37e35d450bf99a4a0a7eec27995947c0bbc",
+  "table_backend.py (secondary gate at line 85)": "510512e98bbe73efe18bf60dd7828d45caea36d2",
+  "docling_backend.py (_LABEL_MAP, raw Docling label source)": "912ac8a5fabcd1d1bfade2c51272770c3b377bfc",
+  "evaluation/omnidocbench.py (dataset loader + evaluator adapter)": "a64002087d57437f4bd6ed722f6455be6f0675f3"
+ },
+ "frozen_artifact_sha256": {
+  "experiments/034a_omnidocbench_snapshot/results/full_baseline/metrics.json": "4e8413213976ef2f5d67e90410d0c6a5ca9399b2874cc8e47c6defcc094dedc9",
+  "experiments/034a_omnidocbench_snapshot/results/full_baseline/run_metadata.json": "f6142ecae157e36a59280efa92b70fa8924bdddcbb59ef930c474380c76d43f1",
+  "experiments/034a_omnidocbench_snapshot/results/full_baseline/runtime.json": "cf15d9357f3b401ab09daf0944526aff6496f9c9766b811ed8fff79060c42ca2",
+  "experiments/034a_omnidocbench_snapshot/official_metrics.json": "29719ad3597e6149a430d76aabde343339742794a2e05298b8ea887582c4fc22",
+  "experiments/034a_omnidocbench_snapshot/dataset_manifest.json": "44a7a27bdb760373bb687a24fa5fd7c3370ea314d0e3cfad5db41c9ab974d484",
+  "experiments/034a_omnidocbench_snapshot/selected_benchmark_config.json": "c85da089b2a7628889b01d0cb8ab5de8d9860a1457d2dba0f3999e4f7e12410c",
+  "experiments/034a_omnidocbench_snapshot/dataset/full/OmniDocBench.json": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496"
+ },
+ "gpu_state_at_start": "PROTECTED -- Research-No.1's own process (tools/readout_v2_evaluate.py) observed at 100% utilization, 4270 MiB used, PID 19811, at milestone start (2026-09-09 ~01:56). This milestone defaults to CPU/read-only analysis for exactly this reason -- verified, not assumed.",
+ "full_run_summary": "1651/1651 pages succeeded, 0 failed (runtime.json); official evaluator completed (metrics.json); table.metric_debug.TEDS.sample_count=665, error_case_count=94 (85.9% coverage).",
+ "test_suite": "345 passed, 10 skipped -- reconfirm in Phase 23, not re-run here (Phase 0 is read-only/no source touched yet).",
+ "known_gap_this_milestone_addresses": "results/full_baseline has no _doc_extraction_runs/ (no --keep-runs was used for the full run) -- per-page internal layout_result.regions (label, bbox, confidence) were never persisted for any of the 1651 pages. Phase 3 onward therefore requires a NEW, targeted, --keep-runs re-extraction limited to the population needed (see gt_table_dataset_manifest.json) -- not a re-run of the full 1651-page corpus, and not GPU (see gpu_state_at_start)."
+}

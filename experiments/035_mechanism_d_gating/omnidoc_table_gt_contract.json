@@ -1,0 +1,131 @@
+{
+ "source_file": "experiments/034a_omnidocbench_snapshot/dataset/full/OmniDocBench.json",
+ "source_sha256_cross_check": "must equal a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496 (baseline.json)",
+ "top_level_shape": "JSON array, 1 record per page. Each record: {layout_dets: [...], page_info: {...}, extra: {...}}.",
+ "page_info_contract": {
+  "fields": [
+   "page_no",
+   "height",
+   "width",
+   "image_path",
+   "page_attribute"
+  ],
+  "page_attribute_fields": [
+   "data_source",
+   "language",
+   "layout",
+   "special_issue",
+   "subset"
+  ],
+  "height_width_semantics": "FACT (verified in Phase 2): equal to the raw image file's own pixel dimensions (PIL Image.size) for every sampled page -- OmniDocBench ships pre-rendered page images directly, there is no PDF to render, so page_info.{width,height} IS the coordinate space every poly/bbox in this record is expressed in. No DPI/scale conversion documented or observed in the annotation format itself."
+ },
+ "layout_dets_category_type_distribution": {
+  "text_block": 16520,
+  "title": 4441,
+  "equation_isolated": 2066,
+  "header": 1920,
+  "figure": 1385,
+  "page_number": 1188,
+  "abandon": 760,
+  "footer": 741,
+  "figure_caption": 722,
+  "table": 665,
+  "table_caption": 486,
+  "text_mask": 465,
+  "equation_caption": 281,
+  "reference": 275,
+  "table_footnote": 194,
+  "figure_footnote": 175,
+  "equation_semantic": 160,
+  "page_footnote": 126,
+  "list_group": 79,
+  "code_txt": 40,
+  "chart_mask": 26,
+  "table_mask": 25,
+  "unknown_mask": 17,
+  "equation_explanation": 16,
+  "organic_chemical_formula_mask": 15,
+  "need_mask": 6,
+  "code_txt_caption": 3,
+  "algorithm_mask": 1
+ },
+ "table_annotation_contract": {
+  "category_type_value": "table",
+  "n_table_dets_total": 665,
+  "cross_check_vs_evaluator": "MUST equal 665 -- results/full_baseline/metrics.json's table.metric_debug.TEDS.sample_count (034a, official evaluator's own count). Measured: 665.",
+  "n_pages_with_ge1_table": 458,
+  "n_pages_total": 1651,
+  "per_page_table_count_distribution": {
+   "1": 341,
+   "2": 82,
+   "3": 21,
+   "4": 5,
+   "5": 4,
+   "6": 3,
+   "13": 1,
+   "26": 1
+  },
+  "fields_per_table_det": {
+   "category_type": "always the literal string 'table' for this population (by construction).",
+   "poly": "8 floats [x0,y0, x1,y0, x1,y1, x0,y1] -- FACT, verified this phase: 665/665 table polys are exact axis-aligned rectangles (opposite-corner x/y pairs equal to within 1e-6). None are rotated/skewed in this dataset. Coordinate units: same pixel space as page_info.width/height (see Phase 2 for direct proof against rendered internal bboxes).",
+   "ignore": "bool, always False in this population (0/665 True) -- no GT table in this corpus is flagged for exclusion from evaluation.",
+   "order": "int, page-local reading-order index. Present on 100% of table dets (665/665).",
+   "anno_id": "string, unique within a page (verified: 0 pages with a duplicate table anno_id). Not necessarily unique across the whole dataset -- not checked/needed, since all matching in this milestone is done per-page.",
+   "attribute": "dict, EMPTY {} for every single table det in this corpus (0/665 non-empty). Table-descriptive tags (line style, span, orientation, embedded formula/image) are NOT recorded per-table -- they appear only in page_info.page_attribute.special_issue, at PAGE granularity, ambiguous across multiple tables on the same page. This is a real annotation-contract limitation Phase 9/10 must respect.",
+   "html": "string, GT table structure as HTML (<table>...</table>). Present on 665/665, non-trivial (not an empty <table></table>) on 665/665. This is what the official evaluator's TEDS metric scores against -- NOT our internal Table schema (schemas/table.py) directly; see external_metric_reconciliation (Phase 15) for exactly how the evaluator bridges markdown predictions to this HTML ground truth (text/structure matching, not bbox matching)."
+  }
+ },
+ "page_level_special_issue_contract": {
+  "note": "PAGE-level tags (not per-table). The closest available occlusion/quality proxies in this schema: 'watermark'/'with_watermark', 'fuzzy_scan', 'fuzzy_content', 'geometric_deformation', 'transparent_pages'. There is NO 'stamp' category anywhere in this taxonomy -- confirms 034a's own finding (benchmark_vs_production_corpus.json) that stamps/occlusion has no corresponding OmniDocBench attribute. Table-structure tags present here ('table_horizontal','table_full_line','table_fewer_line','table_span', 'table_with_formula','table_omission_line','table_wireless_line', 'table_veritical'[sic],'table_with_img') describe table PROPERTIES, not occlusion, and are ambiguous across multi-table pages.",
+  "all_value_counts": {
+   "None": 515,
+   "table_horizontal": 332,
+   "colorful_backgroud": 266,
+   "table_full_line": 160,
+   "table_fewer_line": 128,
+   "table_span": 111,
+   "watermark": 73,
+   "table_with_formula": 55,
+   "table_omission_line": 44,
+   "fuzzy_scan": 30,
+   "with_watermark": 24,
+   "geometric_deformation": 13,
+   "table_with_img": 13,
+   "table_wireless_line": 9,
+   "transparent_pages": 8,
+   "table_veritical": 7,
+   "fuzzy_content": 4,
+   "text_L-shaped_wrap": 4,
+   "handwriting": 2,
+   "text_embedded_in_image": 2,
+   "text_O-shaped_wrap": 1
+  }
+ },
+ "table_page_population_context": {
+  "data_source_distribution": {
+   "research_report": 130,
+   "academic_literature": 97,
+   "book": 69,
+   "exam_paper": 57,
+   "colorful_textbook": 30,
+   "note": 29,
+   "PPT2PDF": 24,
+   "newspaper": 15,
+   "magazine": 7
+  },
+  "language_distribution": {
+   "simplified_chinese": 278,
+   "english": 147,
+   "en_ch_mixed": 26,
+   "traditional_chinese": 7
+  }
+ },
+ "evaluator_side_contract": {
+  "source": ".external/OmniDocBench/src/core/matching/match.py, src/dataset/end2end_dataset.py, src/core/metrics.py",
+  "FACT": "The official evaluator matches GT tables to predicted tables by TEXT/HTML-CONTENT similarity within a page (quick_match), extracted from our prediction .md files -- it never sees or uses our internal Region bboxes, ElementType labels, or table gate at all. It is a pure output-comparison evaluator. This is why Mechanism D (an internal, upstream, pre-serialization phenomenon) is structurally invisible to it (034a cross_research_comparison.json already found this for mechanism D: 'partially observable, unconfirmed without a per-page internal-IR cross-reference' -- exactly what this milestone performs)."
+ },
+ "our_own_loader_contract": {
+  "source": "src/doc_extraction/evaluation/omnidocbench.py:load_dataset()",
+  "FACT": "Validates dataset_root exists, locates OmniDocBench.json/_demo.json, parses as a JSON array, resolves each record's image under images/ or dataset_root directly, and raises DatasetError on any schema violation. Does not itself interpret table-specific fields -- table semantics used in this milestone are read directly from the raw JSON per the contract above, not through this loader's OmniDocSample abstraction (which is page-level, not annotation-type-level)."
+ }
+}

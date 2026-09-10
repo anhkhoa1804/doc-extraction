@@ -1,0 +1,104 @@
+{
+ "original_valid_count": 32,
+ "recovered_valid_count": 197,
+ "combined_total": 229,
+ "expected_total": 229,
+ "COMPLETE": true,
+ "duplicate_overlap_between_original_and_recovered": 0,
+ "n_incomplete_unresolved": 0,
+ "incomplete_unresolved_names": [],
+ "n_schema_errors_total": 0,
+ "schema_errors": [],
+ "n_batches_expected": 10,
+ "n_batches_validated": 10,
+ "missing_batch_validations": [],
+ "all_batches_passed": true,
+ "per_batch_summary": [
+  {
+   "batch": 0,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 1,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 2,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 3,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 4,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 5,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 6,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 7,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 8,
+   "assigned": 20,
+   "completed": 20,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  },
+  {
+   "batch": 9,
+   "assigned": 17,
+   "completed": 17,
+   "incomplete": 0,
+   "schema_errors": 0,
+   "PASS": true
+  }
+ ],
+ "memory_telemetry_summary": {
+  "max_peak_rss_kb_any_batch": 10074388,
+  "max_peak_rss_gb_any_batch": 9.61,
+  "oom_recurrence": "not recorded"
+ },
+ "process_count_invariant": "exactly one recovery worker process was ever alive at a time, verified per-batch (each batch's worker PID confirmed exited -- RSS disappeared from the system -- before the next batch's launch)"
+}

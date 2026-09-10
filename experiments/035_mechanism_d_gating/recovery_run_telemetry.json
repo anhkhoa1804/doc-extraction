@@ -1,0 +1,139 @@
+{
+  "recovery_mode": "single_worker_process_recycling",
+  "batch_size_nominal": 20,
+  "recovery_start_utc": "2026-09-09T03:10:19Z",
+  "batches": [
+    {
+      "batch": 0, "pid": 26305,
+      "start_time_utc": "2026-09-09T03:10:19Z", "end_time_utc": "2026-09-09T03:37:53Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": 153180, "rss_peak_kb": 10074388, "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_start_mb": 8186, "system_available_min_mb": 2476,
+      "exit_code": 0, "exit_code_genuine": true,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch0_validation.json)",
+      "notes": "incomplete-retry page (page-f6b6cfb8...) successfully recovered this batch. min_avail triggered 2 low-memory alerts (2569MB, 2803MB observed by the monitor; 2476MB is the true min per free -m sampling) -- both investigated live, confirmed transient buff/cache reclaim via journalctl -k (no OOM kill), not a recurrence."
+    },
+    {
+      "batch": 2, "pid": null,
+      "start_time_utc": "2026-09-09T08:46:26Z", "end_time_utc": "2026-09-09T09:05:42Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_start_mb": null, "system_available_min_mb": 24937,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 1156.058, "mean_seconds_per_page": 57.8029,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch2_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "First launch with the repository .venv exited 0/20 because Docling was unavailable; it produced no valid outputs. Retried in the validated CPU runtime doc-extraction-linux312. Exact worker RSS was not observable from the outer PTY namespace; host available-memory samples stayed >=24937MB."
+    },
+    {
+      "batch": 3, "pid": null,
+      "start_time_utc": "2026-09-09T09:08:32Z", "end_time_utc": "2026-09-09T09:27:59Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_start_mb": null, "system_available_min_mb": 24696,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 1167.5, "mean_seconds_per_page": 58.375,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch3_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Single CPU worker completed 20/20. An in-session telemetry wrapper was attempted, but shell quoting under set -u invalidated its RSS/free samples; the wrapper still waited for and reported the genuine worker exit. Outer host available-memory samples stayed >=24696MB."
+    },
+    {
+      "batch": 4, "pid": null,
+      "start_time_utc": "2026-09-09T09:29:08Z", "end_time_utc": "2026-09-09T09:45:07Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_start_mb": null, "system_available_min_mb": 23253,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 959.4, "mean_seconds_per_page": 47.97,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch4_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Single CPU worker completed 20/20. Direct invocation used after the batch3 monitoring-wrapper quoting defect; outer host available-memory samples stayed >=23253MB."
+    },
+    {
+      "batch": 5, "pid": null,
+      "start_time_utc": "2026-09-09T09:46:01Z", "end_time_utc": "2026-09-09T10:02:18Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_start_mb": null, "system_available_min_mb": 22201,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 977.5, "mean_seconds_per_page": 48.875,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch5_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Single CPU worker completed 20/20. Direct invocation; outer host available-memory samples stayed >=22201MB."
+    },
+    {
+      "batch": 7, "pid": null,
+      "start_time_utc": "2026-09-09T13:43:39Z", "end_time_utc": "2026-09-09T14:11:15Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from the extraction session",
+      "system_available_start_mb": null, "system_available_min_mb": null,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 1655.424, "mean_seconds_per_page": 82.7712,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch7_validation.json; retry root batch7_retry0)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "The initial canonical batch7 attempt was interrupted by a tool-session transition after layout/OCR on its first page and produced zero valid runs; it remains preserved. The validated retry used the same cached model snapshots with HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1, preventing futile network metadata lookups. Worker RSS was not visible across the extraction-session namespace. Manual system samples showed about 25 GiB available before launch and about 18 GiB during the run; exact minimum is intentionally unavailable rather than inferred. One upstream Docling MatchingPostProcessor orphan-cell warning occurred without a pipeline failure."
+    },
+    {
+      "batch": 8, "pid": null,
+      "start_time_utc": "2026-09-09T14:12:13.890Z", "end_time_utc": "2026-09-09T14:31:07.095Z",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from the extraction session",
+      "system_available_start_mb": null, "system_available_min_mb": null,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 1133.205, "mean_seconds_per_page": 56.6482,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch8_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Single CPU worker completed under HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1 using the already cached, recorded model snapshots. Start time is derived from the runner's end metadata timestamp minus its reported wall-clock duration; exact worker RSS and exact minimum available memory were not observable from the outer PTY namespace and are intentionally unavailable. After exit, host available memory was about 30 GiB."
+    },
+    {
+      "batch": 9, "pid": null,
+      "start_time_utc": "2026-09-09T14:33:55.784Z", "end_time_utc": "2026-09-09T14:47:01.512Z",
+      "pages_assigned": 17, "pages_completed": 17, "pages_incomplete": 0,
+      "rss_start_kb": null, "rss_peak_kb": null, "rss_end_kb": "process exited, RSS confirmed disappeared from the extraction session",
+      "system_available_start_mb": null, "system_available_min_mb": null,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 785.728, "mean_seconds_per_page": 46.2107,
+      "valid_outputs": 17, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (batch9_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Single CPU worker completed under HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1 using the already cached, recorded model snapshots. Start time is derived from the runner's end metadata timestamp minus its reported wall-clock duration; exact worker RSS and exact minimum available memory were not observable from the outer PTY namespace and are intentionally unavailable. After exit, host available memory was about 29 GiB. The final chunk0 audit is COMPLETE: 32 original + 197 recovered = 229, all ten batches PASS, no duplicates, no unresolved incomplete runs, and no schema errors."
+    }
+  ],
+  "chunk1_recovery_batches": [
+    {
+      "batch": 0, "pid": 44222,
+      "process_hierarchy": "claude agent PID 2250 -> wrapper bash PID 44219 -> python PID 44222 -> 0 children (verified throughout via pgrep -P)",
+      "pages_assigned": 20, "pages_completed": 20, "pages_incomplete": 0,
+      "rss_start_kb": 2008920, "rss_peak_kb": 10295032,
+      "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_min_mb": 19914,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 1671.574, "mean_seconds_per_page": 83.5787,
+      "valid_outputs": 20, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (chunk1_batch0_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Ran with the machine otherwise idle (Research-No.1's evaluator had already completed naturally). Minimum available memory 19.9GB -- by far the largest margin of any batch so far, and no low-memory alerts fired at all (threshold was 4000MB)."
+    },
+    {
+      "batch": 1, "pid": 52490,
+      "process_hierarchy": "claude agent PID 2250 -> wrapper bash PID 52487 -> python PID 52490 -> 0 children",
+      "pages_assigned": 10, "pages_completed": 10, "pages_incomplete": 0,
+      "rss_start_kb": 3441720, "rss_peak_kb": 7526624,
+      "rss_end_kb": "process exited, RSS confirmed disappeared from system",
+      "system_available_min_mb": 22618,
+      "exit_code": 0, "exit_code_genuine": true,
+      "runtime_seconds": 371.6, "mean_seconds_per_page": 37.16,
+      "valid_outputs": 10, "incomplete_outputs": 0, "schema_errors": 0,
+      "validation": "PASS (chunk1_batch1_validation.json)",
+      "kernel_oom_events_during_batch": 0,
+      "notes": "Final chunk1 recovery batch. Notably faster per page (37.2s vs 83.6s in batch0) -- page-complexity variance, machine otherwise idle in both cases. Peak RSS 7.5GB, min available 22.6GB."
+    }
+  ]
+}

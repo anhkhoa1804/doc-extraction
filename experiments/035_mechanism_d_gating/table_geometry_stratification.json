@@ -1,0 +1,611 @@
+{
+ "n_d2_cases": 34,
+ "n_d0_cases": 561,
+ "d2_area_px2_summary": {
+  "n": 34,
+  "area_median": 166213.5,
+  "area_p10": 12325.3,
+  "area_p90": 678539.8,
+  "aspect_ratio_median": 2.223
+ },
+ "d0_area_px2_summary": {
+  "n": 561,
+  "area_median": 502105.5,
+  "area_p10": 98756.5,
+  "area_p90": 1849111.6,
+  "aspect_ratio_median": 2.181
+ },
+ "interpretation_note": "Compare d2 vs d0 area/aspect distributions -- if D2 tables are systematically smaller/narrower/wider than D0 tables, that is an interpretable geometric boundary (not a fitted threshold, per rule 8).",
+ "d2_rows": [
+  {
+   "image": "page-d5f79be0-5d57-4849-9897-6106dd32117a.png",
+   "width": 1005.0,
+   "height": 787.1,
+   "area": 791027.8,
+   "aspect_ratio": 1.277
+  },
+  {
+   "image": "yanbaopptmerge_yanbaoPPT_4275.jpg",
+   "width": 817.9,
+   "height": 200.5,
+   "area": 163965.8,
+   "aspect_ratio": 4.08
+  },
+  {
+   "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+   "width": 1206.1,
+   "height": 431.6,
+   "area": 520628.5,
+   "aspect_ratio": 2.794
+  },
+  {
+   "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+   "width": 1204.0,
+   "height": 429.6,
+   "area": 517169.2,
+   "aspect_ratio": 2.803
+  },
+  {
+   "image": "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7.jpg",
+   "width": 1296.4,
+   "height": 454.6,
+   "area": 589333.4,
+   "aspect_ratio": 2.852
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+   "width": 663.0,
+   "height": 242.2,
+   "area": 160591.5,
+   "aspect_ratio": 2.737
+  },
+  {
+   "image": "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg",
+   "width": 487.4,
+   "height": 237.0,
+   "area": 115533.8,
+   "aspect_ratio": 2.056
+  },
+  {
+   "image": "jiaocaineedrop_42351289.pdf_1.jpg",
+   "width": 248.3,
+   "height": 126.0,
+   "area": 31283.5,
+   "aspect_ratio": 1.971
+  },
+  {
+   "image": "jiaocaineedrop_46.pdf_1.jpg",
+   "width": 553.2,
+   "height": 150.1,
+   "area": 83026.1,
+   "aspect_ratio": 3.686
+  },
+  {
+   "image": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_021.png",
+   "width": 524.1,
+   "height": 440.0,
+   "area": 230586.6,
+   "aspect_ratio": 1.191
+  },
+  {
+   "image": "jiaocaineedrop_jiaocai_needrop_en_1417.jpg",
+   "width": 672.2,
+   "height": 95.1,
+   "area": 63912.9,
+   "aspect_ratio": 7.069
+  },
+  {
+   "image": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg",
+   "width": 1122.3,
+   "height": 298.6,
+   "area": 335145.7,
+   "aspect_ratio": 3.758
+  },
+  {
+   "image": "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg",
+   "width": 1228.1,
+   "height": 552.5,
+   "area": 678539.8,
+   "aspect_ratio": 2.223
+  },
+  {
+   "image": "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg",
+   "width": 1165.6,
+   "height": 533.1,
+   "area": 621349.1,
+   "aspect_ratio": 2.187
+  },
+  {
+   "image": "newspaper_Daily Star 2025-1-8@magazinesclubnew_page_060.png",
+   "width": 643.7,
+   "height": 639.2,
+   "area": 411455.2,
+   "aspect_ratio": 1.007
+  },
+  {
+   "image": "newspaper_Daily Star 2025-1-8@magazinesclubnew_page_060.png",
+   "width": 639.8,
+   "height": 644.7,
+   "area": 412441.7,
+   "aspect_ratio": 0.992
+  },
+  {
+   "image": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_014.png",
+   "width": 575.1,
+   "height": 579.5,
+   "area": 333231.8,
+   "aspect_ratio": 0.992
+  },
+  {
+   "image": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_014.png",
+   "width": 265.3,
+   "height": 64.7,
+   "area": 17165.6,
+   "aspect_ratio": 4.1
+  },
+  {
+   "image": "newspaper_The Guardian UK_0801@magazinesclubnew_page_052.png",
+   "width": 854.7,
+   "height": 852,
+   "area": 728176.0,
+   "aspect_ratio": 1.003
+  },
+  {
+   "image": "newspaper_The Guardian UK_0801@magazinesclubnew_page_052.png",
+   "width": 857.3,
+   "height": 850.7,
+   "area": 729304.9,
+   "aspect_ratio": 1.008
+  },
+  {
+   "image": "newspaper_The Times UK_0801@magazinesclubnew_page_031.png",
+   "width": 666.7,
+   "height": 303.6,
+   "area": 202406.6,
+   "aspect_ratio": 2.196
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 212.5,
+   "height": 782.1,
+   "area": 166213.5,
+   "aspect_ratio": 0.272
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 208.8,
+   "height": 774.8,
+   "area": 161787.7,
+   "aspect_ratio": 0.27
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 214.2,
+   "height": 775.8,
+   "area": 166174.0,
+   "aspect_ratio": 0.276
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 211.7,
+   "height": 435.9,
+   "area": 92285.9,
+   "aspect_ratio": 0.486
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 212.1,
+   "height": 428.5,
+   "area": 90897.5,
+   "aspect_ratio": 0.495
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "width": 210.8,
+   "height": 433.1,
+   "area": 91309.2,
+   "aspect_ratio": 0.487
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "width": 542.0,
+   "height": 27.7,
+   "area": 14999.1,
+   "aspect_ratio": 19.589
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "width": 259.5,
+   "height": 17.3,
+   "area": 4495.3,
+   "aspect_ratio": 14.979
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "width": 262.5,
+   "height": 47.0,
+   "area": 12325.3,
+   "aspect_ratio": 5.589
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "width": 262.5,
+   "height": 46.5,
+   "area": 12205.6,
+   "aspect_ratio": 5.645
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "width": 262.1,
+   "height": 13.9,
+   "area": 3636.8,
+   "aspect_ratio": 18.892
+  },
+  {
+   "image": "PPT_PresentationSpecification_page_010.png",
+   "width": 1518.9,
+   "height": 145.1,
+   "area": 220333.6,
+   "aspect_ratio": 10.47
+  },
+  {
+   "image": "PPT_PresentationSpecification_page_010.png",
+   "width": 1515.1,
+   "height": 143.6,
+   "area": 217577.2,
+   "aspect_ratio": 10.55
+  }
+ ],
+ "d0_rows_sample": [
+  {
+   "image": "page-0b20ed47-7c6c-4578-bbdf-057a89a083ec.png",
+   "width": 819.1,
+   "height": 564.1,
+   "area": 461989.8,
+   "aspect_ratio": 1.452
+  },
+  {
+   "image": "page-0b20ed47-7c6c-4578-bbdf-057a89a083ec.png",
+   "width": 817.0,
+   "height": 117.1,
+   "area": 95663.4,
+   "aspect_ratio": 6.977
+  },
+  {
+   "image": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png",
+   "width": 1163.1,
+   "height": 1557.3,
+   "area": 1811291.6,
+   "aspect_ratio": 0.747
+  },
+  {
+   "image": "page-112859dc-07d9-473a-a027-94904db8fd84.png",
+   "width": 1203.0,
+   "height": 839.9,
+   "area": 1010403.2,
+   "aspect_ratio": 1.432
+  },
+  {
+   "image": "page-28c45f5f-7e0d-464a-89ec-8de3a4abb927.png",
+   "width": 1454.7,
+   "height": 808.4,
+   "area": 1175913.3,
+   "aspect_ratio": 1.8
+  },
+  {
+   "image": "page-2b4c4f44-c0de-41b6-9561-96195c233f47.png",
+   "width": 1297.9,
+   "height": 543.1,
+   "area": 704906.6,
+   "aspect_ratio": 2.39
+  },
+  {
+   "image": "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png",
+   "width": 2638.9,
+   "height": 1250.0,
+   "area": 3298471.3,
+   "aspect_ratio": 2.111
+  },
+  {
+   "image": "page-3c690b07-30d7-4e77-bf20-012f0080fb1d.png",
+   "width": 1282.5,
+   "height": 1545.0,
+   "area": 1981429.6,
+   "aspect_ratio": 0.83
+  },
+  {
+   "image": "page-423cdc11-af52-4e41-8feb-a40741b15855.png",
+   "width": 1215.1,
+   "height": 668.0,
+   "area": 811646.0,
+   "aspect_ratio": 1.819
+  },
+  {
+   "image": "page-4319d401-c9e8-4326-9869-7572cf2e0e96.png",
+   "width": 535.0,
+   "height": 138.2,
+   "area": 73923.0,
+   "aspect_ratio": 3.872
+  },
+  {
+   "image": "page-52e82aa9-7bd7-4683-8adc-520cae0291e0.png",
+   "width": 420.0,
+   "height": 262.0,
+   "area": 110022.2,
+   "aspect_ratio": 1.603
+  },
+  {
+   "image": "page-572316a1-cdf8-4c50-81d4-2e6dc13dcdce.png",
+   "width": 1193.5,
+   "height": 1154.1,
+   "area": 1377404.2,
+   "aspect_ratio": 1.034
+  },
+  {
+   "image": "page-573c437e-c309-4483-a038-ef2f440b104a.png",
+   "width": 1034.0,
+   "height": 770.0,
+   "area": 796141.4,
+   "aspect_ratio": 1.343
+  },
+  {
+   "image": "page-73432bc8-cd0f-4e14-b119-0a9de73ab141.png",
+   "width": 1437.0,
+   "height": 360.0,
+   "area": 517278.2,
+   "aspect_ratio": 3.992
+  },
+  {
+   "image": "page-73432bc8-cd0f-4e14-b119-0a9de73ab141.png",
+   "width": 1307.0,
+   "height": 274.4,
+   "area": 358578.1,
+   "aspect_ratio": 4.764
+  },
+  {
+   "image": "page-74749e1d-5239-4d8e-b89c-6d83f5e59374.png",
+   "width": 1322.0,
+   "height": 482.1,
+   "area": 637350.7,
+   "aspect_ratio": 2.742
+  },
+  {
+   "image": "page-7a8cfa1e-c76b-4449-a38f-497648074cd1.png",
+   "width": 4738.7,
+   "height": 1311.1,
+   "area": 6212760.0,
+   "aspect_ratio": 3.614
+  },
+  {
+   "image": "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png",
+   "width": 587.2,
+   "height": 279.4,
+   "area": 164058.1,
+   "aspect_ratio": 2.102
+  },
+  {
+   "image": "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png",
+   "width": 633.8,
+   "height": 346.1,
+   "area": 219319.0,
+   "aspect_ratio": 1.831
+  },
+  {
+   "image": "page-91b20bf2-3ad5-41f4-b739-4cc4b18ab1eb.png",
+   "width": 1236.6,
+   "height": 1667.1,
+   "area": 2061461.0,
+   "aspect_ratio": 0.742
+  },
+  {
+   "image": "page-9470d573-83bd-40bb-8491-534e9df043f6.png",
+   "width": 1343.0,
+   "height": 325.8,
+   "area": 437595.5,
+   "aspect_ratio": 4.122
+  },
+  {
+   "image": "page-9edf7687-029e-4e72-a9a6-c23faa1e1861.png",
+   "width": 1153.0,
+   "height": 717.1,
+   "area": 826795.0,
+   "aspect_ratio": 1.608
+  },
+  {
+   "image": "page-b527edec-3363-4d38-a390-2f3a307f2392.png",
+   "width": 1147.0,
+   "height": 1314.8,
+   "area": 1508123.5,
+   "aspect_ratio": 0.872
+  },
+  {
+   "image": "page-b9d507e7-1239-42de-b70a-d7ca65393dc9.png",
+   "width": 1311.6,
+   "height": 434.0,
+   "area": 569222.4,
+   "aspect_ratio": 3.022
+  },
+  {
+   "image": "page-b9d507e7-1239-42de-b70a-d7ca65393dc9.png",
+   "width": 1309.0,
+   "height": 218.0,
+   "area": 285419.4,
+   "aspect_ratio": 6.003
+  },
+  {
+   "image": "page-c7792da7-4167-4f5c-a7ca-ec0f8833f83b.png",
+   "width": 1291.4,
+   "height": 1642.6,
+   "area": 2121189.4,
+   "aspect_ratio": 0.786
+  },
+  {
+   "image": "page-c8a4555b-2c14-40c2-b67f-097dbc77a6b7.png",
+   "width": 1205.9,
+   "height": 766.9,
+   "area": 924750.9,
+   "aspect_ratio": 1.572
+  },
+  {
+   "image": "page-c9614e79-fb1f-46ef-a660-0f8de860ae30.png",
+   "width": 1713.1,
+   "height": 471.0,
+   "area": 806922.4,
+   "aspect_ratio": 3.637
+  },
+  {
+   "image": "page-d0b2bb59-ce8e-4a1c-9ba1-a805606a477f.png",
+   "width": 1530.0,
+   "height": 1761.2,
+   "area": 2694480.6,
+   "aspect_ratio": 0.869
+  },
+  {
+   "image": "page-dca64e05-1ce6-49ee-857a-9b5d05a87357.png",
+   "width": 668.0,
+   "height": 1863.0,
+   "area": 1244460.0,
+   "aspect_ratio": 0.359
+  },
+  {
+   "image": "page-e6c5454d-90ad-495c-85db-a416b7cd6452.png",
+   "width": 1271.9,
+   "height": 385.2,
+   "area": 489896.5,
+   "aspect_ratio": 3.302
+  },
+  {
+   "image": "page-e6c5454d-90ad-495c-85db-a416b7cd6452.png",
+   "width": 1274.1,
+   "height": 593.2,
+   "area": 755748.1,
+   "aspect_ratio": 2.148
+  },
+  {
+   "image": "page-e6c5454d-90ad-495c-85db-a416b7cd6452.png",
+   "width": 1268.9,
+   "height": 332.5,
+   "area": 421972.3,
+   "aspect_ratio": 3.816
+  },
+  {
+   "image": "page-eb7308e0-1395-4444-b6a5-9d33cc3a03b2.png",
+   "width": 1003.9,
+   "height": 1492.0,
+   "area": 1497825.2,
+   "aspect_ratio": 0.673
+  },
+  {
+   "image": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png",
+   "width": 1191.2,
+   "height": 1369.7,
+   "area": 1631623.4,
+   "aspect_ratio": 0.87
+  },
+  {
+   "image": "page-f245e436-c16e-4d7c-8797-c473bf25880a.png",
+   "width": 1200.5,
+   "height": 317.6,
+   "area": 381313.7,
+   "aspect_ratio": 3.779
+  },
+  {
+   "image": "page-f9583127-1277-4424-be9d-35430e0aedd6.png",
+   "width": 496.1,
+   "height": 222.0,
+   "area": 110115.4,
+   "aspect_ratio": 2.235
+  },
+  {
+   "image": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+   "width": 1194.0,
+   "height": 366.1,
+   "area": 437076.2,
+   "aspect_ratio": 3.262
+  },
+  {
+   "image": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+   "width": 1194.0,
+   "height": 740.5,
+   "area": 884148.0,
+   "aspect_ratio": 1.613
+  },
+  {
+   "image": "page-2ff22832-e343-46a7-b94f-47ed864ce486.png",
+   "width": 1192.0,
+   "height": 450.0,
+   "area": 536445.1,
+   "aspect_ratio": 2.649
+  },
+  {
+   "image": "page-3bed7e71-905d-4f69-aabe-dbff56d7ac4c.png",
+   "width": 1262.0,
+   "height": 547.1,
+   "area": 690409.6,
+   "aspect_ratio": 2.307
+  },
+  {
+   "image": "page-3bed7e71-905d-4f69-aabe-dbff56d7ac4c.png",
+   "width": 1267.9,
+   "height": 1021.0,
+   "area": 1294479.7,
+   "aspect_ratio": 1.242
+  },
+  {
+   "image": "page-3f872a77-3faf-47d6-8574-bd2e5806ff98.png",
+   "width": 1193.7,
+   "height": 477.0,
+   "area": 569364.0,
+   "aspect_ratio": 2.503
+  },
+  {
+   "image": "page-3f872a77-3faf-47d6-8574-bd2e5806ff98.png",
+   "width": 1313.6,
+   "height": 136.3,
+   "area": 179045.3,
+   "aspect_ratio": 9.638
+  },
+  {
+   "image": "page-3f872a77-3faf-47d6-8574-bd2e5806ff98.png",
+   "width": 1289.2,
+   "height": 135.5,
+   "area": 174684.3,
+   "aspect_ratio": 9.515
+  },
+  {
+   "image": "page-472c26e2-6bc2-4c05-9889-05132c87a8a9.png",
+   "width": 1473.6,
+   "height": 1336.1,
+   "area": 1968863.5,
+   "aspect_ratio": 1.103
+  },
+  {
+   "image": "page-66aa2b38-32c0-4222-839a-50df648218df.png",
+   "width": 966.8,
+   "height": 1290.1,
+   "area": 1247176.7,
+   "aspect_ratio": 0.749
+  },
+  {
+   "image": "page-6c29d065-b8f0-4bb0-b7c3-779f9cbab09a.png",
+   "width": 1220.5,
+   "height": 1439.3,
+   "area": 1756624.5,
+   "aspect_ratio": 0.848
+  },
+  {
+   "image": "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png",
+   "width": 942.1,
+   "height": 160.0,
+   "area": 150727.3,
+   "aspect_ratio": 5.889
+  },
+  {
+   "image": "page-8792f466-c570-468c-86dc-402a510e9bb7.png",
+   "width": 1216.3,
+   "height": 1399.7,
+   "area": 1702427.6,
+   "aspect_ratio": 0.869
+  }
+ ]
+}

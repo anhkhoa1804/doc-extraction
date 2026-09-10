@@ -1,0 +1,26 @@
+{
+  "purpose": "Phase D -- chunk1 (surviving worker, PID 20471) as live evidence for whether a single worker is bounded, distinct from the killed chunk0.",
+  "samples": [
+    {"time_utc": "02:32:16", "rss_kb": 9827440, "concurrent_with_chunk0": true, "pages_done_chunk1": 18},
+    {"time_utc": "02:32:50", "rss_kb": 6584076, "concurrent_with_chunk0": true, "pages_done_chunk1": 19},
+    {"time_utc": "02:36:15", "rss_kb": 7826888, "concurrent_with_chunk0": true, "pages_done_chunk1": 21},
+    {"time_utc": "02:43:17", "rss_kb": 7983680, "concurrent_with_chunk0": true, "pages_done_chunk1": 26},
+    {"time_utc": "02:47:32", "rss_kb": 7368508, "concurrent_with_chunk0": true, "pages_done_chunk1": 28},
+    {"time_utc": "02:48:23", "rss_kb": 8422364, "concurrent_with_chunk0": true, "pages_done_chunk1": 29},
+    {"time_utc": "02:51:28", "rss_kb": null, "concurrent_with_chunk0": false, "note": "chunk0 (PID 20454) OOM-killed at 12109308kB anon-rss THIS MOMENT -- chunk1 unaffected, kept running"},
+    {"time_utc": "02:52:08", "rss_kb": 10870960, "concurrent_with_chunk0": false, "note": "first post-incident sample -- chunk1 alone, briefly higher (had more headroom to expand into once chunk0's memory was freed)"},
+    {"time_utc": "02:56:43", "rss_kb": 8248824, "concurrent_with_chunk0": false},
+    {"time_utc": "02:58:28", "rss_kb": 9056636, "concurrent_with_chunk0": false, "note": "calibration worker (PID 24075) launched around this time, cold-starting"},
+    {"time_utc": "02:59:02", "rss_kb": 8284736, "concurrent_with_chunk0": false},
+    {"time_utc": "03:00:55", "rss_kb": 9652808, "concurrent_with_chunk0": false},
+    {"time_utc": "03:01:32", "rss_kb": 8457956, "concurrent_with_chunk0": false},
+    {"time_utc": "03:01:48", "rss_kb": 8669816, "concurrent_with_chunk0": false}
+  ],
+  "interpretation": {
+    "while_concurrent_with_chunk0": "range 6.58-9.83GB across 6 samples, 18-29 pages -- itself never approached 12GB, but was contributing to the TOTAL system pressure that killed chunk0 (chunk0 alone reached 12.1GB; the two together exceeded 31GB with 0 swap).",
+    "after_chunk0_died_alone": "range 8.25-10.87GB across 8 samples, 29 pages -> still processing -- a SLIGHTLY WIDER but not qualitatively different band than while concurrent. Critically: NOT trending toward 12GB+ over this window (14 min, no page-count delta captured for the alone period specifically since chunk1's own page count wasn't re-sampled every check, but the process has stayed alive and productive throughout).",
+    "even_with_a_second_process_now_running_concurrently_again_calibration": "chunk1 remained in the SAME 8.4-9.7GB band while the calibration worker (PID 24075) ran alongside it and itself spiked to 5.3GB mid-page -- i.e. chunk1 did not show any coupling/amplification effect from a second small/short-lived process being present.",
+    "conclusion_so_far": "SUPPORTS Phase D's stated hypothesis: 'concurrency amplifies peak RAM, but a single worker may be viable.' chunk1 alone has NOT shown sustained growth toward the 12GB+ danger zone across 14 samples spanning ~30 minutes and both solo and multi-process conditions. This is not yet proof a single worker can NEVER reach 12GB (chunk0 itself lived through 32 pages before its fatal spike, so a longer observation window is warranted before fully closing this question) -- but it is real, multi-point, non-cherry-picked evidence in favor of Mode 1/2 recovery being safe, not merely an assumption.",
+    "caveat": "chunk0 also looked bounded for its first 32 pages before dying on page 33 (in-flight) -- this timeline does not yet rule out a rare, late-onset large spike. The Phase F calibration test (in progress) adds independent evidence from a FRESH, isolated process rather than extrapolating from chunk1's long-lived one."
+  }
+}

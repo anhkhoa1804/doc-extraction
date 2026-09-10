@@ -1,0 +1,30 @@
+{
+ "phase7_label_error_vs_effective_gating_error": {
+  "n_gt_tables_with_a_wrong_label_match": 34,
+  "n_effective_gating_loss": 34,
+  "n_wrong_label_but_recovered_anyway": 0,
+  "label_error_rate_of_analyzed": 0.0511,
+  "effective_gating_error_rate_of_analyzed": 0.0511,
+  "conclusion": "FACT (measured, not assumed): every wrong-label match in this run became an effective gating loss",
+  "recovered_cases": []
+ },
+ "phase8_final_ir_outcome_classes": {
+  "GATE_LOSS": "wrong label directly caused a missing table in final IR",
+  "RECOVERED_DESPITE_LABEL": "wrong label but a valid table exists anyway (unexpected recovery)",
+  "NON_GATE_FAILURE": "table loss caused elsewhere in the pipeline (D1/D4/D5/D6), not by the label gate",
+  "OK_NOT_GATE_RELEVANT": "region was correctly labelled table and produced a valid result -- no failure",
+  "AMBIGUOUS_OUTCOME": "matcher could not confidently attribute a region (D7)",
+  "counts": {
+   "OK_NOT_GATE_RELEVANT": 561,
+   "NON_GATE_FAILURE": 69,
+   "GATE_LOSS": 34,
+   "AMBIGUOUS_OUTCOME": 1
+  },
+  "fractions_of_analyzed": {
+   "OK_NOT_GATE_RELEVANT": 0.8436,
+   "NON_GATE_FAILURE": 0.1038,
+   "GATE_LOSS": 0.0511,
+   "AMBIGUOUS_OUTCOME": 0.0015
+  }
+ }
+}

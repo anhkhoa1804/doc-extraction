@@ -1,0 +1,117 @@
+{
+  "incident": "035_extraction_oom_chunk0",
+  "time_utc": "2026-09-09T02:51:28Z",
+  "affected_worker": {
+    "chunk": "gt_tables_chunk0",
+    "pid": 20454,
+    "assigned_pages": 229
+  },
+  "signal": {
+    "shell_exit_code_captured": 137,
+    "meaning": "128 + SIGKILL(9)",
+    "note": "the background-task notification separately reported the WRAPPER script's own exit code (0, from the trailing `echo` command always succeeding) -- that was misleading and is superseded by the CHUNK0_EXIT=137 explicitly captured in the same output"
+  },
+  "kernel_evidence": {
+    "source": "journalctl -k",
+    "line": "Out of memory: Killed process 20454 (python3) total-vm:16698468kB, anon-rss:12109308kB, file-rss:2760kB, shmem-rss:0kB, UID:1002 pgtables:27456kB oom_score_adj:0",
+    "invoking_process": "containerd invoked oom-killer (global_oom, cpuset=containerd.service)",
+    "peak_anon_rss_kb": 12109308,
+    "peak_anon_rss_gb": 12.11
+  },
+  "pages_completed_valid": 32,
+  "pages_incomplete_in_flight": 1,
+  "incomplete_page": {
+    "image": "page-f6b6cfb8-3bb5-4393-b3fb-70efef72aca5.png",
+    "artifacts_present": ["rendered/page-001.png (445465 bytes)", "logs/pipeline.jsonl (530 bytes)"],
+    "artifacts_absent": ["layout/", "ocr/", "tables/", "final/"],
+    "classification": "INCOMPLETE, not corrupted -- killed between render and layout stage, per last log line 'render backend=pymupdf ... status=success' with no subsequent layout log entry",
+    "handling": "already correctly excluded by matching_lib.load_page_run() (requires metadata.json + layout/page-001.json + final/document.json all present)"
+  },
+  "pages_not_started": 196,
+  "inventory_sum_check": "32 + 1 + 196 = 229 == assigned (verified)",
+  "inventory_file": "chunk0_inventory_at_incident.json",
+  "surviving_worker": {
+    "chunk": "gt_tables_chunk1",
+    "pid": 20471,
+    "status_at_incident_check": "alive, RSS trending down after chunk0's death (11.8GB peak under 2-way contention -> 8.25GB alone -> oscillating 8-9GB during calibration test)",
+    "no_child_processes_observed": true
+  },
+  "gpu_state_at_incident": "PROTECTED (Research-No.1 active, unchanged) -- not touched, not relevant to this incident",
+
+  "initial_interpretation": "Phase A (prior check cycle) classified the memory trend as STABLE based on 5 samples over 16 minutes showing bounded oscillation (15.7-18.6GB combined total, no sustained positive slope across 3 independent intervals).",
+  "revised_interpretation": "SUPERSEDED by kernel OOM evidence. The STABLE classification was WRONG -- it reflected genuinely insufficient sampling resolution/duration, not a correct read of a truly bounded system. A single process (chunk0) exceeded 12.1GB actual anon-RSS at the moment of death, well above every RSS value observed in the preceding sampling window. This is not being defended, rationalized, or reframed as 'technically still consistent with STABLE' -- it is marked wrong.",
+
+  "root_cause": {
+    "proven": [
+      "Kernel OOM killer terminated PID 20454 at 12.1GB anon-RSS, global OOM (system-wide, not cgroup-scoped), zero swap configured.",
+      "DoclingBackend's own per-page result cache (_page_cache, docling_backend.py) is a BOUNDED OrderedDict, max size 8, LRU eviction -- ruled out as an unbounded per-page accumulation source (source-verified, not assumed).",
+      "No child/worker processes exist for either extraction process at any point checked (ps --ppid / pgrep -P both empty) -- ruled out multiprocessing/subprocess amplification as the mechanism.",
+      "_get_component_backends() caches one Docling instance + one Table Transformer instance per (device, ocr_languages, ocr_backend) key for the PROCESS LIFETIME (src/doc_extraction/cli.py) -- a deliberate, documented design choice to avoid reloading model weights per page; this guarantees a persistent baseline RSS floor from loaded model weights, by design, for the life of the process."
+    ],
+    "probable": [
+      "Two concurrent worker processes, each independently holding this per-process model-weight floor plus their own working-set churn, combined to exceed system RAM (31GB, 0 swap) when running together -- consistent with chunk1's RSS trending DOWN (11.8GB peak while concurrent -> 8-9GB range once alone) once chunk0's contention was removed.",
+      "No explicit gc.collect() or cache-clearing call exists anywhere in this project's own pipeline code between pages (grep-verified) -- Python/PyTorch's own CPU allocator is known to retain freed memory in its own arena pool rather than returning it to the OS promptly, which is a plausible contributor to the oscillating-but-occasionally-spiking RSS pattern observed, though this is a property of the underlying allocator, not a defect in this project's code."
+    ],
+    "unresolved": [
+      "Whether a SINGLE isolated worker, run alone with no concurrent second process, can independently reach the 12GB+ danger zone given enough pages/complexity -- not yet observed either way; this is exactly what the Phase F calibration test (in progress) is measuring.",
+      "Whether any specific page (e.g. an unusually large or dense image) causes a disproportionate one-time memory spike vs. gradual accumulation across many pages -- the calibration test's size-diverse page selection is designed to surface this if present, but 4 pages is not enough to rule it out definitively."
+    ]
+  },
+
+  "concurrency_hypothesis_finalized": {
+    "supported": "Concurrent heavy extraction increases aggregate memory pressure sufficiently to trigger global OOM. Evidence: (1) original two-worker run -> chunk0 killed at 12.1GB anon-RSS while chunk1 concurrently held ~8-10GB, combined exceeding 31GB/0-swap; (2) chunk1 running ALONE (no competing recovery worker) subsequently reached ~12.9GB anon-RSS -- EXCEEDING chunk0's exact kill value -- and returned to its normal band WITHOUT any OOM, confirmed via journalctl -k showing no kill event; (3) batch0 (single recovery worker) + chunk1 running concurrently produced 3 low-available-memory alerts (min 2476MB) that chunk1-alone conditions have not reproduced; (4) batch0 alone-style (one recovery worker, chunk1 as the only other heavy process) completed 20/20 pages with peak 10.07GB, no OOM.",
+    "not_proven": "Do NOT claim: (a) one worker is universally memory-safe indefinitely -- not tested at length beyond chunk1's own 76+ pages and batch0's 20 pages; (b) memory growth is 'solved' -- the spike-and-release mechanism itself remains uncharacterized at the allocator level; (c) any specific RSS number (12.1GB, 12.9GB) is a safe or unsafe per-process ceiling -- both observations are population/timing-dependent, not fixed thresholds.",
+    "conclusion": "Single-worker/process-recycled execution is materially safer than concurrent heavy workers under this 31GB/no-swap environment. This is a narrower, evidence-scoped claim, not a general memory-safety proof.",
+    "operating_rule": "Use system-wide AVAILABLE memory and observed behavior as the operating signal, never a specific historical per-process RSS number (neither 12.1GB nor 12.9GB) as a threshold."
+  },
+  "incident_status": "CONTAINED, not SOLVED -- will not be called solved until the remaining recovery corpus (177 pages across batches 1-9) completes without another OOM.",
+  "recovery_strategy": {
+    "status": "FROZEN pending chunk1 completion, per explicit scheduling decision (2026-09-09 ~03:39 UTC): concurrent heavy extraction (recovery worker + chunk1) is no longer used, even though batch0 itself completed cleanly -- the decision is that we already have sufficient evidence characterizing the concurrency risk and should not spend further batches (memory, wall-clock, or risk) re-demonstrating it. Batch1-9 will resume ONLY after chunk1 fully finishes, is validated, and 'heavy extraction workers = 0 / available RAM recovered' is explicitly confirmed and recorded.",
+    "calibration_summary": "4/4 pages succeeded, peak RSS 5.53GB (6.58GB margin below the 12.1GB kill threshold), spike-and-release pattern (not cumulative), chunk1 unaffected and itself safely exceeded chunk0's pre-death page count (36 vs 32) during the same window.",
+    "constraints_observed": "chunk1 (surviving worker) not touched or restarted at any point. No second 229-page worker started concurrently with the recovery worker. No GPU work. No deletion of chunk0's 32 valid page-runs or their predictions. Recovery writes to an isolated results/gt_tables_chunk0_recovery/batch<N>/ tree, never overlapping chunk0's, chunk1's, or the calibration's own output trees."
+  },
+  "second_termination_event": {
+    "NOTE": "DELIBERATELY KEPT SEPARATE from the first incident above. These are different failure mechanisms and must not be merged mechanically.",
+    "affected": "gt_tables_chunk1 (PID 20471, the original surviving worker)",
+    "detected_utc": "2026-09-09T06:07Z (notification); exact termination moment not directly observed -- last confirmed-alive check was 04:29:48Z",
+    "pages_completed_valid": 199,
+    "pages_in_flight_incomplete": 1,
+    "in_flight_page": {
+      "run_dir": "newspaper_Chicago-Tribune_0801-magazinesclubnew_page_019-5584b203",
+      "real_image_name": "newspaper_Chicago Tribune_0801@magazinesclubnew_page_019.png",
+      "note": "directory name is the slugified stem (spaces and '@' -> '-', per utils/ids.py document_id/slugify) -- a naive substring search on the directory name does NOT match the real filename; this was caught during manifest verification, not assumed",
+      "artifacts_present": ["layout/", "logs/", "rendered/"],
+      "artifacts_absent": ["metadata.json", "ocr/", "tables/", "final/"],
+      "classification": "INCOMPLETE run, not a model failure. Because metadata.json was never written, its image identity is not recoverable from the run dir itself -- it is therefore correctly captured by NAME in the 30-page recovery target list (verified present)."
+    },
+    "pages_not_started": 29,
+    "inventory_note": "By assigned-image-NAME, the split is 199 valid + 30 to-recover (the in-flight page is one of those 30, indistinguishable by name from a never-started page because its metadata.json is absent). 199 + 30 = 229 verified.",
+    "termination_classification": "AGENT/HARNESS MEMORY GUARD (high confidence)",
+    "kernel_oom": false,
+    "cgroup_limit": false,
+    "harness_guard": "yes (high confidence, not directly verifiable -- the harness's own internal decision logs are not accessible to this session)",
+    "evidence": {
+      "kernel_oom_events_across_entire_uptime": 1,
+      "that_single_event": "Sep 09 02:51:28, PID 20454 (chunk0) -- the FIRST incident, already independently documented above. No second kernel OOM event exists anywhere in the session's full uptime (journalctl -k since boot, and raw dmesg -T, both checked).",
+      "cgroup_memory_events": "user-1002.slice and session-3.scope both show oom_kill=1 -- cumulative counters with no timestamp, fully accounted for by the FIRST incident (which the kernel log attributes to that same cgroup). No second increment is evidenced; a cgroup-limit kill would additionally have produced its own dmesg entry with constraint=CONSTRAINT_MEMCG, and none exists.",
+      "first_incident_was_global_not_cgroup": "the 02:51:28 kernel line reads 'constraint=CONSTRAINT_NONE ... global_oom' -- i.e. system-wide pressure, not a cgroup limit breach, despite being attributed to a process inside session-3.scope",
+      "systemd_oomd": "not installed on this system (systemd-oomd.service not found) -- ruled out",
+      "container_runtime": "docker/containerd journals empty for the termination window",
+      "notification_wording": "'Background command ... was stopped because the system is running low on memory' -- this phrasing originates from the agent tool platform's own background-task supervisor, not from any OS-level log this session can find"
+    },
+    "process_exit_code": "NOT CAPTURED -- unlike the first incident (where an explicit `echo EXIT=$?` captured 137), the wrapper shell itself was terminated, so the trailing capture line never ran. The task output file contains only '[killed]'. This is an evidence limitation, stated rather than guessed.",
+    "confidence": "HIGH that it was NOT kernel/cgroup/systemd OOM (direct negative evidence across every OS-level mechanism). HIGH-but-not-verifiable that it WAS the agent harness's own guard (consistent wording, timing, and total absence of any OS-level trace, but the harness's internals are not inspectable from here).",
+    "resource_state_after": "system returned to near-idle: 1.6GB used / 29GB available, 0 swap, GPU 0% / 0 MiB used. Research-No.1's evaluator had ALSO ended by this point -- but naturally and successfully (result.json written 06:05, pair_logits.pt 383MB written 04:58), NOT killed, and NOT interfered with by this project at any point.",
+    "recovery_strategy": "Recover ONLY the 30 missing pages (never re-run the 199 valid ones), single worker, process-recycled, 2 batches (20 + 10), isolated output at results/gt_tables_chunk1_recovery/batch<N>/. Original results/gt_tables_chunk1/ (199 valid page-runs) is immutable and untouched."
+  },
+  "recovery_authorized": true,
+  "recovery_mode": "single_worker_process_recycling",
+  "batch_size": "20 pages per batch (10 batches: 9x20 + 1x17 = 197), per explicit instruction -- conservatively below the 32-page exposure that preceded the original OOM",
+  "recovery_start_utc": "2026-09-09T03:10:19Z",
+  "recovery_end_utc": null,
+  "recovered_valid_pages": "IN PROGRESS -- see recovery_run_telemetry.json and batch<N>_validation.json for current per-batch counts; not final until all 10 batches complete",
+  "remaining": "IN PROGRESS -- see recovery_run_telemetry.json",
+  "max_recovery_peak_rss_kb": "IN PROGRESS -- highest observed so far: 10074388 (9.61GB) during batch0, no recurrence of the original 12109308kB kill threshold",
+  "oom_recurrence": false,
+  "methodology_change": "none -- recovery is an execution-level/operational change only (single-worker process lifecycle instead of two concurrent workers); no threshold, gate, routing rule, OCR setting, matching policy, table-shape rule, or model was changed"
+}

@@ -10,6 +10,7 @@ the new code runs).
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import tempfile
 from pathlib import Path
@@ -214,13 +215,52 @@ def test_phase13_roots_exclude_unvalidated_resume_attempts():
         retry = experiment_dir / "results/non_table_sample_recovery/batch0_retry0/_doc_extraction_runs"
         retry.mkdir(parents=True)
         (experiment_dir / "non_table_recovery_batches_manifest.json").write_text(
-            '{"batches": [{"batch_index": 0}]}'
+            '{"batches": [{"batch_index": 0, "validation_file": "non_table_batch0_salvage_validation.json"}]}'
         )
-        (experiment_dir / "non_table_batch0_validation.json").write_text(
+        (experiment_dir / "non_table_batch0_salvage_validation.json").write_text(
             '{"PASS": true, "runs_dir": "results/non_table_sample_recovery/batch0_retry0/_doc_extraction_runs"}'
         )
         assert ml.phase13_run_roots(experiment_dir) == [original, retry]
     print("PASS: test_phase13_roots_exclude_unvalidated_resume_attempts")
+
+
+def test_phase13_resume_planning_requires_pass_validation():
+    """Resume planning itself must not pre-admit a complete-looking run tree.
+
+    This guards build_non_table_sample.py separately from the analysis-root
+    test above: otherwise a VM interruption between extraction and validation
+    could cause a later --resume invocation to skip pages on structural
+    appearance alone.
+    """
+    spec = importlib.util.spec_from_file_location("phase13_builder", HERE / "build_non_table_sample.py")
+    builder = importlib.util.module_from_spec(spec)
+    sys.modules["phase13_builder"] = builder
+    spec.loader.exec_module(builder)
+    original_here = builder.HERE
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            experiment_dir = Path(tmp)
+            runs = experiment_dir / "results/non_table_sample_recovery/batch0/_doc_extraction_runs/page-a"
+            for rel in ("layout/page-001.json", "ocr/page-001.json", "tables/page-001.json", "final/document.json"):
+                (runs / rel).parent.mkdir(parents=True, exist_ok=True)
+                (runs / rel).write_text("{}")
+            (runs / "metadata.json").write_text('{"input_filename": "a.png"}')
+            (experiment_dir / "non_table_recovery_batches_manifest.json").write_text(json.dumps({
+                "batches": [{"batch_index": 0, "image_names": ["a.png"]}],
+            }))
+            builder.HERE = experiment_dir
+            assert builder.completed_recovery_roots() == {}, "unvalidated recovery must be ignored"
+            (experiment_dir / "non_table_batch0_validation.json").write_text(json.dumps({
+                "PASS": True,
+                "runs_dir": "results/non_table_sample_recovery/batch0/_doc_extraction_runs",
+                "completed_names": ["a.png"],
+            }))
+            roots = builder.completed_recovery_roots()
+            assert roots[0][1] == {"a.png"}
+    finally:
+        builder.HERE = original_here
+        sys.modules.pop("phase13_builder", None)
+    print("PASS: test_phase13_resume_planning_requires_pass_validation")
 
 
 def main():
@@ -232,6 +272,7 @@ def main():
     test_recovery_roots_are_discovered()
     test_recovery_root_comes_from_passed_validation_not_interrupted_attempt()
     test_phase13_roots_exclude_unvalidated_resume_attempts()
+    test_phase13_resume_planning_requires_pass_validation()
     print("ALL PASS")
     return 0
 

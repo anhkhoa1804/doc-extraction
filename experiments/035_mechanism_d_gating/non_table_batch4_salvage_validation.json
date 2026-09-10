@@ -1,0 +1,31 @@
+{
+ "batch_index": 4,
+ "output_dir": "results/non_table_sample_recovery/batch4",
+ "runs_dir": "results/non_table_sample_recovery/batch4/_doc_extraction_runs",
+ "n_assigned": 9,
+ "n_completed_valid": 9,
+ "n_incomplete": 0,
+ "n_schema_errors": 0,
+ "sum_check_ok": true,
+ "unexpected_pages_not_in_assignment": [],
+ "assigned_pages_missing_entirely": [],
+ "collision_with_original_32": [],
+ "collision_with_prior_recovery_batches": [],
+ "duplicate_within_batch": false,
+ "schema_errors": [],
+ "incomplete_names": [],
+ "completed_names": [
+  "notes_1ba14cb325bc448f7201b20502ecf2b5_123.jpg",
+  "notes_9e951846094758afac08c620144e3a76_10.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_2.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_31.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_4.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_67.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_8.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_92.jpg",
+  "notes_f7f010b78016aeebd76e56d9283eb67f_95.jpg"
+ ],
+ "PASS": true,
+ "admission_kind": "structurally_complete_subset_of_failed_attempt",
+ "failed_attempt_validation": "non_table_batch4_validation.json"
+}

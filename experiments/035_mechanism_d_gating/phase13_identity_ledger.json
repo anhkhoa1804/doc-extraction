@@ -1,0 +1,762 @@
+{
+ "frozen_sample_size": 150,
+ "n_valid_original": 33,
+ "n_valid_recovery": 117,
+ "n_not_started": 0,
+ "n_incomplete_unresolved": 0,
+ "historical_incomplete_run_directories": [
+  "results/non_table_sample/_doc_extraction_runs/page-82c2ab31-2cf0-47bb-bfb6-110770323718-a8379cea"
+ ],
+ "identities": [
+  {
+   "image_name": "PPT_B14_Claeys_Consistent Presentation of Images_v2_page_010.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_5205.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_EnglishtoAmericanTransition_page_016.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_1710.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_session 10_page_028.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_5300.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_StewartCalcET7e_03_02_page_014.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_1835.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_4710.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_725.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_4380.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_ch7_page_053.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_017.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "PPT_LEP power point presentation-English-FINAL-10-31-07_page_015.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "scihub_j.jnutbio.2010.09.015.pdf_0.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-s00374-003-0583-8.pdf_1.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-39f38730-0ae6-4cfe-8b99-c65d06d09544.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-j.jcp.2010.12.006.pdf_5.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-5ef91820-15a4-41af-b57f-36ec76879fee.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-s00395-011-0222-8.pdf_10.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.11.060.pdf_2.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "scihub_s12935-018-0683-z.pdf_0.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-j.ab.2008.05.027.pdf_7.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-s00128-009-9752-2.pdf_5.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-ijc.22999.pdf_3.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-j.snb.2004.05.025.pdf_5.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-scihub-o.O-hyp.1092.pdf_1.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "book_en_搬书匠-2253-The Well-Grounded Rubyist 3rd Edition-2019-英文版_page_194.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png",
+   "status": "VALID_ORIGINAL",
+   "run_root": "results/non_table_sample"
+  },
+  {
+   "image_name": "page-82c2ab31-2cf0-47bb-bfb6-110770323718.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "book_en_[搬书匠#375][High Performance MySQL 3rd Edition].2012.英文版_page_153.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "yanbaor2_ey-how-covid-19-has-triggered-a-sprint-toward-smarter-health-care.pdf_5.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-8c21f73a-b849-4f71-9573-57d50fbcc180.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-99c0fd2f-608e-479c-9af5-5b012de4f6af.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-205e4273-5b94-43e5-bfaf-dc882416b067.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-bd83d09b-302b-4cc6-999d-19fe668b6577.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-30aa7cae-34fd-4b0b-b01a-fd35ff3bdfea.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-2329f04a-41b3-435b-993a-a0652294b07d.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-80a540c8-88d4-4643-b40e-282489353fb8.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "book_zh_DLT10562007_extracted_page_17.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-44a14308-9d3e-4044-9508-5c3e30141a19.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "color_textbook_教材全解1+1二年级上册英语上海牛津版_page_030.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_918.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "jiaocai_jiaocai_en_518.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_3222.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_1249.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "page-a70b2ec9-379a-4e83-9f64-852c343ec8cd.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch0"
+  },
+  {
+   "image_name": "jiaocaineedrop_eng_gls.pdf_6.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_KET听说读写逐项突破_KET听说读写逐项突破之轻松搞定KET阅读25分【10讲 褚连一 】_第01讲第一课阅读题型综述_第一课阅读题型综述_page_004.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_043.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_472.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语上册_课本_人教新起点英语5A电子课本_page_008.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语上册_课本_人教新起点英语5A电子课本_page_001.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "page-83a26c96-4318-4587-9fba-877fd6fe5414.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_250.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语下册_课本_人教新起点英语5B电子课本_page_027.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_2007_Solutions_2007s_page_001.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocai_jiaocai_en_6.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_188.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_2006_Solutions_2006s_page_007.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_1991_Problems_1991_page_001.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_1544.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_1290.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_2000_Solutions_2000s_page_003.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_2016年安徽省中考英语试题（解析）_page_003.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_3313.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_2010_Solutions_2010s_page_005.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch1"
+  },
+  {
+   "image_name": "exam_paper_en-file-putnam-archive_2015_Problems_2015_page_001.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-4540d82a-19d8-44ef-8f18-6d42fdb2a2de.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_980.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_429.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-3ecc67a1-9b19-4fb9-b74d-acbb73db5c53.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-dad79c54-8125-4927-9988-ee1d2a139d7b.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-942ac90d-4704-43f3-9286-719c7be9e655.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-8e2f7ce3-83c4-4977-b6dc-278394c4bd64.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "docstructbench_llm-raw-the-eye-o.O-Team%20Bravo%20-%20System%20Error.pdf_9.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "jiaocaineedrop_unit2t03.pdf_63.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-ed0f3b67-a631-4e9d-b8d8-d9594a5aa652.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "jiaocaineedrop_7bc671081823aec9e2a6ef2a011c3fbb.pdf_20.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.23_page_060.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "page-0b772bee-71ec-4d4a-a406-d7691b1a6e86.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.16_page_062.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.09_page_045.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_678.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.02_page_023.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "yanbaor2_323ab38d3b3b9a44837779e3c7b4a2f7088d9e0eb6c966d4d596faf6c01011a6.pdf_2.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch2"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.02_page_056.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2024.03.09_page_029.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.02_page_028.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "docstructbench_dianzishu_zhongwenzaixian-o.O-61513005.pdf_179.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_fe2c8b45b2a086cd75984640bb3080e1_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_003.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_baa51a22898f0d534a6c404ba8f12fb1_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_018.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_5bba361b0a5ca11745edbef140e2a431_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_e3842a5681ef54c62a58804adec06c3f_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_003.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_c0794b9574ba55a589418fa1ae160b9a_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_Daily Mirror 2025-1-8@magazinesclubnew_page_034.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_2a6b4fa088699701a6fa9ccecfb5c25d_5.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_e567840b2e327602422573ccdc1c4275_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_2a6b4fa088699701a6fa9ccecfb5c25d_16.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_e6083de4647ef28434cb6a598b073ae4_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_Daily Mail_2022-08-01@magazinesclubnew_page_009.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch3"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_31.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_8.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_92.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_4.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_1ba14cb325bc448f7201b20502ecf2b5_123.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_9e951846094758afac08c620144e3a76_10.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_2.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_95.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_67.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_1ba14cb325bc448f7201b20502ecf2b5_34.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_9e951846094758afac08c620144e3a76_12.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_112.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_1ba14cb325bc448f7201b20502ecf2b5_125.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_29.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "eastmoney_d0313ed730f58180b1f005a3607c2a77dc3672410e8f7ee1de3b814668da9bcb.pdf_5.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "yanbaor2_8072f7ea9b3083ff5e8f9bfbba591771e61115039c96fda1c8ea391a7570f098.pdf_5.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_4565.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "newspaper_5e266dfd9c498cab274e12a7b4a75755_2.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "PPT_BaharMartonosi_page_007.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.09_page_048.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch4"
+  },
+  {
+   "image_name": "book_en_A.Course.in.Abstract.Harmonic.Analysis.-.Gerald.B.Folland.0849384907_page_119.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语上册_课本_人教新起点英语5A电子课本_page_010.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_94.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "magazine_TheEconomist.2023.12.23_page_052.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "notes_f7f010b78016aeebd76e56d9283eb67f_69.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_2982.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "jiaocaineedrop_bde81e42743067b574946698491d7f19.pdf_14.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "newspaper_2a6b4fa088699701a6fa9ccecfb5c25d_15.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "yanbaor2_a019c26b871cb84ec8fecb95b55ec68f2edec0db3c504de5fdaa72caba95d995.pdf_3.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "jiaocaineedrop_jiaocai_needrop_en_546.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "docstructbench_dianzishu_zhongwenzaixian-o.O-63685611.pdf_222.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "page-fb79f57d-9d7e-4129-a08c-6fc189e84a21.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "yanbaopptmerge_yanbaoPPT_4000.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "PPT_StewartCalcET7e_03_02_page_010.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "color_textbook_zhonggaokao_小学_KET听说读写逐项突破_KET听说读写逐项突破之轻松搞定KET口语25分【10 褚连一】_第02讲第二课口语部分Part1详解_第二课口语部分Part1详解_page_002.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "page-2861127b-41a4-44d5-b026-2de9cb408347.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "yanbaor2_yanbaoPPT_4618.jpg",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "book_en_A.Concise.Introduction.to.Linear.Algebra,.Geza.Schay,.Birkhauser,.2012_page_065.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  },
+  {
+   "image_name": "page-5c7ed29b-b72b-4838-9536-a461adf3006d.png",
+   "status": "VALID_RECOVERY",
+   "run_root": "results/non_table_sample_recovery/batch5"
+  }
+ ]
+}

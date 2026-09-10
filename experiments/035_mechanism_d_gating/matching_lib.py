@@ -295,7 +295,9 @@ def phase13_run_roots(experiment_dir: Path) -> list[Path]:
     manifest = json.loads(manifest_path.read_text())
     for batch in sorted(manifest.get("batches", []), key=lambda b: b["batch_index"]):
         batch_index = batch["batch_index"]
-        validation_path = experiment_dir / f"non_table_batch{batch_index}_validation.json"
+        validation_path = experiment_dir / batch.get(
+            "validation_file", f"non_table_batch{batch_index}_validation.json"
+        )
         if not validation_path.is_file():
             continue
         validation = json.loads(validation_path.read_text())

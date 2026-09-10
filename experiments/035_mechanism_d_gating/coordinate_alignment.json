@@ -1,0 +1,1191 @@
+{
+ "method": "Two independent checks against real --keep-runs output already on disk (no new extraction for this phase): (1) internal Page.width/height vs GT page_info.width/height across every available processed page and page SIZE in the pool; (2) IoU between GT table poly bbox and the best-matching internal Table bbox, for pages that have both.",
+ "source_dir": "experiments/034a_omnidocbench_snapshot/results/full_baseline_INCOMPLETE_stopped_for_device_fix/_doc_extraction_runs",
+ "dimension_check": {
+  "n_pages_checked": 100,
+  "n_pages_matched": 100,
+  "all_matched": true,
+  "n_distinct_page_sizes_in_sample": 8,
+  "distinct_sizes_px": [
+   [
+    1209,
+    1832
+   ],
+   [
+    1500,
+    1850
+   ],
+   [
+    1653,
+    2339
+   ],
+   [
+    1654,
+    2338
+   ],
+   [
+    1654,
+    2339
+   ],
+   [
+    1700,
+    2200
+   ],
+   [
+    2000,
+    1500
+   ],
+   [
+    2339,
+    1654
+   ]
+  ],
+  "conclusion": "FACT: internal Page dimensions equal GT page_info dimensions exactly (within 0.5px, i.e. float rounding only) for every checked page, across every distinct page size present in this sample. render_dpi=200 in the pipeline config does NOT rescale OmniDocBench images -- they are pre-rendered and loaded directly (image route), never PDF-rendered, so there is nothing to rescale. Transform required: IDENTITY (no scale, no offset).",
+  "cases": [
+   {
+    "image": "page-05746fc5-2045-4dea-94e7-4bbab648d702.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-085e8c3e-54f9-4f46-b59b-163ee783dbfd.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-0a262e27-b24d-4429-9b21-90563d4fada7.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-0c8b5994-685d-4b1b-816a-74f43aff8a53.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-175b8afd-8077-4f65-bdbf-40682e0a9a4b.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-1853e666-6f83-432c-afc8-923ce8cf0fea.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-1c08a4a2-8163-44d3-93f0-9449457dbba3.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-1ce383cc-63a3-43c9-b6f2-7498a952b65c.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-21967f5d-667d-488e-a5b3-76b9d6f53656.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-2329f04a-41b3-435b-993a-a0652294b07d.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-268266af-56c0-4b3b-9d07-73c6e50feb58.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-27a46d41-49b5-4562-a546-6cbbafd23a81.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-29ccb4ce-9266-4938-8f2d-b2b69ceb43cd.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-30aa7cae-34fd-4b0b-b01a-fd35ff3bdfea.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-374e9c4b-6fdb-4176-8ac7-519b86d97e40.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-37a801d0-4422-4ddb-8b45-73b259396212.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png",
+    "gt_width": 2339,
+    "gt_height": 1654,
+    "internal_width": 2339.0,
+    "internal_height": 1654.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-39d18b46-ad1b-4c7a-b7e2-132471c27c15.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-39f38730-0ae6-4cfe-8b99-c65d06d09544.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-3e0da562-e549-4a04-8335-e76db83d57e6.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-3ec8e45c-1c38-41d2-bb9d-c50745232f2a.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-4009495f-1a7c-46dc-9f52-7f80f5f0cc5c.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-404e0471-bd71-426a-8e5a-81b8327f88e5.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-4089ffa0-27f5-4a20-ba2f-c68e3ad46ce2.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-4431f432-9e71-46d3-a5ea-4d705ad163a8.png",
+    "gt_width": 1500,
+    "gt_height": 1850,
+    "internal_width": 1500.0,
+    "internal_height": 1850.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-44a14308-9d3e-4044-9508-5c3e30141a19.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-47977c29-59ca-4534-9a00-becad3bfdaa4.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-49776237-a9be-441d-a326-002eb7084385.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-52875b3d-f4dc-44c2-a9bb-514b0763833d.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-573c437e-c309-4483-a038-ef2f440b104a.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-57d5842c-85c2-41c9-9d37-65aad59c1277.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-5b2f2dec-8e96-450f-aea0-b73d46eac172.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-60d560a3-cd92-4b7d-b6c5-f0d6ce6dc3f1.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-617783f8-bbd6-4faf-bca6-a05222c29314.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-6486c98f-3fc3-4c8f-b35c-ce6005ecb876.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-67013be9-58e5-4842-809d-7a3c1fc91fc7.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-7050793e-109f-4066-be91-107f94b617b9.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-74c7629d-b064-4b8f-8667-bf943f5ba367.png",
+    "gt_width": 1209,
+    "gt_height": 1832,
+    "internal_width": 1209.0,
+    "internal_height": 1832.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-796ae342-1329-4bd4-9e64-4d1379cdd26e.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-7a7566fd-43d8-46e4-8a4f-0330e1f27a88.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-7d2d833d-37b1-4c18-9ee6-4e09d352e265.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-7dfc88d8-6d95-446c-b910-2410e8552f76.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-80a540c8-88d4-4643-b40e-282489353fb8.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-83a675ab-0021-4979-8293-8af0d36146a0.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-8524b54d-6372-4f9e-a662-5254349cfda3.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-85377cdf-d6a2-4611-bd50-08795bf7acb6.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-8c21f73a-b849-4f71-9573-57d50fbcc180.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-8cbbe0d4-a3a8-4533-a620-048bebfa714b.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-9477c155-19b3-4f2d-ac18-ee3f8997d2f8.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-99c0fd2f-608e-479c-9af5-5b012de4f6af.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-9b70f2f0-2a0e-4337-8750-84e79503e939.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-9bcba6da-bdb0-4403-97cb-8874898ac8ab.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-9cca07f9-2e06-4da7-b4f4-496c6e305543.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-a6d06208-475c-4c6e-9d84-858f7e2ecf72.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-a976a26e-4dbb-492a-a380-b923b87ed496.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-aae359c6-5e6e-4e18-9187-2e9d55b6e9bd.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-ad5a110f-a4b4-430b-b5db-ecd0ee394451.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-ae356bde-652d-44a9-9e21-76cadf5a9dea.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b0bdb7a8-c7de-4e6c-9e9c-bf979f3a3227.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b21c7247-a843-4316-a44d-c3365077f077.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b2349b51-01db-4dc1-9e4a-58e52f5e4362.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b2cc5729-a6b2-49ba-af62-788bf069b617.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b3394f89-fe60-4f69-a0ee-aca79889950d.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-b4b6b1d1-5fa6-42ce-8a62-8a6ddd4608f6.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-ba4443e6-f432-435f-89e7-ddf0a571d2cd.png",
+    "gt_width": 2000,
+    "gt_height": 1500,
+    "internal_width": 2000.0,
+    "internal_height": 1500.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-bb98165a-8033-4ea4-a527-58ac974f2c32.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-bbe2b2d5-1e02-4d53-ba1c-158eaab2e6d5.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-bd6eb36e-0856-4d9d-b587-21b4a0209c8b.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-c1c135ad-427e-482b-b01c-05c0ccbc6e76.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-c6168ed8-ca6a-4ddd-8bfc-92dec77f1870.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-c7fec126-2adb-4094-8110-5d81a92e05b0.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-c9654418-0624-48d4-8be7-6065f45dd1f9.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-cc37a835-903b-4079-88fc-ae04625c9b5d.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-ccd77e4e-4f94-45df-8e3d-e054a951f65f.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d1561665-5359-42fe-920c-d6e3bff81953.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d2816bbe-3c28-4905-ad6d-5f873b525de3.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d43b98f8-6a96-44f8-a3cf-65de9397f582.png",
+    "gt_width": 1654,
+    "gt_height": 2339,
+    "internal_width": 1654.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d5c82c0e-2a7d-4573-9dce-bff939504367.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-dad0f4e5-290f-496f-bbdd-099ad75c6ff0.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-dc728bd5-50a9-41e8-9e5a-d4b01e6664a2.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-e13fef95-c179-4a0f-94f9-1cc970aab788.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-e2fbf592-51f5-431a-8ae6-0c62e3349e89.png",
+    "gt_width": 1654,
+    "gt_height": 2338,
+    "internal_width": 1654.0,
+    "internal_height": 2338.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-e4053f20-e6e6-430e-83ef-db298a3199aa.png",
+    "gt_width": 1653,
+    "gt_height": 2339,
+    "internal_width": 1653.0,
+    "internal_height": 2339.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-e721a819-6dbf-453a-a7ad-857c24f9aa3e.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-e9e8bc8e-e22d-4d1a-a3fb-5d175e5e4d70.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-f029e208-32a7-49e6-a0a1-675590a3e55e.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-f108020f-edc5-4a27-85d9-d9d9c5d67309.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-f6ad0f1c-acb7-43c0-b08d-5606ca82fc1b.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-f9583127-1277-4424-be9d-35430e0aedd6.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   },
+   {
+    "image": "page-fb79f57d-9d7e-4129-a08c-6fc189e84a21.png",
+    "gt_width": 1700,
+    "gt_height": 2200,
+    "internal_width": 1700.0,
+    "internal_height": 2200.0,
+    "internal_dpi": 200,
+    "internal_coordinate_unit": "px",
+    "width_match": true,
+    "height_match": true
+   }
+  ]
+ },
+ "geometry_check": {
+  "n_gt_tables_with_internal_table_available": 2,
+  "note": "Small n here (this pool has few GT-table pages by chance -- see build_gt_table_dataset.py for the FULL 458-page population Phase 3 uses). This check exists only to confirm the identity transform above also holds GEOMETRICALLY, not merely in metadata -- IoU should be high wherever the region was correctly labelled 'table' and Table Transformer ran.",
+  "cases": [
+   {
+    "image": "page-573c437e-c309-4483-a038-ef2f440b104a.png",
+    "gt_table_anno_id": "box_id_1",
+    "gt_bbox_px": {
+     "x0": 282.0018,
+     "y0": 402.0741,
+     "x1": 1315.9533000000001,
+     "y1": 1172.0729
+    },
+    "best_internal_table_id": "p0-t0",
+    "best_internal_table_bbox_px": {
+     "x0": 292.7757263183594,
+     "y0": 401.152099609375,
+     "x1": 1309.1505126953125,
+     "y1": 1174.7003173828125
+    },
+    "iou": 0.9786
+   },
+   {
+    "image": "page-f9583127-1277-4424-be9d-35430e0aedd6.png",
+    "gt_table_anno_id": "box_id_1",
+    "gt_bbox_px": {
+     "x0": 602.99,
+     "y0": 350.02,
+     "x1": 1099.05,
+     "y1": 572.0
+    },
+    "best_internal_table_id": "p0-t0",
+    "best_internal_table_bbox_px": {
+     "x0": 602.776123046875,
+     "y0": 353.4096984863281,
+     "x1": 1096.864013671875,
+     "y1": 571.9251708984375
+    },
+    "iou": 0.9796
+   }
+  ],
+  "mean_iou": 0.9791
+ },
+ "conclusion": "PREREQUISITE SATISFIED: identity pixel-space transform confirmed by both dimension equality (n=100 pages, 8 distinct sizes) and bbox geometry (mean IoU=0.9791). Phase 3's matcher may compare GT poly-derived bboxes directly against internal Region/Table bboxes with NO coordinate transform."
+}

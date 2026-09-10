@@ -1,0 +1,66 @@
+{
+ "occlusion_proxy_tags_used": [
+  "fuzzy_content",
+  "fuzzy_scan",
+  "geometric_deformation",
+  "transparent_pages",
+  "watermark",
+  "with_watermark"
+ ],
+ "n_gt_tables_analyzed": 665,
+ "n_occluded": 37,
+ "n_clean": 628,
+ "d2_rate_occluded": 0.0,
+ "d2_rate_clean": 0.0541,
+ "any_failure_rate_occluded": 0.2432,
+ "any_failure_rate_clean": 0.1513,
+ "occluded_stage_distribution": {
+  "D0": 28,
+  "D4": 8,
+  "D1": 1
+ },
+ "clean_stage_distribution": {
+  "D0": 533,
+  "D1": 40,
+  "D2": 34,
+  "D4": 17,
+  "D6": 3,
+  "D7": 1
+ },
+ "by_specific_tag": {
+  "fuzzy_content": {
+   "n": 0,
+   "d2_rate": null,
+   "any_failure_rate": null
+  },
+  "fuzzy_scan": {
+   "n": 13,
+   "d2_rate": 0.0,
+   "any_failure_rate": 0.3077
+  },
+  "geometric_deformation": {
+   "n": 2,
+   "d2_rate": 0.0,
+   "any_failure_rate": 0.0
+  },
+  "transparent_pages": {
+   "n": 0,
+   "d2_rate": null,
+   "any_failure_rate": null
+  },
+  "watermark": {
+   "n": 23,
+   "d2_rate": 0.0,
+   "any_failure_rate": 0.3478
+  },
+  "with_watermark": {
+   "n": 4,
+   "d2_rate": 0.0,
+   "any_failure_rate": 0.0
+  }
+ },
+ "interpretation": {
+  "note": "Compare d2_rate_occluded vs d2_rate_clean (does occlusion predict WRONG LABEL specifically) against any_failure_rate_occluded vs any_failure_rate_clean (does it predict general difficulty instead). 030's own finding on the production corpus was that stamp/occlusion alone was NOT sufficient explanation (PARTIALLY_SUPPORTED, route/OCR/layout interaction mattered more) -- this phase checks whether the same qualitative pattern holds on an independent benchmark, without assuming it must."
+ },
+ "caveat": "This benchmark has NO true stamp/occlusion category (Phase 1) -- these are the closest available proxies, at PAGE granularity (ambiguous across multi-table pages, per the GT contract's own limitation). A null result here does not prove occlusion is irrelevant to Mechanism D in general, only that these specific proxies on this benchmark don't show it."
+}

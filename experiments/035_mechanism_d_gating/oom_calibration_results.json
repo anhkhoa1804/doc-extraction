@@ -1,0 +1,40 @@
+{
+  "purpose": "Phase F -- smallest practical single-worker calibration to distinguish concurrency amplification from intrinsic per-process growth, using 4 size-diverse not-started chunk0 pages.",
+  "worker": {"pid": 24075, "isolated_output_dir": "results/oom_calibration/", "concurrent_with": "chunk1 (PID 20471) remained running throughout -- calibration was NOT run in total isolation from all other load, but chunk0 was already dead so this was single-worker-plus-the-surviving-worker, not 2x-fresh-workers"},
+  "pages_selected": {
+    "method": "size-diverse: smallest, median, 75th percentile, largest by image file size among chunk0's 196 not-started pages",
+    "pages": [
+      {"image": "yanbaopptmerge_yanbaoPPT_3395.jpg", "file_size_bytes": 100625, "percentile": "smallest"},
+      {"image": "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png", "file_size_bytes": 470964, "percentile": "median"},
+      {"image": "page-b4d4cf5b-0a0e-454b-8220-8c7f58402791.png", "file_size_bytes": 651439, "percentile": "75th"},
+      {"image": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png", "file_size_bytes": 1889030, "percentile": "largest"}
+    ]
+  },
+  "result": {"total_pages": 4, "succeeded": 4, "failed": 0, "total_runtime_seconds": 297.213,
+             "mean_seconds_per_page": 74.3032, "wall_clock_seconds": 297.246, "exit_code": 0,
+             "exit_code_note": "GENUINE exit code this time -- CALIBRATION_EXIT=0 confirmed, unlike chunk0's masked wrapper-vs-process discrepancy"},
+  "rss_trajectory_kb": {
+    "cold_start_8s": 194796,
+    "after_page1_smallest": 2033388,
+    "mid_page2_median_peak": 2884948,
+    "after_page2": 2769360,
+    "mid_page3_75th_peak": 5336856,
+    "after_page3": 2852132,
+    "mid_page4_largest_peak": 5533832,
+    "after_page4_final": 2764636
+  },
+  "peak_rss_kb": 5533832,
+  "peak_rss_gb": 5.53,
+  "peak_occurred_on": "page-50ffe5d2 (largest test image, 1.9MB)",
+  "margin_below_kill_threshold_gb": 6.58,
+  "pattern_observed": "SPIKE-AND-RELEASE per page, not monotonic accumulation: RSS ramps up during each page's processing (likely during Docling layout/OCR inference, holding intermediate tensors/buffers) then drops back to a 2.7-2.9GB floor after each page completes and objects go out of scope. Peak scales loosely with image complexity (page 3 at 751KB peaked 5.34GB, page 4 at 1.9MB peaked 5.53GB -- only modestly higher for 2.5x the file size, so file size alone is not a strong linear predictor) but does NOT accumulate cumulatively across the 4 pages -- RSS returned to a similar ~2.7-2.9GB floor after every page, it did not ratchet upward page over page.",
+  "system_impact": {
+    "available_memory_never_below_mb": 9500,
+    "chunk1_unaffected": "chunk1 RSS stayed in its established 8.4-9.7GB band throughout, no coupling/amplification effect observed from the calibration worker running alongside it"
+  },
+  "chunk1_page_count_before_calibration": 31,
+  "chunk1_page_count_after_calibration": 36,
+  "chunk1_pages_processed_during_calibration_window": 5,
+  "chunk1_status_after_calibration": "alive, healthy, RSS 8.99GB -- no incident during the ~5 minute calibration window despite a second process running concurrently",
+  "limitation": "Only 4 pages tested (small n by design, per Phase F's own 'not statistical benchmarking' instruction). chunk0 itself looked healthy for 32 CONSECUTIVE pages in one continuous process before its fatal spike on page 33 -- this calibration does not fully replicate that exposure length. chunk1 has since safely exceeded that count (36 pages, continuous, no restart) which is directly relevant supporting evidence, but a dedicated long-run single-worker test has not been performed."
+}

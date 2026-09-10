@@ -1,0 +1,28 @@
+{
+ "strict_definition": "GT table + usable corresponding internal region + region non-table-labelled + table processing consequently skipped. This is EXACTLY stage D2 in table_failure_funnel.json -- D1 (no region at all) is explicitly NOT counted as a gating failure (rule 1), and D4/D5/D6 (region WAS correctly labelled table) are explicitly NOT gating failures either (rule 2).",
+ "n_gt_tables_analyzed": 665,
+ "strict_mechanism_d_count": 34,
+ "strict_mechanism_d_fraction_of_analyzed": 0.0511,
+ "denominator_note": "fraction is of GT tables ANALYZED so far (coverage=1.0 of the full 665), not yet the full population -- rerun after full extraction completes for the final denominator.",
+ "by_data_source": {
+  "newspaper": 18,
+  "book": 4,
+  "PPT2PDF": 4,
+  "exam_paper": 3,
+  "magazine": 2,
+  "academic_literature": 1,
+  "colorful_textbook": 1,
+  "note": 1
+ },
+ "by_language": {
+  "english": 24,
+  "simplified_chinese": 9,
+  "en_ch_mixed": 1
+ },
+ "by_wrong_label": {
+  "picture": 14,
+  "text": 10,
+  "document_index": 7,
+  "code": 1
+ }
+}

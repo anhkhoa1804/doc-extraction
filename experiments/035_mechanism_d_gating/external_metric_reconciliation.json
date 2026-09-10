@@ -1,0 +1,34 @@
+{
+ "funnel_chain_this_milestone_measured": {
+  "1_gt_table_count_full_population": 665,
+  "2_gt_table_count_analyzed_this_run": 665,
+  "3_n_matched_to_some_internal_region": 623,
+  "4_n_gated_into_table_labelled_region": 588,
+  "5_n_gated_out_wrong_label": 32,
+  "6_n_specialist_actually_invoked": 588,
+  "7_n_final_table_present_in_ir": 563,
+  "8_n_final_table_structurally_valid": 561
+ },
+ "evaluator_own_numbers_034a_frozen_not_recomputed": {
+  "source": "experiments/034a_omnidocbench_snapshot/results/full_baseline/metrics.json (frozen)",
+  "table_sample_count_official": 665,
+  "table_TEDS_error_case_count": 94,
+  "table_TEDS_timeout_case_count": 0,
+  "n_TEDS_samples_actually_scored": 571,
+  "CAUTION": "571 of 665 TEDS samples survived scoring (85.9%) -- the reported TEDS.all=0.3224 (official_metrics.json) is computed from 571, NOT 665. This milestone's own funnel counts (above) are over ALL matched GT tables regardless of whether the evaluator's own TEDS computation happened to succeed for that sample -- the two 'coverage' numbers (evaluator's 571/665 and this milestone's own extraction coverage) are UNRELATED and must not be added, multiplied, or otherwise combined."
+ },
+ "what_TEDS_can_and_cannot_observe": {
+  "TEDS_CAN_see": "Whether the FINAL markdown prediction contains table-shaped content whose HTML structure resembles the GT table's HTML, extracted via the evaluator's own quick_match text-similarity matching (.external/OmniDocBench/src/core/matching/match.py) -- it operates entirely on serialized output text, never on this system's internal Region/Element/Table objects.",
+  "TEDS_CANNOT_see": [
+   "WHERE in the funnel a table was lost (D1 upstream miss vs D2 wrong label vs D4 specialist failure vs D5 post-processing loss vs D6 structural invalidity) -- a low TEDS score is consistent with any of D1/D2/D4/D5/D6, and TEDS cannot distinguish them.",
+   "Whether a wrong-labelled region's content leaked into the final markdown as unstructured text (still potentially raising a text-similarity metric even though the table structure itself is gone) -- meaning even TEDS=0 does not guarantee zero content recall, and a non-zero text_block score on a D2 page does not mean the table survived.",
+   "The internal gate mechanism itself (region.label) at all -- this is exactly why 034a's own cross_research_comparison.json (mechanism D row) said 'partially observable, unconfirmed without a per-page internal-IR cross-reference' -- this milestone IS that cross-reference."
+  ]
+ },
+ "cross_check_gt_table_count": {
+  "phase1_gt_contract_count": 665,
+  "evaluator_own_sample_count": 665,
+  "match": true
+ },
+ "note_on_coverage": "This reconciliation reflects 665/665 (100.0%) of the GT table population analyzed so far by this milestone's own extraction -- rerun after full extraction completes."
+}

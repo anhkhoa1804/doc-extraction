@@ -1,0 +1,59 @@
+{
+ "n_gt_tables_analyzed": 665,
+ "n_region_found_any_quality": 623,
+ "n_no_region_at_all": 41,
+ "n_ambiguous_matching": 1,
+ "n_gated_in_labelled_table": 588,
+ "n_gated_out_wrong_label": 32,
+ "n_specialist_actually_invoked": 588,
+ "n_final_table_present": 563,
+ "n_final_table_structurally_valid": 561,
+ "by_data_source": {
+  "PPT2PDF": {
+   "n": 25,
+   "n_specialist_invoked": 19,
+   "n_final_valid": 19
+  },
+  "academic_literature": {
+   "n": 123,
+   "n_specialist_invoked": 118,
+   "n_final_valid": 115
+  },
+  "book": {
+   "n": 87,
+   "n_specialist_invoked": 81,
+   "n_final_valid": 77
+  },
+  "colorful_textbook": {
+   "n": 38,
+   "n_specialist_invoked": 37,
+   "n_final_valid": 37
+  },
+  "exam_paper": {
+   "n": 73,
+   "n_specialist_invoked": 52,
+   "n_final_valid": 38
+  },
+  "magazine": {
+   "n": 13,
+   "n_specialist_invoked": 11,
+   "n_final_valid": 11
+  },
+  "newspaper": {
+   "n": 69,
+   "n_specialist_invoked": 50,
+   "n_final_valid": 48
+  },
+  "note": {
+   "n": 37,
+   "n_specialist_invoked": 35,
+   "n_final_valid": 34
+  },
+  "research_report": {
+   "n": 200,
+   "n_specialist_invoked": 185,
+   "n_final_valid": 182
+  }
+ },
+ "headline": "n_specialist_actually_invoked is the number that matters more than n_final_table_present alone -- it answers 'how many GT tables actually enter the table specialist', separating gate loss from everything downstream."
+}

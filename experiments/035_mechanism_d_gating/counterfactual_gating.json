@@ -1,0 +1,29 @@
+{
+ "scope": "Confirmed D2 (strict Mechanism-D) cases only, per Phase 5's own population (34 of 665 analyzed).",
+ "current_policy": "Hard label gate: only region.label.lower()=='table' ever reaches Table Transformer (pipelines/base.py:747).",
+ "counterfactual_policy": "Admit any region for which 033's table-shape rule (row_bands>=3 AND col_bands>=2 AND children_per_row_band>=1.5) fires, REGARDLESS of its Docling label, to table processing.",
+ "recovery_side": {
+  "n_d2_cases_that_would_become_eligible": 11,
+  "n_d2_cases_total": 34,
+  "recovery_fraction_of_d2": 0.3235,
+  "note": "This is an UPPER BOUND on recovery: 'eligible for Table Transformer' is not the same as 'Table Transformer would succeed and produce a structurally valid table' -- D4/D5/D6 failure modes still apply to any newly-admitted region. No claim of guaranteed recovery is made."
+ },
+ "false_positive_exposure_side": {
+  "source": "measured directly on Phase 13's non-table-page sample",
+  "n_eligible_non_table_regions_checked": 105,
+  "n_would_newly_fire": 55,
+  "fire_fraction": 0.5238,
+  "phase13_full_sample_result": {
+   "n_findings_no_gt_overlap": 5,
+   "classification_counts": {
+    "harmless_over_detection": 3,
+    "ambiguous": 2
+   }
+  }
+ },
+ "specialist_cost_side": {
+  "additional_specialist_invocations_per_665_gt_tables_at_full_scale": 11.0,
+  "note": "Table Transformer's own measured cost is small relative to layout (034a pipeline_timing.json: table stage ~4% of pipeline time, mean 0.335s/page) -- compute cost of admitting more candidates is not expected to be the binding constraint; false-positive/structural-risk is."
+ },
+ "net_assessment": "See recovery_fraction_of_d2 vs false-positive fire_fraction: a rule that recovers most D2 cases while firing rarely on genuine non-table content supports Option A/B (Phase 18); one that fires broadly on ordinary prose does not, regardless of recovery fraction."
+}

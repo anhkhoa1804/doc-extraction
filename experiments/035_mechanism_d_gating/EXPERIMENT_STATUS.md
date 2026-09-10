@@ -1,14 +1,18 @@
 # Milestone 035 — Mechanism D: Table-Gating Forensic Study
 
-Status snapshot updated during cold-start takeover on 2026-09-09T14:48Z.
+Status snapshot reconciled after cold-start takeover on 2026-09-10.
 This document is the primary
 human-readable entry point for 035 — read it before any phase script.
 
 ## Authoritative current state
 
-- One CPU-only 035 worker is processing Phase 13 continuation batch0. Batch9
-  exited genuinely, passed validation, and RAM released to 29 GiB available
-  before this launch; no swap or usable NVIDIA driver exists.
+- Phase 13 is **COMPLETE and frozen: 150/150** validation-gated identities
+  (33 immutable original + 117 recovery), zero duplicate identities and zero
+  unresolved incomplete identities. Batch1–5 were structurally revalidated
+  from disk after the VM restart; batch4's initially invisible harness-owned
+  worker ultimately emitted a genuine 20/20 completion record and PASS
+  validation. Memory released to about 29 GiB available after each completed
+  worker; no swap or usable NVIDIA driver exists.
 - Chunk1 is **COMPLETE: 229/229** (199 original + 30 recovered), with both
   recovery batches validated and audited.
 - Chunk0 is **COMPLETE: 229/229** validated page-runs (32 original + 20
@@ -51,10 +55,16 @@ human-readable entry point for 035 — read it before any phase script.
 - Phase 13's original direct 150-page worker was intentionally interrupted
   after preserving **33 valid complete page-runs** and one incomplete run:
   that direct process violated the established process-recycling execution
-  policy. The frozen sample is unchanged; the remaining 117 identities are
-  now split into six non-overlapping <=20-page continuation batches. Its
-  annotation-mismatch accounting bug is fixed in source; no false-positive
-  result is claimed until all batches validate and the analysis completes.
+  policy. Continuation batch0 was later interrupted without a kernel OOM;
+  its **18 complete runs** passed salvage validation and its two empty,
+  no-metadata directories are preserved outside the admitted root. The frozen
+  sample is unchanged. `phase13_identity_ledger.json` records every frozen
+  identity exactly once: 33 `VALID_ORIGINAL`, 117 `VALID_RECOVERY`, and no
+  `INCOMPLETE`/`NOT_STARTED` identity. One historical render-only original
+  directory remains isolated as incident evidence; its identity was recovered.
+  Its annotation-mismatch accounting bug is fixed in source. Final Phase 13
+  analysis finds five table-labelled regions on no-GT-table pages: three
+  harmless over-detections, two ambiguous, and zero annotation mismatches.
 
 ## Objective
 
@@ -103,18 +113,19 @@ these as final Mechanism-D findings.
 - Phase 2 (coordinate proof): **FINAL** — identity pixel-space transform
   confirmed (100/100 dimension matches across 8 page sizes, geometric IoU
   0.98 on available cases). Not sample-dependent.
-- Phase 3–9/14 (matcher + funnel): **PRELIMINARY, stale artifact** — the
-  last generated result analyzed 122/665 GT tables (18%): D0=96, D1=9,
-  D2=2, D4=15, D3=0. The physical run inventory is now larger, but these
-  outputs have not been rerun and must not be treated as current proportions.
-- Phase 10 (occlusion): PRELIMINARY, same coverage caveat, n too small
-  for the occluded subgroup to be meaningful yet.
+- Phase 3–9/14 (matcher + funnel): **FINAL full-population rerun** — 665/665
+  GT tables matched over 458 pages: D0=561, D1=41, D2=34, D4=25, D6=3,
+  D7=1, D3=0. Strict Mechanism D is 34/665 (5.11%). D2 is a region-scoped
+  crop-gating loss, not proof that Table Transformer was absent at page level.
+- Phase 10 (occlusion): full rerun: D2=0/37 on the documented proxy-occluded
+  subgroup versus 34/628 (5.41%) clean; this is a null result for these
+  proxies, not a general proof that occlusion is irrelevant.
 - Phase 11 (historical cross-reference): **FINAL** — 023–033's corpus is
   synthetic (EN/VI only, zero real data) and OmniDocBench is real/scraped
   with zero Vietnamese content; the two are disjoint by construction, so
   no same-page natural experiments are possible. Not sample-dependent.
-- Phase 12 (table-shape-on-GT): PRELIMINARY, n=2 D2 cases so far — far
-  too small to report a recognition fraction.
+- Phase 12 (table-shape-on-GT): full rerun: 033's frozen rule recognizes
+  11/34 D2 cases (32.35%), while firing on 55/105 eligible non-table regions.
 - Phase 13 (false positives): **NOT STARTED** — dataset built and
   validated (150 pages, 0 duplicates, 0 overlap with GT population, 0
   false "no-table" claims), extraction deliberately not run yet
@@ -143,21 +154,21 @@ these as final Mechanism-D findings.
 | 0 Baseline | READY (done) |
 | 1 GT contract | DONE (final) |
 | 2 Coordinate proof | DONE (final) |
-| 3 Region matching | READY for full rerun; last artifact is stale at 18% |
-| 4 Failure funnel | READY for full rerun |
+| 3 Region matching | DONE — fresh 665/665 full-population rerun |
+| 4 Failure funnel | DONE — fresh full-population rerun |
 | 5 Mechanism-D population | READY for full rerun |
 | 6 Confusion matrix | READY for full rerun |
 | 7 Gating impact | READY for full rerun; MULTIPLE_MATCH denominator fix present |
 | 8 Final IR outcomes | READY for full rerun (folded into gating_impact.json) |
 | 9 Geometry stratification | READY for full rerun |
-| 10 Stamp/occlusion | READY for full rerun |
+| 10 Stamp/occlusion | DONE — fresh full-population rerun |
 | 11 Historical cross-reference | DONE (final) |
-| 12 Table-shape-on-GT | READY for full rerun |
-| 13 False positives | **READY** — 33 immutable valid original runs + 117 identities in six process-recycled batches; analyze only after every batch passes validation |
-| 14 Specialist invocation map | READY for full rerun |
-| 15 External metric reconciliation | READY, mechanics verified |
+| 12 Table-shape-on-GT | DONE — fresh full-population rerun |
+| 13 False positives | **DONE (final sample)** — frozen 150/150 validated; 5 table-labelled regions, 3 harmless over-detections, 2 ambiguous, 0 annotation mismatches |
+| 14 Specialist invocation map | DONE — fresh full-population rerun |
+| 15 External metric reconciliation | DONE — fresh full-population rerun |
 | 16 Root-cause distribution | Not yet written — pure synthesis over Phase 4 data, no blocker |
-| 17 Counterfactual | READY, mechanics verified |
+| 17 Counterfactual | DONE — 11/34 D2 eligible upper bound, with substantial false-positive exposure |
 | 18–20 (production options / reassessment / decision) | Not started — correctly deferred until full-population data exists |
 
 ## Incident
@@ -259,9 +270,9 @@ observed behavior, not either historical number.
 ## Technical debt
 
 - **P0**: none currently open.
-- **P1**: Phase 13 needs six process-recycled continuation batches. The
-  original 33 valid runs are immutable; every continuation batch must exit,
-  validate, and be admitted only through its PASS-selected root.
+- **P1**: Phase 13 needs three remaining process-recycled continuation batches.
+  The original 33 plus batch0–2's validated 58 are immutable; every remaining
+  batch must exit, validate, and be admitted only through its PASS-selected root.
 - **P2**: `phase4_9_14_funnel.py` is doing the work of 7 phases (4–9, 14)
   in one file for shared-classifier-consistency reasons (documented in
   its own module docstring) — readable but dense; a future pass could
@@ -291,17 +302,14 @@ observed behavior, not either historical number.
 
 ## Next execution gate
 
-Immediate: **run Phase 13 continuation batch0** — the primary 458-page
-GT-table corpus is complete and both chunks independently audit to 229/229.
-The already frozen 150-page stratified non-table sample has 33 immutable
-complete original runs; its remaining 117 identities are six single-worker,
-process-recycled batches. This is an ENGINEERING CHANGE to execution safety,
+Immediate: run the fresh Phase 3–17 analysis from the complete, validation-
+gated population. The primary 458-page GT-table corpus is complete and both
+chunks independently audit to 229/229; Phase 13's frozen non-table sample is
+also complete at 150/150. This execution recovery was an ENGINEERING CHANGE,
 not a scientific-methodology change.
 
 Full Phase 3–17 analysis at final numbers requires, in order:
-1. Phase 13's six continuation batches (117 pages, one worker at a time),
-   each with genuine exit verification and PASS validation.
-2. Phase 3 rerun using original plus recovery run roots (458 complete pages /
+1. Phase 3 rerun using original plus recovery run roots (458 complete pages /
    665 GT tables), then Phases 4–17 rerun in sequence.
 
 Only after (2) should Phases 16 (root-cause distribution), 18 (production

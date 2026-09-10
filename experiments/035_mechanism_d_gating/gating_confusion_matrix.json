@@ -1,0 +1,129 @@
+{
+ "n_gt_tables_analyzed": 665,
+ "confusion_gt_table_vs_internal_label": [
+  {
+   "gt": "table",
+   "internal_label": "table",
+   "count": 589,
+   "fraction": 0.8857
+  },
+  {
+   "gt": "table",
+   "internal_label": "(none)",
+   "count": 41,
+   "fraction": 0.0617
+  },
+  {
+   "gt": "table",
+   "internal_label": "picture",
+   "count": 14,
+   "fraction": 0.0211
+  },
+  {
+   "gt": "table",
+   "internal_label": "text",
+   "count": 10,
+   "fraction": 0.015
+  },
+  {
+   "gt": "table",
+   "internal_label": "document_index",
+   "count": 7,
+   "fraction": 0.0105
+  },
+  {
+   "gt": "table",
+   "internal_label": "picture+table",
+   "count": 2,
+   "fraction": 0.003
+  },
+  {
+   "gt": "table",
+   "internal_label": "code",
+   "count": 1,
+   "fraction": 0.0015
+  },
+  {
+   "gt": "table",
+   "internal_label": "(ambiguous)",
+   "count": 1,
+   "fraction": 0.0015
+  }
+ ],
+ "by_data_source": {
+  "PPT2PDF": {
+   "table": 19,
+   "(none)": 2,
+   "text": 2,
+   "(multi/ambiguous)": 1,
+   "code": 1
+  },
+  "academic_literature": {
+   "table": 118,
+   "(none)": 3,
+   "(multi/ambiguous)": 2
+  },
+  "book": {
+   "table": 81,
+   "picture": 3,
+   "(none)": 2,
+   "text": 1
+  },
+  "colorful_textbook": {
+   "table": 37,
+   "text": 1
+  },
+  "exam_paper": {
+   "table": 52,
+   "(none)": 18,
+   "picture": 2,
+   "text": 1
+  },
+  "magazine": {
+   "table": 11,
+   "picture": 2
+  },
+  "newspaper": {
+   "table": 50,
+   "picture": 7,
+   "document_index": 6,
+   "text": 5,
+   "(multi/ambiguous)": 1
+  },
+  "note": {
+   "table": 35,
+   "document_index": 1,
+   "(none)": 1
+  },
+  "research_report": {
+   "table": 185,
+   "(none)": 15
+  }
+ },
+ "by_language": {
+  "en_ch_mixed": {
+   "table": 23,
+   "(none)": 6,
+   "document_index": 1
+  },
+  "english": {
+   "table": 211,
+   "text": 9,
+   "picture": 7,
+   "(none)": 6,
+   "document_index": 6,
+   "(multi/ambiguous)": 3,
+   "code": 1
+  },
+  "simplified_chinese": {
+   "table": 344,
+   "(none)": 29,
+   "picture": 7,
+   "(multi/ambiguous)": 1,
+   "text": 1
+  },
+  "traditional_chinese": {
+   "table": 10
+  }
+ }
+}

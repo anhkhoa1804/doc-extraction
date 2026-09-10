@@ -1,0 +1,647 @@
+{
+ "rule": "033's own best-candidate rule: row_bands>=3 AND col_bands>=2 AND children_per_row_band>=1.5, computed via experiments/019_ocr_grid_table_detection/table_candidate.py (imported, not reimplemented). Token search window: GT table bbox (for D2 recognition) / each non-table region's own bbox (for the false-positive side).",
+ "d2_population_size_this_run": 34,
+ "d2_population_size_mechanism_d_population_json": 34,
+ "population_size_cross_check_ok": true,
+ "n_d2_cases_rule_would_recognize": 11,
+ "recognition_fraction": 0.3235,
+ "d2_cases": [
+  {
+   "image": "page-d5f79be0-5d57-4849-9897-6106dd32117a.png",
+   "gt_table_anno_id": "box_id_0",
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "yanbaopptmerge_yanbaoPPT_4275.jpg",
+   "gt_table_anno_id": 3,
+   "wrong_label": null,
+   "signature": {
+    "row_bands": 3,
+    "col_bands": 3,
+    "children_per_row_band": 4.667,
+    "n_tokens": 14
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+   "gt_table_anno_id": 7,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+   "gt_table_anno_id": 9,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7.jpg",
+   "gt_table_anno_id": 0,
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+   "gt_table_anno_id": 14,
+   "wrong_label": null,
+   "signature": {
+    "row_bands": 7,
+    "col_bands": 3,
+    "children_per_row_band": 7.857,
+    "n_tokens": 55
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg",
+   "gt_table_anno_id": 4,
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "jiaocaineedrop_42351289.pdf_1.jpg",
+   "gt_table_anno_id": 5,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "jiaocaineedrop_46.pdf_1.jpg",
+   "gt_table_anno_id": 4,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 3,
+    "col_bands": 3,
+    "children_per_row_band": 2.667,
+    "n_tokens": 8
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_021.png",
+   "gt_table_anno_id": 3,
+   "wrong_label": "code",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "jiaocaineedrop_jiaocai_needrop_en_1417.jpg",
+   "gt_table_anno_id": 2,
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 1.0,
+    "n_tokens": 1
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg",
+   "gt_table_anno_id": 16,
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg",
+   "gt_table_anno_id": 4,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 2,
+    "col_bands": 1,
+    "children_per_row_band": 1.0,
+    "n_tokens": 2
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg",
+   "gt_table_anno_id": 0,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 2,
+    "col_bands": 1,
+    "children_per_row_band": 2.0,
+    "n_tokens": 4
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_Daily Star 2025-1-8@magazinesclubnew_page_060.png",
+   "gt_table_anno_id": 5,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 9,
+    "col_bands": 4,
+    "children_per_row_band": 2.667,
+    "n_tokens": 24
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_Daily Star 2025-1-8@magazinesclubnew_page_060.png",
+   "gt_table_anno_id": 13,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 9,
+    "col_bands": 6,
+    "children_per_row_band": 2.0,
+    "n_tokens": 18
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_014.png",
+   "gt_table_anno_id": 7,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 8,
+    "col_bands": 2,
+    "children_per_row_band": 1.75,
+    "n_tokens": 14
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_014.png",
+   "gt_table_anno_id": 31,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 3,
+    "col_bands": 3,
+    "children_per_row_band": 2.667,
+    "n_tokens": 8
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Guardian UK_0801@magazinesclubnew_page_052.png",
+   "gt_table_anno_id": 6,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 9,
+    "col_bands": 7,
+    "children_per_row_band": 6.222,
+    "n_tokens": 56
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Guardian UK_0801@magazinesclubnew_page_052.png",
+   "gt_table_anno_id": 7,
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 8,
+    "col_bands": 4,
+    "children_per_row_band": 7.25,
+    "n_tokens": 58
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Times UK_0801@magazinesclubnew_page_031.png",
+   "gt_table_anno_id": "box_id_1",
+   "wrong_label": "picture",
+   "signature": {
+    "row_bands": 11,
+    "col_bands": 4,
+    "children_per_row_band": 2.727,
+    "n_tokens": 30
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-bfny2f1z",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-7mwax454",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-1nnly5de",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-5zkimf1o",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 2,
+    "col_bands": 1,
+    "children_per_row_band": 1.5,
+    "n_tokens": 3
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-l1p3lf8a",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_018.png",
+   "gt_table_anno_id": "box-13qv1ztw",
+   "wrong_label": "document_index",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "gt_table_anno_id": "box_id_167",
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 0,
+    "col_bands": 0,
+    "children_per_row_band": 0.0,
+    "n_tokens": 0
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "gt_table_anno_id": "box_id_268",
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 3.0,
+    "n_tokens": 3
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "gt_table_anno_id": "box_id_276",
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 2,
+    "col_bands": 1,
+    "children_per_row_band": 1.5,
+    "n_tokens": 3
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "gt_table_anno_id": "box_id_278",
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 3,
+    "col_bands": 3,
+    "children_per_row_band": 2.667,
+    "n_tokens": 8
+   },
+   "would_rule_033_recognize": true
+  },
+  {
+   "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+   "gt_table_anno_id": "box_id_280",
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 2.0,
+    "n_tokens": 2
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "PPT_PresentationSpecification_page_010.png",
+   "gt_table_anno_id": 4,
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 3.0,
+    "n_tokens": 3
+   },
+   "would_rule_033_recognize": false
+  },
+  {
+   "image": "PPT_PresentationSpecification_page_010.png",
+   "gt_table_anno_id": 5,
+   "wrong_label": "text",
+   "signature": {
+    "row_bands": 1,
+    "col_bands": 0,
+    "children_per_row_band": 3.0,
+    "n_tokens": 3
+   },
+   "would_rule_033_recognize": false
+  }
+ ],
+ "false_positive_side": {
+  "n_non_table_regions_checked": 6869,
+  "n_non_table_regions_with_ge4_tokens": 105,
+  "n_rule_fires_on_non_table_region": 55,
+  "fire_fraction_of_eligible": 0.5238,
+  "examples": [
+   {
+    "image": "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg",
+    "region_index": 1,
+    "label": "picture",
+    "signature": {
+     "row_bands": 21,
+     "col_bands": 5,
+     "children_per_row_band": 2.048,
+     "n_tokens": 43
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.08.021.pdf_7.jpg",
+    "region_index": 0,
+    "label": "picture",
+    "signature": {
+     "row_bands": 14,
+     "col_bands": 2,
+     "children_per_row_band": 1.857,
+     "n_tokens": 26
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-ceat.200600410.pdf_5.jpg",
+    "region_index": 2,
+    "label": "picture",
+    "signature": {
+     "row_bands": 14,
+     "col_bands": 3,
+     "children_per_row_band": 1.929,
+     "n_tokens": 27
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-ceat.200600410.pdf_5.jpg",
+    "region_index": 31,
+    "label": "picture",
+    "signature": {
+     "row_bands": 14,
+     "col_bands": 3,
+     "children_per_row_band": 1.5,
+     "n_tokens": 21
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-ceat.200600266.pdf_2.jpg",
+    "region_index": 6,
+    "label": "picture",
+    "signature": {
+     "row_bands": 9,
+     "col_bands": 6,
+     "children_per_row_band": 2.222,
+     "n_tokens": 20
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-s00374-003-0589-2.pdf_6.jpg",
+    "region_index": 0,
+    "label": "picture",
+    "signature": {
+     "row_bands": 19,
+     "col_bands": 8,
+     "children_per_row_band": 2.316,
+     "n_tokens": 44
+    }
+   },
+   {
+    "image": "yanbaopptmerge_yanbaoPPT_4275.jpg",
+    "region_index": 0,
+    "label": "picture",
+    "signature": {
+     "row_bands": 3,
+     "col_bands": 3,
+     "children_per_row_band": 4.667,
+     "n_tokens": 14
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-ceat.200600410.pdf_8.jpg",
+    "region_index": 0,
+    "label": "picture",
+    "signature": {
+     "row_bands": 10,
+     "col_bands": 2,
+     "children_per_row_band": 1.7,
+     "n_tokens": 17
+    }
+   },
+   {
+    "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg",
+    "region_index": 3,
+    "label": "picture",
+    "signature": {
+     "row_bands": 7,
+     "col_bands": 2,
+     "children_per_row_band": 2.0,
+     "n_tokens": 14
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+    "region_index": 2,
+    "label": "picture",
+    "signature": {
+     "row_bands": 21,
+     "col_bands": 6,
+     "children_per_row_band": 5.286,
+     "n_tokens": 111
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+    "region_index": 90,
+    "label": "picture",
+    "signature": {
+     "row_bands": 16,
+     "col_bands": 9,
+     "children_per_row_band": 2.375,
+     "n_tokens": 38
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-s003950050126.pdf_6.jpg",
+    "region_index": 3,
+    "label": "picture",
+    "signature": {
+     "row_bands": 7,
+     "col_bands": 4,
+     "children_per_row_band": 4.857,
+     "n_tokens": 34
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-s0167-8655%2800%2900107-0.pdf_6.jpg",
+    "region_index": 0,
+    "label": "picture",
+    "signature": {
+     "row_bands": 12,
+     "col_bands": 4,
+     "children_per_row_band": 2.75,
+     "n_tokens": 33
+    }
+   },
+   {
+    "image": "jiaocaineedrop_42351289.pdf_1.jpg",
+    "region_index": 24,
+    "label": "picture",
+    "signature": {
+     "row_bands": 7,
+     "col_bands": 4,
+     "children_per_row_band": 1.857,
+     "n_tokens": 13
+    }
+   },
+   {
+    "image": "jiaocaineedrop_46.pdf_1.jpg",
+    "region_index": 13,
+    "label": "picture",
+    "signature": {
+     "row_bands": 4,
+     "col_bands": 3,
+     "children_per_row_band": 2.25,
+     "n_tokens": 9
+    }
+   },
+   {
+    "image": "jiaocaineedrop_chap5.pdf_4.jpg",
+    "region_index": 2,
+    "label": "picture",
+    "signature": {
+     "row_bands": 13,
+     "col_bands": 3,
+     "children_per_row_band": 2.923,
+     "n_tokens": 38
+    }
+   },
+   {
+    "image": "jiaocaineedrop_chem-354334.pdf_20.jpg",
+    "region_index": 13,
+    "label": "picture",
+    "signature": {
+     "row_bands": 5,
+     "col_bands": 2,
+     "children_per_row_band": 2.0,
+     "n_tokens": 10
+    }
+   },
+   {
+    "image": "jiaocaineedrop_chem-354334.pdf_20.jpg",
+    "region_index": 25,
+    "label": "picture",
+    "signature": {
+     "row_bands": 4,
+     "col_bands": 2,
+     "children_per_row_band": 1.75,
+     "n_tokens": 7
+    }
+   },
+   {
+    "image": "jiaocaineedrop_55196913.pdf_0.jpg",
+    "region_index": 19,
+    "label": "picture",
+    "signature": {
+     "row_bands": 12,
+     "col_bands": 4,
+     "children_per_row_band": 1.917,
+     "n_tokens": 23
+    }
+   },
+   {
+    "image": "eastmoney_e480008a65ea31d8c1a5e86900788b67d07422f02dbc5296aedf9423e1a23b4e.pdf_6.jpg",
+    "region_index": 1,
+    "label": "picture",
+    "signature": {
+     "row_bands": 9,
+     "col_bands": 2,
+     "children_per_row_band": 2.667,
+     "n_tokens": 24
+    }
+   }
+  ]
+ },
+ "interpretation_note": "would_rule_033_recognize does NOT mean 'safe to auto-route to table processing' -- Phase 13 measures the full false-positive exposure (this sub-check only covers non-table regions on D2-relevant pages). A high recognition fraction here with a low false-positive fraction is what would make Option A/B (Phase 18) look attractive; either alone is not sufficient."
+}

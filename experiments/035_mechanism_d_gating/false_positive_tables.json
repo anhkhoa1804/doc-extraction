@@ -1,0 +1,139 @@
+{
+ "source_run_dirs": [
+  "experiments/035_mechanism_d_gating/results/non_table_sample/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch0/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch1/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch2/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch3/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch4/_doc_extraction_runs",
+  "experiments/035_mechanism_d_gating/results/non_table_sample_recovery/batch5/_doc_extraction_runs"
+ ],
+ "n_pages_processed": 150,
+ "n_table_labeled_regions_on_no_gt_table_pages": 5,
+ "n_findings_total": 5,
+ "n_findings_no_gt_overlap": 5,
+ "n_annotation_mismatches": 0,
+ "classification_counts": {
+  "harmless_over_detection": 3,
+  "ambiguous": 2
+ },
+ "classification_definitions": {
+  "harmless_over_detection": "table-shaped by 033's own rule AND the final table has populated cell text -- plausibly a real small/borderline table the GT annotation simply didn't mark, not a pipeline defect.",
+  "false_table": "neither shape evidence nor populated downstream content -- a genuine mislabel with no supporting evidence either way.",
+  "ambiguous": "shape evidence and downstream content disagree.",
+  "annotation_mismatch": "the region DOES overlap a GT table on this page (>0.1 IoU) despite the page being sampled as 'no GT table' -- a data-pipeline bug in this phase's own sampling, or a genuine annotation inconsistency; investigate rather than silently exclude."
+ },
+ "risk_envelope_note": "This is the exposure any label-relaxation intervention (Phase 17/18 Option A/B) would inherit -- compare n_findings_no_gt_overlap against the D2 recovery count from Phase 12/mechanism_d_population.json to judge whether relaxing the gate trades few false losses for many new false positives, or the reverse.",
+ "findings": [
+  {
+   "image": "PPT_session 10_page_028.png",
+   "region_index": 1,
+   "label": "table",
+   "bbox": {
+    "x0": 91.69465637207031,
+    "y0": 430.6310729980469,
+    "x1": 1914.185546875,
+    "y1": 1058.208740234375
+   },
+   "n_tokens_in_region": 29,
+   "shape_signature": {
+    "row_bands": 4,
+    "col_bands": 10,
+    "children_per_row_band": 7.25,
+    "n_tokens": 29
+   },
+   "rule_033_fires": true,
+   "final_table_object_present": true,
+   "final_table_populated": true,
+   "classification": "harmless_over_detection"
+  },
+  {
+   "image": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语上册_课本_人教新起点英语5A电子课本_page_008.png",
+   "region_index": 1,
+   "label": "table",
+   "bbox": {
+    "x0": 208.84115600585938,
+    "y0": 181.5441131591797,
+    "x1": 1511.4122314453125,
+    "y1": 756.7078247070312
+   },
+   "n_tokens_in_region": 10,
+   "shape_signature": {
+    "row_bands": 3,
+    "col_bands": 4,
+    "children_per_row_band": 3.333,
+    "n_tokens": 10
+   },
+   "rule_033_fires": true,
+   "final_table_object_present": true,
+   "final_table_populated": true,
+   "classification": "harmless_over_detection"
+  },
+  {
+   "image": "notes_f7f010b78016aeebd76e56d9283eb67f_4.jpg",
+   "region_index": 1,
+   "label": "table",
+   "bbox": {
+    "x0": 104.96416473388672,
+    "y0": 216.79129028320312,
+    "x1": 1347.116455078125,
+    "y1": 1724.8076171875
+   },
+   "n_tokens_in_region": 16,
+   "shape_signature": {
+    "row_bands": 16,
+    "col_bands": 1,
+    "children_per_row_band": 1.0,
+    "n_tokens": 16
+   },
+   "rule_033_fires": false,
+   "final_table_object_present": true,
+   "final_table_populated": true,
+   "classification": "ambiguous"
+  },
+  {
+   "image": "jiaocaineedrop_jiaocai_needrop_en_546.jpg",
+   "region_index": 0,
+   "label": "table",
+   "bbox": {
+    "x0": 291.3057556152344,
+    "y0": 668.9996337890625,
+    "x1": 2302.058349609375,
+    "y1": 2535.135009765625
+   },
+   "n_tokens_in_region": 18,
+   "shape_signature": {
+    "row_bands": 10,
+    "col_bands": 3,
+    "children_per_row_band": 1.8,
+    "n_tokens": 18
+   },
+   "rule_033_fires": true,
+   "final_table_object_present": true,
+   "final_table_populated": true,
+   "classification": "harmless_over_detection"
+  },
+  {
+   "image": "notes_f7f010b78016aeebd76e56d9283eb67f_69.jpg",
+   "region_index": 0,
+   "label": "table",
+   "bbox": {
+    "x0": 82.8359146118164,
+    "y0": 287.38507080078125,
+    "x1": 1331.985595703125,
+    "y1": 1904.13427734375
+   },
+   "n_tokens_in_region": 14,
+   "shape_signature": {
+    "row_bands": 11,
+    "col_bands": 2,
+    "children_per_row_band": 1.273,
+    "n_tokens": 14
+   },
+   "rule_033_fires": false,
+   "final_table_object_present": true,
+   "final_table_populated": true,
+   "classification": "ambiguous"
+  }
+ ]
+}

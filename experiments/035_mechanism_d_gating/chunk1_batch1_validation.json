@@ -1,0 +1,28 @@
+{
+ "batch_index": 1,
+ "n_assigned": 10,
+ "n_completed_valid": 10,
+ "n_incomplete": 0,
+ "n_schema_errors": 0,
+ "sum_check_ok": true,
+ "unexpected_pages_not_in_assignment": [],
+ "assigned_pages_missing_entirely": [],
+ "collision_with_original_32": [],
+ "collision_with_prior_recovery_batches": [],
+ "duplicate_within_batch": false,
+ "schema_errors": [],
+ "incomplete_names": [],
+ "completed_names": [
+  "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_012.png",
+  "PPT_LEP power point presentation-English-FINAL-10-31-07_page_010.png",
+  "PPT_PresentationSpecification_page_010.png",
+  "color_textbook_教材全解1+1二年级下册英语上海牛津版_page_066.png",
+  "color_textbook_教材全解1+1二年级下册英语上海牛津版_page_081.png",
+  "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语上册_课本_人教新起点英语5A电子课本_page_056.png",
+  "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语下册_课本_人教新起点英语5B电子课本_page_011.png",
+  "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点五年级英语下册_课本_人教新起点英语5B电子课本_page_036.png",
+  "exam_paper_2018年广西北海、钦州、南宁、来宾、崇左、防城港、北部湾经济区中考英语试题（空白卷）_page_003.png",
+  "magazine_TheEconomist.2024.02.24_page_076.png"
+ ],
+ "PASS": true
+}

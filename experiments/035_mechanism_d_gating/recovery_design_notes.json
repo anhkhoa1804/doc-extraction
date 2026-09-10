@@ -1,0 +1,44 @@
+{
+  "phase_c_recovery_mode_comparison": {
+    "priority_order": "memory safety > corpus completeness > throughput (explicit instruction)",
+    "mode_1": {
+      "name": "Single CPU worker, full remaining batch (197 pages: 196 not-started + 1 incomplete)",
+      "peak_ram_estimate": "Evidence-based, not assumed: chunk1 alone (no concurrent second worker) has oscillated 7.9-9.7GB across 6+ samples since chunk0's death, never approaching the 12.1GB kill threshold. A single Mode-1 worker run AFTER chunk1 finishes (so it is also alone) is expected to fall in the same band.",
+      "throughput": "~57-100s/page observed range -> 197 pages ~= 3.1-5.5 hours serial",
+      "reproducibility": "High -- identical code path, config, and device as the original run; only the process-lifecycle history differs (fresh process vs. one that already lived through 32 pages).",
+      "complexity": "Low -- build a 'remaining pages' sub-dataset (196 not-started + re-add the 1 incomplete image), run prepare.py once.",
+      "schema_identity": "Identical -- same prepare.py, same --keep-runs artifact layout."
+    },
+    "mode_2": {
+      "name": "Single CPU worker, small batches with explicit process recycling (e.g. restart every ~20-30 pages)",
+      "peak_ram_estimate": "Bounded more tightly per batch than Mode 1 -- caps worst-case single-process exposure at whatever a ~20-30 page run's peak is, at the cost of paying model-load cost again at each restart.",
+      "throughput": "Mode 1's throughput plus ~7 restarts x model-load overhead (observed ~30-100s of the first page's latency is partly load cost) -- a modest, bounded throughput tax, not a large one.",
+      "reproducibility": "High -- same code path per batch; batch boundaries are an operational artifact, not a methodology change.",
+      "complexity": "Low-moderate -- needs a driving loop building N sub-datasets and invoking prepare.py N times.",
+      "schema_identity": "Identical."
+    },
+    "mode_3": {
+      "name": "One page per isolated subprocess (maximal isolation -- fresh process, pays full model-load cost, every page)",
+      "peak_ram_estimate": "Lowest possible ceiling -- OS reclaims the entire process on exit, so no cross-page accumulation is possible by construction.",
+      "throughput": "Substantially worse -- model loading is a meaningful fraction of the ~57-100s/page average (the 5-page CPU timing probe's first-page cost included load; subsequent probe pages were still 30-74s each with the model already warm in that SAME process, so load is not the whole cost, but paying it 197 times instead of ~1-7 times is a real, non-trivial tax).",
+      "reproducibility": "High, same code path.",
+      "complexity": "Higher -- requires driving 197 separate process invocations.",
+      "schema_identity": "Identical.",
+      "when_justified": "Only if Mode 1/2 calibration comes back RED."
+    },
+    "mode_4": {
+      "name": "Reduced concurrency via the existing 2-worker mechanism",
+      "status": "NOT APPLICABLE -- explicitly excluded by non-negotiable rule 4 (no two concurrent replacement workers). Not evaluated further."
+    }
+  },
+  "phase_e_resume_strategy_design": {
+    "principle": "Additive recovery, never destructive overwrite (rules 6, 7).",
+    "verified_from_source": {
+      "write_predictions()": "src/doc_extraction/evaluation/omnidocbench.py -- predictions_dir.mkdir(exist_ok=True), writes ONE file per sample by name, no directory clearing. Safe to point at an existing predictions/ dir; will not touch unrelated existing files.",
+      "per_page_run_dir_naming": "_doc_extraction_runs/<doc_id>/ where doc_id is content-hash-derived (file_hash_sha256 in metadata.json) -- unique per distinct image, so re-running different (missing) images cannot collide with or overwrite the 32 already-valid page-run directories.",
+      "run_metadata.json_and_runtime.json": "prepare.py's own top-level code writes these UNCONDITIONALLY at the OUTPUT ROOT (not merged, not appended) -- these WOULD be overwritten if a recovery run targeted the exact same --output as the original chunk0 run, silently replacing the incident-relevant original run_metadata.json/runtime.json (which record the original 229-page attempt, killed at page 33) with numbers describing only the recovery subset. This is the one real overwrite risk identified."
+    },
+    "decision": "Recovery output goes to a SEPARATE directory: results/gt_tables_chunk0_recovery/. The original results/gt_tables_chunk0/ (32 valid page-runs, plus its own run_metadata.json/runtime.json documenting the killed 229-page attempt) is left completely untouched -- true primary incident evidence, never touched again. Phase 3's matcher (phase3_region_matching.py) will be extended to read a THIRD directory (results/gt_tables_chunk0_recovery/_doc_extraction_runs) alongside the existing two once recovery actually runs -- an additive, one-line change to CHUNK_DIRS, not a rewrite of any matching logic.",
+    "incomplete_page_handling": "page-f6b6cfb8-3bb5-4393-b3fb-70efef72aca5.png (the one in-flight page) is included in the recovery batch's input dataset (it has no valid final/document.json, so it is correctly treated as not-yet-produced, matching rule 9 -- 'incomplete, not failed ground truth'). Its OLD incomplete directory under the original chunk0's _doc_extraction_runs/ is left in place, untouched (not deleted, per rule 5/6) -- it will simply never be selected by load_page_run() (requires final/document.json) and is superseded by a NEW, complete directory of the same image under the recovery output tree once (and if) recovery actually runs."
+  }
+}

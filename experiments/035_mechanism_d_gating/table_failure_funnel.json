@@ -1,0 +1,458 @@
+{
+ "n_gt_tables_analyzed": 665,
+ "n_gt_tables_full_population": 665,
+ "coverage_fraction": 1.0,
+ "stage_definitions": {
+  "D0": "No failure",
+  "D1": "Upstream layout detection miss (no region at all)",
+  "D2": "Region exists but wrong semantic label (gate excludes it)",
+  "D3": "Correct/usable region rejected by gate for another reason -- ARCHITECTURALLY NEAR-IMPOSSIBLE in this codebase: the gate IS the label check (pipelines/base.py:747), no secondary gate exists (stages/table.py:run_table passes all gated regions straight to the backend, no further filtering). Expected count: 0.",
+  "D4": "Specialist invoked but failed to produce structure for this region",
+  "D5": "Specialist succeeded but post-processing lost the output before final IR",
+  "D6": "Output exists in final IR but fails structural validity",
+  "D7": "Annotation/matching ambiguity (matcher could not attribute confidently)"
+ },
+ "stage_counts": {
+  "D0": 561,
+  "D1": 41,
+  "D2": 34,
+  "D4": 25,
+  "D6": 3,
+  "D7": 1
+ },
+ "stage_fractions_of_analyzed": {
+  "D0": 0.8436,
+  "D1": 0.0617,
+  "D2": 0.0511,
+  "D4": 0.0376,
+  "D6": 0.0045,
+  "D7": 0.0015
+ },
+ "d3_architectural_check": {
+  "measured_d3_count": 0,
+  "expected_zero_confirmed": true
+ },
+ "verdict_counts_from_phase3": {
+  "EXACT_MATCH": 537,
+  "GOOD_MATCH": 20,
+  "NO_REGION": 41,
+  "PARTIAL_MATCH": 63,
+  "MULTIPLE_MATCH": 3,
+  "AMBIGUOUS": 1
+ },
+ "per_stage_example_cases": {
+  "D0": [
+   {
+    "image": "page-0b20ed47-7c6c-4578-bbdf-057a89a083ec.png",
+    "gt_table_anno_id": "box_id_2",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 8,
+     "n_cols": 3,
+     "n_cells": 24,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.2083
+    }
+   },
+   {
+    "image": "page-0b20ed47-7c6c-4578-bbdf-057a89a083ec.png",
+    "gt_table_anno_id": "box_id_4",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 2,
+     "n_cols": 5,
+     "n_cells": 8,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.875
+    }
+   },
+   {
+    "image": "page-0c1be55c-0b1b-4d62-b17d-ed752f9af9f2.png",
+    "gt_table_anno_id": "box_id_3",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 11,
+     "n_cols": 2,
+     "n_cells": 22,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.0455
+    }
+   },
+   {
+    "image": "page-112859dc-07d9-473a-a027-94904db8fd84.png",
+    "gt_table_anno_id": "box_id_0",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 5,
+     "n_cols": 3,
+     "n_cells": 15,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.0667
+    }
+   },
+   {
+    "image": "page-28c45f5f-7e0d-464a-89ec-8de3a4abb927.png",
+    "gt_table_anno_id": "box_id_7",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 3,
+     "n_cols": 6,
+     "n_cells": 17,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.5882
+    }
+   },
+   {
+    "image": "page-2b4c4f44-c0de-41b6-9561-96195c233f47.png",
+    "gt_table_anno_id": "box_id_6",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 3,
+     "n_cols": 3,
+     "n_cells": 9,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.0
+    }
+   },
+   {
+    "image": "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png",
+    "gt_table_anno_id": "box_id_1",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 17,
+     "n_cols": 4,
+     "n_cells": 66,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.3636
+    }
+   },
+   {
+    "image": "page-3c690b07-30d7-4e77-bf20-012f0080fb1d.png",
+    "gt_table_anno_id": "box_id_3",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 7,
+     "n_cols": 2,
+     "n_cells": 14,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.0
+    }
+   },
+   {
+    "image": "page-423cdc11-af52-4e41-8feb-a40741b15855.png",
+    "gt_table_anno_id": "box_id_5",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 7,
+     "n_cols": 4,
+     "n_cells": 28,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.0
+    }
+   },
+   {
+    "image": "page-4319d401-c9e8-4326-9869-7572cf2e0e96.png",
+    "gt_table_anno_id": "box_id_3",
+    "detail": {
+     "reason": null,
+     "valid": true,
+     "n_rows": 2,
+     "n_cols": 4,
+     "n_cells": 8,
+     "escaping_cell_fraction": 0.0,
+     "populated_cell_fraction": 0.625
+    }
+   }
+  ],
+  "D1": [
+   {
+    "image": "page-9edf7687-029e-4e72-a9a6-c23faa1e1861.png",
+    "gt_table_anno_id": "box_id_3",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-ab441454-71f1-4900-87c1-d71d5602261e.png",
+    "gt_table_anno_id": "box_id_2",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-ab441454-71f1-4900-87c1-d71d5602261e.png",
+    "gt_table_anno_id": "box-tn22tc2f",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-74961b9a-ef4c-42d8-a95f-406e6b84cf63.png",
+    "gt_table_anno_id": "box_id_2",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png",
+    "gt_table_anno_id": "box_id_2",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-28657a85-95cc-4bfa-8156-cc98518a0b4c.png",
+    "gt_table_anno_id": "box_id_0",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-94600a77-35db-4549-b505-3dadc092b3f4.png",
+    "gt_table_anno_id": "box_id_1",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-bf3685a0-f0ea-46a7-bb99-1526da8f8077.png",
+    "gt_table_anno_id": "box-mhg591pb",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-c7771a62-5b6b-48f0-b591-6b657d26e125.png",
+    "gt_table_anno_id": "box-fy04hrwa",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   },
+   {
+    "image": "page-ab4f331b-e8f3-41fb-ba6b-8da5ade54983.png",
+    "gt_table_anno_id": "box_id_5",
+    "detail": {
+     "reason": "no internal layout region overlaps this GT table at all"
+    }
+   }
+  ],
+  "D2": [
+   {
+    "image": "page-d5f79be0-5d57-4849-9897-6106dd32117a.png",
+    "gt_table_anno_id": "box_id_0",
+    "detail": {
+     "reason": "region labelled 'picture', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "yanbaopptmerge_yanbaoPPT_4275.jpg",
+    "gt_table_anno_id": 3,
+    "detail": {
+     "reason": "GT table fragmented across multiple regions, SOME labelled 'table' and some not -- partial gating",
+     "n_fragments": 2,
+     "n_gated_fragments": 1,
+     "secondary_cause": "mixed_fragment_labels"
+    }
+   },
+   {
+    "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+    "gt_table_anno_id": 7,
+    "detail": {
+     "reason": "region labelled 'picture', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+    "gt_table_anno_id": 9,
+    "detail": {
+     "reason": "region labelled 'picture', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7.jpg",
+    "gt_table_anno_id": 0,
+    "detail": {
+     "reason": "region labelled 'text', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+    "gt_table_anno_id": 14,
+    "detail": {
+     "reason": "GT table fragmented across multiple regions, SOME labelled 'table' and some not -- partial gating",
+     "n_fragments": 2,
+     "n_gated_fragments": 1,
+     "secondary_cause": "mixed_fragment_labels"
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg",
+    "gt_table_anno_id": 4,
+    "detail": {
+     "reason": "region labelled 'text', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "PARTIAL_MATCH"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_42351289.pdf_1.jpg",
+    "gt_table_anno_id": 5,
+    "detail": {
+     "reason": "region labelled 'picture', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_46.pdf_1.jpg",
+    "gt_table_anno_id": 4,
+    "detail": {
+     "reason": "region labelled 'picture', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   },
+   {
+    "image": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_021.png",
+    "gt_table_anno_id": 3,
+    "detail": {
+     "reason": "region labelled 'code', not 'table' -- gate excludes it from table_regions, Table Transformer never invoked on this region",
+     "match_quality": "EXACT_MATCH"
+    }
+   }
+  ],
+  "D4": [
+   {
+    "image": "page-d5a3ea83-5427-4f90-a157-7b39b784b26e.png",
+    "gt_table_anno_id": "box_id_4",
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "page-fd04ea51-677c-4de2-8e8e-adfd791e2957.png",
+    "gt_table_anno_id": "box_id_5",
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "yanbaopptmerge_e60b3b61281e87ddf42f9321a9e6ef9d.pdf_159.jpg",
+    "gt_table_anno_id": 12,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-scihub-o.O-s00348-003-0689-7.pdf_3.jpg",
+    "gt_table_anno_id": 5,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_jiaocai_needrop_en_1349.jpg",
+    "gt_table_anno_id": 12,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "eastmoney_f671ab94bf8b8274d6736f1a3dc775b3b74fa68686df2946aa5307b6b2a32062.pdf_18.jpg",
+    "gt_table_anno_id": 9,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_jiaocai_needrop_en_1473.jpg",
+    "gt_table_anno_id": 3,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_jiaocai_needrop_en_1478.jpg",
+    "gt_table_anno_id": 19,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_jiaocai_needrop_en_194.jpg",
+    "gt_table_anno_id": 2,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   },
+   {
+    "image": "jiaocaineedrop_jiaocai_needrop_en_2211.jpg",
+    "gt_table_anno_id": 21,
+    "detail": {
+     "reason": "region correctly labelled 'table', gate passed, but Table Transformer's own raw output has no table for this bbox -- specialist invocation failed to produce structure"
+    }
+   }
+  ],
+  "D6": [
+   {
+    "image": "docstructbench_llm-raw-the-eye-o.O-chap08.pdf_12.jpg",
+    "gt_table_anno_id": 8,
+    "detail": {
+     "reason": "cells_escape_table_bbox",
+     "valid": false,
+     "n_rows": 5,
+     "n_cols": 3,
+     "n_cells": 15,
+     "escaping_cell_fraction": 0.2,
+     "populated_cell_fraction": 0.9333
+    }
+   },
+   {
+    "image": "docstructbench_llm-raw-the-eye-o.O-Player%27s%20Options%20-%20Halflings.pdf_11.jpg",
+    "gt_table_anno_id": 3,
+    "detail": {
+     "reason": "cells_escape_table_bbox",
+     "valid": false,
+     "n_rows": 5,
+     "n_cols": 9,
+     "n_cells": 39,
+     "escaping_cell_fraction": 0.3077,
+     "populated_cell_fraction": 0.7949
+    }
+   },
+   {
+    "image": "scihub_jneurosci.16-15-04625.1996.pdf_2.jpg",
+    "gt_table_anno_id": 9,
+    "detail": {
+     "reason": "no_table_object",
+     "valid": false
+    }
+   }
+  ],
+  "D7": [
+   {
+    "image": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_025.png",
+    "gt_table_anno_id": "box_id_266",
+    "detail": {
+     "reason": "matcher could not confidently attribute a single region",
+     "detail": {
+      "top_region_index": 224,
+      "second_region_index": 221,
+      "top_intersection_over_gt": 0.1939,
+      "second_intersection_over_gt": 0.1883
+     }
+    }
+   }
+  ]
+ }
+}
