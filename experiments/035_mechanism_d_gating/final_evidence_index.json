@@ -1,0 +1,8 @@
+{
+ "status": "CLOSED_PARTIALLY_VALIDATES",
+ "population": {"gt_tables": 665, "pages": 458, "phase13_pages": 150},
+ "phase13": {"valid_original": 33, "valid_recovery": 117, "duplicates": 0, "unresolved_incomplete": 0},
+ "final_funnel": {"D0": 561, "D1": 41, "D2": 34, "D3": 0, "D4": 25, "D6": 3, "D7": 1},
+ "guardrails": ["D2 is region/crop gating, not proof of absent page-level invocation", "11/34 is an eligibility upper bound, not recovery", "proxy occlusion is not a general occlusion conclusion"],
+ "artifacts": ["phase13_identity_ledger.json", "false_positive_tables.json", "table_region_matching.json", "table_failure_funnel.json", "table_shape_on_gt.json", "stamp_occlusion_analysis.json", "specialist_invocation_map.json", "external_metric_reconciliation.json", "counterfactual_gating.json", "FINAL_RESEARCH_REPORT.md"]
+}

@@ -167,9 +167,9 @@ these as final Mechanism-D findings.
 | 13 False positives | **DONE (final sample)** — frozen 150/150 validated; 5 table-labelled regions, 3 harmless over-detections, 2 ambiguous, 0 annotation mismatches |
 | 14 Specialist invocation map | DONE — fresh full-population rerun |
 | 15 External metric reconciliation | DONE — fresh full-population rerun |
-| 16 Root-cause distribution | Not yet written — pure synthesis over Phase 4 data, no blocker |
+| 16 Root-cause distribution | DONE — final synthesis in FINAL_RESEARCH_REPORT.md |
 | 17 Counterfactual | DONE — 11/34 D2 eligible upper bound, with substantial false-positive exposure |
-| 18–20 (production options / reassessment / decision) | Not started — correctly deferred until full-population data exists |
+| 18–20 (production options / reassessment / decision) | DONE — conservative closure in FINAL_RESEARCH_REPORT.md |
 
 ## Incident
 
