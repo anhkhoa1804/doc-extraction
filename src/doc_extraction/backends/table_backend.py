@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import importlib.util
 from dataclasses import dataclass
+from time import perf_counter
 
 from doc_extraction.pipelines.base import PageInput, Region, TableResult
 from doc_extraction.schemas.element import BBox
@@ -48,6 +49,12 @@ class CropCounterfactualResult:
     detected_boxes: list[BBox]
     forced_crop_table: Table | None
     detector_tables: list[Table]
+
+
+@dataclass(frozen=True)
+class _DetectedTableBox:
+    bbox: BBox
+    score: float | None
 
 
 def is_available() -> bool:
@@ -89,34 +96,213 @@ class TableTransformerBackend:
         )
 
     def extract(self, page: PageInput, regions: list[Region]) -> TableResult:
+        extract_start = perf_counter()
+        specialist_metadata = {
+            "detector_model_id": DETECTION_MODEL_ID,
+            "structure_model_id": STRUCTURE_MODEL_ID,
+            "detector_threshold": _DETECTION_THRESHOLD,
+            "structure_threshold": _STRUCTURE_THRESHOLD,
+            "device": self.device,
+        }
         if not self.is_available():
-            return TableResult(tables=[], backend=self.name, warnings=["backend unavailable — see docs/backends.md"])
+            result = TableResult(
+                tables=[], backend=self.name, warnings=["backend unavailable — see docs/backends.md"]
+            )
+            telemetry = page.telemetry
+            if telemetry is not None:
+                telemetry.record_not_invoked(
+                    page=page,
+                    backend_name=self.name,
+                    reason="backend_unavailable",
+                    regions=regions,
+                    page_regions=page.telemetry_page_regions,
+                    page_region_count=page.telemetry_page_region_count,
+                    runtime_seconds=perf_counter() - extract_start,
+                    specialist_metadata=specialist_metadata,
+                )
+            return result
         if page.image_path is None:
-            return TableResult(tables=[], backend=self.name, warnings=["no rendered image for this page"])
+            result = TableResult(tables=[], backend=self.name, warnings=["no rendered image for this page"])
+            telemetry = page.telemetry
+            if telemetry is not None:
+                telemetry.record_not_invoked(
+                    page=page,
+                    backend_name=self.name,
+                    reason="no_rendered_image",
+                    regions=regions,
+                    page_regions=page.telemetry_page_regions,
+                    page_region_count=page.telemetry_page_region_count,
+                    runtime_seconds=perf_counter() - extract_start,
+                    specialist_metadata=specialist_metadata,
+                )
+            return result
 
         from PIL import Image
 
-        self._lazy_load()
+        try:
+            self._lazy_load()
+        except Exception as exc:
+            if telemetry is not None:
+                telemetry.record_invocation(
+                    page=page,
+                    backend_name=self.name,
+                    invocation_mode="NOT_INVOKED",
+                    reason="model_load_failure",
+                    regions=regions,
+                    page_regions=page.telemetry_page_regions,
+                    page_region_count=page.telemetry_page_region_count,
+                    specialist_calls=[
+                        {
+                            "stage": "model_load",
+                            "mode": "NOT_INVOKED",
+                            "status": "error",
+                            "error": f"{type(exc).__name__}: {exc}",
+                        }
+                    ],
+                    warnings=[],
+                    errors=[f"{type(exc).__name__}: {exc}"],
+                    output_tables=[],
+                    runtime_seconds=perf_counter() - extract_start,
+                    specialist_metadata=specialist_metadata,
+                )
+            raise
         image = Image.open(page.image_path).convert("RGB")
 
         table_boxes = [r.bbox for r in regions if r.label.lower() == "table"]
-        if not table_boxes:
-            table_boxes = self._detect_tables(image)
-
+        telemetry = page.telemetry
+        mode = "LABELLED_CROP" if table_boxes else "PAGE_WIDE"
+        reason = "layout_table_region_present" if table_boxes else "no_table_labelled_region"
+        specialist_calls: list[dict] = []
+        detector_boxes: list[_DetectedTableBox] = []
         tables: list[Table] = []
         warnings: list[str] = []
+        if not table_boxes:
+            detector_start = perf_counter()
+            try:
+                detector_boxes = self._detect_tables_with_scores(image)
+            except Exception as exc:
+                specialist_calls.append(
+                    {
+                        "stage": "detector",
+                        "mode": "PAGE_WIDE",
+                        "status": "error",
+                        "runtime_seconds": perf_counter() - detector_start,
+                        "error": f"{type(exc).__name__}: {exc}",
+                    }
+                )
+                if telemetry is not None:
+                    telemetry.record_invocation(
+                        page=page,
+                        backend_name=self.name,
+                        invocation_mode="PAGE_WIDE",
+                        reason=reason,
+                        regions=regions,
+                        page_regions=page.telemetry_page_regions,
+                        page_region_count=page.telemetry_page_region_count,
+                        specialist_calls=specialist_calls,
+                        warnings=warnings,
+                        errors=[f"{type(exc).__name__}: {exc}"],
+                        output_tables=tables,
+                        runtime_seconds=perf_counter() - extract_start,
+                        specialist_metadata=specialist_metadata,
+                    )
+                raise
+            specialist_calls.append(
+                {
+                    "stage": "detector",
+                    "mode": "PAGE_WIDE",
+                    "status": "success",
+                    "runtime_seconds": perf_counter() - detector_start,
+                    "boxes": [
+                        {"bbox": candidate.bbox.model_dump(), "score": candidate.score}
+                        for candidate in detector_boxes
+                    ],
+                }
+            )
+            table_boxes = [candidate.bbox for candidate in detector_boxes]
+
         for i, bbox in enumerate(table_boxes):
             crop = image.crop((bbox.x0, bbox.y0, bbox.x1, bbox.y1))
             if crop.width < 10 or crop.height < 10:
                 warnings.append(f"table region {i} too small to process ({crop.width}x{crop.height})")
+                specialist_calls.append(
+                    {
+                        "stage": "structure",
+                        "mode": mode,
+                        "candidate_index": i,
+                        "status": "skipped_too_small",
+                        "crop_bbox": bbox.model_dump(),
+                    }
+                )
                 continue
-            table = self._recognize_structure(crop, bbox, page.page_index, table_id=f"p{page.page_index}-t{i}")
+            structure_start = perf_counter()
+            try:
+                table = self._recognize_structure(crop, bbox, page.page_index, table_id=f"p{page.page_index}-t{i}")
+            except Exception as exc:
+                specialist_calls.append(
+                    {
+                        "stage": "structure",
+                        "mode": mode,
+                        "candidate_index": i,
+                        "status": "error",
+                        "runtime_seconds": perf_counter() - structure_start,
+                        "crop_bbox": bbox.model_dump(),
+                        "error": f"{type(exc).__name__}: {exc}",
+                    }
+                )
+                if telemetry is not None:
+                    telemetry.record_invocation(
+                        page=page,
+                        backend_name=self.name,
+                        invocation_mode=mode,
+                        reason=reason,
+                        regions=regions,
+                        page_regions=page.telemetry_page_regions,
+                        page_region_count=page.telemetry_page_region_count,
+                        supplied_crop_bboxes=table_boxes,
+                        specialist_calls=specialist_calls,
+                        warnings=warnings,
+                        errors=[f"{type(exc).__name__}: {exc}"],
+                        output_tables=tables,
+                        runtime_seconds=perf_counter() - extract_start,
+                        specialist_metadata=specialist_metadata,
+                    )
+                raise
+            specialist_calls.append(
+                {
+                    "stage": "structure",
+                    "mode": mode,
+                    "candidate_index": i,
+                    "status": "valid_structure" if table is not None else "no_structure",
+                    "runtime_seconds": perf_counter() - structure_start,
+                    "crop_bbox": bbox.model_dump(),
+                    "table_id": table.id if table is not None else None,
+                }
+            )
             if table is not None:
                 tables.append(table)
             else:
                 warnings.append(f"structure recognition found no row/column grid for table region {i}")
 
-        return TableResult(tables=tables, backend=self.name, warnings=warnings)
+        result = TableResult(tables=tables, backend=self.name, warnings=warnings)
+        if telemetry is not None:
+            telemetry.record_invocation(
+                page=page,
+                backend_name=self.name,
+                invocation_mode=mode,
+                reason=reason,
+                regions=regions,
+                page_regions=page.telemetry_page_regions,
+                page_region_count=page.telemetry_page_region_count,
+                supplied_crop_bboxes=table_boxes if mode == "LABELLED_CROP" else [],
+                specialist_calls=specialist_calls,
+                warnings=warnings,
+                errors=[],
+                output_tables=tables,
+                runtime_seconds=perf_counter() - extract_start,
+                specialist_metadata=specialist_metadata,
+            )
+        return result
 
     def extract_crop_counterfactual(
         self, page: PageInput, crop_bbox: BBox, table_id_prefix: str = "counterfactual"
@@ -176,6 +362,9 @@ class TableTransformerBackend:
         )
 
     def _detect_tables(self, image) -> list[BBox]:
+        return [candidate.bbox for candidate in self._detect_tables_with_scores(image)]
+
+    def _detect_tables_with_scores(self, image) -> list[_DetectedTableBox]:
         import torch
 
         inputs = self._detection_processor(images=image, return_tensors="pt")
@@ -189,9 +378,13 @@ class TableTransformerBackend:
         results = self._detection_processor.post_process_object_detection(
             outputs, threshold=_DETECTION_THRESHOLD, target_sizes=target_sizes
         )[0]
+        scores = results.get("scores", [])
         return [
-            BBox(x0=float(box[0]), y0=float(box[1]), x1=float(box[2]), y1=float(box[3]))
-            for box in results["boxes"]
+            _DetectedTableBox(
+                bbox=BBox(x0=float(box[0]), y0=float(box[1]), x1=float(box[2]), y1=float(box[3])),
+                score=float(scores[index]) if index < len(scores) else None,
+            )
+            for index, box in enumerate(results["boxes"])
         ]
 
     def _recognize_structure(self, crop_image, table_bbox: BBox, page_index: int, table_id: str) -> Table | None:

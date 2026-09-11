@@ -28,6 +28,10 @@ from doc_extraction.utils.hashing import sha256_file
 from doc_extraction.utils.ids import document_id as make_document_id
 from doc_extraction.utils.logging import StageLogger
 from doc_extraction.utils.serde import write_json
+from doc_extraction.utils.table_telemetry import (
+    TableTelemetryRecorder,
+    stable_config_hash,
+)
 
 SUPPORTED_EXTENSIONS = {"pdf", "docx", "xlsx", "pptx", "png", "jpg", "jpeg", "tif", "tiff", "bmp"}
 
@@ -199,7 +203,12 @@ def _collect_page_warnings(pages: list[Page]) -> list[str]:
 
 
 def _run_baseline_route(
-    path: Path, route_decision: dispatcher.RouteDecision, config: PipelineConfig, output_dir: Path, logger: StageLogger
+    path: Path,
+    route_decision: dispatcher.RouteDecision,
+    config: PipelineConfig,
+    output_dir: Path,
+    logger: StageLogger,
+    telemetry: TableTelemetryRecorder | None = None,
 ) -> list[Page]:
     route = route_decision.route
     kind = route_decision.file_info.detected_kind
@@ -226,18 +235,33 @@ def _run_baseline_route(
             ocr_backend=ocr_backend,
             image_table_backend=table_backend,
             logger=logger,
+            telemetry=telemetry,
         )
 
     if route == dispatcher.ROUTE_SCANNED_PDF:
         layout_backend, ocr_backend, table_backend = _get_component_backends(config)
         return pdf_pipeline.parse_scanned_pdf(
-            path, config.render_dpi, layout_backend, ocr_backend, table_backend, output_dir, logger
+            path,
+            config.render_dpi,
+            layout_backend,
+            ocr_backend,
+            table_backend,
+            output_dir,
+            logger,
+            telemetry,
         )
 
     if route == dispatcher.ROUTE_IMAGE:
         layout_backend, ocr_backend, table_backend = _get_component_backends(config)
         return image_pipeline.parse_image(
-            path, config.render_dpi, layout_backend, ocr_backend, table_backend, output_dir, logger
+            path,
+            config.render_dpi,
+            layout_backend,
+            ocr_backend,
+            table_backend,
+            output_dir,
+            logger,
+            telemetry,
         )
 
     raise ValueError(f"unsupported file for baseline pipeline: {path.name} (kind={kind})")
@@ -249,6 +273,7 @@ def process_file(
     output_root: Path | None = None,
     backend_name: str = "baseline",
     output_dir: Path | None = None,
+    table_telemetry: TableTelemetryRecorder | None = None,
 ) -> Document:
     """Run either the baseline modular pipeline or a single named
     whole-document backend over one file. Writes every stage's intermediate
@@ -274,10 +299,19 @@ def process_file(
     logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
     start = time.perf_counter()
     route_decision = dispatcher.route(path, config)
+    if table_telemetry is not None:
+        table_telemetry.bind_document(
+            document_id=doc_id,
+            input_sha256=file_hash,
+            route=route_decision.route,
+            device=config.device,
+            backend=backend_name,
+        )
+        table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
 
     try:
         if backend_name == "baseline":
-            pages = _run_baseline_route(path, route_decision, config, output_dir, logger)
+            pages = _run_baseline_route(path, route_decision, config, output_dir, logger, table_telemetry)
         else:
             backend = build_whole_document_backend(backend_name, config)
             if not backend.is_available():

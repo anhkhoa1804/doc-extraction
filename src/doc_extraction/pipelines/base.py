@@ -46,6 +46,16 @@ class PageInput:
     text: str | None = None  # extracted text layer, when available (digital PDFs)
     dpi: int | None = None
     source_pdf_path: Path | None = None  # original PDF, for native (non-raster) backends
+    # Optional research-only observer.  It is deliberately opaque here so
+    # the core page contract does not import telemetry or any heavy backend.
+    # When absent, the production path is unchanged.
+    telemetry: object | None = None
+    # The table stage receives only table-labelled regions.  These two
+    # optional fields let telemetry retain the full pre-treatment page-region
+    # frame and its denominator without changing what any backend receives.
+    telemetry_page_regions: list["Region"] | None = None
+    telemetry_page_region_count: int | None = None
+    telemetry_ocr_result: object | None = None
 
 
 @dataclass
@@ -718,6 +728,7 @@ def run_scanned_page_pipeline(
     table_backend: TableBackend,
     output_dir: Path,
     logger: "StageLogger | None" = None,
+    telemetry: object | None = None,
 ) -> "Page":
     """Steps E-H for one already-rendered page: layout -> OCR -> table ->
     merge into a canonical Page. Raises BackendUnavailableError (uncaught)
@@ -736,11 +747,19 @@ def run_scanned_page_pipeline(
         width_px, height_px = im.size
 
     page_input = PageInput(
-        page_index=page_index, width=width_px, height=height_px, image_path=image_path, dpi=dpi
+        page_index=page_index,
+        width=width_px,
+        height=height_px,
+        image_path=image_path,
+        dpi=dpi,
+        telemetry=telemetry,
     )
 
     layout_result = layout_stage.run_layout(page_input, layout_backend, output_dir / "layout", logger)
+    page_input.telemetry_page_regions = layout_result.regions
+    page_input.telemetry_page_region_count = len(layout_result.regions)
     ocr_result = ocr_stage.run_ocr(page_input, ocr_backend, output_dir / "ocr", logger)
+    page_input.telemetry_ocr_result = ocr_result
 
     table_result: TableResult | None = None
     if table_backend.is_available():
@@ -749,16 +768,33 @@ def run_scanned_page_pipeline(
             page_input, table_regions, table_backend, output_dir / "tables", logger
         )
         _fill_table_cell_text(table_result, ocr_result)
-    elif logger is not None:
-        logger.log_event(
-            stage="table",
-            backend=table_backend.name,
-            status="failure",
-            warnings=[f"table backend '{table_backend.name}' unavailable — tables on this page are unstructured"],
-            page=page_index,
-            error="backend not installed",
-        )
+    else:
+        if logger is not None:
+            logger.log_event(
+                stage="table",
+                backend=table_backend.name,
+                status="failure",
+                warnings=[f"table backend '{table_backend.name}' unavailable — tables on this page are unstructured"],
+                page=page_index,
+                error="backend not installed",
+            )
+        if telemetry is not None:
+            telemetry.record_not_invoked(
+                page=page_input,
+                backend_name=table_backend.name,
+                reason="backend_unavailable",
+                regions=layout_result.regions,
+                page_regions=layout_result.regions,
+                page_region_count=len(layout_result.regions),
+            )
 
-    return merge_regions_into_page(
+    page = merge_regions_into_page(
         page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path
     )
+    if telemetry is not None:
+        telemetry.record_page_assembly(
+            page=page,
+            layout_result=layout_result,
+            table_result=table_result,
+        )
+    return page

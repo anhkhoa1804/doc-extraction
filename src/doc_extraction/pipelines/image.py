@@ -6,7 +6,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from doc_extraction.pipelines.base import LayoutBackend, OCRBackend, TableBackend, run_scanned_page_pipeline
+from doc_extraction.pipelines.base import (
+    LayoutBackend,
+    OCRBackend,
+    TableBackend,
+    run_scanned_page_pipeline,
+)
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.render import render_image_passthrough
 from doc_extraction.utils.logging import StageLogger
@@ -20,9 +25,10 @@ def parse_image(
     table_backend: TableBackend,
     output_dir: Path,
     logger: StageLogger | None = None,
+    telemetry: object | None = None,
 ) -> list[Page]:
     image_path = render_image_passthrough(path, output_dir / "rendered", logger)
     page = run_scanned_page_pipeline(
-        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger
+        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger, telemetry
     )
     return [page]
