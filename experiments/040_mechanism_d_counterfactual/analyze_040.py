@@ -430,6 +430,7 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
     analysis = analyze_full(manifest, records, index)
     root = HERE / "results" / phase
     result_payload = read_json(root / "results.json") if (root / "results.json").is_file() else {"records": records}
+    result_payload["status"] = "complete" if analysis["operational_failures"] == 0 else "complete_with_failures"
     result_payload["analysis"] = analysis
     atomic_write_json(root / "results.json", result_payload)
     failure_counts = Counter()

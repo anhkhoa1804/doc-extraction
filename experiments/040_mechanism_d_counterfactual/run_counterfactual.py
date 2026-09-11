@@ -737,20 +737,22 @@ def main() -> int:
         print(json.dumps({"unit_id": unit["unit_id"], "status": payload["status"], "free_bytes": __import__("shutil").disk_usage(ROOT).free}), flush=True)
 
     records = [index_by_id.get(unit["unit_id"]) for unit in selected]
-    complete = all(row and row.get("status") == "complete" for row in records)
-    if complete:
+    attempted = all(row is not None for row in records)
+    complete = attempted and all(row.get("status") == "complete" for row in records)
+    if attempted:
         result_rows = [read_json(phase_root / "raw" / unit["unit_id"] / "result.json") for unit in selected]
         atomic_write_json(phase_root / "results.json", {
-            "status": "complete",
+            "status": "complete" if complete else "complete_with_failures",
             "experiment": EXPERIMENT_ID,
             "phase": args.phase,
             "population_hash": manifest["population_hash"],
             "records": result_rows,
             "completed_at": now(),
         })
-        metadata["status"] = "complete"
+        metadata["status"] = "complete" if complete else "complete_with_failures"
         metadata["completed_at"] = now()
         metadata["completed_units"] = len(result_rows)
+        metadata["failed_units"] = sum(row.get("status") != "complete" for row in records)
         atomic_write_json(metadata_path, metadata)
     print(json.dumps({"phase": args.phase, "requested": len(selected), "complete": sum(row and row.get("status") == "complete" for row in records), "total": len(selected)}))
     return 0 if complete else 1
