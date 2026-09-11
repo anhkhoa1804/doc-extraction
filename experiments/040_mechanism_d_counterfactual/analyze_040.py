@@ -453,6 +453,7 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
     atomic_write_json(HERE / "results.json", {
         "experiment": "040_mechanism_d_counterfactual",
         "phase": phase,
+        "status": "complete" if analysis["operational_failures"] == 0 else "complete_with_failures",
         "population_hash": manifest["population_hash"],
         "analysis": analysis,
         "unit_results": compact_rows,

@@ -1,6 +1,7 @@
 {
   "experiment": "040_mechanism_d_counterfactual",
   "phase": "full",
+  "status": "complete_with_failures",
   "population_hash": "e6ee85b2aec4c85a00006bbee5e23a07cd0ac9f40c3487bba21e24677136f109",
   "analysis": {
     "status": "complete",
