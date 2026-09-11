@@ -1,0 +1,415 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "BASELINE_PROVENANCE_COMPLETE",
+  "mode": "group_sample",
+  "population_hash": "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e",
+  "code_commit": "47fec26cb1e6ccf388f68cdcdef0ef463e7fdacc",
+  "device": "cpu",
+  "python": "3.12.14",
+  "heldout_accessed": false,
+  "treatment_executed": false,
+  "records": {
+    "scout-802": {
+      "unit_id": "scout-802",
+      "image_id": 802,
+      "source_group": "ann_reports_00_04_fancy::NYSE_GLW_2004.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-265": {
+      "unit_id": "scout-265",
+      "image_id": 265,
+      "source_group": "ann_reports_00_04_fancy::NYSE_MS_2001.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-1863": {
+      "unit_id": "scout-1863",
+      "image_id": 1863,
+      "source_group": "arxiv_doublespaced::1602.00315.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2370": {
+      "unit_id": "scout-2370",
+      "image_id": 2370,
+      "source_group": "arxiv_mediumspaced::1001.0247.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2359": {
+      "unit_id": "scout-2359",
+      "image_id": 2359,
+      "source_group": "arxiv_mediumspaced::1001.0626.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2184": {
+      "unit_id": "scout-2184",
+      "image_id": 2184,
+      "source_group": "arxiv_mediumspaced::1001.4287.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2238": {
+      "unit_id": "scout-2238",
+      "image_id": 2238,
+      "source_group": "arxiv_mediumspaced::1001.4972.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2213": {
+      "unit_id": "scout-2213",
+      "image_id": 2213,
+      "source_group": "arxiv_mediumspaced::1001.5175.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2466": {
+      "unit_id": "scout-2466",
+      "image_id": 2466,
+      "source_group": "arxiv_mediumspaced::1002.0659.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2120": {
+      "unit_id": "scout-2120",
+      "image_id": 2120,
+      "source_group": "arxiv_mediumspaced::1002.2102.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2212": {
+      "unit_id": "scout-2212",
+      "image_id": 2212,
+      "source_group": "arxiv_mediumspaced::1002.4323.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2635": {
+      "unit_id": "scout-2635",
+      "image_id": 2635,
+      "source_group": "arxiv_two_columns::1001.0345.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2592": {
+      "unit_id": "scout-2592",
+      "image_id": 2592,
+      "source_group": "arxiv_two_columns::1001.0539.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2532": {
+      "unit_id": "scout-2532",
+      "image_id": 2532,
+      "source_group": "arxiv_two_columns::1001.0669.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2649": {
+      "unit_id": "scout-2649",
+      "image_id": 2649,
+      "source_group": "arxiv_two_columns::1001.0781.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2502": {
+      "unit_id": "scout-2502",
+      "image_id": 2502,
+      "source_group": "arxiv_two_columns::1001.0784.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2742": {
+      "unit_id": "scout-2742",
+      "image_id": 2742,
+      "source_group": "arxiv_two_columns::1001.0822.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2518": {
+      "unit_id": "scout-2518",
+      "image_id": 2518,
+      "source_group": "arxiv_two_columns::1001.1327.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2576": {
+      "unit_id": "scout-2576",
+      "image_id": 2576,
+      "source_group": "arxiv_two_columns::1001.1701.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2656": {
+      "unit_id": "scout-2656",
+      "image_id": 2656,
+      "source_group": "arxiv_two_columns::1001.1969.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2748": {
+      "unit_id": "scout-2748",
+      "image_id": 2748,
+      "source_group": "arxiv_two_columns::1001.2053.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-2544": {
+      "unit_id": "scout-2544",
+      "image_id": 2544,
+      "source_group": "arxiv_two_columns::1001.2527.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2662": {
+      "unit_id": "scout-2662",
+      "image_id": 2662,
+      "source_group": "arxiv_two_columns::1001.2684.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2541": {
+      "unit_id": "scout-2541",
+      "image_id": 2541,
+      "source_group": "arxiv_two_columns::1001.2818.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2647": {
+      "unit_id": "scout-2647",
+      "image_id": 2647,
+      "source_group": "arxiv_two_columns::1001.2979.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2534": {
+      "unit_id": "scout-2534",
+      "image_id": 2534,
+      "source_group": "arxiv_two_columns::1001.3064.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-2501": {
+      "unit_id": "scout-2501",
+      "image_id": 2501,
+      "source_group": "arxiv_two_columns::1001.3239.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2896": {
+      "unit_id": "scout-2896",
+      "image_id": 2896,
+      "source_group": "chinese_laws::216_envr_2008_zhonghuarenmingongheguoshuiwuranfangzhifa_20150303_chl_cec.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-2919": {
+      "unit_id": "scout-2919",
+      "image_id": 2919,
+      "source_group": "eu_tenders::EN-Annex D - Catalogue of Price.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-2980": {
+      "unit_id": "scout-2980",
+      "image_id": 2980,
+      "source_group": "eu_tenders::EN-Invitation.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-3051": {
+      "unit_id": "scout-3051",
+      "image_id": 3051,
+      "source_group": "eu_tenders::EN-Procurement Document 1 - Annex B Pricing Form.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-2961": {
+      "unit_id": "scout-2961",
+      "image_id": 2961,
+      "source_group": "eu_tenders::FR-Invitation a soumissionner-18-05-21.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-4006": {
+      "unit_id": "scout-4006",
+      "image_id": 4006,
+      "source_group": "german_laws::FHKBeauftrV.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-4120": {
+      "unit_id": "scout-4120",
+      "image_id": 4120,
+      "source_group": "japanese_laws::s23Coh00500201en14.0.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-6063": {
+      "unit_id": "scout-6063",
+      "image_id": 6063,
+      "source_group": "non_us_patent_samples::WO2011106110A1.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-6206": {
+      "unit_id": "scout-6206",
+      "image_id": 6206,
+      "source_group": "patents_euv_sensitivity::20090042123_AdobeOCR.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-6225": {
+      "unit_id": "scout-6225",
+      "image_id": 6225,
+      "source_group": "patents_euv_sensitivity::20190324367_AdobeOCR.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-6330": {
+      "unit_id": "scout-6330",
+      "image_id": 6330,
+      "source_group": "patents_euv_sensitivity::20200348591_AdobeOCR.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    },
+    "scout-6393": {
+      "unit_id": "scout-6393",
+      "image_id": 6393,
+      "source_group": "patents_superacid_pags::5698717_AdobeOCR.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "LABELLED_CROP"
+      ]
+    },
+    "scout-6602": {
+      "unit_id": "scout-6602",
+      "image_id": 6602,
+      "source_group": "philippine_laws::20130815-RA-10607-BSA.pdf",
+      "status": "COMPLETE",
+      "error": null,
+      "invocation_modes": [
+        "PAGE_WIDE"
+      ]
+    }
+  },
+  "operational_failures": 0,
+  "completed_records": 40
+}

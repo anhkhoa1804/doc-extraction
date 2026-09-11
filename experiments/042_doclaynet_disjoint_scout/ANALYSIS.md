@@ -18,4 +18,11 @@ scout count will not establish a selector; it will only make an independent
 control population possible. A zero or concentrated count will be preserved
 as a population failure.
 
+The preregistered initial replay (one page per source group) completed 40/40.
+It observed `PAGE_WIDE` on 34 pages and `LABELLED_CROP` on 6 pages, with no
+`BOTH` or `NONE` pages. It emitted no natural `document_index` region in this
+sample. This is a sample result, not a claim about the remaining 239 pages;
+the full cohort replay remains necessary to estimate whether the independent
+population can supply enough same-role controls.
+
 No 039 held-out record is admitted or processed. No treatment is authorized.

@@ -275,8 +275,9 @@ def run(mode: str) -> int:
             "invocation_modes": payload.get("invocation_modes", []),
         }
         atomic_write_json(current_index_path, index)
-        done = sum(item.get("status") in {"COMPLETE", "OPERATIONAL_FAILURE"} for item in index["records"].values())
-        print(json.dumps({"completed": done, "total": len(records), "unit_id": unit_id, "status": payload["status"], "modes": payload.get("invocation_modes", [])}), flush=True)
+        done = sum(item.get("status") == "COMPLETE" for item in index["records"].values())
+        failures = sum(item.get("status") == "OPERATIONAL_FAILURE" for item in index["records"].values())
+        print(json.dumps({"completed": done, "failures": failures, "total": len(records), "unit_id": unit_id, "status": payload["status"], "modes": payload.get("invocation_modes", [])}), flush=True)
     failures = sum(item.get("status") == "OPERATIONAL_FAILURE" for item in index["records"].values())
     index["status"] = "BASELINE_PROVENANCE_COMPLETE" if all(item.get("status") == "COMPLETE" for item in index["records"].values()) else "BASELINE_PROVENANCE_INCOMPLETE"
     index["operational_failures"] = failures
