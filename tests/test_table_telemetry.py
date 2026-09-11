@@ -103,6 +103,30 @@ def test_table_invocation_modes_are_distinct(tmp_path, monkeypatch):
     assert no_image_page.telemetry.records[0]["invocation_mode"] == "NOT_INVOKED"
 
 
+def test_model_load_failure_is_recorded_without_changing_error_semantics(tmp_path, monkeypatch):
+    from PIL import Image
+
+    image_path = tmp_path / "page.png"
+    Image.new("RGB", (100, 100), "white").save(image_path)
+    recorder = _recorder()
+    page = PageInput(page_index=0, width=100, height=100, image_path=image_path, telemetry=recorder)
+    backend = TableTransformerBackend(device="cpu")
+    monkeypatch.setattr(backend, "is_available", lambda: True)
+
+    def fail_load():
+        raise RuntimeError("model unavailable for test")
+
+    monkeypatch.setattr(backend, "_lazy_load", fail_load)
+    try:
+        backend.extract(page, [])
+    except RuntimeError as exc:
+        assert str(exc) == "model unavailable for test"
+    else:
+        raise AssertionError("model-load failure was swallowed")
+    assert recorder.records[0]["invocation_mode"] == "NOT_INVOKED"
+    assert recorder.records[0]["reason"] == "model_load_failure"
+
+
 def test_instrumented_and_uninstrumented_page_outputs_are_equivalent(tmp_path, monkeypatch):
     from PIL import Image
 

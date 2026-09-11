@@ -104,11 +104,11 @@ class TableTransformerBackend:
             "structure_threshold": _STRUCTURE_THRESHOLD,
             "device": self.device,
         }
+        telemetry = page.telemetry
         if not self.is_available():
             result = TableResult(
                 tables=[], backend=self.name, warnings=["backend unavailable — see docs/backends.md"]
             )
-            telemetry = page.telemetry
             if telemetry is not None:
                 telemetry.record_not_invoked(
                     page=page,
@@ -123,7 +123,6 @@ class TableTransformerBackend:
             return result
         if page.image_path is None:
             result = TableResult(tables=[], backend=self.name, warnings=["no rendered image for this page"])
-            telemetry = page.telemetry
             if telemetry is not None:
                 telemetry.record_not_invoked(
                     page=page,
@@ -169,7 +168,6 @@ class TableTransformerBackend:
         image = Image.open(page.image_path).convert("RGB")
 
         table_boxes = [r.bbox for r in regions if r.label.lower() == "table"]
-        telemetry = page.telemetry
         mode = "LABELLED_CROP" if table_boxes else "PAGE_WIDE"
         reason = "layout_table_region_present" if table_boxes else "no_table_labelled_region"
         specialist_calls: list[dict] = []
