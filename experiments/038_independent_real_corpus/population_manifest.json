@@ -1,0 +1,5756 @@
+{
+  "experiment": "038_independent_real_corpus",
+  "dataset": "DocLayNet",
+  "dataset_version": "1.0.0",
+  "split": "validation",
+  "archive_url": "https://codait-cos-dax.s3.us.cloud-object-storage.appdomain.cloud/dax-doclaynet/1.0.0/DocLayNet_core.zip",
+  "archive_size_bytes": 30012083650,
+  "annotation_member": "COCO/val.json",
+  "annotation_sha256": "eacd2ba2a32e6c2ebe2dc5ea1545f405d8461c46bba53e0c35d9c54fba0bcef6",
+  "selection_rule": "20 hash-ranked groups with >=3 table pages; <=5 table + <=3 controls",
+  "split_rule": "038-split-v1:::collection::doc_name",
+  "document_groups": 20,
+  "development_groups": 10,
+  "held_out_groups": 10,
+  "records": [
+    {
+      "image_id": 6241,
+      "file_name": "ffc04e3f18bc1432c46111e4a8c4193a2735b9f995cf7b84546481b997213a6a.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 0,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "2f907b9c3f0a3902c51788e49adb1bc92caee8fc5c8cc481e60a4a431fe43471",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 98225,
+          "image_id": 6241,
+          "category_id": 9,
+          "bbox": [
+            168.5169656444648,
+            552.4048111057157,
+            204.52486428644443,
+            64.18135145821947
+          ],
+          "segmentation": [
+            [
+              168.5169656444648,
+              552.4048111057157,
+              168.5169656444648,
+              616.5861625639352,
+              373.0418299309092,
+              616.5861625639352,
+              373.0418299309092,
+              552.4048111057157
+            ]
+          ],
+          "area": 13126.682196712929,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6189,
+      "file_name": "61ea7493a34ea40de472b0e0d3157181877e53594ce329039588a8ff1a23aa48.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 68,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "7763d408a2f973dc3c19f36251fc2112f9380094b51718c083c12a32055c41fd",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 97570,
+          "image_id": 6189,
+          "category_id": 9,
+          "bbox": [
+            124.79234531432309,
+            152.06339979734832,
+            376.7768887374754,
+            231.8039631057137
+          ],
+          "segmentation": [
+            [
+              124.79234531432309,
+              152.06339979734832,
+              124.79234531432309,
+              383.86736290306203,
+              501.5692340517985,
+              383.86736290306203,
+              501.5692340517985,
+              152.06339979734832
+            ]
+          ],
+          "area": 87338.37601598735,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6349,
+      "file_name": "931f81c0566021a5fa75d7592ffebbc635d46ce8fb20e4d61f6db0d6c7074a12.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 69,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "f45e72f8bc35b1aab3f6ace2c7adacd87087e2348e33314823b6bbef14b0a4ab",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 99683,
+          "image_id": 6349,
+          "category_id": 9,
+          "bbox": [
+            125.20971101771549,
+            663.9496500903167,
+            375.62913305314646,
+            300.0743930714421
+          ],
+          "segmentation": [
+            [
+              125.20971101771549,
+              663.9496500903167,
+              125.20971101771549,
+              964.0240431617588,
+              500.83884407086197,
+              964.0240431617588,
+              500.83884407086197,
+              663.9496500903167
+            ]
+          ],
+          "area": 112716.6841208749,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 99685,
+          "image_id": 6349,
+          "category_id": 9,
+          "bbox": [
+            517.1705455079554,
+            154.9449553009082,
+            378.3510832926621,
+            527.9346214551304
+          ],
+          "segmentation": [
+            [
+              517.1705455079554,
+              154.9449553009082,
+              517.1705455079554,
+              682.8795767560385,
+              895.5216288006175,
+              682.8795767560385,
+              895.5216288006175,
+              154.9449553009082
+            ]
+          ],
+          "area": 199744.63593525006,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 99687,
+          "image_id": 6349,
+          "category_id": 9,
+          "bbox": [
+            518.0778622544606,
+            725.6471888526694,
+            370.1852325741153,
+            237.67574591406276
+          ],
+          "segmentation": [
+            [
+              518.0778622544606,
+              725.6471888526694,
+              518.0778622544606,
+              963.3229347667321,
+              888.2630948285758,
+              963.3229347667321,
+              888.2630948285758,
+              725.6471888526694
+            ]
+          ],
+          "area": 87984.05127842365,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6276,
+      "file_name": "4dfb0499c2191561282737b8419d1e5c70174a7c752af1a006466b582252a686.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 1,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "46875b9b6c53953262a4114038dfb6bbbcf543dd086f754119818124fc8748da",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6194,
+      "file_name": "e12976d756665414c0257a5a6dc036ffa02d684627a57760c60ae8b2dc09062c.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 4,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "2ea6f7b8da911b937d5984cd4e28b78640a12ec17beb65dc147972f56ed27fa7",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6308,
+      "file_name": "7661e721bcf5f525c5f8043788b029e46cc3493e99bb706a770abb3a97e9cf4a.png",
+      "doc_group": "patents_euv_sensitivity::20200159120_AdobeOCR.pdf",
+      "doc_name": "20200159120_AdobeOCR.pdf",
+      "collection": "patents_euv_sensitivity",
+      "page_no": 5,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "eed7988db9bb77d1cbcba170e562d4cdca1177cef64946f2ccb7b20804bdba2c",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 3057,
+      "file_name": "d90e7ad3d727920ccd3973df2e38ebf1abc2997893412b137eabe9c8d7275a30.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 2,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "67e2aa6c0bf6a38c752255aac56fa11e1a625230c724ac1c9cbdc743abe4ce35",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 40516,
+          "image_id": 3057,
+          "category_id": 9,
+          "bbox": [
+            152.5282546277883,
+            219.89228261965854,
+            721.5759738160754,
+            205.6016119752594
+          ],
+          "segmentation": [
+            [
+              152.5282546277883,
+              219.89228261965854,
+              152.5282546277883,
+              425.49389459491795,
+              874.1042284438637,
+              425.49389459491795,
+              874.1042284438637,
+              219.89228261965854
+            ]
+          ],
+          "area": 148357.18337920267,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3145,
+      "file_name": "fccdde552b967992bdc8c4f2716c72eac088ed9172eeb1d09635579341bcfbb4.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 6,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "5c4cbe20029b2fd40f2338e5e083a1e5e4d5f4dace66b6f5c149fd9640c338f0",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 42047,
+          "image_id": 3145,
+          "category_id": 9,
+          "bbox": [
+            151.62731536693963,
+            210.43766540980403,
+            728.4951467629655,
+            507.1467695945547
+          ],
+          "segmentation": [
+            [
+              151.62731536693963,
+              210.43766540980403,
+              151.62731536693963,
+              717.5844350043587,
+              880.1224621299052,
+              717.5844350043587,
+              880.1224621299052,
+              210.43766540980403
+            ]
+          ],
+          "area": 369453.960346149,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3175,
+      "file_name": "998772b09ae51ca127dde36dc27eb766543495d5931f3a22b5881f6abdfb80ff.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 7,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "114c4ddc77c79a754e1fd397a20accd2dc752faf56999783a8617f7101a1e8f9",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 42582,
+          "image_id": 3175,
+          "category_id": 9,
+          "bbox": [
+            154.65093950469162,
+            553.1745124635099,
+            789.1163323444523,
+            293.7644244972952
+          ],
+          "segmentation": [
+            [
+              154.65093950469162,
+              553.1745124635099,
+              154.65093950469162,
+              846.9389369608051,
+              943.767271849144,
+              846.9389369608051,
+              943.767271849144,
+              553.1745124635099
+            ]
+          ],
+          "area": 231814.30523258436,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3103,
+      "file_name": "92ad9e1e55422e28ac709ecf7dfca2102148abe546d9ad7b50e1eef6411b7f0d.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 8,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "d5bd5f6db8a4c1617b76a44f610b2f992462e27c8b4f03d4fe39ab798b505132",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 41273,
+          "image_id": 3103,
+          "category_id": 9,
+          "bbox": [
+            151.67688297575523,
+            221.5502337350598,
+            791.0990366970764,
+            103.76404492983215
+          ],
+          "segmentation": [
+            [
+              151.67688297575523,
+              221.5502337350598,
+              151.67688297575523,
+              325.31427866489196,
+              942.7759196728316,
+              325.31427866489196,
+              942.7759196728316,
+              221.5502337350598
+            ]
+          ],
+          "area": 82087.63598778237,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3168,
+      "file_name": "1aadb19bb0e3c5f812ce3c447d528a0ad7179a06d07e9c815244f5788294f485.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 9,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "f9ee65465ee6f379c3de665c6cd48f436c52e1864aaace186859cfffffbe0ba0",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 42479,
+          "image_id": 3168,
+          "category_id": 9,
+          "bbox": [
+            153.95491118739875,
+            601.2336912175479,
+            726.9675806312293,
+            292.6499799313855
+          ],
+          "segmentation": [
+            [
+              153.95491118739875,
+              601.2336912175479,
+              153.95491118739875,
+              893.8836711489333,
+              880.922491818628,
+              893.8836711489333,
+              880.922491818628,
+              601.2336912175479
+            ]
+          ],
+          "area": 212747.0478824971,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2939,
+      "file_name": "32153454a310f21211262bf0914ba9bd409cd2d82c412d088a5d76049600a93b.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 0,
+      "doc_category": "government_tenders",
+      "role": "non_table_control_page",
+      "image_sha256": "c2b5c3a682317c79ef215a01d3b97a40f7ff33ee00e4d45e994f7ee13b856c0a",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 3180,
+      "file_name": "9e806c7b333139811977387dad41a93c92107b5b6f126634fec3052c6c74facc.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 3,
+      "doc_category": "government_tenders",
+      "role": "non_table_control_page",
+      "image_sha256": "94390adfc782d18ce3c40ce78f0cc469a7329afd312c9f1eb052f88627ad51e6",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 3039,
+      "file_name": "e2031e0d7e15302a048dc9d738869a4a81d7976542a86d5d2d9c729c9dea5568.png",
+      "doc_group": "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf",
+      "doc_name": "EN-Procurement Document 1 - Terms of Reference.pdf",
+      "collection": "eu_tenders",
+      "page_no": 4,
+      "doc_category": "government_tenders",
+      "role": "non_table_control_page",
+      "image_sha256": "cdb388b675f126946209a1368aebc6ce745ee8bb579524177189a27ce1f424a2",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 747,
+      "file_name": "aff9a849932d001531e42c03e81b6e5cc44cb8446c033addd3adf4f398480195.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "79b6729d2da091ab50ee07037ad2a2d497940bfe712a64ef62a581b7d15fdd58",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 9613,
+          "image_id": 747,
+          "category_id": 9,
+          "bbox": [
+            109.37699415726338,
+            155.74211425457122,
+            827.0867086273961,
+            166.66305519315392
+          ],
+          "segmentation": [
+            [
+              109.37699415726338,
+              155.74211425457122,
+              109.37699415726338,
+              322.40516944772514,
+              936.4637027846595,
+              322.40516944772514,
+              936.4637027846595,
+              155.74211425457122
+            ]
+          ],
+          "area": 137844.79776949174,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 260,
+      "file_name": "5cb80c8eaae7951622b92de616c26cadea3a4e178158d23812c22ec6e8426a54.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 16,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "ca8be324e29d9deb47ed2dcf0459d766fb5ab688cc7c8c8b11f3aff374b30ed2",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 3492,
+          "image_id": 260,
+          "category_id": 9,
+          "bbox": [
+            80.06995274619734,
+            827.641601290387,
+            420.1072845384899,
+            50.62273871970319
+          ],
+          "segmentation": [
+            [
+              80.06995274619734,
+              827.641601290387,
+              80.06995274619734,
+              878.2643400100902,
+              500.1772372846873,
+              878.2643400100902,
+              500.1772372846873,
+              827.641601290387
+            ]
+          ],
+          "area": 21266.98129943598,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 356,
+      "file_name": "897a868b7b8c85054c8c9781e1ab9df92aacb436a3142c597d32e8dbad22f836.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 17,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "0ff7c1768fc2df847ff1493acd2ea99e96fb135ee5e66bc21f482fe7cd4a5248",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 4480,
+          "image_id": 356,
+          "category_id": 9,
+          "bbox": [
+            78.29602874399757,
+            231.6931553070052,
+            422.62060969771414,
+            89.37718157243523
+          ],
+          "segmentation": [
+            [
+              78.29602874399757,
+              231.6931553070052,
+              78.29602874399757,
+              321.07033687944045,
+              500.9166384417117,
+              321.07033687944045,
+              500.9166384417117,
+              231.6931553070052
+            ]
+          ],
+          "area": 37772.63896920588,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 4481,
+          "image_id": 356,
+          "category_id": 9,
+          "bbox": [
+            518.7111904289839,
+            231.6931553070052,
+            424.40006489644134,
+            53.62630894346114
+          ],
+          "segmentation": [
+            [
+              518.7111904289839,
+              231.6931553070052,
+              518.7111904289839,
+              285.31946425046635,
+              943.1112553254252,
+              285.31946425046635,
+              943.1112553254252,
+              231.6931553070052
+            ]
+          ],
+          "area": 22759.00899576152,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 394,
+      "file_name": "d9a56d6119503a7fcb0661525ff3d3d74ea7491ad6814f54225aea63f28a4c40.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 19,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "359152cde2f93f756484fac0ae178d597eda3493ca49a62f91df2df81896e5eb",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 4997,
+          "image_id": 394,
+          "category_id": 9,
+          "bbox": [
+            519.3803305384905,
+            512.713468104928,
+            420.3298029541329,
+            162.89078603907762
+          ],
+          "segmentation": [
+            [
+              519.3803305384905,
+              512.713468104928,
+              519.3803305384905,
+              675.6042541440056,
+              939.7101334926234,
+              675.6042541440056,
+              939.7101334926234,
+              512.713468104928
+            ]
+          ],
+          "area": 68467.85199884932,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 4998,
+          "image_id": 394,
+          "category_id": 9,
+          "bbox": [
+            519.3803305384905,
+            705.5329829041975,
+            420.3298029541329,
+            181.04427725427598
+          ],
+          "segmentation": [
+            [
+              519.3803305384905,
+              705.5329829041975,
+              519.3803305384905,
+              886.5772601584736,
+              939.7101334926234,
+              886.5772601584736,
+              939.7101334926234,
+              705.5329829041975
+            ]
+          ],
+          "area": 76098.30538426324,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 831,
+      "file_name": "f4b6f9359d3f4e1128c0c8098d48bd2e2101d6a1afa2aa98a0509a00a70f40af.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 22,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "cfe65a12f3e3c4691340953aefd252735c12da1237891afa2bdbb87266590ec3",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 10730,
+          "image_id": 831,
+          "category_id": 9,
+          "bbox": [
+            80.06995274619734,
+            703.8971288644457,
+            420.1072845384899,
+            81.1570890585719
+          ],
+          "segmentation": [
+            [
+              80.06995274619734,
+              703.8971288644457,
+              80.06995274619734,
+              785.0542179230176,
+              500.1772372846873,
+              785.0542179230176,
+              500.1772372846873,
+              703.8971288644457
+            ]
+          ],
+          "area": 34094.68430544503,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 10731,
+          "image_id": 831,
+          "category_id": 9,
+          "bbox": [
+            522.0144971245593,
+            329.449569445688,
+            419.06741502230557,
+            196.06267059694608
+          ],
+          "segmentation": [
+            [
+              522.0144971245593,
+              329.449569445688,
+              522.0144971245593,
+              525.5122400426341,
+              941.0819121468649,
+              525.5122400426341,
+              941.0819121468649,
+              329.449569445688
+            ]
+          ],
+          "area": 82163.47654943199,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 275,
+      "file_name": "235ec443ddb001f89045430372ea380622f47ac84a5e76e4279fa4bedfd81f3b.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "a30faa777f29fc9371f38349df78123acc8877217bcdb90bf398ce02de381c3c",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 623,
+      "file_name": "c61d63b9b668c943ab7e39487134616b6dde0de99017412897308f80461a40be.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "14cfcced41deed48321704556c5b57ac25210e82b1f4529845f8e6a0d8a921f6",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 36,
+      "file_name": "62e787bd47a91a301b684255d5948ef45e6b52514bcfddbc2af51b02c94e9ab5.png",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_JWN_2003.pdf",
+      "doc_name": "NYSE_JWN_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "b973d1fa842c87a9229b7c49e0e13d6c35867e6a437966750b9d561555ca5c1d",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1423,
+      "file_name": "ce584cb788510c3189b6f55b2867311e21df6eec347ccca305a5f0ad82216842.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "c3e4ac6ffc3b52826c62184af6a01c79ca2ffd98a6367c2f14ebf5ca9534aeb2",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 19538,
+          "image_id": 1423,
+          "category_id": 9,
+          "bbox": [
+            117.653686223227,
+            137.25113307800495,
+            708.1992854598116,
+            804.7374127479609
+          ],
+          "segmentation": [
+            [
+              117.653686223227,
+              137.25113307800495,
+              117.653686223227,
+              941.9885458259658,
+              825.8529716830385,
+              941.9885458259658,
+              825.8529716830385,
+              137.25113307800495
+            ]
+          ],
+          "area": 569914.4606908833,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1300,
+      "file_name": "66c095f64cb4a07455e00f9a3e86dfeb946bf0c7b151abef30e8d1f6a868c8b0.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 7,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6db1d71cb37c9b8ad8ff05c932e2caff82b0c1d2c2fc769264286f93f3c28ae5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 17616,
+          "image_id": 1300,
+          "category_id": 9,
+          "bbox": [
+            118.70746506621877,
+            112.85384626543294,
+            721.5974997661662,
+            840.5665790804646
+          ],
+          "segmentation": [
+            [
+              118.70746506621877,
+              112.85384626543294,
+              118.70746506621877,
+              953.4204253458976,
+              840.3049648323849,
+              953.4204253458976,
+              840.3049648323849,
+              112.85384626543294
+            ]
+          ],
+          "area": 606550.7418514626,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1151,
+      "file_name": "be67fc5fa36e88396a76e93bd5734eac278e2fa8cac886fb3df5915867c3e20f.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 8,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "e7a530728c942dbb26aa715ddf658d8e52a1ebddf74c97cf04bc789cf683aca5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 15510,
+          "image_id": 1151,
+          "category_id": 9,
+          "bbox": [
+            181.34131830800118,
+            446.28246883899305,
+            726.2247107595308,
+            478.1597880417781
+          ],
+          "segmentation": [
+            [
+              181.34131830800118,
+              446.28246883899305,
+              181.34131830800118,
+              924.4422568807711,
+              907.566029067532,
+              924.4422568807711,
+              907.566029067532,
+              446.28246883899305
+            ]
+          ],
+          "area": 347251.4537674789,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 15511,
+          "image_id": 1151,
+          "category_id": 9,
+          "bbox": [
+            180.4818807804751,
+            132.15805252821372,
+            727.0841482870569,
+            285.56765119161753
+          ],
+          "segmentation": [
+            [
+              180.4818807804751,
+              132.15805252821372,
+              180.4818807804751,
+              417.72570371983124,
+              907.566029067532,
+              417.72570371983124,
+              907.566029067532,
+              132.15805252821372
+            ]
+          ],
+          "area": 207631.7124449926,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1291,
+      "file_name": "b8449cf0709720918c246829a2cf429a34cd298a5d98af7ebb6283da18d86f98.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 9,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "624574af2ae0399be25eee4790fff2f615bb816d30f646bcc4656f7036725c5a",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 17508,
+          "image_id": 1291,
+          "category_id": 9,
+          "bbox": [
+            116.84525646104514,
+            97.75145985677977,
+            719.4191410204847,
+            819.3213963568253
+          ],
+          "segmentation": [
+            [
+              116.84525646104514,
+              97.75145985677977,
+              116.84525646104514,
+              917.0728562136051,
+              836.2643974815298,
+              917.0728562136051,
+              836.2643974815298,
+              97.75145985677977
+            ]
+          ],
+          "area": 589435.4951867313,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1477,
+      "file_name": "b070fe602b8d8eb664bb22391e564348b62c493bd3e0091d6ad4c3e9efd3928f.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 10,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "1eedceccb6006fd5cdcd031f39be05c4c6afd17ec20c5ef5ecba1b370919b865",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 20336,
+          "image_id": 1477,
+          "category_id": 9,
+          "bbox": [
+            431.206588870587,
+            157.00316726658093,
+            456.0520389335528,
+            138.65768848271398
+          ],
+          "segmentation": [
+            [
+              431.206588870587,
+              157.00316726658093,
+              431.206588870587,
+              295.6608557492949,
+              887.2586278041398,
+              295.6608557492949,
+              887.2586278041398,
+              157.00316726658093
+            ]
+          ],
+          "area": 63235.12154635511,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 992,
+      "file_name": "ecc09cbe4baf339baf0765cf681c1c5e20a7844d4546c616a1f34cde320b6389.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "59f6bb9e8994958344df5635b34c2aca1486374a648cac2277046cff60081dfa",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1379,
+      "file_name": "d52702d3602578da3785f7b037f21f8038fc891ea40e2a8ff7e683885345466e.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "e2ecc2c766cca39d3d5f4c1af116d3d70aeaf3c5af5d04756fc2d4a97fbe8c4b",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1137,
+      "file_name": "58d2643b33afc30fa599aae859e0632309b0fe10b416263b30f19a7dc2cb60af.png",
+      "doc_group": "ann_reports_10_14_fancy::NASDAQ_UCBI_2014.pdf",
+      "doc_name": "NASDAQ_UCBI_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "773cfc7e15167ae8f5441dd533c77b60e301ede92111a42623860e1f72ab57aa",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6489,
+      "file_name": "6cac063fe5956db3e9d539f8097e7709146ec83cf261c8f8cb77f6f4e4c6d7e3.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 0,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "1274e39eeca9e73ebb5feb3012045529a8d092bc8d2d29fd7cd9ef4e52352633",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 102287,
+          "image_id": 6489,
+          "category_id": 9,
+          "bbox": [
+            567.9398653228805,
+            137.3750648264761,
+            335.2754246969106,
+            71.45347331578444
+          ],
+          "segmentation": [
+            [
+              567.9398653228805,
+              137.3750648264761,
+              567.9398653228805,
+              208.82853814226053,
+              903.215290019791,
+              208.82853814226053,
+              903.215290019791,
+              137.3750648264761
+            ]
+          ],
+          "area": 23956.593612018994,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 102288,
+          "image_id": 6489,
+          "category_id": 9,
+          "bbox": [
+            535.1282134397309,
+            240.1758683711207,
+            238.63019551381535,
+            35.49624158268011
+          ],
+          "segmentation": [
+            [
+              535.1282134397309,
+              240.1758683711207,
+              535.1282134397309,
+              275.6721099538008,
+              773.7584089535462,
+              275.6721099538008,
+              773.7584089535462,
+              240.1758683711207
+            ]
+          ],
+          "area": 8470.475068880578,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6434,
+      "file_name": "b59784251acff6d1d9f7b956701ff99d0f49bc3b153d647a3e1d1be62df4f75f.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 27,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "04e3e0c0f576d0c639256f79a0fe8b90a695579700d1671f44acc8453e384543",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 101216,
+          "image_id": 6434,
+          "category_id": 9,
+          "bbox": [
+            534.8934844821111,
+            203.74350079673968,
+            364.4329234933066,
+            73.32170570073754
+          ],
+          "segmentation": [
+            [
+              534.8934844821111,
+              203.74350079673968,
+              534.8934844821111,
+              277.0652064974772,
+              899.3264079754177,
+              277.0652064974772,
+              899.3264079754177,
+              203.74350079673968
+            ]
+          ],
+          "area": 26720.843564035626,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101217,
+          "image_id": 6434,
+          "category_id": 9,
+          "bbox": [
+            143.58993068515073,
+            345.8448596326824,
+            365.2726306902957,
+            96.03196852839949
+          ],
+          "segmentation": [
+            [
+              143.58993068515073,
+              345.8448596326824,
+              143.58993068515073,
+              441.8768281610819,
+              508.8625613754465,
+              441.8768281610819,
+              508.8625613754465,
+              345.8448596326824
+            ]
+          ],
+          "area": 35077.84977473617,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6417,
+      "file_name": "fca5de4ce6ea32faa78b22a53511b687ad684b12a9d3072c90e53239f624b7cf.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 33,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "dd6e9b80e11ec00c223971debec09e75a5b321827a02a8486de4119cb2cebab0",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 100894,
+          "image_id": 6417,
+          "category_id": 9,
+          "bbox": [
+            146.31209481524397,
+            875.036674086297,
+            361.6393286942823,
+            67.40896855467327
+          ],
+          "segmentation": [
+            [
+              146.31209481524397,
+              875.036674086297,
+              146.31209481524397,
+              942.4456426409703,
+              507.9514235095263,
+              942.4456426409703,
+              507.9514235095263,
+              875.036674086297
+            ]
+          ],
+          "area": 24377.734136086026,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 100895,
+          "image_id": 6417,
+          "category_id": 9,
+          "bbox": [
+            146.86421592775434,
+            242.75761460512092,
+            359.98296535675115,
+            123.29868298924418
+          ],
+          "segmentation": [
+            [
+              146.86421592775434,
+              242.75761460512092,
+              146.86421592775434,
+              366.0562975943651,
+              506.8471812845055,
+              366.0562975943651,
+              506.8471812845055,
+              242.75761460512092
+            ]
+          ],
+          "area": 44385.42552705013,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 100896,
+          "image_id": 6417,
+          "category_id": 9,
+          "bbox": [
+            537.7659635850854,
+            121.16548778181789,
+            362.743570919303,
+            103.2466480394362
+          ],
+          "segmentation": [
+            [
+              537.7659635850854,
+              121.16548778181789,
+              537.7659635850854,
+              224.41213582125408,
+              900.5095345043884,
+              224.41213582125408,
+              900.5095345043884,
+              121.16548778181789
+            ]
+          ],
+          "area": 37452.05779527354,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6427,
+      "file_name": "cfa0cd35eb1a154c5911da0d4d51b1422a54baeef4d807ba5276f083d3c3e93d.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 35,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "55a12fbe7b359f22d303f113275e85226be743858ce8306dabaf0b5b76a5f470",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 101045,
+          "image_id": 6427,
+          "category_id": 9,
+          "bbox": [
+            535.2220655591939,
+            277.60122512322323,
+            364.359905476177,
+            60.93685429534162
+          ],
+          "segmentation": [
+            [
+              535.2220655591939,
+              277.60122512322323,
+              535.2220655591939,
+              338.53807941856485,
+              899.5819710353709,
+              338.53807941856485,
+              899.5819710353709,
+              277.60122512322323
+            ]
+          ],
+          "area": 22202.946471066243,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101046,
+          "image_id": 6427,
+          "category_id": 9,
+          "bbox": [
+            146.76621443028372,
+            419.2229883466563,
+            360.7090046197022,
+            94.79066223719809
+          ],
+          "segmentation": [
+            [
+              146.76621443028372,
+              419.2229883466563,
+              146.76621443028372,
+              514.0136505838543,
+              507.475219049986,
+              514.0136505838543,
+              507.475219049986,
+              419.2229883466563
+            ]
+          ],
+          "area": 34191.84542282212,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6447,
+      "file_name": "dca95628e1ea3775f5555dd94fe5a1773e4c1c700ca2ff230ddda519b38cd559.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 1,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "7b71f7d84eebaa7ed772367fa30d883a8f52eddc16a4bb67f77ac571b566b914",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6444,
+      "file_name": "2edeb044523efa2f5fd30b0cf446d1f2ee95cefe3ce83faa4ef2f9599875b3e4.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 9,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "bb72278622d05ac7cabf7ff3687abe6a0b8b7bb8aee567c901e9aaf653b64304",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6446,
+      "file_name": "bbd9570a73b55a6131ee49b02710cab4dd94b3686c59615a3d13599a5cd68b22.png",
+      "doc_group": "patents_superacid_pags::6420562_AdobeOCR.pdf",
+      "doc_name": "6420562_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 18,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "170e5281002b1e2a1b185fdad8b2d6a9e65eb25d9c54687ff8b4f5087eed504d",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2678,
+      "file_name": "87ad078dce8dd6ce59f1b5b6ccd10235b6e14544ebbc4dd80ab350055877d709.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 3,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "a4eafa26b8e1ed5724797c7e09c3b3f6ae43bee0c0d1b652f7fe3004199b75ce",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 35342,
+          "image_id": 2678,
+          "category_id": 9,
+          "bbox": [
+            151.9565948636034,
+            268.1923548937508,
+            286.82931219816265,
+            338.3670384281261
+          ],
+          "segmentation": [
+            [
+              151.9565948636034,
+              268.1923548937508,
+              151.9565948636034,
+              606.5593933218769,
+              438.78590706176607,
+              606.5593933218769,
+              438.78590706176607,
+              268.1923548937508
+            ]
+          ],
+          "area": 97053.58490286868,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2705,
+      "file_name": "790b4ce4f27780c3b5e057385e99a06258e7849ef05e6cd2eac678f29fc98924.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 6,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "669741f34b6338653cde32f4a6c08e2071e06bb743f13816dc961fe2292f78fb",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 35786,
+          "image_id": 2705,
+          "category_id": 9,
+          "bbox": [
+            182.5277441261035,
+            143.1285624562505,
+            664.4729207349286,
+            533.6055144000015
+          ],
+          "segmentation": [
+            [
+              182.5277441261035,
+              143.1285624562505,
+              182.5277441261035,
+              676.734076856252,
+              847.0006648610321,
+              676.734076856252,
+              847.0006648610321,
+              143.1285624562505
+            ]
+          ],
+          "area": 354566.414673633,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2641,
+      "file_name": "d99104a8a72e29daac1defb495c29642b9c1ac45f7df610ab172437d400b52f4.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 7,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "0546ba4e7e5262037686dc7cd82f9a524aa4d43999f0aca0a2541fc8f3f3cd74",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 34721,
+          "image_id": 2641,
+          "category_id": 9,
+          "bbox": [
+            528.7010519514722,
+            644.078531053127,
+            417.2062722882365,
+            124.3689935906254
+          ],
+          "segmentation": [
+            [
+              528.7010519514722,
+              644.078531053127,
+              528.7010519514722,
+              768.4475246437523,
+              945.9073242397087,
+              768.4475246437523,
+              945.9073242397087,
+              644.078531053127
+            ]
+          ],
+          "area": 51887.524204184396,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2473,
+      "file_name": "1759f123169a7ed1ec245b633b357228f7b35a6a006ba3eb64a4113532fb2898.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 11,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "893f07a0f58ae9cda02f34134a2f180f2fb129f6f0968783c509c824d50f1baa",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 31520,
+          "image_id": 2473,
+          "category_id": 9,
+          "bbox": [
+            117.78883980551507,
+            148.68695323125053,
+            794.8498808250024,
+            171.61531517812546
+          ],
+          "segmentation": [
+            [
+              117.78883980551507,
+              148.68695323125053,
+              117.78883980551507,
+              320.302268409376,
+              912.6387206305175,
+              320.302268409376,
+              912.6387206305175,
+              148.68695323125053
+            ]
+          ],
+          "area": 136408.41281707824,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2507,
+      "file_name": "b9b74fc6b9fb7ff54c81a2c3ed1ee626a69b8d868c9ed533cc009bdf3c3ec681.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 0,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "efe969d16399e71c0ade9a251c37152d4c5bbd65ca8de106a6eadd637ab4f2d3",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2664,
+      "file_name": "401d616b2af91f2922ce6d0e315fc8600ecefc4b39a63363f79daf025edbf51a.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 1,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "62a9e9cadbea5b9b1c173bb788eb82b27ab21c35bf11851a10df5d52d655b771",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2523,
+      "file_name": "3dfa5b0cf727fa7de90411fccf1a09a08b91c0eca79d68c151f44f5a4fcebb1d.png",
+      "doc_group": "arxiv_two_columns::1001.1784.pdf",
+      "doc_name": "1001.1784.pdf",
+      "collection": "arxiv_two_columns",
+      "page_no": 2,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "95528c059d5a771535a2e329eb43dc652337c820f5bc31b44464bc553fd6a9c7",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6932,
+      "file_name": "64a3b7ebc58594db4c3ff36c4498d10f4069a7dc5e4d3605ee52969eef9a2d9b.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 6,
+      "doc_category": "manuals",
+      "role": "table_page",
+      "image_sha256": "c262fa59fd6c9187bc11965ff9a21e463cd880b3a1d942a4a027221c657d9b60",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 107852,
+          "image_id": 6932,
+          "category_id": 9,
+          "bbox": [
+            106.4306449814714,
+            170.02811925538447,
+            813.177961656186,
+            774.3671953044133
+          ],
+          "segmentation": [
+            [
+              106.4306449814714,
+              170.02811925538447,
+              106.4306449814714,
+              944.3953145597977,
+              919.6086066376574,
+              944.3953145597977,
+              919.6086066376574,
+              170.02811925538447
+            ]
+          ],
+          "area": 629698.3374510604,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6899,
+      "file_name": "4ed7a92f8295b7c22bd5f68f310d164b1cad68babfe312c5cd74512ff700918e.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 10,
+      "doc_category": "manuals",
+      "role": "table_page",
+      "image_sha256": "b9f5a40c224f5f58af3ff7e83045f6cdcbcd560b27ab8cac71e7895a23b5f5ff",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 107397,
+          "image_id": 6899,
+          "category_id": 9,
+          "bbox": [
+            107.62649492508343,
+            90.55845482080258,
+            810.7862617689618,
+            861.2293866631423
+          ],
+          "segmentation": [
+            [
+              107.62649492508343,
+              90.55845482080258,
+              107.62649492508343,
+              951.7878414839449,
+              918.4127566940452,
+              951.7878414839449,
+              918.4127566940452,
+              90.55845482080258
+            ]
+          ],
+          "area": 698272.9549381849,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6693,
+      "file_name": "9a37ee4c3344af718e67bca6c1a0cf2b5df9ed4494d2104f8eed7fc0779624c1.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 13,
+      "doc_category": "manuals",
+      "role": "table_page",
+      "image_sha256": "3c6049108a85674828c2b635ae3a4e9c061ce2bc50d279ffc451c857b232b474",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 104632,
+          "image_id": 6693,
+          "category_id": 9,
+          "bbox": [
+            228.40733922989932,
+            90.55845482080258,
+            690.0054174641459,
+            855.684991470032
+          ],
+          "segmentation": [
+            [
+              228.40733922989932,
+              90.55845482080258,
+              228.40733922989932,
+              946.2434462908345,
+              918.4127566940452,
+              946.2434462908345,
+              918.4127566940452,
+              90.55845482080258
+            ]
+          ],
+          "area": 590427.2797570835,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6706,
+      "file_name": "851f7aaac0ea2f2248cafd4b063081c650cbb8792d58c133ebebe03bca5fe556.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 14,
+      "doc_category": "manuals",
+      "role": "table_page",
+      "image_sha256": "fd04247154496f21dc73f3be25577c0a8f7c253de045586cb92faa2174e44c99",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 104806,
+          "image_id": 6706,
+          "category_id": 9,
+          "bbox": [
+            228.77129356056383,
+            90.79951548137251,
+            689.4334892302447,
+            847.7299896712216
+          ],
+          "segmentation": [
+            [
+              228.77129356056383,
+              90.79951548137251,
+              228.77129356056383,
+              938.5295051525941,
+              918.2047827908086,
+              938.5295051525941,
+              918.2047827908086,
+              90.79951548137251
+            ]
+          ],
+          "area": 584453.4447041496,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6779,
+      "file_name": "134f4fa55ab1933296d688dd0edf85d35c5abe261b14400321a5c7faf3cd4a14.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 15,
+      "doc_category": "manuals",
+      "role": "table_page",
+      "image_sha256": "76637c6a80dd5600227bd618fd9e2b9de8a6eae701e02ae62dd45df21c65599d",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 105694,
+          "image_id": 6779,
+          "category_id": 9,
+          "bbox": [
+            107.2677399419998,
+            91.39011409976911,
+            811.3841867407676,
+            859.7046779850368
+          ],
+          "segmentation": [
+            [
+              107.2677399419998,
+              91.39011409976911,
+              107.2677399419998,
+              951.0947920848059,
+              918.6519266827675,
+              951.0947920848059,
+              918.6519266827675,
+              91.39011409976911
+            ]
+          ],
+          "area": 697550.7809841227,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6695,
+      "file_name": "63f63d7b61f5823424fadd952b7afd1c9a371cb0694c861d0903579c0cf39d64.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 0,
+      "doc_category": "manuals",
+      "role": "non_table_control_page",
+      "image_sha256": "7aac31da304b3b85ea8a84f4bfb84ae1eec16731c2aa3a6f997e5edc7a8a742a",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6953,
+      "file_name": "e35024369b47c329302733c25910bf2ab4872983525b45b933448359c306898a.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 5,
+      "doc_category": "manuals",
+      "role": "non_table_control_page",
+      "image_sha256": "9b486fa00aa4b75c2e4164e0748642c272d8666735c8d8c4cb36b542f6a94536",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6908,
+      "file_name": "e35d4d21634504d9cf9a0f7675b7225ca3e201766e06550ddfdbaed1b310d1ee.png",
+      "doc_group": "redbooks::sg248366.pdf",
+      "doc_name": "sg248366.pdf",
+      "collection": "redbooks",
+      "page_no": 18,
+      "doc_category": "manuals",
+      "role": "non_table_control_page",
+      "image_sha256": "a605c523ae0ec3231181aae3f252d82b3fbbb737498a8a4c5fbe9cf5ceb2a569",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7193,
+      "file_name": "acbd980ae636b55d4f466ae55c63119e8def8fd014fa2f9e867860a60bd9ccb4.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "07df5ba48041896c97475bbff50b6cd1be77ef86dfd41e264557e6ac40ae0d51",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111212,
+          "image_id": 7193,
+          "category_id": 9,
+          "bbox": [
+            126.95462463977206,
+            369.57073669859994,
+            818.4181777092224,
+            31.03265728003521
+          ],
+          "segmentation": [
+            [
+              126.95462463977206,
+              369.57073669859994,
+              126.95462463977206,
+              400.60339397863515,
+              945.3728023489945,
+              400.60339397863515,
+              945.3728023489945,
+              369.57073669859994
+            ]
+          ],
+          "area": 25397.69082060125,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7169,
+      "file_name": "19d0d2ae2a4629654e0e1b8dbc16a379b2883af01e9ef3c04e3bd4453d77f755.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 18,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "8721cecf5824874c7373136c9814b5e74b0cc4b00c7f5798b741525c7ad07479",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 110898,
+          "image_id": 7169,
+          "category_id": 9,
+          "bbox": [
+            23.60654764972519,
+            249.2425280356971,
+            976.8944865636275,
+            40.722696509769435
+          ],
+          "segmentation": [
+            [
+              23.60654764972519,
+              249.2425280356971,
+              23.60654764972519,
+              289.9652245454665,
+              1000.5010342133527,
+              289.9652245454665,
+              1000.5010342133527,
+              249.2425280356971
+            ]
+          ],
+          "area": 39781.77769839764,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7155,
+      "file_name": "efeb31958a4ff3523123d208a22adc1d99b80250e4e695828f14b6765abdee74.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 28,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "1fa8bc868a8f730192744cede1755c37cdf6dd49485c381807e1e0c9f7dd48c4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 110691,
+          "image_id": 7155,
+          "category_id": 9,
+          "bbox": [
+            24.84572389338362,
+            130.29328703809347,
+            974.2139105563577,
+            84.08999376217378
+          ],
+          "segmentation": [
+            [
+              24.84572389338362,
+              130.29328703809347,
+              24.84572389338362,
+              214.38328080026724,
+              999.0596344497413,
+              214.38328080026724,
+              999.0596344497413,
+              130.29328703809347
+            ]
+          ],
+          "area": 81921.64166170705,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 110693,
+          "image_id": 7155,
+          "category_id": 9,
+          "bbox": [
+            24.84572389338362,
+            425.0702981384609,
+            975.521580234957,
+            135.83768223120376
+          ],
+          "segmentation": [
+            [
+              24.84572389338362,
+              425.0702981384609,
+              24.84572389338362,
+              560.9079803696646,
+              1000.3673041283406,
+              560.9079803696646,
+              1000.3673041283406,
+              425.0702981384609
+            ]
+          ],
+          "area": 132512.59042563784,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7237,
+      "file_name": "93a6df3e63a03c830d73a734702eb0b25ae95592dcd12a0d7f72338d4fca9c82.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 41,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "7b647a798de379a6f7f5045f4651d98830cdcd095d05c62cfb8be0e671f6e215",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111748,
+          "image_id": 7237,
+          "category_id": 9,
+          "bbox": [
+            25.130120834984748,
+            149.0614289720727,
+            974.7440808721357,
+            68.88037151056062
+          ],
+          "segmentation": [
+            [
+              25.130120834984748,
+              149.0614289720727,
+              25.130120834984748,
+              217.9418004826333,
+              999.8742017071204,
+              217.9418004826333,
+              999.8742017071204,
+              149.0614289720727
+            ]
+          ],
+          "area": 67140.73441819265,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7267,
+      "file_name": "706378ec3eb74eb1154e5827314da043cd9141d58d61e823c54241e10bbabac6.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 45,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "4312d98cfc31dbbc469642557237fd4f4027e9371ebe728952b41a0867ed3fcc",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 112136,
+          "image_id": 7267,
+          "category_id": 9,
+          "bbox": [
+            24.684283192322,
+            415.99315731133163,
+            973.9071732243408,
+            80.34429467766518
+          ],
+          "segmentation": [
+            [
+              24.684283192322,
+              415.99315731133163,
+              24.684283192322,
+              496.3374519889968,
+              998.5914564166628,
+              496.3374519889968,
+              998.5914564166628,
+              415.99315731133163
+            ]
+          ],
+          "area": 78247.88491422834,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 112137,
+          "image_id": 7267,
+          "category_id": 9,
+          "bbox": [
+            23.936274610736483,
+            275.919222511455,
+            975.4031903875117,
+            102.01611100519312
+          ],
+          "segmentation": [
+            [
+              23.936274610736483,
+              275.919222511455,
+              23.936274610736483,
+              377.93533351664814,
+              999.3394649982482,
+              377.93533351664814,
+              999.3394649982482,
+              275.919222511455
+            ]
+          ],
+          "area": 99506.84014539192,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 112138,
+          "image_id": 7267,
+          "category_id": 9,
+          "bbox": [
+            24.684283192322,
+            119.4592802444231,
+            976.1511989690973,
+            100.4303683470813
+          ],
+          "segmentation": [
+            [
+              24.684283192322,
+              119.4592802444231,
+              24.684283192322,
+              219.8896485915044,
+              1000.8354821614193,
+              219.8896485915044,
+              1000.8354821614193,
+              119.4592802444231
+            ]
+          ],
+          "area": 98035.22447491149,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7242,
+      "file_name": "8675112d57b93b02d617b9d639c83c6cf06fb62f8c201ac2b84e69fba6d80a6a.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 4,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "63c73751895c7ffb47aa460d0e4e2385d45b11a51ef078026f662e889b43716f",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7055,
+      "file_name": "8f6bc10280107ba015c8d99c41aad4e27baf68b2d8fa2ba9bf81208eded66be0.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 6,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "018de2cf94e94134ae6de9dcb725f57915a6619c0c146821175298411404d7fd",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7200,
+      "file_name": "f6cfb49b003906c27ccd66dde538d8a9af57f2451ae1c61e995fedd73e51ec52.png",
+      "doc_group": "sec_filings::0000021175-21-000022_20210209x10k.pdf",
+      "doc_name": "0000021175-21-000022_20210209x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 11,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "c910e896f0692a79f9c46a2ee147f262a8d14c4cdcf4de33c59e851e458be716",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 775,
+      "file_name": "85209aa0b6b8e471f2788aa05c662abfa1595404c7ee6130c81c61af19707b42.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "76c5a2b21f3331cd88fe00d8e0344641c63e06a64bcf42cbfc09be58e668fb36",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 9889,
+          "image_id": 775,
+          "category_id": 9,
+          "bbox": [
+            126.34131910963244,
+            162.94147717436283,
+            726.9074486800683,
+            330.0080550366839
+          ],
+          "segmentation": [
+            [
+              126.34131910963244,
+              162.94147717436283,
+              126.34131910963244,
+              492.94953221104674,
+              853.2487677897008,
+              492.94953221104674,
+              853.2487677897008,
+              162.94147717436283
+            ]
+          ],
+          "area": 239885.3133305875,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 283,
+      "file_name": "64dde83033500a0bbf22c08e1452a07e37dc3c8d77ef2adaf6483044f6a16289.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 17,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "1d16fa2aa505b8ffdf2c82c0b602729d72179dd4824351ee9dc5703ac7bcb28f",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 3732,
+          "image_id": 283,
+          "category_id": 9,
+          "bbox": [
+            48.801031044061446,
+            111.00516216360461,
+            898.3513742899762,
+            771.724883367069
+          ],
+          "segmentation": [
+            [
+              48.801031044061446,
+              111.00516216360461,
+              48.801031044061446,
+              882.7300455306736,
+              947.1524053340377,
+              882.7300455306736,
+              947.1524053340377,
+              111.00516216360461
+            ]
+          ],
+          "area": 693280.109546578,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 28,
+      "file_name": "c5606d97933466e551f196283b807ffe3807bc9dd967bd8469d60f1299e018d1.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 18,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6fbf64eb485188b92307c28853b4c73bc57d036c97ab4e3fccf27825fd80e639",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 359,
+          "image_id": 28,
+          "category_id": 9,
+          "bbox": [
+            76.29272259546158,
+            110.14989972813657,
+            901.4587485621645,
+            417.32849333617906
+          ],
+          "segmentation": [
+            [
+              76.29272259546158,
+              110.14989972813657,
+              76.29272259546158,
+              527.4783930643157,
+              977.751471157626,
+              527.4783930643157,
+              977.751471157626,
+              110.14989972813657
+            ]
+          ],
+          "area": 376204.42134216556,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 752,
+      "file_name": "6fb2d639f3631c7315d609da04887d65d60493136a4e3a1817bbd517cf79a3b9.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 19,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "b25c02668c18fffffbaf6678ef804a395b1136b3b67ab543bb86e90bff354941",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 9646,
+          "image_id": 752,
+          "category_id": 9,
+          "bbox": [
+            49.24882710341573,
+            92.52809940641748,
+            896.1355206268588,
+            688.7373850977683
+          ],
+          "segmentation": [
+            [
+              49.24882710341573,
+              92.52809940641748,
+              49.24882710341573,
+              781.2654845041858,
+              945.3843477302745,
+              781.2654845041858,
+              945.3843477302745,
+              92.52809940641748
+            ]
+          ],
+          "area": 617202.0351697699,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 524,
+      "file_name": "b7c02d48b37446622b47c825acd96debd453eb8549c97dc6b0b4166351977e17.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 20,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "aa650d363cc43b4783e9b8be20c80e29083ea5a5732fc454b356f90d6f42fdc4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 6559,
+          "image_id": 524,
+          "category_id": 9,
+          "bbox": [
+            76.67049103067255,
+            111.20649090253653,
+            901.1924929342986,
+            686.1780421191452
+          ],
+          "segmentation": [
+            [
+              76.67049103067255,
+              111.20649090253653,
+              76.67049103067255,
+              797.3845330216817,
+              977.8629839649711,
+              797.3845330216817,
+              977.8629839649711,
+              111.20649090253653
+            ]
+          ],
+          "area": 618378.5003741286,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 27,
+      "file_name": "a0583d766e0eacfca76554a823eccf61c18af4dcc58bd290d4be1b98907d99b7.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "fab165524110fd679c7c13834192f049a7638d15c2598d9e7b0479449bfd0aec",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 758,
+      "file_name": "0b94f9dc5043a14acb186493975ab5b2284115e64b663831454400fa56c95c6f.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "1cf7e705132d91380f98dab5d776f495764991d96799eecf0284fbaabf26404e",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 428,
+      "file_name": "7c900167295e6641056e7ad1a27dd6dd47f08ff4d4af2619c72497fd4be57746.png",
+      "doc_group": "ann_reports_00_04_fancy::NASDAQ_POWL_2002.pdf",
+      "doc_name": "NASDAQ_POWL_2002.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "ff1c0cd407e59541a5ca5cc4be688d8ef7cae2521ea73f40518ba5b577124c88",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1558,
+      "file_name": "f76d243e5af4c710076830e183193e53d57417a484ef1f91e627b4688d90f645.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "9e2b28e480179ff25d3555adcf7665c1b674d3ab941c73e738a81a3a2af61808",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 21486,
+          "image_id": 1558,
+          "category_id": 9,
+          "bbox": [
+            450.5810206368594,
+            302.91371945454455,
+            455.8889122412204,
+            276.8887379239428
+          ],
+          "segmentation": [
+            [
+              450.5810206368594,
+              302.91371945454455,
+              450.5810206368594,
+              579.8024573784874,
+              906.4699328780798,
+              579.8024573784874,
+              906.4699328780798,
+              302.91371945454455
+            ]
+          ],
+          "area": 126230.50554399064,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1486,
+      "file_name": "4345a6fbd02a89f7c93378217799ec41f3d6efdc039a4074dac866d6db18682d.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 20,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "fb4cfcc2eb1b9c8e80fdbb5aaa79f18774caf0c0d9454827a6701a0a32b01cd1",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 20490,
+          "image_id": 1486,
+          "category_id": 9,
+          "bbox": [
+            258.10608304699986,
+            88.500769835818,
+            708.6727713718203,
+            666.9936068114082
+          ],
+          "segmentation": [
+            [
+              258.10608304699986,
+              88.500769835818,
+              258.10608304699986,
+              755.4943766472262,
+              966.7788544188202,
+              755.4943766472262,
+              966.7788544188202,
+              88.500769835818
+            ]
+          ],
+          "area": 472680.2078263269,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1509,
+      "file_name": "4fdb54aaf1eeeffb54930bcc9336be08d1fca80ef09bf2dbb7bc717a1c485ffe.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 21,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "71f9ebceecd848adc02c0d444579f10748c36b5e49d9e9b99ee56f33f680f2b4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 20779,
+          "image_id": 1509,
+          "category_id": 9,
+          "bbox": [
+            135.71394183750115,
+            727.8568707499146,
+            361.123879717029,
+            106.07526488448366
+          ],
+          "segmentation": [
+            [
+              135.71394183750115,
+              727.8568707499146,
+              135.71394183750115,
+              833.9321356343983,
+              496.83782155453014,
+              833.9321356343983,
+              496.83782155453014,
+              727.8568707499146
+            ]
+          ],
+          "area": 38306.31119709627,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1018,
+      "file_name": "bc662a8e1d349798cd472e0ace8f5d320555bb765acd4a39a151297cda876244.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 22,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "3fa8f9662be88f33de8870ecc2ba2fea067c596e9c528d78acb409e2f34ece4e",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 13234,
+          "image_id": 1018,
+          "category_id": 9,
+          "bbox": [
+            258.88602249614905,
+            253.02622117210763,
+            707.8054019309608,
+            413.7410388194832
+          ],
+          "segmentation": [
+            [
+              258.88602249614905,
+              253.02622117210763,
+              258.88602249614905,
+              666.7672599915909,
+              966.6914244271098,
+              666.7672599915909,
+              966.6914244271098,
+              253.02622117210763
+            ]
+          ],
+          "area": 292848.1422769576,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1080,
+      "file_name": "c250aa46a8b0dfd2127507589d9d95be6afcf514aa6ecf5626b76e2c486c8201.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 24,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "fa8acb82c0c22cc551b8a2b9c6b9877d88e1484fabf29eedb20cb549352938b6",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 14336,
+          "image_id": 1080,
+          "category_id": 9,
+          "bbox": [
+            257.84824318919567,
+            118.38497167701018,
+            709.6813876012227,
+            792.3130787358936
+          ],
+          "segmentation": [
+            [
+              257.84824318919567,
+              118.38497167701018,
+              257.84824318919567,
+              910.6980504129037,
+              967.5296307904184,
+              910.6980504129037,
+              967.5296307904184,
+              118.38497167701018
+            ]
+          ],
+          "area": 562289.8451318857,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 934,
+      "file_name": "b148b8b7b7c9dade631f73fc24c9ebccdfd1d73313ece22d6328f4298c2f6842.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "08cdf9dd51ee315dd667058eb3b6593bb8499b8bde3d8042d6a78e1ed6067e95",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1046,
+      "file_name": "09eec873f2f176460163b53b369c432bee1d81bbe41914342585435c6a117360.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "f5aea6c2c8fd4c5a1e846f1056ff51bd36bbdf84ebd5c3f0a96985dcce199ca0",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1561,
+      "file_name": "284642df6d22dd1f6e8484b282b237c63a8e081be93ddf841740b5c7c4c37037.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_PWF_2014.pdf",
+      "doc_name": "TSX_PWF_2014.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "10bc17a564f8a0dcdfca98eb8fc2f4beb40b5773dd7e64c6fde402cce38220eb",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6463,
+      "file_name": "e73a5b3af9b69b5b810d38b86de3c52830a2ce5aa74ce4c7fb76065cfacd842c.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 25,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "68773a057ffacba8dd1fdf841a5083ce3d158ccfe130168582e07b6d49d9a4c4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 101820,
+          "image_id": 6463,
+          "category_id": 9,
+          "bbox": [
+            129.03952682547478,
+            168.33792817686935,
+            362.8287871916291,
+            85.04877904406294
+          ],
+          "segmentation": [
+            [
+              129.03952682547478,
+              168.33792817686935,
+              129.03952682547478,
+              253.3867072209323,
+              491.8683140171039,
+              253.3867072209323,
+              491.8683140171039,
+              168.33792817686935
+            ]
+          ],
+          "area": 30858.145352686195,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101821,
+          "image_id": 6463,
+          "category_id": 9,
+          "bbox": [
+            519.9533875026483,
+            168.9244714806215,
+            361.3106751113295,
+            124.34718039545749
+          ],
+          "segmentation": [
+            [
+              519.9533875026483,
+              168.9244714806215,
+              519.9533875026483,
+              293.271651876079,
+              881.2640626139778,
+              293.271651876079,
+              881.2640626139778,
+              168.9244714806215
+            ]
+          ],
+          "area": 44927.96369687302,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101822,
+          "image_id": 6463,
+          "category_id": 9,
+          "bbox": [
+            519.1943314624986,
+            527.8889733769423,
+            362.8287871916291,
+            85.63532234781508
+          ],
+          "segmentation": [
+            [
+              519.1943314624986,
+              527.8889733769423,
+              519.1943314624986,
+              613.5242957247574,
+              882.0231186541276,
+              613.5242957247574,
+              882.0231186541276,
+              527.8889733769423
+            ]
+          ],
+          "area": 31070.960148221955,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101823,
+          "image_id": 6463,
+          "category_id": 9,
+          "bbox": [
+            129.03952682547478,
+            787.7276569391483,
+            362.8287871916291,
+            167.75138487311713
+          ],
+          "segmentation": [
+            [
+              129.03952682547478,
+              787.7276569391483,
+              129.03952682547478,
+              955.4790418122655,
+              491.8683140171039,
+              955.4790418122655,
+              491.8683140171039,
+              787.7276569391483
+            ]
+          ],
+          "area": 60865.031523229285,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101824,
+          "image_id": 6463,
+          "category_id": 9,
+          "bbox": [
+            519.9533875026483,
+            695.6403582500594,
+            362.06973115147935,
+            95.60655851160183
+          ],
+          "segmentation": [
+            [
+              519.9533875026483,
+              695.6403582500594,
+              519.9533875026483,
+              791.2469167616613,
+              882.0231186541276,
+              791.2469167616613,
+              882.0231186541276,
+              695.6403582500594
+            ]
+          ],
+          "area": 34616.24093661385,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6453,
+      "file_name": "7a0c8d1a4f98c4a7b9e448c9bfc56be8abff3d0002c68212423f90c8623ff338.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 29,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "f2265449c7472cf98865de1639f81c0bbbdae951ab9af09ceb6f52c2cbeac8e7",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 101611,
+          "image_id": 6453,
+          "category_id": 9,
+          "bbox": [
+            128.56601360572157,
+            170.75173682009904,
+            434.484251337193,
+            199.1364411226608
+          ],
+          "segmentation": [
+            [
+              128.56601360572157,
+              170.75173682009904,
+              128.56601360572157,
+              369.88817794275985,
+              563.0502649429145,
+              369.88817794275985,
+              563.0502649429145,
+              170.75173682009904
+            ]
+          ],
+          "area": 86521.64753513229,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101612,
+          "image_id": 6453,
+          "category_id": 9,
+          "bbox": [
+            129.13996902360427,
+            410.6911903776926,
+            433.33634050142757,
+            132.6097904135314
+          ],
+          "segmentation": [
+            [
+              129.13996902360427,
+              410.6911903776926,
+              129.13996902360427,
+              543.300980791224,
+              562.4763095250319,
+              543.300980791224,
+              562.4763095250319,
+              410.6911903776926
+            ]
+          ],
+          "area": 57464.641292461,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101613,
+          "image_id": 6453,
+          "category_id": 9,
+          "bbox": [
+            127.9920581878389,
+            692.7641893844016,
+            363.31377951973997,
+            85.1541129076858
+          ],
+          "segmentation": [
+            [
+              127.9920581878389,
+              692.7641893844016,
+              127.9920581878389,
+              777.9183022920873,
+              491.30583770757886,
+              777.9183022920873,
+              491.30583770757886,
+              692.7641893844016
+            ]
+          ],
+          "area": 30937.662602142,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 101614,
+          "image_id": 6453,
+          "category_id": 9,
+          "bbox": [
+            129.13996902360427,
+            859.9678381666802,
+            361.59191326609186,
+            95.79837702114655
+          ],
+          "segmentation": [
+            [
+              129.13996902360427,
+              859.9678381666802,
+              129.13996902360427,
+              955.7662151878267,
+              490.73188228969616,
+              955.7662151878267,
+              490.73188228969616,
+              859.9678381666802
+            ]
+          ],
+          "area": 34639.91843486279,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6416,
+      "file_name": "30d82a6577658cb864215203867c18538eb5b9b77cc98401de011abaafc76b0a.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 32,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "cf60f83cdb43aa465fdd5c70874a3f8e7d8682cfcf7901c01c27dd86260a1c38",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 100854,
+          "image_id": 6416,
+          "category_id": 9,
+          "bbox": [
+            127.9920581878389,
+            206.67612820302895,
+            362.73982410185727,
+            85.15411290768566
+          ],
+          "segmentation": [
+            [
+              127.9920581878389,
+              206.67612820302895,
+              127.9920581878389,
+              291.8302411107146,
+              490.73188228969616,
+              291.8302411107146,
+              490.73188228969616,
+              206.67612820302895
+            ]
+          ],
+          "area": 30888.787937683588,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 100855,
+          "image_id": 6416,
+          "category_id": 9,
+          "bbox": [
+            519.4296531838305,
+            168.09067079173383,
+            362.1658686839745,
+            85.15411290768577
+          ],
+          "segmentation": [
+            [
+              519.4296531838305,
+              168.09067079173383,
+              519.4296531838305,
+              253.2447836994196,
+              881.595521867805,
+              253.2447836994196,
+              881.595521867805,
+              168.09067079173383
+            ]
+          ],
+          "area": 30839.913273225266,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 100856,
+          "image_id": 6416,
+          "category_id": 9,
+          "bbox": [
+            519.4296531838305,
+            445.7285597511675,
+            362.1658686839745,
+            95.35486601641884
+          ],
+          "segmentation": [
+            [
+              519.4296531838305,
+              445.7285597511675,
+              519.4296531838305,
+              541.0834257675863,
+              881.595521867805,
+              541.0834257675863,
+              881.595521867805,
+              445.7285597511675
+            ]
+          ],
+          "area": 34534.27788408033,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 100857,
+          "image_id": 6416,
+          "category_id": 9,
+          "bbox": [
+            447.68522594849475,
+            750.4206199989803,
+            434.48425133719303,
+            203.57155116993613
+          ],
+          "segmentation": [
+            [
+              447.68522594849475,
+              750.4206199989803,
+              447.68522594849475,
+              953.9921711689165,
+              882.1694772856878,
+              953.9921711689165,
+              882.1694772856878,
+              750.4206199989803
+            ]
+          ],
+          "area": 88448.63300362078,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6475,
+      "file_name": "9050cf53fad7f86189b3004612d65f8b2111f77a043e2b6d20b48b00eabeef20.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 38,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "d0c90cbe50f8b6627f8d4122e1240cb5c68c77245f5807e250bad3fddb1563da",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 102072,
+          "image_id": 6475,
+          "category_id": 9,
+          "bbox": [
+            129.13996902360427,
+            322.4325004369141,
+            361.59191326609186,
+            85.59762391241338
+          ],
+          "segmentation": [
+            [
+              129.13996902360427,
+              322.4325004369141,
+              129.13996902360427,
+              408.0301243493275,
+              490.73188228969616,
+              408.0301243493275,
+              490.73188228969616,
+              322.4325004369141
+            ]
+          ],
+          "area": 30951.408601520932,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 102074,
+          "image_id": 6475,
+          "category_id": 9,
+          "bbox": [
+            127.9920581878389,
+            808.5205616182868,
+            362.73982410185727,
+            146.80214256481239
+          ],
+          "segmentation": [
+            [
+              127.9920581878389,
+              808.5205616182868,
+              127.9920581878389,
+              955.3227041830992,
+              490.73188228969616,
+              955.3227041830992,
+              490.73188228969616,
+              808.5205616182868
+            ]
+          ],
+          "area": 53250.98337173582,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 102075,
+          "image_id": 6475,
+          "category_id": 9,
+          "bbox": [
+            519.4296531838305,
+            767.2740381786266,
+            362.73982410185727,
+            84.71060190295816
+          ],
+          "segmentation": [
+            [
+              519.4296531838305,
+              767.2740381786266,
+              519.4296531838305,
+              851.9846400815848,
+              882.1694772856878,
+              851.9846400815848,
+              882.1694772856878,
+              767.2740381786266
+            ]
+          ],
+          "area": 30727.9088338415,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 102076,
+          "image_id": 6475,
+          "category_id": 9,
+          "bbox": [
+            520.0036086017132,
+            482.9834841482799,
+            361.59191326609186,
+            85.15411290768577
+          ],
+          "segmentation": [
+            [
+              520.0036086017132,
+              482.9834841482799,
+              520.0036086017132,
+              568.1375970559657,
+              881.595521867805,
+              568.1375970559657,
+              881.595521867805,
+              482.9834841482799
+            ]
+          ],
+          "area": 30791.038608766907,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 102077,
+          "image_id": 6475,
+          "category_id": 9,
+          "bbox": [
+            519.4296531838305,
+            168.09067079173383,
+            362.1658686839745,
+            116.19988323861276
+          ],
+          "segmentation": [
+            [
+              519.4296531838305,
+              168.09067079173383,
+              519.4296531838305,
+              284.2905540303466,
+              881.595521867805,
+              284.2905540303466,
+              881.595521867805,
+              168.09067079173383
+            ]
+          ],
+          "area": 42083.6316540886,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6408,
+      "file_name": "aae919cb989c7062342a225527c695ced31baeffb73d60c7adb322d18a6e7ff3.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 0,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "858ef002da3f4c5b729ad109585138d1f53a3cf67846b47e1d0279a9b6084112",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6490,
+      "file_name": "1b29d75f2208fe9b5867825be9230828c8e262cbfe88d0e502f89e3df1c7433f.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 9,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "1da3326c7350098596c1a43fa1c507423548b0afdf0e8e4d695a26857b50472d",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6448,
+      "file_name": "2352f0ef945ec1d8879283cfa02a0f93219fee76bc16961786e84def993970c1.png",
+      "doc_group": "patents_superacid_pags::20090317453_AdobeOCR.pdf",
+      "doc_name": "20090317453_AdobeOCR.pdf",
+      "collection": "patents_superacid_pags",
+      "page_no": 15,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "076c98b2cdf988114d46598c36858cc13f9d7ab060bbd80a7b16790adafe5c23",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1404,
+      "file_name": "6020b79511b42f0b4aca40897c87f88d2ac7b658e37835976e7327d41b30333d.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 6,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "17ef1574383503aacd806e12598b84d629c56dc7e01a53a542b6b90141ec6f36",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 19128,
+          "image_id": 1404,
+          "category_id": 9,
+          "bbox": [
+            119.01739779110275,
+            299.19717011201203,
+            816.4905324446395,
+            226.10470707793655
+          ],
+          "segmentation": [
+            [
+              119.01739779110275,
+              299.19717011201203,
+              119.01739779110275,
+              525.3018771899485,
+              935.5079302357423,
+              525.3018771899485,
+              935.5079302357423,
+              299.19717011201203
+            ]
+          ],
+          "area": 184612.35267030366,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1021,
+      "file_name": "e943d284c11ad855487c850be1459d741fd888a33ff42a4b82c9bad6d41467d9.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 15,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6e327868cadccfdbd2835de068552c883208474aa44da98e165f6ddb6d429648",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 13294,
+          "image_id": 1021,
+          "category_id": 9,
+          "bbox": [
+            87.7107331042478,
+            88.03954559948409,
+            819.2363318809124,
+            621.1679050630255
+          ],
+          "segmentation": [
+            [
+              87.7107331042478,
+              88.03954559948409,
+              87.7107331042478,
+              709.2074506625096,
+              906.9470649851602,
+              709.2074506625096,
+              906.9470649851602,
+              88.03954559948409
+            ]
+          ],
+          "area": 508883.31602598383,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1746,
+      "file_name": "f036164ae4ab64fd69697054f37ff6e691e31b2bdfa36fa9c5c43c500229a882.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 24,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6b1d5762204aaa99d574e6276bc4014542076c0a922f052f2f94ab65772763e5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 24615,
+          "image_id": 1746,
+          "category_id": 9,
+          "bbox": [
+            118.93943879691646,
+            161.18494526772633,
+            815.8408741597538,
+            411.9683987931569
+          ],
+          "segmentation": [
+            [
+              118.93943879691646,
+              161.18494526772633,
+              118.93943879691646,
+              573.1533440608832,
+              934.7803129566702,
+              573.1533440608832,
+              934.7803129566702,
+              161.18494526772633
+            ]
+          ],
+          "area": 336100.65859760315,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 24622,
+          "image_id": 1746,
+          "category_id": 9,
+          "bbox": [
+            118.93943879691646,
+            817.4709258563765,
+            815.2431885376587,
+            133.935914405847
+          ],
+          "segmentation": [
+            [
+              118.93943879691646,
+              817.4709258563765,
+              118.93943879691646,
+              951.4068402622236,
+              934.1826273345752,
+              951.4068402622236,
+              934.1826273345752,
+              817.4709258563765
+            ]
+          ],
+          "area": 109190.34191992965,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1638,
+      "file_name": "9cf97db53cc1e66cc5d49517ab8b36fc94eb3a2ea9cec7ca21233c7b1b8a40e6.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 37,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "8881f0072998f2d77c22c663731b9f888666b0f2af56464fa1f7ecf98cc67284",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 22834,
+          "image_id": 1638,
+          "category_id": 9,
+          "bbox": [
+            88.45747207006853,
+            85.44187643131625,
+            831.3807003342251,
+            714.940674138797
+          ],
+          "segmentation": [
+            [
+              88.45747207006853,
+              85.44187643131625,
+              88.45747207006853,
+              800.3825505701133,
+              919.8381724042937,
+              800.3825505701133,
+              919.8381724042937,
+              85.44187643131625
+            ]
+          ],
+          "area": 594387.8783629361,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1592,
+      "file_name": "8f82e910f94b32b9c0d3c2a583d38f3aa2c03c801f786009ac4d5ece20e023a9.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 55,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "f93c4f420694d5efc0e9e1a19b3d56f64aa96e510457a4e910609a37e2d65fd5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 22093,
+          "image_id": 1592,
+          "category_id": 9,
+          "bbox": [
+            87.92498253360634,
+            68.9338864389224,
+            816.9963705494954,
+            278.71110919909574
+          ],
+          "segmentation": [
+            [
+              87.92498253360634,
+              68.9338864389224,
+              87.92498253360634,
+              347.64499563801814,
+              904.9213530831017,
+              347.64499563801814,
+              904.9213530831017,
+              68.9338864389224
+            ]
+          ],
+          "area": 227705.9646474853,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1130,
+      "file_name": "51cfa70395038d09a560a552e8a6f56ddd61a5f2b30d135597e0c67e1daa8044.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "5ea1351063a1206c2db3b19a2288f34709f2e22724000a2a53f1c152dbf336e8",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1421,
+      "file_name": "2f4c6b8d7c6014038d68a4c4caf261fe0f5f7ccf3c5e88bd860f7d04012cc4a8.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "bf6fd1a344ba8009d35e3570ccb7813597e6073b656637da5428db8eb58b9d8f",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1330,
+      "file_name": "922c45f2d18e8cb2d2109cd5ad08d8d40c1a0491617f020d1d24d7f23ac0ef15.png",
+      "doc_group": "ann_reports_10_14_fancy::TSX_Y_2012.pdf",
+      "doc_name": "TSX_Y_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 5,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "7c976efa92c352099ead2b6d10d61717019136c80ec03ca8ee700130ebba13d3",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1802,
+      "file_name": "7b4df076236a425fbe2c9abc035fcca8f6a5fad9126956add5b22a064c92a727.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 12,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "633a8ebff7556c687fa6215f4879e583d6a88a8df42ce024096c94155d6c9d18",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 25222,
+          "image_id": 1802,
+          "category_id": 9,
+          "bbox": [
+            162.29432480813142,
+            626.2423494854559,
+            700.1543627940541,
+            94.05693824107612
+          ],
+          "segmentation": [
+            [
+              162.29432480813142,
+              626.2423494854559,
+              162.29432480813142,
+              720.2992877265319,
+              862.4486876021856,
+              720.2992877265319,
+              862.4486876021856,
+              626.2423494854559
+            ]
+          ],
+          "area": 65854.37566054036,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1810,
+      "file_name": "45a07f2e0d1e7c4df96f4653842d53fa1445d9708bd26a42ff8b6a8b8661c8c2.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 20,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "bed7c0063318ab684b95cb3ed1217efe2c53a2dfee6f58f8fc876fb9a3c31dc5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 25300,
+          "image_id": 1810,
+          "category_id": 9,
+          "bbox": [
+            183.10128952712262,
+            142.29126554419224,
+            659.5807815920213,
+            688.9469749795065
+          ],
+          "segmentation": [
+            [
+              183.10128952712262,
+              142.29126554419224,
+              183.10128952712262,
+              831.2382405236988,
+              842.6820711191439,
+              831.2382405236988,
+              842.6820711191439,
+              142.29126554419224
+            ]
+          ],
+          "area": 454416.18423244165,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1869,
+      "file_name": "6af075ab563cd1a3ae44076603e5a1ea7a632e6a94ca1b902c3d54f01f9eba6f.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 21,
+      "doc_category": "scientific_articles",
+      "role": "table_page",
+      "image_sha256": "716e5fb1b00b13e4fa3100eddfd8f43c42993300b87f9dcfc14a1662019130a4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 25879,
+          "image_id": 1869,
+          "category_id": 9,
+          "bbox": [
+            164.37502128003055,
+            143.09517099924415,
+            695.9929698502559,
+            688.1430695244546
+          ],
+          "segmentation": [
+            [
+              164.37502128003055,
+              143.09517099924415,
+              164.37502128003055,
+              831.2382405236988,
+              860.3679911302864,
+              831.2382405236988,
+              860.3679911302864,
+              143.09517099924415
+            ]
+          ],
+          "area": 478942.73864019633,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1947,
+      "file_name": "44a06b3ee971745c2e22f4ebe9fd2237489e939159af881cc0b0eaa5a04b0f6a.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 0,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "c0184cb1df285dbc32957fa2243fb34a879b1380e4576c8701703feee8a0f161",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1979,
+      "file_name": "c98271793cc75c523d478993fbec197c069e7b21b83baed8b352b1bb8836fdb3.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 1,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "1a1494e217a1b14b7b27cc00cce714f14676c109ed374f0514a3f8915369df44",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1975,
+      "file_name": "59daf688ead586b6168c6f2de219bb753b428be73e7108c8c046b463421e42e1.png",
+      "doc_group": "arxiv_doublespaced::1108.2245.pdf",
+      "doc_name": "1108.2245.pdf",
+      "collection": "arxiv_doublespaced",
+      "page_no": 3,
+      "doc_category": "scientific_articles",
+      "role": "non_table_control_page",
+      "image_sha256": "6b283893f861ada7850c34553293193b794703613ed60a4ab4eabd499ad2eb46",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6173,
+      "file_name": "67d2b2e73dede4bc065cad56d4aa96a9b469b2b53c2883d9ea5480d7f4f9ef86.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 0,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "7f46b42f7209b6aad1c4ff55d788f4a23757311f0f7d1c812a80e5a9483bceed",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 97411,
+          "image_id": 6173,
+          "category_id": 9,
+          "bbox": [
+            547.2771979244972,
+            172.21284909553083,
+            287.5861974530427,
+            29.43809386248381
+          ],
+          "segmentation": [
+            [
+              547.2771979244972,
+              172.21284909553083,
+              547.2771979244972,
+              201.65094295801464,
+              834.8633953775399,
+              201.65094295801464,
+              834.8633953775399,
+              172.21284909553083
+            ]
+          ],
+          "area": 8465.989474177473,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 97424,
+          "image_id": 6173,
+          "category_id": 9,
+          "bbox": [
+            545.9488552110881,
+            392.507918166452,
+            314.81722307792677,
+            72.61396486079366
+          ],
+          "segmentation": [
+            [
+              545.9488552110881,
+              392.507918166452,
+              545.9488552110881,
+              465.12188302724564,
+              860.7660782890149,
+              465.12188302724564,
+              860.7660782890149,
+              392.507918166452
+            ]
+          ],
+          "area": 22860.126774153214,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6137,
+      "file_name": "e3bb032bfc9af44002be1e2aecc513c7af9abf331649babcd0acb4676629846b.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 15,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "b09de38a78bcac8cc06d4bc53738a8c0e4b7a75a0896977addd766d27ca77ac6",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 96836,
+          "image_id": 6137,
+          "category_id": 9,
+          "bbox": [
+            116.55400484704998,
+            844.8608068092204,
+            348.2050894805618,
+            71.03288312026575
+          ],
+          "segmentation": [
+            [
+              116.55400484704998,
+              844.8608068092204,
+              116.55400484704998,
+              915.8936899294862,
+              464.7590943276118,
+              915.8936899294862,
+              464.7590943276118,
+              844.8608068092204
+            ]
+          ],
+          "area": 24734.011422954423,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6134,
+      "file_name": "b651f47fd826e6756ec18ff9bd89758ce8675f14c48ceb11b2aa475edd0ec685.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 16,
+      "doc_category": "patents",
+      "role": "table_page",
+      "image_sha256": "20a1cdb8de04a114ec84e5ff8e737c19b621468da66486d9319878843ed86bc3",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 96789,
+          "image_id": 6134,
+          "category_id": 9,
+          "bbox": [
+            116.44473546750586,
+            82.92550976388588,
+            306.6098790007709,
+            502.503835285637
+          ],
+          "segmentation": [
+            [
+              116.44473546750586,
+              82.92550976388588,
+              116.44473546750586,
+              585.4293450495229,
+              423.0546144682768,
+              585.4293450495229,
+              423.0546144682768,
+              82.92550976388588
+            ]
+          ],
+          "area": 154072.64013435246,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 6147,
+      "file_name": "67facb906e5c5b59cfb69b6305db1b0f8c0a736504da944e5b73070c1e9f5b5b.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 1,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "1cb13e1ef1213497ea8b08f29eba4b12b7d9146dd02fdb5379887ff12d8ef9ef",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6163,
+      "file_name": "93f461e35320dce599d702a3e3a5b5c93e538c4a25fd56920e0f10c43b621993.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 2,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "75f398c3e7cbc5e113c15715b3d08328438102c37f0d18c75d8a3c05ac97147e",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 6136,
+      "file_name": "f263f3c0fd00dd6254d64df532522b79d1fa4a2d373769d269d8984ac00dd12c.png",
+      "doc_group": "patents_ep::EP2000001B1.pdf",
+      "doc_name": "EP2000001B1.pdf",
+      "collection": "patents_ep",
+      "page_no": 3,
+      "doc_category": "patents",
+      "role": "non_table_control_page",
+      "image_sha256": "a630587e3cc4b39a744073b5104cb8ce44598999aff99b74262d42cf3ac6bc73",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7239,
+      "file_name": "cf3d9a0fd6457458cc5b75a0ed02fd22079c1d63e6c06ef5b7d0988522419e96.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "910f19e75c44aba00704b57acef9ac052c8f2c260dbeab6d12cc21a77f2f8d53",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111796,
+          "image_id": 7239,
+          "category_id": 9,
+          "bbox": [
+            172.1889357979955,
+            347.36950757731006,
+            714.445221516683,
+            26.494284476235407
+          ],
+          "segmentation": [
+            [
+              172.1889357979955,
+              347.36950757731006,
+              172.1889357979955,
+              373.86379205354547,
+              886.6341573146785,
+              373.86379205354547,
+              886.6341573146785,
+              347.36950757731006
+            ]
+          ],
+          "area": 18928.71494155002,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7222,
+      "file_name": "1e0452a41d8d173fcc32df6d7cf9f709d8945740bf56611509ef4536a927471a.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "af7c9201d3f0e9011aadcf29a8c6a7e89e09a4e59e63dfa402b32ec11cc7484e",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111557,
+          "image_id": 7222,
+          "category_id": 9,
+          "bbox": [
+            23.69931738806508,
+            487.39959070925227,
+            719.15170005163,
+            191.14841768336788
+          ],
+          "segmentation": [
+            [
+              23.69931738806508,
+              487.39959070925227,
+              23.69931738806508,
+              678.5480083926202,
+              742.851017439695,
+              678.5480083926202,
+              742.851017439695,
+              487.39959070925227
+            ]
+          ],
+          "area": 137464.70953917305,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7128,
+      "file_name": "c223e797ffee250e3f81e94193ec43d947c04b8978d0161fbdd55515bda5fdc8.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 8,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "cfdb46d94428ab1452e612d37f341a84311b3ef79317e9c68513310bd2ab9729",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 110312,
+          "image_id": 7128,
+          "category_id": 9,
+          "bbox": [
+            35.69140648008511,
+            234.61732150086334,
+            952.0475170385491,
+            117.89520405418375
+          ],
+          "segmentation": [
+            [
+              35.69140648008511,
+              234.61732150086334,
+              35.69140648008511,
+              352.5125255550471,
+              987.7389235186342,
+              352.5125255550471,
+              987.7389235186342,
+              234.61732150086334
+            ]
+          ],
+          "area": 112241.83629053873,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7208,
+      "file_name": "63658fc92fa2eca7cd87731a384a60587334ad7b44583a8c9e617c1b766f8948.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 21,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "664421d26dc545a0b97462395d4f0e75c8d3bd6b1970b1f512c537540a68fffa",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111408,
+          "image_id": 7208,
+          "category_id": 9,
+          "bbox": [
+            24.75215952096185,
+            70.5287665455345,
+            955.7527402126236,
+            204.8155380482317
+          ],
+          "segmentation": [
+            [
+              24.75215952096185,
+              70.5287665455345,
+              24.75215952096185,
+              275.3443045937662,
+              980.5048997335855,
+              275.3443045937662,
+              980.5048997335855,
+              70.5287665455345
+            ]
+          ],
+          "area": 195753.01172772032,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 111409,
+          "image_id": 7208,
+          "category_id": 9,
+          "bbox": [
+            34.33364062585031,
+            347.5657615363932,
+            958.1481104888459,
+            152.90636587071856
+          ],
+          "segmentation": [
+            [
+              34.33364062585031,
+              347.5657615363932,
+              34.33364062585031,
+              500.47212740711177,
+              992.4817511146962,
+              500.47212740711177,
+              992.4817511146962,
+              347.5657615363932
+            ]
+          ],
+          "area": 146506.94554074513,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7207,
+      "file_name": "c7ca8ab84c575e194e316e379387243d5deb57e260f794edade1bd7e674b84c3.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 22,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6e62288320ec8c50eecd5fc29745e9cec219d9dfb2a807e3b7909ee2dc4c35d0",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111401,
+          "image_id": 7207,
+          "category_id": 9,
+          "bbox": [
+            24.082777199235785,
+            123.708601769599,
+            957.753524000377,
+            98.83597284237794
+          ],
+          "segmentation": [
+            [
+              24.082777199235785,
+              123.708601769599,
+              24.082777199235785,
+              222.54457461197694,
+              981.8363011996128,
+              222.54457461197694,
+              981.8363011996128,
+              123.708601769599
+            ]
+          ],
+          "area": 94660.50128779303,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7245,
+      "file_name": "1e4c97fc2b8377e1919c7ab040c05a78b21a56e90af8b469b87dcdfd614b444d.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 14,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "751ba258197a003755b0b980f5ce3ec4880c7ac88f6d5377c5339f74a3c7e396",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7096,
+      "file_name": "81786913496cf7ce2d493dcacdbbd23f539ab68791203689b4c9fe79a17f6f9d.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 16,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "9d5254f8c0339ec3be780afc7c072dc91b5fc96682654676706ff0157a968ad2",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7261,
+      "file_name": "f32d86766303869598c67c458100b23e34016a8e5e7028f525b5f9a35dd7be95.png",
+      "doc_group": "sec_filings::0000029989-19-000007_20190212x10k.pdf",
+      "doc_name": "0000029989-19-000007_20190212x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 34,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "edd335221b6af508de6ee5ba25fac0b49c9280f2ab1eb9203b1837b4a4dd180a",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2979,
+      "file_name": "56c67666c8222363bea1e54c2a3e3fc682c367447a819a4279a9c63399abc43e.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 0,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "04bc4e287edcc87dcd479a8e3a1c26589d08448c897f12da36ed6b0a4863fbdc",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 39225,
+          "image_id": 2979,
+          "category_id": 9,
+          "bbox": [
+            112.2774791505619,
+            279.67235849061854,
+            804.8208682473906,
+            390.69804459241533
+          ],
+          "segmentation": [
+            [
+              112.2774791505619,
+              279.67235849061854,
+              112.2774791505619,
+              670.3704030830338,
+              917.0983473979526,
+              670.3704030830338,
+              917.0983473979526,
+              279.67235849061854
+            ]
+          ],
+          "area": 314441.93947142543,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 39226,
+          "image_id": 2979,
+          "category_id": 9,
+          "bbox": [
+            112.2774791505619,
+            680.208123630325,
+            476.9308848873426,
+            132.10653306362246
+          ],
+          "segmentation": [
+            [
+              112.2774791505619,
+              680.208123630325,
+              112.2774791505619,
+              812.3146566939474,
+              589.2083640379045,
+              812.3146566939474,
+              589.2083640379045,
+              680.208123630325
+            ]
+          ],
+          "area": 63005.685713432445,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3235,
+      "file_name": "c6e13939d9a354edf21ae52e9d23c37ac8c32b328dc53cac0582d0052fa1fe79.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 1,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "eab9a61d365c35c284c205c6204b8cfe0c5b354985190f9b7c3438ccbcd4ee77",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 43501,
+          "image_id": 3235,
+          "category_id": 9,
+          "bbox": [
+            113.02653463579855,
+            56.25001186553686,
+            803.744246299012,
+            146.0526176822833
+          ],
+          "segmentation": [
+            [
+              113.02653463579855,
+              56.25001186553686,
+              113.02653463579855,
+              202.30262954782017,
+              916.7707809348105,
+              202.30262954782017,
+              916.7707809348105,
+              56.25001186553686
+            ]
+          ],
+          "area": 117388.95111904456,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 43502,
+          "image_id": 3235,
+          "category_id": 9,
+          "bbox": [
+            113.02653463579855,
+            215.13157569558825,
+            804.4419409572577,
+            393.7499625353448
+          ],
+          "segmentation": [
+            [
+              113.02653463579855,
+              215.13157569558825,
+              113.02653463579855,
+              608.8815382309331,
+              917.4684755930562,
+              608.8815382309331,
+              917.4684755930562,
+              215.13157569558825
+            ]
+          ],
+          "area": 316748.98411378026,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 43503,
+          "image_id": 3235,
+          "category_id": 9,
+          "bbox": [
+            112.3288399775529,
+            613.815748287767,
+            477.92084089828404,
+            137.17103957998222
+          ],
+          "segmentation": [
+            [
+              112.3288399775529,
+              613.815748287767,
+              112.3288399775529,
+              750.9867878677492,
+              590.2496808758369,
+              750.9867878677492,
+              590.2496808758369,
+              613.815748287767
+            ]
+          ],
+          "area": 65556.8985829569,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3092,
+      "file_name": "9c251811178120348ba5752a7ea2863bda68c50887503f1914cf8a5bff7a65f7.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 3,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "ece35e6fa3c333e0afe4aae02d8c942e3d1a2c6a9b2e5d925788fd9b03c30c49",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 41062,
+          "image_id": 3092,
+          "category_id": 9,
+          "bbox": [
+            111.63114531930722,
+            54.276327842803425,
+            805.8373302737491,
+            106.57893722761196
+          ],
+          "segmentation": [
+            [
+              111.63114531930722,
+              54.276327842803425,
+              111.63114531930722,
+              160.85526507041538,
+              917.4684755930564,
+              160.85526507041538,
+              917.4684755930564,
+              54.276327842803425
+            ]
+          ],
+          "area": 85885.28623891232,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 41063,
+          "image_id": 3092,
+          "category_id": 9,
+          "bbox": [
+            111.63114531930722,
+            173.68421121818358,
+            805.8373302737491,
+            392.763120523978
+          ],
+          "segmentation": [
+            [
+              111.63114531930722,
+              173.68421121818358,
+              111.63114531930722,
+              566.4473317421616,
+              917.4684755930564,
+              566.4473317421616,
+              917.4684755930564,
+              173.68421121818358
+            ]
+          ],
+          "area": 316503.18447302916,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 41064,
+          "image_id": 3092,
+          "category_id": 9,
+          "bbox": [
+            112.3288399775529,
+            572.3683838103623,
+            477.22314624003843,
+            138.15788159134905
+          ],
+          "segmentation": [
+            [
+              112.3288399775529,
+              572.3683838103623,
+              112.3288399775529,
+              710.5262654017113,
+              589.5519862175913,
+              710.5262654017113,
+              589.5519862175913,
+              572.3683838103623
+            ]
+          ],
+          "area": 65932.13893088228,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3201,
+      "file_name": "9aafa5437174c2033fcd78b43dc64e698741eb7e014316791291000c29c96cd5.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 4,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "d977a27404e2042562c6687e27c7b647ff4dee9cf30f9b581bfd565e45377b23",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 42991,
+          "image_id": 3201,
+          "category_id": 9,
+          "bbox": [
+            112.3288399775529,
+            55.26316985417009,
+            807.2327195902404,
+            133.22367153451512
+          ],
+          "segmentation": [
+            [
+              112.3288399775529,
+              55.26316985417009,
+              112.3288399775529,
+              188.4868413886852,
+              919.5615595677933,
+              188.4868413886852,
+              919.5615595677933,
+              55.26316985417009
+            ]
+          ],
+          "area": 107542.50668660353,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 42992,
+          "image_id": 3201,
+          "category_id": 9,
+          "bbox": [
+            110.93345066106156,
+            197.3684194909863,
+            807.2327195902404,
+            397.69733058081187
+          ],
+          "segmentation": [
+            [
+              110.93345066106156,
+              197.3684194909863,
+              110.93345066106156,
+              595.0657500717982,
+              918.166170251302,
+              595.0657500717982,
+              918.166170251302,
+              197.3684194909863
+            ]
+          ],
+          "area": 321034.29773852765,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 42993,
+          "image_id": 3201,
+          "category_id": 9,
+          "bbox": [
+            111.63114531930722,
+            596.052592083165,
+            478.6185355565297,
+            138.15788159134894
+          ],
+          "segmentation": [
+            [
+              111.63114531930722,
+              596.052592083165,
+              111.63114531930722,
+              734.2104736745139,
+              590.2496808758369,
+              734.2104736745139,
+              590.2496808758369,
+              596.052592083165
+            ]
+          ],
+          "area": 66124.92296284386,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2940,
+      "file_name": "41a71838bd72443dcef389558fd16df904979cafddf5e0523117b3dbe6f3d232.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 5,
+      "doc_category": "government_tenders",
+      "role": "table_page",
+      "image_sha256": "d2abd2867e1ae572e76423061898af0b5b1b9aa50ab93fc6ba6bd0fc3a46b67b",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 38599,
+          "image_id": 2940,
+          "category_id": 9,
+          "bbox": [
+            113.02653463579855,
+            56.25001186553686,
+            804.4419409572577,
+            129.27630348904802
+          ],
+          "segmentation": [
+            [
+              113.02653463579855,
+              56.25001186553686,
+              113.02653463579855,
+              185.52631535458488,
+              917.4684755930562,
+              185.52631535458488,
+              917.4684755930562,
+              56.25001186553686
+            ]
+          ],
+          "area": 103995.2804985093,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 38600,
+          "image_id": 2940,
+          "category_id": 9,
+          "bbox": [
+            112.3288399775529,
+            197.3684194909863,
+            805.1396356155034,
+            394.73680454671154
+          ],
+          "segmentation": [
+            [
+              112.3288399775529,
+              197.3684194909863,
+              112.3288399775529,
+              592.1052240376978,
+              917.4684755930563,
+              592.1052240376978,
+              917.4684755930563,
+              197.3684194909863
+            ]
+          ],
+          "area": 317818.2469767675,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 38601,
+          "image_id": 2940,
+          "category_id": 9,
+          "bbox": [
+            112.3288399775529,
+            595.0657500717982,
+            477.22314624003843,
+            139.14472360271577
+          ],
+          "segmentation": [
+            [
+              112.3288399775529,
+              595.0657500717982,
+              112.3288399775529,
+              734.210473674514,
+              589.5519862175913,
+              734.210473674514,
+              589.5519862175913,
+              595.0657500717982
+            ]
+          ],
+          "area": 66403.08278038856,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 38602,
+          "image_id": 2940,
+          "category_id": 9,
+          "bbox": [
+            111.63114531930722,
+            812.1709925724895,
+            805.1396356155035,
+            48.3552585569721
+          ],
+          "segmentation": [
+            [
+              111.63114531930722,
+              812.1709925724895,
+              111.63114531930722,
+              860.5262511294616,
+              916.7707809348108,
+              860.5262511294616,
+              916.7707809348108,
+              812.1709925724895
+            ]
+          ],
+          "area": 38932.73525465398,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 3160,
+      "file_name": "1a7a994711897050c3f8ff4e5bc04f7e19d10b3976e4c936338f62970c13e48f.png",
+      "doc_group": "eu_tenders::EN-c4j_admingrid_en.docx.pdf",
+      "doc_name": "EN-c4j_admingrid_en.docx.pdf",
+      "collection": "eu_tenders",
+      "page_no": 2,
+      "doc_category": "government_tenders",
+      "role": "non_table_control_page",
+      "image_sha256": "3be35a73ddfb22cc0e98165929a31988c96f6b29b1c5fe32dc48804905ba6a17",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 452,
+      "file_name": "c5c3ba516ed11de0acbb11486ce57a6967ca7cbcd264574241061314c8f9a328.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "8ba7e3281d3af4923f817de03708168f04bd140c40d8a985fd562027bd0faa3f",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 5736,
+          "image_id": 452,
+          "category_id": 9,
+          "bbox": [
+            279.41827463590425,
+            83.6410751150579,
+            145.33500861934618,
+            239.45630375681844
+          ],
+          "segmentation": [
+            [
+              279.41827463590425,
+              83.6410751150579,
+              279.41827463590425,
+              323.09737887187634,
+              424.75328325525044,
+              323.09737887187634,
+              424.75328325525044,
+              83.6410751150579
+            ]
+          ],
+          "area": 34801.383970453986,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 834,
+      "file_name": "169840d19c35386c018668848d648271043a75781cbab7266ddac404d3a40b51.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 3,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "9f4f5eda056b5b40134b5e598e1799347b72b89e8ebfd74aad2ee44ca7d94244",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 10775,
+          "image_id": 834,
+          "category_id": 9,
+          "bbox": [
+            37.43237734739033,
+            82.34133500665803,
+            888.7170879896543,
+            142.07080081459617
+          ],
+          "segmentation": [
+            [
+              37.43237734739033,
+              82.34133500665803,
+              37.43237734739033,
+              224.4121358212542,
+              926.1494653370446,
+              224.4121358212542,
+              926.1494653370446,
+              82.34133500665803
+            ]
+          ],
+          "area": 126260.7483883061,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 10776,
+          "image_id": 834,
+          "category_id": 9,
+          "bbox": [
+            24.149920869284085,
+            265.36948380384047,
+            900.1883004025642,
+            152.31013781024285
+          ],
+          "segmentation": [
+            [
+              24.149920869284085,
+              265.36948380384047,
+              24.149920869284085,
+              417.6796216140833,
+              924.3382212718483,
+              417.6796216140833,
+              924.3382212718483,
+              265.36948380384047
+            ]
+          ],
+          "area": 137107.80408948284,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 10780,
+          "image_id": 834,
+          "category_id": 9,
+          "bbox": [
+            24.149920869284085,
+            457.3570524722137,
+            302.4777588877831,
+            40.530708941101125
+          ],
+          "segmentation": [
+            [
+              24.149920869284085,
+              457.3570524722137,
+              24.149920869284085,
+              497.8877614133148,
+              326.6276797570672,
+              497.8877614133148,
+              326.6276797570672,
+              457.3570524722137
+            ]
+          ],
+          "area": 12259.638006637302,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 106,
+      "file_name": "e5edcff8ec66efe5d401b866ebea5d3734eae77eadf431653d07c2b2ddd5c307.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 16,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "a889e8c4e788d5720faa6f6558c487cb7a48e852bcd5d36b5144bdd2d1557e0b",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 1424,
+          "image_id": 106,
+          "category_id": 9,
+          "bbox": [
+            109.80028228451751,
+            105.7631875825482,
+            887.5522817998498,
+            148.25320180785127
+          ],
+          "segmentation": [
+            [
+              109.80028228451751,
+              105.7631875825482,
+              109.80028228451751,
+              254.01638939039947,
+              997.3525640843673,
+              254.01638939039947,
+              997.3525640843673,
+              105.7631875825482
+            ]
+          ],
+          "area": 131582.46754869202,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 1425,
+          "image_id": 106,
+          "category_id": 9,
+          "bbox": [
+            109.14670917568108,
+            296.0445556349929,
+            875.7879658407944,
+            146.86765786572187
+          ],
+          "segmentation": [
+            [
+              109.14670917568108,
+              296.0445556349929,
+              109.14670917568108,
+              442.91221350071476,
+              984.9346750164755,
+              442.91221350071476,
+              984.9346750164755,
+              296.0445556349929
+            ]
+          ],
+          "area": 128624.9273300223,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 159,
+      "file_name": "731c45c3f792d0f7cb6dba6fb8865d011755c336ac5787330ace102833c93ef8.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 30,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6265fdc59f901dad9e3fc55faf47556a4fd4ad218adf54317e69ad43fb18642d",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 2141,
+          "image_id": 159,
+          "category_id": 9,
+          "bbox": [
+            108.62385489111392,
+            696.3478629099689,
+            415.63259446360354,
+            212.3516255210598
+          ],
+          "segmentation": [
+            [
+              108.62385489111392,
+              696.3478629099689,
+              108.62385489111392,
+              908.6994884310286,
+              524.2564493547175,
+              908.6994884310286,
+              524.2564493547175,
+              696.3478629099689
+            ]
+          ],
+          "area": 88260.25705388165,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 2142,
+          "image_id": 159,
+          "category_id": 9,
+          "bbox": [
+            109.27429713597088,
+            979.0237280516394,
+            383.11048222075505,
+            19.76432878226308
+          ],
+          "segmentation": [
+            [
+              109.27429713597088,
+              979.0237280516394,
+              109.27429713597088,
+              998.7880568339025,
+              492.3847793567259,
+              998.7880568339025,
+              492.3847793567259,
+              979.0237280516394
+            ]
+          ],
+          "area": 7571.921530542358,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 642,
+      "file_name": "28d1cc149369b7968e53ac2083495148a8b49d4bda3abbaca44d4ea238c9675c.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 34,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "9a3eaa6553205315c3e2eef83dac2ecdb4981da008cb76f136c3ac3379f1cc44",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 8217,
+          "image_id": 642,
+          "category_id": 9,
+          "bbox": [
+            107.73877741306323,
+            102.26432979268964,
+            880.6275492788093,
+            228.40108988398788
+          ],
+          "segmentation": [
+            [
+              107.73877741306323,
+              102.26432979268964,
+              107.73877741306323,
+              330.6654196766775,
+              988.3663266918725,
+              330.6654196766775,
+              988.3663266918725,
+              102.26432979268964
+            ]
+          ],
+          "area": 201136.2920371453,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 505,
+      "file_name": "e326c94d88d19e9f9c6bdf603094f389c50c1370864454d916f5229945d10a42.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "5e0b91def1c92dea5cc7d1f65ed14512140c1b30f4b0c4ef2e48b9fb9d1231c6",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 702,
+      "file_name": "ab75eece5845535b4be18ada441151dd68a7ea39dccdcae1598ce80b718deb97.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 2,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "2f25ee2bf8babbe0684d191013ff0d3507f4bb9be4a2b9888104735b6f1f4c6f",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 175,
+      "file_name": "dce381281130503bd6aea375b2a6fe9c984682768b5f78bf3b993ba4561a7eb7.png",
+      "doc_group": "ann_reports_00_04_fancy::ASX_ASX_2003.pdf",
+      "doc_name": "ASX_ASX_2003.pdf",
+      "collection": "ann_reports_00_04_fancy",
+      "page_no": 4,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "8ff5195ce73a8419e9b2e7f2db56e2b69baa57a5edae380c2f35c69d3f406bde",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 989,
+      "file_name": "c6480c86c3aeabd42824cdb6fc5c22e30fbec5fe3f5b427aa861617dcefdefe3.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "e615ec3d4a979f39915b291e6866ea5ebe42670ef23b6c4e9c040d5122e4fb12",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 12846,
+          "image_id": 989,
+          "category_id": 9,
+          "bbox": [
+            53.690454325201905,
+            161.69411176329504,
+            894.8409054200317,
+            482.27022746773577
+          ],
+          "segmentation": [
+            [
+              53.690454325201905,
+              161.69411176329504,
+              53.690454325201905,
+              643.9643392310309,
+              948.5313597452337,
+              643.9643392310309,
+              948.5313597452337,
+              161.69411176329504
+            ]
+          ],
+          "area": 431555.12700435333,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1335,
+      "file_name": "00968802587163a9635da734b55587185538563a96e7e1dd6fafc7ac0e212a00.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 21,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "48d6eeb6983de18e67895b8e61afbde2722d50403c7fd0dfa13aae2f985ca7a6",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 18084,
+          "image_id": 1335,
+          "category_id": 9,
+          "bbox": [
+            56.65674264654936,
+            164.19097874272484,
+            885.7603427840816,
+            256.72470717635963
+          ],
+          "segmentation": [
+            [
+              56.65674264654936,
+              164.19097874272484,
+              56.65674264654936,
+              420.91568591908447,
+              942.4170854306309,
+              420.91568591908447,
+              942.4170854306309,
+              164.19097874272484
+            ]
+          ],
+          "area": 227396.56462967527,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1145,
+      "file_name": "c897a01a663e8786b7318a694b58e00a8adbf5db5fdcfaabc2e3474b33ac9d06.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 26,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "972248906db99031acdadcb55453732c30b570832c83a98e37210e0b602b6c50",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 15401,
+          "image_id": 1145,
+          "category_id": 9,
+          "bbox": [
+            114.37730600314032,
+            119.45929100046851,
+            824.5631929507435,
+            125.27366850282783
+          ],
+          "segmentation": [
+            [
+              114.37730600314032,
+              119.45929100046851,
+              114.37730600314032,
+              244.73295950329634,
+              938.9404989538839,
+              244.73295950329634,
+              938.9404989538839,
+              119.45929100046851
+            ]
+          ],
+          "area": 103296.05609334471,
+          "iscrowd": 0,
+          "precedence": 0
+        },
+        {
+          "id": 15414,
+          "image_id": 1145,
+          "category_id": 9,
+          "bbox": [
+            127.0858955590448,
+            597.2964063023941,
+            826.8058852253149,
+            320.84859401357164
+          ],
+          "segmentation": [
+            [
+              127.0858955590448,
+              597.2964063023941,
+              127.0858955590448,
+              918.1450003159657,
+              953.8917807843598,
+              918.1450003159657,
+              953.8917807843598,
+              597.2964063023941
+            ]
+          ],
+          "area": 265279.5057966888,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1450,
+      "file_name": "a0c792bbe49ced3a78eb552b473d6dcce0643e418310273d5409aeafb6be8b0e.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 27,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "a21b80402166ada992119bfb2d08cd1dd6fb3c854b217cb0315698c53dc80009",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 19939,
+          "image_id": 1450,
+          "category_id": 9,
+          "bbox": [
+            98.0169465325261,
+            89.63440006559063,
+            829.8768139753877,
+            692.1253250521868
+          ],
+          "segmentation": [
+            [
+              98.0169465325261,
+              89.63440006559063,
+              98.0169465325261,
+              781.7597251177774,
+              927.8937605079138,
+              781.7597251177774,
+              927.8937605079138,
+              89.63440006559063
+            ]
+          ],
+          "area": 574378.7596259883,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1148,
+      "file_name": "ed73229609563cc5d7e2b59edbd411317fdb08352845c4cebf4a4bdd4c4ec746.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 28,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "bd17d19a5bb6f58366530c1f17b3c4e524f21843d59a3eef093f4f4e53621ed9",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 15482,
+          "image_id": 1148,
+          "category_id": 9,
+          "bbox": [
+            129.38236942293446,
+            193.129775774329,
+            784.1355722602088,
+            379.79106621688743
+          ],
+          "segmentation": [
+            [
+              129.38236942293446,
+              193.129775774329,
+              129.38236942293446,
+              572.9208419912164,
+              913.5179416831434,
+              572.9208419912164,
+              913.5179416831434,
+              193.129775774329
+            ]
+          ],
+          "area": 297807.6850472939,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 1648,
+      "file_name": "267bf75f2efe1ff457ab5a2f17d27c8e125d63d3eea532988757b5c6b1417c6d.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "a0d54515a7bc62299fc6d7dd350c96a25dac9acfd04ad8f4a6adc1da38caa7f9",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 903,
+      "file_name": "4457f0044a04d4453b7ca4919d749f9b273a9594e41c988cd66d671d92d8284d.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 4,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "b8531d8c60a90f761877b5be74cdd108a11f7c7ca1efdff829988b09af1707ea",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 1652,
+      "file_name": "6c6bb73e43e3e1ebb435fdf8f915dba1f6b06aaef95a01a29ba76663ff615598.png",
+      "doc_group": "ann_reports_10_14_fancy::ASX_ORI_2012.pdf",
+      "doc_name": "ASX_ORI_2012.pdf",
+      "collection": "ann_reports_10_14_fancy",
+      "page_no": 8,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "73426efcad4c2d13c5824bbd2edff21ddafb2aa11209d3bdba825657c8b43646",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7104,
+      "file_name": "a082012f791acdfe214a7312c4e22190e0ec3258e83f07e626a308f76accabbd.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 0,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "3f675539f1173cce9e2b05aea436b881b4d681e1423eb0c73838cfac968d42a4",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 109988,
+          "image_id": 7104,
+          "category_id": 9,
+          "bbox": [
+            201.32542728458,
+            328.0846164011522,
+            642.3239822888983,
+            39.034649542319926
+          ],
+          "segmentation": [
+            [
+              201.32542728458,
+              328.0846164011522,
+              201.32542728458,
+              367.1192659434721,
+              843.6494095734782,
+              367.1192659434721,
+              843.6494095734782,
+              328.0846164011522
+            ]
+          ],
+          "area": 25072.891541274454,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7266,
+      "file_name": "cad0c0e97b1722d36652a349a7bf93d999e63088739b0a19d7f3c56383174e3e.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 1,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "e682087b654450b39bda06acb4b10ed1c5dd30c74009c2e63839421736dc6e09",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 112128,
+          "image_id": 7266,
+          "category_id": 9,
+          "bbox": [
+            25.00903786074485,
+            100.14505857538961,
+            858.6436332189065,
+            424.1437774957678
+          ],
+          "segmentation": [
+            [
+              25.00903786074485,
+              100.14505857538961,
+              25.00903786074485,
+              524.2888360711574,
+              883.6526710796513,
+              524.2888360711574,
+              883.6526710796513,
+              100.14505857538961
+            ]
+          ],
+          "area": 364188.3541161575,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7082,
+      "file_name": "e7979d2c4f7b3ba715f2ae856d58f7d9ab2ea9b03c32d92c0d9acee1de4e01a3.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 12,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "6ad312a033890df98d916dfb1cf7bbfbdbbf07cef6af2b91b52d43fa8013e451",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 109719,
+          "image_id": 7082,
+          "category_id": 9,
+          "bbox": [
+            28.561144856151273,
+            384.00350356117747,
+            968.0724888084958,
+            56.29926884852671
+          ],
+          "segmentation": [
+            [
+              28.561144856151273,
+              384.00350356117747,
+              28.561144856151273,
+              440.3027724097042,
+              996.633633664647,
+              440.3027724097042,
+              996.633633664647,
+              384.00350356117747
+            ]
+          ],
+          "area": 54501.773312291865,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7187,
+      "file_name": "43a0e319b0fbf79e5af962d4e1f212f2ff2fc3bd386e249ec82d5a07a9995172.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 13,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "ece181d6cf921ff93d2552248157c0786463aa069d75a929490c0073376626e5",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 111109,
+          "image_id": 7187,
+          "category_id": 9,
+          "bbox": [
+            48.341214260752466,
+            96.07601037942766,
+            927.5470486281879,
+            382.88069321579235
+          ],
+          "segmentation": [
+            [
+              48.341214260752466,
+              96.07601037942766,
+              48.341214260752466,
+              478.95670359522,
+              975.8882628889404,
+              478.95670359522,
+              975.8882628889404,
+              96.07601037942766
+            ]
+          ],
+          "area": 355139.85696902283,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7287,
+      "file_name": "404001ca55b2323736682a90de18a131df909bfdfdab4b5630081f08297989ea.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 20,
+      "doc_category": "financial_reports",
+      "role": "table_page",
+      "image_sha256": "5b7b04d3c5069ce8c8ddcff78882873fa11341f706f831ef8c9a9da8cf5c6431",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 112391,
+          "image_id": 7287,
+          "category_id": 9,
+          "bbox": [
+            22.9089027639616,
+            250.92322534517325,
+            979.3555931593582,
+            350.0783708444755
+          ],
+          "segmentation": [
+            [
+              22.9089027639616,
+              250.92322534517325,
+              22.9089027639616,
+              601.0015961896488,
+              1002.2644959233198,
+              601.0015961896488,
+              1002.2644959233198,
+              250.92322534517325
+            ]
+          ],
+          "area": 342851.2105306531,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 7159,
+      "file_name": "5a40464dfd179aa4213678e251f8aa383b2e01cc1394ca679c69638db5026d82.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 14,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "fdd88bf174bf69bbc1872b7f64a2fde96236d9b60b1dde31f7b574ee207d1a4c",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7049,
+      "file_name": "252926182c999b4843ee546a8a1da72050594ac557a6ee8c6b3abfce6a1bec78.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 34,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "700daee549ff12c24657dcb2a6619b89a852c6e153f74c406ed6da274b947791",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 7054,
+      "file_name": "c5a0fbf070d9e8db8eeac64c597437c78c9e05019f37091a528c89047b0a0a18.png",
+      "doc_group": "sec_filings::0000016732-19-000070_20190926x10k.pdf",
+      "doc_name": "0000016732-19-000070_20190926x10k.pdf",
+      "collection": "sec_filings",
+      "page_no": 36,
+      "doc_category": "financial_reports",
+      "role": "non_table_control_page",
+      "image_sha256": "d9eb0b749bf52aa7dd99e62673fc724fc24788036166e7934bc97ac6bbd8457b",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2891,
+      "file_name": "3628e48032300506e19698e58befa0fa5d55e04dc2600b43b143928a3a8fd3ff.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 3,
+      "doc_category": "laws_and_regulations",
+      "role": "table_page",
+      "image_sha256": "ed921c18c55943a96a8430c7b2529360bc8a553792cd6c68554ce9e1c4d32d4a",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 37994,
+          "image_id": 2891,
+          "category_id": 9,
+          "bbox": [
+            112.50727656664291,
+            120.59064394459824,
+            801.1606871640782,
+            702.5106118167871
+          ],
+          "segmentation": [
+            [
+              112.50727656664291,
+              120.59064394459824,
+              112.50727656664291,
+              823.1012557613853,
+              913.6679637307211,
+              823.1012557613853,
+              913.6679637307211,
+              120.59064394459824
+            ]
+          ],
+          "area": 562823.8845031941,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2826,
+      "file_name": "77b4757f208086dcb83091bd7fff5cb5df5bcaaa785f781ff5345bec65e1167f.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 18,
+      "doc_category": "laws_and_regulations",
+      "role": "table_page",
+      "image_sha256": "2d8a91a038cccd7e13a2b900515266b0ee06573bfba58b214a673faed74df6d7",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 37456,
+          "image_id": 2826,
+          "category_id": 9,
+          "bbox": [
+            118.8584937921792,
+            523.72797108497,
+            787.5509359665004,
+            292.362200726148
+          ],
+          "segmentation": [
+            [
+              118.8584937921792,
+              523.72797108497,
+              118.8584937921792,
+              816.090171811118,
+              906.4094297586796,
+              816.090171811118,
+              906.4094297586796,
+              523.72797108497
+            ]
+          ],
+          "area": 230250.12482310372,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2836,
+      "file_name": "e7c026bbb57715ebed2c30204b5bc165581949d4b0269661fa6ab64933ebf99f.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 20,
+      "doc_category": "laws_and_regulations",
+      "role": "table_page",
+      "image_sha256": "d6e9221663f2a8044ef906071f4bbb0eea5d1878b4540c075cec82f14e84e563",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 37547,
+          "image_id": 2836,
+          "category_id": 9,
+          "bbox": [
+            118.9492254668297,
+            288.64632623250634,
+            786.7343508946456,
+            263.651811949803
+          ],
+          "segmentation": [
+            [
+              118.9492254668297,
+              288.64632623250634,
+              118.9492254668297,
+              552.2981381823093,
+              905.6835763614753,
+              552.2981381823093,
+              905.6835763614753,
+              288.64632623250634
+            ]
+          ],
+          "area": 207423.93713652543,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2873,
+      "file_name": "ff207dc17aa7bcb487a7ef527b11656085447194e204d2acdfc445b6246575f4.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 54,
+      "doc_category": "laws_and_regulations",
+      "role": "table_page",
+      "image_sha256": "27c1b51ca21ac9517a19a6db6062b99a09bf26a0a1f44860b771ad83c491c0aa",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 37829,
+          "image_id": 2873,
+          "category_id": 9,
+          "bbox": [
+            122.00766944106023,
+            141.90431817527326,
+            781.077136141367,
+            738.5476008655265
+          ],
+          "segmentation": [
+            [
+              122.00766944106023,
+              141.90431817527326,
+              122.00766944106023,
+              880.4519190407998,
+              903.0848055824272,
+              880.4519190407998,
+              903.0848055824272,
+              141.90431817527326
+            ]
+          ],
+          "area": 576862.6449881229,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2890,
+      "file_name": "874348e08723d327ab5b02b97af562cbf22acc4c63f21b387d5181d5339da70c.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 55,
+      "doc_category": "laws_and_regulations",
+      "role": "table_page",
+      "image_sha256": "8252baf5d3bfeffdc9647cffe39975df6f1d6f88ac50a37bcef8446c8622e5d7",
+      "width": 1025,
+      "height": 1025,
+      "tables": [
+        {
+          "id": 37991,
+          "image_id": 2890,
+          "category_id": 9,
+          "bbox": [
+            120.63935912957167,
+            86.2310519746568,
+            782.8445369603728,
+            563.7472516650394
+          ],
+          "segmentation": [
+            [
+              120.63935912957167,
+              86.2310519746568,
+              120.63935912957167,
+              649.9783036396962,
+              903.4838960899444,
+              649.9783036396962,
+              903.4838960899444,
+              86.2310519746568
+            ]
+          ],
+          "area": 441326.4561924005,
+          "iscrowd": 0,
+          "precedence": 0
+        }
+      ]
+    },
+    {
+      "image_id": 2871,
+      "file_name": "48c8d10f27bb79d85a59ec7fd25d6e9ef3e9b320ba58543d3dbf9c6da94f6a7a.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 0,
+      "doc_category": "laws_and_regulations",
+      "role": "non_table_control_page",
+      "image_sha256": "7532b11d46b07e87ab31278c3cc2be902b50dcfba44eed052f28f69d7ce2de2c",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2885,
+      "file_name": "b445855bae34ede9ae8d581353aeea90afdcbd5bae172a3ce886e3eb39b0d59b.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 1,
+      "doc_category": "laws_and_regulations",
+      "role": "non_table_control_page",
+      "image_sha256": "24d1ae24f1a0f53ca8a3b95d0a080cd2935ade6515597353867ebd9f6089979d",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    },
+    {
+      "image_id": 2876,
+      "file_name": "ec0fc041ad12ee4a3bc90d9bc3377a4e70df2e5e234d2ffb840cf8ffa04ddc05.png",
+      "doc_group": "botswana_laws::MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "doc_name": "MANAGEMENT OF GAMOBUDU LANDFILL_0.pdf",
+      "collection": "botswana_laws",
+      "page_no": 4,
+      "doc_category": "laws_and_regulations",
+      "role": "non_table_control_page",
+      "image_sha256": "5fa64f2f8c9b41e3e88a22a4c7950ad549ec150b1abe458f77678ce114042293",
+      "width": 1025,
+      "height": 1025,
+      "tables": []
+    }
+  ]
+}

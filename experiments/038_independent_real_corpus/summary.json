@@ -1,0 +1,52 @@
+{
+  "experiment": "038_independent_real_corpus",
+  "status": "038_BLOCKED_INADEQUATE_DEVELOPMENT",
+  "corpus": {
+    "dataset": "DocLayNet",
+    "version": "1.0.0",
+    "split": "validation",
+    "records": 149,
+    "table_pages": 91,
+    "table_annotations": 137,
+    "non_table_control_pages": 58,
+    "document_groups": 20,
+    "development_groups": 10,
+    "held_out_groups": 10,
+    "manifest_sha256": "c0c7d717f994a8f4b696543909194a2169e5b5c88857cd20d969c8204eb99be0",
+    "annotation_sha256": "eacd2ba2a32e6c2ebe2dc5ea1545f405d8461c46bba53e0c35d9c54fba0bcef6",
+    "integrity_errors": 0
+  },
+  "baseline": {
+    "records_selected": 149,
+    "records_complete": 149,
+    "records_failed": 0,
+    "table_annotations_analyzed": 137,
+    "forced_crop_invocations": 0,
+    "device": "cpu",
+    "runtime_seconds_from_metadata": 5788.990659446001
+  },
+  "activation": {
+    "strict_d2_all": 18,
+    "strict_d2_development": 6,
+    "strict_d2_held_out_descriptive_only": 12,
+    "development_source_groups": 2,
+    "development_raw_labels": ["document_index"],
+    "development_cases_by_group": {
+      "eu_tenders::EN-Procurement Document 1 - Terms of Reference.pdf": 1,
+      "redbooks::sg248366.pdf": 5
+    }
+  },
+  "decision": {
+    "policy_selection": "blocked",
+    "reason": "Development activation is concentrated in six cases across two source groups and one raw label; this is insufficient for defensible document-group-generalized policy selection.",
+    "selector_frozen": false,
+    "counterfactual_invocations": 0,
+    "held_out_policy_evaluation": false
+  },
+  "evidence": {
+    "population_manifest": "population_manifest.json",
+    "population_audit": "population_audit.json",
+    "baseline_analysis": "baseline_analysis.json",
+    "raw_baseline_index": "results/baseline_run_index.json"
+  }
+}

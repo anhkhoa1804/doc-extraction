@@ -87,6 +87,7 @@ experiments/035_mechanism_d_gating/results/**/predictions/
 experiments/035_mechanism_d_gating/results/**/_doc_extraction_runs/
 experiments/036_mechanism_d_counterfactual/results/
 experiments/037_selective_policy_validation/results/
+experiments/038_independent_real_corpus/results/
 
 # Environment / secrets
 .env
