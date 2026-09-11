@@ -237,7 +237,15 @@
       "split": "held_out_test",
       "page_id": "hc_stamp_table_vi:page:0",
       "gt_table_id": "hc_stamp_table_vi:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/hc_stamp_table_vi.png",
+      "rendered_image_sha256": "30b0fdba40c8773e7da72df36f865d506675d15c80337613be5223333cc19c68",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
     },
     {
       "document_id": "ord_purchase_order_vi",
@@ -255,7 +263,15 @@
       "split": "held_out_test",
       "page_id": "ord_purchase_order_vi:page:0",
       "gt_table_id": "ord_purchase_order_vi:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_purchase_order_vi.png",
+      "rendered_image_sha256": "29974e6c75f6b4f4a4982bd5ff63d28aae7d3052a3fb93722123d8119283ae70",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 443.466653,
+        "x1": 1200.0,
+        "y1": 665.688875
+      }
     },
     {
       "document_id": "cmb_stamp_boundary_vi",
@@ -277,7 +293,15 @@
       "split": "held_out_test",
       "page_id": "cmb_stamp_boundary_vi:page:0",
       "gt_table_id": "cmb_stamp_boundary_vi:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/cmb_stamp_boundary_vi.png",
+      "rendered_image_sha256": "880ae2b7e12afb7a688c289c993748340ebe640e38e4960f5e7b05992ec13c41",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
     },
     {
       "document_id": "ord_financial_report_vi",
@@ -295,7 +319,15 @@
       "split": "held_out_test",
       "page_id": "ord_financial_report_vi:page:0",
       "gt_table_id": "ord_financial_report_vi:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_financial_report_vi.png",
+      "rendered_image_sha256": "2bb1da1bedf6e700778cf2bf1b961aa15aa5de872b635e8a1286ad43541ebbfe",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 443.466653,
+        "x1": 1200.0,
+        "y1": 665.688875
+      }
     },
     {
       "document_id": "ord_invoice_en",
@@ -313,7 +345,15 @@
       "split": "held_out_test",
       "page_id": "ord_invoice_en:page:0",
       "gt_table_id": "ord_invoice_en:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_invoice_en.png",
+      "rendered_image_sha256": "daa0f004db2b9b00170c1d6291b6e491b98fbdf47cc98a866980da2b276ef635",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
     },
     {
       "document_id": "cmb_tiny_table_en",
@@ -334,7 +374,15 @@
       "split": "held_out_test",
       "page_id": "cmb_tiny_table_en:page:0",
       "gt_table_id": "cmb_tiny_table_en:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/cmb_tiny_table_en.png",
+      "rendered_image_sha256": "5a529f5818ba27b18f399fe4e466ddb2b7c679d2295fa05b9294e04249966219",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 378.062227,
+        "x1": 811.111111,
+        "y1": 478.062227
+      }
     },
     {
       "document_id": "ord_purchase_order_en",
@@ -352,7 +400,15 @@
       "split": "held_out_test",
       "page_id": "ord_purchase_order_en:page:0",
       "gt_table_id": "ord_purchase_order_en:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_purchase_order_en.png",
+      "rendered_image_sha256": "62eac6abb48f28cb8040595d9793e82df62b3efadca72bfd47f78a8963b13989",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 443.466653,
+        "x1": 1200.0,
+        "y1": 665.688875
+      }
     },
     {
       "document_id": "ord_invoice_vi",
@@ -370,7 +426,15 @@
       "split": "held_out_test",
       "page_id": "ord_invoice_vi:page:0",
       "gt_table_id": "ord_invoice_vi:table:0",
-      "render_dpi": 200
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_invoice_vi.png",
+      "rendered_image_sha256": "4635022a14ffa3e4038e4f7cd9b61b2701311682d00754e8eb7c3f97fd2a37a1",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
     }
   ]
 }
