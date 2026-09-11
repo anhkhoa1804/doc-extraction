@@ -21,7 +21,7 @@ docs/backends.md for install/timing notes.
 from __future__ import annotations
 
 import importlib.util
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from time import perf_counter
 
 from doc_extraction.pipelines.base import PageInput, Region, TableResult
@@ -49,6 +49,8 @@ class CropCounterfactualResult:
     detected_boxes: list[BBox]
     forced_crop_table: Table | None
     detector_tables: list[Table]
+    detected_scores: list[float | None] = field(default_factory=list)
+    stage_timings: dict[str, float | list[float]] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -329,11 +331,26 @@ class TableTransformerBackend:
 
         # This is the exact production region-path operation: structure
         # recognition over the supplied region, not an inferred detector box.
+        counterfactual_start = perf_counter()
+        forced_structure_start = perf_counter()
         forced_crop_table = self._recognize_structure(
             crop, crop_bbox, page.page_index, table_id=f"{table_id_prefix}-forced"
         )
+        forced_structure_seconds = perf_counter() - forced_structure_start
 
-        local_boxes = self._detect_tables(crop)
+        detector_start = perf_counter()
+        # Preserve the existing experimental hook used by 036 tests and
+        # downstream replay code.  The production implementation uses the
+        # scored path; an explicitly overridden legacy hook has no scores and
+        # is represented with ``None`` rather than invoking a second detector.
+        detect_method = getattr(self._detect_tables, "__func__", None)
+        if detect_method is not TableTransformerBackend._detect_tables:
+            local_boxes = self._detect_tables(crop)
+            detected_candidates = [_DetectedTableBox(bbox=box, score=None) for box in local_boxes]
+        else:
+            detected_candidates = self._detect_tables_with_scores(crop)
+        detector_seconds = perf_counter() - detector_start
+        local_boxes = [candidate.bbox for candidate in detected_candidates]
         detected_boxes = [
             BBox(
                 x0=crop_bbox.x0 + box.x0,
@@ -344,19 +361,29 @@ class TableTransformerBackend:
             for box in local_boxes
         ]
         detector_tables: list[Table] = []
+        detector_structure_seconds: list[float] = []
         for i, (local_box, page_box) in enumerate(zip(local_boxes, detected_boxes)):
             detected_crop = crop.crop((local_box.x0, local_box.y0, local_box.x1, local_box.y1))
             if detected_crop.width < 10 or detected_crop.height < 10:
                 continue
+            detector_structure_start = perf_counter()
             table = self._recognize_structure(
                 detected_crop, page_box, page.page_index, table_id=f"{table_id_prefix}-detected-{i}"
             )
+            detector_structure_seconds.append(perf_counter() - detector_structure_start)
             if table is not None:
                 detector_tables.append(table)
         return CropCounterfactualResult(
             detected_boxes=detected_boxes,
             forced_crop_table=forced_crop_table,
             detector_tables=detector_tables,
+            detected_scores=[candidate.score for candidate in detected_candidates],
+            stage_timings={
+                "forced_structure_seconds": forced_structure_seconds,
+                "crop_detector_seconds": detector_seconds,
+                "detector_structure_seconds": detector_structure_seconds,
+                "total_seconds": perf_counter() - counterfactual_start,
+            },
         )
 
     def _detect_tables(self, image) -> list[BBox]:
