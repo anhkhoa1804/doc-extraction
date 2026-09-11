@@ -1,0 +1,39 @@
+{
+  "experiment": "040_mechanism_d_counterfactual",
+  "definitions": [
+    "detector_miss",
+    "detector_false_positive",
+    "structure_invalid",
+    "ownership_ambiguity",
+    "cross_table_contamination",
+    "shared_region_collision",
+    "duplicate",
+    "serialization_damage",
+    "runtime_failure",
+    "unsupported_geometry",
+    "unsupported_role",
+    "protocol_violation",
+    "other"
+  ],
+  "counts": {
+    "VALID_RECOVERY": 4,
+    "detector_success": 180,
+    "STRUCTURE_INVALID": 4,
+    "ownership_ambiguity": 422,
+    "structure_invalid": 398,
+    "CROSS_TABLE_CONTAMINATION": 24,
+    "cross_table_contamination": 24,
+    "detector_miss": 594,
+    "GT_IRRELEVANT_OR_NONRECOVERY": 4,
+    "NO_EFFECT": 394,
+    "FALSE_POSITIVE": 342,
+    "operational_failure": 20,
+    "OPERATIONAL_FAILURE": 20,
+    "runtime_failure": 20,
+    "unsupported_geometry": 20,
+    "DUPLICATION_DAMAGE": 2,
+    "serialization_damage": 2
+  },
+  "operational_failure_rate": 0.02518891687657431,
+  "stop_condition_exceeded": false
+}

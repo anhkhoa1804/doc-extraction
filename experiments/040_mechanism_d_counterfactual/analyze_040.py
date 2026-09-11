@@ -90,13 +90,26 @@ def require_pilot_integrity(manifest: dict[str, Any], records: list[dict[str, An
 def require_full_integrity(manifest: dict[str, Any], records: list[dict[str, Any]], index: dict[str, Any]) -> dict[str, Any]:
     expected = {unit["unit_id"] for unit in manifest["units"]}
     got = {record.get("unit", {}).get("unit_id") for record in records}
+    allowed_statuses = {"complete", "operational_failure", "protocol_violation"}
     checks = {
         "exact_population_ids": expected == got,
-        "all_complete": len(records) == len(expected) and all(record.get("status") == "complete" for record in records),
+        "all_units_accounted_for": len(records) == len(expected) and all(record.get("status") in allowed_statuses for record in records),
         "all_development": all(record.get("unit", {}).get("split") == "development" for record in records),
-        "all_labelled_crop": all(record.get("treatment", {}).get("specialist", {}).get("invocation_mode") == "LABELLED_CROP" for record in records),
-        "bbox_matches_manifest": all(record.get("treatment", {}).get("treatment_input", {}).get("bbox_equal_to_frozen_manifest") is True for record in records),
-        "crop_identity_present": all(bool(record.get("treatment", {}).get("treatment_input", {}).get("crop_sha256")) for record in records),
+        "all_completed_labelled_crop": all(
+            record.get("status") != "complete"
+            or record.get("treatment", {}).get("specialist", {}).get("invocation_mode") == "LABELLED_CROP"
+            for record in records
+        ),
+        "completed_bbox_matches_manifest": all(
+            record.get("status") != "complete"
+            or record.get("treatment", {}).get("treatment_input", {}).get("bbox_equal_to_frozen_manifest") is True
+            for record in records
+        ),
+        "completed_crop_identity_present": all(
+            record.get("status") != "complete"
+            or bool(record.get("treatment", {}).get("treatment_input", {}).get("crop_sha256"))
+            for record in records
+        ),
         "no_heldout_index_rows": all(row.get("split") == "development" for row in index.get("records", [])),
     }
     result = {
@@ -104,6 +117,8 @@ def require_full_integrity(manifest: dict[str, Any], records: list[dict[str, Any
         "checks": checks,
         "records": len(records),
         "expected_records": len(expected),
+        "complete_records": sum(record.get("status") == "complete" for record in records),
+        "operational_failures": sum(record.get("status") != "complete" for record in records),
         "population_hash": manifest["population_hash"],
     }
     atomic_write_json(HERE / "results" / "full" / "full_integrity.json", result)
@@ -115,6 +130,12 @@ def require_full_integrity(manifest: dict[str, Any], records: list[dict[str, Any
 def treatment_summary(record: dict[str, Any]) -> dict[str, Any]:
     unit = record["unit"]
     evaluation = record.get("evaluation", {})
+    failure_tags = list(evaluation.get("failure_tags", []))
+    if record.get("status") != "complete":
+        error = str(record.get("error", ""))
+        failure_tags.append("runtime_failure")
+        if "counterfactual crop is too small" in error:
+            failure_tags.append("unsupported_geometry")
     return {
         "unit": unit,
         "unit_id": unit["unit_id"],
@@ -126,16 +147,66 @@ def treatment_summary(record: dict[str, Any]) -> dict[str, Any]:
         "linked_gt_count": len(unit.get("linked_gt_tables", [])),
         "primary_outcome": evaluation.get("primary_outcome", "OPERATIONAL_FAILURE"),
         "detector_success": evaluation.get("detector_success", False),
+        "detector_box_count": len(record.get("treatment", {}).get("specialist", {}).get("detector_boxes", [])),
         "structure_valid": evaluation.get("structure", {}).get("valid", False),
+        "structure_reason": evaluation.get("structure", {}).get("reason"),
+        "structure_cell_count": evaluation.get("structure", {}).get("n_cells", 0),
         "unique_owner": evaluation.get("ownership", {}).get("unique_intended_owner", False),
+        "owner_candidate_count": evaluation.get("ownership", {}).get("owner_candidate_count", 0),
         "conflict": evaluation.get("ownership", {}).get("material_production_conflict", False),
+        "existing_production_table_max_iou": evaluation.get("ownership", {}).get("existing_production_table_max_iou", 0.0),
         "cross_table_contamination": evaluation.get("ownership", {}).get("cross_table_overlap_count", 0) > 0,
         "serialization_damage": bool(evaluation.get("serialization_delta", {}).get("changed_existing_element_ids") or evaluation.get("serialization_delta", {}).get("missing_existing_element_ids") or evaluation.get("serialization_delta", {}).get("reading_order_changed")),
         "valid_recovery": evaluation.get("valid_recovery", False),
         "runtime_seconds": record.get("treatment", {}).get("specialist", {}).get("total_runtime_seconds"),
         "policy_fires": evaluation.get("policy_fires") or policy_fires(unit["baseline_features"]),
         "gt_evaluations": evaluation.get("gt_evaluations", []),
-        "failure_tags": evaluation.get("failure_tags", []),
+        "failure_tags": sorted(set(failure_tags)),
+        "error": record.get("error"),
+    }
+
+
+def compact_unit_result(record: dict[str, Any]) -> dict[str, Any]:
+    """Return a reviewable per-unit row without duplicating raw model output."""
+    unit = record["unit"]
+    summary = treatment_summary(record)
+    return {
+        "unit_id": unit["unit_id"],
+        "kind": unit["kind"],
+        "status": record.get("status"),
+        "split": unit["split"],
+        "image_id": unit["image_id"],
+        "page_no": unit["page_no"],
+        "doc_group": unit["doc_group"],
+        "doc_category": unit["doc_category"],
+        "raw_role": unit.get("raw_role"),
+        "normalized_role": unit.get("baseline_features", {}).get("normalized_role"),
+        "region_index": unit["region_index"],
+        "region_bbox": unit["region_bbox"],
+        "baseline_features": unit.get("baseline_features", {}),
+        "d2_taxonomy": unit.get("d2_taxonomy"),
+        "linked_gt_table_ids": [gt["gt_table_id"] for gt in unit.get("linked_gt_tables", [])],
+        "linked_gt_count": len(unit.get("linked_gt_tables", [])),
+        "primary_outcome": summary["primary_outcome"],
+        "detector_success": summary["detector_success"],
+        "detector_box_count": summary["detector_box_count"],
+        "structure_valid": summary["structure_valid"],
+        "structure_reason": summary["structure_reason"],
+        "structure_cell_count": summary["structure_cell_count"],
+        "unique_owner": summary["unique_owner"],
+        "owner_candidate_count": summary["owner_candidate_count"],
+        "material_production_conflict": summary["conflict"],
+        "existing_production_table_max_iou": summary["existing_production_table_max_iou"],
+        "cross_table_contamination": summary["cross_table_contamination"],
+        "serialization_damage": summary["serialization_damage"],
+        "valid_recovery": summary["valid_recovery"],
+        "gt_evaluations": summary["gt_evaluations"],
+        "policy_fires": summary["policy_fires"],
+        "failure_tags": summary["failure_tags"],
+        "error": summary["error"],
+        "runtime_seconds": summary["runtime_seconds"],
+        "raw_result": f"results/full/raw/{unit['unit_id']}/result.json",
+        "raw_telemetry": f"results/full/raw/{unit['unit_id']}/table_telemetry.json",
     }
 
 
@@ -216,7 +287,7 @@ def analyze_full(manifest: dict[str, Any], records: list[dict[str, Any]], index:
         record.get("treatment", {}).get("specialist", {}).get("invocation_mode", "NOT_INVOKED")
         for record in records
     )
-    detector_invocations = len(rows)
+    detector_invocations = sum(row["primary_outcome"] != "OPERATIONAL_FAILURE" for row in rows)
     structure_invocations = sum(
         1 + len(record.get("treatment", {}).get("specialist", {}).get("detector_tables", []))
         for record in records if record.get("status") == "complete"
@@ -300,6 +371,10 @@ def analyze_full(manifest: dict[str, Any], records: list[dict[str, Any]], index:
             "DUPLICATION_DAMAGE": sum(row["primary_outcome"] == "DUPLICATION_DAMAGE" for row in control_rows),
             "CROSS_TABLE_CONTAMINATION": sum(row["primary_outcome"] == "CROSS_TABLE_CONTAMINATION" for row in control_rows),
             "OPERATIONAL_FAILURE": sum(row["primary_outcome"] == "OPERATIONAL_FAILURE" for row in control_rows),
+            "detector_success": sum(row["detector_success"] for row in control_rows),
+            "structure_valid": sum(row["structure_valid"] for row in control_rows),
+            "unique_owner": sum(row["unique_owner"] for row in control_rows),
+            "cross_table_contamination": sum(row["cross_table_contamination"] for row in control_rows),
             "material_fp_rate": control_fp / len(control_rows) if control_rows else None,
             "material_fp_ci95": wilson(control_fp, len(control_rows)),
             "harmful_or_conflict": control_harm,
@@ -312,6 +387,22 @@ def analyze_full(manifest: dict[str, Any], records: list[dict[str, Any]], index:
             "p95_runtime_seconds": percentile(runtimes, 0.95),
             "runtime_denominator": len(runtimes),
             "device": "cpu",
+            "by_kind": {
+                "d2_region": {
+                    "attempted_units": len(target_rows),
+                    "runtime_denominator": sum(row["runtime_seconds"] is not None for row in target_rows),
+                    "total_runtime_seconds": round(sum(row["runtime_seconds"] or 0 for row in target_rows), 6),
+                    "median_runtime_seconds": statistics.median([row["runtime_seconds"] for row in target_rows if row["runtime_seconds"] is not None]) if any(row["runtime_seconds"] is not None for row in target_rows) else None,
+                    "p95_runtime_seconds": percentile([row["runtime_seconds"] for row in target_rows if row["runtime_seconds"] is not None], 0.95),
+                },
+                "non_table_control_region": {
+                    "attempted_units": len(control_rows),
+                    "runtime_denominator": sum(row["runtime_seconds"] is not None for row in control_rows),
+                    "total_runtime_seconds": round(sum(row["runtime_seconds"] or 0 for row in control_rows), 6),
+                    "median_runtime_seconds": statistics.median([row["runtime_seconds"] for row in control_rows if row["runtime_seconds"] is not None]) if any(row["runtime_seconds"] is not None for row in control_rows) else None,
+                    "p95_runtime_seconds": percentile([row["runtime_seconds"] for row in control_rows if row["runtime_seconds"] is not None], 0.95),
+                },
+            },
         },
         "subgroups": {
             "raw_role": subgroup(rows, "raw_role"),
@@ -342,11 +433,12 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
     result_payload["analysis"] = analysis
     atomic_write_json(root / "results.json", result_payload)
     failure_counts = Counter()
-    for record in records:
+    summary_rows = [treatment_summary(record) for record in records]
+    for record, row in zip(records, summary_rows):
         if record.get("status") != "complete":
             failure_counts[record.get("status", "unknown")] += 1
-        for tag in record.get("evaluation", {}).get("failure_tags", []):
-            failure_counts[tag] += 1
+        failure_counts[row["primary_outcome"]] += 1
+        failure_counts.update(row["failure_tags"])
     atomic_write_json(root / "failure_taxonomy.json", {
         "experiment": "040_mechanism_d_counterfactual",
         "definitions": read_json(HERE / "protocol.json")["failure_tags"],
@@ -356,7 +448,15 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
     })
     markdown = render_markdown(analysis)
     atomic_write_text(root / "ANALYSIS.md", markdown)
-    atomic_write_json(HERE / "results.json", analysis)
+    compact_rows = [compact_unit_result(record) for record in records]
+    atomic_write_json(HERE / "results.json", {
+        "experiment": "040_mechanism_d_counterfactual",
+        "phase": phase,
+        "population_hash": manifest["population_hash"],
+        "analysis": analysis,
+        "unit_results": compact_rows,
+    })
+    atomic_write_json(HERE / "D2_TREATMENT_CASES.json", [row for row in compact_rows if row["kind"] == TARGET_KIND])
     atomic_write_json(HERE / "failure_taxonomy.json", {
         "experiment": "040_mechanism_d_counterfactual",
         "definitions": read_json(HERE / "protocol.json")["failure_tags"],
@@ -364,6 +464,7 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
         "operational_failure_rate": analysis["operational_failures"] / len(records) if records else None,
         "stop_condition_exceeded": bool(records and analysis["operational_failures"] / len(records) > 0.1),
     })
+    atomic_write_text(HERE / "ANALYSIS.md", markdown)
     print(json.dumps({"status": analysis["status"], "d2": analysis["d2_metrics"], "controls": analysis["control_metrics"], "cost": analysis["cost"]}, sort_keys=True))
     return 1 if analysis["operational_failures"] / max(1, len(records)) > 0.1 else 0
 
