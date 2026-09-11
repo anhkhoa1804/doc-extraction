@@ -1,0 +1,99 @@
+{
+  "experiment": "040_mechanism_d_counterfactual",
+  "status": "frozen_before_treatment",
+  "baseline_checkpoint": "cdb8fd80f5c2d9dc1711b50828ec9301c5bb1adf",
+  "population": {
+    "source": "039_larger_real_corpus",
+    "development_d2_unique_region_units": 28,
+    "development_control_region_units": 766,
+    "heldout_allowed": false,
+    "heldout_guard": "split must equal development before specialist invocation"
+  },
+  "unit_of_analysis": "unique region identity (kind, image_id, region_index); linked GT annotations are scored separately but do not inflate treatment units",
+  "arms": {
+    "B": "frozen unchanged 039 baseline artifact",
+    "T": "same source image and exact frozen baseline region bbox passed to existing TableTransformer crop treatment path"
+  },
+  "treatment_input_invariants": [
+    "source image hash equals frozen 039 manifest",
+    "treatment bbox equals frozen baseline bbox exactly",
+    "crop hash is computed from the exact PIL RGB crop",
+    "OCR and layout are not rerun or changed",
+    "GT is not passed to the specialist",
+    "treatment output is isolated from 039 baseline roots",
+    "invocation mode must be LABELLED_CROP"
+  ],
+  "valid_recovery": {
+    "all": [
+      "structure_valid under frozen 036 rule",
+      "GT IoU >= 0.3, evaluated only after treatment",
+      "unique intended ownership",
+      "maximum overlap with any baseline production table <= 0.1",
+      "no duplicate or serialization damage",
+      "no cross-table contamination",
+      "no protocol violation"
+    ],
+    "gt_iou_min": 0.3,
+    "owner_iou_min_exclusive": 0.1,
+    "material_conflict_iou_exclusive": 0.1,
+    "structure_cell_escape_fraction_strictly_less_than": 0.2,
+    "structure_cell_escape_margin_px": 1.0
+  },
+  "control_primary_outcomes": [
+    "NO_EFFECT",
+    "FALSE_POSITIVE",
+    "OWNERSHIP_CONFLICT",
+    "DUPLICATION_DAMAGE",
+    "CROSS_TABLE_CONTAMINATION",
+    "OPERATIONAL_FAILURE"
+  ],
+  "failure_tags": [
+    "detector_miss",
+    "detector_false_positive",
+    "structure_invalid",
+    "ownership_ambiguity",
+    "cross_table_contamination",
+    "shared_region_collision",
+    "duplicate",
+    "serialization_damage",
+    "runtime_failure",
+    "unsupported_geometry",
+    "unsupported_role",
+    "protocol_violation",
+    "other"
+  ],
+  "cost_metrics": [
+    "total_runtime_seconds",
+    "median_runtime_seconds",
+    "p95_runtime_seconds",
+    "detector_invocations",
+    "structure_invocations",
+    "LABELLED_CROP_count",
+    "PAGE_WIDE_count",
+    "NOT_INVOKED_count",
+    "output_bytes",
+    "peak_rss_bytes_when_available"
+  ],
+  "falsification_tests": {
+    "A": "document_index versus broad geometry policy",
+    "B": "crop-specific structure versus crop/page-wide detector evidence",
+    "C": "shared oversized regions as an explanation for successes",
+    "D": "control material false positives and ownership harm",
+    "E": "table gain versus text/serialization damage",
+    "F": "source-group concentration",
+    "G": "OCR sparsity as a confounder",
+    "H": "duplicate evidence creation"
+  },
+  "stop_conditions": [
+    "heldout access",
+    "bbox mismatch",
+    "GT enters treatment input",
+    "unexpected PAGE_WIDE or NOT_INVOKED treatment mode",
+    "baseline overwrite",
+    "operational failures > 10 percent unexplained",
+    "protocol mutation after output inspection",
+    "ownership bypass",
+    "ignored serialization damage"
+  ],
+  "aggregation": "paired region-level primary analysis; GT-table-level multiplicity reported separately; policy-family subsets use pre-treatment indicators computed before treatment"
+}

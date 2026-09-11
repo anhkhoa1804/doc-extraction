@@ -1,0 +1,44 @@
+{
+  "experiment": "040_mechanism_d_counterfactual",
+  "status": "frozen_before_treatment",
+  "selector_feature_contract": {
+    "allowed": [
+      "raw_role",
+      "normalized_role",
+      "layout_confidence",
+      "layout_confidence_source",
+      "region_area_fraction",
+      "region_width_fraction",
+      "region_height_fraction",
+      "aspect_ratio",
+      "region_index",
+      "page_region_count",
+      "ocr_child_count",
+      "ocr_child_chars",
+      "route",
+      "backend",
+      "device"
+    ],
+    "forbidden": [
+      "gt_table_id",
+      "gt_bbox",
+      "strict_d2",
+      "treatment_detector_output",
+      "treatment_structure_output",
+      "treatment_ownership",
+      "treatment_conflict",
+      "treatment_runtime",
+      "treatment_recovery",
+      "post_treatment_table_count",
+      "heldout_outcome"
+    ]
+  },
+  "frozen_policy_families": {
+    "POLICY_0_ABSTAIN_ALL": "false for every unit",
+    "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": "normalized_role == document_index",
+    "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": "normalized_role == document_index and ocr_child_count == 0",
+    "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": "normalized_role in document_index, picture, text, list_item, code",
+    "FROZEN_GEOMETRY_AREA_GE_0_4_NEGATIVE_COMPARATOR": "region_area_fraction >= 0.4"
+  },
+  "feature_generation_boundary": "Features are computed from frozen 039 layout/OCR artifacts before any 040 treatment output is read. The retrospective D2 match is an audit anchor only."
+}
