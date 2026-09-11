@@ -1,0 +1,17 @@
+{
+  "experiment": "041_role_signal_provenance",
+  "status": "blocked_before_execution",
+  "treatment_records": 0,
+  "operational_failures": 0,
+  "scientific_failures": 0,
+  "protocol_deviations": 0,
+  "module_a": {
+    "same_role_controls_available": 0,
+    "same_role_controls_required_for_execution": 1,
+    "treatment_outcomes": {}
+  },
+  "module_b": {"provenance_pages": 0, "mode_counts": {}},
+  "module_c": {"routing_cases": 0, "outcomes": {}},
+  "heldout_accessed": false,
+  "note": "No operational failure is imputed for work that was not run. The blocker is a population-identification failure."
+}

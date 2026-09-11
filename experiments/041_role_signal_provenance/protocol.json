@@ -1,0 +1,67 @@
+{
+  "experiment": "041_role_signal_provenance",
+  "status": "BLOCKED_BEFORE_EXECUTION_NO_SAME_ROLE_CONTROLS",
+  "created_from_commit": "1b4b43b9366d0f695671cbde28c28ecd8c14b1a6",
+  "baseline_experiment": "039_larger_real_corpus",
+  "counterfactual_reference": "040_mechanism_d_counterfactual",
+  "allowed_split": "development",
+  "heldout_splits": ["heldout", "held_out", "held_out_test", "test"],
+  "heldout_accessed": false,
+  "module_a": {
+    "name": "same_role_document_index_controls",
+    "target_role": "document_index",
+    "d2_target_unit": "unique development D2 region unit",
+    "control_definition": "development baseline raw document_index region excluding frozen D2 region identities",
+    "target_control_count": 30,
+    "control_selection": "deterministic identity order after development-only filtering; no treatment outcome or GT ranking",
+    "treatment": "exact 040 crop treatment on frozen baseline bbox",
+    "required_invocation_mode": "LABELLED_CROP",
+    "gt_boundary": "post-treatment evaluation only",
+    "valid_recovery": {
+      "structure_valid": true,
+      "gt_iou_min": 0.3,
+      "unique_intended_owner": true,
+      "production_table_overlap_max": 0.1,
+      "no_material_conflict": true,
+      "no_duplicate_or_damage": true,
+      "no_cross_table_contamination": true,
+      "no_protocol_violation": true
+    },
+    "control_primary_outcomes": [
+      "NO_EFFECT",
+      "FALSE_POSITIVE",
+      "OWNERSHIP_CONFLICT",
+      "CROSS_TABLE_CONTAMINATION",
+      "DUPLICATION_DAMAGE",
+      "OPERATIONAL_FAILURE"
+    ],
+    "hard_stop_if_eligible_controls_below": 1
+  },
+  "module_b": {
+    "name": "baseline_page_wide_provenance",
+    "kind": "observational_no_treatment_replay",
+    "required_modes": ["PAGE_WIDE", "LABELLED_CROP", "NOT_INVOKED"],
+    "production_semantics": "unchanged validated telemetry path",
+    "heldout_allowed": false
+  },
+  "module_c": {
+    "name": "role_normalization_routing_counterfactual",
+    "kind": "offline_routing_only",
+    "mapping_hypotheses": {
+      "document_index": "table",
+      "text": "unchanged",
+      "picture": "unchanged",
+      "code": "unchanged",
+      "list_item": "unchanged"
+    },
+    "outcomes": ["INVOCATION_CHANGED", "INVOCATION_UNCHANGED", "ROUTE_ERROR", "PROTOCOL_ERROR"],
+    "specialist_invoked": false,
+    "gt_used": false
+  },
+  "resource": {
+    "device": "cpu",
+    "config": "configs/cpu.yaml",
+    "broad_040_role_union_repeated": false,
+    "production_changed": false
+  }
+}

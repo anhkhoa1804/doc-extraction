@@ -1,0 +1,338 @@
+{
+  "experiment": "041_role_signal_provenance",
+  "status": "BLOCKED_BEFORE_EXECUTION_NO_SAME_ROLE_CONTROLS",
+  "created_from_commit": "1b4b43b9366d0f695671cbde28c28ecd8c14b1a6",
+  "source_manifest_sha256": "55fe36b5f39e1e87437f81ed2cc2d120e5c7d747b1f3109318b06d530b50f8e5",
+  "source_baseline_index_sha256": "97e66f2cf68be97e14fc6f53223790f5e9580bb1dc10e32e28e51227aac58372",
+  "source_040_population_hash": "e6ee85b2aec4c85a00006bbee5e23a07cd0ac9f40c3487bba21e24677136f109",
+  "split_guard": {
+    "allowed": "development",
+    "heldout_splits_rejected": [
+      "held_out",
+      "held_out_test",
+      "heldout",
+      "test"
+    ],
+    "heldout_accessed": false
+  },
+  "counts": {
+    "039_total_records": 269,
+    "039_development_records": 136,
+    "039_heldout_records": 133,
+    "document_index_candidates": 15,
+    "excluded_frozen_d2_identities": 15,
+    "eligible_same_role_controls": 0,
+    "document_index_d2_targets": 15
+  },
+  "candidate_audit": [
+    {
+      "image_id": 453,
+      "file_name": "458a651a6c9ad06a6748f4c58f20b7aa097e36d7f67dcb7a924db29d91fd2a1b.png",
+      "source_document_id": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "page_no": 18,
+      "split": "development",
+      "region_index": 2,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 113.28518676757812,
+        "y0": 530.2168579101562,
+        "x1": 524.7153930664062,
+        "y1": 611.0339965820312
+      },
+      "baseline_layout_sha256": "b3beaddf7292f6d834bb2fb0b7cb8ce41d07490df1ca7df31468d624cc2dd7ee",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 474,
+      "file_name": "83aa9ed61ec925e11c9d238ee618c7f7b06ae0b675786f89b13b54207f7d5dab.png",
+      "source_document_id": "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf",
+      "doc_group": "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf",
+      "doc_category": "financial_reports",
+      "page_no": 42,
+      "split": "development",
+      "region_index": 2,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 122.01543426513672,
+        "y0": 390.4949951171875,
+        "x1": 901.473876953125,
+        "y1": 779.8425903320312
+      },
+      "baseline_layout_sha256": "9acd39f0bed7a58578124902a81a1099f6c7144880ec707a5e409e8148d33119",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 717,
+      "file_name": "c463af9940c2c8d1e935a45f3e0931448e66bdee414b34b2509593de687cdee9.png",
+      "source_document_id": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "page_no": 3,
+      "split": "development",
+      "region_index": 5,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 82.7685546875,
+        "y0": 761.2025146484375,
+        "x1": 497.285400390625,
+        "y1": 886.920654296875
+      },
+      "baseline_layout_sha256": "44c6cd41ed7619c67955abc8b17e39a7c576862dadef89f86dabdbd835f4f354",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 1772,
+      "file_name": "cc9de9ac4cebc391001348ba261e23fcf1b9151e554959a84e18bf76a0244741.png",
+      "source_document_id": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "page_no": 8,
+      "split": "development",
+      "region_index": 0,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 119.20552825927734,
+        "y0": 96.36937713623047,
+        "x1": 905.2705078125,
+        "y1": 513.4334106445312
+      },
+      "baseline_layout_sha256": "7e720be76924cb747e576cfe7ed4e4fc2704bb5945ecaa6045c6beeef83d291e",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 1782,
+      "file_name": "8470e3d843e8cb40fbcb54685cf76e2ab1f1696139496a443716ae05ea586e73.png",
+      "source_document_id": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "page_no": 7,
+      "split": "development",
+      "region_index": 0,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 119.4694595336914,
+        "y0": 97.29337310791016,
+        "x1": 905.2854614257812,
+        "y1": 869.4351196289062
+      },
+      "baseline_layout_sha256": "ae5a081244b3b6d05ccdc063240b1f5b7414c6fdf429db43d3a8e6fae53b0a44",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 1890,
+      "file_name": "f8c0cfffae0e752cf242b696dc0543b9396eb0a07d63269978b3d17982cf0e38.png",
+      "source_document_id": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "page_no": 9,
+      "split": "development",
+      "region_index": 1,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 148.40980529785156,
+        "y0": 319.8155517578125,
+        "x1": 904.6862182617188,
+        "y1": 707.175537109375
+      },
+      "baseline_layout_sha256": "6010df286af942d0d4a4b800e759f57d6f053e8553e6bf0ce37451cd9946a4a0",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 2036,
+      "file_name": "dadbd5e49259c654f979acc73a5ec3f1a71155fbec298945579af85a23214fb1.png",
+      "source_document_id": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "page_no": 10,
+      "split": "development",
+      "region_index": 1,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 148.70184326171875,
+        "y0": 319.5041809082031,
+        "x1": 904.6790161132812,
+        "y1": 706.941650390625
+      },
+      "baseline_layout_sha256": "3ecf7103d1e2d82b79673aef2ee2dcb302de4902d11aff7b3a0e01e3b6c3aeb5",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 3196,
+      "file_name": "4f7a0bffe8afe5e5a471db26cfe2966cd9f8eb73ad178492d0adb11b6f73d18e.png",
+      "source_document_id": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "page_no": 0,
+      "split": "development",
+      "region_index": 5,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 120.24634552001953,
+        "y0": 348.08953857421875,
+        "x1": 940.4112548828125,
+        "y1": 962.8270874023438
+      },
+      "baseline_layout_sha256": "02462f399e8cb5e8a2918343d0b38e0f74129748429e9ae42f660c07ff1917bc",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 3197,
+      "file_name": "9caae8f17d7d90d6f4ddf8b2db06ca8025b8be63ca3d140984f4c6ed805cd76f.png",
+      "source_document_id": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "page_no": 1,
+      "split": "development",
+      "region_index": 1,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 119.8782730102539,
+        "y0": 48.9530029296875,
+        "x1": 940.0157470703125,
+        "y1": 919.4957275390625
+      },
+      "baseline_layout_sha256": "eaa19f7f539a71db69fe77b5d8486c703f73c9dc65e28a1519736d5c005658aa",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 3664,
+      "file_name": "89e74f63923c81db393c894c9adda9dcdcff619dcb57c0ab2c89b15f0f4399b7.png",
+      "source_document_id": "faa_regulations::amt_general_handbook.pdf",
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "page_no": 10,
+      "split": "development",
+      "region_index": 0,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 121.1899642944336,
+        "y0": 58.69950866699219,
+        "x1": 529.5471801757812,
+        "y1": 932.3239135742188
+      },
+      "baseline_layout_sha256": "c6b1376dfa700d7891b32f7f8d7f3f6936871ded250c84d7686694070d5f6366",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 3741,
+      "file_name": "11df3b420b74eb90b7d6c89f95d0a5206d77d01b04d580eff5f9b0f45329b2be.png",
+      "source_document_id": "faa_regulations::amt_general_handbook.pdf",
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "page_no": 8,
+      "split": "development",
+      "region_index": 1,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 121.81001281738281,
+        "y0": 236.84693908691406,
+        "x1": 528.6163330078125,
+        "y1": 941.3488159179688
+      },
+      "baseline_layout_sha256": "b934951a2fa27c3e174dc7296225c6e65acbce8a17075748948bcd4ea00a1df0",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 3741,
+      "file_name": "11df3b420b74eb90b7d6c89f95d0a5206d77d01b04d580eff5f9b0f45329b2be.png",
+      "source_document_id": "faa_regulations::amt_general_handbook.pdf",
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "page_no": 8,
+      "split": "development",
+      "region_index": 2,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 551.184326171875,
+        "y0": 235.95248413085938,
+        "x1": 958.33544921875,
+        "y1": 909.7640380859375
+      },
+      "baseline_layout_sha256": "b934951a2fa27c3e174dc7296225c6e65acbce8a17075748948bcd4ea00a1df0",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 4872,
+      "file_name": "540f16bd03612c828de64484bec723eef915a9e501ee325acf9a529eb6bb325c.png",
+      "source_document_id": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "page_no": 1673,
+      "split": "development",
+      "region_index": 0,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 95.4095230102539,
+        "y0": 124.99028778076172,
+        "x1": 929.0824584960938,
+        "y1": 953.73193359375
+      },
+      "baseline_layout_sha256": "13077b2443e7980d4d69a74233cce1c4d667179f2c7ce8af55c1ee8056153650",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 5771,
+      "file_name": "1fe96db8b84eb08c1a41c346d9ae482771b56e495e9fdf4384f9b88dc3cfca80.png",
+      "source_document_id": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "page_no": 1704,
+      "split": "development",
+      "region_index": 0,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 95.4705810546875,
+        "y0": 122.86473846435547,
+        "x1": 929.2936401367188,
+        "y1": 964.6301879882812
+      },
+      "baseline_layout_sha256": "3566e31bcefc936f2e1bd8c47c6c9aef59aa6e6d5d66fa3256c2505bf951fbec",
+      "eligibility": "excluded_frozen_d2_identity"
+    },
+    {
+      "image_id": 6436,
+      "file_name": "e352c81afc0a60e29b625f9e7383932d8a0df77211c55219400182cd99381af8.png",
+      "source_document_id": "patents_superacid_pags::20130303482_AdobeOCR.pdf",
+      "doc_group": "patents_superacid_pags::20130303482_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "page_no": 0,
+      "split": "development",
+      "region_index": 17,
+      "raw_role": "document_index",
+      "region_bbox": {
+        "x0": 519.5986938476562,
+        "y0": 179.0343475341797,
+        "x1": 881.6691284179688,
+        "y1": 242.9442901611328
+      },
+      "baseline_layout_sha256": "7e47aa45a1c7d2709452241a05ecb07873db5f723b1c8b29b4cc43270fa6109d",
+      "eligibility": "excluded_frozen_d2_identity"
+    }
+  ],
+  "module_a_d2_target_unit_ids": [
+    "d2-1772-0",
+    "d2-1782-0",
+    "d2-1890-1",
+    "d2-2036-1",
+    "d2-3196-5",
+    "d2-3197-1",
+    "d2-3664-0",
+    "d2-3741-1",
+    "d2-3741-2",
+    "d2-453-2",
+    "d2-474-2",
+    "d2-4872-0",
+    "d2-5771-0",
+    "d2-6436-17",
+    "d2-717-5"
+  ],
+  "same_role_control_units": [],
+  "module_b_sample": [],
+  "module_c_cases": [],
+  "treatment_executed": false,
+  "heldout_accessed": false,
+  "hard_stop": "No eligible same-role document_index development controls exist in the frozen 039 development baseline.",
+  "audit_hash": "1ee455957f3419d026d9b6d6bb21f5a500420fa559f664dfac4984985fb13830"
+}

@@ -1,0 +1,11 @@
+{
+  "experiment": "041_role_signal_provenance",
+  "status": "BLOCKED_BEFORE_EXECUTION_NO_SAME_ROLE_CONTROLS",
+  "treatment_executed": false,
+  "baseline_provenance_replay_executed": false,
+  "role_normalization_counterfactual_executed": false,
+  "records": [],
+  "heldout_accessed": false,
+  "blocked_reason": "The frozen 039 development baseline has 15 document_index regions and all 15 are frozen D2 identities; there are zero eligible same-role controls.",
+  "scientific_decision": "REFINE_EXPERIMENT"
+}
