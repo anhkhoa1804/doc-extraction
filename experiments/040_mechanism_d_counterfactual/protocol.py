@@ -74,6 +74,22 @@ def atomic_write_json(path: Path, payload: Any) -> None:
             os.unlink(temporary)
 
 
+def atomic_write_text(path: Path, payload: str) -> None:
+    """Write a complete text artifact by replace-on-success."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+
 def require_development(record: dict[str, Any]) -> None:
     """Fail closed before treatment if a record is not development data."""
     split = record.get("split")

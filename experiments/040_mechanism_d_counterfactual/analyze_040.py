@@ -18,6 +18,7 @@ from protocol import (
     CONTROL_KIND,
     TARGET_KIND,
     atomic_write_json,
+    atomic_write_text,
     policy_fires,
 )
 
@@ -83,6 +84,31 @@ def require_pilot_integrity(manifest: dict[str, Any], records: list[dict[str, An
     atomic_write_json(HERE / "results" / "pilot" / "pilot_integrity.json", result)
     if result["status"] != "PASS":
         raise SystemExit(f"pilot integrity failed: {json.dumps(result, sort_keys=True)}")
+    return result
+
+
+def require_full_integrity(manifest: dict[str, Any], records: list[dict[str, Any]], index: dict[str, Any]) -> dict[str, Any]:
+    expected = {unit["unit_id"] for unit in manifest["units"]}
+    got = {record.get("unit", {}).get("unit_id") for record in records}
+    checks = {
+        "exact_population_ids": expected == got,
+        "all_complete": len(records) == len(expected) and all(record.get("status") == "complete" for record in records),
+        "all_development": all(record.get("unit", {}).get("split") == "development" for record in records),
+        "all_labelled_crop": all(record.get("treatment", {}).get("specialist", {}).get("invocation_mode") == "LABELLED_CROP" for record in records),
+        "bbox_matches_manifest": all(record.get("treatment", {}).get("treatment_input", {}).get("bbox_equal_to_frozen_manifest") is True for record in records),
+        "crop_identity_present": all(bool(record.get("treatment", {}).get("treatment_input", {}).get("crop_sha256")) for record in records),
+        "no_heldout_index_rows": all(row.get("split") == "development" for row in index.get("records", [])),
+    }
+    result = {
+        "status": "PASS" if all(checks.values()) else "FAIL",
+        "checks": checks,
+        "records": len(records),
+        "expected_records": len(expected),
+        "population_hash": manifest["population_hash"],
+    }
+    atomic_write_json(HERE / "results" / "full" / "full_integrity.json", result)
+    if result["status"] != "PASS":
+        raise SystemExit(f"full integrity failed: {json.dumps(result, sort_keys=True)}")
     return result
 
 
@@ -309,6 +335,7 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
         result = require_pilot_integrity(manifest, records, index)
         print(json.dumps(result, sort_keys=True))
         return 0
+    require_full_integrity(manifest, records, index)
     analysis = analyze_full(manifest, records, index)
     root = HERE / "results" / phase
     result_payload = read_json(root / "results.json") if (root / "results.json").is_file() else {"records": records}
@@ -328,7 +355,15 @@ def write_analysis(phase: str, manifest: dict[str, Any], records: list[dict[str,
         "stop_condition_exceeded": bool(records and analysis["operational_failures"] / len(records) > 0.1),
     })
     markdown = render_markdown(analysis)
-    (root / "ANALYSIS.md").write_text(markdown, encoding="utf-8")
+    atomic_write_text(root / "ANALYSIS.md", markdown)
+    atomic_write_json(HERE / "results.json", analysis)
+    atomic_write_json(HERE / "failure_taxonomy.json", {
+        "experiment": "040_mechanism_d_counterfactual",
+        "definitions": read_json(HERE / "protocol.json")["failure_tags"],
+        "counts": dict(failure_counts),
+        "operational_failure_rate": analysis["operational_failures"] / len(records) if records else None,
+        "stop_condition_exceeded": bool(records and analysis["operational_failures"] / len(records) > 0.1),
+    })
     print(json.dumps({"status": analysis["status"], "d2": analysis["d2_metrics"], "controls": analysis["control_metrics"], "cost": analysis["cost"]}, sort_keys=True))
     return 1 if analysis["operational_failures"] / max(1, len(records)) > 0.1 else 0
 

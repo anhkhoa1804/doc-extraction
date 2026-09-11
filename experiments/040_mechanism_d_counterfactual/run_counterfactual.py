@@ -670,6 +670,9 @@ def main() -> int:
         selected_ids = list(manifest["pilot_unit_ids"])
     else:
         selected_ids = [unit["unit_id"] for unit in units]
+        pilot_integrity_path = HERE / "results" / "pilot" / "pilot_integrity.json"
+        if not pilot_integrity_path.is_file() or read_json(pilot_integrity_path).get("status") != "PASS":
+            raise SystemExit("refusing full run until the clean pilot integrity gate is PASS")
     by_id = {unit["unit_id"]: unit for unit in units}
     if len(by_id) != len(units):
         raise SystemExit("duplicate unit identity in frozen population")

@@ -89,6 +89,7 @@ experiments/036_mechanism_d_counterfactual/results/
 experiments/037_selective_policy_validation/results/
 experiments/038_independent_real_corpus/results/
 experiments/039_larger_real_corpus/results/
+experiments/040_mechanism_d_counterfactual/results/
 
 # Environment / secrets
 .env
