@@ -1,0 +1,35 @@
+{
+  "experiment": "039_larger_real_corpus",
+  "status": "population_audited",
+  "manifest_sha256": "55fe36b5f39e1e87437f81ed2cc2d120e5c7d747b1f3109318b06d530b50f8e5",
+  "annotation_sha256": "eacd2ba2a32e6c2ebe2dc5ea1545f405d8461c46bba53e0c35d9c54fba0bcef6",
+  "population": {
+    "records": 269,
+    "groups": 33,
+    "development_groups": 17,
+    "held_out_groups": 16,
+    "table_pages": 174,
+    "control_pages": 95,
+    "categories": {
+      "government_tenders": 44,
+      "financial_reports": 119,
+      "patents": 48,
+      "laws_and_regulations": 18,
+      "scientific_articles": 31,
+      "manuals": 9
+    }
+  },
+  "integrity": {
+    "errors": [],
+    "missing_images": 0,
+    "image_hash_mismatches": 0,
+    "source_link_mismatches": 0,
+    "identity_overlaps": {
+      "035_filename": [],
+      "036_filename": [],
+      "037_filename": [],
+      "038_filename": [],
+      "038_image_id": []
+    }
+  }
+}
