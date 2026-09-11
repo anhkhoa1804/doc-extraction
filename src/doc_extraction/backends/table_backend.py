@@ -21,6 +21,7 @@ docs/backends.md for install/timing notes.
 from __future__ import annotations
 
 import importlib.util
+from dataclasses import dataclass
 
 from doc_extraction.pipelines.base import PageInput, Region, TableResult
 from doc_extraction.schemas.element import BBox
@@ -31,6 +32,22 @@ STRUCTURE_MODEL_ID = "microsoft/table-transformer-structure-recognition"
 
 _DETECTION_THRESHOLD = 0.7
 _STRUCTURE_THRESHOLD = 0.6
+
+
+@dataclass
+class CropCounterfactualResult:
+    """Experimental evidence from one explicitly supplied region crop.
+
+    This is deliberately separate from :class:`TableResult`: production's
+    region path treats the layout region as the table box and only performs
+    structure recognition.  Research needs to observe both that faithful
+    path and what the detector would say about the same pixels, without
+    changing production routing or ownership.
+    """
+
+    detected_boxes: list[BBox]
+    forced_crop_table: Table | None
+    detector_tables: list[Table]
 
 
 def is_available() -> bool:
@@ -100,6 +117,63 @@ class TableTransformerBackend:
                 warnings.append(f"structure recognition found no row/column grid for table region {i}")
 
         return TableResult(tables=tables, backend=self.name, warnings=warnings)
+
+    def extract_crop_counterfactual(
+        self, page: PageInput, crop_bbox: BBox, table_id_prefix: str = "counterfactual"
+    ) -> CropCounterfactualResult:
+        """Run a non-production, same-crop Table Transformer probe.
+
+        The forced-crop table exactly mirrors ``extract`` when the layout
+        stage supplies a table-labelled region.  ``detected_boxes`` and
+        ``detector_tables`` are additive observability: they reveal whether
+        the detection model independently finds a table inside those same
+        pixels.  No page, region, or production result is modified.
+        """
+        if not self.is_available():
+            raise RuntimeError("Table Transformer backend is unavailable")
+        if page.image_path is None:
+            raise ValueError("counterfactual crop requires a rendered image")
+
+        from PIL import Image
+
+        self._lazy_load()
+        with Image.open(page.image_path) as source:
+            image = source.convert("RGB")
+        crop = image.crop((crop_bbox.x0, crop_bbox.y0, crop_bbox.x1, crop_bbox.y1))
+        if crop.width < 10 or crop.height < 10:
+            raise ValueError(f"counterfactual crop is too small: {crop.width}x{crop.height}")
+
+        # This is the exact production region-path operation: structure
+        # recognition over the supplied region, not an inferred detector box.
+        forced_crop_table = self._recognize_structure(
+            crop, crop_bbox, page.page_index, table_id=f"{table_id_prefix}-forced"
+        )
+
+        local_boxes = self._detect_tables(crop)
+        detected_boxes = [
+            BBox(
+                x0=crop_bbox.x0 + box.x0,
+                y0=crop_bbox.y0 + box.y0,
+                x1=crop_bbox.x0 + box.x1,
+                y1=crop_bbox.y0 + box.y1,
+            )
+            for box in local_boxes
+        ]
+        detector_tables: list[Table] = []
+        for i, (local_box, page_box) in enumerate(zip(local_boxes, detected_boxes)):
+            detected_crop = crop.crop((local_box.x0, local_box.y0, local_box.x1, local_box.y1))
+            if detected_crop.width < 10 or detected_crop.height < 10:
+                continue
+            table = self._recognize_structure(
+                detected_crop, page_box, page.page_index, table_id=f"{table_id_prefix}-detected-{i}"
+            )
+            if table is not None:
+                detector_tables.append(table)
+        return CropCounterfactualResult(
+            detected_boxes=detected_boxes,
+            forced_crop_table=forced_crop_table,
+            detector_tables=detector_tables,
+        )
 
     def _detect_tables(self, image) -> list[BBox]:
         import torch

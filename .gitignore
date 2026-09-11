@@ -85,6 +85,7 @@ experiments/034a_omnidocbench_snapshot/results/**/*runtime_environment.json
 experiments/035_mechanism_d_gating/dataset/
 experiments/035_mechanism_d_gating/results/**/predictions/
 experiments/035_mechanism_d_gating/results/**/_doc_extraction_runs/
+experiments/036_mechanism_d_counterfactual/results/
 
 # Environment / secrets
 .env

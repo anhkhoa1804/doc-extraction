@@ -1,0 +1,54 @@
+{
+  "population": {
+    "treatment_cases": 34,
+    "control_cases": 145,
+    "excluded_control_pages": 5,
+    "treatment_targets": 34
+  },
+  "execution": {
+    "treatment_completed": 34,
+    "treatment_failures": 0,
+    "control_completed": 145,
+    "control_failures": 0,
+    "case_runtime_seconds": {
+      "min": 0.1693,
+      "median": 1.2643,
+      "max": 122.7583,
+      "total": 2876.291
+    }
+  },
+  "treatment_case_level": {
+    "specialist_invocation_success": 34,
+    "crop_detector_found_table": 14,
+    "structurally_valid": 31,
+    "ownership_established": 31,
+    "valid_recovery": 17,
+    "duplicate_ownership": 8,
+    "cross_region_conflict": 8,
+    "rates": {
+      "specialist_invocation_success": 1.0,
+      "crop_detector_found_table": 0.4118,
+      "structurally_valid": 0.9118,
+      "ownership_established": 0.9118,
+      "valid_recovery": 0.5,
+      "duplicate_ownership": 0.2353,
+      "cross_region_conflict": 0.2353
+    }
+  },
+  "control_target_level": {
+    "specialist_invocation_success": 145,
+    "crop_detector_found_table": 38,
+    "structurally_valid": 104,
+    "ownership_established": 104,
+    "false_positive": 104,
+    "duplicate_ownership": 3,
+    "rates": {
+      "specialist_invocation_success": 1.0,
+      "crop_detector_found_table": 0.2621,
+      "structurally_valid": 0.7172,
+      "ownership_established": 0.7172,
+      "false_positive": 0.7172,
+      "duplicate_ownership": 0.0207
+    }
+  }
+}
