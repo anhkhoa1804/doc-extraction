@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.metadata
 import json
+import os
 import subprocess
 import time
 from pathlib import Path
@@ -74,6 +74,45 @@ def load_production_tables(case: dict) -> list[dict]:
     return document["pages"][0].get("tables", [])
 
 
+def assess_forced_crop(
+    forced: dict | None, target_bbox: dict, gt_bbox: dict | None, existing_tables: list[dict]
+) -> dict:
+    """Apply 036's frozen ownership/recovery definition without inference.
+
+    Keeping this pure makes the threshold boundary and ownership conflict
+    rule directly testable. It is experimental-only and intentionally does
+    not change the production merge or table gate.
+    """
+    forced_validity = structural_validity(forced)
+    existing_overlap = max(
+        (iou(forced["bbox"], table["bbox"]) for table in existing_tables if forced and table.get("bbox")),
+        default=0.0,
+    )
+    gt_iou = iou(forced["bbox"], gt_bbox) if forced and gt_bbox else None
+    ownership_established = bool(forced_validity["valid"] and iou(forced["bbox"], target_bbox) > 0.1)
+    duplicate_ownership = existing_overlap > 0.1
+    valid_recovery = bool(
+        gt_bbox and forced_validity["valid"] and ownership_established and gt_iou >= 0.3
+        and not duplicate_ownership
+    )
+    return {
+        "forced_crop_structural_validity": forced_validity,
+        "ownership_established_in_isolated_counterfactual": ownership_established,
+        "existing_production_table_max_iou": round(existing_overlap, 6),
+        "duplicate_ownership": duplicate_ownership,
+        "cross_region_conflict": duplicate_ownership,
+        "gt_iou": gt_iou,
+        "valid_recovery": valid_recovery,
+    }
+
+
+def write_json_atomically(path: Path, payload: dict) -> None:
+    """Never leave a partially written case record after an interruption."""
+    temporary = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    temporary.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+    temporary.replace(path)
+
+
 def run_target(backend: TableTransformerBackend, case: dict, target: dict, target_index: int, device: str) -> dict:
     from PIL import Image
     import torch
@@ -89,19 +128,10 @@ def run_target(backend: TableTransformerBackend, case: dict, target: dict, targe
     forced = result.forced_crop_table.model_dump() if result.forced_crop_table else None
     detected = [box.model_dump() for box in result.detected_boxes]
     detected_tables = [table.model_dump() for table in result.detector_tables]
-    forced_validity = structural_validity(forced)
     existing = load_production_tables(case)
-    existing_overlap = max((iou(forced["bbox"], table["bbox"]) for table in existing if forced and table.get("bbox")), default=0.0)
     gt_bbox = case.get("gt_bbox_px")
-    gt_iou = iou(forced["bbox"], gt_bbox) if forced and gt_bbox else None
     detector_gt_iou = max((iou(box, gt_bbox) for box in detected), default=0.0) if gt_bbox else None
-    ownership_established = bool(forced_validity["valid"] and iou(forced["bbox"], target["bbox"]) > 0.1)
-    # Valid recovery is deliberately stricter than invocation/detection:
-    # valid structure, isolated owner mapping, geometry relevant to the GT,
-    # and no table already owning materially overlapping evidence.
-    valid_recovery = bool(
-        gt_bbox and forced_validity["valid"] and ownership_established and gt_iou >= 0.3 and existing_overlap <= 0.1
-    )
+    outcome = assess_forced_crop(forced, target["bbox"], gt_bbox, existing)
     max_vram = None
     if device.startswith("cuda") and torch.cuda.is_available():
         max_vram = int(torch.cuda.max_memory_allocated())
@@ -113,13 +143,7 @@ def run_target(backend: TableTransformerBackend, case: dict, target: dict, targe
         "crop_detector_found_table": bool(detected),
         "crop_detector_max_gt_iou": detector_gt_iou,
         "forced_crop_table": forced,
-        "forced_crop_structural_validity": forced_validity,
-        "ownership_established_in_isolated_counterfactual": ownership_established,
-        "existing_production_table_max_iou": round(existing_overlap, 6),
-        "duplicate_ownership": existing_overlap > 0.1,
-        "cross_region_conflict": existing_overlap > 0.1,
-        "gt_iou": gt_iou,
-        "valid_recovery": valid_recovery,
+        **outcome,
         "detector_tables": detected_tables,
         "process_max_vram_bytes": max_vram,
     }
@@ -143,7 +167,17 @@ def main() -> int:
         "models": {"detection": DETECTION_MODEL_ID, "structure": STRUCTURE_MODEL_ID},
         "library_versions": versions(), "gpu_before": gpu_snapshot(), "cases_requested": len(cases),
     }
-    (args.output / "run_metadata.json").write_text(json.dumps(run_info, indent=2) + "\n")
+    metadata_path = args.output / "run_metadata.json"
+    if metadata_path.exists():
+        existing_info = json.loads(metadata_path.read_text())
+        immutable = ("experiment", "arm", "device", "models", "library_versions")
+        if any(existing_info.get(key) != run_info.get(key) for key in immutable):
+            raise RuntimeError("refusing to resume an output root with different experiment/device/model metadata")
+    else:
+        write_json_atomically(metadata_path, run_info)
+    attempts_dir = args.output / "attempts"
+    attempts_dir.mkdir(exist_ok=True)
+    write_json_atomically(attempts_dir / f"attempt-{time.time_ns()}.json", run_info)
     for case in cases:
         out = args.output / f"{case['case_id']}.json"
         if out.exists():
@@ -163,7 +197,7 @@ def main() -> int:
             payload["error"] = f"{type(exc).__name__}: {exc}"
         payload["case_runtime_seconds"] = round(time.perf_counter() - started, 6)
         payload["gpu_after_case"] = gpu_snapshot()
-        out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+        write_json_atomically(out, payload)
     return 0
 
 

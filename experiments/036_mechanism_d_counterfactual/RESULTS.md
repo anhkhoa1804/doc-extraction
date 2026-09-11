@@ -23,6 +23,6 @@ The shell session time limit interrupted several CPU control invocations after c
 
 Detector-plus-valid-grid evidence is 14/34 treatments and 23/145 controls. Applying the same no-duplicate and GT-geometry checks leaves 7/34 treatments for that more selective, **post-analysis descriptive** intersection; it is not a newly promoted decision rule. The observed control rate demonstrates why forced structure recognition alone cannot be admitted into production.
 
-Case runtime across the 179 full-arm records was 2,876.291 seconds total; min 0.169 s, median 1.264 s, max 122.758 s. CPU mean case runtime was 16.06 s. CUDA VRAM is `null` by design because CUDA was unavailable.
+Case runtime across the 179 full-arm records was 2,875.5174 seconds total; min 0.169 s, median 1.264 s, max 122.758 s. CPU mean case runtime was 16.06 s. CUDA VRAM is `null` by design because CUDA was unavailable. The post-036 forensic audit corrected a stale earlier aggregate (2,876.291 seconds) after the final two resumed control records landed; no scientific outcome count changed.
 
 Machine-readable aggregate: `summary.json`. Raw per-case records contain crop geometry, source hashes, model/device metadata, detector boxes, structures, conflict checks, and runtime, and intentionally remain untracked.

@@ -62,3 +62,38 @@ def test_036_structural_validation_and_output_root_are_isolated():
     assert module.structural_validity(valid)["valid"] is True
     assert module.structural_validity(escaped)["valid"] is False
     assert "036_mechanism_d_counterfactual/results" in (root / ".gitignore").read_text()
+
+
+def test_036_recovery_thresholds_are_inclusive_for_gt_and_exclusive_for_conflict(monkeypatch):
+    root = Path(__file__).resolve().parents[1]
+    spec = spec_from_file_location("run036", root / "experiments/036_mechanism_d_counterfactual/run_counterfactual.py")
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    forced = {
+        "n_rows": 1, "n_cols": 1, "bbox": {"x0": 0, "y0": 0, "x1": 10, "y1": 10},
+        "cells": [{"bbox": {"x0": 0, "y0": 0, "x1": 10, "y1": 10}}],
+    }
+    values = iter((0.1, 0.3, 0.11))  # production overlap, GT IoU, owner IoU
+    monkeypatch.setattr(module, "iou", lambda *_: next(values))
+    outcome = module.assess_forced_crop(forced, forced["bbox"], forced["bbox"], [{"bbox": forced["bbox"]}])
+    assert outcome["ownership_established_in_isolated_counterfactual"] is True
+    assert outcome["duplicate_ownership"] is False
+    assert outcome["valid_recovery"] is True
+
+    values = iter((0.100001, 0.3, 0.11))
+    monkeypatch.setattr(module, "iou", lambda *_: next(values))
+    conflict = module.assess_forced_crop(forced, forced["bbox"], forced["bbox"], [{"bbox": forced["bbox"]}])
+    assert conflict["duplicate_ownership"] is True
+    assert conflict["valid_recovery"] is False
+
+
+def test_036_structural_escape_boundary_is_not_valid():
+    root = Path(__file__).resolve().parents[1]
+    spec = spec_from_file_location("run036", root / "experiments/036_mechanism_d_counterfactual/run_counterfactual.py")
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    table = {
+        "n_rows": 1, "n_cols": 5, "bbox": {"x0": 0, "y0": 0, "x1": 10, "y1": 10},
+        "cells": [{"bbox": {"x0": -2 if index == 0 else 0, "y0": 0, "x1": 10, "y1": 10}} for index in range(5)],
+    }
+    assert module.structural_validity(table)["valid"] is False
