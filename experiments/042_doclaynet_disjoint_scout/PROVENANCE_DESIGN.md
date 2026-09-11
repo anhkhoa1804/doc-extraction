@@ -3,6 +3,21 @@
 Run only after the 042 scout population is acquired and frozen. This is an
 unchanged baseline replay, not treatment.
 
+## Initial replay sample
+
+The first replay is frozen before any baseline output is inspected: exactly one
+page from each of the 40 selected source-document groups. Within a group,
+select the page with the smallest SHA-256 value of
+`042-provenance-page-v1::<image_id>`. This is an outcome-independent 40-page
+sample. It is sufficient to test whether the new source groups expose the
+production role vocabulary and invocation modes before a larger CPU replay is
+authorized.
+
+If the initial sample demonstrates natural `document_index` supply or a need
+for complete provenance, a separately recorded full-cohort follow-up may
+process all 279 frozen pages. No follow-up may change the population or use
+results from the initial sample to alter eligibility.
+
 For every selected development page, use the validated additive telemetry and
 record separate counts of:
 

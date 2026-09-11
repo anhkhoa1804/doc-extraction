@@ -169,3 +169,23 @@ def test_control_discovery_requires_natural_baseline_role_and_is_deterministic()
             **pages[0],
             "regions": [{"region_index": 0, "raw_role": "document_index", "role_source": "treatment"}],
         }])
+
+
+def test_provenance_sample_is_one_page_per_group_and_cpu_baseline_only():
+    spec = importlib.util.spec_from_file_location(
+        "baseline_provenance_042", E042 / "run_baseline_provenance.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    population = read_json("population_manifest.json")
+    selected = module.select_group_sample(population["records"])
+    assert len(selected) == 40
+    assert len({record["source_group"] for record in selected}) == 40
+    assert all(record["split"] == "development" for record in selected)
+    assert module.index_path("group_sample").name == "BASELINE_PROVENANCE_SAMPLE_INDEX.json"
+    assert module.index_path("all").name == "BASELINE_PROVENANCE_INDEX.json"
+    source = (E042 / "run_baseline_provenance.py").read_text(encoding="utf-8")
+    assert "extract_crop_counterfactual" not in source
+    assert 'backend_name="baseline"' in source
+    assert 'configs/cpu.yaml' in source

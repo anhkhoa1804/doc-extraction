@@ -54,5 +54,16 @@
     "gt_used": false,
     "treatment_output_used": false
   },
+  "baseline_provenance_replay": {
+    "kind": "observational_unchanged_production_baseline",
+    "initial_sample": "one deterministic page per selected source-document group",
+    "initial_sample_size": 40,
+    "page_selection_hash_prefix": "042-provenance-page-v1::",
+    "selection_uses_outcomes": false,
+    "selection_uses_gt": false,
+    "treatment": false,
+    "heldout_allowed": false,
+    "full_cohort_followup": "only if the initial sample demonstrates information value or full role supply is needed"
+  },
   "resource": {"device": "cpu", "config": "configs/cpu.yaml"}
 }
