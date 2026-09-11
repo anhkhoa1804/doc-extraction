@@ -116,3 +116,64 @@ def test_specialist_call_contract_enforces_labelled_crop():
     assert calls[0]["mode"] == "LABELLED_CROP"
     assert calls[1]["mode"] == "LABELLED_CROP"
     assert all(call["mode"] != "PAGE_WIDE" for call in calls)
+
+
+def test_control_outcome_uses_conservative_ownership_classification():
+    runner = load_runner()
+    from doc_extraction.schemas.element import BBox, Element, ElementType
+    from doc_extraction.schemas.page import Page
+    from doc_extraction.schemas.table import Cell, Table
+
+    bbox = {"x0": 10.0, "y0": 10.0, "x1": 50.0, "y1": 50.0}
+    table = Table(
+        id="forced",
+        bbox=BBox.model_validate(bbox),
+        page_number=1,
+        n_rows=1,
+        n_cols=1,
+        cells=[Cell(row=0, col=0, bbox=BBox.model_validate(bbox))],
+        source_backend="table_transformer",
+    )
+    baseline = Page(index=0, width=100, height=100, coordinate_unit="px")
+    treatment_page = Page(
+        index=0,
+        width=100,
+        height=100,
+        coordinate_unit="px",
+        tables=[table],
+        elements=[Element(
+            id="p0-e0",
+            type=ElementType.TABLE,
+            bbox=BBox.model_validate(bbox),
+            source_backend="040",
+            table_id="forced",
+            order_index=0,
+        )],
+        reading_order=["p0-e0"],
+    )
+    unit = {
+        "unit_id": "control-test",
+        "kind": "non_table_control_region",
+        "raw_role": "text",
+        "baseline_features": {
+            "normalized_role": "text",
+            "ocr_child_count": 2,
+        },
+        "linked_gt_tables": [],
+    }
+    treatment = {
+        "specialist": {
+            "forced_crop_table": table.model_dump(mode="json"),
+            "detector_boxes": [],
+            "invocation_mode": "LABELLED_CROP",
+        },
+        "assembly_context": {"synthetic_element_id": "p0-e0"},
+    }
+    evaluation = runner.evaluate_post_treatment(
+        unit=unit,
+        baseline_page=baseline,
+        treatment=treatment,
+        treatment_page=treatment_page,
+    )
+    assert evaluation["primary_outcome"] == "FALSE_POSITIVE"
+    assert evaluation["ownership"]["unique_intended_owner"] is True

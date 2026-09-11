@@ -16,6 +16,7 @@ import json
 import os
 import platform
 import resource
+import shutil
 import subprocess
 import sys
 import time
@@ -490,7 +491,7 @@ def evaluate_post_treatment(
         tags.append("detector_miss")
     if not structure["valid"]:
         tags.append("structure_invalid")
-    if ownership["candidate_owner_count"] != 1 or not ownership["unique_intended_owner"]:
+    if ownership["owner_candidate_count"] != 1 or not ownership["unique_intended_owner"]:
         tags.append("ownership_ambiguity")
     if ownership["cross_table_overlap_count"] > 0:
         tags.append("cross_table_contamination")
@@ -580,14 +581,17 @@ def run_unit(unit: dict[str, Any], backend: TableTransformerBackend, population_
             population_hash=population_hash,
             run_id=f"040-{unit['unit_id']}",
         )
+        unit_root = phase_root / "raw" / unit["unit_id"]
+        recorder.write_atomic(unit_root / "table_telemetry.json", status="complete")
+        # Preserve specialist and assembly evidence if a later pure
+        # evaluation helper has an engineering defect.
+        atomic_write_json(unit_root / "treatment_observed.json", public_treatment_payload(treatment))
         evaluation = evaluate_post_treatment(
             unit=unit,
             baseline_page=baseline_page,
             treatment=treatment,
             treatment_page=treatment_page,
         )
-        unit_root = phase_root / "raw" / unit["unit_id"]
-        recorder.write_atomic(unit_root / "table_telemetry.json", status="complete")
         payload = {
             "status": "complete",
             "unit": unit,
@@ -611,6 +615,9 @@ def run_unit(unit: dict[str, Any], backend: TableTransformerBackend, population_
             "status": "operational_failure" if not isinstance(exc, ProtocolViolation) else "protocol_violation",
             "unit": unit,
             "error": f"{type(exc).__name__}: {exc}",
+            "preserved_treatment_observed": str((phase_root / "raw" / unit["unit_id"] / "treatment_observed.json").relative_to(HERE))
+            if (phase_root / "raw" / unit["unit_id"] / "treatment_observed.json").is_file()
+            else None,
             "provenance": {
                 "code_commit": git_head(),
                 "baseline_checkpoint": BASELINE_CHECKPOINT,
@@ -704,6 +711,13 @@ def main() -> int:
         if existing and existing.get("status") == "complete" and result_path.is_file():
             print(f"[{ordinal}/{len(selected)}] existing {unit['unit_id']}", flush=True)
             continue
+        if result_path.is_file():
+            archive = result_path.parent / "attempts" / f"failure-{time.time_ns()}"
+            archive.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(result_path, archive.with_suffix(".json"))
+            telemetry_path = result_path.parent / "table_telemetry.json"
+            if telemetry_path.is_file():
+                shutil.copy2(telemetry_path, archive.with_name(f"{archive.name}-telemetry.json"))
         print(f"[{ordinal}/{len(selected)}] running {unit['unit_id']} ({unit['doc_group']})", flush=True)
         payload = run_unit(unit, backend, manifest["population_hash"], phase_root)
         index_by_id[unit["unit_id"]] = {

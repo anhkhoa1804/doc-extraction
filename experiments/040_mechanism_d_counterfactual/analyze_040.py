@@ -57,7 +57,7 @@ def load_phase(phase: str) -> tuple[dict[str, Any], list[dict[str, Any]], dict[s
         row = next((item for item in index.get("records", []) if item["unit_id"] == unit["unit_id"]), None)
         if row is None:
             continue
-        path = ROOT / row["result"]
+        path = HERE / row["result"]
         if path.is_file():
             records.append(read_json(path))
     return manifest, records, index
