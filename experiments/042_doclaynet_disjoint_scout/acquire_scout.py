@@ -16,6 +16,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 PNG_ROOT = HERE / "results" / "source" / "PNG"
 MANIFEST = HERE / "population_manifest.json"
+ACQUISITION_MANIFEST = HERE / "ACQUISITION_MANIFEST.json"
 
 
 def atomic_write_json(path: Path, payload: Any) -> None:
@@ -87,7 +88,7 @@ def main() -> int:
         "heldout_accessed": False,
         "records": acquired,
     }
-    atomic_write_json(HERE / "acquisition_manifest.json", payload)
+    atomic_write_json(ACQUISITION_MANIFEST, payload)
     print(json.dumps({"status": payload["status"], "records": len(acquired), "population_hash": payload["population_hash"]}))
     return 0
 

@@ -25,10 +25,13 @@ overlap with the complete 039 population and therefore zero overlap with the
 039 held-out partition. 040 and 041 cannot add a new overlap because their
 source identities are subsets of 039.
 
-The downloaded-page audit must additionally compare content SHA-256 values
-against all available prior image-hash sets. Any exact hash collision or
-unresolved source-document similarity is a hard stop and the page is not
-admitted.
+The downloaded-page audit compared content SHA-256 values against all
+available prior image-hash sets. It found zero exact hash, file-name, or
+source-group overlaps. Any future unresolved source-document similarity is a
+hard stop and the page is not admitted.
+
+The compact result is `ACQUISITION_INTEGRITY.json`, with status `PASS` and
+279/279 files present, zero hash mismatches, and zero identity mismatches.
 
 ## Held-out boundary
 

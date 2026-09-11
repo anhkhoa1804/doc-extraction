@@ -33,8 +33,11 @@ are frozen.
 
 ## Current checkpoint
 
-`SCOUT_DESIGN_FROZEN_ACQUISITION_PENDING`
+`CONTROL_SUPPLY_INADEQUATE_BUT_INFORMATIVE`
 
-No 042 source page has been processed by the production pipeline yet. No
+All 279 source pages are acquired and pass the independent integrity audit.
+The annotation-only scout found no exact source `document_index` category;
+this does not observe the production role vocabulary. An unchanged baseline
+replay is justified to observe natural roles and invocation provenance. No
 039-held-out page is in the scout cohort, and no treatment or policy tuning is
 permitted.

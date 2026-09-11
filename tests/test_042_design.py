@@ -118,3 +118,54 @@ def test_no_039_heldout_can_enter_scout_population(tmp_path):
     assert all(record["split"] == "development" for record in payload["records"])
     assert payload["identity_exclusion"]["source_group_overlap"] == 0
     assert payload["identity_exclusion"]["image_id_overlap"] == 0
+
+
+def test_frozen_acquisition_integrity_is_complete_and_role_scout_is_not_treatment():
+    population = read_json("population_manifest.json")
+    integrity = read_json("ACQUISITION_INTEGRITY.json")
+    acquisition = read_json("ACQUISITION_MANIFEST.json")
+    scout = read_json("ROLE_SCOUT.json")
+    assert population["population_hash"] == "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e"
+    assert len(population["records"]) == 279
+    assert integrity["status"] == "PASS"
+    assert integrity["counts"]["missing_images"] == 0
+    assert integrity["counts"]["image_hash_mismatches"] == 0
+    assert len(acquisition["records"]) == 279
+    assert acquisition["heldout_accessed"] is False
+    assert scout["treatment_accessed"] is False
+    assert scout["gt_used_for_control_selection"] is False
+
+
+def test_control_discovery_requires_natural_baseline_role_and_is_deterministic():
+    spec = importlib.util.spec_from_file_location("role_scout_042", E042 / "role_scout.py")
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    pages = [{
+        "image_id": 2,
+        "split": "development",
+        "source_group": "g2",
+        "doc_category": "scientific_articles",
+        "regions": [
+            {"region_index": 1, "raw_role": "text", "role_source": "baseline_layout"},
+            {"region_index": 0, "raw_role": "document_index", "role_source": "baseline_layout", "features": {"area_fraction": 0.1}},
+        ],
+    }, {
+        "image_id": 1,
+        "split": "development",
+        "source_group": "g1",
+        "doc_category": "patents",
+        "regions": [{"region_index": 0, "raw_role": "document_index", "role_source": "baseline_layout"}],
+    }]
+    first = module.discover_document_index_controls(pages)
+    second = module.discover_document_index_controls(list(reversed(pages)))
+    assert first == second
+    assert [(row["image_id"], row["region_index"]) for row in first] == [(1, 0), (2, 0)]
+    assert all(row["selection_source"] == "baseline_layout_role_only" for row in first)
+    with pytest.raises(RuntimeError, match="non-development"):
+        module.discover_document_index_controls([{**pages[0], "split": "heldout"}])
+    with pytest.raises(RuntimeError, match="baseline-layout provenance"):
+        module.discover_document_index_controls([{
+            **pages[0],
+            "regions": [{"region_index": 0, "raw_role": "document_index", "role_source": "treatment"}],
+        }])

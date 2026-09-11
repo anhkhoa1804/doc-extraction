@@ -1,11 +1,19 @@
 {
   "experiment": "042_doclaynet_disjoint_scout",
-  "status": "SCOUT_DESIGN_FROZEN_ACQUISITION_PENDING",
+  "status": "CONTROL_SUPPLY_INADEQUATE_BUT_INFORMATIVE",
+  "population_hash": "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e",
+  "acquisition_executed": true,
+  "acquisition_records": 279,
+  "acquisition_integrity": "PASS",
+  "cheap_role_scout_executed": true,
+  "cheap_role_scout_document_index_annotations": 0,
+  "natural_production_document_index_observed": null,
+  "baseline_justified": true,
   "treatment_executed": false,
   "baseline_executed": false,
   "provenance_executed": false,
   "role_normalization_executed": false,
   "records": [],
   "heldout_accessed": false,
-  "decision": "REFINE_EXPERIMENT"
+  "decision": "READY_FOR_BASELINE_PROVENANCE"
 }
