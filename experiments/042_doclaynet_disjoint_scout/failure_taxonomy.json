@@ -1,0 +1,14 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "design_checkpoint",
+  "population_failures": {},
+  "identity_overlaps": {},
+  "control_unavailable": null,
+  "insufficient_independence": null,
+  "provenance_failures": {},
+  "role_normalization_route_errors": {},
+  "operational_failures": {},
+  "protocol_deviations": {},
+  "treatment_executed": false,
+  "heldout_accessed": false
+}

@@ -1,0 +1,11 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "SCOUT_DESIGN_FROZEN_ACQUISITION_PENDING",
+  "treatment_executed": false,
+  "baseline_executed": false,
+  "provenance_executed": false,
+  "role_normalization_executed": false,
+  "records": [],
+  "heldout_accessed": false,
+  "decision": "REFINE_EXPERIMENT"
+}

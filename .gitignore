@@ -90,6 +90,7 @@ experiments/037_selective_policy_validation/results/
 experiments/038_independent_real_corpus/results/
 experiments/039_larger_real_corpus/results/
 experiments/040_mechanism_d_counterfactual/results/
+experiments/042_doclaynet_disjoint_scout/results/
 
 # Environment / secrets
 .env

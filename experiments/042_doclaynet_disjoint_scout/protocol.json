@@ -1,0 +1,58 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "SCOUT_DESIGN_FROZEN_ACQUISITION_PENDING",
+  "created_from_commit": "3d92570793b01aaecf62fcbfc5d2352c5bbcd830",
+  "source_dataset": "DocLayNet 1.0.0 validation",
+  "source_annotation": "experiments/039_larger_real_corpus/results/doclaynet/val.json",
+  "source_annotation_sha256": "eacd2ba2a32e6c2ebe2dc5ea1545f405d8461c46bba53e0c35d9c54fba0bcef6",
+  "allowed_split": "development",
+  "heldout_splits": ["heldout", "held_out", "held_out_test", "test"],
+  "heldout_accessed": false,
+  "prior_experiment_identity_exclusion": ["035", "036", "037", "038", "039", "040", "041"],
+  "scout_selection": {
+    "group_hash_prefix": "042-group-v1::",
+    "page_hash_prefix": "042-page-v1::",
+    "eligible_groups_before_scout": 107,
+    "eligible_pages_before_scout": 1409,
+    "selected_groups": 40,
+    "max_pages_per_group": 10,
+    "selected_pages": 279,
+    "uses_table_annotations_for_selection": false,
+    "uses_treatment_output_for_selection": false
+  },
+  "adequacy_gate": {
+    "minimum_natural_document_index_controls": 30,
+    "preferred_natural_document_index_controls": 50,
+    "minimum_source_groups": 5,
+    "minimum_categories_when_naturally_available": 3,
+    "zero_prior_identity_overlap": true,
+    "zero_039_heldout_overlap": true,
+    "complete_baseline_provenance": true
+  },
+  "terminal_states": [
+    "BLOCKED_NO_ADEQUATE_DOCUMENT_INDEX_CONTROL_POPULATION",
+    "BLOCKED_INSUFFICIENT_INDEPENDENCE",
+    "READY_FOR_DOCUMENT_INDEX_COUNTERFACTUAL",
+    "READY_FOR_ROLE_NORMALIZATION_ANALYSIS"
+  ],
+  "treatment": {
+    "executed_in_042": false,
+    "reference_for_future_only": "040 exact crop treatment",
+    "production_changed": false,
+    "broad_selector_repeated": false
+  },
+  "invocation_modes": ["PAGE_WIDE", "LABELLED_CROP", "NOT_INVOKED"],
+  "role_normalization": {
+    "mapping": {
+      "document_index": "table",
+      "text": "unchanged",
+      "picture": "unchanged",
+      "code": "unchanged",
+      "list_item": "unchanged"
+    },
+    "specialist_invoked": false,
+    "gt_used": false,
+    "treatment_output_used": false
+  },
+  "resource": {"device": "cpu", "config": "configs/cpu.yaml"}
+}

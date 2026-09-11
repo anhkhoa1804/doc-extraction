@@ -1,0 +1,38 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "frozen_before_baseline",
+  "created_from_commit": "3d92570793b01aaecf62fcbfc5d2352c5bbcd830",
+  "allowed_pre_treatment_features": [
+    "raw_role",
+    "normalized_role_if_already_emitted",
+    "layout_confidence",
+    "region_area_fraction",
+    "region_width_fraction",
+    "region_height_fraction",
+    "aspect_ratio",
+    "region_index",
+    "page_region_count",
+    "ocr_child_count",
+    "ocr_child_chars",
+    "route",
+    "backend",
+    "device",
+    "source_group_metadata",
+    "page_number_metadata"
+  ],
+  "forbidden_for_selection": [
+    "gt_table_presence",
+    "gt_bbox",
+    "gt_iou",
+    "d2_outcome",
+    "treatment_detector_output",
+    "treatment_structure_output",
+    "treatment_recovery",
+    "post_treatment_ownership",
+    "post_treatment_conflict",
+    "heldout_outcome"
+  ],
+  "boundary": "scout page selection and control candidate admission use pre-treatment baseline evidence; GT may be attached only after baseline for descriptive D2 classification",
+  "learned_selector": false,
+  "heldout_accessed": false
+}
