@@ -1,0 +1,376 @@
+{
+  "experiment": "037_selective_policy_validation",
+  "status": "pre_treatment_population_frozen",
+  "source_manifest": "research/production_corpus/corpus/manifest.json",
+  "source_manifest_sha256": "d73ee35488d8284e802fc8a67daf15ef4852cc99fd3a1d9909984e3fd03447c8",
+  "source_generator": "research/production_corpus/generate.py",
+  "source_generator_seed": 20260902,
+  "selection": "all one-page table-bearing PDFs with source-vector token geometry",
+  "split_rule": "SHA256(037-split-v1:document_id), first floor(N/2) development",
+  "n_documents": 15,
+  "split_counts": {
+    "development": 7,
+    "held_out_test": 8
+  },
+  "records": [
+    {
+      "document_id": "hc_merged_en",
+      "source_document_group": "hc_merged_en",
+      "source_file": "hc_merged_en.pdf",
+      "source_sha256": "9f7ee42723160e51c05c4f71c717de3176233f48a329ebdc7052080672ccec48",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "merged_cells",
+        "table_structure"
+      ],
+      "split": "development",
+      "page_id": "hc_merged_en:page:0",
+      "gt_table_id": "hc_merged_en:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/hc_merged_en.png",
+      "rendered_image_sha256": "10b3550f778a112084125965eebb58a4e9a477cc1f7b854b3cef63a6916a5259",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
+    },
+    {
+      "document_id": "cmb_borderless_lowcontrast_en",
+      "source_document_group": "cmb_borderless_lowcontrast_en",
+      "source_file": "cmb_borderless_lowcontrast_en.pdf",
+      "source_sha256": "9e3139a8542acc5c8fa43122d9a679e0c08a85ef700cd79050297ddd4abeb3a6",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "borderless_table",
+        "low_contrast",
+        "table_detection"
+      ],
+      "split": "development",
+      "page_id": "cmb_borderless_lowcontrast_en:page:0",
+      "gt_table_id": "cmb_borderless_lowcontrast_en:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/cmb_borderless_lowcontrast_en.png",
+      "rendered_image_sha256": "7b9cd7fed469e77a227352fa17f70466fa12177d6eb822d7e787cc354d26cac7",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
+    },
+    {
+      "document_id": "cmb_multicol_table_en",
+      "source_document_group": "cmb_multicol_table_en",
+      "source_file": "cmb_multicol_table_en.pdf",
+      "source_sha256": "f7bb95b0e99ba96ed89a24a78194c7c6a2da10f046dcfc62641b037e8819f446",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 253.64801025390625,
+        "x1": 432.0,
+        "y1": 333.64801025390625
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "multi_column",
+        "reading_order",
+        "table_detection"
+      ],
+      "split": "development",
+      "page_id": "cmb_multicol_table_en:page:0",
+      "gt_table_id": "cmb_multicol_table_en:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/cmb_multicol_table_en.png",
+      "rendered_image_sha256": "d288ba13caecbbfc527f512bd350794ff6de41c71729e7017da95bb5446292b7",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 704.577806,
+        "x1": 1200.0,
+        "y1": 926.800028
+      }
+    },
+    {
+      "document_id": "hc_borderless_en",
+      "source_document_group": "hc_borderless_en",
+      "source_file": "hc_borderless_en.pdf",
+      "source_sha256": "3169a74b2174034cb5d345c14ed0f763316bae4032204f824a64dfa0b8167f54",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "borderless_table",
+        "table_detection"
+      ],
+      "split": "development",
+      "page_id": "hc_borderless_en:page:0",
+      "gt_table_id": "hc_borderless_en:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/hc_borderless_en.png",
+      "rendered_image_sha256": "850b2a90588976b3e805c92f2b4daa9ea443b74cc592a61ca29434ad781cc9a9",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 504.577764,
+        "x1": 1200.0,
+        "y1": 726.799986
+      }
+    },
+    {
+      "document_id": "hc_tiny_cells_vi",
+      "source_document_group": "hc_tiny_cells_vi",
+      "source_file": "hc_tiny_cells_vi.pdf",
+      "source_sha256": "559cfcb69bee5bb6e5d0027140abb6b0da0fe324333025fc0941bf1eaac1f6a3",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 180.10240173339844,
+        "x1": 292.0,
+        "y1": 216.10240173339844
+      },
+      "source_table_style": "tiny",
+      "hard_case_labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "split": "development",
+      "page_id": "hc_tiny_cells_vi:page:0",
+      "gt_table_id": "hc_tiny_cells_vi:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/hc_tiny_cells_vi.png",
+      "rendered_image_sha256": "cc87e6d2c52d3541c7c9fbef9afbe16d7ff661a5a204716671a61e4ce6620633",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 500.284449,
+        "x1": 811.111111,
+        "y1": 600.284449
+      }
+    },
+    {
+      "document_id": "cmb_stamp_table_vi",
+      "source_document_group": "cmb_stamp_table_vi",
+      "source_file": "cmb_stamp_table_vi.pdf",
+      "source_sha256": "303463604a889d961caa1d26739b1c7a80d0a5e2b6c10b3023243691006e4e0a",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 159.6479949951172,
+        "x1": 432.0,
+        "y1": 239.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "merged_cells",
+        "table_structure"
+      ],
+      "split": "development",
+      "page_id": "cmb_stamp_table_vi:page:0",
+      "gt_table_id": "cmb_stamp_table_vi:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/cmb_stamp_table_vi.png",
+      "rendered_image_sha256": "36345a8819739e86e5b4241cd47c76026f3dcfd68513e19f06743e61a882741d",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 443.466653,
+        "x1": 1200.0,
+        "y1": 665.688875
+      }
+    },
+    {
+      "document_id": "ord_financial_report_en",
+      "source_document_group": "ord_financial_report_en",
+      "source_file": "ord_financial_report_en.pdf",
+      "source_sha256": "96ba0ad6b450a7a66210d42c69ba2460119d002e03cfc41421318c8c85239781",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 159.6479949951172,
+        "x1": 432.0,
+        "y1": 239.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "development",
+      "page_id": "ord_financial_report_en:page:0",
+      "gt_table_id": "ord_financial_report_en:table:0",
+      "render_dpi": 200,
+      "rendered_image": "experiments/037_selective_policy_validation/results/prepared_inputs/ord_financial_report_en.png",
+      "rendered_image_sha256": "0f3b9dd03cbc320450f7cbebc53acd4215cd0c71495b5e4d565c2f19b37c07bc",
+      "gt_table_bbox_px": {
+        "x0": 166.666667,
+        "y0": 443.466653,
+        "x1": 1200.0,
+        "y1": 665.688875
+      }
+    },
+    {
+      "document_id": "hc_stamp_table_vi",
+      "source_document_group": "hc_stamp_table_vi",
+      "source_file": "hc_stamp_table_vi.pdf",
+      "source_sha256": "0c03eed2fc545485972508de8cc36dff4536679afb0196e995c25001df688836",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "split": "held_out_test",
+      "page_id": "hc_stamp_table_vi:page:0",
+      "gt_table_id": "hc_stamp_table_vi:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "ord_purchase_order_vi",
+      "source_document_group": "ord_purchase_order_vi",
+      "source_file": "ord_purchase_order_vi.pdf",
+      "source_sha256": "36032f615370e8dd176e0614734b9efe1b62e65f3dc8b74890cc847cb41a15a3",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 159.6479949951172,
+        "x1": 432.0,
+        "y1": 239.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "held_out_test",
+      "page_id": "ord_purchase_order_vi:page:0",
+      "gt_table_id": "ord_purchase_order_vi:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "cmb_stamp_boundary_vi",
+      "source_document_group": "cmb_stamp_boundary_vi",
+      "source_file": "cmb_stamp_boundary_vi.pdf",
+      "source_sha256": "c4938f2dd9e7adaac347f206ec3262ef6985a640f2d20d120d001fee50607cef",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [
+        "stamp",
+        "occlusion",
+        "table_structure"
+      ],
+      "split": "held_out_test",
+      "page_id": "cmb_stamp_boundary_vi:page:0",
+      "gt_table_id": "cmb_stamp_boundary_vi:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "ord_financial_report_vi",
+      "source_document_group": "ord_financial_report_vi",
+      "source_file": "ord_financial_report_vi.pdf",
+      "source_sha256": "c6b427e987a5781bb3aadde6f50a778dd5309820cc57232bc79f2b3f25128b69",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 159.6479949951172,
+        "x1": 432.0,
+        "y1": 239.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "held_out_test",
+      "page_id": "ord_financial_report_vi:page:0",
+      "gt_table_id": "ord_financial_report_vi:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "ord_invoice_en",
+      "source_document_group": "ord_invoice_en",
+      "source_file": "ord_invoice_en.pdf",
+      "source_sha256": "fef321c574e6734f73a12d2c7c0acad8d1dc1fe96ac4e892542443770e546ffe",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "held_out_test",
+      "page_id": "ord_invoice_en:page:0",
+      "gt_table_id": "ord_invoice_en:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "cmb_tiny_table_en",
+      "source_document_group": "cmb_tiny_table_en",
+      "source_file": "cmb_tiny_table_en.pdf",
+      "source_sha256": "0f15509893e17c0d16672ea4a7c92fae6195dc719048a2a8aabfe13eee62f02e",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 136.10240173339844,
+        "x1": 292.0,
+        "y1": 172.10240173339844
+      },
+      "source_table_style": "tiny",
+      "hard_case_labels": [
+        "tiny_text",
+        "table_structure"
+      ],
+      "split": "held_out_test",
+      "page_id": "cmb_tiny_table_en:page:0",
+      "gt_table_id": "cmb_tiny_table_en:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "ord_purchase_order_en",
+      "source_document_group": "ord_purchase_order_en",
+      "source_file": "ord_purchase_order_en.pdf",
+      "source_sha256": "e671a36b058b1278d3d591eb721f22b075344bfef1a9bb8d95954f04a964339c",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 159.6479949951172,
+        "x1": 432.0,
+        "y1": 239.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "held_out_test",
+      "page_id": "ord_purchase_order_en:page:0",
+      "gt_table_id": "ord_purchase_order_en:table:0",
+      "render_dpi": 200
+    },
+    {
+      "document_id": "ord_invoice_vi",
+      "source_document_group": "ord_invoice_vi",
+      "source_file": "ord_invoice_vi.pdf",
+      "source_sha256": "094e0601cb3774d2cc646fbbab359cdcfbdb2f97cd1a423488650df62cfccbca",
+      "source_table_bbox_points": {
+        "x0": 60.0,
+        "y0": 181.6479949951172,
+        "x1": 432.0,
+        "y1": 261.6479949951172
+      },
+      "source_table_style": "normal",
+      "hard_case_labels": [],
+      "split": "held_out_test",
+      "page_id": "ord_invoice_vi:page:0",
+      "gt_table_id": "ord_invoice_vi:table:0",
+      "render_dpi": 200
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "experiment": "037_selective_policy_validation",
+  "status": "BLOCKED_NO_DEVELOPMENT_ACTIVATION",
+  "population": {
+    "source": "research/production_corpus/corpus/manifest.json",
+    "synthetic": true,
+    "documents": 15,
+    "development_documents": 7,
+    "held_out_test_documents": 8,
+    "document_group_disjoint": true,
+    "036_identity_overlap": 0
+  },
+  "pre_treatment_discovery": {
+    "development_baseline_complete": 6,
+    "development_baseline_operational_incomplete": 1,
+    "strict_d2_candidates_discovered_in_complete_development": 0,
+    "forced_crop_invocations": 0,
+    "held_out_counterfactual_invocations": 0
+  },
+  "decision": "No policy can be selected or tested without violating the frozen protocol."
+}
