@@ -25,6 +25,25 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+
+def _patch_python311_rc_compat() -> None:
+    """Supply APIs missing from this VM's Python 3.11 release candidate."""
+    if hasattr(sys, "get_int_max_str_digits"):
+        return
+
+    def get_int_max_str_digits() -> int:
+        return 4300
+
+    def set_int_max_str_digits(maxdigits: int) -> None:
+        if not isinstance(maxdigits, int) or maxdigits < 0:
+            raise ValueError("maxdigits must be a non-negative integer")
+
+    sys.get_int_max_str_digits = get_int_max_str_digits  # type: ignore[attr-defined]
+    sys.set_int_max_str_digits = set_int_max_str_digits  # type: ignore[attr-defined]
+
+
+_patch_python311_rc_compat()
+
 from doc_extraction.cli import process_file  # noqa: E402
 from doc_extraction.config import load_config  # noqa: E402
 
