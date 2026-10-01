@@ -9,13 +9,15 @@ this was built on.
 """
 from __future__ import annotations
 
+from math import ceil
 from pathlib import Path
 
 import pymupdf as fitz
 from PIL import Image
 
-from doc_extraction.utils.limits import ResourceGuard
+from doc_extraction.utils.limits import SAFE_IMAGE_FORMATS, ResourceGuard
 from doc_extraction.utils.logging import StageLogger, noop_stage
+from doc_extraction.utils.safe_io import output_file, secure_mkdir
 
 BACKEND_NAME = "pymupdf"
 
@@ -28,7 +30,7 @@ def render_pdf_pages(
     resource_guard: ResourceGuard | None = None,
 ) -> list[Path]:
     """Rasterize every page of `pdf_path` to `output_dir/page-NNN.png`."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+    secure_mkdir(output_dir)
     zoom = dpi / 72.0
     matrix = fitz.Matrix(zoom, zoom)
 
@@ -40,15 +42,16 @@ def render_pdf_pages(
                 page_rect = doc[index].rect
                 resource_guard.check_runtime(f"before rendering PDF page {index + 1}")
                 resource_guard.reserve_raster(
-                    round(page_rect.width * zoom), round(page_rect.height * zoom), f"PDF page {index + 1}"
+                    ceil(page_rect.width * zoom) + 1, ceil(page_rect.height * zoom) + 1, f"PDF page {index + 1}"
                 )
             ctx_manager = (
                 logger.stage("render", BACKEND_NAME, page=index) if logger else noop_stage()
             )
             with ctx_manager as ctx:
-                pixmap = doc[index].get_pixmap(matrix=matrix)
+                pixmap = doc[index].get_pixmap(matrix=matrix, colorspace=fitz.csRGB, alpha=False)
                 out_path = output_dir / f"page-{index + 1:03d}.png"
-                pixmap.save(out_path)
+                with output_file(out_path, binary=True) as stream:
+                    stream.write(pixmap.tobytes("png"))
                 if resource_guard is not None:
                     resource_guard.check_runtime(f"after rendering PDF page {index + 1}")
                 out_paths.append(out_path)
@@ -71,7 +74,7 @@ def render_single_pdf_page(
     """Rasterize exactly one page. Used by the digital-PDF route's per-page
     fallback, where only a few pages need pixels and rendering the whole
     document would defeat the point of the cheap-signal design."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+    secure_mkdir(output_dir)
     zoom = dpi / 72.0
     matrix = fitz.Matrix(zoom, zoom)
 
@@ -83,13 +86,14 @@ def render_single_pdf_page(
             page_rect = doc[page_index].rect
             resource_guard.check_runtime(f"before rendering PDF page {page_index + 1}")
             resource_guard.reserve_raster(
-                round(page_rect.width * zoom), round(page_rect.height * zoom), f"PDF page {page_index + 1}"
+                ceil(page_rect.width * zoom) + 1, ceil(page_rect.height * zoom) + 1, f"PDF page {page_index + 1}"
             )
         ctx_manager = logger.stage("render", BACKEND_NAME, page=page_index) if logger else noop_stage()
         with ctx_manager as ctx:
-            pixmap = doc[page_index].get_pixmap(matrix=matrix)
+            pixmap = doc[page_index].get_pixmap(matrix=matrix, colorspace=fitz.csRGB, alpha=False)
             out_path = output_dir / f"page-{page_index + 1:03d}.png"
-            pixmap.save(out_path)
+            with output_file(out_path, binary=True) as stream:
+                stream.write(pixmap.tobytes("png"))
             if resource_guard is not None:
                 resource_guard.check_runtime(f"after rendering PDF page {page_index + 1}")
             ctx.output_path = str(out_path)
@@ -108,13 +112,14 @@ def render_image_passthrough(
     shape the rest of the pipeline expects, without ever touching the
     original file. Always re-encodes to PNG (also fixes e.g. CMYK JPEGs that
     downstream OCR/table backends can't read)."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+    secure_mkdir(output_dir)
     ctx_manager = logger.stage("render", BACKEND_NAME, page=0) if logger else noop_stage()
     with ctx_manager as ctx:
-        with Image.open(image_path) as im:
+        with Image.open(image_path, formats=SAFE_IMAGE_FORMATS) as im:
             im = im.convert("RGB")
             out_path = output_dir / "page-001.png"
-            im.save(out_path, format="PNG")
+            with output_file(out_path, binary=True) as stream:
+                im.save(stream, format="PNG")
             width, height = im.size
         if ctx is not None:
             ctx.output_path = str(out_path)

@@ -20,6 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from doc_extraction.utils.diagnostics import diagnostic_text
+from doc_extraction.utils.safe_io import output_file, secure_mkdir
+
 
 def _now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -61,7 +64,7 @@ class StageLogger:
         self.document_id = document_id
         self.device = device
         self.log_dir = Path(log_dir)
-        self.log_dir.mkdir(parents=True, exist_ok=True)
+        secure_mkdir(self.log_dir)
         self._jsonl_path = self.log_dir / "pipeline.jsonl"
 
         self._logger = logging.getLogger(f"doc_extraction.{document_id}")
@@ -98,19 +101,19 @@ class StageLogger:
             "runtime_seconds": runtime_seconds,
             "device": device if device is not None else self.device,
             "output_path": output_path,
-            "warnings": warnings or [],
-            "error": error,
+            "warnings": [diagnostic_text(w) for w in (warnings or [])],
+            "error": diagnostic_text(error) if error else None,
             "metrics": metrics or {},
         }
-        with open(self._jsonl_path, "a", encoding="utf-8") as f:
+        with output_file(self._jsonl_path, append=True) as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
         level = logging.ERROR if status == "failure" else logging.INFO
         page_str = f" page={page}" if page is not None else ""
         self._logger.log(
             level,
-            f"[{self.document_id}] {stage} backend={backend}{page_str} "
-            f"status={status} runtime={runtime_seconds}",
+            diagnostic_text(f"[{self.document_id}] {stage} backend={backend}{page_str} "
+            f"status={status} runtime={runtime_seconds}"),
         )
         return record
 

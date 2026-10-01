@@ -19,3 +19,10 @@ All routes emit canonical `Document` output, route metadata, structured stage
 logs, and warnings where degradation is known. Visual routes require optional
 model dependencies and cached model artifacts; absence is a controlled backend
 availability failure, not evidence that a document contains no text.
+
+Security policy narrows raster inputs and declared OOXML images to
+PNG/JPEG/TIFF/BMP/GIF. EPS/WMF/EMF/SVG image parts are rejected, even where an
+underlying library could convert them. This avoids implicit external
+converters and unbounded raster expansion; it is an explicit input restriction,
+not silent omission of unsupported pictures. Production output writes are
+currently Linux/POSIX-only; see [security-review.md](security-review.md).

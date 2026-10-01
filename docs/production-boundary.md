@@ -3,7 +3,11 @@
 ## Runtime and public surface
 
 Production code is `src/doc_extraction/`. The supported invocation is the
-`doc-extraction` CLI or its documented Python pipeline functions. `tests/`
+`doc-extraction` CLI or `doc_extraction.cli.process_file` (see
+[public-api.md](public-api.md)). Lower-level parser/backend functions are
+internal building blocks, not safe entry points for unvalidated uploads.
+They depend on the public entry point's private snapshot and preflight.
+`tests/`
 contains production regression, integration, contract, and determinism tests.
 
 `experiments/` and `research/` are historical evidence archives. They are not

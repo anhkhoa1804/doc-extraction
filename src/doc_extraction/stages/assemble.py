@@ -15,6 +15,7 @@ from doc_extraction.schemas.document import Document, RunMetadata
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.reading_order import ORDER_STRATEGY, compute_reading_order
 from doc_extraction.utils.logging import StageLogger, noop_stage
+from doc_extraction.utils.safe_io import write_text
 from doc_extraction.utils.serde import write_json
 
 
@@ -66,8 +67,7 @@ def assemble_document(
         doc_json_path = final_dir / "document.json"
         doc_md_path = final_dir / "document.md"
         write_json(doc_json_path, document)
-        doc_md_path.parent.mkdir(parents=True, exist_ok=True)
-        doc_md_path.write_text(document.to_markdown(), encoding="utf-8")
+        write_text(doc_md_path, document.to_markdown())
 
         ctx.output_path = str(doc_json_path)
         ctx.metrics = {

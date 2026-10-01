@@ -24,6 +24,7 @@ limits:
   max_archive_uncompressed_bytes: 262144000
   max_archive_compression_ratio: 100
   max_image_pixels: 40000000
+  max_ocr_output_bytes: 16777216
 
 # --- PDF routing: quantity gate ---
 digital_pdf_min_chars_per_page: 40

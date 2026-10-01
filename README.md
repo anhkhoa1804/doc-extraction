@@ -82,6 +82,12 @@ GPU. Nothing under `data/` is ever attached to Kaggle. See
 
 ## Quick start
 
+Production extraction now requires Linux/POSIX secure filesystem primitives;
+Windows installation instructions below are historical developer setup, not
+a supported hardened extraction deployment. See
+[the security review](docs/security-review.md) for input restrictions,
+tested boundaries, and worker-isolation requirements.
+
 ```bash
 # POSIX
 python3.12 -m venv .venv && .venv/bin/python -m pip install -e ".[docling,tables,dev]"

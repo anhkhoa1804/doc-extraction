@@ -14,6 +14,7 @@ from doc_extraction.pipelines.base import (
     TableResult,
 )
 from doc_extraction.utils.logging import StageLogger, noop_stage
+from doc_extraction.utils.safe_io import secure_mkdir
 from doc_extraction.utils.serde import write_json
 
 
@@ -29,7 +30,7 @@ def run_table(
             f"table backend '{backend.name}' is not available in this environment "
             f"— see docs/backends.md"
         )
-    output_dir.mkdir(parents=True, exist_ok=True)
+    secure_mkdir(output_dir)
     ctx_manager = logger.stage("table", backend.name, page=page.page_index) if logger else noop_stage()
     with ctx_manager as ctx:
         result = backend.extract(page, regions)

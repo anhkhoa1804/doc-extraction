@@ -38,8 +38,9 @@ from doc_extraction.pipelines.base import (
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.render import render_pdf_pages, render_single_pdf_page
-from doc_extraction.utils.limits import ResourceGuard
+from doc_extraction.utils.limits import ResourceGuard, ResourceLimitExceeded
 from doc_extraction.utils.logging import StageLogger, noop_stage
+from doc_extraction.utils.safe_io import UnsafeOutputPath
 
 BACKEND_NAME_NATIVE = "pymupdf-native"
 
@@ -361,6 +362,8 @@ def _apply_page_fallback(
             ]
             rebuilt.source_route = "digital_pdf+page_fallback"
             pages[index] = rebuilt
+        except (ResourceLimitExceeded, UnsafeOutputPath):
+            raise
         except Exception as exc:  # noqa: BLE001 - recorded, page kept, run continues
             pages[index].notes.append(
                 f"SUSPECT native text retained: visual fallback failed "

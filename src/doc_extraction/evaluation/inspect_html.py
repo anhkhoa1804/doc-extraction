@@ -60,7 +60,7 @@ def _render_page(page: Page, inspection_dir: Path) -> str:
             )
         image_block = f"""
         <div class="page-viewer">
-          <img src="{image_rel.as_posix()}" alt="page {page.index + 1}">
+          <img src="{html.escape(image_rel.as_posix(), quote=True)}" alt="page {page.index + 1}">
           {''.join(overlays)}
         </div>"""
 

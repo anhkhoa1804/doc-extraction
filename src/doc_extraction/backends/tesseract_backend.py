@@ -61,7 +61,13 @@ import time
 
 from doc_extraction.pipelines.base import OCRResult, OCRToken, PageInput
 from doc_extraction.schemas.element import BBox
-from doc_extraction.utils.limits import current_subprocess_timeout
+from doc_extraction.utils.diagnostics import diagnostic_text
+from doc_extraction.utils.limits import (
+    ResourceLimitExceeded,
+    current_ocr_output_limit,
+    current_subprocess_timeout,
+)
+from doc_extraction.utils.subprocesses import run_bounded
 
 DEFAULT_LANGUAGES = ["en", "vi"]
 
@@ -114,10 +120,9 @@ def available_languages() -> list[str]:
     if not is_available():
         return []
     try:
-        proc = subprocess.run(["tesseract", "--list-langs"],
-                              capture_output=True, text=True, timeout=30,
-                              check=False)
-    except (OSError, subprocess.SubprocessError):
+        proc = run_bounded([shutil.which("tesseract"), "--list-langs"],
+                           timeout=30, max_output_bytes=1024 * 1024)
+    except (OSError, subprocess.SubprocessError, ResourceLimitExceeded):
         return []
     lines = proc.stdout.splitlines()
     return [ln.strip() for ln in lines[1:] if ln.strip()]
@@ -156,23 +161,19 @@ class TesseractBackend:
         started = time.perf_counter()
         try:
             timeout = current_subprocess_timeout()
-            proc = subprocess.run(
-                ["tesseract", str(page.image_path), "stdout",
+            proc = run_bounded(
+                [shutil.which("tesseract"), str(page.image_path.resolve()), "stdout",
                 "-l", langs, "--psm", str(self.psm), "tsv"],
-                capture_output=True,
-                text=True,
-                check=True,
-                timeout=timeout,
+                timeout=timeout if timeout is not None else 300.0,
+                max_output_bytes=current_ocr_output_limit(),
             )
-        except subprocess.TimeoutExpired:
-            self.last_duration_s = time.perf_counter() - started
-            return OCRResult(tokens=[], backend=self.name, warnings=["tesseract exceeded the extraction deadline"])
+            proc.check_returncode()
         except subprocess.CalledProcessError as exc:
             self.last_duration_s = time.perf_counter() - started
             detail = (exc.stderr or "").strip().splitlines()
             return OCRResult(tokens=[], backend=self.name, warnings=[
                 f"tesseract failed (exit {exc.returncode}) for langs {langs!r}"
-                + (f": {detail[-1]}" if detail else "")])
+                + (f": {diagnostic_text(detail[-1])}" if detail else "")])
         self.last_duration_s = time.perf_counter() - started
 
         return OCRResult(tokens=self._tokens_from_tsv(proc.stdout),

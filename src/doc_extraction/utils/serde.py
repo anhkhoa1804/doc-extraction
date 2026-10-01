@@ -13,6 +13,8 @@ from typing import Any
 
 from pydantic import BaseModel
 
+from doc_extraction.utils.safe_io import output_file
+
 
 def to_jsonable(obj: Any) -> Any:
     if isinstance(obj, BaseModel):
@@ -29,8 +31,7 @@ def to_jsonable(obj: Any) -> Any:
 
 
 def write_json(path: Path, obj: Any, indent: int = 2) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
+    with output_file(path) as f:
         json.dump(to_jsonable(obj), f, indent=indent, ensure_ascii=False)
 
 

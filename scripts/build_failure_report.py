@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
 import json
 import sys
 from pathlib import Path
@@ -36,6 +37,23 @@ from doc_extraction.evaluation.disagreement import (
     page_text as disagreement_page_text,
 )
 from doc_extraction.schemas.document import Document
+from doc_extraction.utils.diagnostics import diagnostic_text
+from doc_extraction.utils.ids import slugify
+from doc_extraction.utils.safe_io import output_file, secure_mkdir, write_text
+
+
+def _csv_value(value: Any) -> Any:
+    # Only the operator CSV view is escaped. Canonical extracted text stays
+    # unchanged; spreadsheet applications must not interpret it as a formula.
+    if isinstance(value, str) and value.lstrip().startswith(("=", "+", "-", "@")):
+        return "'" + value
+    return value
+
+
+def _markdown_value(value: Any) -> str:
+    text = html.escape(diagnostic_text(value, max_chars=120), quote=True)
+    # Reports are display views, not a place to interpret source markup.
+    return "".join("\\" + char if char in "\\|[]()!_*`" else char for char in text)
 
 # A page with a lot of elements but almost no text, or a wall of text in a
 # single element, is worth a look — both usually mean a segmentation problem.
@@ -108,10 +126,10 @@ def _collect_disagreements(outputs_root: Path) -> list[dict[str, Any]]:
 
 
 def build_report(outputs_root: Path, report_root: Path) -> dict[str, Any]:
-    report_root.mkdir(parents=True, exist_ok=True)
-    (report_root / "suspicious_text").mkdir(exist_ok=True)
-    (report_root / "tables").mkdir(exist_ok=True)
-    (report_root / "inspection").mkdir(exist_ok=True)
+    secure_mkdir(report_root)
+    secure_mkdir(report_root / "suspicious_text")
+    secure_mkdir(report_root / "tables")
+    secure_mkdir(report_root / "inspection")
 
     documents = _load_documents(outputs_root)
     failed_runs = _load_failed_runs(outputs_root)
@@ -171,12 +189,11 @@ def build_report(outputs_root: Path, report_root: Path) -> dict[str, Any]:
                         "notes": notes,
                     }
                 )
-                safe_name = f"{document.document_id}_p{page.index + 1:03d}.txt"
-                (report_root / "suspicious_text" / safe_name).write_text(
+                safe_name = f"{slugify(document.document_id)[:100]}_p{page.index + 1:03d}.txt"
+                write_text(report_root / "suspicious_text" / safe_name,
                     f"# {meta.input_filename} page {page.index + 1}\n"
                     f"# route={meta.route} backend={meta.backend}\n"
                     f"# notes: {notes}\n\n{text}",
-                    encoding="utf-8",
                 )
             if used_fallback:
                 fallback_pages.append(
@@ -237,9 +254,9 @@ def build_report(outputs_root: Path, report_root: Path) -> dict[str, Any]:
                 )
 
             for table in page.tables:
-                table_csv = report_root / "tables" / f"{document.document_id}_p{page.index + 1:03d}_{table.id}.csv"
-                with open(table_csv, "w", newline="", encoding="utf-8") as f:
-                    csv.writer(f).writerows(table.to_grid())
+                table_csv = report_root / "tables" / f"{slugify(document.document_id)[:80]}_p{page.index + 1:03d}_{slugify(table.id)[:80]}.csv"
+                with output_file(table_csv) as f:
+                    csv.writer(f).writerows([[_csv_value(cell) for cell in row] for row in table.to_grid()])
 
         document_rows.append(
             {
@@ -300,12 +317,12 @@ def build_report(outputs_root: Path, report_root: Path) -> dict[str, Any]:
 
 def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     if not rows:
-        path.write_text("", encoding="utf-8")
+        write_text(path, "")
         return
-    with open(path, "w", newline="", encoding="utf-8") as f:
+    with output_file(path) as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows([{k: _csv_value(v) for k, v in row.items()} for row in rows])
 
 
 def _write_inspection_index(report_root: Path, outputs_root: Path, documents) -> None:
@@ -316,17 +333,16 @@ def _write_inspection_index(report_root: Path, outputs_root: Path, documents) ->
         index_html = document_dir / "inspection" / "index.html"
         if index_html.exists():
             rel = os.path.relpath(index_html, report_root / "inspection")
-            items.append(f'<li><a href="{Path(rel).as_posix()}">{document.metadata.input_filename}</a></li>')
+            items.append(f'<li><a href="{html.escape(Path(rel).as_posix(), quote=True)}">{html.escape(document.metadata.input_filename)}</a></li>')
         else:
             items.append(
-                f"<li>{document.metadata.input_filename} — no inspector built "
-                f"(<code>doc_extraction inspect {document.document_id}</code>)</li>"
+                f"<li>{html.escape(document.metadata.input_filename)} — no inspector built "
+                f"(<code>doc_extraction inspect {html.escape(document.document_id)}</code>)</li>"
             )
-    (report_root / "inspection" / "index.html").write_text(
+    write_text(report_root / "inspection" / "index.html",
         "<!doctype html><html><head><meta charset='utf-8'><title>Inspection index</title>"
         "<style>body{font-family:system-ui,sans-serif;margin:2rem}</style></head><body>"
         f"<h1>Per-document inspectors</h1><ul>{''.join(items)}</ul></body></html>",
-        encoding="utf-8",
     )
 
 
@@ -350,7 +366,7 @@ def _write_summary_md(path: Path, summary: dict[str, Any]) -> None:
         lines.append("| " + " | ".join(columns) + " |")
         lines.append("|" + "|".join(["---"] * len(columns)) + "|")
         for row in rows[:50]:
-            lines.append("| " + " | ".join(str(row.get(c, ""))[:120] for c in columns) + " |")
+            lines.append("| " + " | ".join(_markdown_value(row.get(c, "")) for c in columns) + " |")
         if len(rows) > 50:
             lines.append(f"| _...{len(rows) - 50} more, see the CSVs_ |" + " |" * (len(columns) - 1))
         lines.append("")
@@ -398,10 +414,10 @@ def _write_summary_md(path: Path, summary: dict[str, Any]) -> None:
     lines.append("| " + " | ".join(columns) + " |")
     lines.append("|" + "|".join(["---"] * len(columns)) + "|")
     for row in summary["document_rows"]:
-        lines.append("| " + " | ".join(str(row.get(c, ""))[:80] for c in columns) + " |")
+        lines.append("| " + " | ".join(_markdown_value(row.get(c, "")) for c in columns) + " |")
     lines.append("")
 
-    path.write_text("\n".join(lines), encoding="utf-8")
+    write_text(path, "\n".join(lines))
 
 
 def main() -> int:

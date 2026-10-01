@@ -12,12 +12,11 @@ requires-python = ">=3.10"
 # NOTE ON LICENSING — read before redistributing.
 # This project's own source is MIT. However `pymupdf`, a CORE dependency
 # below, is AGPL-3.0 (or a commercial licence from Artifex). A combined work
-# that includes PyMuPDF therefore carries AGPL obligations regardless of what
-# this field says. That is not a problem for internal research use, which is
-# this project's stated scope, but it must be resolved before shipping this
-# as part of a closed product — either by buying an Artifex licence or by
-# replacing PyMuPDF (pypdfium2 is the usual Apache/BSD-licensed alternative,
-# though it has no equivalent of `find_tables`). See docs/backends.md.
+# that includes PyMuPDF needs a license-compliance review independent of
+# this project's MIT declaration. Closed-product distribution requires an
+# explicit AGPL-compliance, commercial-license, or replacement decision by
+# the release/legal owner. This phase does not make that decision or replace
+# the parser. See docs/security-review.md and docs/backends.md.
 license = { text = "MIT" }
 
 # Core dependencies are intentionally minimal: no GPU/torch/heavy-model
@@ -41,7 +40,9 @@ dependencies = [
 # OCR engine is RapidOCR) because EasyOCR has proper Vietnamese ("vi")
 # language support, which the sample documents in this repo actually need;
 # RapidOCR's bundled language packs cover Latin script only approximately.
-docling = ["docling>=2.0", "easyocr>=1.7"]
+# Model provisioning uses requests/urllib3 transitively. 2.8.0 fixes the
+# streaming-response DoS and proxy-TLS advisories found in the security audit.
+docling = ["docling>=2.0", "easyocr>=1.7", "urllib3>=2.8.0"]
 
 # Table Transformer (microsoft/table-transformer-*) via transformers/torch.
 # On a machine with a matching global torch already installed, create the

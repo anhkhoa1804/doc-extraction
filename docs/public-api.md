@@ -29,6 +29,16 @@ For a successful extraction, `process_file` returns a `Document` and writes:
 `process_file` raises on failure after writing `metadata.json` with
 `status="failed"` whenever the output directory can be established. The CLI
 continues over sibling inputs and returns non-zero if any input fails.
+`UnsafeOutputPath` is an exception to diagnostic publication: symlinked/
+non-regular destinations and competing writers are rejected without writing
+failure metadata through that path or overwriting the active writer.
+
+Production output writes require Linux/POSIX directory descriptors,
+`O_NOFOLLOW`, and `flock`; unsupported platforms fail closed. New output
+directories are private (0700); files are 0600. Existing directory ownership
+and permissions must be managed by the operator. Output roots and model
+caches must not be writable by uploaders. See
+[security-review.md](security-review.md) for tested guarantees and limitations.
 
 ## Compatibility
 

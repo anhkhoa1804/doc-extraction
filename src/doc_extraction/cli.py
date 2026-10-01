@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import sys
 import time
+from contextlib import ExitStack
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -25,6 +26,7 @@ from doc_extraction.pipelines.base import BackendUnavailableError
 from doc_extraction.schemas.document import Document, RunMetadata, RunStatus
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.assemble import assemble_document
+from doc_extraction.utils.diagnostics import diagnostic_text
 from doc_extraction.utils.hashing import sha256_file
 from doc_extraction.utils.ids import document_id as make_document_id
 from doc_extraction.utils.limits import (
@@ -32,8 +34,16 @@ from doc_extraction.utils.limits import (
     ResourceLimitExceeded,
     active_resource_guard,
     preflight_input,
+    snapshot_input,
 )
 from doc_extraction.utils.logging import StageLogger
+from doc_extraction.utils.safe_io import (
+    UnsafeOutputPath,
+    remove_output,
+    run_lock,
+    secure_mkdir,
+    write_text,
+)
 from doc_extraction.utils.serde import write_json
 from doc_extraction.utils.table_telemetry import (
     TableTelemetryRecorder,
@@ -289,8 +299,8 @@ def process_file(
     """Run either the baseline modular pipeline or a single named
     whole-document backend over one file. Writes every stage's intermediate
     output under `output_dir` (default: `output_root/<document_id>/`).
-    Never swallows an exception — metadata.json + the stage log always
-    record a failure before it propagates."""
+    Never swallows an exception. Safe destinations receive failure metadata;
+    unsafe destinations and competing writers are rejected without writing."""
     if output_dir is None and output_root is None:
         raise ValueError("process_file requires output_root or output_dir")
     if config.device == "auto":
@@ -302,20 +312,30 @@ def process_file(
         config = resolve_device(config)
     start = time.perf_counter()
     guard = ResourceGuard(config.limits)
+    submitted_path = path
+    resources = ExitStack()
     file_hash = ""
     logger: StageLogger | None = None
     route_decision: dispatcher.RouteDecision | None = None
+    owns_output = False
 
     try:
+        if output_dir is not None:
+            resources.enter_context(run_lock(output_dir))
+            owns_output = True
         # This is intentionally before hashing, routing, Zip/OOXML parsing,
         # PDF page iteration, and model creation.  The documented public
         # Python API and both CLI commands all converge here.
+        path = resources.enter_context(snapshot_input(submitted_path, guard))
         preflight_input(path, config.limits, guard)
         file_hash = sha256_file(path)
         if output_dir is None:
             assert output_root is not None
             output_dir = output_root / make_document_id(path, file_hash)
         doc_id = output_dir.name
+        if not owns_output:
+            resources.enter_context(run_lock(output_dir))
+            owns_output = True
         logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
 
         with active_resource_guard(guard):
@@ -348,7 +368,7 @@ def process_file(
         warnings = _collect_page_warnings(pages)
         metadata = RunMetadata(
             input_filename=path.name,
-            input_path=str(path),
+            input_path=str(submitted_path),
             file_hash_sha256=file_hash,
             file_type=route_decision.file_info.detected_kind,
             route=route_decision.route,
@@ -375,6 +395,10 @@ def process_file(
         write_json(output_dir / "final" / "document.json", document)
         return document
 
+    except UnsafeOutputPath:
+        # Never attempt a second diagnostic write through an unsafe path or
+        # overwrite the metadata of the worker holding the run lock.
+        raise
     except Exception as exc:
         elapsed = time.perf_counter() - start
         if output_dir is None:
@@ -382,9 +406,17 @@ def process_file(
             # Never hash a rejected oversized input just to choose an output
             # directory.  This path-derived directory is only a failed-run
             # diagnostic location, never a canonical document identity.
-            rejection_hash = hashlib.sha256(str(path.resolve()).encode("utf-8")).hexdigest()[:16]
+            rejection_hash = hashlib.sha256(str(submitted_path.absolute()).encode("utf-8")).hexdigest()[:16]
             rejected = f"rejected-{rejection_hash}"
             output_dir = output_root / rejected
+        if not owns_output:
+            resources.enter_context(run_lock(output_dir))
+            owns_output = True
+        if owns_output:
+            # A failed retry or an assembly-time cutoff must not leave a
+            # previous/partially published success available to consumers.
+            for name in ("document.json", "document.md"):
+                remove_output(output_dir / "final" / name)
         if logger is None:
             logger = StageLogger(output_dir.name, output_dir / "logs", device=config.device)
         route = route_decision.route if route_decision is not None else dispatcher.ROUTE_UNKNOWN
@@ -396,7 +428,7 @@ def process_file(
         )
         metadata = RunMetadata(
             input_filename=path.name,
-            input_path=str(path),
+            input_path=str(submitted_path),
             file_hash_sha256=file_hash,
             file_type=file_type,
             route=route,
@@ -407,7 +439,7 @@ def process_file(
             runtime_seconds=elapsed,
             device=config.device,
             status=RunStatus.FAILED,
-            errors=[f"{type(exc).__name__}: {exc}"],
+            errors=[diagnostic_text(f"{type(exc).__name__}: {exc}")],
             resource_violation=exc.as_dict() if isinstance(exc, ResourceLimitExceeded) else None,
             route_reason=route_reason,
             device_decision=_DEVICE_DECISION,
@@ -419,6 +451,8 @@ def process_file(
             device=config.device, error=f"{type(exc).__name__}: {exc}",
         )
         raise
+    finally:
+        resources.close()
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -435,7 +469,7 @@ def cmd_run(args: argparse.Namespace) -> int:
 
     input_path = Path(config.input_dir).resolve()
     output_root = Path(config.output_dir).resolve()
-    output_root.mkdir(parents=True, exist_ok=True)
+    secure_mkdir(output_root)
 
     files = _discover_inputs(input_path)
     if not files:
@@ -444,7 +478,7 @@ def cmd_run(args: argparse.Namespace) -> int:
 
     exit_code = 0
     for path in files:
-        print(f"--- {path.name} ---")
+        print(f"--- {diagnostic_text(path.name)} ---")
         try:
             document = process_file(path, config, output_root=output_root, backend_name=args.backend)
             n_elements = sum(len(p.elements) for p in document.pages)
@@ -459,7 +493,7 @@ def cmd_run(args: argparse.Namespace) -> int:
                 print(f"  warnings: {document.metadata.warnings}")
         except Exception as exc:  # noqa: BLE001 - reported per-file, run continues
             exit_code = 1
-            print(f"  FAILED: {type(exc).__name__}: {exc}", file=sys.stderr)
+            print(f"  FAILED: {diagnostic_text(type(exc).__name__ + ': ' + str(exc))}", file=sys.stderr)
     return exit_code
 
 
@@ -488,10 +522,17 @@ def cmd_compare(args: argparse.Namespace) -> int:
     for path in files:
         # Key on the content hash as well as the name: `compare` is routinely
         # pointed at a directory where two files share a stem.
-        doc_dir = comparison_root / make_document_id(path, sha256_file(path))
+        try:
+            # Do not let comparison-directory naming bypass input limits or
+            # block on a special file before process_file gets to preflight.
+            with snapshot_input(path, ResourceGuard(config.limits)) as snapshot:
+                doc_dir = comparison_root / make_document_id(path, sha256_file(snapshot))
+        except (OSError, ValueError, ResourceLimitExceeded):
+            rejection_hash = hashlib.sha256(str(path.absolute()).encode("utf-8")).hexdigest()[:16]
+            doc_dir = comparison_root / f"rejected-{rejection_hash}"
         documents: dict[str, Document | None] = {}
         errors: dict[str, str] = {}
-        print(f"--- {path.name} ---")
+        print(f"--- {diagnostic_text(path.name)} ---")
         for backend_name in args.backends:
             backend_dir = doc_dir / backend_name
             try:
@@ -499,13 +540,13 @@ def cmd_compare(args: argparse.Namespace) -> int:
                 print(f"  {backend_name}: ok")
             except Exception as exc:  # noqa: BLE001 - captured for the comparison summary
                 documents[backend_name] = None
-                errors[backend_name] = f"{type(exc).__name__}: {exc}"
+                errors[backend_name] = diagnostic_text(f"{type(exc).__name__}: {exc}")
                 exit_code = 1
                 print(f"  {backend_name}: FAILED ({errors[backend_name]})")
 
         comparison = build_comparison(path, documents, errors)
         write_json(doc_dir / "diff.json", comparison)
-        (doc_dir / "summary.html").write_text(render_comparison_html(path, comparison), encoding="utf-8")
+        write_text(doc_dir / "summary.html", render_comparison_html(path, comparison))
         print(f"  -> outputs/comparison/{doc_dir.name}/summary.html")
     return exit_code
 
@@ -518,6 +559,8 @@ def cmd_inspect(args: argparse.Namespace) -> int:
     output_root = Path(args.output_dir).resolve()
 
     if args.document_id:
+        if Path(args.document_id).name != args.document_id or any(c in args.document_id for c in ("/", "\\", ":")) or args.document_id in (".", ".."):
+            raise UnsafeOutputPath("inspect requires a single directory name")
         document_dirs = [output_root / args.document_id]
     else:
         document_dirs = sorted(p.parent.parent for p in output_root.rglob("final/document.json"))
@@ -534,9 +577,9 @@ def cmd_inspect(args: argparse.Namespace) -> int:
             continue
         document = DocumentModel.model_validate(read_json(document_json_path))
         inspection_dir = output_dir / "inspection"
-        inspection_dir.mkdir(parents=True, exist_ok=True)
+        secure_mkdir(inspection_dir)
         index_path = inspection_dir / "index.html"
-        index_path.write_text(render_inspection_html(document, inspection_dir), encoding="utf-8")
+        write_text(index_path, render_inspection_html(document, inspection_dir))
         print(f"-> {index_path}")
     return exit_code
 
