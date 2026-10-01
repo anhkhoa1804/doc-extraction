@@ -1,0 +1,501 @@
+{
+  "experiment": "research_gate1_validation",
+  "source_run": "experiments/046_independent_corpus_challenge/runs/2026-10-01_protocol-v2_independent-corpus.json",
+  "timestamp_utc": "2026-10-01T12:15:39.476443+00:00",
+  "truth_unit_definition": "one frozen OmniDocBench text annotation selected per 046 case",
+  "units": [
+    {
+      "case_id": "ctl-00",
+      "case_role": "control",
+      "source_group_id": "exam_paper_2016年安徽省中考英语试题（解析）",
+      "truth_unit": "exam_paper_2016年安徽省中考英语试题（解析）_page_012.png:4",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ctl-01",
+      "case_role": "control",
+      "source_group_id": "jiaocaineedrop_chem-203343",
+      "truth_unit": "jiaocaineedrop_chem-203343.pdf_121.jpg:8",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ctl-02",
+      "case_role": "control",
+      "source_group_id": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644",
+      "truth_unit": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg:1",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-00",
+      "case_role": "challenge",
+      "source_group_id": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999",
+      "truth_unit": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg:4",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-01",
+      "case_role": "challenge",
+      "source_group_id": "scihub_prrv.2001.0150",
+      "truth_unit": "scihub_prrv.2001.0150.pdf_0.jpg:0",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-02",
+      "case_role": "challenge",
+      "source_group_id": "scihub_jp.2017.29",
+      "truth_unit": "scihub_jp.2017.29.pdf_0.jpg:12",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-03",
+      "case_role": "challenge",
+      "source_group_id": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e",
+      "truth_unit": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e_0119.png:4",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-04",
+      "case_role": "challenge",
+      "source_group_id": "book_en_6.Complex.Analysis.-.Elias.M..Stein",
+      "truth_unit": "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_205.png:14",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-05",
+      "case_role": "challenge",
+      "source_group_id": "yanbaopptmerge_9882208cc25205150eeb522e78541631",
+      "truth_unit": "yanbaopptmerge_9882208cc25205150eeb522e78541631.pdf_501.jpg:2",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-06",
+      "case_role": "challenge",
+      "source_group_id": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本",
+      "truth_unit": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png:2",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-07",
+      "case_role": "challenge",
+      "source_group_id": "jiaocaineedrop_geo-12644",
+      "truth_unit": "jiaocaineedrop_geo-12644.pdf_353.jpg:1",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-08",
+      "case_role": "challenge",
+      "source_group_id": "docstructbench_enbook-zlib-o.O-19091739",
+      "truth_unit": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg:27",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-09",
+      "case_role": "challenge",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1993_Problems_1993",
+      "truth_unit": "exam_paper_en-file-putnam-archive_1993_Problems_1993_page_001.png:23",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-10",
+      "case_role": "challenge",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1996_Problems_1996",
+      "truth_unit": "exam_paper_en-file-putnam-archive_1996_Problems_1996_page_001.png:1",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-11",
+      "case_role": "challenge",
+      "source_group_id": "jiaocaineedrop_AMC8_V5",
+      "truth_unit": "jiaocaineedrop_AMC8_V5.pdf_64.jpg:6",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-12",
+      "case_role": "challenge",
+      "source_group_id": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901",
+      "truth_unit": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901.pdf_137.jpg:11",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-13",
+      "case_role": "challenge",
+      "source_group_id": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926",
+      "truth_unit": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926.pdf_1.jpg:3",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": false,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-14",
+      "case_role": "challenge",
+      "source_group_id": "magazine_TheEconomist.2024.03.09",
+      "truth_unit": "magazine_TheEconomist.2024.03.09_page_016.png:2",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-15",
+      "case_role": "challenge",
+      "source_group_id": "newspaper_a15057349a86850e55b084c235fa2f22",
+      "truth_unit": "newspaper_a15057349a86850e55b084c235fa2f22_1.jpg:86",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-16",
+      "case_role": "challenge",
+      "source_group_id": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a",
+      "truth_unit": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg:40",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": false,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 0
+    },
+    {
+      "case_id": "ind-17",
+      "case_role": "challenge",
+      "source_group_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew",
+      "truth_unit": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_009.png:57",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-18",
+      "case_role": "challenge",
+      "source_group_id": "PPT_EnglishtoAmericanTransition",
+      "truth_unit": "PPT_EnglishtoAmericanTransition_page_009.png:1",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-19",
+      "case_role": "challenge",
+      "source_group_id": "yanbaopptmerge_SE14",
+      "truth_unit": "yanbaopptmerge_SE14.pdf_1.jpg:4",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": false,
+      "ownership_valid": false,
+      "canonical_text_present": false,
+      "serialized": false,
+      "provenance_complete": false,
+      "candidate_count": 1
+    },
+    {
+      "case_id": "ind-20",
+      "case_role": "challenge",
+      "source_group_id": "yanbaopptmerge_m3_Unit_1_Where_did_you_go",
+      "truth_unit": "yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg:3",
+      "truth_exists": true,
+      "ocr_token_centre_in_truth_locator": true,
+      "acquired_exact_truth_text": true,
+      "ownership_valid": true,
+      "canonical_text_present": true,
+      "serialized": true,
+      "provenance_complete": true,
+      "candidate_count": 1
+    }
+  ],
+  "totals": {
+    "truth_exists": 24,
+    "ocr_token_centre_in_truth_locator": 17,
+    "acquired_exact_truth_text": 9,
+    "ownership_valid": 8,
+    "canonical_text_present": 9,
+    "serialized": 9,
+    "provenance_complete": 9
+  },
+  "challenge_no_token_centre": [
+    {
+      "case_id": "ind-07",
+      "explanation": "LIKELY evaluator geometry/annotation-segmentation mismatch",
+      "evidence": "OCR and layout spans intersect truth, but their centres are outside the truth box",
+      "confidence": "LIKELY",
+      "image_dimensions": [
+        1700,
+        2200
+      ],
+      "truth_within_image": true,
+      "ocr_token_count": 22,
+      "intersecting_ocr_tokens": 1,
+      "intersecting_layout_roles": [
+        "text"
+      ],
+      "ocr_examples": [
+        "This image Triton; Neptune's largest moon; was taken Voyager 2 in 1989. Fly by Neptunes moon Triton watching this video: videoRef-mm32_SunDeath#player Top by by"
+      ]
+    },
+    {
+      "case_id": "ind-10",
+      "explanation": "LIKELY evaluator geometry/annotation-segmentation mismatch",
+      "evidence": "OCR and layout spans intersect truth, but their centres are outside the truth box",
+      "confidence": "LIKELY",
+      "image_dimensions": [
+        1700,
+        2200
+      ],
+      "truth_within_image": true,
+      "ocr_token_count": 20,
+      "intersecting_ocr_tokens": 1,
+      "intersecting_layout_roles": [
+        "section_header"
+      ],
+      "ocr_examples": [
+        "The 57th William Lowell Putnam Mathematical Competition Saturday, December 7, 1996"
+      ]
+    },
+    {
+      "case_id": "ind-12",
+      "explanation": "LIKELY insufficient OCR coverage at truth region",
+      "evidence": "no OCR or layout span intersects the valid image-coordinate truth box",
+      "confidence": "LIKELY",
+      "image_dimensions": [
+        1654,
+        2339
+      ],
+      "truth_within_image": true,
+      "ocr_token_count": 4,
+      "intersecting_ocr_tokens": 0,
+      "intersecting_layout_roles": [],
+      "ocr_examples": []
+    },
+    {
+      "case_id": "ind-15",
+      "explanation": "LIKELY truth-locator coordinate/clipping mismatch",
+      "evidence": "truth locator exceeds rendered image bounds; no centre-based acquisition conclusion is valid",
+      "confidence": "LIKELY",
+      "image_dimensions": [
+        2754,
+        3939
+      ],
+      "truth_within_image": false,
+      "ocr_token_count": 1,
+      "intersecting_ocr_tokens": 0,
+      "intersecting_layout_roles": [],
+      "ocr_examples": []
+    },
+    {
+      "case_id": "ind-16",
+      "explanation": "LIKELY insufficient OCR coverage at truth region",
+      "evidence": "no OCR or layout span intersects the valid image-coordinate truth box",
+      "confidence": "LIKELY",
+      "image_dimensions": [
+        2754,
+        3939
+      ],
+      "truth_within_image": true,
+      "ocr_token_count": 10,
+      "intersecting_ocr_tokens": 0,
+      "intersecting_layout_roles": [],
+      "ocr_examples": []
+    }
+  ],
+  "prompt_count_reconciliation": {
+    "prompt_claim": 8,
+    "stored_v2_artifact_count": 5,
+    "note": "stored v2 run is authoritative; no additional cases meet its no-centre predicate"
+  },
+  "fault_injection": [
+    {
+      "id": "FI-ACQ",
+      "intended_boundary": "acquisition",
+      "detected_boundary": "acquisition",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    },
+    {
+      "id": "FI-OWN",
+      "intended_boundary": "ownership",
+      "detected_boundary": "ownership",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    },
+    {
+      "id": "FI-REC",
+      "intended_boundary": "reconciliation",
+      "detected_boundary": "reconciliation",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    },
+    {
+      "id": "FI-PROJ",
+      "intended_boundary": "canonical_projection",
+      "detected_boundary": "canonical_projection",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    },
+    {
+      "id": "FI-SER",
+      "intended_boundary": "serialization",
+      "detected_boundary": "serialization",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    },
+    {
+      "id": "FI-NORM",
+      "intended_boundary": "normalization",
+      "detected_boundary": "normalization",
+      "correct": true,
+      "ambiguity": "functional-only: state inputs are injected, not independently observed pipeline events"
+    }
+  ],
+  "oracle_reconciliation": {
+    "unit_denominator": 24,
+    "baseline_truth_correct_uniquely_owned": 8,
+    "liberal_truth_oracle": 9,
+    "gap": 1,
+    "conflicted_truth_correct_candidates": 1,
+    "limitation": "truth annotations do not label a canonical owner; oracle only establishes existence of a claim, not a uniquely correct owner"
+  },
+  "limitations": [
+    "A no-token-centre event is not proof of acquisition loss.",
+    "Fault injection tests deterministic classifier discrimination, not causal stage identification in a live pipeline.",
+    "The truth unit does not contain owner identity, so a true ownership oracle is unavailable."
+  ],
+  "script_sha256": "008aa3eb13aa179d7e06d1608886d140511a90464e4e6843ad2588a884f634a8"
+}
