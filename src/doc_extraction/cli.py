@@ -21,7 +21,7 @@ from doc_extraction.pipelines import image as image_pipeline
 from doc_extraction.pipelines import office as office_pipeline
 from doc_extraction.pipelines import pdf as pdf_pipeline
 from doc_extraction.pipelines.base import BackendUnavailableError
-from doc_extraction.schemas.document import Document, RunMetadata
+from doc_extraction.schemas.document import Document, RunMetadata, RunStatus
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.assemble import assemble_document
 from doc_extraction.utils.hashing import sha256_file
@@ -298,18 +298,19 @@ def process_file(
     doc_id = output_dir.name
     logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
     start = time.perf_counter()
-    route_decision = dispatcher.route(path, config)
-    if table_telemetry is not None:
-        table_telemetry.bind_document(
-            document_id=doc_id,
-            input_sha256=file_hash,
-            route=route_decision.route,
-            device=config.device,
-            backend=backend_name,
-        )
-        table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
+    route_decision: dispatcher.RouteDecision | None = None
 
     try:
+        route_decision = dispatcher.route(path, config)
+        if table_telemetry is not None:
+            table_telemetry.bind_document(
+                document_id=doc_id,
+                input_sha256=file_hash,
+                route=route_decision.route,
+                device=config.device,
+                backend=backend_name,
+            )
+            table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
         if backend_name == "baseline":
             pages = _run_baseline_route(path, route_decision, config, output_dir, logger, table_telemetry)
         else:
@@ -320,6 +321,7 @@ def process_file(
                 )
             pages = backend.convert(path, config).pages
 
+        warnings = _collect_page_warnings(pages)
         metadata = RunMetadata(
             input_filename=path.name,
             input_path=str(path),
@@ -335,7 +337,8 @@ def process_file(
             route_reason=route_decision.reason,
             device_decision=_DEVICE_DECISION,
             text_profile=route_decision.text_profile.as_dict() if route_decision.text_profile else None,
-            warnings=_collect_page_warnings(pages),
+            status=RunStatus.SUCCESS_WITH_WARNINGS if warnings else RunStatus.SUCCESS,
+            warnings=warnings,
         )
         document = assemble_document(doc_id, metadata, pages, output_dir, logger)
         document.metadata.runtime_seconds = time.perf_counter() - start
@@ -348,22 +351,30 @@ def process_file(
 
     except Exception as exc:
         elapsed = time.perf_counter() - start
+        route = route_decision.route if route_decision is not None else dispatcher.ROUTE_UNKNOWN
+        file_type = route_decision.file_info.detected_kind if route_decision is not None else "unknown"
+        route_reason = (
+            route_decision.reason
+            if route_decision is not None
+            else "routing failed before a route decision could be produced"
+        )
         metadata = RunMetadata(
             input_filename=path.name,
             input_path=str(path),
             file_hash_sha256=file_hash,
-            file_type=route_decision.file_info.detected_kind,
-            route=route_decision.route,
+            file_type=file_type,
+            route=route,
             pipeline=backend_name,
             backend=backend_name,
             config_snapshot=config.to_snapshot(),
             timestamp=datetime.now(timezone.utc).isoformat(),
             runtime_seconds=elapsed,
             device=config.device,
+            status=RunStatus.FAILED,
             errors=[f"{type(exc).__name__}: {exc}"],
-            route_reason=route_decision.reason,
+            route_reason=route_reason,
             device_decision=_DEVICE_DECISION,
-            text_profile=route_decision.text_profile.as_dict() if route_decision.text_profile else None,
+            text_profile=route_decision.text_profile.as_dict() if route_decision and route_decision.text_profile else None,
         )
         write_json(output_dir / "metadata.json", metadata)
         logger.log_event(

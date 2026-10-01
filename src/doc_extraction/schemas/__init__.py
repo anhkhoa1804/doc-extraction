@@ -1,4 +1,4 @@
-from doc_extraction.schemas.document import Document, RunMetadata
+from doc_extraction.schemas.document import Document, RunMetadata, RunStatus
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.table import Cell, Table
@@ -11,5 +11,6 @@ __all__ = [
     "ElementType",
     "Page",
     "RunMetadata",
+    "RunStatus",
     "Table",
 ]

@@ -8,9 +8,11 @@ from __future__ import annotations
 import pymupdf
 import pytest
 
+from doc_extraction.cli import process_file
 from doc_extraction.config import PipelineConfig
 from doc_extraction.pipelines import office, pdf
 from doc_extraction.pipelines.base import BackendUnavailableError, PageInput
+from doc_extraction.schemas.document import RunMetadata, RunStatus
 from doc_extraction.schemas.element import ElementType
 from tests.fixtures import (
     CLEAN_ENGLISH_TEXT,
@@ -223,6 +225,27 @@ def test_corrupt_pdf_raises_rather_than_returning_empty(tmp_path):
     path = make_corrupt_pdf(tmp_path / "broken.pdf")
     with pytest.raises(pymupdf.FileDataError):
         pdf.parse_digital_pdf(path, PipelineConfig(), tmp_path / "out")
+
+
+def test_process_file_records_a_routing_failure_as_failed_metadata(tmp_path):
+    """A malformed PDF fails before route selection, but remains diagnosable."""
+    from tests.fixtures import make_corrupt_pdf
+
+    path = make_corrupt_pdf(tmp_path / "broken.pdf")
+    output_root = tmp_path / "outputs"
+    with pytest.raises(pymupdf.FileDataError):
+        process_file(path, PipelineConfig(), output_root=output_root)
+
+    metadata_path = next(output_root.glob("*/metadata.json"))
+    metadata = RunMetadata.model_validate_json(metadata_path.read_text(encoding="utf-8"))
+    assert metadata.status is RunStatus.FAILED
+    assert metadata.route == "unknown"
+    assert metadata.errors and "FileDataError" in metadata.errors[0]
+
+
+def test_process_file_marks_unqualified_success_explicitly(tmp_path):
+    document = process_file(make_docx(tmp_path / "document.docx"), PipelineConfig(), output_root=tmp_path / "outputs")
+    assert document.metadata.status is RunStatus.SUCCESS
 
 
 def test_native_table_backend_without_source_pdf_warns(tmp_path):

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from enum import Enum
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -7,6 +8,14 @@ from pydantic import BaseModel, Field
 from doc_extraction.schemas.element import ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.version import SCHEMA_VERSION
+
+
+class RunStatus(str, Enum):
+    """Outcome of one extraction run at the canonical-document boundary."""
+
+    SUCCESS = "success"
+    SUCCESS_WITH_WARNINGS = "success_with_warnings"
+    FAILED = "failed"
 
 
 class RunMetadata(BaseModel):
@@ -27,6 +36,10 @@ class RunMetadata(BaseModel):
     timestamp: str  # ISO 8601 UTC
     runtime_seconds: float | None = None
     device: str = "cpu"
+    # A successful document is never represented by an empty error list
+    # alone: consumers can distinguish an unqualified result from a result
+    # whose canonical content is valid but carries degradation warnings.
+    status: RunStatus = RunStatus.SUCCESS
     errors: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     # Route-decision evidence (ingest/dispatcher.py): why this file took the

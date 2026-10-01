@@ -61,6 +61,7 @@ renders individual pages on demand when they fail text-quality checks (see
   "timestamp": "2026-08-20T12:00:00+00:00",
   "runtime_seconds": 74.09,
   "device": "cpu",
+  "status": "success_with_warnings",
   "errors": [],
   "warnings": ["page 1: SUSPECT native text retained: ..."]
 }
@@ -70,6 +71,21 @@ renders individual pages on demand when they fail text-quality checks (see
 including the per-page evidence. `config_snapshot` is the entire resolved
 config, and is machine-independent (`cache_dir` is relative), so a run can be
 reproduced from the metadata alone.
+
+### Run status
+
+`metadata.status` is the authoritative outcome signal:
+
+| Status | Meaning |
+| --- | --- |
+| `success` | A canonical `Document` was produced without document-level warnings. |
+| `success_with_warnings` | A canonical `Document` was produced; `warnings` identifies known degradation or fallback. |
+| `failed` | No successful canonical document is claimed. `metadata.json` records the failure and the CLI returns non-zero. |
+
+The API currently does not emit a separate `partial` status: a successful
+canonical document with retained degraded content is `success_with_warnings`.
+Consumers must use `status`, never an empty page/element list, to infer a
+failed extraction.
 
 ## Canonical document (`schemas.document.Document`)
 

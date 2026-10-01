@@ -198,6 +198,7 @@ in that directory's `kaggle/` notebook).
 - [docs/architecture.md](docs/architecture.md) — pipeline and component boundaries
 - [docs/supported-formats.md](docs/supported-formats.md) — current capability matrix
 - [docs/production-boundary.md](docs/production-boundary.md) — production versus archive boundary
+- [docs/public-api.md](docs/public-api.md) — supported entry points and failure semantics
 - [docs/setup.md](docs/setup.md) — environment, dependencies, caches, CPU/GPU
 - [docs/backends.md](docs/backends.md) — per-backend status, install, limits, licences
 - [docs/output-format.md](docs/output-format.md) — canonical IR, schema version, coordinates

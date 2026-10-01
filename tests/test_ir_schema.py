@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 
-from doc_extraction.schemas.document import Document, RunMetadata
+from doc_extraction.schemas.document import Document, RunMetadata, RunStatus
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.table import Cell, Table
@@ -30,6 +30,10 @@ def test_document_carries_schema_version():
     document = Document(document_id="d", metadata=_metadata())
     assert document.schema_version == SCHEMA_VERSION
     assert json.loads(document.model_dump_json())["schema_version"] == SCHEMA_VERSION
+
+
+def test_run_metadata_status_defaults_to_success():
+    assert _metadata().status is RunStatus.SUCCESS
 
 
 def test_schema_version_survives_round_trip():
