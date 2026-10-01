@@ -730,6 +730,7 @@ def run_scanned_page_pipeline(
     logger: StageLogger | None = None,
     observation_ledger: Any | None = None,
     telemetry: object | None = None,
+    resource_guard: Any | None = None,
 ) -> Page:
     """Steps E-H for one already-rendered page: layout -> OCR -> table ->
     merge into a canonical Page. Raises BackendUnavailableError (uncaught)
@@ -747,6 +748,9 @@ def run_scanned_page_pipeline(
     with Image.open(image_path) as im:
         width_px, height_px = im.size
 
+    if resource_guard is not None:
+        resource_guard.check_runtime(f"before visual page {page_index + 1}")
+
     page_input = PageInput(
         page_index=page_index,
         width=width_px,
@@ -757,9 +761,13 @@ def run_scanned_page_pipeline(
     )
 
     layout_result = layout_stage.run_layout(page_input, layout_backend, output_dir / "layout", logger)
+    if resource_guard is not None:
+        resource_guard.check_runtime(f"after layout page {page_index + 1}")
     page_input.telemetry_page_regions = layout_result.regions
     page_input.telemetry_page_region_count = len(layout_result.regions)
     ocr_result = ocr_stage.run_ocr(page_input, ocr_backend, output_dir / "ocr", logger)
+    if resource_guard is not None:
+        resource_guard.check_runtime(f"after OCR page {page_index + 1}")
     page_input.telemetry_ocr_result = ocr_result
 
     table_result: TableResult | None = None
@@ -768,6 +776,8 @@ def run_scanned_page_pipeline(
         table_result = table_stage.run_table(
             page_input, table_regions, table_backend, output_dir / "tables", logger
         )
+        if resource_guard is not None:
+            resource_guard.check_runtime(f"after table page {page_index + 1}")
         # Capture backend-returned table candidates before OCR is used to fill
         # their text. This is intentionally before any projection into Page.
         if observation_ledger is not None:

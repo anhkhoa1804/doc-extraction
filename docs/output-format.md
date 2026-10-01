@@ -3,7 +3,7 @@
 ## Schema version
 
 Every serialized `Document` carries a `schema_version` (currently
-**1.2.0**). Bump it whenever the serialized shape changes in a way a
+**1.4.0**). Bump it whenever the serialized shape changes in a way a
 consumer could notice; the change history lives in
 `src/doc_extraction/schemas/version.py`. A result file found on disk months
 later can then be interpreted — or rejected — without guessing which
@@ -63,6 +63,7 @@ renders individual pages on demand when they fail text-quality checks (see
   "device": "cpu",
   "status": "success_with_warnings",
   "errors": [],
+  "resource_violation": null,
   "warnings": ["page 1: SUSPECT native text retained: ..."]
 }
 ```
@@ -86,6 +87,10 @@ The API currently does not emit a separate `partial` status: a successful
 canonical document with retained degraded content is `success_with_warnings`.
 Consumers must use `status`, never an empty page/element list, to infer a
 failed extraction.
+
+When a hard input-resource policy is violated, `resource_violation` is an
+object with `limit_name`, `limit`, `actual`, and `detail`; otherwise it is
+null. See [`resource-limits.md`](resource-limits.md).
 
 ## Canonical document (`schemas.document.Document`)
 

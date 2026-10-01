@@ -41,6 +41,10 @@ class RunMetadata(BaseModel):
     # whose canonical content is valid but carries degradation warnings.
     status: RunStatus = RunStatus.SUCCESS
     errors: list[str] = Field(default_factory=list)
+    # Present only for a hard resource-policy failure.  The stable keys make
+    # the cause machine-readable without turning ordinary parser errors into
+    # a guessed taxonomy.
+    resource_violation: dict[str, int | float | str] | None = None
     warnings: list[str] = Field(default_factory=list)
     # Route-decision evidence (ingest/dispatcher.py): why this file took the
     # route it did, including per-page text-quality signals for PDFs.

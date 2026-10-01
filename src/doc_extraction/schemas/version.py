@@ -33,6 +33,9 @@ History
     * Added `RunMetadata.status`: `success`, `success_with_warnings`, or
       `failed`. It is an explicit outcome signal; consumers must not infer a
       failed extraction from an empty page or element collection.
+1.4.0
+    * Added nullable `RunMetadata.resource_violation`, the structured cause
+      of a failed hard input-resource policy check.
 """
 
-SCHEMA_VERSION = "1.3.0"
+SCHEMA_VERSION = "1.4.0"

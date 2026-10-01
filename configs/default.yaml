@@ -14,6 +14,17 @@ device: "cpu"
 
 render_dpi: 200
 
+# Per-document production safety policy. See docs/resource-limits.md.
+limits:
+  max_input_bytes: 104857600
+  max_document_units: 100
+  max_runtime_seconds: 300
+  max_temp_bytes: 536870912
+  max_archive_members: 10000
+  max_archive_uncompressed_bytes: 262144000
+  max_archive_compression_ratio: 100
+  max_image_pixels: 40000000
+
 # --- PDF routing: quantity gate ---
 digital_pdf_min_chars_per_page: 40
 digital_pdf_page_ratio: 0.6

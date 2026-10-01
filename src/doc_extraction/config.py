@@ -14,6 +14,8 @@ from typing import Any
 import yaml
 from pydantic import BaseModel, Field
 
+from doc_extraction.utils.limits import ExtractionLimits
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CACHE_DIR = REPO_ROOT / ".cache"
 
@@ -56,6 +58,11 @@ class PipelineConfig(BaseModel):
 
     # Rendering (stages/render.py)
     render_dpi: int = 200
+
+    # A per-document production safety policy.  It is intentionally nested
+    # so a deployment can override limits in YAML without changing parser
+    # semantics or source code.
+    limits: ExtractionLimits = Field(default_factory=ExtractionLimits)
 
     # --- PDF routing: quantity gate (ingest/dispatcher.py) ---
     # A PDF page counts as "has text" if it yields at least this many

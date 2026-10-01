@@ -38,6 +38,7 @@ from doc_extraction.pipelines.base import (
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.render import render_pdf_pages, render_single_pdf_page
+from doc_extraction.utils.limits import ResourceGuard
 from doc_extraction.utils.logging import StageLogger, noop_stage
 
 BACKEND_NAME_NATIVE = "pymupdf-native"
@@ -151,6 +152,7 @@ def parse_digital_pdf(
     image_table_backend: TableBackend | None = None,
     logger: StageLogger | None = None,
     telemetry: object | None = None,
+    resource_guard: ResourceGuard | None = None,
 ) -> list[Page]:
     """Native extraction for a born-digital PDF, with native table structure
     and per-page fallback to the visual path for pages whose text layer
@@ -184,6 +186,8 @@ def parse_digital_pdf(
             suspicious_indices: list[int] = []
 
             for page_index in range(doc.page_count):
+                if resource_guard is not None:
+                    resource_guard.check_runtime(f"before native PDF page {page_index + 1}")
                 pdf_page = doc[page_index]
                 report = assess_text(pdf_page.get_text(), thresholds)
                 notes = [f"text_quality: {'; '.join(report.reasons)}"]
@@ -208,6 +212,8 @@ def parse_digital_pdf(
         total_tables = 0
 
         for page_index, width, height, elements, notes, suspicious in page_specs:
+            if resource_guard is not None:
+                resource_guard.check_runtime(f"before canonical PDF page {page_index + 1}")
             page_input = PageInput(
                 page_index=page_index,
                 width=width,
@@ -283,6 +289,7 @@ def parse_digital_pdf(
             table_backend=image_table_backend,
             logger=logger,
             telemetry=telemetry,
+            resource_guard=resource_guard,
         )
 
     return pages
@@ -299,6 +306,7 @@ def _apply_page_fallback(
     table_backend: TableBackend | None,
     logger: StageLogger | None,
     telemetry: object | None = None,
+    resource_guard: ResourceGuard | None = None,
 ) -> list[Page]:
     """Re-extract individual pages through the visual path.
 
@@ -330,7 +338,7 @@ def _apply_page_fallback(
     for index in suspicious_indices:
         try:
             image_path = render_single_pdf_page(
-                path, index, output_dir / "rendered", config.render_dpi, logger
+                path, index, output_dir / "rendered", config.render_dpi, logger, resource_guard
             )
             rebuilt = run_scanned_page_pipeline(
                 image_path=image_path,
@@ -342,6 +350,7 @@ def _apply_page_fallback(
                 output_dir=output_dir,
                 logger=logger,
                 telemetry=telemetry,
+                resource_guard=resource_guard,
             )
             native_notes = list(pages[index].notes)
             rebuilt.notes = native_notes + [
@@ -375,14 +384,18 @@ def parse_scanned_pdf(
     output_dir: Path,
     logger: StageLogger | None = None,
     telemetry: object | None = None,
+    resource_guard: ResourceGuard | None = None,
 ) -> list[Page]:
     """Steps D-H for a scanned PDF: render every page, then run the shared
     layout/OCR/table/merge chain per page."""
-    image_paths = render_pdf_pages(path, output_dir / "rendered", dpi, logger)
+    image_paths = render_pdf_pages(path, output_dir / "rendered", dpi, logger, resource_guard)
     pages = []
     for page_index, image_path in enumerate(image_paths):
+        if resource_guard is not None:
+            resource_guard.check_runtime(f"before scanned PDF page {page_index + 1}")
         page = run_scanned_page_pipeline(
-            image_path, page_index, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger, telemetry
+            image_path, page_index, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger,
+            telemetry=telemetry, resource_guard=resource_guard,
         )
         page.source_route = "scanned_pdf"
         pages.append(page)

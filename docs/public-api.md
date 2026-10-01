@@ -9,6 +9,11 @@ Both return or write the canonical `Document` defined in
 [`output-format.md`](output-format.md). `compare` and `inspect` are operator
 tools, not downstream interchange contracts.
 
+Every `run`, `compare`, and `process_file` invocation is subject to the same
+document resource policy. Defaults, YAML/Python overrides, archive defenses,
+and timeout semantics are documented in
+[`resource-limits.md`](resource-limits.md).
+
 ## Inputs and outputs
 
 Inputs are PDF, DOCX, XLSX, PPTX, or supported raster images. Format-specific

@@ -14,6 +14,7 @@ from doc_extraction.pipelines.base import (
 )
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.render import render_image_passthrough
+from doc_extraction.utils.limits import ResourceGuard
 from doc_extraction.utils.logging import StageLogger
 
 
@@ -26,9 +27,11 @@ def parse_image(
     output_dir: Path,
     logger: StageLogger | None = None,
     telemetry: object | None = None,
+    resource_guard: ResourceGuard | None = None,
 ) -> list[Page]:
     image_path = render_image_passthrough(path, output_dir / "rendered", logger)
     page = run_scanned_page_pipeline(
-        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger, telemetry
+        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger,
+        telemetry=telemetry, resource_guard=resource_guard,
     )
     return [page]

@@ -61,6 +61,7 @@ import time
 
 from doc_extraction.pipelines.base import OCRResult, OCRToken, PageInput
 from doc_extraction.schemas.element import BBox
+from doc_extraction.utils.limits import current_subprocess_timeout
 
 DEFAULT_LANGUAGES = ["en", "vi"]
 
@@ -154,10 +155,18 @@ class TesseractBackend:
         langs = to_tesseract_langs(self.languages)
         started = time.perf_counter()
         try:
+            timeout = current_subprocess_timeout()
             proc = subprocess.run(
                 ["tesseract", str(page.image_path), "stdout",
-                 "-l", langs, "--psm", str(self.psm), "tsv"],
-                capture_output=True, text=True, check=True)
+                "-l", langs, "--psm", str(self.psm), "tsv"],
+                capture_output=True,
+                text=True,
+                check=True,
+                timeout=timeout,
+            )
+        except subprocess.TimeoutExpired:
+            self.last_duration_s = time.perf_counter() - started
+            return OCRResult(tokens=[], backend=self.name, warnings=["tesseract exceeded the extraction deadline"])
         except subprocess.CalledProcessError as exc:
             self.last_duration_s = time.perf_counter() - started
             detail = (exc.stderr or "").strip().splitlines()

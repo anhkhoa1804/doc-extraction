@@ -9,6 +9,7 @@ Equivalent thin wrappers live in scripts/ for environments without `make`.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import sys
 import time
 from datetime import datetime, timezone
@@ -26,6 +27,12 @@ from doc_extraction.schemas.page import Page
 from doc_extraction.stages.assemble import assemble_document
 from doc_extraction.utils.hashing import sha256_file
 from doc_extraction.utils.ids import document_id as make_document_id
+from doc_extraction.utils.limits import (
+    ResourceGuard,
+    ResourceLimitExceeded,
+    active_resource_guard,
+    preflight_input,
+)
 from doc_extraction.utils.logging import StageLogger
 from doc_extraction.utils.serde import write_json
 from doc_extraction.utils.table_telemetry import (
@@ -209,17 +216,18 @@ def _run_baseline_route(
     output_dir: Path,
     logger: StageLogger,
     telemetry: TableTelemetryRecorder | None = None,
+    resource_guard: ResourceGuard | None = None,
 ) -> list[Page]:
     route = route_decision.route
     kind = route_decision.file_info.detected_kind
 
     if route == dispatcher.ROUTE_NATIVE_OFFICE:
         if kind == "docx":
-            return office_pipeline.parse_docx(path, logger)
+            return office_pipeline.parse_docx(path, logger, resource_guard)
         if kind == "xlsx":
-            return office_pipeline.parse_xlsx(path, logger)
+            return office_pipeline.parse_xlsx(path, logger, resource_guard)
         if kind == "pptx":
-            return office_pipeline.parse_pptx(path, logger)
+            return office_pipeline.parse_pptx(path, logger, resource_guard)
         raise ValueError(f"unsupported native office kind: {kind}")
 
     if route == dispatcher.ROUTE_DIGITAL_PDF:
@@ -236,6 +244,7 @@ def _run_baseline_route(
             image_table_backend=table_backend,
             logger=logger,
             telemetry=telemetry,
+            resource_guard=resource_guard,
         )
 
     if route == dispatcher.ROUTE_SCANNED_PDF:
@@ -249,6 +258,7 @@ def _run_baseline_route(
             output_dir,
             logger,
             telemetry,
+            resource_guard,
         )
 
     if route == dispatcher.ROUTE_IMAGE:
@@ -262,6 +272,7 @@ def _run_baseline_route(
             output_dir,
             logger,
             telemetry,
+            resource_guard,
         )
 
     raise ValueError(f"unsupported file for baseline pipeline: {path.name} (kind={kind})")
@@ -280,6 +291,8 @@ def process_file(
     output under `output_dir` (default: `output_root/<document_id>/`).
     Never swallows an exception — metadata.json + the stage log always
     record a failure before it propagates."""
+    if output_dir is None and output_root is None:
+        raise ValueError("process_file requires output_root or output_dir")
     if config.device == "auto":
         # Guarded, not unconditional: cmd_run/cmd_compare already resolve
         # the device before calling this, and re-resolving would clobber
@@ -287,39 +300,50 @@ def process_file(
         # "not_probed" one. Every backend constructed below needs a
         # concrete device string — never the literal "auto".
         config = resolve_device(config)
-    if output_dir is None:
-        if output_root is None:
-            raise ValueError("process_file requires output_root or output_dir")
-        file_hash = sha256_file(path)
-        output_dir = output_root / make_document_id(path, file_hash)
-    else:
-        file_hash = sha256_file(path)
-
-    doc_id = output_dir.name
-    logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
     start = time.perf_counter()
+    guard = ResourceGuard(config.limits)
+    file_hash = ""
+    logger: StageLogger | None = None
     route_decision: dispatcher.RouteDecision | None = None
 
     try:
-        route_decision = dispatcher.route(path, config)
-        if table_telemetry is not None:
-            table_telemetry.bind_document(
-                document_id=doc_id,
-                input_sha256=file_hash,
-                route=route_decision.route,
-                device=config.device,
-                backend=backend_name,
-            )
-            table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
-        if backend_name == "baseline":
-            pages = _run_baseline_route(path, route_decision, config, output_dir, logger, table_telemetry)
-        else:
-            backend = build_whole_document_backend(backend_name, config)
-            if not backend.is_available():
-                raise BackendUnavailableError(
-                    f"backend '{backend_name}' is not available in this environment — see docs/backends.md"
+        # This is intentionally before hashing, routing, Zip/OOXML parsing,
+        # PDF page iteration, and model creation.  The documented public
+        # Python API and both CLI commands all converge here.
+        preflight_input(path, config.limits, guard)
+        file_hash = sha256_file(path)
+        if output_dir is None:
+            assert output_root is not None
+            output_dir = output_root / make_document_id(path, file_hash)
+        doc_id = output_dir.name
+        logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
+
+        with active_resource_guard(guard):
+            guard.check_runtime("before route selection")
+            route_decision = dispatcher.route(path, config)
+            guard.check_runtime("after route selection")
+            if table_telemetry is not None:
+                table_telemetry.bind_document(
+                    document_id=doc_id,
+                    input_sha256=file_hash,
+                    route=route_decision.route,
+                    device=config.device,
+                    backend=backend_name,
                 )
-            pages = backend.convert(path, config).pages
+                table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
+            if backend_name == "baseline":
+                pages = _run_baseline_route(
+                    path, route_decision, config, output_dir, logger, table_telemetry, guard
+                )
+            else:
+                backend = build_whole_document_backend(backend_name, config)
+                if not backend.is_available():
+                    raise BackendUnavailableError(
+                        f"backend '{backend_name}' is not available in this environment — see docs/backends.md"
+                    )
+                guard.check_runtime("before whole-document backend")
+                pages = backend.convert(path, config).pages
+                guard.check_runtime("after whole-document backend")
 
         warnings = _collect_page_warnings(pages)
         metadata = RunMetadata(
@@ -340,7 +364,9 @@ def process_file(
             status=RunStatus.SUCCESS_WITH_WARNINGS if warnings else RunStatus.SUCCESS,
             warnings=warnings,
         )
+        guard.check_runtime("before canonical assembly")
         document = assemble_document(doc_id, metadata, pages, output_dir, logger)
+        guard.check_runtime("after canonical assembly")
         document.metadata.runtime_seconds = time.perf_counter() - start
         # assemble_document already wrote metadata.json and final/document.json
         # once, before runtime_seconds was known — rewrite both now so neither
@@ -351,6 +377,16 @@ def process_file(
 
     except Exception as exc:
         elapsed = time.perf_counter() - start
+        if output_dir is None:
+            assert output_root is not None
+            # Never hash a rejected oversized input just to choose an output
+            # directory.  This path-derived directory is only a failed-run
+            # diagnostic location, never a canonical document identity.
+            rejection_hash = hashlib.sha256(str(path.resolve()).encode("utf-8")).hexdigest()[:16]
+            rejected = f"rejected-{rejection_hash}"
+            output_dir = output_root / rejected
+        if logger is None:
+            logger = StageLogger(output_dir.name, output_dir / "logs", device=config.device)
         route = route_decision.route if route_decision is not None else dispatcher.ROUTE_UNKNOWN
         file_type = route_decision.file_info.detected_kind if route_decision is not None else "unknown"
         route_reason = (
@@ -372,6 +408,7 @@ def process_file(
             device=config.device,
             status=RunStatus.FAILED,
             errors=[f"{type(exc).__name__}: {exc}"],
+            resource_violation=exc.as_dict() if isinstance(exc, ResourceLimitExceeded) else None,
             route_reason=route_reason,
             device_decision=_DEVICE_DECISION,
             text_profile=route_decision.text_profile.as_dict() if route_decision and route_decision.text_profile else None,

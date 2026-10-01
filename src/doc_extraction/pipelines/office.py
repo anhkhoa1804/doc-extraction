@@ -44,6 +44,7 @@ from pptx import Presentation
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.table import Cell, Table
+from doc_extraction.utils.limits import ResourceGuard
 from doc_extraction.utils.logging import StageLogger, noop_stage
 
 BACKEND_NAME = "native-office"
@@ -134,7 +135,9 @@ def _convert_docx_table(docx_table: DocxTable, table_id: str) -> Table:
     )
 
 
-def parse_docx(path: Path, logger: StageLogger | None = None) -> list[Page]:
+def parse_docx(
+    path: Path, logger: StageLogger | None = None, resource_guard: ResourceGuard | None = None
+) -> list[Page]:
     ctx_manager = logger.stage("parse", BACKEND_NAME) if logger else noop_stage()
     with ctx_manager as ctx:
         document = docx.Document(str(path))
@@ -144,6 +147,8 @@ def parse_docx(path: Path, logger: StageLogger | None = None) -> list[Page]:
         table_index = 0
 
         for child in document.element.body.iterchildren():
+            if resource_guard is not None:
+                resource_guard.check_runtime("while parsing DOCX body")
             if child.tag.endswith("}p"):
                 para = Paragraph(child, document)
                 text = para.text.strip()
@@ -272,7 +277,9 @@ def _convert_sheet(sheet, table_id: str, page_number: int) -> tuple[Table, int, 
     return table, len(cells), warnings
 
 
-def parse_xlsx(path: Path, logger: StageLogger | None = None) -> list[Page]:
+def parse_xlsx(
+    path: Path, logger: StageLogger | None = None, resource_guard: ResourceGuard | None = None
+) -> list[Page]:
     ctx_manager = logger.stage("parse", BACKEND_NAME) if logger else noop_stage()
     with ctx_manager as ctx:
         workbook = openpyxl.load_workbook(str(path), data_only=True)
@@ -280,6 +287,8 @@ def parse_xlsx(path: Path, logger: StageLogger | None = None) -> list[Page]:
         total_cells = 0
         all_warnings: list[str] = []
         for sheet_index, sheet_name in enumerate(workbook.sheetnames):
+            if resource_guard is not None:
+                resource_guard.check_runtime(f"before XLSX sheet {sheet_index + 1}")
             sheet = workbook[sheet_name]
             table, n_cells, warnings = _convert_sheet(
                 sheet, table_id=f"p{sheet_index}-t0", page_number=sheet_index + 1
@@ -359,13 +368,17 @@ def _convert_pptx_table(pptx_table, table_id: str, page_number: int) -> Table:
     )
 
 
-def parse_pptx(path: Path, logger: StageLogger | None = None) -> list[Page]:
+def parse_pptx(
+    path: Path, logger: StageLogger | None = None, resource_guard: ResourceGuard | None = None
+) -> list[Page]:
     ctx_manager = logger.stage("parse", BACKEND_NAME) if logger else noop_stage()
     with ctx_manager as ctx:
         presentation = Presentation(str(path))
         pages: list[Page] = []
         total_elements = 0
         for slide_index, slide in enumerate(presentation.slides):
+            if resource_guard is not None:
+                resource_guard.check_runtime(f"before PPTX slide {slide_index + 1}")
             elements: list[Element] = []
             tables: list[Table] = []
             order_index = 0
