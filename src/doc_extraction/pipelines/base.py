@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING, Protocol, runtime_checkable
+from typing import TYPE_CHECKING, Any, Protocol, runtime_checkable
 
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
@@ -718,6 +718,7 @@ def run_scanned_page_pipeline(
     table_backend: TableBackend,
     output_dir: Path,
     logger: "StageLogger | None" = None,
+    observation_ledger: "Any | None" = None,
 ) -> "Page":
     """Steps E-H for one already-rendered page: layout -> OCR -> table ->
     merge into a canonical Page. Raises BackendUnavailableError (uncaught)
@@ -759,6 +760,13 @@ def run_scanned_page_pipeline(
             error="backend not installed",
         )
 
-    return merge_regions_into_page(
+    page = merge_regions_into_page(
         page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path
     )
+    # Opt-in research instrumentation: it observes acquired stage results and
+    # the existing projection, but cannot change extraction decisions.
+    if observation_ledger is not None:
+        observation_ledger.capture_scanned_page(
+            page=page, layout_result=layout_result, ocr_result=ocr_result, table_result=table_result
+        )
+    return page

@@ -1,0 +1,378 @@
+{
+  "experiment": "043_observation_ledger_vertical_slice",
+  "condition_A": "persisted frozen canonical output",
+  "condition_B": "same canonical output plus reconstructed private observation ledger",
+  "case_id": "d2-00",
+  "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0/_doc_extraction_runs/page-d5f79be0-5d57-4849-9897-6106dd32117a-dc35626b",
+  "source_hashes": {
+    "final/document.json": "773fe3539829131ec379220ee6f9617c7e5926c7728915507458ba18af7b3af8",
+    "layout/page-001.json": "08508a9307a117d47db1675d8088f83ea13ecb2001ff628e713ce5ef7f3a200f",
+    "ocr/page-001.json": "63cea059cc127863c49756928f40c6a074955f0bd371cb4c2ceac95f0fe2794e",
+    "tables/page-001.json": "1a6f5cf5311a6d3153f17912212f685e69dc58725bc6a28794abc26631a69e95"
+  },
+  "git_commit": "3ab5a475ee57bf4484933f79754ee41c01539d93",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.8.0-1066-gcp-x86_64-with-glibc2.35",
+  "timestamp_utc": "2026-10-01T02:43:34.019761+00:00",
+  "evaluator": {
+    "captured": 11,
+    "accepted": 10,
+    "unresolved": 1,
+    "excluded": 0,
+    "accounting_invariant": true,
+    "evidence_presence": 10,
+    "evidence_loss": 0,
+    "duplication": 0,
+    "misownership": 1,
+    "uncertainty_preserved": 1,
+    "structural_only_recovery": 0,
+    "novel_textual_evidence": [],
+    "novel_textual_evidence_count": 0,
+    "duplicate_textual_evidence": [
+      "#4",
+      "3 .",
+      "9 af",
+      "alxuexl com",
+      "f =kr , f x"
+    ],
+    "duplicate_textual_evidence_count": 5,
+    "serialized_evidence_loss": [
+      "3 .",
+      "alxuexl com"
+    ],
+    "serialized_evidence_loss_count": 2,
+    "provenance_complete": true,
+    "untraced_accepted_public_refs": [],
+    "canonical_objects_without_provenance": [],
+    "derivation_complete": 0,
+    "derived_objects": 0,
+    "canonical_output_equivalent": true
+  },
+  "ledger": {
+    "version": 1,
+    "records": [
+      {
+        "observation_id": "obs-0934ecd5abfa6454b328",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "section_header",
+        "geometry": [
+          265.66666666666663,
+          203.66666666666652,
+          352.0,
+          218.33333333333348
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e0",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e0"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-09ed812cd0600c9b95b0",
+        "backend": "docling",
+        "payload_kind": "ocr_token",
+        "page_index": 0,
+        "text": "#4",
+        "raw_role": null,
+        "geometry": [
+          407.3333333333333,
+          316.3333333333335,
+          462.3333333333333,
+          349.33333333333326
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "ocr_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e1",
+            "basis": "token centre in layout region"
+          },
+          {
+            "owner_ref": "page:0:element:p0-e2",
+            "basis": "token centre in layout region"
+          }
+        ],
+        "disposition": "unresolved",
+        "public_object_refs": [],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-0dc03795ebc98152d747",
+        "backend": "docling",
+        "payload_kind": "ocr_token",
+        "page_index": 0,
+        "text": "9 AF",
+        "raw_role": null,
+        "geometry": [
+          1043.6666666666665,
+          1457.3333333333333,
+          1395.3333333333333,
+          1485.3333333333333
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "ocr_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e5",
+            "basis": "token centre in layout region"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e5"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-4254446b2bb15ebd830b",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "text",
+        "geometry": [
+          1043.6666666666665,
+          1457.3333333333333,
+          1395.3333333333333,
+          1485.3333333333333
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e5",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e5"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-694d66665600658a0539",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "section_header",
+        "geometry": [
+          252.0,
+          1083.3333333333333,
+          278.6666666666667,
+          1108.0
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e3",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e3"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-6b7bd138715a628074eb",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "picture",
+        "geometry": [
+          325.45709228515625,
+          254.55052185058594,
+          1327.1749267578125,
+          1039.85107421875
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e1",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e1"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-7df1b097d02d5fbc845d",
+        "backend": "docling",
+        "payload_kind": "ocr_token",
+        "page_index": 0,
+        "text": "F =kr , F X",
+        "raw_role": null,
+        "geometry": [
+          410.6666666666667,
+          1248.6666666666667,
+          489.0,
+          1278.0
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "ocr_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e4",
+            "basis": "token centre in layout region"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e4"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-b7f3b92b0659d7465c24",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "text",
+        "geometry": [
+          407.3333333333333,
+          316.3333333333335,
+          462.3333333333333,
+          349.33333333333326
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e2",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e2"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-c551dc147c1622155c2b",
+        "backend": "docling",
+        "payload_kind": "ocr_token",
+        "page_index": 0,
+        "text": "3 .",
+        "raw_role": null,
+        "geometry": [
+          252.0,
+          1083.3333333333333,
+          278.6666666666667,
+          1108.0
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "ocr_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e3",
+            "basis": "token centre in layout region"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e3"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-cacf74868e5a43259419",
+        "backend": "docling",
+        "payload_kind": "layout_region",
+        "page_index": 0,
+        "text": null,
+        "raw_role": "text",
+        "geometry": [
+          410.6666666666667,
+          1248.6666666666667,
+          489.0,
+          1278.0
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "layout_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e4",
+            "basis": "canonical layout-region projection"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e4"
+        ],
+        "warning_context": []
+      },
+      {
+        "observation_id": "obs-d981f0aed556355e3851",
+        "backend": "docling",
+        "payload_kind": "ocr_token",
+        "page_index": 0,
+        "text": "alxuexl com",
+        "raw_role": null,
+        "geometry": [
+          265.66666666666663,
+          203.66666666666652,
+          352.0,
+          218.33333333333348
+        ],
+        "source_locator": null,
+        "confidence": null,
+        "confidence_origin": "ocr_backend",
+        "derivation_refs": [],
+        "candidate_claims": [
+          {
+            "owner_ref": "page:0:element:p0-e0",
+            "basis": "token centre in layout region"
+          }
+        ],
+        "disposition": "accepted",
+        "public_object_refs": [
+          "page:0:element:p0-e0"
+        ],
+        "warning_context": []
+      }
+    ]
+  },
+  "interpretation": "Observational only. Novel textual evidence is not correctness-scored because this replay has no token truth annotation."
+}
