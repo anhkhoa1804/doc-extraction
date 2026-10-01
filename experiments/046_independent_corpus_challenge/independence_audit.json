@@ -1,0 +1,273 @@
+{
+  "population_sha256": "4d8bf0edec40db04660da578609fe2323849888ed440605e46222208240b8707",
+  "table_population_source": "experiments/034a_omnidocbench_snapshot/dataset/full/OmniDocBench.json",
+  "historical_035_table_images": 458,
+  "historical_035_table_groups": 245,
+  "cases": [
+    {
+      "case_id": "ctl-00",
+      "source_identity": "exam_paper_2016年安徽省中考英语试题（解析）",
+      "source_hash": "d80812021584b35f00d5ec502df476aa7ae8db00e7fa64054a2fb4b1da2d776e",
+      "image_hash": "d80812021584b35f00d5ec502df476aa7ae8db00e7fa64054a2fb4b1da2d776e",
+      "benchmark_id": "exam_paper_2016年安徽省中考英语试题（解析）_page_012.png:4",
+      "source_group_id": "exam_paper_2016年安徽省中考英语试题（解析）",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ctl-01",
+      "source_identity": "jiaocaineedrop_chem-203343",
+      "source_hash": "63cea7ae881ea1282aecadb4c60a689779b50b3e91d6dc36df4d63e009f1d5ef",
+      "image_hash": "63cea7ae881ea1282aecadb4c60a689779b50b3e91d6dc36df4d63e009f1d5ef",
+      "benchmark_id": "jiaocaineedrop_chem-203343.pdf_121.jpg:8",
+      "source_group_id": "jiaocaineedrop_chem-203343",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ctl-02",
+      "source_identity": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644",
+      "source_hash": "b36d49b1ecb083008e9c4f43dc9ccf4115b6af518f2059e2acec247053deb449",
+      "image_hash": "b36d49b1ecb083008e9c4f43dc9ccf4115b6af518f2059e2acec247053deb449",
+      "benchmark_id": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg:1",
+      "source_group_id": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-00",
+      "source_identity": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999",
+      "source_hash": "2e0e7704f50abc046c7836ecec7ed25dcf92099f7701532d1e7af465088e5784",
+      "image_hash": "2e0e7704f50abc046c7836ecec7ed25dcf92099f7701532d1e7af465088e5784",
+      "benchmark_id": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg:4",
+      "source_group_id": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-01",
+      "source_identity": "scihub_prrv.2001.0150",
+      "source_hash": "e8fb7447ee4be174b6b568178e0a91e84504a90676318d74c6cb6ea1c3626772",
+      "image_hash": "e8fb7447ee4be174b6b568178e0a91e84504a90676318d74c6cb6ea1c3626772",
+      "benchmark_id": "scihub_prrv.2001.0150.pdf_0.jpg:0",
+      "source_group_id": "scihub_prrv.2001.0150",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-02",
+      "source_identity": "scihub_jp.2017.29",
+      "source_hash": "773629a317124690318e1eeb7c3bf540bd73dcee4922c3c0c54ea3b05ee5d177",
+      "image_hash": "773629a317124690318e1eeb7c3bf540bd73dcee4922c3c0c54ea3b05ee5d177",
+      "benchmark_id": "scihub_jp.2017.29.pdf_0.jpg:12",
+      "source_group_id": "scihub_jp.2017.29",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-03",
+      "source_identity": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e",
+      "source_hash": "54c110855093f4662a2dd8b311c207dc4fa8355e010b36daf422369ab742779b",
+      "image_hash": "54c110855093f4662a2dd8b311c207dc4fa8355e010b36daf422369ab742779b",
+      "benchmark_id": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e_0119.png:4",
+      "source_group_id": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-04",
+      "source_identity": "book_en_6.Complex.Analysis.-.Elias.M..Stein",
+      "source_hash": "ba8e198570a75ff783d90a456d67a2837b48039e13eccd716225390c867981f9",
+      "image_hash": "ba8e198570a75ff783d90a456d67a2837b48039e13eccd716225390c867981f9",
+      "benchmark_id": "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_205.png:14",
+      "source_group_id": "book_en_6.Complex.Analysis.-.Elias.M..Stein",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-05",
+      "source_identity": "yanbaopptmerge_9882208cc25205150eeb522e78541631",
+      "source_hash": "092894f5e6b59a628bb2bd8c306d3aa3316e73edeb0bb183bf17f0dbadb11801",
+      "image_hash": "092894f5e6b59a628bb2bd8c306d3aa3316e73edeb0bb183bf17f0dbadb11801",
+      "benchmark_id": "yanbaopptmerge_9882208cc25205150eeb522e78541631.pdf_501.jpg:2",
+      "source_group_id": "yanbaopptmerge_9882208cc25205150eeb522e78541631",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-06",
+      "source_identity": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本",
+      "source_hash": "8bb6a7f9551427e77c26248188d0388d6285fcc2ce9e59569bb016c985351004",
+      "image_hash": "8bb6a7f9551427e77c26248188d0388d6285fcc2ce9e59569bb016c985351004",
+      "benchmark_id": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png:2",
+      "source_group_id": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-07",
+      "source_identity": "jiaocaineedrop_geo-12644",
+      "source_hash": "a5c0743112188a9dc6bee800d9d2dca17e3754116243a9ca8436ec5ff5388e1c",
+      "image_hash": "a5c0743112188a9dc6bee800d9d2dca17e3754116243a9ca8436ec5ff5388e1c",
+      "benchmark_id": "jiaocaineedrop_geo-12644.pdf_353.jpg:1",
+      "source_group_id": "jiaocaineedrop_geo-12644",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-08",
+      "source_identity": "docstructbench_enbook-zlib-o.O-19091739",
+      "source_hash": "1fcd900929e4e4c069099ff73c09626eae058af8eaa2899812344b829949de7c",
+      "image_hash": "1fcd900929e4e4c069099ff73c09626eae058af8eaa2899812344b829949de7c",
+      "benchmark_id": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg:27",
+      "source_group_id": "docstructbench_enbook-zlib-o.O-19091739",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-09",
+      "source_identity": "exam_paper_en-file-putnam-archive_1993_Problems_1993",
+      "source_hash": "e505ff738b039510bd6ba62a141ab1ad8bccde828d2ce2132421cc4b93dcafae",
+      "image_hash": "e505ff738b039510bd6ba62a141ab1ad8bccde828d2ce2132421cc4b93dcafae",
+      "benchmark_id": "exam_paper_en-file-putnam-archive_1993_Problems_1993_page_001.png:23",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1993_Problems_1993",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-10",
+      "source_identity": "exam_paper_en-file-putnam-archive_1996_Problems_1996",
+      "source_hash": "5e2237d1e9a02c9874efee5858a8f1c9b0fafbea7ef1e244a9f2c7fe33b30d7a",
+      "image_hash": "5e2237d1e9a02c9874efee5858a8f1c9b0fafbea7ef1e244a9f2c7fe33b30d7a",
+      "benchmark_id": "exam_paper_en-file-putnam-archive_1996_Problems_1996_page_001.png:1",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1996_Problems_1996",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-11",
+      "source_identity": "jiaocaineedrop_AMC8_V5",
+      "source_hash": "1b756196142ab173b5973417175e384ce34a0e52231d46e0506fc602c8bc859e",
+      "image_hash": "1b756196142ab173b5973417175e384ce34a0e52231d46e0506fc602c8bc859e",
+      "benchmark_id": "jiaocaineedrop_AMC8_V5.pdf_64.jpg:6",
+      "source_group_id": "jiaocaineedrop_AMC8_V5",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-12",
+      "source_identity": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901",
+      "source_hash": "cfb6338b960697531fe9d7adeaf43769c04bd92453ba67ed332fccb5f4767495",
+      "image_hash": "cfb6338b960697531fe9d7adeaf43769c04bd92453ba67ed332fccb5f4767495",
+      "benchmark_id": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901.pdf_137.jpg:11",
+      "source_group_id": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-13",
+      "source_identity": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926",
+      "source_hash": "3bd762f43497f3e6a138bacc1e4c230d2e59f8f56490972c3d997ed925e9948f",
+      "image_hash": "3bd762f43497f3e6a138bacc1e4c230d2e59f8f56490972c3d997ed925e9948f",
+      "benchmark_id": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926.pdf_1.jpg:3",
+      "source_group_id": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-14",
+      "source_identity": "magazine_TheEconomist.2024.03.09",
+      "source_hash": "2f525045c23916a3b4b48894bec7a3311e91e93f9cea098ba63af1092c1e3180",
+      "image_hash": "2f525045c23916a3b4b48894bec7a3311e91e93f9cea098ba63af1092c1e3180",
+      "benchmark_id": "magazine_TheEconomist.2024.03.09_page_016.png:2",
+      "source_group_id": "magazine_TheEconomist.2024.03.09",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-15",
+      "source_identity": "newspaper_a15057349a86850e55b084c235fa2f22",
+      "source_hash": "21da004dac819440e567c5a215a4af97fb58620e8703659944e61ee3241fe827",
+      "image_hash": "21da004dac819440e567c5a215a4af97fb58620e8703659944e61ee3241fe827",
+      "benchmark_id": "newspaper_a15057349a86850e55b084c235fa2f22_1.jpg:86",
+      "source_group_id": "newspaper_a15057349a86850e55b084c235fa2f22",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-16",
+      "source_identity": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a",
+      "source_hash": "f7815aa99bc9869286f0c07f6438c1223222fd0fe6e5aebe617f76285742b3b0",
+      "image_hash": "f7815aa99bc9869286f0c07f6438c1223222fd0fe6e5aebe617f76285742b3b0",
+      "benchmark_id": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg:40",
+      "source_group_id": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-17",
+      "source_identity": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew",
+      "source_hash": "107a07b3c0a47b2a68831f087d4c4adb00bed46d39f5ed63932c5aa841c4f4b4",
+      "image_hash": "107a07b3c0a47b2a68831f087d4c4adb00bed46d39f5ed63932c5aa841c4f4b4",
+      "benchmark_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_009.png:57",
+      "source_group_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-18",
+      "source_identity": "PPT_EnglishtoAmericanTransition",
+      "source_hash": "b96dae944c776a720dfb358210354a8e23724381a7f91382f66cdf3815dfae9e",
+      "image_hash": "b96dae944c776a720dfb358210354a8e23724381a7f91382f66cdf3815dfae9e",
+      "benchmark_id": "PPT_EnglishtoAmericanTransition_page_009.png:1",
+      "source_group_id": "PPT_EnglishtoAmericanTransition",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-19",
+      "source_identity": "yanbaopptmerge_SE14",
+      "source_hash": "f3ee3738b25b56996cde73680e3d6467ad04662a4ed07733953a1dd0d418c684",
+      "image_hash": "f3ee3738b25b56996cde73680e3d6467ad04662a4ed07733953a1dd0d418c684",
+      "benchmark_id": "yanbaopptmerge_SE14.pdf_1.jpg:4",
+      "source_group_id": "yanbaopptmerge_SE14",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    },
+    {
+      "case_id": "ind-20",
+      "source_identity": "yanbaopptmerge_m3_Unit_1_Where_did_you_go",
+      "source_hash": "eccaaddd01bf9b338a315c3871354433036c53d1476afd4e4131c14564abf717",
+      "image_hash": "eccaaddd01bf9b338a315c3871354433036c53d1476afd4e4131c14564abf717",
+      "benchmark_id": "yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg:3",
+      "source_group_id": "yanbaopptmerge_m3_Unit_1_Where_did_you_go",
+      "relation_to_035": "disjoint",
+      "relation_to_044": "disjoint",
+      "relation_to_045": "disjoint"
+    }
+  ],
+  "all_disjoint": true
+}

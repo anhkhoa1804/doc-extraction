@@ -1,0 +1,728 @@
+{
+  "experiment": "046_independent_corpus_challenge",
+  "protocol": "PROTOCOL.md",
+  "selection_version": "v1-metadata-only",
+  "selection_rule": "three fixed controls plus three SHA-256-ranked text annotations per source type; no pipeline outcome read",
+  "independence_rule": "source group, image SHA-256, and benchmark record must be absent from 035 table population and 044/045 descendants",
+  "cases": [
+    {
+      "source_image": "exam_paper_2016年安徽省中考英语试题（解析）_page_012.png",
+      "source_group_id": "exam_paper_2016年安徽省中考英语试题（解析）",
+      "benchmark_record_id": "exam_paper_2016年安徽省中考英语试题（解析）_page_012.png:4",
+      "truth": {
+        "annotation_id": "4",
+        "category_type": "text_block",
+        "text": "71.C 推理判断题。根据短文 But it was very hard for people from Europe to visit China then. After three and a half years, the Polos reached China on 1275.可知当时马可波罗的旅行是艰苦的，故选C。",
+        "locator": {
+          "x0": 162.6666666666665,
+          "y0": 609.3165627950996,
+          "x1": 1528,
+          "y1": 718.6498961284325
+        }
+      },
+      "page_attributes": {
+        "data_source": "exam_paper",
+        "language": "en_ch_mixed",
+        "layout": "single_column",
+        "special_issue": [
+          "table_full_line",
+          "table_horizontal",
+          "table_with_img"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/exam_paper_2016年安徽省中考英语试题（解析）_page_012.png",
+      "case_id": "ctl-00",
+      "case_role": "control",
+      "eligibility": "included",
+      "input_sha256": "d80812021584b35f00d5ec502df476aa7ae8db00e7fa64054a2fb4b1da2d776e"
+    },
+    {
+      "source_image": "jiaocaineedrop_chem-203343.pdf_121.jpg",
+      "source_group_id": "jiaocaineedrop_chem-203343",
+      "benchmark_record_id": "jiaocaineedrop_chem-203343.pdf_121.jpg:8",
+      "truth": {
+        "annotation_id": "8",
+        "category_type": "title",
+        "text": "Derivation of Molecular Formulas",
+        "locator": {
+          "x0": 145.7454223632812,
+          "y0": 880.558532714844,
+          "x1": 606.9162803721792,
+          "y1": 914.176025390625
+        }
+      },
+      "page_attributes": {
+        "data_source": "colorful_textbook",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/jiaocaineedrop_chem-203343.pdf_121.jpg",
+      "case_id": "ctl-01",
+      "case_role": "control",
+      "eligibility": "included",
+      "input_sha256": "63cea7ae881ea1282aecadb4c60a689779b50b3e91d6dc36df4d63e009f1d5ef"
+    },
+    {
+      "source_image": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg",
+      "source_group_id": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644",
+      "benchmark_record_id": "yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg:1",
+      "truth": {
+        "annotation_id": "1",
+        "category_type": "text_block",
+        "text": "汽车将遵循IT行业规律，软硬件解耦整车电子电气架构升级的另一个驱动因素来自于软件层面。目前，无论是离散式的电子电气架构，还是汽车软件开发模式 (ECU控制器采用嵌入式系统，即软硬件高度耦合，多以“黑盒模式”由供应商交付给主机厂），都很大程度限制了整车 OTA功能的实现、应用生态的拓展以及未来未来主机厂掌握更高程度的软件开发主导权。具体而言：",
+        "locator": {
+          "x0": 594.106201171875,
+          "y0": 1226.0501708984375,
+          "x1": 1047.89208984375,
+          "y1": 1599.903076171875
+        }
+      },
+      "page_attributes": {
+        "data_source": "book",
+        "language": "simplified_chinese",
+        "layout": "1andmore_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaor2_6895262fb7b86d4e1dbb324a50fae4294eaf0713d2e1796866cb9f7ecb88d644.pdf_11.jpg",
+      "case_id": "ctl-02",
+      "case_role": "control",
+      "eligibility": "included",
+      "input_sha256": "b36d49b1ecb083008e9c4f43dc9ccf4115b6af518f2059e2acec247053deb449"
+    },
+    {
+      "source_image": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg",
+      "source_group_id": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999",
+      "benchmark_record_id": "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg:4",
+      "truth": {
+        "annotation_id": "4",
+        "category_type": "title",
+        "text": "Attitudes towards Rainwater Harvesting",
+        "locator": {
+          "x0": 487.897827,
+          "y0": 212.923848,
+          "x1": 1167.2477669999998,
+          "y1": 265.053141
+        }
+      },
+      "page_attributes": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg",
+      "case_id": "ind-00",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "2e0e7704f50abc046c7836ecec7ed25dcf92099f7701532d1e7af465088e5784"
+    },
+    {
+      "source_image": "scihub_prrv.2001.0150.pdf_0.jpg",
+      "source_group_id": "scihub_prrv.2001.0150",
+      "benchmark_record_id": "scihub_prrv.2001.0150.pdf_0.jpg:0",
+      "truth": {
+        "annotation_id": "0",
+        "category_type": "title",
+        "text": "THE GENETIC POTENTIAL",
+        "locator": {
+          "x0": 878.6416795518663,
+          "y0": 1588.8420952690972,
+          "x1": 1349.2613898383247,
+          "y1": 1629.6256171332466
+        }
+      },
+      "page_attributes": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/scihub_prrv.2001.0150.pdf_0.jpg",
+      "case_id": "ind-01",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "e8fb7447ee4be174b6b568178e0a91e84504a90676318d74c6cb6ea1c3626772"
+    },
+    {
+      "source_image": "scihub_jp.2017.29.pdf_0.jpg",
+      "source_group_id": "scihub_jp.2017.29",
+      "benchmark_record_id": "scihub_jp.2017.29.pdf_0.jpg:12",
+      "truth": {
+        "annotation_id": "12",
+        "category_type": "text_block",
+        "text": "Journal of Perinatology advance online publication, 30 March 2017; doi:10.1038/jp.2017.29",
+        "locator": {
+          "x0": 132.91605843438043,
+          "y0": 852.5337219238281,
+          "x1": 1081.177266438802,
+          "y1": 880.5534362792969
+        }
+      },
+      "page_attributes": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "1andmore_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/scihub_jp.2017.29.pdf_0.jpg",
+      "case_id": "ind-02",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "773629a317124690318e1eeb7c3bf540bd73dcee4922c3c0c54ea3b05ee5d177"
+    },
+    {
+      "source_image": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e_0119.png",
+      "source_group_id": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e",
+      "benchmark_record_id": "book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e_0119.png:4",
+      "truth": {
+        "annotation_id": "4",
+        "category_type": "title",
+        "text": "Problems 1-10 are about linear independence and linear dependence.",
+        "locator": {
+          "x0": 230.66666666666666,
+          "y0": 808,
+          "x1": 1306.6666666666667,
+          "y1": 853.3333333333334
+        }
+      },
+      "page_attributes": {
+        "data_source": "book",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/book_en_国外数学教材-非数学专业教材-线性代数-Gilbert Strang—Linear Algebra and Its Applications 4e_0119.png",
+      "case_id": "ind-03",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "54c110855093f4662a2dd8b311c207dc4fa8355e010b36daf422369ab742779b"
+    },
+    {
+      "source_image": "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_205.png",
+      "source_group_id": "book_en_6.Complex.Analysis.-.Elias.M..Stein",
+      "benchmark_record_id": "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_205.png:14",
+      "truth": {
+        "annotation_id": "14",
+        "category_type": "text_block",
+        "text": "Therefore,",
+        "locator": {
+          "x0": 418.6666666666667,
+          "y0": 1360,
+          "x1": 552,
+          "y1": 1393.3333333333333
+        }
+      },
+      "page_attributes": {
+        "data_source": "book",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/book_en_6.Complex.Analysis.-.Elias.M..Stein_page_205.png",
+      "case_id": "ind-04",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "ba8e198570a75ff783d90a456d67a2837b48039e13eccd716225390c867981f9"
+    },
+    {
+      "source_image": "yanbaopptmerge_9882208cc25205150eeb522e78541631.pdf_501.jpg",
+      "source_group_id": "yanbaopptmerge_9882208cc25205150eeb522e78541631",
+      "benchmark_record_id": "yanbaopptmerge_9882208cc25205150eeb522e78541631.pdf_501.jpg:2",
+      "truth": {
+        "annotation_id": "2",
+        "category_type": "text_block",
+        "text": "118. 50 is what percent of 40?",
+        "locator": {
+          "x0": 193.36125896724104,
+          "y0": 640.5420231978514,
+          "x1": 536.5775248706973,
+          "y1": 677.6932713623153
+        }
+      },
+      "page_attributes": {
+        "data_source": "book",
+        "language": "english",
+        "layout": "1andmore_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaopptmerge_9882208cc25205150eeb522e78541631.pdf_501.jpg",
+      "case_id": "ind-05",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "092894f5e6b59a628bb2bd8c306d3aa3316e73edeb0bb183bf17f0dbadb11801"
+    },
+    {
+      "source_image": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png",
+      "source_group_id": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本",
+      "benchmark_record_id": "color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png:2",
+      "truth": {
+        "annotation_id": "2",
+        "category_type": "title",
+        "text": "A  Listen, point and repeat.",
+        "locator": {
+          "x0": 133.51734686336601,
+          "y0": 244.5698068823475,
+          "x1": 852.0370755954091,
+          "y1": 303.27933064575495
+        }
+      },
+      "page_attributes": {
+        "data_source": "colorful_textbook",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/color_textbook_zhonggaokao_小学_13.人教新起点英语（4-5年级）_人教新起点四年级英语下册_课本_人教新起点英语4B电子课本_page_048.png",
+      "case_id": "ind-06",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "8bb6a7f9551427e77c26248188d0388d6285fcc2ce9e59569bb016c985351004"
+    },
+    {
+      "source_image": "jiaocaineedrop_geo-12644.pdf_353.jpg",
+      "source_group_id": "jiaocaineedrop_geo-12644",
+      "benchmark_record_id": "jiaocaineedrop_geo-12644.pdf_353.jpg:1",
+      "truth": {
+        "annotation_id": "1",
+        "category_type": "text_block",
+        "text": "This image Triton, Neptune's largest moon, was taken by Voyager 2 in 1989.",
+        "locator": {
+          "x0": 146.16278076171875,
+          "y0": 1030.9366455078125,
+          "x1": 967.5201416015625,
+          "y1": 1064.289794921875
+        }
+      },
+      "page_attributes": {
+        "data_source": "colorful_textbook",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/jiaocaineedrop_geo-12644.pdf_353.jpg",
+      "case_id": "ind-07",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "a5c0743112188a9dc6bee800d9d2dca17e3754116243a9ca8436ec5ff5388e1c"
+    },
+    {
+      "source_image": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg",
+      "source_group_id": "docstructbench_enbook-zlib-o.O-19091739",
+      "benchmark_record_id": "docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg:27",
+      "truth": {
+        "annotation_id": "27",
+        "category_type": "text_block",
+        "text": "Check the dimensions, noting that the quantity in brackets is dimensionless:",
+        "locator": {
+          "x0": 174.68721,
+          "y0": 1755.546306,
+          "x1": 1022.357248,
+          "y1": 1791.5673120000001
+        }
+      },
+      "page_attributes": {
+        "data_source": "colorful_textbook",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/docstructbench_enbook-zlib-o.O-19091739.pdf_181.jpg",
+      "case_id": "ind-08",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "1fcd900929e4e4c069099ff73c09626eae058af8eaa2899812344b829949de7c"
+    },
+    {
+      "source_image": "exam_paper_en-file-putnam-archive_1993_Problems_1993_page_001.png",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1993_Problems_1993",
+      "benchmark_record_id": "exam_paper_en-file-putnam-archive_1993_Problems_1993_page_001.png:23",
+      "truth": {
+        "annotation_id": "23",
+        "category_type": "title",
+        "text": "Saturday, December 4, 1993",
+        "locator": {
+          "x0": 657.7225083330886,
+          "y0": 182.8779666680398,
+          "x1": 1063.7015324887468,
+          "y1": 220.26658853562242
+        }
+      },
+      "page_attributes": {
+        "data_source": "exam_paper",
+        "language": "english",
+        "layout": "1andmore_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/exam_paper_en-file-putnam-archive_1993_Problems_1993_page_001.png",
+      "case_id": "ind-09",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "e505ff738b039510bd6ba62a141ab1ad8bccde828d2ce2132421cc4b93dcafae"
+    },
+    {
+      "source_image": "exam_paper_en-file-putnam-archive_1996_Problems_1996_page_001.png",
+      "source_group_id": "exam_paper_en-file-putnam-archive_1996_Problems_1996",
+      "benchmark_record_id": "exam_paper_en-file-putnam-archive_1996_Problems_1996_page_001.png:1",
+      "truth": {
+        "annotation_id": "1",
+        "category_type": "title",
+        "text": "The 57th William Lowell Putnam Mathematical Competition",
+        "locator": {
+          "x0": 418.66666666666646,
+          "y0": 140,
+          "x1": 1295.3633303677223,
+          "y1": 176.7906939502875
+        }
+      },
+      "page_attributes": {
+        "data_source": "exam_paper",
+        "language": "english",
+        "layout": "1andmore_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/exam_paper_en-file-putnam-archive_1996_Problems_1996_page_001.png",
+      "case_id": "ind-10",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "5e2237d1e9a02c9874efee5858a8f1c9b0fafbea7ef1e244a9f2c7fe33b30d7a"
+    },
+    {
+      "source_image": "jiaocaineedrop_AMC8_V5.pdf_64.jpg",
+      "source_group_id": "jiaocaineedrop_AMC8_V5",
+      "benchmark_record_id": "jiaocaineedrop_AMC8_V5.pdf_64.jpg:6",
+      "truth": {
+        "annotation_id": "6",
+        "category_type": "title",
+        "text": "Solution: A.",
+        "locator": {
+          "x0": 185.90477784888856,
+          "y0": 692.9040472363134,
+          "x1": 356.8286908923668,
+          "y1": 723.0670907145743
+        }
+      },
+      "page_attributes": {
+        "data_source": "exam_paper",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "watermark"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/jiaocaineedrop_AMC8_V5.pdf_64.jpg",
+      "case_id": "ind-11",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "1b756196142ab173b5973417175e384ce34a0e52231d46e0506fc602c8bc859e"
+    },
+    {
+      "source_image": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901.pdf_137.jpg",
+      "source_group_id": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901",
+      "benchmark_record_id": "yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901.pdf_137.jpg:11",
+      "truth": {
+        "annotation_id": "11",
+        "category_type": "text_block",
+        "text": "优你造科技是一家专注于3D打印机与齿科树脂耗材研发、生产、销售的高科技企业。优你造科技拥有光固化3D打印多项核心专利技术，掌握高效图形图像学、齿科AI关键算法，研制生产出超高速、高精度的齿科3D打印机，自主研发覆盖齿科正畸、种植、修复三大体系十余种应用的树脂耗材，为口腔行业用户提供包含光固化3D打印设备及树脂耗材在内的全方位解决方案。",
+        "locator": {
+          "x0": 169.53475952148438,
+          "y0": 1534.9742431640625,
+          "x1": 1051.515869140625,
+          "y1": 1730.084716796875
+        }
+      },
+      "page_attributes": {
+        "data_source": "magazine",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaor2_bfe5f11c4ad2e94d966ef6801dc992816f42c9150e2be42b008c95f59713e901.pdf_137.jpg",
+      "case_id": "ind-12",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "cfb6338b960697531fe9d7adeaf43769c04bd92453ba67ed332fccb5f4767495"
+    },
+    {
+      "source_image": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926.pdf_1.jpg",
+      "source_group_id": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926",
+      "benchmark_record_id": "yanbaor2_ey-better-pension-outcomes-reimagined-20180926.pdf_1.jpg:3",
+      "truth": {
+        "annotation_id": "3",
+        "category_type": "text_block",
+        "text": "About the pension asset research",
+        "locator": {
+          "x0": 524.8683047185947,
+          "y0": 808.9323916326572,
+          "x1": 820.3795077295806,
+          "y1": 875.3922171918721
+        }
+      },
+      "page_attributes": {
+        "data_source": "magazine",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaor2_ey-better-pension-outcomes-reimagined-20180926.pdf_1.jpg",
+      "case_id": "ind-13",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "3bd762f43497f3e6a138bacc1e4c230d2e59f8f56490972c3d997ed925e9948f"
+    },
+    {
+      "source_image": "magazine_TheEconomist.2024.03.09_page_016.png",
+      "source_group_id": "magazine_TheEconomist.2024.03.09",
+      "benchmark_record_id": "magazine_TheEconomist.2024.03.09_page_016.png:2",
+      "truth": {
+        "annotation_id": "2",
+        "category_type": "title",
+        "text": "Spoilers",
+        "locator": {
+          "x0": 280.00000000000006,
+          "y0": 3162.054248957444,
+          "x1": 817.3333333333336,
+          "y1": 3318.054248957444
+        }
+      },
+      "page_attributes": {
+        "data_source": "magazine",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/magazine_TheEconomist.2024.03.09_page_016.png",
+      "case_id": "ind-14",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "2f525045c23916a3b4b48894bec7a3311e91e93f9cea098ba63af1092c1e3180"
+    },
+    {
+      "source_image": "newspaper_a15057349a86850e55b084c235fa2f22_1.jpg",
+      "source_group_id": "newspaper_a15057349a86850e55b084c235fa2f22",
+      "benchmark_record_id": "newspaper_a15057349a86850e55b084c235fa2f22_1.jpg:86",
+      "truth": {
+        "annotation_id": "86",
+        "category_type": "text_block",
+        "text": "“由于过度捕捞，我国近海渔业资源在逐渐萎缩。”刘新中介绍说，为此我国渔业主管部门近年来投入很大精力致力于保护我们的海洋渔业资源，比如实施海洋伏季休渔，捕捞许可制度，渔船“双控”（控制功率、控制数量）等制度，加大资源增殖放流力度。“然而，全球水产品消费量在增长.中国对水产品的消费量在增长满足这些需求靠什么？靠养殖！”",
+        "locator": {
+          "x0": 2223.887448314717,
+          "y0": 3571.6476260188024,
+          "x1": 2755.5555555555557,
+          "y1": 3792.9580504226096
+        }
+      },
+      "page_attributes": {
+        "data_source": "newspaper",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/newspaper_a15057349a86850e55b084c235fa2f22_1.jpg",
+      "case_id": "ind-15",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "21da004dac819440e567c5a215a4af97fb58620e8703659944e61ee3241fe827"
+    },
+    {
+      "source_image": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg",
+      "source_group_id": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a",
+      "benchmark_record_id": "newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg:40",
+      "truth": {
+        "annotation_id": "40",
+        "category_type": "text_block",
+        "text": "本报记者 王腾飞",
+        "locator": {
+          "x0": 2155.6921289276315,
+          "y0": 264.52736832010004,
+          "x1": 2382.0734543333583,
+          "y1": 295.0770973540907
+        }
+      },
+      "page_attributes": {
+        "data_source": "newspaper",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/newspaper_f1de032fb6a25cf85c85c15cb2d2a63a_1.jpg",
+      "case_id": "ind-16",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "f7815aa99bc9869286f0c07f6438c1223222fd0fe6e5aebe617f76285742b3b0"
+    },
+    {
+      "source_image": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_009.png",
+      "source_group_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew",
+      "benchmark_record_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_009.png:57",
+      "truth": {
+        "annotation_id": "57",
+        "category_type": "text_block",
+        "text": "Power and internet remained",
+        "locator": {
+          "x0": 1799.835941946428,
+          "y0": 1195.476173840205,
+          "x1": 2140.519623354819,
+          "y1": 1217.7051800030222
+        }
+      },
+      "page_attributes": {
+        "data_source": "newspaper",
+        "language": "english",
+        "layout": "other_layout",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_009.png",
+      "case_id": "ind-17",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "107a07b3c0a47b2a68831f087d4c4adb00bed46d39f5ed63932c5aa841c4f4b4"
+    },
+    {
+      "source_image": "PPT_EnglishtoAmericanTransition_page_009.png",
+      "source_group_id": "PPT_EnglishtoAmericanTransition",
+      "benchmark_record_id": "PPT_EnglishtoAmericanTransition_page_009.png:1",
+      "truth": {
+        "annotation_id": "1",
+        "category_type": "title",
+        "text": "Changes to English (in America)",
+        "locator": {
+          "x0": 108,
+          "y0": 210.66666666666666,
+          "x1": 1618.6666666666667,
+          "y1": 325.3333333333333
+        }
+      },
+      "page_attributes": {
+        "data_source": "PPT2PDF",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/PPT_EnglishtoAmericanTransition_page_009.png",
+      "case_id": "ind-18",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "b96dae944c776a720dfb358210354a8e23724381a7f91382f66cdf3815dfae9e"
+    },
+    {
+      "source_image": "yanbaopptmerge_SE14.pdf_1.jpg",
+      "source_group_id": "yanbaopptmerge_SE14",
+      "benchmark_record_id": "yanbaopptmerge_SE14.pdf_1.jpg:4",
+      "truth": {
+        "annotation_id": "4",
+        "category_type": "title",
+        "text": "- What is a Component?",
+        "locator": {
+          "x0": 76.09272045800934,
+          "y0": 238.5382584313237,
+          "x1": 867.4303282240711,
+          "y1": 306.6383972167969
+        }
+      },
+      "page_attributes": {
+        "data_source": "PPT2PDF",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaopptmerge_SE14.pdf_1.jpg",
+      "case_id": "ind-19",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "f3ee3738b25b56996cde73680e3d6467ad04662a4ed07733953a1dd0d418c684"
+    },
+    {
+      "source_image": "yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg",
+      "source_group_id": "yanbaopptmerge_m3_Unit_1_Where_did_you_go",
+      "benchmark_record_id": "yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg:3",
+      "truth": {
+        "annotation_id": "3",
+        "category_type": "text_block",
+        "text": "London Eye",
+        "locator": {
+          "x0": 665.8766463453825,
+          "y0": 1104.4979095458984,
+          "x1": 1380.859375,
+          "y1": 1238.470754979417
+        }
+      },
+      "page_attributes": {
+        "data_source": "PPT2PDF",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "input_path": "experiments/034a_omnidocbench_snapshot/dataset/full/images/yanbaopptmerge_m3_Unit_1_Where_did_you_go.pdf_5.jpg",
+      "case_id": "ind-20",
+      "case_role": "challenge",
+      "eligibility": "included",
+      "input_sha256": "eccaaddd01bf9b338a315c3871354433036c53d1476afd4e4131c14564abf717"
+    }
+  ],
+  "population_sha256": "4d8bf0edec40db04660da578609fe2323849888ed440605e46222208240b8707"
+}
