@@ -749,6 +749,12 @@ def run_scanned_page_pipeline(
         table_result = table_stage.run_table(
             page_input, table_regions, table_backend, output_dir / "tables", logger
         )
+        # Capture backend-returned table candidates before OCR is used to fill
+        # their text. This is intentionally before any projection into Page.
+        if observation_ledger is not None:
+            observation_ledger.capture_acquisition_scanned_page(
+                page_index=page_index, layout_result=layout_result, ocr_result=ocr_result, table_result=table_result
+            )
         _fill_table_cell_text(table_result, ocr_result)
     elif logger is not None:
         logger.log_event(
@@ -760,6 +766,11 @@ def run_scanned_page_pipeline(
             error="backend not installed",
         )
 
+    if observation_ledger is not None and table_result is None:
+        # Same boundary when the optional table backend is unavailable.
+        observation_ledger.capture_acquisition_scanned_page(
+            page_index=page_index, layout_result=layout_result, ocr_result=ocr_result, table_result=None
+        )
     page = merge_regions_into_page(
         page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path
     )

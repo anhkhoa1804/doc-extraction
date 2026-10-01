@@ -10,8 +10,9 @@ from pathlib import Path
 import pytest
 
 from doc_extraction.evaluation.evidence_integrity import (
-    Disposition, ObservationLedger, ObservationRecord, OwnershipClaim,
+    Disposition, LossBoundary, ObservationLedger, ObservationRecord, OwnershipClaim,
     baseline_phrase_match, evaluate_evidence_integrity, html_cell_texts, truth_aware_candidate, truth_exact_match,
+    classify_loss_boundary,
 )
 from doc_extraction.pipelines.base import (
     LayoutResult, OCRResult, OCRToken, Region, TableResult, run_scanned_page_pipeline,
@@ -47,7 +48,7 @@ def _document(page: Page) -> Document:
     return Document(document_id="fixture", metadata=_metadata(), pages=[page])
 
 
-def _captured_page(tmp_path: Path):
+def _captured_page(tmp_path: Path, capture: bool = True):
     from PIL import Image
     tmp_path.mkdir(parents=True, exist_ok=True)
     image = tmp_path / "fixture.png"
@@ -73,7 +74,7 @@ def _captured_page(tmp_path: Path):
     class Tables:
         name = "tables-A"
         def is_available(self): return False
-    ledger = ObservationLedger()
+    ledger = ObservationLedger() if capture else None
     page = run_scanned_page_pipeline(image, 0, 100, Layout(), OCR(), Tables(), tmp_path / "out", observation_ledger=ledger)
     return page, ledger
 
@@ -91,6 +92,8 @@ def test_stable_identity_is_deterministic_and_identical_text_is_not_merged(tmp_p
     same = [r for r in one.records if r.payload_kind == "ocr_token" and r.text == "same"]
     assert len(same) == 2 and same[0].observation_id != same[1].observation_id
     assert all(r.confidence is None for r in same)
+    raw = [r for r in one.acquisition_records if r.payload_kind == "ocr_token" and r.text == "same"]
+    assert len(raw) == 2 and {r.observation_id for r in raw} == {r.observation_id for r in same}
 
 
 def test_ambiguous_ownership_is_unresolved_not_forced(tmp_path):
@@ -103,12 +106,25 @@ def test_ambiguous_ownership_is_unresolved_not_forced(tmp_path):
     assert result["canonical_output_equivalent"]
 
 
+def test_acquisition_capture_is_opt_in_and_canonical_page_is_unchanged(tmp_path):
+    baseline, no_ledger = _captured_page(tmp_path / "baseline", capture=False)
+    captured, ledger = _captured_page(tmp_path / "captured", capture=True)
+    assert no_ledger is None
+    assert ledger.acquisition_records  # captured before the projection ledger is reconciled
+    baseline_data, captured_data = baseline.model_dump(mode="json"), captured.model_dump(mode="json")
+    # The two fixture arms deliberately use different temp input paths.
+    baseline_data.pop("rendered_image_path")
+    captured_data.pop("rendered_image_path")
+    assert baseline_data == captured_data
+
+
 def test_ledger_serialization_is_deterministic_and_records_accounting(tmp_path):
     page, ledger = _captured_page(tmp_path)
     assert ledger.to_json() == ledger.to_json()
     result = evaluate_evidence_integrity(baseline=_document(page), candidate=_document(page), ledger=ledger)
     assert result["accounting_invariant"]
     assert result["provenance_complete"]
+    assert all(r.capture_stage == "acquisition" for r in ledger.acquisition_records)
 
 
 def test_table_cell_derivation_and_empty_structure_are_explicit():
@@ -168,3 +184,18 @@ def test_truth_aware_candidate_separates_duplicate_novel_and_structural_only():
                                        provenance_complete=True, structurally_valid=False)
     assert not unresolved["correct"] and not unresolved["novel_correct_textual_evidence"]
     assert baseline_phrase_match("alpha", ("x alpha y",))
+
+
+def test_loss_boundary_classification_is_deterministic():
+    assert classify_loss_boundary(acquisition_present=False, canonical_exact_present=False,
+                                  canonical_normalized_present=False, serialized_present=False,
+                                  ownership_conflict=False) is LossBoundary.ACQUISITION
+    assert classify_loss_boundary(acquisition_present=True, canonical_exact_present=False,
+                                  canonical_normalized_present=False, serialized_present=False,
+                                  ownership_conflict=True) is LossBoundary.OWNERSHIP
+    assert classify_loss_boundary(acquisition_present=True, canonical_exact_present=False,
+                                  canonical_normalized_present=True, serialized_present=False,
+                                  ownership_conflict=False) is LossBoundary.NORMALIZATION
+    assert classify_loss_boundary(acquisition_present=True, canonical_exact_present=True,
+                                  canonical_normalized_present=True, serialized_present=False,
+                                  ownership_conflict=False) is LossBoundary.SERIALIZATION

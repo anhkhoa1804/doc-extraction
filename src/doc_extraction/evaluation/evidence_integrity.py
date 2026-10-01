@@ -25,6 +25,17 @@ class Disposition(str, Enum):
     EXCLUDED = "excluded"
 
 
+class LossBoundary(str, Enum):
+    ACQUISITION = "acquisition"
+    NORMALIZATION = "normalization"
+    OWNERSHIP = "ownership"
+    RECONCILIATION = "reconciliation"
+    CANONICAL_PROJECTION = "canonical_projection"
+    SERIALIZATION = "serialization"
+    UNKNOWN = "unknown"
+    PRESERVED = "preserved"
+
+
 @dataclass(frozen=True)
 class OwnershipClaim:
     owner_ref: str
@@ -50,6 +61,10 @@ class ObservationRecord:
     disposition: Disposition = Disposition.EXCLUDED
     public_object_refs: tuple[str, ...] = ()
     warning_context: tuple[str, ...] = ()
+    # ``acquisition`` means captured immediately when the backend result was
+    # returned, before this pipeline normalizes, fills cells, or merges it.
+    # ``projection`` is the compatibility/reconciliation view used by 043/044.
+    capture_stage: str = "projection"
 
 
 def _box(value: Any) -> tuple[float, float, float, float] | None:
@@ -71,6 +86,7 @@ class ObservationLedger:
     """Append-only private ledger; captured material is not source truth."""
 
     records: list[ObservationRecord] = field(default_factory=list)
+    acquisition_records: list[ObservationRecord] = field(default_factory=list)
 
     def add(self, record: ObservationRecord) -> None:
         if any(old.observation_id == record.observation_id for old in self.records):
@@ -78,10 +94,65 @@ class ObservationLedger:
         self.records.append(record)
 
     def as_dict(self) -> dict[str, Any]:
-        return {"version": 1, "records": [asdict(r) for r in sorted(self.records, key=lambda r: r.observation_id)]}
+        return {
+            "version": 2,
+            "records": [asdict(r) for r in sorted(self.records, key=lambda r: r.observation_id)],
+            "acquisition_records": [asdict(r) for r in sorted(self.acquisition_records, key=lambda r: r.observation_id)],
+        }
 
     def to_json(self) -> str:
         return json.dumps(self.as_dict(), ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+    def capture_acquisition_scanned_page(self, *, page_index: int, layout_result: Any,
+                                         ocr_result: Any, table_result: Any | None) -> None:
+        """Capture backend-returned observations before any page projection.
+
+        This is the earliest common, backend-neutral boundary in the modular
+        scanned-page route. It deliberately receives raw ``LayoutResult``,
+        ``OCRResult``, and ``TableResult`` objects, not a ``Page`` or
+        ``Document``. ``table_result`` is captured before `_fill_table_cell_text`
+        mutates table-cell text from OCR tokens.
+        """
+        if any(record.page_index == page_index for record in self.acquisition_records):
+            raise ValueError(f"acquisition observations already captured for page {page_index}")
+        duplicates: Counter[tuple[Any, ...]] = Counter()
+
+        def ident(backend: str, kind: str, text: str | None, role: str | None,
+                  geometry: tuple[float, float, float, float] | None, locator: str | None) -> str:
+            key = (backend, kind, page_index, text, role, geometry, locator)
+            rank = duplicates[key]
+            duplicates[key] += 1
+            return _fingerprint(backend=backend, kind=kind, page=page_index, text=text, role=role,
+                                geometry=geometry, locator=locator, duplicate_rank=rank)
+
+        raw_table_ids: dict[str, str] = {}
+        for region in layout_result.regions:
+            self.acquisition_records.append(ObservationRecord(
+                ident(layout_result.backend, "layout_region", None, region.label, _box(region.bbox), region.source_id),
+                layout_result.backend, "layout_region", page_index, raw_role=region.label, geometry=_box(region.bbox),
+                source_locator=region.source_id, confidence=region.confidence, confidence_origin="layout_backend",
+                warning_context=tuple(layout_result.warnings), capture_stage="acquisition"))
+        for token in ocr_result.tokens:
+            self.acquisition_records.append(ObservationRecord(
+                ident(ocr_result.backend, "ocr_token", token.text, None, _box(token.bbox), None), ocr_result.backend,
+                "ocr_token", page_index, text=token.text, geometry=_box(token.bbox), confidence=token.confidence,
+                confidence_origin="ocr_backend", warning_context=tuple(ocr_result.warnings), capture_stage="acquisition"))
+        if table_result is None:
+            return
+        for table in table_result.tables:
+            oid = ident(table.source_backend, "table", None, None, _box(table.bbox), table.id)
+            raw_table_ids[table.id] = oid
+            self.acquisition_records.append(ObservationRecord(
+                oid, table.source_backend, "table", page_index, geometry=_box(table.bbox), source_locator=table.id,
+                confidence=table.confidence, confidence_origin="table_backend", warning_context=tuple(table_result.warnings),
+                capture_stage="acquisition"))
+            for cell in table.cells:
+                ref = f"page:{page_index}:table:{table.id}:cell:{cell.row}:{cell.col}"
+                self.acquisition_records.append(ObservationRecord(
+                    ident(table.source_backend, "table_cell_candidate", cell.text, None, _box(cell.bbox), ref),
+                    table.source_backend, "table_cell_candidate", page_index, text=cell.text, geometry=_box(cell.bbox),
+                    confidence=cell.confidence, confidence_origin="table_backend", derivation_refs=(raw_table_ids[table.id],),
+                    warning_context=tuple(table_result.warnings), capture_stage="acquisition"))
 
     def capture_scanned_page(self, *, page: Any, layout_result: Any, ocr_result: Any,
                              table_result: Any | None) -> None:
@@ -215,6 +286,23 @@ def truth_aware_candidate(*, text: str | None, truth_cells: tuple[str, ...],
             "ownership_valid": ownership_valid, "provenance_complete": provenance_complete,
             "structurally_valid": structurally_valid, "novel_correct_textual_evidence": novel,
             "structural_only_recovery": structurally_valid and not novel}
+
+
+def classify_loss_boundary(*, acquisition_present: bool, canonical_exact_present: bool,
+                           canonical_normalized_present: bool, serialized_present: bool,
+                           ownership_conflict: bool, reconciliation_missing: bool = False) -> LossBoundary:
+    """Classify the first evidenced disappearance; unknowns stay unknown."""
+    if not acquisition_present:
+        return LossBoundary.ACQUISITION
+    if reconciliation_missing:
+        return LossBoundary.RECONCILIATION
+    if not canonical_normalized_present:
+        return LossBoundary.OWNERSHIP if ownership_conflict else LossBoundary.CANONICAL_PROJECTION
+    if not canonical_exact_present:
+        return LossBoundary.NORMALIZATION
+    if not serialized_present:
+        return LossBoundary.SERIALIZATION
+    return LossBoundary.PRESERVED
 
 
 def _object_refs(document: Document) -> set[str]:

@@ -1,5 +1,6 @@
 from doc_extraction.evaluation.evidence_integrity import (
     Disposition,
+    LossBoundary,
     ObservationLedger,
     ObservationRecord,
     OwnershipClaim,
@@ -7,6 +8,6 @@ from doc_extraction.evaluation.evidence_integrity import (
 )
 
 __all__ = [
-    "Disposition", "ObservationLedger", "ObservationRecord", "OwnershipClaim",
+    "Disposition", "LossBoundary", "ObservationLedger", "ObservationRecord", "OwnershipClaim",
     "evaluate_evidence_integrity",
 ]
