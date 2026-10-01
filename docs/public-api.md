@@ -35,4 +35,6 @@ to PDF page numbers.
 No authoritative ExtractionPackage v1 schema is available locally. This
 repository therefore does not claim a substitute external contract. Future
 KP/CDOI integration must supply that authority and adapt from `Document` at a
-narrow public boundary.
+narrow public boundary. The exact blocker and the artifacts required from the
+contract owner are recorded in
+[`extractionpackage-v1-integration.md`](extractionpackage-v1-integration.md).
