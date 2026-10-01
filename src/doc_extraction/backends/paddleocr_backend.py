@@ -19,7 +19,14 @@ import importlib.util
 from pathlib import Path
 from typing import Any
 
-from doc_extraction.pipelines.base import BackendUnavailableError, LayoutResult, OCRResult, PageInput, Region, TableResult
+from doc_extraction.pipelines.base import (
+    BackendUnavailableError,
+    LayoutResult,
+    OCRResult,
+    PageInput,
+    Region,
+    TableResult,
+)
 from doc_extraction.schemas.document import Document
 
 _INSTALL_HINT = (

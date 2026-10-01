@@ -32,7 +32,6 @@ from doc_extraction.pipelines.base import (
     LayoutBackend,
     OCRBackend,
     PageInput,
-    Region,
     TableBackend,
     run_scanned_page_pipeline,
 )
@@ -44,7 +43,7 @@ from doc_extraction.utils.logging import StageLogger, noop_stage
 BACKEND_NAME_NATIVE = "pymupdf-native"
 
 
-def _estimate_body_font_size(doc: "pymupdf.Document") -> float:
+def _estimate_body_font_size(doc: pymupdf.Document) -> float:
     sizes: Counter[int] = Counter()
     for page in doc:
         for block in page.get_text("dict")["blocks"]:
@@ -56,7 +55,7 @@ def _estimate_body_font_size(doc: "pymupdf.Document") -> float:
     return float(sizes.most_common(1)[0][0]) if sizes else 10.0
 
 
-def _extract_text_elements(pdf_page: "pymupdf.Page", page_index: int, body_size: float) -> list[Element]:
+def _extract_text_elements(pdf_page: pymupdf.Page, page_index: int, body_size: float) -> list[Element]:
     elements: list[Element] = []
     order_index = 0
     for block in pdf_page.get_text("dict")["blocks"]:
@@ -95,10 +94,10 @@ def _extract_text_elements(pdf_page: "pymupdf.Page", page_index: int, body_size:
         try:
             rect = pdf_page.get_image_bbox(img)
             bbox = BBox(x0=rect.x0, y0=rect.y0, x1=rect.x1, y1=rect.y1)
-        except Exception:
+        except (RuntimeError, ValueError):
             # get_image_bbox fails for images placed by an uncommon
             # transform; the element is still worth recording without a box.
-            pass
+            bbox = None
         elements.append(
             Element(
                 id=f"p{page_index}-eimg{image_index}",
@@ -342,8 +341,10 @@ def _apply_page_fallback(
             )
             native_notes = list(pages[index].notes)
             rebuilt.notes = native_notes + [
-                "page re-extracted via visual/OCR fallback because its native "
-                "text layer failed text-quality checks"
+                (
+                    "page re-extracted via visual/OCR fallback because its native "
+                    "text layer failed text-quality checks"
+                )
             ]
             rebuilt.source_route = "digital_pdf+page_fallback"
             pages[index] = rebuilt

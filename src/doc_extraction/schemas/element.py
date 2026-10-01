@@ -67,7 +67,7 @@ class BBox(BaseModel):
     def area(self) -> float:
         return max(0.0, self.width) * max(0.0, self.height)
 
-    def iou(self, other: "BBox") -> float:
+    def iou(self, other: BBox) -> float:
         ix0, iy0 = max(self.x0, other.x0), max(self.y0, other.y0)
         ix1, iy1 = min(self.x1, other.x1), min(self.y1, other.y1)
         inter = max(0.0, ix1 - ix0) * max(0.0, iy1 - iy0)

@@ -159,7 +159,7 @@ def assess_table(table: Table, spans: list[dict[str, Any]] | None) -> TableQuali
             by_row.setdefault(pos[0], []).append(span)
 
     outliers = 0
-    for row, row_spans in by_row.items():
+    for row_spans in by_row.values():
         if len(row_spans) < 3:
             continue  # too few runs to establish a consensus
         sizes = [s.get("size", 0.0) for s in row_spans]

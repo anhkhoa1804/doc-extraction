@@ -1,0 +1,34 @@
+# Production boundary
+
+## Runtime and public surface
+
+Production code is `src/doc_extraction/`. The supported invocation is the
+`doc-extraction` CLI or its documented Python pipeline functions. `tests/`
+contains production regression, integration, contract, and determinism tests.
+
+`experiments/` and `research/` are historical evidence archives. They are not
+imported by the normal extraction route and are not a dependency of packaging
+or deployment. Their compact protocols, manifests, and reports are retained;
+large raw stage output remains outside Git under the managed research work
+disk, as documented in `.gitignore`.
+
+## Optional diagnostic components
+
+`evaluation/evidence_integrity.py` is retained as optional diagnostic tooling:
+it is not invoked by the CLI or canonical extraction pipeline. Its ledger is
+opt-in at the scanned-page pipeline seam and must not change canonical output.
+The closed research claim is not part of the production contract.
+
+`ingest/evidence_fusion.py`, `targeted_recovery.py`, `scan_recovery.py`, and
+`order_recovery.py` are retained for historical reproducibility and focused
+unit tests. They are not selected by the production CLI route. New production
+features must not import or enable them without an explicit product decision,
+public configuration, and regression coverage.
+
+## Contract authority
+
+The repository's authoritative output today is its documented canonical
+`Document` schema. No authoritative local `ExtractionPackage v1` contract was
+found or fabricated during this cleanup. A future integration must provide the
+authoritative schema and use a narrow adapter at the public boundary; it must
+not expose private diagnostic or historical classes downstream.

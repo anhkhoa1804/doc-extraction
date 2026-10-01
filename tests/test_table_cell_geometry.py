@@ -14,7 +14,12 @@ failing document lives in `experiments/017_table_cell_geometry/`.
 """
 from __future__ import annotations
 
-from doc_extraction.pipelines.base import OCRResult, OCRToken, TableResult, _fill_table_cell_text
+from doc_extraction.pipelines.base import (
+    OCRResult,
+    OCRToken,
+    TableResult,
+    _fill_table_cell_text,
+)
 from doc_extraction.schemas.element import BBox
 from doc_extraction.schemas.table import Cell, Table
 

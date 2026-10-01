@@ -125,7 +125,7 @@ class WholeDocumentBackend(Protocol):
 
     def is_available(self) -> bool: ...
 
-    def convert(self, path: Path, config: "PipelineConfig") -> "Document": ...
+    def convert(self, path: Path, config: PipelineConfig) -> Document: ...
 
 
 # ---------------------------------------------------------------------------
@@ -404,7 +404,7 @@ def _y_overlap_fraction(a: BBox, b: BBox) -> float:
     return inter / shorter
 
 
-def _column_bands(table: "Table") -> dict[int, tuple[float, float]]:
+def _column_bands(table: Table) -> dict[int, tuple[float, float]]:
     """Each existing column's x-range, taken as the union of its own cells'
     bboxes -- the anchor grid a synthesized row is placed against. A table
     whose cells carry no geometry yields nothing to anchor to."""
@@ -457,7 +457,7 @@ def _cluster_by_row_band(tokens: list[OCRToken]) -> list[list[OCRToken]]:
     return clusters
 
 
-def _renumber_rows_by_position(table: "Table") -> None:
+def _renumber_rows_by_position(table: Table) -> None:
     """Reassign every cell's `row` so row indices read top-to-bottom by
     actual y-position, after tier 3 may have inserted a synthesized row
     above, below, or between the rows Table Transformer itself detected.
@@ -478,7 +478,7 @@ def _renumber_rows_by_position(table: "Table") -> None:
     table.n_rows = len(bands)
 
 
-def _fill_table_cell_text(table_result: "TableResult", ocr_result: OCRResult) -> None:
+def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> None:
     """Table Transformer produces grid geometry only (no text). Fill each
     cell's text from whichever OCR tokens land there, in three tiers:
 
@@ -595,9 +595,9 @@ def merge_regions_into_page(
     dpi: int | None,
     layout_result: LayoutResult,
     ocr_result: OCRResult,
-    table_result: "TableResult | None",
+    table_result: TableResult | None,
     rendered_image_path: Path | None,
-) -> "Page":
+) -> Page:
     """Combine one page's layout regions + OCR tokens + detected tables into
     a canonical Page. Region text is assembled from whichever OCR tokens
     fall inside the region's bbox (center-point containment — a simple,
@@ -717,9 +717,9 @@ def run_scanned_page_pipeline(
     ocr_backend: OCRBackend,
     table_backend: TableBackend,
     output_dir: Path,
-    logger: "StageLogger | None" = None,
-    observation_ledger: "Any | None" = None,
-) -> "Page":
+    logger: StageLogger | None = None,
+    observation_ledger: Any | None = None,
+) -> Page:
     """Steps E-H for one already-rendered page: layout -> OCR -> table ->
     merge into a canonical Page. Raises BackendUnavailableError (uncaught)
     if the configured layout/OCR backend isn't installed; the table backend

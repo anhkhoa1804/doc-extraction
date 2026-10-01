@@ -62,34 +62,48 @@ def _heading_level(style_name: str) -> int:
     return 1
 
 
+def _docx_tc_key(cell) -> str:
+    """Return a stable OOXML address for a DOCX grid cell.
+
+    `id(cell._tc)` is not stable across repeated `python-docx` proxy
+    construction: temporary lxml wrappers may be released and their Python
+    object ids reused while a table is being converted. The resulting false
+    equality made merged-cell spans nondeterministic. An XML-tree path is
+    stable for this document and still identifies repeated grid positions
+    which python-docx maps to the same merged ``w:tc`` element.
+    """
+    tc = cell._tc
+    return tc.getroottree().getpath(tc)
+
+
 def _convert_docx_table(docx_table: DocxTable, table_id: str) -> Table:
     n_rows = len(docx_table.rows)
     n_cols = len(docx_table.columns)
-    row_cell_ids = [[id(c._tc) for c in row.cells] for row in docx_table.rows]
+    row_cell_keys = [[_docx_tc_key(cell) for cell in row.cells] for row in docx_table.rows]
 
     grid_claimed: set[tuple[int, int]] = set()
     cells: list[Cell] = []
     for r, row in enumerate(docx_table.rows):
         row_cells = list(row.cells)
         c = 0
-        seen_in_row: set[int] = set()
+        seen_in_row: set[str] = set()
         while c < len(row_cells):
             if (r, c) in grid_claimed:
                 c += 1
                 continue
-            tc_id = id(row_cells[c]._tc)
-            if tc_id in seen_in_row:
+            tc_key = _docx_tc_key(row_cells[c])
+            if tc_key in seen_in_row:
                 c += 1
                 continue
-            seen_in_row.add(tc_id)
+            seen_in_row.add(tc_key)
 
             col_span = 1
-            while c + col_span < len(row_cells) and id(row_cells[c + col_span]._tc) == tc_id:
+            while c + col_span < len(row_cells) and _docx_tc_key(row_cells[c + col_span]) == tc_key:
                 col_span += 1
 
             row_span = 1
             rr = r + 1
-            while rr < n_rows and c < len(row_cell_ids[rr]) and row_cell_ids[rr][c] == tc_id:
+            while rr < n_rows and c < len(row_cell_keys[rr]) and row_cell_keys[rr][c] == tc_key:
                 row_span += 1
                 rr += 1
 
@@ -136,7 +150,7 @@ def parse_docx(path: Path, logger: StageLogger | None = None) -> list[Page]:
                 if not text:
                     continue
                 style = (para.style.name or "").lower() if para.style is not None else ""
-                if style.startswith("heading") or style.startswith("title"):
+                if style.startswith(("heading", "title")):
                     etype = ElementType.HEADING
                     level = _heading_level(style)
                 elif "list" in style or "bullet" in style:
@@ -190,9 +204,11 @@ def parse_docx(path: Path, logger: StageLogger | None = None) -> list[Page]:
             elements=elements,
             tables=tables,
             notes=[
-                "DOCX pagination is a renderer property and is not available without a "
-                "layout engine; this document is represented as one logical page with "
-                "page_number=None on every element."
+                (
+                    "DOCX pagination is a renderer property and is not available without a "
+                    "layout engine; this document is represented as one logical page with "
+                    "page_number=None on every element."
+                )
             ],
         )
     ]
@@ -307,7 +323,7 @@ def _shape_bbox(shape) -> BBox | None:
         return BBox(
             x0=shape.left, y0=shape.top, x1=shape.left + shape.width, y1=shape.top + shape.height
         )
-    except Exception:
+    except (AttributeError, TypeError, ValueError):
         return None
 
 

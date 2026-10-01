@@ -30,7 +30,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from doc_extraction.pipelines.base import LayoutResult, OCRResult, OCRToken, PageInput, Region
+from doc_extraction.pipelines.base import (
+    LayoutResult,
+    OCRResult,
+    OCRToken,
+    PageInput,
+    Region,
+)
 from doc_extraction.schemas.document import Document, RunMetadata
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
@@ -188,7 +194,7 @@ class DoclingBackend:
         self.device = device
         self.ocr_languages = ocr_languages or ["en"]
         self._converter = None
-        self._page_cache: "OrderedDict[str, Any]" = OrderedDict()
+        self._page_cache: OrderedDict[str, Any] = OrderedDict()
         self._page_cache_size = 8
 
     def is_available(self) -> bool:
@@ -197,8 +203,16 @@ class DoclingBackend:
     def _get_converter(self):
         if self._converter is None:
             from docling.datamodel.base_models import InputFormat
-            from docling.datamodel.pipeline_options import AcceleratorOptions, EasyOcrOptions, PdfPipelineOptions
-            from docling.document_converter import DocumentConverter, ImageFormatOption, PdfFormatOption
+            from docling.datamodel.pipeline_options import (
+                AcceleratorOptions,
+                EasyOcrOptions,
+                PdfPipelineOptions,
+            )
+            from docling.document_converter import (
+                DocumentConverter,
+                ImageFormatOption,
+                PdfFormatOption,
+            )
 
             pipeline_options = PdfPipelineOptions()
             pipeline_options.do_ocr = True

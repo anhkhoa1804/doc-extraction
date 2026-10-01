@@ -37,6 +37,7 @@ Limitations (documented, not silently absorbed)
 from __future__ import annotations
 
 import importlib.util
+from itertools import pairwise
 from pathlib import Path
 
 from doc_extraction.ingest.table_quality import assess_table
@@ -50,12 +51,9 @@ def is_available() -> bool:
 
 
 def backend_version() -> str:
-    try:
-        import pymupdf
+    import pymupdf
 
-        return str(getattr(pymupdf, "__version__", "unknown"))
-    except Exception:  # pragma: no cover - pymupdf is a core dependency
-        return "unavailable"
+    return str(getattr(pymupdf, "__version__", "unknown"))
 
 
 def _touches(run: dict, table: Table) -> bool:
@@ -121,7 +119,7 @@ def _split_span_at_discontinuities(span: dict) -> list[dict]:
         return []
     size = span.get("size") or 9.0
     groups: list[list[dict]] = [[chars[0]]]
-    for prev, cur in zip(chars, chars[1:]):
+    for prev, cur in pairwise(chars):
         overlapping = cur["bbox"][0] < prev["bbox"][2] - _ADVANCE_OVERLAP_TOL
         far_apart = cur["bbox"][0] - prev["bbox"][2] > _ADVANCE_GAP_EM * size
         new_baseline = abs(cur["origin"][1] - prev["origin"][1]) > 0.5
@@ -376,9 +374,10 @@ class PyMuPDFTableBackend:
                 if converted.n_rows == 0 or converted.n_cols == 0:
                     warnings.append(f"table {i} has an empty {converted.n_rows}x{converted.n_cols} grid; skipped")
                     continue
-                if regions and converted.bbox is not None:
-                    if not any(converted.bbox.iou(r.bbox) > 0.05 for r in regions):
-                        continue
+                if regions and converted.bbox is not None and not any(
+                    converted.bbox.iou(region.bbox) > 0.05 for region in regions
+                ):
+                    continue
 
                 # Judge the cells against the runs that produced them. A
                 # suspicious table is still returned -- suppressing it would

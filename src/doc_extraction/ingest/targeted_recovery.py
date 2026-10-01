@@ -36,15 +36,17 @@ It does not decide *which* groups need recovery — that is
 """
 from __future__ import annotations
 
-import re
-import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import numpy as np
 from PIL import Image
 
-from doc_extraction.ingest.evidence_fusion import EvidenceGroup, LOW_CONFIDENCE_MAX, _words
+from doc_extraction.ingest.evidence_fusion import (
+    LOW_CONFIDENCE_MAX,
+    EvidenceGroup,
+    _words,
+)
 from doc_extraction.ingest.text_quality import assess_text
 from doc_extraction.pipelines.base import PageInput
 

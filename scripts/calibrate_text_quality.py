@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Calibration harness for the PDF text-quality heuristic.
 
 Prints, for every PDF in a directory, the per-page signal values from
@@ -18,9 +17,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-import pymupdf  # noqa: E402
+import pymupdf
 
-from doc_extraction.ingest.text_quality import assess_text  # noqa: E402
+from doc_extraction.ingest.text_quality import assess_text
 
 
 def main() -> int:

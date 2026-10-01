@@ -63,7 +63,7 @@ from pathlib import Path
 
 from doc_extraction.ingest.text_quality import assess_text
 from doc_extraction.pipelines.base import OCRToken, PageInput
-from doc_extraction.schemas.element import BBox, Element
+from doc_extraction.schemas.element import BBox
 
 # A reconstruction is only even considered when the two readings already
 # agree this well on WHICH words are present -- below this, the two
@@ -90,7 +90,7 @@ LINE_Y_OVERLAP_MIN = 0.3
 
 def _words(s: str) -> list[str]:
     s = unicodedata.normalize("NFC", s).lower()
-    return [w for w in re.split(r"[^0-9a-zà-ỹăâđêôơư]+", s, flags=re.I) if w]
+    return [w for w in re.split(r"[^0-9a-zà-ỹăâđêôơư]+", s, flags=re.IGNORECASE) if w]
 
 
 def word_jaccard(a: str, b: str) -> float:

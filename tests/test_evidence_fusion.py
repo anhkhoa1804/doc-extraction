@@ -130,16 +130,8 @@ def test_agree_branch_adds_only_the_docling_token_with_new_words():
     one anchor), only the ones carrying words EasyOCR's reading lacks
     should be appended -- a fully-redundant Docling token must not create
     a second copy of text EasyOCR already covers."""
-    docling = [
-        _tok("Invoice number 4471", 0, 0, 200, 20),  # fully covered by easyocr below
-        _tok("Extra unique clause", 0, 25, 200, 45),  # not covered at all
-    ]
-    easyocr = [_tok("Invoice number 4471", 0, 0, 200, 20, 0.9)]
-
-    groups = fuse_page(docling, easyocr)
-    # Both docling tokens overlap the single easyocr token's region enough
-    # to land in different anchors in this construction (they are separate
-    # Docling anchors), so build the merge directly on one group instead.
+    # Build the multi-token merge directly: separate Docling anchors would
+    # represent a different spatial grouping than the condition under test.
     from doc_extraction.ingest.evidence_fusion import EvidenceGroup, EvidenceToken
     from doc_extraction.schemas.element import BBox
 

@@ -43,11 +43,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from doc_extraction.ingest.evidence_fusion import FusionStatus, assemble_fused_text, fuse_page
+from doc_extraction.ingest.evidence_fusion import (
+    FusionStatus,
+    assemble_fused_text,
+    fuse_page,
+)
 from doc_extraction.ingest.text_quality import assess_text
 from doc_extraction.ingest.verification import VerificationStatus, assess_ocr_agreement
 from doc_extraction.pipelines.base import OCRToken, PageInput, _center_in
-from doc_extraction.schemas.element import Element
 
 
 @dataclass

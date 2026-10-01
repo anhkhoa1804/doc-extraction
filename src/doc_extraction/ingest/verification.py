@@ -57,10 +57,13 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
 
-from doc_extraction.ingest.text_quality import TextQualityReport, TextQualityThresholds, assess_text
+from doc_extraction.ingest.text_quality import (
+    TextQualityReport,
+    TextQualityThresholds,
+    assess_text,
+)
 from doc_extraction.schemas.document import Document
 from doc_extraction.schemas.element import Element
-from doc_extraction.schemas.table import Table
 
 
 class VerificationStatus(str, Enum):

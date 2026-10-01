@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Thin wrapper for environments without `make`:
 
     python scripts/compare_backends.py --input data --backends docling
@@ -14,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from doc_extraction.cli import build_parser  # noqa: E402
+from doc_extraction.cli import build_parser
 
 if __name__ == "__main__":
     parsed = build_parser().parse_args(["compare", *sys.argv[1:]])

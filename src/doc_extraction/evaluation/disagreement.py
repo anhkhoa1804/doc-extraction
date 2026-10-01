@@ -37,7 +37,7 @@ from difflib import SequenceMatcher
 from typing import Any
 
 from doc_extraction.schemas.document import Document
-from doc_extraction.schemas.element import BBox, Element
+from doc_extraction.schemas.element import Element
 from doc_extraction.schemas.page import Page
 
 # Two boxes are considered "the same region" above this IoU. Deliberately

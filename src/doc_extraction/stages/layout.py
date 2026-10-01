@@ -9,7 +9,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from doc_extraction.pipelines.base import BackendUnavailableError, LayoutBackend, LayoutResult, PageInput
+from doc_extraction.pipelines.base import (
+    BackendUnavailableError,
+    LayoutBackend,
+    LayoutResult,
+    PageInput,
+)
 from doc_extraction.utils.logging import StageLogger, noop_stage
 from doc_extraction.utils.serde import write_json
 

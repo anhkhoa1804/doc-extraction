@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Aggregate per-stage timings from runs that already happened.
 
 Why this reads logs instead of instrumenting the pipeline

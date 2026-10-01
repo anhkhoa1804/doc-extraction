@@ -36,17 +36,17 @@ What this module provides:
 """
 from __future__ import annotations
 
-from doc_extraction import config as _config
-
 import json
 import os
 import platform
 import subprocess
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
+from doc_extraction import config as _config
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page
 
@@ -658,6 +658,7 @@ def run_official_evaluator(
         errors="replace",
         timeout=timeout_seconds,
         env=env,
+        check=False,
     )
     if log_path:
         log_path.parent.mkdir(parents=True, exist_ok=True)

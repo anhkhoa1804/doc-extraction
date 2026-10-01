@@ -5,6 +5,7 @@ import os
 
 import pytest
 import yaml
+from pydantic import ValidationError
 
 from doc_extraction.config import PipelineConfig, load_config
 from doc_extraction.pipelines.base import BackendUnavailableError
@@ -52,7 +53,7 @@ def test_overrides_merge_over_file(repo_root):
 def test_invalid_config_value_is_rejected(tmp_path):
     bad = tmp_path / "bad.yaml"
     bad.write_text("render_dpi: not-a-number\n", encoding="utf-8")
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         load_config(bad)
 
 
@@ -212,7 +213,10 @@ def test_component_backends_are_cached_per_device_and_languages():
     the full model-load cost again — on a benchmark whose pages all take the
     visual route, that dominated the run (visible as a fresh "Loading
     weights"/"LOAD REPORT" per page in the logs). They must be reused."""
-    from doc_extraction.cli import _get_component_backends, clear_component_backend_cache
+    from doc_extraction.cli import (
+        _get_component_backends,
+        clear_component_backend_cache,
+    )
 
     clear_component_backend_cache()
     try:
@@ -362,12 +366,13 @@ def test_docling_recognize_emits_table_cell_text(tmp_path):
             self.text, self.bbox = text, bbox
 
     class _Data:
-        table_cells = [
+        def __init__(self):
+            self.table_cells = [
             _Cell("SKU-1001", _BBox(10, 20, 60, 32)),
             _Cell("Sản phẩm 1", _BBox(70, 20, 140, 32)),
             _Cell("   ", _BBox(150, 20, 200, 32)),   # blank cell: skipped
             _Cell("no-geometry", None),              # no bbox: skipped, not faked
-        ]
+            ]
 
     class _TableItem:
         label = "table"

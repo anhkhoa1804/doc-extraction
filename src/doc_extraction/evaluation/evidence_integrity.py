@@ -7,14 +7,14 @@ plus a ledger (B) without changing extraction behaviour.
 """
 from __future__ import annotations
 
-from collections import Counter, defaultdict
+import json
+import re
+from collections import Counter
 from dataclasses import asdict, dataclass, field
 from enum import Enum
 from hashlib import sha256
-import json
-import re
-from typing import Any
 from html.parser import HTMLParser
+from typing import Any
 
 from doc_extraction.schemas.document import Document
 

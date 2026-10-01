@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Build a failure-analysis report over an outputs/ directory.
 
 This is the bridge from "the pipeline ran" to "here is where it went wrong".
@@ -33,8 +32,10 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from doc_extraction.evaluation.disagreement import page_text as disagreement_page_text  # noqa: E402
-from doc_extraction.schemas.document import Document  # noqa: E402
+from doc_extraction.evaluation.disagreement import (
+    page_text as disagreement_page_text,
+)
+from doc_extraction.schemas.document import Document
 
 # A page with a lot of elements but almost no text, or a wall of text in a
 # single element, is worth a look — both usually mean a segmentation problem.
@@ -66,7 +67,8 @@ def _load_failed_runs(outputs_root: Path) -> list[dict[str, Any]]:
             continue
         try:
             metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            print(f"  ! could not read {metadata_path}: {type(exc).__name__}: {exc}", file=sys.stderr)
             continue
         if metadata.get("errors"):
             failed.append({"document_dir": document_dir.name, **metadata})
@@ -84,7 +86,8 @@ def _collect_disagreements(outputs_root: Path) -> list[dict[str, Any]]:
     for diff_path in sorted(outputs_root.rglob("comparison/*/diff.json")):
         try:
             diff = json.loads(diff_path.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            print(f"  ! could not read {diff_path}: {type(exc).__name__}: {exc}", file=sys.stderr)
             continue
         for pair in diff.get("disagreements", []):
             for page in pair.get("pages", []):

@@ -13,11 +13,12 @@ import json
 import logging
 import sys
 import time
+from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 
 def _now_iso() -> str:
@@ -25,7 +26,7 @@ def _now_iso() -> str:
 
 
 @contextmanager
-def noop_stage() -> Iterator["StageContext"]:
+def noop_stage() -> Iterator[StageContext]:
     """Drop-in replacement for `StageLogger.stage(...)` when no logger is
     available, so call sites never need an `if logger` branch."""
     yield StageContext()

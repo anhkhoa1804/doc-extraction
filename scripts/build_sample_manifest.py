@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Regenerate data/manifest.json from the local sample files under data/.
 
 Read-only over the sample files themselves — only ever opens them for
@@ -15,9 +14,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from doc_extraction.ingest.classifier import detect  # noqa: E402
-from doc_extraction.utils.hashing import sha256_file  # noqa: E402
-from doc_extraction.utils.serde import write_json  # noqa: E402
+from doc_extraction.ingest.classifier import detect
+from doc_extraction.utils.hashing import sha256_file
+from doc_extraction.utils.serde import write_json
 
 _SAMPLE_EXTENSIONS = {"pdf", "docx", "xlsx", "pptx"}
 

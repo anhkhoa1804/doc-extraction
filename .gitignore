@@ -90,6 +90,20 @@ experiments/037_selective_policy_validation/results/
 experiments/038_independent_real_corpus/results/
 experiments/039_larger_real_corpus/results/
 
+# Frozen research 035 and 043--046 retain compact manifests, protocols, and
+# final reports in Git. Local raw stage dumps and superseded trial summaries
+# remain on the research work disk but are not production source artifacts.
+experiments/035_mechanism_d_gating/results/**/run_metadata.json
+experiments/035_mechanism_d_gating/results/**/runtime.json
+experiments/043_observation_ledger_vertical_slice/runs/2026-10-01_d2-00_observational_replay.json
+experiments/044_truth_aware_development_replay/runs/2026-10-01_protocol-v2_observational.json
+experiments/044_truth_aware_development_replay/runs/2026-10-01_protocol-v2_observational-v2.json
+experiments/045_acquisition_time_observation_capture/runs/2026-10-01_protocol-v1_acquisition_capture.json
+experiments/045_acquisition_time_observation_capture/runs/*_stage_outputs/
+experiments/046_independent_corpus_challenge/population_manifest_preflight_invalid.json
+experiments/046_independent_corpus_challenge/runs/2026-10-01_protocol-v1_independent-corpus.json
+experiments/046_independent_corpus_challenge/runs/*_stage_outputs/
+
 # Environment / secrets
 .env
 .env.*

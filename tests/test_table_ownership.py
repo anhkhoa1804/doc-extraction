@@ -24,11 +24,11 @@ import pytest
 
 pymupdf = pytest.importorskip("pymupdf")
 
-from doc_extraction.backends.pymupdf_table_backend import (  # noqa: E402
+from doc_extraction.backends.pymupdf_table_backend import (
     PyMuPDFTableBackend,
 )
-from doc_extraction.ingest.table_quality import assess_table  # noqa: E402
-from doc_extraction.pipelines.base import PageInput  # noqa: E402
+from doc_extraction.ingest.table_quality import assess_table
+from doc_extraction.pipelines.base import PageInput
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 HEADERS = ["STT", "Mô tả hàng hóa", "Đơn vị", "Số lượng", "Thành tiền"]
@@ -270,8 +270,8 @@ def test_gate_does_not_flag_an_empty_cell_alone(tmp_path):
 # duplication, zero diacritic loss, gate recall 1.000 at precision 0.913.
 # --------------------------------------------------------------------------
 
-import random  # noqa: E402
-import unicodedata  # noqa: E402
+import random
+import unicodedata
 
 STAMP_LINES = ["CÔNG TY TNHH", "ĐÃ DUYỆT"]
 _RANDOM_ROWS = ROWS + [

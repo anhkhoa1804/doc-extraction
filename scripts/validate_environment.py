@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Check that this machine can actually run the project, and say what it can't.
 
 The problem this solves: the pipeline's failure modes at first run are mostly
@@ -118,7 +117,11 @@ def check_package(report: Report) -> None:
 def check_gpu(report: Report) -> None:
     """Separate three things that all look like "no GPU" from one boolean."""
     try:
-        from doc_extraction.utils.resources import classify_gpu, query_gpu, torch_cuda_usable
+        from doc_extraction.utils.resources import (
+            classify_gpu,
+            query_gpu,
+            torch_cuda_usable,
+        )
     except Exception as exc:  # noqa: BLE001
         report.add("gpu", WARN, f"resource module unavailable: {exc}", required=False)
         return

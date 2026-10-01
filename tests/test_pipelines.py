@@ -5,6 +5,7 @@ per-page fallback) and the real corpus where it covers the case.
 """
 from __future__ import annotations
 
+import pymupdf
 import pytest
 
 from doc_extraction.config import PipelineConfig
@@ -20,7 +21,6 @@ from tests.fixtures import (
     make_pptx,
     make_xlsx,
 )
-
 
 # --------------------------------------------------------------------------
 # Digital PDF: native text + native tables
@@ -221,7 +221,7 @@ def test_corrupt_pdf_raises_rather_than_returning_empty(tmp_path):
     from tests.fixtures import make_corrupt_pdf
 
     path = make_corrupt_pdf(tmp_path / "broken.pdf")
-    with pytest.raises(Exception):
+    with pytest.raises(pymupdf.FileDataError):
         pdf.parse_digital_pdf(path, PipelineConfig(), tmp_path / "out")
 
 

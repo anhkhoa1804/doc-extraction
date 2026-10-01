@@ -12,16 +12,16 @@ from doc_extraction.schemas.version import SCHEMA_VERSION
 
 
 def _metadata(**overrides) -> RunMetadata:
-    defaults = dict(
-        input_filename="test.pdf",
-        input_path="test.pdf",
-        file_hash_sha256="deadbeef",
-        file_type="pdf",
-        route="digital_pdf",
-        pipeline="baseline",
-        backend="baseline",
-        timestamp=datetime.now(timezone.utc).isoformat(),
-    )
+    defaults = {
+        "input_filename": "test.pdf",
+        "input_path": "test.pdf",
+        "file_hash_sha256": "deadbeef",
+        "file_type": "pdf",
+        "route": "digital_pdf",
+        "pipeline": "baseline",
+        "backend": "baseline",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
     defaults.update(overrides)
     return RunMetadata(**defaults)
 

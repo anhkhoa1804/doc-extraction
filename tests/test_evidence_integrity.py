@@ -5,23 +5,34 @@ falsification/control suite, not a substitute for a corpus benchmark.
 """
 from __future__ import annotations
 
+from dataclasses import FrozenInstanceError
 from pathlib import Path
 
 import pytest
 
 from doc_extraction.evaluation.evidence_integrity import (
-    Disposition, LossBoundary, ObservationLedger, ObservationRecord, OwnershipClaim,
-    baseline_phrase_match, evaluate_evidence_integrity, html_cell_texts, truth_aware_candidate, truth_exact_match,
+    Disposition,
+    LossBoundary,
+    ObservationLedger,
+    ObservationRecord,
+    baseline_phrase_match,
     classify_loss_boundary,
+    evaluate_evidence_integrity,
+    html_cell_texts,
+    truth_aware_candidate,
+    truth_exact_match,
 )
 from doc_extraction.pipelines.base import (
-    LayoutResult, OCRResult, OCRToken, Region, TableResult, run_scanned_page_pipeline,
+    LayoutResult,
+    OCRResult,
+    OCRToken,
+    Region,
+    run_scanned_page_pipeline,
 )
 from doc_extraction.schemas.document import Document, RunMetadata
 from doc_extraction.schemas.element import BBox
 from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.table import Cell, Table
-
 
 FIXTURE_IDS = {
     "ei-01-distinct-identical-text": "identical visible text / distinct observations",
@@ -156,7 +167,7 @@ def test_duplicate_detection_and_novelty_are_normalized_exact_only():
 
 def test_records_are_immutable_and_duplicate_identity_rejected():
     record = ObservationRecord("immutable", "ocr", "ocr_token", 0)
-    with pytest.raises(Exception):
+    with pytest.raises(FrozenInstanceError):
         record.text = "no"  # type: ignore[misc]
     ledger = ObservationLedger()
     ledger.add(record)

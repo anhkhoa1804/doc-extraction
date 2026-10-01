@@ -4,16 +4,12 @@ decision rule. Follows `test_easyocr_backend.py`'s convention: stub
 themselves are real PIL images (segmentation genuinely needs pixels)."""
 from __future__ import annotations
 
-from pathlib import Path
-
 import numpy as np
-import pytest
 from PIL import Image, ImageDraw
 
 from doc_extraction.backends.easyocr_backend import EasyOCRBackend
 from doc_extraction.ingest.evidence_fusion import EvidenceGroup, EvidenceToken
 from doc_extraction.ingest.targeted_recovery import (
-    RESOLVE_MARGIN,
     _otsu_threshold,
     recover_region,
     segment_lines,

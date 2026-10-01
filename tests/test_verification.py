@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import pytest
 
+from doc_extraction.ingest.text_quality import assess_text
 from doc_extraction.ingest.verification import (
     VerificationStatus,
     assess_ocr_agreement,
@@ -18,7 +19,6 @@ from doc_extraction.ingest.verification import (
     verify_document,
     verify_element_text,
 )
-from doc_extraction.ingest.text_quality import assess_text
 from doc_extraction.schemas.document import Document, RunMetadata
 from doc_extraction.schemas.element import BBox, Element, ElementType
 from doc_extraction.schemas.page import Page

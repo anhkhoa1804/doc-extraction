@@ -1,4 +1,17 @@
-# Experiments
+# Historical research archive
+
+This directory is a frozen historical archive, not part of the production
+runtime or public extraction API. Production code lives in `src/`, its tests
+in `tests/`, and operator documentation in `docs/`. Historical protocols,
+manifests, reports, and negative findings remain discoverable here because
+they explain past engineering decisions without imposing a runtime dependency.
+
+Raw per-run stage dumps are retained on the research work disk and ignored by
+Git when they are regenerable or superseded. Their compact, source-controlled
+protocols and final results remain alongside each experiment. See
+[`docs/production-boundary.md`](../docs/production-boundary.md).
+
+## Chronological index
 
 Each directory is one investigation. The numbering is chronological, not a
 priority order.

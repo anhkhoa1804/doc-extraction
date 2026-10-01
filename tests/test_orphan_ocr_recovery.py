@@ -195,11 +195,14 @@ def test_orphan_recovery_is_recorded_in_page_notes():
 
 
 def test_recovery_is_deterministic_for_the_same_input():
-    args = dict(
-        regions=[_region("text", 50, 400, 250, 500)],
-        tokens=[_tok("beta", 130, 60, 180, 80), _tok("alpha", 60, 60, 120, 80),
-                _tok("gamma", 60, 90, 130, 110)],
-    )
+    args = {
+        "regions": [_region("text", 50, 400, 250, 500)],
+        "tokens": [
+            _tok("beta", 130, 60, 180, 80),
+            _tok("alpha", 60, 60, 120, 80),
+            _tok("gamma", 60, 90, 130, 110),
+        ],
+    }
     first, second = _page(**args), _page(**args)
     assert [e.text for e in _recovered(first)] == [e.text for e in _recovered(second)]
     assert [e.text for e in _recovered(first)] == ["alpha beta gamma"]

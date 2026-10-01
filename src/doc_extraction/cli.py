@@ -382,7 +382,10 @@ def cmd_run(args: argparse.Namespace) -> int:
 
 
 def cmd_compare(args: argparse.Namespace) -> int:
-    from doc_extraction.evaluation.compare import build_comparison, render_comparison_html
+    from doc_extraction.evaluation.compare import (
+        build_comparison,
+        render_comparison_html,
+    )
 
     config = load_config(args.config)
     if getattr(args, "device", None):

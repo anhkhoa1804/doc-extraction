@@ -6,7 +6,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from doc_extraction.pipelines.base import LayoutBackend, OCRBackend, TableBackend, run_scanned_page_pipeline
+from doc_extraction.pipelines.base import (
+    LayoutBackend,
+    OCRBackend,
+    TableBackend,
+    run_scanned_page_pipeline,
+)
 from doc_extraction.schemas.page import Page
 from doc_extraction.stages.render import render_image_passthrough
 from doc_extraction.utils.logging import StageLogger

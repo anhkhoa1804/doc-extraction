@@ -1,6 +1,6 @@
 # doc-extraction
 
-A modular, research-oriented pipeline for extracting structured content from
+A modular document-extraction component for structured content from
 heterogeneous enterprise documents (PDF, DOCX, XLSX, PPTX, scanned images).
 
 **CPU-first: no GPU is required, and every result in this repository is
@@ -8,23 +8,14 @@ reproducible without one.** A GPU path now exists and has been measured (see
 [experiments/006](experiments/006_linux_gpu_validation/)); it is an
 optimization, not a requirement, and produces identical output.
 
-## What this is — and isn't
+## Scope
 
-This repository is **extraction infrastructure**, not a finished extraction
-product. The premise: average-case document extraction is already handled
-reasonably well by current open-source SOTA (Docling, MinerU,
-PaddleOCR/PP-Structure, table-structure models, document VLMs). What is
-actually interesting is where those systems *fail* — hard cases, long-tail
-layouts, noisy scans, complex tables, reading-order mistakes — and how a
-pipeline should route around them.
-
-So this repo is built to make every stage **observable and swappable**, and
-to make failures **visible**, rather than to squeeze out the last point of
-accuracy today. See [docs/research-roadmap.md](docs/research-roadmap.md).
-
-Out of scope: model training/fine-tuning, knowledge graphs, ontologies, RAG,
-business/workflow reasoning. The output is a structured document
-representation; what consumes it is someone else's problem.
+This repository provides deterministic physical document extraction with a
+documented canonical IR, explicit routing, provenance, warnings, and
+intermediate diagnostics. It does not perform ontology, entity, relation, or
+business-workflow reasoning. Historical investigations are retained under
+[`experiments/`](experiments/) but are not part of the production runtime; see
+[`docs/production-boundary.md`](docs/production-boundary.md).
 
 ## The central design decision
 
@@ -205,6 +196,8 @@ in that directory's `kaggle/` notebook).
 ## Documentation
 
 - [docs/architecture.md](docs/architecture.md) — pipeline and component boundaries
+- [docs/supported-formats.md](docs/supported-formats.md) — current capability matrix
+- [docs/production-boundary.md](docs/production-boundary.md) — production versus archive boundary
 - [docs/setup.md](docs/setup.md) — environment, dependencies, caches, CPU/GPU
 - [docs/backends.md](docs/backends.md) — per-backend status, install, limits, licences
 - [docs/output-format.md](docs/output-format.md) — canonical IR, schema version, coordinates
