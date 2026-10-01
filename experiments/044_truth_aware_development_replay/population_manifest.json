@@ -1,0 +1,202 @@
+{
+  "experiment": "044_truth_aware_development_replay",
+  "protocol": "PROTOCOL.md",
+  "source_manifest": "experiments/036_mechanism_d_counterfactual/population_manifest.json",
+  "selection": "first eight frozen strict-D2 entries, in source-manifest order",
+  "development_only": true,
+  "cases": [
+    {
+      "case_id": "d2-00",
+      "source_image": "page-d5f79be0-5d57-4849-9897-6106dd32117a.png",
+      "source_locator": "box_id_0",
+      "page_locator": {
+        "x0": 322.9962,
+        "y0": 254.0154,
+        "x1": 1328.0202,
+        "y1": 1041.0889
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0/_doc_extraction_runs/page-d5f79be0-5d57-4849-9897-6106dd32117a-dc35626b",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-01",
+      "source_image": "yanbaopptmerge_yanbaoPPT_4275.jpg",
+      "source_locator": 3,
+      "page_locator": {
+        "x0": 615.0640550947868,
+        "y0": 483.01105228080576,
+        "x1": 1432.9550503554503,
+        "y1": 683.4849859300946
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch4/_doc_extraction_runs/yanbaopptmerge_yanbaoPPT_4275-9ff8a50c",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-02",
+      "source_image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+      "source_locator": 7,
+      "page_locator": {
+        "x0": 110.72098799999989,
+        "y0": 431.80709906914456,
+        "x1": 1316.862792,
+        "y1": 863.4549659999999
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch5/_doc_extraction_runs/docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149-dba02046",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-03",
+      "source_image": "docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149.jpg",
+      "source_locator": 9,
+      "page_locator": {
+        "x0": 108.52865099999995,
+        "y0": 945.4936712232337,
+        "x1": 1312.4810160000002,
+        "y1": 1375.0531740000001
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch5/_doc_extraction_runs/docstructbench_dianzishu_zhongwenzaixian-o.O-61518266.pdf_149-dba02046",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-04",
+      "source_image": "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7.jpg",
+      "source_locator": 0,
+      "page_locator": {
+        "x0": 148.28340700997592,
+        "y0": 148.5264000000002,
+        "x1": 1444.6446999999996,
+        "y1": 603.1321999999997
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "text",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch6/_doc_extraction_runs/docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7-509bf65f",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-05",
+      "source_image": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4.jpg",
+      "source_locator": 14,
+      "page_locator": {
+        "x0": 130.15600311778178,
+        "y0": 734.6023684048065,
+        "x1": 793.1141304102096,
+        "y1": 976.8370687616548
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch7_retry0/_doc_extraction_runs/docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4-a6cbd6fe",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-06",
+      "source_image": "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg",
+      "source_locator": 4,
+      "page_locator": {
+        "x0": 91.586942,
+        "y0": 84.674139,
+        "x1": 578.9959319999999,
+        "y1": 321.710738
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "text",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch8/_doc_extraction_runs/docstructbench_llm-raw-the-eye-o.O-Character-20Sheet-20--20Form-20Fillable.pdf_2-3ef05df4",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    },
+    {
+      "case_id": "d2-07",
+      "source_image": "jiaocaineedrop_42351289.pdf_1.jpg",
+      "source_locator": 5,
+      "page_locator": {
+        "x0": 1788.9196252047338,
+        "y0": 400.2873882859608,
+        "x1": 2037.2556329936801,
+        "y1": 526.2598557601486
+      },
+      "historical_failure": "strict_D2",
+      "raw_role": "picture",
+      "source_run": "experiments/035_mechanism_d_gating/results/gt_tables_chunk0_recovery/batch9/_doc_extraction_runs/jiaocaineedrop_42351289.pdf_1-3539031d",
+      "artifacts": {
+        "final/document.json": true,
+        "layout/page-001.json": true,
+        "ocr/page-001.json": true,
+        "tables/page-001.json": true
+      },
+      "truth_source": "OmniDocBench table HTML + GT rectangle",
+      "truth_available": true,
+      "eligibility": "included",
+      "exclusion_reason": null
+    }
+  ],
+  "population_sha256": "5dee39b3a73cdf6318cf6f047e57faeb506f1d5f3007b77f08abcaaf22d8977f"
+}

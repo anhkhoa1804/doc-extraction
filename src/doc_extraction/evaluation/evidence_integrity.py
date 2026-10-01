@@ -14,6 +14,7 @@ from hashlib import sha256
 import json
 import re
 from typing import Any
+from html.parser import HTMLParser
 
 from doc_extraction.schemas.document import Document
 
@@ -155,6 +156,65 @@ def _contains(outer: Any, inner: Any) -> bool:
 
 def normalize_text(text: str | None) -> str:
     return re.sub(r"\s+", " ", (text or "").strip()).casefold()
+
+
+class _CellTextParser(HTMLParser):
+    """Minimal deterministic extractor for OmniDocBench ``td``/``th`` text."""
+    def __init__(self) -> None:
+        super().__init__()
+        self._depth = 0
+        self._parts: list[str] = []
+        self.cells: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"td", "th"}:
+            self._depth += 1
+            if self._depth == 1:
+                self._parts = []
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"td", "th"} and self._depth:
+            self._depth -= 1
+            if self._depth == 0:
+                self.cells.append(normalize_text("".join(self._parts)))
+
+    def handle_data(self, data: str) -> None:
+        if self._depth:
+            self._parts.append(data)
+
+
+def html_cell_texts(html: str) -> tuple[str, ...]:
+    """Return normalized cell strings; HTML is a truth source, not a model."""
+    parser = _CellTextParser()
+    parser.feed(html)
+    parser.close()
+    return tuple(cell for cell in parser.cells if cell)
+
+
+def truth_exact_match(text: str | None, truth_cells: tuple[str, ...]) -> bool:
+    """Strict cell-level truth predicate used by the frozen development protocol."""
+    value = normalize_text(text)
+    return bool(value) and value in truth_cells
+
+
+def baseline_phrase_match(text: str | None, baseline_texts: tuple[str, ...]) -> bool:
+    """Locator-scoped exact phrase check used when canonical spans are absent."""
+    value = normalize_text(text)
+    return bool(value) and any(f" {value} " in f" {baseline} " for baseline in baseline_texts)
+
+
+def truth_aware_candidate(*, text: str | None, truth_cells: tuple[str, ...],
+                          baseline_texts: tuple[str, ...], ownership_valid: bool,
+                          provenance_complete: bool, structurally_valid: bool) -> dict[str, bool]:
+    """Classify one candidate under the frozen normalized-exact protocol."""
+    text_bearing = bool(normalize_text(text))
+    correct = truth_exact_match(text, truth_cells)
+    duplicate = baseline_phrase_match(text, baseline_texts)
+    novel = text_bearing and correct and ownership_valid and provenance_complete and not duplicate
+    return {"text_bearing": text_bearing, "correct": correct, "duplicate_baseline": duplicate,
+            "ownership_valid": ownership_valid, "provenance_complete": provenance_complete,
+            "structurally_valid": structurally_valid, "novel_correct_textual_evidence": novel,
+            "structural_only_recovery": structurally_valid and not novel}
 
 
 def _object_refs(document: Document) -> set[str]:

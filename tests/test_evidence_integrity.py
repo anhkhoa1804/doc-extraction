@@ -11,7 +11,7 @@ import pytest
 
 from doc_extraction.evaluation.evidence_integrity import (
     Disposition, ObservationLedger, ObservationRecord, OwnershipClaim,
-    evaluate_evidence_integrity,
+    baseline_phrase_match, evaluate_evidence_integrity, html_cell_texts, truth_aware_candidate, truth_exact_match,
 )
 from doc_extraction.pipelines.base import (
     LayoutResult, OCRResult, OCRToken, Region, TableResult, run_scanned_page_pipeline,
@@ -146,3 +146,25 @@ def test_records_are_immutable_and_duplicate_identity_rejected():
     ledger.add(record)
     with pytest.raises(ValueError):
         ledger.add(record)
+
+
+def test_html_truth_matching_is_normalized_exact_and_not_substring_based():
+    cells = html_cell_texts("<table><tr><th> Alpha  Beta </th><td>42</td></tr></table>")
+    assert cells == ("alpha beta", "42")
+    assert truth_exact_match("alpha\n beta", cells)
+    assert not truth_exact_match("alpha", cells)
+    assert not truth_exact_match("42.0", cells)
+
+
+def test_truth_aware_candidate_separates_duplicate_novel_and_structural_only():
+    duplicate = truth_aware_candidate(text="Alpha", truth_cells=("alpha",), baseline_texts=("x alpha y",),
+                                      ownership_valid=True, provenance_complete=True, structurally_valid=True)
+    assert duplicate["correct"] and duplicate["duplicate_baseline"]
+    assert not duplicate["novel_correct_textual_evidence"] and duplicate["structural_only_recovery"]
+    novel = truth_aware_candidate(text="beta", truth_cells=("beta",), baseline_texts=(), ownership_valid=True,
+                                  provenance_complete=True, structurally_valid=False)
+    assert novel["novel_correct_textual_evidence"]
+    unresolved = truth_aware_candidate(text="beta", truth_cells=(), baseline_texts=(), ownership_valid=True,
+                                       provenance_complete=True, structurally_valid=False)
+    assert not unresolved["correct"] and not unresolved["novel_correct_textual_evidence"]
+    assert baseline_phrase_match("alpha", ("x alpha y",))
