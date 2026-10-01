@@ -1,0 +1,789 @@
+{
+  "experiment": "039_larger_real_corpus",
+  "row_unit": "GT table annotation; a page with multiple GT tables contributes multiple rows",
+  "region_unit": "unique production layout region; used for control/false-positive exposure summaries",
+  "strict_d2_definition": "035-compatible strict D2, recomputed from raw layout/final outputs",
+  "table_annotation_counts": {
+    "all": 269,
+    "strict_d2": 45,
+    "non_d2": 224,
+    "development_strict_d2": 34,
+    "held_out_strict_d2_descriptive": 11
+  },
+  "verdict_counts": {
+    "EXACT_MATCH": 204,
+    "PARTIAL_MATCH": 45,
+    "GOOD_MATCH": 9,
+    "NO_REGION": 9,
+    "MULTIPLE_MATCH": 2
+  },
+  "by_split": {
+    "development": {
+      "all": 152,
+      "d2": 34,
+      "rate": 0.223684
+    },
+    "held_out_test": {
+      "all": 117,
+      "d2": 11,
+      "rate": 0.094017
+    }
+  },
+  "by_category": {
+    "financial_reports": {
+      "all": 125,
+      "d2": 9,
+      "rate": 0.072
+    },
+    "government_tenders": {
+      "all": 42,
+      "d2": 12,
+      "rate": 0.285714
+    },
+    "laws_and_regulations": {
+      "all": 20,
+      "d2": 10,
+      "rate": 0.5
+    },
+    "manuals": {
+      "all": 6,
+      "d2": 6,
+      "rate": 1.0
+    },
+    "patents": {
+      "all": 55,
+      "d2": 4,
+      "rate": 0.072727
+    },
+    "scientific_articles": {
+      "all": 21,
+      "d2": 4,
+      "rate": 0.190476
+    }
+  },
+  "by_route": {
+    "image": {
+      "all": 269,
+      "d2": 45,
+      "rate": 0.167286
+    }
+  },
+  "by_doc_group": {
+    "ann_reports_00_04_fancy::NASDAQ_ABCB_2004.pdf": {
+      "all": 6,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf": {
+      "all": 12,
+      "d2": 3,
+      "rate": 0.25
+    },
+    "ann_reports_00_04_fancy::NYSE_FDS_2003.pdf": {
+      "all": 10,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_00_04_fancy::NYSE_PVA_2004.pdf": {
+      "all": 5,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_00_04_fancy::NYSE_SSL_2003.pdf": {
+      "all": 9,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_00_04_fancy::NYSE_SYK_2004.pdf": {
+      "all": 6,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf": {
+      "all": 9,
+      "d2": 1,
+      "rate": 0.111111
+    },
+    "ann_reports_10_14_fancy::ASX_ILF_2011.pdf": {
+      "all": 14,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_10_14_fancy::NYSE_WAL_2014.pdf": {
+      "all": 4,
+      "d2": 2,
+      "rate": 0.5
+    },
+    "ann_reports_10_14_fancy::OTC_SDXHF_2013.pdf": {
+      "all": 11,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "ann_reports_10_14_fancy::TSX_SRB_2014.pdf": {
+      "all": 10,
+      "d2": 1,
+      "rate": 0.1
+    },
+    "arxiv_doublespaced::1201.4397.pdf": {
+      "all": 8,
+      "d2": 4,
+      "rate": 0.5
+    },
+    "arxiv_mediumspaced::1001.3704.pdf": {
+      "all": 4,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "arxiv_mediumspaced::1002.4666.pdf": {
+      "all": 6,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "arxiv_two_columns::1001.1463.pdf": {
+      "all": 3,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf": {
+      "all": 12,
+      "d2": 3,
+      "rate": 0.25
+    },
+    "eu_tenders::EN-02a. Tender Specification_LOT1_F-COD-20-T03.pdf": {
+      "all": 5,
+      "d2": 2,
+      "rate": 0.4
+    },
+    "eu_tenders::EN-Annex X - ECDC template for technical reports.pdf": {
+      "all": 6,
+      "d2": 3,
+      "rate": 0.5
+    },
+    "eu_tenders::EN-Lot1 7 Vol3 d4.3 Section 7 Mechanical Works en GIR rev7.pdf": {
+      "all": 7,
+      "d2": 2,
+      "rate": 0.285714
+    },
+    "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf": {
+      "all": 4,
+      "d2": 2,
+      "rate": 0.5
+    },
+    "eu_tenders::EN-OL_2021_DPR_23656_Financial proposal FWC with scenario.pdf": {
+      "all": 8,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "faa_regulations::amt_general_handbook.pdf": {
+      "all": 14,
+      "d2": 10,
+      "rate": 0.714286
+    },
+    "gb_laws::uksi_20200121_en.pdf": {
+      "all": 6,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "manuals::perl-all-en-5.8.5.pdf": {
+      "all": 6,
+      "d2": 6,
+      "rate": 1.0
+    },
+    "patents_cn::CN100539784C.pdf": {
+      "all": 6,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "patents_euv_sensitivity::20200081341_AdobeOCR.pdf": {
+      "all": 7,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "patents_superacid_pags::10561734_AdobeOCR.pdf": {
+      "all": 16,
+      "d2": 1,
+      "rate": 0.0625
+    },
+    "patents_superacid_pags::20130303482_AdobeOCR.pdf": {
+      "all": 5,
+      "d2": 1,
+      "rate": 0.2
+    },
+    "patents_superacid_pags::20170340624_AdobeOCR.pdf": {
+      "all": 8,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "patents_superacid_pags::9017715_AdobeOCR.pdf": {
+      "all": 13,
+      "d2": 2,
+      "rate": 0.153846
+    },
+    "sec_filings::0000011544-20-000016_20200220x10k.pdf": {
+      "all": 7,
+      "d2": 1,
+      "rate": 0.142857
+    },
+    "sec_filings::0000016918-20-000078_20200421x10k.pdf": {
+      "all": 12,
+      "d2": 1,
+      "rate": 0.083333
+    },
+    "sec_filings::0000019617-20-000257_20200225x10k.pdf": {
+      "all": 10,
+      "d2": 0,
+      "rate": 0.0
+    }
+  },
+  "by_raw_label_of_selected_region": {
+    "<multiple:table>": {
+      "all": 1,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "<multiple:text>": {
+      "all": 1,
+      "d2": 1,
+      "rate": 1.0
+    },
+    "<none>": {
+      "all": 9,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "code": {
+      "all": 4,
+      "d2": 4,
+      "rate": 1.0
+    },
+    "document_index": {
+      "all": 24,
+      "d2": 24,
+      "rate": 1.0
+    },
+    "list_item": {
+      "all": 3,
+      "d2": 3,
+      "rate": 1.0
+    },
+    "picture": {
+      "all": 6,
+      "d2": 6,
+      "rate": 1.0
+    },
+    "table": {
+      "all": 214,
+      "d2": 0,
+      "rate": 0.0
+    },
+    "text": {
+      "all": 7,
+      "d2": 7,
+      "rate": 1.0
+    }
+  },
+  "development_d2_groups": {
+    "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf": 3,
+    "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf": 1,
+    "ann_reports_10_14_fancy::TSX_SRB_2014.pdf": 1,
+    "arxiv_doublespaced::1201.4397.pdf": 4,
+    "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf": 3,
+    "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf": 2,
+    "faa_regulations::amt_general_handbook.pdf": 10,
+    "manuals::perl-all-en-5.8.5.pdf": 6,
+    "patents_superacid_pags::20130303482_AdobeOCR.pdf": 1,
+    "patents_superacid_pags::9017715_AdobeOCR.pdf": 2,
+    "sec_filings::0000016918-20-000078_20200421x10k.pdf": 1
+  },
+  "development_d2_categories": {
+    "financial_reports": 6,
+    "government_tenders": 5,
+    "laws_and_regulations": 10,
+    "manuals": 6,
+    "patents": 3,
+    "scientific_articles": 4
+  },
+  "development_d2_raw_labels": [
+    "code",
+    "document_index",
+    "list_item",
+    "picture",
+    "text"
+  ],
+  "adequacy_gate": {
+    "minimum_development_strict_d2": 12,
+    "minimum_source_groups": 6,
+    "minimum_raw_labels": 3,
+    "minimum_categories": 4,
+    "maximum_single_group_fraction": 0.5,
+    "development_strict_d2": 34,
+    "development_source_groups": 11,
+    "development_raw_labels": 5,
+    "development_categories": 6,
+    "largest_group": [
+      "faa_regulations::amt_general_handbook.pdf",
+      10
+    ],
+    "largest_group_fraction": 0.294118,
+    "status": "039_READY_FOR_POLICY_DESIGN"
+  },
+  "feature_comparisons_d2_vs_non_d2": {
+    "region_area_fraction": {
+      "d2": {
+        "min": 0.0005,
+        "q25": 0.0274,
+        "median": 0.2728,
+        "q75": 0.5196,
+        "q90": 0.5775,
+        "max": 0.6934,
+        "mean": 0.2758
+      },
+      "non_d2": {
+        "min": 0.0079,
+        "q25": 0.0685,
+        "median": 0.1426,
+        "q75": 0.3122,
+        "q90": 0.5141,
+        "max": 0.7007,
+        "mean": 0.2124
+      }
+    },
+    "aspect_ratio": {
+      "d2": {
+        "min": 0.4674,
+        "q25": 1.0059,
+        "median": 1.918,
+        "q75": 4.8005,
+        "q90": 6.7448,
+        "max": 39.2525,
+        "mean": 4.5609
+      },
+      "non_d2": {
+        "min": 0.8541,
+        "q25": 1.5733,
+        "median": 2.8076,
+        "q75": 4.0,
+        "q90": 6.5776,
+        "max": 16.6384,
+        "mean": 3.3854
+      }
+    },
+    "region_index_fraction": {
+      "d2": {
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 0.5,
+        "q75": 0.9394,
+        "q90": 1.0,
+        "max": 1.0,
+        "mean": 0.4873
+      },
+      "non_d2": {
+        "min": 0.0,
+        "q25": 0.1111,
+        "median": 0.5,
+        "q75": 0.9375,
+        "q90": 1.0,
+        "max": 1.0,
+        "mean": 0.5117
+      }
+    },
+    "page_region_count": {
+      "d2": {
+        "min": 1.0,
+        "q25": 2.0,
+        "median": 7.5,
+        "q75": 26.0,
+        "q90": 89.0,
+        "max": 100.0,
+        "mean": 22.9318
+      },
+      "non_d2": {
+        "min": 1.0,
+        "q25": 4.0,
+        "median": 9.0,
+        "q75": 14.0,
+        "q90": 18.0,
+        "max": 50.0,
+        "mean": 9.715
+      }
+    },
+    "ocr_child_count": {
+      "d2": {
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 0.5,
+        "q75": 1.0,
+        "q90": 25.0,
+        "max": 92.0,
+        "mean": 11.3864
+      },
+      "non_d2": {
+        "min": 1.0,
+        "q25": 10.0,
+        "median": 17.5,
+        "q75": 39.0,
+        "q90": 92.0,
+        "max": 321.0,
+        "mean": 36.1308
+      }
+    },
+    "ocr_child_chars": {
+      "d2": {
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 3.5,
+        "q75": 136.0,
+        "q90": 1182.0,
+        "max": 1436.0,
+        "mean": 258.5682
+      },
+      "non_d2": {
+        "min": 3.0,
+        "q25": 69.0,
+        "median": 197.0,
+        "q75": 473.0,
+        "q90": 880.0,
+        "max": 2267.0,
+        "mean": 351.6495
+      }
+    },
+    "n_tables": {
+      "d2": {
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "q90": 2.0,
+        "max": 2.0,
+        "mean": 0.7727
+      },
+      "non_d2": {
+        "min": 0.0,
+        "q25": 1.0,
+        "median": 1.0,
+        "q75": 2.0,
+        "q90": 3.0,
+        "max": 5.0,
+        "mean": 1.6963
+      }
+    }
+  },
+  "descriptive_numeric_bins_not_selector_thresholds": {
+    "region_area_fraction_ge_0_4": {
+      "eligible_rows": 258,
+      "selected_rows": 53,
+      "d2_rows": 14,
+      "non_d2_rows": 39,
+      "d2_share_among_selected": 0.264151,
+      "d2_recall_among_eligible": 0.318182
+    },
+    "aspect_ratio_ge_5": {
+      "eligible_rows": 258,
+      "selected_rows": 53,
+      "d2_rows": 10,
+      "non_d2_rows": 43,
+      "d2_share_among_selected": 0.188679,
+      "d2_recall_among_eligible": 0.227273
+    },
+    "page_region_count_ge_20": {
+      "eligible_rows": 258,
+      "selected_rows": 31,
+      "d2_rows": 13,
+      "non_d2_rows": 18,
+      "d2_share_among_selected": 0.419355,
+      "d2_recall_among_eligible": 0.295455
+    },
+    "ocr_child_count_le_1": {
+      "eligible_rows": 258,
+      "selected_rows": 41,
+      "d2_rows": 38,
+      "non_d2_rows": 3,
+      "d2_share_among_selected": 0.926829,
+      "d2_recall_among_eligible": 0.863636
+    },
+    "ocr_child_count_eq_0": {
+      "eligible_rows": 258,
+      "selected_rows": 22,
+      "d2_rows": 22,
+      "non_d2_rows": 0,
+      "d2_share_among_selected": 1.0,
+      "d2_recall_among_eligible": 0.5
+    }
+  },
+  "raw_label_cross_group_stability": {
+    "code": {
+      "all_d2_cases": 4,
+      "development_d2_cases": 4,
+      "held_out_d2_cases_descriptive": 0,
+      "all_source_groups": 1,
+      "development_source_groups": 1,
+      "all_categories": 1,
+      "development_categories": 1
+    },
+    "document_index": {
+      "all_d2_cases": 24,
+      "development_d2_cases": 17,
+      "held_out_d2_cases_descriptive": 7,
+      "all_source_groups": 11,
+      "development_source_groups": 7,
+      "all_categories": 6,
+      "development_categories": 6
+    },
+    "list_item": {
+      "all_d2_cases": 3,
+      "development_d2_cases": 2,
+      "held_out_d2_cases_descriptive": 1,
+      "all_source_groups": 3,
+      "development_source_groups": 2,
+      "all_categories": 2,
+      "development_categories": 2
+    },
+    "picture": {
+      "all_d2_cases": 6,
+      "development_d2_cases": 6,
+      "held_out_d2_cases_descriptive": 0,
+      "all_source_groups": 2,
+      "development_source_groups": 2,
+      "all_categories": 2,
+      "development_categories": 2
+    },
+    "text": {
+      "all_d2_cases": 8,
+      "development_d2_cases": 5,
+      "held_out_d2_cases_descriptive": 3,
+      "all_source_groups": 6,
+      "development_source_groups": 4,
+      "all_categories": 3,
+      "development_categories": 3
+    }
+  },
+  "control_feature_exposure": {
+    "control_non_table_regions": 1444,
+    "control_pages": 93,
+    "rules": {
+      "raw_label_in_observed_d2_labels": {
+        "regions": 1149,
+        "pages": 92,
+        "fraction_of_control_non_table_regions": 0.795706
+      },
+      "raw_label_document_index": {
+        "regions": 0,
+        "pages": 0,
+        "fraction_of_control_non_table_regions": 0.0
+      },
+      "ocr_child_count_le_1": {
+        "regions": 1405,
+        "pages": 93,
+        "fraction_of_control_non_table_regions": 0.972992
+      },
+      "ocr_child_count_eq_0": {
+        "regions": 71,
+        "pages": 29,
+        "fraction_of_control_non_table_regions": 0.049169
+      },
+      "page_region_count_ge_20": {
+        "regions": 707,
+        "pages": 24,
+        "fraction_of_control_non_table_regions": 0.489612
+      },
+      "region_area_fraction_ge_0_4": {
+        "regions": 4,
+        "pages": 4,
+        "fraction_of_control_non_table_regions": 0.00277
+      },
+      "aspect_ratio_ge_5": {
+        "regions": 803,
+        "pages": 91,
+        "fraction_of_control_non_table_regions": 0.556094
+      },
+      "document_index_and_ocr_le_1": {
+        "regions": 0,
+        "pages": 0,
+        "fraction_of_control_non_table_regions": 0.0
+      }
+    }
+  },
+  "region_label_summary": {
+    "caption": {
+      "all_non_table_regions": 101,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 44,
+      "control_pages_with_label": 21,
+      "pages": 62,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "checkbox_selected": {
+      "all_non_table_regions": 2,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 0,
+      "control_pages_with_label": 0,
+      "pages": 1,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "checkbox_unselected": {
+      "all_non_table_regions": 6,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 0,
+      "control_pages_with_label": 0,
+      "pages": 1,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "code": {
+      "all_non_table_regions": 9,
+      "strict_d2_associated_regions": 4,
+      "control_non_table_regions": 3,
+      "control_pages_with_label": 2,
+      "pages": 6,
+      "is_observed_d2_label": true,
+      "region_d2_association_rate": 0.444444
+    },
+    "document_index": {
+      "all_non_table_regions": 21,
+      "strict_d2_associated_regions": 21,
+      "control_non_table_regions": 0,
+      "control_pages_with_label": 0,
+      "pages": 19,
+      "is_observed_d2_label": true,
+      "region_d2_association_rate": 1.0
+    },
+    "footnote": {
+      "all_non_table_regions": 5,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 5,
+      "control_pages_with_label": 4,
+      "pages": 4,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "formula": {
+      "all_non_table_regions": 40,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 26,
+      "control_pages_with_label": 13,
+      "pages": 19,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "list_item": {
+      "all_non_table_regions": 219,
+      "strict_d2_associated_regions": 3,
+      "control_non_table_regions": 117,
+      "control_pages_with_label": 21,
+      "pages": 39,
+      "is_observed_d2_label": true,
+      "region_d2_association_rate": 0.013699
+    },
+    "picture": {
+      "all_non_table_regions": 158,
+      "strict_d2_associated_regions": 2,
+      "control_non_table_regions": 102,
+      "control_pages_with_label": 38,
+      "pages": 71,
+      "is_observed_d2_label": true,
+      "region_d2_association_rate": 0.012658
+    },
+    "section_header": {
+      "all_non_table_regions": 474,
+      "strict_d2_associated_regions": 0,
+      "control_non_table_regions": 220,
+      "control_pages_with_label": 69,
+      "pages": 174,
+      "is_observed_d2_label": false,
+      "region_d2_association_rate": 0.0
+    },
+    "text": {
+      "all_non_table_regions": 1965,
+      "strict_d2_associated_regions": 9,
+      "control_non_table_regions": 927,
+      "control_pages_with_label": 90,
+      "pages": 223,
+      "is_observed_d2_label": true,
+      "region_d2_association_rate": 0.00458
+    }
+  },
+  "region_level": {
+    "all_regions": 3210,
+    "non_table_regions": 3000,
+    "strict_d2_associated_unique_regions": 39,
+    "shared_region_d2_rows": 11,
+    "strict_d2_rows_with_nearby_table_object": 23,
+    "strict_d2_rows_with_material_nearby_table_object": 20,
+    "control_pages": 95,
+    "control_pages_with_any_observed_d2_label": 92,
+    "control_regions_with_any_observed_d2_label": 1149
+  },
+  "run_provenance": {
+    "routes": {
+      "image": 269
+    },
+    "layout_backends": {
+      "docling": 269
+    },
+    "ocr_backends": {
+      "docling": 269
+    },
+    "table_backends": {
+      "table_transformer": 269
+    },
+    "pages_with_warnings": 126,
+    "pages_with_fallback_warning": 0,
+    "pages_with_ownership_warning": 0,
+    "layout_confidence_non_null": 0
+  },
+  "d2_end_to_end_proxies": {
+    "final_ir_element_types": {
+      "list_item": 3,
+      "text": 9,
+      "other": 28,
+      "image": 6
+    },
+    "d2_rows_with_any_nonempty_final_region_text": 23,
+    "d2_rows_with_no_final_table_owner": 45,
+    "d2_rows_with_nearby_table_object": 23,
+    "d2_rows_with_material_nearby_table_object": 20,
+    "d2_rows_with_shared_region": 11,
+    "d2_matched_region_ocr_child_count": {
+      "min": 0.0,
+      "q25": 0.0,
+      "median": 1.0,
+      "q75": 1.0,
+      "q90": 25.0,
+      "max": 92.0,
+      "mean": 10.9348
+    },
+    "d2_final_region_text_chars": {
+      "min": 0.0,
+      "q25": 0.0,
+      "median": 8.0,
+      "q75": 151.0,
+      "q90": 1182.0,
+      "max": 1527.0,
+      "mean": 275.9348
+    }
+  },
+  "feature_boundary_notes": {
+    "valid_pre_treatment_fields_observed": [
+      "raw_label",
+      "normalized_role",
+      "layout confidence (all null in 039)",
+      "region bbox geometry",
+      "region index",
+      "page region count",
+      "OCR child count",
+      "route",
+      "category"
+    ],
+    "forbidden_post_treatment_fields": [
+      "GT bbox/table identity",
+      "strict-D2 label",
+      "forced-crop result",
+      "post-treatment ownership/conflict",
+      "held-out outcome"
+    ],
+    "retrospective_matching_note": "The selected/matched region in these comparisons is GT-selected for audit and cannot be fed directly to a selector without a separately defined region-level policy."
+  }
+}

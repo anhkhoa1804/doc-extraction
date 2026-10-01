@@ -89,6 +89,9 @@ experiments/036_mechanism_d_counterfactual/results/
 experiments/037_selective_policy_validation/results/
 experiments/038_independent_real_corpus/results/
 experiments/039_larger_real_corpus/results/
+experiments/040_mechanism_d_counterfactual/results/
+experiments/042_doclaynet_disjoint_scout/results/
+experiments/042_doclaynet_disjoint_scout/acquisition_manifest.json
 
 # Frozen research 035 and 043--046 retain compact manifests, protocols, and
 # final reports in Git. Local raw stage dumps and superseded trial summaries

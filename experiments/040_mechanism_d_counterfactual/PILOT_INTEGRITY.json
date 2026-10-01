@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "experiment": "040_mechanism_d_counterfactual",
+  "code_commit": "ca74e03d2ed5301ff7e48ba76b9be4c255423139",
+  "population_hash": "e6ee85b2aec4c85a00006bbee5e23a07cd0ac9f40c3487bba21e24677136f109",
+  "records": 4,
+  "checks": {
+    "exact_pilot_ids": true,
+    "all_complete": true,
+    "all_development": true,
+    "all_labelled_crop": true,
+    "bbox_matches_manifest": true,
+    "crop_identity_present": true,
+    "d2_count_at_least_two": true,
+    "control_count_at_least_two": true,
+    "document_index_present": true,
+    "non_document_index_d2_present": true,
+    "no_heldout_index_rows": true
+  },
+  "note": "Pilot is an engineering integrity gate only; its outcomes do not alter the frozen protocol."
+}

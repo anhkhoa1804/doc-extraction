@@ -1,0 +1,62 @@
+{
+  "schema_version": "table-invocation-1",
+  "status": "frozen_observational_contract",
+  "purpose": "Observe production table-specialist routing, specialist output, and post-assembly ownership without changing baseline semantics.",
+  "invocation_modes": {
+    "PAGE_WIDE": "No table-labelled layout region was supplied; the table detector was invoked on the complete page image.",
+    "LABELLED_CROP": "At least one layout region with raw label exactly equal to table was supplied; structure recognition was invoked on that region crop and page-wide detection was skipped.",
+    "NOT_INVOKED": "The table specialist did not execute because it was unavailable, lacked a rendered image, or failed during model setup before specialist inference. This is not evidence of a detector miss."
+  },
+  "record_kinds": {
+    "specialist_invocation": "One table-backend decision with detector/structure subcalls, pre-treatment regions, outputs, warnings, errors, timings, and model provenance.",
+    "page_assembly": "Post-specialist production merge facts: table-element ownership, overlap candidates, duplicate/unowned states, final IR identifiers, reading order, and notes. Never a selector feature."
+  },
+  "identity": [
+    "experiment_id",
+    "run_id",
+    "document_id",
+    "input_sha256",
+    "page_index",
+    "invocation_id or assembly_id"
+  ],
+  "pre_treatment_routing_fields": [
+    "route",
+    "backend_name",
+    "invocation_mode",
+    "reason",
+    "raw_region_label",
+    "normalized_role (current lowercase convention only)",
+    "region_index",
+    "page_region_count",
+    "region bbox",
+    "area_fraction",
+    "aspect_ratio",
+    "confidence",
+    "ocr child count when supplied by the caller"
+  ],
+  "specialist_fields": [
+    "detector_model_id",
+    "structure_model_id",
+    "detector_threshold",
+    "structure_threshold",
+    "detector boxes and scores",
+    "structure validity",
+    "table and cell geometry",
+    "per-stage and total runtime",
+    "device",
+    "warnings",
+    "errors"
+  ],
+  "post_treatment_fields": [
+    "candidate owners",
+    "chosen owner",
+    "overlap scores",
+    "collision status",
+    "duplicate table ids",
+    "final IR identifiers",
+    "reading order",
+    "serialization/page notes"
+  ],
+  "selector_exclusion_rule": "GT identity/geometry, strict-D2 status, detector or structure outcome, treatment recovery/conflict, post-treatment ownership, and held-out outcomes are forbidden selector inputs.",
+  "write_contract": "The recorder is in-memory during execution and writes one complete JSON payload through a temporary file plus atomic replace. A partial file is not a valid completed run."
+}

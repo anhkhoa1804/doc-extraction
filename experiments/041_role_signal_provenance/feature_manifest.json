@@ -1,0 +1,36 @@
+{
+  "experiment": "041_role_signal_provenance",
+  "status": "frozen_before_execution",
+  "created_from_commit": "1b4b43b9366d0f695671cbde28c28ecd8c14b1a6",
+  "allowed_pre_treatment_features": [
+    "raw_role",
+    "normalized_role_if_already_emitted_before_treatment",
+    "layout_confidence",
+    "region_area_fraction",
+    "region_width_fraction",
+    "region_height_fraction",
+    "aspect_ratio",
+    "region_index",
+    "page_region_count",
+    "ocr_child_count",
+    "ocr_child_chars",
+    "route",
+    "backend",
+    "device",
+    "independent_page_level_detector_evidence"
+  ],
+  "forbidden_features": [
+    "gt_table_presence",
+    "gt_bbox",
+    "gt_iou",
+    "treatment_detector_output",
+    "treatment_structure_output",
+    "treatment_recovery",
+    "post_treatment_ownership",
+    "treatment_conflict",
+    "treatment_runtime",
+    "heldout_outcome"
+  ],
+  "feature_boundary": "pre-treatment only; GT is post-treatment evaluation input only",
+  "heldout_accessed": false
+}

@@ -25,9 +25,10 @@ def parse_image(
     table_backend: TableBackend,
     output_dir: Path,
     logger: StageLogger | None = None,
+    telemetry: object | None = None,
 ) -> list[Page]:
     image_path = render_image_passthrough(path, output_dir / "rendered", logger)
     page = run_scanned_page_pipeline(
-        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger
+        image_path, 0, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger, telemetry
     )
     return [page]

@@ -1,0 +1,23 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "CONTROL_SUPPLY_INADEQUATE_BUT_INFORMATIVE",
+  "population_hash": "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e",
+  "acquisition_executed": true,
+  "acquisition_records": 279,
+  "acquisition_integrity": "PASS",
+  "cheap_role_scout_executed": true,
+  "cheap_role_scout_document_index_annotations": 0,
+  "natural_production_document_index_observed": null,
+  "baseline_justified": true,
+  "initial_provenance_sample_executed": true,
+  "initial_provenance_sample_pages": 40,
+  "initial_provenance_sample_complete": true,
+  "initial_provenance_sample_modes": {"PAGE_WIDE": 34, "LABELLED_CROP": 6, "BOTH": 0, "NONE": 0},
+  "treatment_executed": false,
+  "baseline_executed": true,
+  "provenance_executed": true,
+  "role_normalization_executed": false,
+  "records": [],
+  "heldout_accessed": false,
+  "decision": "READY_FOR_BASELINE_PROVENANCE"
+}

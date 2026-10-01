@@ -1,0 +1,75 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "CONTROL_SUPPLY_INADEQUATE_BUT_INFORMATIVE",
+  "code_commit": "86e3cce02aa8fa7af8ff9749400e40e8936c0525",
+  "population_hash": "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e",
+  "source_annotation_sha256": "eacd2ba2a32e6c2ebe2dc5ea1545f405d8461c46bba53e0c35d9c54fba0bcef6",
+  "heldout_accessed": false,
+  "treatment_accessed": false,
+  "gt_used_for_control_selection": false,
+  "scout_kind": "annotation_only_no_layout_or_table_specialist",
+  "population": {
+    "pages": 279,
+    "source_groups": 40,
+    "categories": 5
+  },
+  "source_annotation": {
+    "selected_pages_with_any_precedence_zero_annotation": 279,
+    "selected_pages_with_table_annotation": 18,
+    "category_counts": {
+      "Caption": 137,
+      "Footnote": 67,
+      "Formula": 310,
+      "List-item": 799,
+      "Page-footer": 126,
+      "Page-header": 220,
+      "Picture": 233,
+      "Section-header": 280,
+      "Table": 22,
+      "Text": 1731,
+      "Title": 47
+    },
+    "category_page_counts": {
+      "Caption": 92,
+      "Footnote": 29,
+      "Formula": 68,
+      "List-item": 64,
+      "Page-footer": 123,
+      "Page-header": 156,
+      "Picture": 121,
+      "Section-header": 148,
+      "Table": 18,
+      "Text": 246,
+      "Title": 31
+    },
+    "category_source_group_counts": {
+      "Caption": 28,
+      "Footnote": 17,
+      "Formula": 22,
+      "List-item": 32,
+      "Page-footer": 17,
+      "Page-header": 35,
+      "Picture": 34,
+      "Section-header": 36,
+      "Table": 15,
+      "Text": 40,
+      "Title": 31
+    },
+    "exact_document_index_annotation_regions": 0,
+    "exact_document_index_annotation_pages": 0,
+    "exact_document_index_annotation_source_groups": 0,
+    "exact_document_index_annotation_categories": 0,
+    "production_role_mapping": "not defined; source labels are not silently converted to Region.label"
+  },
+  "production_role_observation": {
+    "natural_document_index_regions_observed": 0,
+    "eligible_controls_observed": 0,
+    "reason": "No cached baseline layout exists for the new pages, and DocLayNet has no document_index category. The current production label can only be observed by an unchanged baseline replay."
+  },
+  "decision": {
+    "branch": "CONTROL_SUPPLY_INADEQUATE_BUT_INFORMATIVE",
+    "full_baseline_justified": true,
+    "justification": "Current production role emission and page-wide provenance cannot be recovered from the source annotation vocabulary; unchanged baseline replay is needed.",
+    "control_adequacy_not_claimed": true
+  }
+}

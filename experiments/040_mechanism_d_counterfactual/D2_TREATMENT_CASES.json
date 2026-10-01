@@ -1,0 +1,3098 @@
+[
+  {
+    "unit_id": "d2-453-2",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 453,
+    "page_no": 18,
+    "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 2,
+    "region_bbox": {
+      "x0": 113.28518676757812,
+      "y0": 530.2168579101562,
+      "x1": 524.7153930664062,
+      "y1": 611.0339965820312
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 2,
+      "page_region_count": 3,
+      "region_bbox": {
+        "x0": 113.28518676757812,
+        "y0": 530.2168579101562,
+        "x1": 524.7153930664062,
+        "y1": 611.0339965820312
+      },
+      "region_area_fraction": 0.03164841121832293,
+      "region_width_fraction": 0.4013953232183689,
+      "region_height_fraction": 0.07884598894817073,
+      "aspect_ratio": 5.090878160995931,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 453,
+      "gt_table_id": 5741,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.940."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      5741
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "VALID_RECOVERY",
+    "detector_success": true,
+    "detector_box_count": 2,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 60,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.063001,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": true,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 5741,
+        "gt_bbox": {
+          "x0": 112.75038136127199,
+          "y0": 532.5813198069595,
+          "x1": 528.1028891700754,
+          "y1": 612.9377524210051
+        },
+        "gt_iou": 0.939699774886566,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": true
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_success"
+    ],
+    "error": null,
+    "runtime_seconds": 4.615458229000069,
+    "raw_result": "results/full/raw/d2-453-2/result.json",
+    "raw_telemetry": "results/full/raw/d2-453-2/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-474-2",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 474,
+    "page_no": 42,
+    "doc_group": "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 2,
+    "region_bbox": {
+      "x0": 122.01543426513672,
+      "y0": 390.4949951171875,
+      "x1": 901.473876953125,
+      "y1": 779.8425903320312
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 2,
+      "page_region_count": 3,
+      "region_bbox": {
+        "x0": 122.01543426513672,
+        "y0": 390.4949951171875,
+        "x1": 901.473876953125,
+        "y1": 779.8425903320312
+      },
+      "region_area_fraction": 0.2888568901658302,
+      "region_width_fraction": 0.760447261159013,
+      "region_height_fraction": 0.3798513124047256,
+      "aspect_ratio": 2.00196033638754,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 474,
+      "gt_table_id": 5995,
+      "doc_group": "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.963.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      5995
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "VALID_RECOVERY",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 16,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": true,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 5995,
+        "gt_bbox": {
+          "x0": 115.41614188456035,
+          "y0": 383.74514012153634,
+          "x1": 904.093111429056,
+          "y1": 783.17468651507
+        },
+        "gt_iou": 0.963365559095688,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": true
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_success"
+    ],
+    "error": null,
+    "runtime_seconds": 0.3245270850002271,
+    "raw_result": "results/full/raw/d2-474-2/result.json",
+    "raw_telemetry": "results/full/raw/d2-474-2/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-717-5",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 717,
+    "page_no": 3,
+    "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 5,
+    "region_bbox": {
+      "x0": 82.7685546875,
+      "y0": 761.2025146484375,
+      "x1": 497.285400390625,
+      "y1": 886.920654296875
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 5,
+      "page_region_count": 6,
+      "region_bbox": {
+        "x0": 82.7685546875,
+        "y0": 761.2025146484375,
+        "x1": 497.285400390625,
+        "y1": 886.920654296875
+      },
+      "region_area_fraction": 0.04960122469457255,
+      "region_width_fraction": 0.4044066787347561,
+      "region_height_fraction": 0.12265184355945122,
+      "aspect_ratio": 3.2971920111313615,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 717,
+      "gt_table_id": 9249,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      9249
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "STRUCTURE_INVALID",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": false,
+    "structure_reason": "no_structure",
+    "structure_cell_count": 0,
+    "unique_owner": false,
+    "owner_candidate_count": 0,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 9249,
+        "gt_bbox": {
+          "x0": 82.23109155346445,
+          "y0": 761.7408558664088,
+          "x1": 498.8686220910176,
+          "y1": 888.9562330172143
+        },
+        "gt_iou": null,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_success",
+      "ownership_ambiguity",
+      "structure_invalid"
+    ],
+    "error": null,
+    "runtime_seconds": 0.2842951760012511,
+    "raw_result": "results/full/raw/d2-717-5/result.json",
+    "raw_telemetry": "results/full/raw/d2-717-5/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-822-14",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 822,
+    "page_no": 1,
+    "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "picture",
+    "normalized_role": "picture",
+    "region_index": 14,
+    "region_bbox": {
+      "x0": 81.75526428222656,
+      "y0": 719.4992065429688,
+      "x1": 943.6013793945312,
+      "y1": 944.6378784179688
+    },
+    "baseline_features": {
+      "raw_role": "picture",
+      "normalized_role": "picture",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 14,
+      "page_region_count": 32,
+      "region_bbox": {
+        "x0": 81.75526428222656,
+        "y0": 719.4992065429688,
+        "x1": 943.6013793945312,
+        "y1": 944.6378784179688
+      },
+      "region_area_fraction": 0.18468520139632374,
+      "region_width_fraction": 0.8408254781583461,
+      "region_height_fraction": 0.21964748475609755,
+      "aspect_ratio": 3.8280678656166773,
+      "ocr_child_count": 25,
+      "ocr_child_chars": 383,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 822,
+      "gt_table_id": 10614,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 25 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      10614
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 27,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 1.0,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 10614,
+        "gt_bbox": {
+          "x0": 87.47065560194162,
+          "y0": 749.0740401773471,
+          "x1": 938.5981653286606,
+          "y1": 940.647573441094
+        },
+        "gt_iou": 0.8403308525292776,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.16645116899962886,
+    "raw_result": "results/full/raw/d2-822-14/result.json",
+    "raw_telemetry": "results/full/raw/d2-822-14/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-1328-14",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 1328,
+    "page_no": 58,
+    "doc_group": "ann_reports_10_14_fancy::TSX_SRB_2014.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "text",
+    "normalized_role": "text",
+    "region_index": 14,
+    "region_bbox": {
+      "x0": 66.66666666666667,
+      "y0": 450.66666666666674,
+      "x1": 200.66666666666666,
+      "y1": 466.66666666666674
+    },
+    "baseline_features": {
+      "raw_role": "text",
+      "normalized_role": "text",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 14,
+      "page_region_count": 26,
+      "region_bbox": {
+        "x0": 66.66666666666667,
+        "y0": 450.66666666666674,
+        "x1": 200.66666666666666,
+        "y1": 466.66666666666674
+      },
+      "region_area_fraction": 0.0020406900654372398,
+      "region_width_fraction": 0.13073170731707318,
+      "region_height_fraction": 0.015609756097560976,
+      "aspect_ratio": 8.375,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 33,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 1328,
+      "gt_table_id": 18000,
+      "doc_group": "ann_reports_10_14_fancy::TSX_SRB_2014.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.100 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      18000
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "STRUCTURE_INVALID",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": false,
+    "structure_reason": "no_structure",
+    "structure_cell_count": 0,
+    "unique_owner": false,
+    "owner_candidate_count": 0,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 18000,
+        "gt_bbox": {
+          "x0": 67.82849471769994,
+          "y0": 450.81988257918795,
+          "x1": 455.64788804478434,
+          "y1": 504.98597464277145
+        },
+        "gt_iou": null,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss",
+      "ownership_ambiguity",
+      "structure_invalid"
+    ],
+    "error": null,
+    "runtime_seconds": 0.12335475899999437,
+    "raw_result": "results/full/raw/d2-1328-14/result.json",
+    "raw_telemetry": "results/full/raw/d2-1328-14/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-1772-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 1772,
+    "page_no": 8,
+    "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+    "doc_category": "scientific_articles",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 119.20552825927734,
+      "y0": 96.36937713623047,
+      "x1": 905.2705078125,
+      "y1": 513.4334106445312
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 1,
+      "region_bbox": {
+        "x0": 119.20552825927734,
+        "y0": 96.36937713623047,
+        "x1": 905.2705078125,
+        "y1": 513.4334106445312
+      },
+      "region_area_fraction": 0.31204229003886924,
+      "region_width_fraction": 0.7668926629787538,
+      "region_height_fraction": 0.4068917400080983,
+      "aspect_ratio": 1.884758493656053,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 1772,
+      "gt_table_id": 24955,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      24955
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 4,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 352,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.750684,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 24955,
+        "gt_bbox": {
+          "x0": 120.09198741224887,
+          "y0": 95.61042524005495,
+          "x1": 906.1486322924233,
+          "y1": 516.0150891632373
+        },
+        "gt_iou": 0.989838125480471,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.7695694500016543,
+    "raw_result": "results/full/raw/d2-1772-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-1772-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-1782-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 1782,
+    "page_no": 7,
+    "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+    "doc_category": "scientific_articles",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 119.4694595336914,
+      "y0": 97.29337310791016,
+      "x1": 905.2854614257812,
+      "y1": 869.4351196289062
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 1,
+      "region_bbox": {
+        "x0": 119.4694595336914,
+        "y0": 97.29337310791016,
+        "x1": 905.2854614257812,
+        "y1": 869.4351196289062
+      },
+      "region_area_fraction": 0.577524178603312,
+      "region_width_fraction": 0.7666497579435023,
+      "region_height_fraction": 0.7533090209960938,
+      "aspect_ratio": 1.0177095143899488,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 1782,
+      "gt_table_id": 25051,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      25051
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 682,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.934473,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 25051,
+        "gt_bbox": {
+          "x0": 120.09198741224887,
+          "y0": 95.61042524005495,
+          "x1": 906.1486322924233,
+          "y1": 870.3360768175584
+        },
+        "gt_iou": 0.9947851026098955,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.6578992729992024,
+    "raw_result": "results/full/raw/d2-1782-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-1782-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-1890-1",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 1890,
+    "page_no": 9,
+    "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+    "doc_category": "scientific_articles",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 1,
+    "region_bbox": {
+      "x0": 148.40980529785156,
+      "y0": 319.8155517578125,
+      "x1": 904.6862182617188,
+      "y1": 707.175537109375
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 1,
+      "page_region_count": 2,
+      "region_bbox": {
+        "x0": 148.40980529785156,
+        "y0": 319.8155517578125,
+        "x1": 904.6862182617188,
+        "y1": 707.175537109375
+      },
+      "region_area_fraction": 0.2788351888137212,
+      "region_width_fraction": 0.7378306467940168,
+      "region_height_fraction": 0.3779121808307927,
+      "aspect_ratio": 1.952386517872984,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 1890,
+      "gt_table_id": 26079,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      26079
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 385,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.934549,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 26079,
+        "gt_bbox": {
+          "x0": 147.3856209150327,
+          "y0": 319.170096021948,
+          "x1": 906.1486322924231,
+          "y1": 708.641975308642
+        },
+        "gt_iou": 0.9913181408264915,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.4275002630001836,
+    "raw_result": "results/full/raw/d2-1890-1/result.json",
+    "raw_telemetry": "results/full/raw/d2-1890-1/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-2036-1",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 2036,
+    "page_no": 10,
+    "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+    "doc_category": "scientific_articles",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 1,
+    "region_bbox": {
+      "x0": 148.70184326171875,
+      "y0": 319.5041809082031,
+      "x1": 904.6790161132812,
+      "y1": 706.941650390625
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 1,
+      "page_region_count": 2,
+      "region_bbox": {
+        "x0": 148.70184326171875,
+        "y0": 319.5041809082031,
+        "x1": 904.6790161132812,
+        "y1": 706.941650390625
+      },
+      "region_area_fraction": 0.2787806142401759,
+      "region_width_fraction": 0.7375387052210366,
+      "region_height_fraction": 0.3779877751048018,
+      "aspect_ratio": 1.9512237003340778,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 2036,
+      "gt_table_id": 27461,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      27461
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 2,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 264,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.933534,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 27461,
+        "gt_bbox": {
+          "x0": 147.2170779986324,
+          "y0": 320.01265425616066,
+          "x1": 908.0679577485737,
+          "y1": 707.0047012636107
+        },
+        "gt_iou": 0.992137286979993,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.5125027460017009,
+    "raw_result": "results/full/raw/d2-2036-1/result.json",
+    "raw_telemetry": "results/full/raw/d2-2036-1/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-2791-2",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 2791,
+    "page_no": 37,
+    "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+    "doc_category": "government_tenders",
+    "raw_role": "text",
+    "normalized_role": "text",
+    "region_index": 2,
+    "region_bbox": {
+      "x0": 205.66666666666666,
+      "y0": 193.66666666666663,
+      "x1": 809.6666666666666,
+      "y1": 213.66666666666663
+    },
+    "baseline_features": {
+      "raw_role": "text",
+      "normalized_role": "text",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 2,
+      "page_region_count": 12,
+      "region_bbox": {
+        "x0": 205.66666666666666,
+        "y0": 193.66666666666663,
+        "x1": 809.6666666666666,
+        "y1": 213.66666666666663
+      },
+      "region_area_fraction": 0.011497917906008329,
+      "region_width_fraction": 0.5892682926829268,
+      "region_height_fraction": 0.01951219512195122,
+      "aspect_ratio": 30.2,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 57,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 2791,
+      "gt_table_id": 37095,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.153 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      37095
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "STRUCTURE_INVALID",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": false,
+    "structure_reason": "no_structure",
+    "structure_cell_count": 0,
+    "unique_owner": false,
+    "owner_candidate_count": 0,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 37095,
+        "gt_bbox": {
+          "x0": 205.19848671796655,
+          "y0": 195.40068100025553,
+          "x1": 905.2874414027935,
+          "y1": 298.64732903969184
+        },
+        "gt_iou": null,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss",
+      "ownership_ambiguity",
+      "structure_invalid"
+    ],
+    "error": null,
+    "runtime_seconds": 0.09513642999991134,
+    "raw_result": "results/full/raw/d2-2791-2/result.json",
+    "raw_telemetry": "results/full/raw/d2-2791-2/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-2815-6",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 2815,
+    "page_no": 34,
+    "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+    "doc_category": "government_tenders",
+    "raw_role": "text",
+    "normalized_role": "text",
+    "region_index": 6,
+    "region_bbox": {
+      "x0": 798.3631845663627,
+      "y0": 446.3611966583592,
+      "x1": 904.3333333333334,
+      "y1": 467.6388033416408
+    },
+    "baseline_features": {
+      "raw_role": "text",
+      "normalized_role": "text",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 6,
+      "page_region_count": 11,
+      "region_bbox": {
+        "x0": 798.3631845663627,
+        "y0": 446.3611966583592,
+        "x1": 904.3333333333334,
+        "y1": 467.6388033416408
+      },
+      "region_area_fraction": 0.0021461426728208873,
+      "region_width_fraction": 0.10338551099216646,
+      "region_height_fraction": 0.02075864066661624,
+      "aspect_ratio": 4.980360354636786,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 9,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 2815,
+      "gt_table_id": 37356,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.150 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      37356
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "GT_IRRELEVANT_OR_NONRECOVERY",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 15,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 37356,
+        "gt_bbox": {
+          "x0": 203.35773558711415,
+          "y0": 446.96839181204734,
+          "x1": 903.6579240082683,
+          "y1": 465.12188302724564
+        },
+        "gt_iou": 0.14640282695787316,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss"
+    ],
+    "error": null,
+    "runtime_seconds": 0.1485937859997648,
+    "raw_result": "results/full/raw/d2-2815-6/result.json",
+    "raw_telemetry": "results/full/raw/d2-2815-6/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-2819-6",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 2819,
+    "page_no": 31,
+    "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+    "doc_category": "government_tenders",
+    "raw_role": "list_item",
+    "normalized_role": "list_item",
+    "region_index": 6,
+    "region_bbox": {
+      "x0": 270.0,
+      "y0": 283.66666666666674,
+      "x1": 701.6666666666667,
+      "y1": 347.66666666666663
+    },
+    "baseline_features": {
+      "raw_role": "list_item",
+      "normalized_role": "list_item",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 6,
+      "page_region_count": 10,
+      "region_bbox": {
+        "x0": 270.0,
+        "y0": 283.66666666666674,
+        "x1": 701.6666666666667,
+        "y1": 347.66666666666663
+      },
+      "region_area_fraction": 0.026295459052151457,
+      "region_width_fraction": 0.4211382113821139,
+      "region_height_fraction": 0.06243902439024379,
+      "aspect_ratio": 6.744791666666679,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 136,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 2819,
+      "gt_table_id": 37392,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.413 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      37392
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "VALID_RECOVERY",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 18,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": true,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 37392,
+        "gt_bbox": {
+          "x0": 252.21911642442763,
+          "y0": 213.84322016606018,
+          "x1": 751.868378708262,
+          "y1": 347.5657615363932
+        },
+        "gt_iou": 0.4125630380419923,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": true
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss"
+    ],
+    "error": null,
+    "runtime_seconds": 0.13605556199945568,
+    "raw_result": "results/full/raw/d2-2819-6/result.json",
+    "raw_telemetry": "results/full/raw/d2-2819-6/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3196-5",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3196,
+    "page_no": 0,
+    "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+    "doc_category": "government_tenders",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 5,
+    "region_bbox": {
+      "x0": 120.24634552001953,
+      "y0": 348.08953857421875,
+      "x1": 940.4112548828125,
+      "y1": 962.8270874023438
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 5,
+      "page_region_count": 7,
+      "region_bbox": {
+        "x0": 120.24634552001953,
+        "y0": 348.08953857421875,
+        "x1": 940.4112548828125,
+        "y1": 962.8270874023438
+      },
+      "region_area_fraction": 0.4798916511757522,
+      "region_width_fraction": 0.8001608871832127,
+      "region_height_fraction": 0.5997439500762195,
+      "aspect_ratio": 1.3341708358734137,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3196,
+      "gt_table_id": 42937,
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      42937
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 34,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.911515,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 42937,
+        "gt_bbox": {
+          "x0": 115.83667300850504,
+          "y0": 345.39469363602757,
+          "x1": 942.0452322980832,
+          "y1": 968.0920280606565
+        },
+        "gt_iou": 0.9799958323164605,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.36668044200087024,
+    "raw_result": "results/full/raw/d2-3196-5/result.json",
+    "raw_telemetry": "results/full/raw/d2-3196-5/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3197-1",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3197,
+    "page_no": 1,
+    "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+    "doc_category": "government_tenders",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 1,
+    "region_bbox": {
+      "x0": 119.8782730102539,
+      "y0": 48.9530029296875,
+      "x1": 940.0157470703125,
+      "y1": 919.4957275390625
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 1,
+      "page_region_count": 2,
+      "region_bbox": {
+        "x0": 119.8782730102539,
+        "y0": 48.9530029296875,
+        "x1": 940.0157470703125,
+        "y1": 919.4957275390625
+      },
+      "region_area_fraction": 0.6795618905151638,
+      "region_width_fraction": 0.8001341210342036,
+      "region_height_fraction": 0.8493099752286586,
+      "aspect_ratio": 0.9420990502540424,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 58,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3197,
+      "gt_table_id": 42943,
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      42943
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 64,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.936029,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 42943,
+        "gt_bbox": {
+          "x0": 115.05508939401034,
+          "y0": 74.88377056786157,
+          "x1": 943.9747107099486,
+          "y1": 925.4157622173867
+        },
+        "gt_iou": 0.9537491096387684,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.3872458270016068,
+    "raw_result": "results/full/raw/d2-3197-1/result.json",
+    "raw_telemetry": "results/full/raw/d2-3197-1/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3381-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3381,
+    "page_no": 87,
+    "doc_group": "faa_regulations::amt_general_handbook.pdf",
+    "doc_category": "laws_and_regulations",
+    "raw_role": "picture",
+    "normalized_role": "picture",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 60.17559051513672,
+      "y0": 58.434574127197266,
+      "x1": 902.13232421875,
+      "y1": 706.77783203125
+    },
+    "baseline_features": {
+      "raw_role": "picture",
+      "normalized_role": "picture",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 100,
+      "region_bbox": {
+        "x0": 60.17559051513672,
+        "y0": 58.434574127197266,
+        "x1": 902.13232421875,
+        "y1": 706.77783203125
+      },
+      "region_area_fraction": 0.5195735602557103,
+      "region_width_fraction": 0.8214212036132813,
+      "region_height_fraction": 0.632530007711271,
+      "aspect_ratio": 1.2986280391431373,
+      "ocr_child_count": 92,
+      "ocr_child_chars": 1436,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3381,
+      "gt_table_id": 45916,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      45916,
+      45917,
+      45918,
+      45919,
+      45920
+    ],
+    "linked_gt_count": 5,
+    "primary_outcome": "GT_IRRELEVANT_OR_NONRECOVERY",
+    "detector_success": true,
+    "detector_box_count": 3,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 240,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 45916,
+        "gt_bbox": {
+          "x0": 489.2148396031299,
+          "y0": 241.5276344833702,
+          "x1": 894.2971908668679,
+          "y1": 411.3143874370264
+        },
+        "gt_iou": 0.12599472163152636,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 45917,
+        "gt_bbox": {
+          "x0": 69.3314024278321,
+          "y0": 242.72331584219864,
+          "x1": 481.42479438651947,
+          "y1": 356.3130449309124
+        },
+        "gt_iou": 0.08575114755677629,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 45918,
+        "gt_bbox": {
+          "x0": 489.9938441247909,
+          "y0": 452.5653943166119,
+          "x1": 895.0761953885291,
+          "y1": 535.6652487551971
+        },
+        "gt_iou": 0.06166643065768368,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 45919,
+        "gt_bbox": {
+          "x0": 490.77284864645196,
+          "y0": 586.4817065054112,
+          "x1": 895.8551999101901,
+          "y1": 684.5275779293536
+        },
+        "gt_iou": 0.07275751530834626,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 45920,
+        "gt_bbox": {
+          "x0": 68.98085039308462,
+          "y0": 380.19678007351297,
+          "x1": 484.6576631514128,
+          "y1": 685.4542309824457
+        },
+        "gt_iou": 0.2324487949349582,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_success"
+    ],
+    "error": null,
+    "runtime_seconds": 0.8632621839988133,
+    "raw_result": "results/full/raw/d2-3381-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-3381-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3664-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3664,
+    "page_no": 10,
+    "doc_group": "faa_regulations::amt_general_handbook.pdf",
+    "doc_category": "laws_and_regulations",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 121.1899642944336,
+      "y0": 58.69950866699219,
+      "x1": 529.5471801757812,
+      "y1": 932.3239135742188
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 89,
+      "region_bbox": {
+        "x0": 121.1899642944336,
+        "y0": 58.69950866699219,
+        "x1": 529.5471801757812,
+        "y1": 932.3239135742188
+      },
+      "region_area_fraction": 0.3395605755754091,
+      "region_width_fraction": 0.39839728378668066,
+      "region_height_fraction": 0.8523164925924162,
+      "aspect_ratio": 0.4674288098953836,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3664,
+      "gt_table_id": 50428,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      50428
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 98,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.481672,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 50428,
+        "gt_bbox": {
+          "x0": 118.11354833182385,
+          "y0": 73.15233225936709,
+          "x1": 534.6192187650973,
+          "y1": 941.4387108162017
+        },
+        "gt_iou": 0.954565948131426,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.40928255599828844,
+    "raw_result": "results/full/raw/d2-3664-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-3664-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3741-1",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3741,
+    "page_no": 8,
+    "doc_group": "faa_regulations::amt_general_handbook.pdf",
+    "doc_category": "laws_and_regulations",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 1,
+    "region_bbox": {
+      "x0": 121.81001281738281,
+      "y0": 236.84693908691406,
+      "x1": 528.6163330078125,
+      "y1": 941.3488159179688
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 1,
+      "page_region_count": 3,
+      "region_bbox": {
+        "x0": 121.81001281738281,
+        "y0": 236.84693908691406,
+        "x1": 528.6163330078125,
+        "y1": 941.3488159179688
+      },
+      "region_area_fraction": 0.27278602363440113,
+      "region_width_fraction": 0.3968842148199314,
+      "region_height_fraction": 0.6873189042254192,
+      "aspect_ratio": 0.5774382348281312,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3741,
+      "gt_table_id": 51649,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      51649,
+      51650
+    ],
+    "linked_gt_count": 2,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 64,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.892147,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 51649,
+        "gt_bbox": {
+          "x0": 123.59887157484464,
+          "y0": 318.81801950798103,
+          "x1": 533.3062421655333,
+          "y1": 945.0363333074038
+        },
+        "gt_iou": 0.866368097053853,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 51650,
+        "gt_bbox": {
+          "x0": 121.31000358271788,
+          "y0": 233.62422366149576,
+          "x1": 534.4506761615967,
+          "y1": 288.9562766339552
+        },
+        "gt_iou": 0.07353987449109164,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.3102678140003263,
+    "raw_result": "results/full/raw/d2-3741-1/result.json",
+    "raw_telemetry": "results/full/raw/d2-3741-1/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-3741-2",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 3741,
+    "page_no": 8,
+    "doc_group": "faa_regulations::amt_general_handbook.pdf",
+    "doc_category": "laws_and_regulations",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 2,
+    "region_bbox": {
+      "x0": 551.184326171875,
+      "y0": 235.95248413085938,
+      "x1": 958.33544921875,
+      "y1": 909.7640380859375
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 2,
+      "page_region_count": 3,
+      "region_bbox": {
+        "x0": 551.184326171875,
+        "y0": 235.95248413085938,
+        "x1": 958.33544921875,
+        "y1": 909.7640380859375
+      },
+      "region_area_fraction": 0.2611237415012684,
+      "region_width_fraction": 0.39722060785060975,
+      "region_height_fraction": 0.6573771258098323,
+      "aspect_ratio": 0.6042507295356041,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 3741,
+      "gt_table_id": 51647,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      51647,
+      51648
+    ],
+    "linked_gt_count": 2,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 66,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.690646,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 51647,
+        "gt_bbox": {
+          "x0": 552.7616200986107,
+          "y0": 234.50251021661416,
+          "x1": 964.7578586814261,
+          "y1": 726.3429810829209
+        },
+        "gt_iou": 0.7151984942502139,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      },
+      {
+        "gt_table_id": 51648,
+        "gt_bbox": {
+          "x0": 553.9060540946741,
+          "y0": 775.5270281695517,
+          "x1": 964.7578586814261,
+          "y1": 913.4180173231413
+        },
+        "gt_iou": 0.19619847289182954,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.31126818700067815,
+    "raw_result": "results/full/raw/d2-3741-2/result.json",
+    "raw_telemetry": "results/full/raw/d2-3741-2/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-4195-1",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 4195,
+    "page_no": 418,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "code",
+    "normalized_role": "code",
+    "region_index": 1,
+    "region_bbox": {
+      "x0": 176.33333333333334,
+      "y0": 292.0,
+      "x1": 797.6666666666666,
+      "y1": 788.0
+    },
+    "baseline_features": {
+      "raw_role": "code",
+      "normalized_role": "code",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 1,
+      "page_region_count": 4,
+      "region_bbox": {
+        "x0": 176.33333333333334,
+        "y0": 292.0,
+        "x1": 797.6666666666666,
+        "y1": 788.0
+      },
+      "region_area_fraction": 0.2933314297045409,
+      "region_width_fraction": 0.6061788617886178,
+      "region_height_fraction": 0.48390243902439023,
+      "aspect_ratio": 1.2526881720430105,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 891,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 4195,
+      "gt_table_id": 59137,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'code', not table, and has IoU 0.987.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      59137
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "VALID_RECOVERY",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 66,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": true,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 59137,
+        "gt_bbox": {
+          "x0": 175.29783484406738,
+          "y0": 294.6803372858727,
+          "x1": 799.151894142072,
+          "y1": 786.2192713368138
+        },
+        "gt_iou": 0.987037556860714,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": true
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss"
+    ],
+    "error": null,
+    "runtime_seconds": 0.40994753500126535,
+    "raw_result": "results/full/raw/d2-4195-1/result.json",
+    "raw_telemetry": "results/full/raw/d2-4195-1/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-4872-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 4872,
+    "page_no": 1673,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 95.4095230102539,
+      "y0": 124.99028778076172,
+      "x1": 929.0824584960938,
+      "y1": 953.73193359375
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 1,
+      "region_bbox": {
+        "x0": 95.4095230102539,
+        "y0": 124.99028778076172,
+        "x1": 929.0824584960938,
+        "y1": 953.73193359375
+      },
+      "region_area_fraction": 0.6576080719802786,
+      "region_width_fraction": 0.8133394492544779,
+      "region_height_fraction": 0.8085284349395008,
+      "aspect_ratio": 1.0059503340972011,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 4872,
+      "gt_table_id": 72347,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      72347
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 640,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.927039,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 72347,
+        "gt_bbox": {
+          "x0": 97.14595369351687,
+          "y0": 150.14341107046494,
+          "x1": 930.1939990830555,
+          "y1": 956.1763946146091
+        },
+        "gt_iou": 0.9635437166620117,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.4159805419985787,
+    "raw_result": "results/full/raw/d2-4872-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-4872-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-5452-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 5452,
+    "page_no": 1261,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "code",
+    "normalized_role": "code",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 104.33333333333333,
+      "y0": 146.66666666666663,
+      "x1": 595.6666666666667,
+      "y1": 941.6666666666666
+    },
+    "baseline_features": {
+      "raw_role": "code",
+      "normalized_role": "code",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 2,
+      "region_bbox": {
+        "x0": 104.33333333333333,
+        "y0": 146.66666666666663,
+        "x1": 595.6666666666667,
+        "y1": 941.6666666666666
+      },
+      "region_area_fraction": 0.3717882212968472,
+      "region_width_fraction": 0.47934959349593503,
+      "region_height_fraction": 0.775609756097561,
+      "aspect_ratio": 0.618029350104822,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 799,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 5452,
+      "gt_table_id": 84328,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      84328
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 300,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.565707,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 84328,
+        "gt_bbox": {
+          "x0": 106.60263945129286,
+          "y0": 147.10407101185206,
+          "x1": 602.6487923819057,
+          "y1": 969.5494908725058
+        },
+        "gt_iou": 0.9478109760593434,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.4886816119997093,
+    "raw_result": "results/full/raw/d2-5452-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-5452-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-5650-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 5650,
+    "page_no": 928,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "code",
+    "normalized_role": "code",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 95.33333333333333,
+      "y0": 146.66666666666663,
+      "x1": 790.0,
+      "y1": 970.6666666666666
+    },
+    "baseline_features": {
+      "raw_role": "code",
+      "normalized_role": "code",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 1,
+      "region_bbox": {
+        "x0": 95.33333333333333,
+        "y0": 146.66666666666663,
+        "x1": 790.0,
+        "y1": 970.6666666666666
+      },
+      "region_area_fraction": 0.544823636724172,
+      "region_width_fraction": 0.6777235772357724,
+      "region_height_fraction": 0.8039024390243903,
+      "aspect_ratio": 0.8430420711974109,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 1182,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 5650,
+      "gt_table_id": 87956,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      87956
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 1,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 12,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.806338,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 87956,
+        "gt_bbox": {
+          "x0": 93.22434133340387,
+          "y0": 148.84310540988884,
+          "x1": 820.9756510973954,
+          "y1": 969.6064481052041
+        },
+        "gt_iou": 0.9509589358571028,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.6184246140001051,
+    "raw_result": "results/full/raw/d2-5650-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-5650-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-5771-0",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 5771,
+    "page_no": 1704,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 0,
+    "region_bbox": {
+      "x0": 95.4705810546875,
+      "y0": 122.86473846435547,
+      "x1": 929.2936401367188,
+      "y1": 964.6301879882812
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 0,
+      "page_region_count": 1,
+      "region_bbox": {
+        "x0": 95.4705810546875,
+        "y0": 122.86473846435547,
+        "x1": 929.2936401367188,
+        "y1": 964.6301879882812
+      },
+      "region_area_fraction": 0.6680627646892097,
+      "region_width_fraction": 0.8134859112995427,
+      "region_height_fraction": 0.821234584901391,
+      "aspect_ratio": 0.9905646038972181,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 5771,
+      "gt_table_id": 90182,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      90182
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 1160,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.939492,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 90182,
+        "gt_bbox": {
+          "x0": 91.9129237797157,
+          "y0": 146.931577758647,
+          "x1": 933.1159870679833,
+          "y1": 966.3576165905961
+        },
+        "gt_iou": 0.9611554236042521,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.40077319699958025,
+    "raw_result": "results/full/raw/d2-5771-0/result.json",
+    "raw_telemetry": "results/full/raw/d2-5771-0/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-5774-13",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 5774,
+    "page_no": 713,
+    "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+    "doc_category": "manuals",
+    "raw_role": "code",
+    "normalized_role": "code",
+    "region_index": 13,
+    "region_bbox": {
+      "x0": 123.66666666666666,
+      "y0": 856.0,
+      "x1": 513.3333333333333,
+      "y1": 930.0
+    },
+    "baseline_features": {
+      "raw_role": "code",
+      "normalized_role": "code",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 13,
+      "page_region_count": 14,
+      "region_bbox": {
+        "x0": 123.66666666666666,
+        "y0": 856.0,
+        "x1": 513.3333333333333,
+        "y1": 930.0
+      },
+      "region_area_fraction": 0.027445885385683124,
+      "region_width_fraction": 0.3801626016260162,
+      "region_height_fraction": 0.0721951219512195,
+      "aspect_ratio": 5.2657657657657655,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 151,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 5774,
+      "gt_table_id": 90209,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      90209
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 24,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.214132,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 90209,
+        "gt_bbox": {
+          "x0": 123.58168888002699,
+          "y0": 858.4312183296176,
+          "x1": 512.1225187188319,
+          "y1": 930.4331843181575
+        },
+        "gt_iou": 0.9583445611720866,
+        "gt_iou_ge_0_3": true,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_miss",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.1563464920000115,
+    "raw_result": "results/full/raw/d2-5774-13/result.json",
+    "raw_telemetry": "results/full/raw/d2-5774-13/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-6426-31",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 6426,
+    "page_no": 0,
+    "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+    "doc_category": "patents",
+    "raw_role": "text",
+    "normalized_role": "text",
+    "region_index": 31,
+    "region_bbox": {
+      "x0": 618.0,
+      "y0": 333.33333333333337,
+      "x1": 667.3333333333334,
+      "y1": 344.0
+    },
+    "baseline_features": {
+      "raw_role": "text",
+      "normalized_role": "text",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 31,
+      "page_region_count": 54,
+      "region_bbox": {
+        "x0": 618.0,
+        "y0": 333.33333333333337,
+        "x1": 667.3333333333334,
+        "y1": 344.0
+      },
+      "region_area_fraction": 0.0005008658867076462,
+      "region_width_fraction": 0.048130081300813046,
+      "region_height_fraction": 0.010406504065040614,
+      "aspect_ratio": 4.62500000000002,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 7,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 6426,
+      "gt_table_id": 101007,
+      "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.109 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      101007
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "GT_IRRELEVANT_OR_NONRECOVERY",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 10,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.001476,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 101007,
+        "gt_bbox": {
+          "x0": 519.9308460765078,
+          "y0": 324.0217395021624,
+          "x1": 754.9237785810247,
+          "y1": 344.5681051603972
+        },
+        "gt_iou": 0.10898817251215238,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss"
+    ],
+    "error": null,
+    "runtime_seconds": 0.16213319300004514,
+    "raw_result": "results/full/raw/d2-6426-31/result.json",
+    "raw_telemetry": "results/full/raw/d2-6426-31/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-6426-48",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 6426,
+    "page_no": 0,
+    "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+    "doc_category": "patents",
+    "raw_role": "list_item",
+    "normalized_role": "list_item",
+    "region_index": 48,
+    "region_bbox": {
+      "x0": 127.0,
+      "y0": 598.3333333333333,
+      "x1": 245.66666666666669,
+      "y1": 651.0
+    },
+    "baseline_features": {
+      "raw_role": "list_item",
+      "normalized_role": "list_item",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 48,
+      "page_region_count": 54,
+      "region_bbox": {
+        "x0": 127.0,
+        "y0": 598.3333333333333,
+        "x1": 245.66666666666669,
+        "y1": 651.0
+      },
+      "region_area_fraction": 0.005948628461894384,
+      "region_width_fraction": 0.11577235772357726,
+      "region_height_fraction": 0.05138211382113828,
+      "aspect_ratio": 2.2531645569620222,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 30,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 6426,
+      "gt_table_id": 101005,
+      "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.377 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      101005
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "GT_IRRELEVANT_OR_NONRECOVERY",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 10,
+    "unique_owner": true,
+    "owner_candidate_count": 1,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 101005,
+        "gt_bbox": {
+          "x0": 168.16008014084701,
+          "y0": 613.3367802573066,
+          "x1": 373.6890669796601,
+          "y1": 650.8200149040863
+        },
+        "gt_iou": 0.26295018119868085,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss"
+    ],
+    "error": null,
+    "runtime_seconds": 0.2740671680003288,
+    "raw_result": "results/full/raw/d2-6426-48/result.json",
+    "raw_telemetry": "results/full/raw/d2-6426-48/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-6436-17",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 6436,
+    "page_no": 0,
+    "doc_group": "patents_superacid_pags::20130303482_AdobeOCR.pdf",
+    "doc_category": "patents",
+    "raw_role": "document_index",
+    "normalized_role": "document_index",
+    "region_index": 17,
+    "region_bbox": {
+      "x0": 519.5986938476562,
+      "y0": 179.0343475341797,
+      "x1": 881.6691284179688,
+      "y1": 242.9442901611328
+    },
+    "baseline_features": {
+      "raw_role": "document_index",
+      "normalized_role": "document_index",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 17,
+      "page_region_count": 20,
+      "region_bbox": {
+        "x0": 519.5986938476562,
+        "y0": 179.0343475341797,
+        "x1": 881.6691284179688,
+        "y1": 242.9442901611328
+      },
+      "region_area_fraction": 0.022024890613020494,
+      "region_width_fraction": 0.35323944836128046,
+      "region_height_fraction": 0.06235116353849085,
+      "aspect_ratio": 5.665322478596849,
+      "ocr_child_count": 0,
+      "ocr_child_chars": 0,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 6436,
+      "gt_table_id": 101245,
+      "doc_group": "patents_superacid_pags::20130303482_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    "linked_gt_table_ids": [
+      101245
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "CROSS_TABLE_CONTAMINATION",
+    "detector_success": true,
+    "detector_box_count": 2,
+    "structure_valid": true,
+    "structure_reason": null,
+    "structure_cell_count": 12,
+    "unique_owner": false,
+    "owner_candidate_count": 2,
+    "material_production_conflict": true,
+    "existing_production_table_max_iou": 0.126341,
+    "cross_table_contamination": true,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 101245,
+        "gt_bbox": {
+          "x0": 558.8425869235242,
+          "y0": 193.28603531637202,
+          "x1": 764.8077671556479,
+          "y1": 217.77140639291815
+        },
+        "gt_iou": 0.2179410332026556,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": true,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": true,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "cross_table_contamination",
+      "detector_success",
+      "ownership_ambiguity"
+    ],
+    "error": null,
+    "runtime_seconds": 0.35439682499963965,
+    "raw_result": "results/full/raw/d2-6436-17/result.json",
+    "raw_telemetry": "results/full/raw/d2-6436-17/table_telemetry.json"
+  },
+  {
+    "unit_id": "d2-7050-31",
+    "kind": "d2_region",
+    "status": "complete",
+    "split": "development",
+    "image_id": 7050,
+    "page_no": 0,
+    "doc_group": "sec_filings::0000016918-20-000078_20200421x10k.pdf",
+    "doc_category": "financial_reports",
+    "raw_role": "text",
+    "normalized_role": "text",
+    "region_index": 31,
+    "region_bbox": {
+      "x0": 25.333333333333336,
+      "y0": 758.105572809,
+      "x1": 976.3333333333334,
+      "y1": 782.3333333333334
+    },
+    "baseline_features": {
+      "raw_role": "text",
+      "normalized_role": "text",
+      "layout_confidence": null,
+      "layout_confidence_source": null,
+      "region_source_id": null,
+      "region_index": 31,
+      "page_region_count": 34,
+      "region_bbox": {
+        "x0": 25.333333333333336,
+        "y0": 758.105572809,
+        "x1": 976.3333333333334,
+        "y1": 782.3333333333334
+      },
+      "region_area_fraction": 0.021930375023096742,
+      "region_width_fraction": 0.9278048780487805,
+      "region_height_fraction": 0.023636839535934973,
+      "aspect_ratio": 39.252492984023654,
+      "ocr_child_count": 1,
+      "ocr_child_chars": 37,
+      "route": "image",
+      "backend": "table_transformer",
+      "device": "cpu"
+    },
+    "d2_taxonomy": {
+      "image_id": 7050,
+      "gt_table_id": 109278,
+      "doc_group": "sec_filings::0000016918-20-000078_20200421x10k.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.209 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    "linked_gt_table_ids": [
+      109278
+    ],
+    "linked_gt_count": 1,
+    "primary_outcome": "STRUCTURE_INVALID",
+    "detector_success": false,
+    "detector_box_count": 0,
+    "structure_valid": false,
+    "structure_reason": "no_structure",
+    "structure_cell_count": 0,
+    "unique_owner": false,
+    "owner_candidate_count": 0,
+    "material_production_conflict": false,
+    "existing_production_table_max_iou": 0.0,
+    "cross_table_contamination": false,
+    "serialization_damage": false,
+    "valid_recovery": false,
+    "gt_evaluations": [
+      {
+        "gt_table_id": 109278,
+        "gt_bbox": {
+          "x0": 26.564912956212492,
+          "y0": 771.7900260468607,
+          "x1": 976.2605511408091,
+          "y1": 822.1334329421231
+        },
+        "gt_iou": null,
+        "gt_iou_ge_0_3": false,
+        "valid_recovery": false
+      }
+    ],
+    "policy_fires": {
+      "POLICY_0_ABSTAIN_ALL": false,
+      "POLICY_1_ROLE_ONLY_DOCUMENT_INDEX": false,
+      "POLICY_2_DOCUMENT_INDEX_AND_ZERO_OCR": false,
+      "POLICY_3_BROAD_NON_TABLE_ROLE_NEGATIVE_CONTROL": true
+    },
+    "failure_tags": [
+      "detector_miss",
+      "ownership_ambiguity",
+      "structure_invalid"
+    ],
+    "error": null,
+    "runtime_seconds": 0.09573682299924258,
+    "raw_result": "results/full/raw/d2-7050-31/result.json",
+    "raw_telemetry": "results/full/raw/d2-7050-31/table_telemetry.json"
+  }
+]

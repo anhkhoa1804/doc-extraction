@@ -1,0 +1,70 @@
+{
+  "experiment": "042_doclaynet_disjoint_scout",
+  "status": "PASS",
+  "code_commit": "86e3cce02aa8fa7af8ff9749400e40e8936c0525",
+  "population_hash": "4d2ff975ec30d3c5c074bc858620dab856decbcabfdcd751c3861d8cdea0655e",
+  "heldout_accessed": false,
+  "counts": {
+    "frozen_population": 279,
+    "acquisition_records": 279,
+    "files_present": 279,
+    "missing_images": 0,
+    "image_hash_mismatches": 0,
+    "source_identity_mismatches": 0,
+    "source_groups": 40,
+    "categories": 5
+  },
+  "duplicates": {
+    "image_id": [],
+    "file_name": [],
+    "source_image_sha256": []
+  },
+  "identity_overlaps": {
+    "035": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "036": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "037": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "038": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "039": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "040": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    },
+    "041": {
+      "file_names": [],
+      "image_hashes": [],
+      "source_groups": []
+    }
+  },
+  "039_heldout_overlap": {
+    "image_ids": [],
+    "source_groups": []
+  },
+  "errors": [],
+  "audit_scope": {
+    "source_hashes_are_sha256_of_exact_archive_member_bytes": true,
+    "prior_outcomes_used": false,
+    "gt_used_for_population_selection": false,
+    "treatment_used": false
+  }
+}

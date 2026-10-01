@@ -1,0 +1,888 @@
+{
+  "experiment": "039_larger_real_corpus",
+  "definition": "Descriptive case assignment; not causal proof.",
+  "counts": {
+    "partial_non_table_ownership": 10,
+    "table_object_present_but_not_correctly_attached": 16,
+    "wrong_role_ownership": 7,
+    "cross_table_contamination_or_shared_region": 11,
+    "multi_region_ownership_fragmentation": 1
+  },
+  "cases": [
+    {
+      "image_id": 2819,
+      "gt_table_id": 37392,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.413 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 2815,
+      "gt_table_id": 37356,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.150 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 2791,
+      "gt_table_id": 37095,
+      "doc_group": "bavaria_tenders::KEI 2_Bauphysik Schallschutznachweis.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.153 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 717,
+      "gt_table_id": 9249,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 822,
+      "gt_table_id": 10614,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 25 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 453,
+      "gt_table_id": 5741,
+      "doc_group": "ann_reports_00_04_fancy::NYSE_ACN_2001.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.940."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 6436,
+      "gt_table_id": 101245,
+      "doc_group": "patents_superacid_pags::20130303482_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 7050,
+      "gt_table_id": 109278,
+      "doc_group": "sec_filings::0000016918-20-000078_20200421x10k.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.209 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3664,
+      "gt_table_id": 50428,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3741,
+      "gt_table_id": 51647,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3741,
+      "gt_table_id": 51648,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3741,
+      "gt_table_id": 51649,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3741,
+      "gt_table_id": 51650,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3381,
+      "gt_table_id": 45916,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3381,
+      "gt_table_id": 45917,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3381,
+      "gt_table_id": 45918,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3381,
+      "gt_table_id": 45919,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3381,
+      "gt_table_id": 45920,
+      "doc_group": "faa_regulations::amt_general_handbook.pdf",
+      "doc_category": "laws_and_regulations",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps.",
+        "The matched region contains 92 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 1782,
+      "gt_table_id": 25051,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 1890,
+      "gt_table_id": 26079,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 1772,
+      "gt_table_id": 24955,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 2036,
+      "gt_table_id": 27461,
+      "doc_group": "arxiv_doublespaced::1201.4397.pdf",
+      "doc_category": "scientific_articles",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 1328,
+      "gt_table_id": 18000,
+      "doc_group": "ann_reports_10_14_fancy::TSX_SRB_2014.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.100 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 474,
+      "gt_table_id": 5995,
+      "doc_group": "ann_reports_00_04_fancy::OTC_STKAF_2002.pdf",
+      "doc_category": "financial_reports",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.963.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3197,
+      "gt_table_id": 42943,
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3196,
+      "gt_table_id": 42937,
+      "doc_group": "eu_tenders::EN-Lot1 Vol2 d4 particularconditions en.pdf",
+      "doc_category": "government_tenders",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 6426,
+      "gt_table_id": 101005,
+      "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.377 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 6426,
+      "gt_table_id": 101007,
+      "doc_group": "patents_superacid_pags::9017715_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.109 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 1680,
+      "gt_table_id": 23483,
+      "doc_group": "ann_reports_10_14_fancy::NYSE_WAL_2014.pdf",
+      "doc_category": "financial_reports",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.162 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 1082,
+      "gt_table_id": 14366,
+      "doc_group": "ann_reports_10_14_fancy::NYSE_WAL_2014.pdf",
+      "doc_category": "financial_reports",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "multi_region_ownership_fragmentation",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "035 MULTIPLE_MATCH rule identified 2 contributing regions covering the GT table.",
+        "At least one contributor fails the explicit table-region gate."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 5774,
+      "gt_table_id": 90209,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 4872,
+      "gt_table_id": 72347,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 4195,
+      "gt_table_id": 59137,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'code', not table, and has IoU 0.987.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 5452,
+      "gt_table_id": 84328,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 5771,
+      "gt_table_id": 90182,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 5650,
+      "gt_table_id": 87956,
+      "doc_group": "manuals::perl-all-en-5.8.5.pdf",
+      "doc_category": "manuals",
+      "split": "development",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 2937,
+      "gt_table_id": 38584,
+      "doc_group": "eu_tenders::EN-Lot1 7 Vol3 d4.3 Section 7 Mechanical Works en GIR rev7.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "table_object_present_but_not_correctly_attached",
+      "secondary_mechanism_candidate": "wrong_role_ownership",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "A production table object overlaps the relevant non-table region, but is not the matched region's owner."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3004,
+      "gt_table_id": 39674,
+      "doc_group": "eu_tenders::EN-Lot1 7 Vol3 d4.3 Section 7 Mechanical Works en GIR rev7.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.207 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 6472,
+      "gt_table_id": 102007,
+      "doc_group": "patents_superacid_pags::10561734_AdobeOCR.pdf",
+      "doc_category": "patents",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "partial_non_table_ownership",
+      "secondary_mechanism_candidate": "geometry_or_region_fragmentation",
+      "assignment_confidence": "medium",
+      "evidence_supporting_assignment": [
+        "The best non-table region covers only 0.384 of the GT box.",
+        "The matched region contains 1 production OCR child token(s) under center containment.",
+        "The raw run carries one or more pipeline/page warnings; these are reported separately and are not treated as causal proof."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 7231,
+      "gt_table_id": 111671,
+      "doc_group": "sec_filings::0000011544-20-000016_20200220x10k.pdf",
+      "doc_category": "financial_reports",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.989."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3133,
+      "gt_table_id": 41838,
+      "doc_group": "eu_tenders::EN-02a. Tender Specification_LOT1_F-COD-20-T03.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.944."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 2977,
+      "gt_table_id": 39201,
+      "doc_group": "eu_tenders::EN-02a. Tender Specification_LOT1_F-COD-20-T03.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.980."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3044,
+      "gt_table_id": 40296,
+      "doc_group": "eu_tenders::EN-Annex X - ECDC template for technical reports.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "wrong_role_ownership",
+      "secondary_mechanism_candidate": null,
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The matched region is labelled 'document_index', not table, and has IoU 0.944.",
+        "The matched region contains 1 production OCR child token(s) under center containment."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature."
+      ]
+    },
+    {
+      "image_id": 3044,
+      "gt_table_id": 40297,
+      "doc_group": "eu_tenders::EN-Annex X - ECDC template for technical reports.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    },
+    {
+      "image_id": 3044,
+      "gt_table_id": 40298,
+      "doc_group": "eu_tenders::EN-Annex X - ECDC template for technical reports.pdf",
+      "doc_category": "government_tenders",
+      "split": "held_out_test",
+      "strict_d2": true,
+      "primary_mechanism_candidate": "cross_table_contamination_or_shared_region",
+      "secondary_mechanism_candidate": "oversized_region_geometry",
+      "assignment_confidence": "high",
+      "evidence_supporting_assignment": [
+        "The same production region is retrospectively matched to another GT table on the page.",
+        "The matched region is materially larger than the GT table or only a small part of it overlaps."
+      ],
+      "evidence_against_causal_assignment": [
+        "The post-baseline record cannot establish causality or prove whole-page specialist absence.",
+        "The matched region is selected retrospectively using GT geometry and is not itself a selector feature.",
+        "No OCR child token falls inside the matched region; OCR interaction is therefore not directly evidenced."
+      ]
+    }
+  ]
+}
