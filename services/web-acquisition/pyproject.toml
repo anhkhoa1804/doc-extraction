@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "web-acquisition"
+version = "0.1.0"
+description = "Policy-controlled, bounded web acquisition with immutable artifacts"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.12,<3", "h11>=0.16,<1", "aiohttp>=3.14.3,<4"]
+
+[project.scripts]
+crawler = "web_acquisition.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=1", "hypothesis>=6", "ruff>=0.15", "mypy>=1.19", "trustme>=1.2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/web_acquisition"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/web_acquisition"]
+
+[[tool.mypy.overrides]]
+module = ["doc_extraction.*"]
+ignore_missing_imports = true
+follow_imports = "skip"
