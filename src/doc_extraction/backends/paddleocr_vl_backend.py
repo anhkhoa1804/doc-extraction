@@ -14,6 +14,7 @@ import math
 import mimetypes
 import sys
 import threading
+import time
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -217,14 +218,17 @@ def _result_data(result: Any) -> dict[str, Any]:
     return data
 
 
-def page_from_paddle_result(result: Any) -> Page:
+def page_from_paddle_result(result: Any, phase_timings: dict[str, float] | None = None) -> Page:
     """Map one official PaddleOCR-VL page result to the internal canonical Page.
 
     Missing geometry/confidence remains null. Layout regions are retained as
     typed canonical elements, and table HTML is represented as cells when it
     can be parsed safely; unsupported table content remains a text element.
     """
+    decode_started = time.perf_counter()
     data = _result_data(result)
+    if phase_timings is not None:
+        phase_timings["result_json_decode_seconds"] = time.perf_counter() - decode_started
     try:
         width, height = float(data["width"]), float(data["height"])
     except (KeyError, TypeError, ValueError) as exc:
@@ -236,6 +240,8 @@ def page_from_paddle_result(result: Any) -> Page:
     tables: list[Table] = []
     notes: list[str] = []
     ordered_blocks = list(data.get("parsing_res_list") or [])
+    mapping_started = time.perf_counter()
+    table_parse_seconds = 0.0
     for order, block in enumerate(ordered_blocks):
         if not isinstance(block, dict):
             notes.append(f"E2E_UNSUPPORTED: ignored non-object parsing block at index {order}")
@@ -250,7 +256,9 @@ def page_from_paddle_result(result: Any) -> Page:
 
         if element_type == ElementType.TABLE:
             candidate_table_id = f"p0-t{len(tables)}"
+            table_started = time.perf_counter()
             table = _table_from_html(candidate_table_id, content, bbox)
+            table_parse_seconds += time.perf_counter() - table_started
             if table is not None:
                 tables.append(table)
                 table_id = candidate_table_id
@@ -277,7 +285,7 @@ def page_from_paddle_result(result: Any) -> Page:
         )
 
     reading_order = [element.id for element in elements]
-    return Page(
+    page = Page(
         index=0,
         width=width,
         height=height,
@@ -291,6 +299,10 @@ def page_from_paddle_result(result: Any) -> Page:
         reading_order=reading_order,
         notes=notes,
     )
+    if phase_timings is not None:
+        phase_timings["table_parsing_seconds"] = table_parse_seconds
+        phase_timings["canonical_mapping_inclusive_seconds"] = time.perf_counter() - mapping_started
+    return page
 
 
 def validate_worker_page(value: Any) -> Page:
@@ -362,6 +374,7 @@ class PaddleOCRVLBackend:
                 "install paddlepaddle-gpu and paddleocr[doc-parser]"
             )
         self.device = device
+        self.last_phase_timings: dict[str, float | str | None] = {}
         # Injectable only for small deterministic adapter unit tests. Normal
         # execution always goes through the separately supervised process.
         self._test_pipeline = pipeline
@@ -376,7 +389,12 @@ class PaddleOCRVLBackend:
         sha256 = sha256_file(path)
         model_versions = self.model_versions()
         if self._test_pipeline is not None:
+            predict_started = time.perf_counter()
             results = list(self._test_pipeline.predict(str(path)))
+            self.last_phase_timings = {
+                "pipeline_predict_seconds": time.perf_counter() - predict_started,
+                "timing_source": "injected_test_pipeline",
+            }
             if len(results) != 1:
                 raise E2EInvalidModelOutput(f"PaddleOCR-VL expected one image result, received {len(results)}")
             page = validate_worker_page(page_from_paddle_result(results[0]))
@@ -394,6 +412,7 @@ class PaddleOCRVLBackend:
                 )
             worker = _worker_for(self.device)
             worker.max_message_bytes = min(_MAX_WORKER_MESSAGE_BYTES, ipc_limit)
+            request_started = time.perf_counter()
             try:
                 reply = worker.request(
                     {"op": "predict", "input_path": str(path), "input_sha256": sha256},
@@ -401,6 +420,16 @@ class PaddleOCRVLBackend:
                     scratch_limit=scratch_limit,
                 )
             except WorkerTimeout as exc:
+                self.last_phase_timings = {
+                    "worker_startup_seconds": worker.last_startup_seconds,
+                    "parent_request_elapsed_seconds": worker.last_request_seconds,
+                    "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
+                    "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
+                    "pipeline_predict_seconds": None,
+                    "timeout": "max_runtime_seconds",
+                    "timing_source": "parent_supervisor; timed-out worker phases unavailable",
+                }
                 elapsed = current_runtime_elapsed_seconds()
                 raise ResourceLimitExceeded(
                     "max_runtime_seconds",
@@ -409,15 +438,53 @@ class PaddleOCRVLBackend:
                     "PaddleOCR-VL isolated worker startup/inference/postprocessing; worker deadline expired",
                 ) from exc
             except WorkerTempLimit as exc:
+                self.last_phase_timings = {
+                    "worker_startup_seconds": worker.last_startup_seconds,
+                    "parent_request_elapsed_seconds": worker.last_request_seconds,
+                    "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
+                    "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
+                    "timeout": "max_temp_bytes",
+                    "timing_source": "parent_supervisor",
+                }
                 raise ResourceLimitExceeded(
                     "max_temp_bytes", exc.limit, exc.actual,
                     "PaddleOCR-VL isolated worker private scratch",
                 ) from exc
             except (WorkerCrashed, WorkerProtocolError) as exc:
+                self.last_phase_timings = {
+                    "worker_startup_seconds": worker.last_startup_seconds,
+                    "parent_request_elapsed_seconds": worker.last_request_seconds,
+                    "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
+                    "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
+                    "timing_source": "parent_supervisor; worker failed before complete timing response",
+                }
                 raise E2EWorkerFailure(f"PaddleOCR-VL {exc.kind}: {exc}") from exc
+            reply_timings = reply.get("phase_timings")
+            reply_timings = reply_timings if isinstance(reply_timings, dict) else {}
+            worker_accounted = reply_timings.get("worker_accounted_seconds")
+            self.last_phase_timings = {
+                **reply_timings,
+                "worker_startup_seconds": worker.last_startup_seconds,
+                "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
+                "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
+                "parent_request_elapsed_seconds": worker.last_request_seconds,
+                "parent_request_wall_seconds": time.perf_counter() - request_started,
+                "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                "timing_source": "worker/public-pipeline boundaries; preprocess/inference/decoder internals are opaque",
+            }
+            if isinstance(worker_accounted, (int, float)):
+                self.last_phase_timings["parent_roundtrip_residual_seconds"] = max(
+                    0.0, worker.last_request_seconds - float(worker_accounted)
+                )
+            validation_started = time.perf_counter()
+            page = validate_worker_page(reply.get("page"))
+            self.last_phase_timings["parent_canonical_validation_seconds"] = (
+                time.perf_counter() - validation_started
+            )
             if reply.get("input_sha256") != sha256:
                 raise E2EInvalidModelOutput("worker result input identity does not match submitted page")
-            page = validate_worker_page(reply.get("page"))
             versions = reply.get("model_versions")
             if not isinstance(versions, dict):
                 raise E2EInvalidModelOutput("worker did not return model artifact identity")

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -7,6 +8,7 @@ from doc_extraction.backends.paddleocr_vl_backend import (
     page_from_paddle_result,
     validate_worker_page,
 )
+from doc_extraction.cli import _write_backend_phase_timings
 from doc_extraction.schemas.element import ElementType
 
 
@@ -49,6 +51,47 @@ def test_paddle_result_maps_regions_order_geometry_and_formula() -> None:
     assert page.elements[1].confidence is None
     assert page.reading_order == ["p0-e0", "p0-e1"]
     assert page.elements[1].extra["model_block_label"] == "display_formula"
+
+
+def test_phase_timing_is_explicitly_scoped_to_adapter_work() -> None:
+    phases: dict[str, float] = {}
+    page = page_from_paddle_result(
+        FakeResult(
+            {
+                "width": 100,
+                "height": 200,
+                "parsing_res_list": [
+                    {"block_label": "table", "block_content": "<table><tr><td>x</td></tr></table>"}
+                ],
+            }
+        ),
+        phases,
+    )
+
+    assert len(page.tables) == 1
+    assert phases.keys() == {
+        "result_json_decode_seconds",
+        "table_parsing_seconds",
+        "canonical_mapping_inclusive_seconds",
+    }
+    assert all(value >= 0 for value in phases.values())
+
+
+def test_backend_timing_diagnostic_is_written_outside_canonical_document(tmp_path: Path) -> None:
+    class Backend:
+        def __init__(self) -> None:
+            self.last_phase_timings = {"pipeline_predict_seconds": 12.5}
+
+    _write_backend_phase_timings(tmp_path, Backend(), "success")
+
+    diagnostic = json.loads(
+        (tmp_path / "diagnostics" / "backend_phase_timings.json").read_text(encoding="utf-8")
+    )
+    assert diagnostic == {
+        "status": "success",
+        "backend": "Backend",
+        "phases": {"pipeline_predict_seconds": 12.5},
+    }
 
 
 def test_paddle_table_html_maps_cells_and_spans_without_fake_cell_geometry() -> None:

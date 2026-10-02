@@ -108,6 +108,10 @@ class BoundedPersistentWorker:
         self.state = "terminated"
         self.last_state = "terminated"
         self.termination_verified = True
+        self.ready_metadata: dict[str, Any] = {}
+        self.last_startup_seconds = 0.0
+        self.last_request_seconds = 0.0
+        self.last_termination_seconds = 0.0
         self._stdout_fd: int | None = None
         self._buffer = bytearray()
         self._lock = threading.RLock()
@@ -165,6 +169,8 @@ class BoundedPersistentWorker:
 
     def _spawn(self, deadline: float, timeout: float, scratch_limit: int) -> None:
         self.state = "starting"
+        startup_started = time.perf_counter()
+        self.ready_metadata = {}
         self.scratch_dir = Path(tempfile.mkdtemp(prefix="doc-extraction-e2e-", dir=self.scratch_parent))
         os.chmod(self.scratch_dir, 0o700)
         environment = os.environ.copy()
@@ -196,9 +202,12 @@ class BoundedPersistentWorker:
             ready = self._read_frame(deadline, timeout, scratch_limit)
             if ready.get("state") != "ready":
                 raise WorkerCrashed(f"worker failed during startup: {ready.get('kind', 'unknown')}")
+            self.ready_metadata = ready
+            self.last_startup_seconds = time.perf_counter() - startup_started
             self.state = "ready"
             self.last_state = "ready"
         except Exception:
+            self.last_startup_seconds = time.perf_counter() - startup_started
             self.terminate("terminated")
             raise
 
@@ -207,20 +216,26 @@ class BoundedPersistentWorker:
             raise ValueError("worker timeout must be positive and scratch limit non-negative")
         deadline = time.monotonic() + timeout
         with self._lock:
+            self.last_startup_seconds = 0.0
+            self.last_request_seconds = 0.0
+            self.last_termination_seconds = 0.0
             try:
                 if self.process is None or self.process.poll() is not None:
                     if self.process is not None:
                         self.terminate("terminated")
+                    self.last_startup_seconds = 0.0
                     self._spawn(deadline, timeout, scratch_limit)
                 encoded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
                 if len(encoded) > self.max_message_bytes:
                     raise WorkerProtocolError("worker request exceeds bounded IPC limit")
                 assert self.process is not None and self.process.stdin is not None
+                request_started = time.perf_counter()
                 self.state = "running"
                 self.last_state = "running"
                 self.process.stdin.write(encoded + b"\n")
                 self.process.stdin.flush()
                 reply = self._read_frame(deadline, timeout, scratch_limit)
+                self.last_request_seconds = time.perf_counter() - request_started
                 state = reply.get("state")
                 if state == "failed":
                     self.last_state = "failed"
@@ -234,6 +249,8 @@ class BoundedPersistentWorker:
                 self.last_state = "completed"
                 return reply
             except WorkerTimeout:
+                if "request_started" in locals():
+                    self.last_request_seconds = time.perf_counter() - request_started
                 self.last_state = "timed_out"
                 self.terminate("timed_out")
                 raise
@@ -251,6 +268,12 @@ class BoundedPersistentWorker:
                 raise WorkerCrashed("worker IPC failed") from exc
 
     def terminate(self, terminal_state: str = "terminated") -> None:
+        if self.process is None and self.scratch_dir is None:
+            self.state = terminal_state
+            if terminal_state != "timed_out":
+                self.last_state = terminal_state
+            return
+        termination_started = time.perf_counter()
         process = self.process
         if process is not None:
             verified = terminate_process_group(process)
@@ -272,6 +295,7 @@ class BoundedPersistentWorker:
         if self.scratch_dir is not None:
             shutil.rmtree(self.scratch_dir, ignore_errors=False)
             self.scratch_dir = None
+        self.last_termination_seconds = time.perf_counter() - termination_started
 
     def close(self) -> None:
         with self._lock:

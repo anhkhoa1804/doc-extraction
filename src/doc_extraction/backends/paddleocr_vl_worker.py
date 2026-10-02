@@ -8,6 +8,7 @@ import os
 import resource
 import struct
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -52,14 +53,18 @@ def main() -> int:
     _set_file_size_limit()
 
     try:
+        model_import_started = time.perf_counter()
         from paddleocr import PaddleOCRVL
 
         from doc_extraction.backends.paddleocr_vl_backend import page_from_paddle_result
 
         pipeline = PaddleOCRVL(pipeline_version="v1.6", device="gpu:0" if args.device == "cuda" else "cpu")
+        model_initialization_seconds = time.perf_counter() - model_import_started
         from doc_extraction.backends.paddleocr_vl_backend import PaddleOCRVLBackend
 
+        attestation_started = time.perf_counter()
         model_versions = PaddleOCRVLBackend.model_versions()
+        model_weight_attestation_seconds = time.perf_counter() - attestation_started
     except Exception as exc:  # noqa: BLE001 - startup failures must cross the worker protocol
         _write_message(
             protocol_fd,
@@ -68,7 +73,16 @@ def main() -> int:
         )
         return 2
 
-    _write_message(protocol_fd, {"state": "ready", "model_versions": model_versions}, maximum)
+    _write_message(
+        protocol_fd,
+        {
+            "state": "ready",
+            "model_versions": model_versions,
+            "model_initialization_seconds": model_initialization_seconds,
+            "model_weight_attestation_seconds": model_weight_attestation_seconds,
+        },
+        maximum,
+    )
     for raw_line in sys.stdin.buffer:
         try:
             if len(raw_line) > 64 * 1024:
@@ -78,23 +92,46 @@ def main() -> int:
                 raise ValueError("unknown worker operation")
             source = Path(request["input_path"])
             expected_sha256 = request["input_sha256"]
+            input_hash_started = time.perf_counter()
             before_sha256 = _sha256_file(source)
             if before_sha256 != expected_sha256:
                 raise ValueError("input identity changed before model execution")
+            input_hash_seconds = time.perf_counter() - input_hash_started
+            predict_started = time.perf_counter()
             results = list(pipeline.predict(str(source)))
+            pipeline_predict_seconds = time.perf_counter() - predict_started
             if len(results) != 1:
                 raise ValueError("model returned an unexpected result count")
-            page = page_from_paddle_result(results[0])
+            phase_timings = {
+                "input_hash_seconds": input_hash_seconds,
+                # Public PaddleOCR-VL predict() bundles its internal image
+                # preprocessing, inference, and result generation. Do not
+                # report unsupported subdivisions as measured phases.
+                "pipeline_predict_seconds": pipeline_predict_seconds,
+            }
+            page = page_from_paddle_result(results[0], phase_timings)
+            after_hash_started = time.perf_counter()
             after_sha256 = _sha256_file(source)
             if after_sha256 != expected_sha256:
                 raise ValueError("input identity changed during model execution")
+            phase_timings["input_hash_seconds"] += time.perf_counter() - after_hash_started
+            page_serialization_started = time.perf_counter()
+            page_payload = page.model_dump(mode="json")
+            phase_timings["canonical_page_serialization_seconds"] = (
+                time.perf_counter() - page_serialization_started
+            )
+            phase_timings["worker_accounted_seconds"] = sum(
+                value for key, value in phase_timings.items()
+                if key.endswith("_seconds") and key != "canonical_mapping_inclusive_seconds"
+            )
             _write_message(
                 protocol_fd,
                 {
                     "state": "completed",
                     "input_sha256": after_sha256,
-                    "page": page.model_dump(mode="json"),
+                    "page": page_payload,
                     "model_versions": model_versions,
+                    "phase_timings": phase_timings,
                 },
                 maximum,
             )

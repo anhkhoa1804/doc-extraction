@@ -227,6 +227,17 @@ def _collect_page_warnings(pages: list[Page]) -> list[str]:
     return warnings
 
 
+def _write_backend_phase_timings(output_dir: Path, backend: Any, status: str) -> None:
+    """Persist bounded backend timing diagnostics outside the canonical IR."""
+    timings = getattr(backend, "last_phase_timings", None)
+    if not isinstance(timings, dict) or not timings:
+        return
+    write_json(
+        output_dir / "diagnostics" / "backend_phase_timings.json",
+        {"status": status, "backend": type(backend).__name__, "phases": timings},
+    )
+
+
 def _run_baseline_route(
     path: Path,
     route_decision: dispatcher.RouteDecision,
@@ -326,6 +337,7 @@ def process_file(
     logger: StageLogger | None = None
     route_decision: dispatcher.RouteDecision | None = None
     owns_output = False
+    backend: Any | None = None
 
     try:
         if output_dir is not None:
@@ -401,6 +413,8 @@ def process_file(
         # copy of the metadata silently disagrees with the other.
         write_json(output_dir / "metadata.json", document.metadata)
         write_json(output_dir / "final" / "document.json", document)
+        if backend is not None:
+            _write_backend_phase_timings(output_dir, backend, "success")
         return document
 
     except UnsafeOutputPath:
@@ -454,6 +468,8 @@ def process_file(
             text_profile=route_decision.text_profile.as_dict() if route_decision and route_decision.text_profile else None,
         )
         write_json(output_dir / "metadata.json", metadata)
+        if backend is not None:
+            _write_backend_phase_timings(output_dir, backend, "failed")
         logger.log_event(
             stage="run", backend=backend_name, status="failure", runtime_seconds=elapsed,
             device=config.device, error=f"{type(exc).__name__}: {exc}",

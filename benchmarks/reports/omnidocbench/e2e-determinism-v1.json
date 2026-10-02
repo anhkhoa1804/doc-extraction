@@ -1,0 +1,27 @@
+{
+  "report_schema": "internal-e2e-determinism-v1",
+  "status": "NOT_RUN",
+  "reason": "The L4 was occupied by an unrelated process during this turn; same-device repeated inference was not run.",
+  "frozen_manifest": "benchmarks/manifests/omnidocbench-representative-v2.json",
+  "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+  "selection_rule": "Predeclare 10 distinct page IDs from the frozen manifest, without using current prediction outcomes: preserve two hard/regression pages and cover table, equation/formula, multi-column/complex layout, newspaper, and mixed-language metadata where available.",
+  "selected_page_ids": [
+    "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png#0",
+    "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+    "page-112859dc-07d9-473a-a027-94904db8fd84.png#0",
+    "book_zh_JGJ1022003_extracted_page_27.png#27",
+    "page-15cc8cbe-9ce3-4ad8-8737-9159b061ca95.png#0",
+    "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+    "yanbaopptmerge_1c5f17c3dfa38c45b86802b9d014da18.pdf_1372.jpg#3062",
+    "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png#0",
+    "page-5a104368-22a2-440a-a1aa-49b7d1eb57f0.png#0",
+    "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_009.png#9"
+  ],
+  "comparison_levels": ["raw worker model result", "canonical Page/Document content excluding run timestamp/runtime", "serialized Markdown prediction", "official page-level metrics"],
+  "repeats_per_page": 2,
+  "device": "NVIDIA L4 required for the planned same-device comparison",
+  "results": null,
+  "bitwise_identity": "NOT TESTED",
+  "semantic_identity": "NOT TESTED",
+  "metric_stability": "NOT TESTED"
+}

@@ -472,6 +472,7 @@ class ProcessedSample:
     errors: list[str] = field(default_factory=list)
     document_id: str | None = None
     input_sha256: str | None = None
+    backend_timings: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -487,6 +488,7 @@ class PredictionRunResult:
     document_id: str | None = None
     input_sha256: str | None = None
     prediction_sha256: str | None = None
+    backend_timings: dict[str, Any] = field(default_factory=dict)
 
     @property
     def sample_id(self) -> str:
@@ -542,6 +544,7 @@ def write_predictions(
                     document_id=processed.document_id,
                     input_sha256=processed.input_sha256 or _file_sha256(sample.image_path),
                     prediction_sha256=_file_sha256(out_path),
+                    backend_timings=processed.backend_timings,
                 )
             )
             if logger:
@@ -560,6 +563,7 @@ def write_predictions(
                     status="failed",
                     errors=[f"{type(exc).__name__}: {exc}"],
                     input_sha256=_file_sha256(sample.image_path),
+                    backend_timings=getattr(exc, "backend_timings", {}),
                 )
             )
             if logger:
@@ -611,6 +615,7 @@ def write_runtime_report(results: list[PredictionRunResult], path: Path) -> dict
                 "warnings": r.warnings,
                 "errors": r.errors,
                 "runtime_seconds": round(r.runtime_seconds, 6),
+                "backend_timings": r.backend_timings,
             }
             for r in results
         ],

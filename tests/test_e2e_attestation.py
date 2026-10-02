@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import json
 import subprocess
 from pathlib import Path
 
@@ -67,3 +68,33 @@ def test_model_version_attestation_hashes_both_checkpoint_files(
     versions = PaddleOCRVLBackend.model_versions()
     assert versions["model_weights_sha256"] == hashlib.sha256(b"model fixture").hexdigest()
     assert versions["layout_weights_sha256"] == hashlib.sha256(b"layout fixture").hexdigest()
+
+
+def test_frozen_e2e_regression_pages_remain_in_full_run_analysis() -> None:
+    root = Path(__file__).parents[1]
+    manifest = json.loads((root / "benchmarks/manifests/omnidocbench-representative-v2.json").read_text())
+    report = json.loads((root / "benchmarks/reports/omnidocbench/e2e-full-v2.json").read_text())
+    required = {
+        "yanbaopptmerge_1c5f17c3dfa38c45b86802b9d014da18.pdf_1372.jpg#3062",
+        "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+    }
+    manifest_ids = {sample["page_id"] for sample in manifest["subset"]["samples"]}
+    run_pages = {page["page_id"]: page for page in report["per_page"]}
+
+    assert required <= manifest_ids
+    assert required <= run_pages.keys()
+    for page_id in required:
+        assert run_pages[page_id]["status"] == "success"
+        assert run_pages[page_id]["prediction_sha256"]
+    assert run_pages[
+        "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0"
+    ]["metric_values"]["text_edit_distance"] is not None
+
+    determinism = json.loads(
+        (root / "benchmarks/reports/omnidocbench/e2e-determinism-v1.json").read_text()
+    )
+    deterministic_ids = determinism["selected_page_ids"]
+    assert len(deterministic_ids) == 10
+    assert len(set(deterministic_ids)) == 10
+    assert set(deterministic_ids) <= manifest_ids
+    assert determinism["status"] == "NOT_RUN"

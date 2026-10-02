@@ -37,6 +37,8 @@ from benchmarks.scripts.build_omnidocbench_manifest import verify_manifest
 from doc_extraction.cli import collect_model_versions, process_file
 from doc_extraction.config import load_config
 from doc_extraction.evaluation import omnidocbench as odb
+from doc_extraction.utils.hashing import sha256_file
+from doc_extraction.utils.ids import document_id as make_document_id
 
 
 def build_source_attestation() -> dict:
@@ -123,7 +125,17 @@ def _process_sample(image_path: Path, config, backend_name: str, runs_dir: Path)
     Document always has exactly one page — asserted, not assumed, since a
     silent [0] on an empty list would be a confusing failure far from its
     cause."""
-    document = process_file(image_path, config, output_root=runs_dir, backend_name=backend_name)
+    try:
+        document = process_file(image_path, config, output_root=runs_dir, backend_name=backend_name)
+    except Exception as exc:
+        try:
+            failed_id = make_document_id(image_path, sha256_file(image_path))
+            timing_path = runs_dir / failed_id / "diagnostics" / "backend_phase_timings.json"
+            if timing_path.is_file():
+                exc.backend_timings = json.loads(timing_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError, TypeError):
+            pass
+        raise
     if not document.pages:
         raise RuntimeError(f"backend produced zero pages for {image_path.name}")
     if len(document.pages) > 1:
@@ -131,6 +143,8 @@ def _process_sample(image_path: Path, config, backend_name: str, runs_dir: Path)
             f"backend produced {len(document.pages)} pages for a single-image input "
             f"{image_path.name} — expected exactly 1"
         )
+    timing_path = runs_dir / document.document_id / "diagnostics" / "backend_phase_timings.json"
+    backend_timings = json.loads(timing_path.read_text(encoding="utf-8")) if timing_path.is_file() else {}
     return odb.ProcessedSample(
         page=document.pages[0],
         route=document.metadata.route,
@@ -140,6 +154,7 @@ def _process_sample(image_path: Path, config, backend_name: str, runs_dir: Path)
         errors=list(document.metadata.errors),
         document_id=document.document_id,
         input_sha256=document.metadata.file_hash_sha256,
+        backend_timings=backend_timings,
     )
 
 

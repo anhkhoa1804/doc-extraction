@@ -47,6 +47,18 @@ parent waits for protocol output; it is not a kernel-enforced aggregate
 filesystem quota. PaddleX model-cache files are read-only inputs to this
 policy and are outside per-run temporary storage.
 
+Per-run backend timings are written separately at
+`diagnostics/backend_phase_timings.json`; they are not added to the canonical
+`Document` schema. Timed boundaries include worker startup/initialization,
+weight attestation, input hashing, the public `pipeline.predict()` call,
+result JSON decoding, table parsing, canonical mapping/validation, page
+serialization, parent roundtrip, and timeout cleanup. Paddle's public
+`predict()` call combines internal image preprocessing, model inference, and
+internal decoding; those phases are deliberately reported as one opaque
+interval, not guessed sub-timings. The parent roundtrip residual also includes
+serialization, IPC, and scheduling overhead, so it is not a pure transport
+measurement.
+
 This is process isolation and hard cancellation, not an OS sandbox: the worker
 runs under the service account and can read files that account can read. The
 adapter does not pass it output paths, run metadata paths, or mutable policy
@@ -75,6 +87,11 @@ through the same canonical OmniDocBench adapter as the classic backend. The
 result measures this complete mapping path, not a vendor-reported model-card
 score. See `benchmarks/reports/omnidocbench/e2e-pretrained-v1.md` for the
 run, metric denominators, limitations, and comparison.
+
+The later runtime-analysis pass added phase timing and preserved the v2
+timeout/regression cases. Its v3 smoke, determinism, performance preflight, and
+full rerun are explicitly recorded as blocked/not run when the shared L4 is
+occupied; instrumentation alone does not establish a new paired baseline.
 
 The model card recommends its page-level pipeline over its element-only
 Transformers example; this implementation uses the page-level pipeline.

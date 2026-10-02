@@ -1,0 +1,16 @@
+{
+  "report_schema": "internal-classic-vs-e2e-v3",
+  "status": "BLOCKED_NO_V3_E2E_PREDICTIONS",
+  "population": "representative-v2 frozen 180-page manifest",
+  "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+  "comparison": {
+    "text_edit_distance": null,
+    "table_edit_distance": null,
+    "table_teds": null,
+    "table_structure_teds": null,
+    "reading_order_edit_distance": null,
+    "formula_edit_distance": null
+  },
+  "paired_page_deltas": null,
+  "reason": "No v3 E2E predictions were generated. The prior v2 run completed 178/180 and remains incomplete; its conditional 178-page analysis is not a 180-page paired baseline."
+}

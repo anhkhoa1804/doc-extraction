@@ -1,0 +1,83 @@
+{
+  "report_schema": "internal-e2e-runtime-analysis-v3",
+  "status": "INCOMPLETE_NEW_RUNTIME_MEASUREMENTS",
+  "source_run_id": "e2e-paddleocr-vl16-isolation-full180-v2-20261002T115500Z",
+  "frozen_subset": "representative-v2",
+  "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+  "old_run": {
+    "completed": 178,
+    "timeouts": 2,
+    "other_failures": 0,
+    "wall_clock_seconds": 7557.275,
+    "page_runtime_seconds": {
+      "mean": 41.9768,
+      "median": 29.0548,
+      "p95": 95.895,
+      "min": 12.3258,
+      "max": 300.8192
+    },
+    "gpu_peak_mib_observed": 20580,
+    "gpu_memory_after_run_mib": 0,
+    "model_weights_sha256": "85a479d506a11e724e7285d395c551be69f41dbc16b6342d3cacfb189aed71db",
+    "layout_weights_sha256": "70bd316b0582769ec968829fd1feb1a6a58b7c941b938327e551b6b12b45c137"
+  },
+  "timeout_pages": [
+    {
+      "page_id": "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png#0",
+      "source_category": "book",
+      "language": "simplified_chinese",
+      "layout": "single_column",
+      "subset": "equation_hard",
+      "dimensions": [1700, 2200],
+      "pixels": 3740000,
+      "file_size_bytes": 278172,
+      "runtime_seconds": 300.620358,
+      "input_sha256": "9d9af12d2bc59e4c45f3ab2289dbaf2e16a1d0d49c47eb5c8551291aa13385e1",
+      "annotation_counts": {"header": 1, "page_number": 1, "text_block": 5},
+      "finding": "OBSERVED: small raster and low listed annotation count, but belongs to equation_hard; image size alone does not explain timeout. Internal model phase was not recorded."
+    },
+    {
+      "page_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+      "source_category": "newspaper",
+      "language": "english",
+      "layout": "other_layout",
+      "subset": "v1.5",
+      "dimensions": [2800, 4734],
+      "pixels": 13255200,
+      "file_size_bytes": 4025897,
+      "runtime_seconds": 300.819206,
+      "input_sha256": "3b77eb5bbd75744e625d356f6902ffd790488bf5611b32e503d71f3a6a0674b5",
+      "annotation_counts": {"abandon": 2, "figure": 2, "figure_footnote": 2, "footer": 1, "header": 5, "page_number": 1, "text_block": 72, "text_mask": 4, "title": 51},
+      "finding": "OBSERVED: largest of the two timeout rasters, with high annotation density. Still below the configured 40,000,000-pixel limit. Internal model phase was not recorded."
+    }
+  ],
+  "current_environment_observation": {
+    "gpu": "NVIDIA L4, 23034 MiB",
+    "observed_at_utc": "2026-10-02T15:23:14Z",
+    "occupied_memory_mib": 12426,
+    "reported_gpu_utilization_percent": 20,
+    "foreign_process_pid": 147482,
+    "action": "left untouched; no E2E GPU inference launched"
+  },
+  "instrumentation_added": {
+    "observable_worker_phases": [
+      "worker startup elapsed",
+      "Paddle model/pipeline initialization",
+      "weight attestation",
+      "input hashing",
+      "public pipeline.predict call",
+      "result JSON decoding",
+      "table parsing",
+      "canonical mapping (inclusive of table parsing)",
+      "canonical validation",
+      "canonical page serialization",
+      "parent request roundtrip",
+      "parent roundtrip residual (serialization/IPC/scheduling combined; not pure transport)",
+      "worker termination and cleanup"
+    ],
+    "opaque_public_predict_internals": ["image preprocessing", "model inference", "Paddle internal decoding"],
+    "telemetry_location": "run output diagnostics/backend_phase_timings.json; canonical Document schema unchanged"
+  },
+  "bottleneck_classification": "UNKNOWN",
+  "optimization_decision": "No inference/preprocessing/decoding optimization was made without phase evidence. The timing instrumentation must first be exercised on an available isolated L4."
+}

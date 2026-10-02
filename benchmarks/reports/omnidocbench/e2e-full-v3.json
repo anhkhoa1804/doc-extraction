@@ -1,0 +1,20 @@
+{
+  "report_schema": "internal-e2e-full-v3",
+  "run_id": null,
+  "status": "BLOCKED_BEFORE_PREFLIGHT",
+  "quality_status": "NO FULL PAIRED QUALITY BASELINE",
+  "frozen_subset": "representative-v2",
+  "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+  "required_pages": 180,
+  "preflight_gates": {
+    "five_page_smoke": "NOT RUN",
+    "ten_page_determinism": "NOT RUN",
+    "twenty_page_performance_preflight": "NOT RUN",
+    "worker_stability": "UNIT TESTED ONLY; not newly GPU-verified",
+    "prediction_pairing": "previous v2 run was validated; no v3 prediction set exists",
+    "gpu_stability": "BLOCKED: unrelated process occupied 12426/23034 MiB on L4"
+  },
+  "operational": {"success": null, "timeouts": null, "failures": null, "resource_rejections": null, "warnings": null, "coverage": null},
+  "metrics": null,
+  "reason": "The required staged preflight could not safely run on the requested L4 while another process was active. No CPU substitution or policy relaxation was used."
+}

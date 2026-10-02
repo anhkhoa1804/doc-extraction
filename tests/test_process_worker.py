@@ -30,6 +30,9 @@ def test_worker_startup_and_bounded_json_output(tmp_path: Path) -> None:
         assert worker.request({"value": "hello"}, timeout=2, scratch_limit=1024)["value"] == "hello"
         assert worker.state == "ready"
         assert worker.last_state == "completed"
+        assert worker.last_startup_seconds >= 0
+        assert worker.last_request_seconds >= 0
+        assert worker.ready_metadata["state"] == "ready"
 
 
 def test_worker_timeout_kills_group_and_cleans_scratch(tmp_path: Path) -> None:
@@ -39,6 +42,8 @@ def test_worker_timeout_kills_group_and_cleans_scratch(tmp_path: Path) -> None:
         worker.request({"action": "hang"}, timeout=0.5, scratch_limit=1024)
     assert worker.last_state == "timed_out"
     assert worker.termination_verified is True
+    assert worker.last_startup_seconds + worker.last_request_seconds >= 0.5
+    assert worker.last_termination_seconds >= 0
     assert worker.process is None
     assert worker.scratch_dir is None
     child_pid = int(pid_file.read_text(encoding="ascii"))
