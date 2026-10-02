@@ -1,0 +1,111 @@
+{
+  "schema_version": "e2e-pretrained-evaluation/1",
+  "record_status": "full_population_blocked_no_quality_baseline",
+  "benchmark": {
+    "name": "OmniDocBench",
+    "version": "1.6",
+    "subset": "representative-v2 frozen 180 pages; incomplete run not scored",
+    "evaluator_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044"
+  },
+  "classic_comparison_run": "representative-v2-full-20261002T080500Z",
+  "population_identity": {
+    "sample_count": 180,
+    "manifest_sha256": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b",
+    "same_manifest_requested": true
+  },
+  "model": {
+    "name": "PaddleOCR-VL-1.6 official page-level PaddleOCR pipeline",
+    "model_id": "PaddlePaddle/PaddleOCR-VL-1.6",
+    "preflight_run_metadata_revision_field": "676e2aa (recorded value; exact upstream artifact identity not independently verified)",
+    "full_attempt_revision_metadata": null,
+    "post_run_observed_cache_weight_sha256": {
+      "PaddleOCR-VL-1.6/model.safetensors": "85a479d506a11e724e7285d395c551be69f41dbc16b6342d3cacfb189aed71db",
+      "PP-DocLayoutV3/inference.pdiparams": "70bd316b0582769ec968829fd1feb1a6a58b7c941b938327e551b6b12b45c137"
+    },
+    "cache_hash_caveat": "Hashes were computed after inference from the local PaddleX cache; they were not captured in preflight run_metadata.json and cannot prove the bytes used by that invocation.",
+    "license": "Apache-2.0 according to official model card; complete deployment dependency/license review remains open."
+  },
+  "source_reproducibility": {
+    "git_commit_recorded_by_preflight": "eaea32d76dcd1cf01fd1615088a31f4e62d318c5",
+    "working_tree_at_run": "modified/uncommitted E2E adapter and runner; exact as-run source snapshot hash was not recorded",
+    "current_adapter_sha256": "21be47a68f1be6a4ea4fa2d7505866e22644c1e460eab2dbb21501ec1e2fd648",
+    "reproduction_limitation": "The invocation is not fully source-pinned. Current source hash documents this report-building state, not an attested as-run source snapshot."
+  },
+  "environment": {
+    "gpu": "NVIDIA L4, 23034 MiB",
+    "nvidia_driver": "580.178.04",
+    "nvidia_smi_cuda": "13.0",
+    "paddle_cuda_build": "12.6",
+    "paddlepaddle_gpu": "3.2.1",
+    "paddleocr": "3.7.0",
+    "paddlex": "3.7.2",
+    "inference_precision": "official pipeline default; model file BF16",
+    "batch_size": 1,
+    "config": "configs/gpu.yaml",
+    "config_sha256": "ea3e0415e6e7699c081dfc7a3d2abcf9344c02db704865beb91ef783e1102748"
+  },
+  "smoke_preflight": {
+    "status": "completed_diagnostic_only_not_baseline",
+    "run_id": "e2e-paddleocr-vl16-preflight-20261002T101500Z",
+    "sample_count": 5,
+    "succeeded": 5,
+    "failed": 0,
+    "warnings": 0,
+    "wall_seconds": 204.78,
+    "mean_seconds_per_page": 40.9529,
+    "median_seconds_per_page": 40.8386,
+    "p95_seconds_per_page": 71.8247,
+    "min_seconds_per_page": 12.8714,
+    "max_seconds_per_page": 71.8247,
+    "sample_ids": [
+      "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+      "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png#0",
+      "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png#0",
+      "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png#0",
+      "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0"
+    ],
+    "metrics": {
+      "text_block_edit_distance": {
+        "value": 0.09950370431196637,
+        "n": 4
+      },
+      "table_edit_distance": {
+        "value": 0.3806120259528203,
+        "n": 2
+      },
+      "table_teds": {
+        "value": 0.9008657746193872,
+        "table_cases": 3,
+        "page_denominator": 2
+      },
+      "table_structure_teds": {
+        "value": 0.9338270425226947,
+        "table_cases": 3,
+        "page_denominator": 2
+      },
+      "reading_order_edit_distance": {
+        "value": 0.22605042016806723,
+        "n": 5
+      },
+      "formula_edit_distance": {
+        "value": 0.05164894333019249,
+        "n": 2
+      }
+    }
+  },
+  "full_population_attempt": {
+    "status": "interrupted_unscored",
+    "run_id": "e2e-paddleocr-vl16-representative-v2-20261002T093653Z",
+    "frozen_population": 180,
+    "prediction_files_written": 158,
+    "last_completed_page_id": "newspaper_Daily Mail_2022-08-01@magazinesclubnew_page_009.png#9",
+    "in_progress_page_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+    "configured_max_runtime_seconds": 300,
+    "observed_operation_elapsed_seconds": ">300",
+    "cancellation": "Keyboard interrupt did not terminate PaddleOCR-VL worker within the process; the run process was then terminated and its GPU use verified at zero. No unrelated process was signalled.",
+    "metrics": null,
+    "reason_not_scored": "Exact prediction/GT coverage was incomplete. Scoring the 158 completed pages would violate the frozen population requirement. Continuing would require bypassing or redesigning runtime isolation, which was not authorized in this measurement."
+  },
+  "full_population_quality_metrics": null,
+  "result_interpretation": "No full representative-v2 E2E score exists. The five-page smoke is diagnostic only and must not be compared numerically to the 180-page Classic baseline."
+}

@@ -176,6 +176,10 @@ def build_whole_document_backend(name: str, config: PipelineConfig) -> Any:
         from doc_extraction.backends.vlm_backend import VLMBackend
 
         return VLMBackend()
+    if name == "paddleocr_vl":
+        from doc_extraction.backends.paddleocr_vl_backend import PaddleOCRVLBackend
+
+        return PaddleOCRVLBackend(device=config.device)
     raise ValueError(f"unknown backend: {name!r}")
 
 
@@ -201,6 +205,10 @@ def collect_model_versions(backend_name: str) -> dict[str, str]:
         interesting += ["mineru"]
     if backend_name == "paddleocr":
         interesting += ["paddleocr", "paddlepaddle"]
+    if backend_name == "paddleocr_vl":
+        from doc_extraction.backends.paddleocr_vl_backend import PaddleOCRVLBackend
+
+        return {**versions, **PaddleOCRVLBackend.model_versions()}
     for dist in interesting:
         version = _package_version(dist)
         if version is not None:
@@ -593,7 +601,8 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--output", help="Output root directory (default: config's output_dir).")
     run_parser.add_argument("--config", default="configs/default.yaml", help="Path to a config YAML file.")
     run_parser.add_argument(
-        "--backend", default="baseline", choices=["baseline", "docling", "mineru", "paddleocr", "vlm"]
+        "--backend", default="baseline",
+        choices=["baseline", "docling", "mineru", "paddleocr", "vlm", "paddleocr_vl"]
     )
     run_parser.add_argument(
         "--device", choices=["cpu", "cuda", "auto"], default=None,
@@ -614,7 +623,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--backends",
         nargs="+",
         default=["baseline", "docling"],
-        choices=["baseline", "docling", "mineru", "paddleocr", "vlm"],
+        choices=["baseline", "docling", "mineru", "paddleocr", "vlm", "paddleocr_vl"],
         help=(
             "Whole-document systems to compare. 'baseline' is this repo's own modular "
             "pipeline (native parsing + PyMuPDF tables, with Docling/Table-Transformer "

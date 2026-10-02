@@ -1,0 +1,51 @@
+{
+  "schema_version": "classic-e2e-comparison/1",
+  "status": "NOT_COMPARABLE_FULL_POPULATION_E2E_BLOCKED",
+  "classic_run": "representative-v2-full-20261002T080500Z",
+  "e2e_run": "e2e-paddleocr-vl16-representative-v2-20261002T093653Z",
+  "same_manifest": true,
+  "classic_metrics": {
+    "text_block_edit_distance": {
+      "value": 0.5739880899019053,
+      "n": 168
+    },
+    "table_edit_distance": {
+      "value": 0.7125178638784991,
+      "n": 50
+    },
+    "table_teds": {
+      "value": 0.3981107344001522,
+      "n_pages": 50,
+      "n_table_cases": 64
+    },
+    "table_structure_teds": {
+      "value": 0.6323174152284948,
+      "n_pages": 50,
+      "n_table_cases": 64
+    },
+    "reading_order_edit_distance": {
+      "value": 0.5849918953131392,
+      "n": 178
+    },
+    "formula_edit_distance": {
+      "value": 0.9853894477253515,
+      "n": 35
+    },
+    "success_rate": {
+      "value": 1.0,
+      "n": 180
+    },
+    "warning_rate": {
+      "value": 0.0,
+      "n": 180
+    },
+    "runtime_seconds": {
+      "value": 1190.221,
+      "n": 180
+    }
+  },
+  "e2e_full_population_metrics": null,
+  "smoke_metrics": "Stored separately in e2e-pretrained-v1.json; five diagnostic pages only; not a same-population comparison.",
+  "deltas": null,
+  "comparison_rule": "No score delta is emitted unless complete predictions, exact same frozen population, and matching metric protocol exist for both systems."
+}

@@ -1,0 +1,844 @@
+{
+  "schema_version": "e2e-failure-analysis/1",
+  "source_run": "representative-v2-full-20261002T080500Z",
+  "selection_rule": "Outcome-ranked analysis sample only: union of the five worst pages on each available per-page metric (higher Edit distance is worse; lower TEDS diagnostic is worse), plus five predeclared empty/table/formula diagnostic pages. This does not redefine the benchmark population.",
+  "selected_case_count": 26,
+  "content_policy": "Only IDs, metadata, hashes, and metric values are committed; no document text or benchmark images are copied.",
+  "cases": [
+    {
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_2272.jpg#2193",
+      "sample_id": 466,
+      "source_metadata": {
+        "data_source": "exam_paper",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [
+          "table_full_line",
+          "colorful_backgroud",
+          "table_horizontal",
+          "table_span"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.121389,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.5714285714285714,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 0.9054726368159204
+      },
+      "prediction_id": "jiaocaineedrop_jiaocai_needrop_en_2272.md",
+      "prediction_sha256": "d0e5ae4929f6e788a661805d6eb4a377d21a31e9aa0a6fd6ffea3e9204364d7a",
+      "ground_truth_page_id": "jiaocaineedrop_jiaocai_needrop_en_2272.jpg#2193",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_3751.jpg#2485",
+      "sample_id": 522,
+      "source_metadata": {
+        "data_source": "colorful_textbook",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "table_horizontal",
+          "table_span",
+          "table_omission_line",
+          "fuzzy_scan",
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.036228,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": -0.022727272727272707,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.5909090909090908,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.6498599439775911,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "jiaocaineedrop_jiaocai_needrop_en_3751.md",
+      "prediction_sha256": "6ee8bf205eec2bff23737dcf2b054958f410f9b91592cc63ef91ec6044f0e5da",
+      "ground_truth_page_id": "jiaocaineedrop_jiaocai_needrop_en_3751.jpg#2485",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_397.jpg#1830",
+      "sample_id": 528,
+      "source_metadata": {
+        "data_source": "exam_paper",
+        "language": "en_ch_mixed",
+        "layout": "single_column",
+        "special_issue": [
+          "table_horizontal",
+          "table_span",
+          "watermark",
+          "table_full_line"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.312581,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.5,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 0.34285714285714286
+      },
+      "prediction_id": "jiaocaineedrop_jiaocai_needrop_en_397.md",
+      "prediction_sha256": "a4e63a4abe3c0c3853e1c9312e6dbb234e2a05ae851816edf4485d5616d81ea8",
+      "ground_truth_page_id": "jiaocaineedrop_jiaocai_needrop_en_397.jpg#1830",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "jiaocaineedrop_jiaocai_needrop_en_482.jpg#1851",
+      "sample_id": 539,
+      "source_metadata": {
+        "data_source": "exam_paper",
+        "language": "en_ch_mixed",
+        "layout": "double_column",
+        "special_issue": [
+          "watermark",
+          "table_horizontal",
+          "table_full_line"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 7.125604,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.4642857142857143,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 0.5022091310751104
+      },
+      "prediction_id": "jiaocaineedrop_jiaocai_needrop_en_482.md",
+      "prediction_sha256": "8ff68f8054483e0738fc1464fec8497504bb6f2f3d661340e73d7d5b67578699",
+      "ground_truth_page_id": "jiaocaineedrop_jiaocai_needrop_en_482.jpg#1851",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg#49",
+      "sample_id": 686,
+      "source_metadata": {
+        "data_source": "note",
+        "language": "en_ch_mixed",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 5.129652,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "notes_f7f010b78016aeebd76e56d9283eb67f_49.md",
+      "prediction_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "ground_truth_page_id": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg#49",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "book",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 2.823744,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "reading_order_Edit_dist": 1,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.md",
+      "prediction_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "ground_truth_page_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-112859dc-07d9-473a-a027-94904db8fd84.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "research_report",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "table_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.979217,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.682608695652174,
+        "TEDS_structure_only_per_page_mean_diagnostic": 1,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7115384615384616,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "page-112859dc-07d9-473a-a027-94904db8fd84.md",
+      "prediction_sha256": "11c87658c5e42c96a7ff896786520e354196a5e1bb4258d3a5d3d17738d5337e",
+      "ground_truth_page_id": "page-112859dc-07d9-473a-a027-94904db8fd84.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "note",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "handwriting"
+        ],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.277364,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.9375,
+        "text_block_Edit_dist": 0.996969696969697
+      },
+      "prediction_id": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.md",
+      "prediction_sha256": "c899e1186047460b6aa345a1967e233b23e739fbad24132b1b65a27a445dcab4",
+      "ground_truth_page_id": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "en_ch_mixed",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "table_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 5.565297,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.42352941176470593,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.7647058823529411,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.6899137607799025,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.md",
+      "prediction_sha256": "f9d8c345683f1de0fdd2ee349f351012b6aedc08f03e7a44f63b952c61f83843",
+      "ground_truth_page_id": "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "table_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 12.288073,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": -0.03690907230462637,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.84375,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7711022840119166
+      },
+      "prediction_id": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.md",
+      "prediction_sha256": "9cd589a79d4d5ac0f4f84476d15e21400dbc00e44e7a2778dbdb78c6009bf980",
+      "ground_truth_page_id": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.607764,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.2857142857142857,
+        "text_block_Edit_dist": 0.19391365888181175
+      },
+      "prediction_id": "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.md",
+      "prediction_sha256": "ff82676db9e224cfca2a9e5db7971edb7cc6cc8c30a49e86d6a62cf33bd9a76c",
+      "ground_truth_page_id": "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "book",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.452033,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.5833333333333334,
+        "text_block_Edit_dist": 0.18807339449541285
+      },
+      "prediction_id": "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.md",
+      "prediction_sha256": "c1a1c7272e0d02e7d2e6634fb21fb7e3f86e4c4ae6e78d03d6ebb1f7236d9ea7",
+      "ground_truth_page_id": "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-aee8f1d9-7240-4517-b615-389594556d57.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [],
+        "subset": "layout_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 2.316923,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.75,
+        "text_block_Edit_dist": 0.9333333333333333
+      },
+      "prediction_id": "page-aee8f1d9-7240-4517-b615-389594556d57.md",
+      "prediction_sha256": "b009e6d6bbaceaaea4800850f4c4a056a83485e8129d8b024443a14c891d02b6",
+      "ground_truth_page_id": "page-aee8f1d9-7240-4517-b615-389594556d57.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 6.081284,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.7941176470588235,
+        "text_block_Edit_dist": 0.6706875753920386
+      },
+      "prediction_id": "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.md",
+      "prediction_sha256": "f97e1a3cebd0a4e47b25c5214e0f7ce5b4a1cfefb628b58d66c57fb3aa746b30",
+      "ground_truth_page_id": "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "research_report",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "table_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 5.373734,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.5,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 0.9826086956521739
+      },
+      "prediction_id": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.md",
+      "prediction_sha256": "84defed19ddf1f850f550ae0b3aeda31c94a7b81437746079e390af33801ab8c",
+      "ground_truth_page_id": "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png#0",
+      "sample_id": null,
+      "source_metadata": {
+        "data_source": "academic_literature",
+        "language": "english",
+        "layout": "single_column",
+        "special_issue": [],
+        "subset": "equation_hard"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 5.509991,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "display_formula_Edit_dist": 1,
+        "reading_order_Edit_dist": 0.3888888888888889,
+        "text_block_Edit_dist": 0.32444168734491313
+      },
+      "prediction_id": "page-d9a27df2-127e-4f76-bb61-e7e741078bef.md",
+      "prediction_sha256": "6e559af4d18b914469ac54f79a526f2173ec4c030e8e5bc6bba2c4e4f9edfcaa",
+      "ground_truth_page_id": "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png#0",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaopptmerge_yanbaoPPT_1695.jpg#1695",
+      "sample_id": 28,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud",
+          "table_full_line",
+          "table_horizontal",
+          "table_span"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 2.956478,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.25,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.625,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.5,
+        "table_Edit_dist": 0.5979381443298969,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "yanbaopptmerge_yanbaoPPT_1695.md",
+      "prediction_sha256": "465d698ceb28cdf3f99b978b808ca766c9d799a013ec0d830903333570188426",
+      "ground_truth_page_id": "yanbaopptmerge_yanbaoPPT_1695.jpg#1695",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaopptmerge_yanbaoPPT_4150.jpg#4150",
+      "sample_id": 56,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 2.34279,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "reading_order_Edit_dist": 0,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "yanbaopptmerge_yanbaoPPT_4150.md",
+      "prediction_sha256": "8d01d9045d8829cf64441eee0e955f2b9d62af9742768145368bc4d6774411df",
+      "ground_truth_page_id": "yanbaopptmerge_yanbaoPPT_4150.jpg#4150",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaopptmerge_yanbaoPPT_4330.jpg#4330",
+      "sample_id": 62,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.790149,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "reading_order_Edit_dist": 0,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "yanbaopptmerge_yanbaoPPT_4330.md",
+      "prediction_sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "ground_truth_page_id": "yanbaopptmerge_yanbaoPPT_4330.jpg#4330",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaopptmerge_yanbaoPPT_5540.jpg#5540",
+      "sample_id": 91,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.638063,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "reading_order_Edit_dist": 0.75,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "yanbaopptmerge_yanbaoPPT_5540.md",
+      "prediction_sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "ground_truth_page_id": "yanbaopptmerge_yanbaoPPT_5540.jpg#5540",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.jpg#4297",
+      "sample_id": 976,
+      "source_metadata": {
+        "data_source": "research_report",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "table_veritical",
+          "colorful_backgroud",
+          "table_omission_line"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 7.737829,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": -0.03205128205128194,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.8523076923076923,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7392028204877094
+      },
+      "prediction_id": "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.md",
+      "prediction_sha256": "8e817547b84db6476d475ab31e7d75e9b2a8d8c1e971659a6e157bc5f4cdf1db",
+      "ground_truth_page_id": "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.jpg#4297",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg#3929",
+      "sample_id": 946,
+      "source_metadata": {
+        "data_source": "magazine",
+        "language": "simplified_chinese",
+        "layout": "other_layout",
+        "special_issue": [
+          "table_horizontal",
+          "table_span",
+          "colorful_backgroud",
+          "table_with_img",
+          "table_fewer_line"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.235754,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 0.3333333333333333,
+        "table_Edit_dist": 1,
+        "text_block_Edit_dist": 0.9781659388646288
+      },
+      "prediction_id": "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.md",
+      "prediction_sha256": "c82270caf06b8272518ed4e31ce1a8b8bfe58e274e54365b55cfaba3bd06cbfa",
+      "ground_truth_page_id": "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg#3929",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg#19",
+      "sample_id": 122,
+      "source_metadata": {
+        "data_source": "PPT2PDF",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "table_full_line",
+          "table_horizontal"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.377492,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.17019884877027736,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.7142857142857143,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7466377440347072
+      },
+      "prediction_id": "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.md",
+      "prediction_sha256": "f923b08d7e9dcfc248cc019bcfaaca9e2c9289d3ba64919a5db1189f497f24c0",
+      "ground_truth_page_id": "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg#19",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg#14",
+      "sample_id": 585,
+      "source_metadata": {
+        "data_source": "magazine",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "None"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 3.164098,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "reading_order_Edit_dist": 1,
+        "text_block_Edit_dist": 1
+      },
+      "prediction_id": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.md",
+      "prediction_sha256": "367a2ff4c6aa0df2389724b1f5b2d0ee246604b42515c548f6498d91627b20b1",
+      "ground_truth_page_id": "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg#14",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_yanbaoPPT_2098.jpg#2098",
+      "sample_id": 289,
+      "source_metadata": {
+        "data_source": "book",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud",
+          "table_full_line",
+          "table_horizontal",
+          "table_span"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 5.734462,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.7242524916943522,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.867109634551495,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7150489759572574
+      },
+      "prediction_id": "yanbaor2_yanbaoPPT_2098.md",
+      "prediction_sha256": "396e14f5eff58db3078ebba2090b05099b28715ca19c1294a007e5344bc5e937",
+      "ground_truth_page_id": "yanbaor2_yanbaoPPT_2098.jpg#2098",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    },
+    {
+      "page_id": "yanbaor2_yanbaoPPT_5877.jpg#5877",
+      "sample_id": 297,
+      "source_metadata": {
+        "data_source": "book",
+        "language": "simplified_chinese",
+        "layout": "single_column",
+        "special_issue": [
+          "colorful_backgroud",
+          "table_full_line",
+          "table_horizontal",
+          "table_span"
+        ],
+        "subset": "v1.5"
+      },
+      "route": "image",
+      "backend": "classic production backend",
+      "runtime_seconds": 4.193377,
+      "status": "success",
+      "warnings": [],
+      "warnings_count": 0,
+      "metrics": {
+        "TEDS_per_page_mean_diagnostic": 0.6813186813186813,
+        "TEDS_structure_only_per_page_mean_diagnostic": 0.8388278388278388,
+        "TEDS_structure_only_table_count": 1,
+        "TEDS_table_count": 1,
+        "reading_order_Edit_dist": 1,
+        "table_Edit_dist": 0.7187307834214733
+      },
+      "prediction_id": "yanbaor2_yanbaoPPT_5877.md",
+      "prediction_sha256": "2fd400b375bbfe35a3bbdc44a4351ef186a03643e25bac240a957cf6a80e24c6",
+      "ground_truth_page_id": "yanbaor2_yanbaoPPT_5877.jpg#5877",
+      "classification": "UNKNOWN",
+      "notes": "Selected by frozen metric-rank rule for inspection; source text omitted because dataset redistribution terms are unverified."
+    }
+  ],
+  "findings": [
+    {
+      "page_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+      "label": "OBSERVED",
+      "finding": "Classic final Document contains five formula-labelled regions with null text; OCR returned zero tokens; benchmark Markdown is header-only/empty.",
+      "inference": "The loss precedes the benchmark serializer. The available trace places it in the classic layout/OCR path, but does not identify a lower-level model root cause."
+    },
+    {
+      "page_id": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png#0",
+      "label": "OBSERVED",
+      "finding": "The wide/rotated table page has a negative per-page TEDS diagnostic (-0.036909) while structure-only TEDS is 0.84375.",
+      "inference": "The discrepancy is consistent with severe cell-content mismatch or a diagnostic/evaluation edge case; no cause is confirmed."
+    },
+    {
+      "page_id": "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+      "label": "OBSERVED",
+      "finding": "A handwriting/equation-hard page has near-1 text and formula Edit distance in the frozen baseline.",
+      "inference": "Recognition, formula serialization, annotation semantics, and matching remain competing explanations without a complete artifact-by-artifact adjudication."
+    }
+  ],
+  "limitations": [
+    "This is a ranked inspection set, not a blinded or representative sample.",
+    "Most selected cases have metric evidence only; root-cause labels remain UNKNOWN.",
+    "Table TEDS per-page values are diagnostic outputs; official aggregate metrics remain the evaluator's all-table aggregation."
+  ]
+}

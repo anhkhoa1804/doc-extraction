@@ -66,7 +66,7 @@ def _process_sample(image_path: Path, config, backend_name: str, runs_dir: Path)
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dataset", required=True, help="OmniDocBench dataset directory (ground-truth JSON + images/).")
-    parser.add_argument("--backend", required=True, choices=["baseline", "docling"])
+    parser.add_argument("--backend", required=True, choices=["baseline", "docling", "paddleocr_vl"])
     parser.add_argument("--output", required=True, help="Result directory for this backend, e.g. results/baseline")
     parser.add_argument("--config", default=str(REPO_ROOT / "configs" / "cpu.yaml"), help="doc_extraction pipeline config.")
     parser.add_argument(
@@ -77,6 +77,8 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Frozen representative-subset manifest; validates complete dataset identity.")
     parser.add_argument("--take", type=int, default=None,
                         help="Deterministic prefix of a frozen manifest (only for the preflight run).")
+    parser.add_argument("--page-ids", nargs="+", default=None,
+                        help="Explicit page_id values from a frozen manifest, for smoke/preflight only.")
     parser.add_argument("--seed", type=int, default=0, help="Shifts which pages --subset picks; same seed -> same pages.")
     parser.add_argument("--keep-runs", action="store_true",
                          help="Keep doc_extraction's own per-page stage outputs (rendered/, layout/, ocr/, tables/, inspection/) "
@@ -115,10 +117,25 @@ def main(argv: list[str] | None = None) -> int:
         samples_by_index = {sample.index: sample for sample in samples}
         samples = [samples_by_index[index] for index in selected_indices]
         if args.take is not None:
+            if args.page_ids:
+                print("--take cannot be combined with --page-ids", file=sys.stderr)
+                return 2
             if args.take <= 0 or args.take > len(samples):
                 print(f"--take must be in 1..{len(samples)}", file=sys.stderr)
                 return 2
             samples = samples[: args.take]
+        if args.page_ids:
+            if len(args.page_ids) != len(set(args.page_ids)):
+                print("--page-ids contains duplicates", file=sys.stderr)
+                return 2
+            samples_by_page_id = {
+                f"{sample.image_name}#{sample.page_no}": sample for sample in samples
+            }
+            missing = [page_id for page_id in args.page_ids if page_id not in samples_by_page_id]
+            if missing:
+                print(f"--page-ids are not in the frozen manifest: {missing}", file=sys.stderr)
+                return 2
+            samples = [samples_by_page_id[page_id] for page_id in args.page_ids]
     else:
         if args.take is not None:
             print("--take requires --manifest", file=sys.stderr)
