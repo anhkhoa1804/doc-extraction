@@ -358,6 +358,45 @@ def validate_worker_page(value: Any) -> Page:
         raise E2EInvalidModelOutput(f"invalid PaddleOCR-VL page output: {type(exc).__name__}: {exc}") from exc
 
 
+def validate_worker_response(value: Any, expected_input_sha256: str) -> tuple[Page, dict[str, str], dict[str, float]]:
+    """Validate the complete private-worker response before canonicalization.
+
+    The framed transport bounds bytes; this validates protocol shape and
+    identity. Unknown fields are rejected so a worker/schema drift cannot be
+    silently ignored by the parent.
+    """
+    if not isinstance(value, dict):
+        raise E2EInvalidModelOutput("worker response must be an object")
+    expected_keys = {"state", "input_sha256", "page", "model_versions", "phase_timings"}
+    if set(value) != expected_keys:
+        missing = sorted(expected_keys - set(value))
+        unexpected = sorted(set(value) - expected_keys)
+        raise E2EInvalidModelOutput(
+            f"worker response fields differ from protocol (missing={missing}, unexpected={unexpected})"
+        )
+    if value["state"] != "completed":
+        raise E2EInvalidModelOutput("worker response is not completed")
+    if value["input_sha256"] != expected_input_sha256:
+        raise E2EInvalidModelOutput("worker result input identity does not match submitted page")
+    versions = value["model_versions"]
+    if not isinstance(versions, dict) or not versions or any(
+        not isinstance(key, str) or not isinstance(version, str) for key, version in versions.items()
+    ):
+        raise E2EInvalidModelOutput("worker model_versions must be a non-empty string mapping")
+    timings = value["phase_timings"]
+    if not isinstance(timings, dict) or any(
+        not isinstance(key, str)
+        or not isinstance(seconds, (int, float))
+        or not math.isfinite(seconds)
+        or seconds < 0
+        for key, seconds in timings.items()
+    ):
+        raise E2EInvalidModelOutput("worker phase_timings must contain finite non-negative durations")
+    return validate_worker_page(value["page"]), dict(versions), {
+        key: float(seconds) for key, seconds in timings.items()
+    }
+
+
 class PaddleOCRVLBackend:
     """Whole-document backend using PaddleOCR-VL's official v1.6 pipeline."""
 
@@ -461,8 +500,9 @@ class PaddleOCRVLBackend:
                     "timing_source": "parent_supervisor; worker failed before complete timing response",
                 }
                 raise E2EWorkerFailure(f"PaddleOCR-VL {exc.kind}: {exc}") from exc
-            reply_timings = reply.get("phase_timings")
-            reply_timings = reply_timings if isinstance(reply_timings, dict) else {}
+            validation_started = time.perf_counter()
+            page, versions, reply_timings = validate_worker_response(reply, sha256)
+            parent_validation_seconds = time.perf_counter() - validation_started
             worker_accounted = reply_timings.get("worker_accounted_seconds")
             self.last_phase_timings = {
                 **reply_timings,
@@ -478,16 +518,7 @@ class PaddleOCRVLBackend:
                 self.last_phase_timings["parent_roundtrip_residual_seconds"] = max(
                     0.0, worker.last_request_seconds - float(worker_accounted)
                 )
-            validation_started = time.perf_counter()
-            page = validate_worker_page(reply.get("page"))
-            self.last_phase_timings["parent_canonical_validation_seconds"] = (
-                time.perf_counter() - validation_started
-            )
-            if reply.get("input_sha256") != sha256:
-                raise E2EInvalidModelOutput("worker result input identity does not match submitted page")
-            versions = reply.get("model_versions")
-            if not isinstance(versions, dict):
-                raise E2EInvalidModelOutput("worker did not return model artifact identity")
+            self.last_phase_timings["parent_canonical_validation_seconds"] = parent_validation_seconds
             if any(versions.get(key) != model_versions.get(key) for key in weight_keys):
                 raise E2EWorkerFailure("model weight identity changed between pre-run attestation and worker load")
             model_versions = {**model_versions, **{str(k): str(v) for k, v in versions.items()}}

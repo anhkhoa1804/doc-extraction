@@ -70,6 +70,28 @@ def test_worker_failure_and_oversized_output_are_not_accepted(tmp_path: Path) ->
         with pytest.raises(WorkerProtocolError, match="exceeds"):
             worker.request({"action": "oversized"}, timeout=2, scratch_limit=1024)
         assert worker.process is None
+        assert worker.scratch_dir is None
+    finally:
+        worker.close()
+
+
+@pytest.mark.parametrize(
+    ("action", "error_type", "message"),
+    [
+        ("bad_json", WorkerProtocolError, "valid UTF-8 JSON"),
+        ("truncated", WorkerCrashed, "closed its protocol stream"),
+    ],
+)
+def test_worker_rejects_malformed_or_truncated_frames(
+    tmp_path: Path, action: str, error_type: type[Exception], message: str
+) -> None:
+    worker = _worker(tmp_path)
+    try:
+        with pytest.raises(error_type, match=message):
+            worker.request({"action": action}, timeout=2, scratch_limit=1024)
+        assert worker.process is None
+        assert worker.scratch_dir is None
+        assert worker.termination_verified is True
     finally:
         worker.close()
 

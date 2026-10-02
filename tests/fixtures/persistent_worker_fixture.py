@@ -41,6 +41,11 @@ def main() -> None:
         elif request.get("action") == "oversized":
             os.write(protocol_fd, struct.pack(">I", 1_000_000))
             time.sleep(5)
+        elif request.get("action") == "bad_json":
+            os.write(protocol_fd, struct.pack(">I", 1) + b"{")
+        elif request.get("action") == "truncated":
+            os.write(protocol_fd, struct.pack(">I", 128) + b"{}")
+            raise SystemExit(0)
         else:
             send({"state": "completed", "value": request.get("value")})
 

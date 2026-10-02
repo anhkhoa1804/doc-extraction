@@ -7,6 +7,7 @@ from doc_extraction.backends.paddleocr_vl_backend import (
     PaddleOCRVLBackend,
     page_from_paddle_result,
     validate_worker_page,
+    validate_worker_response,
 )
 from doc_extraction.cli import _write_backend_phase_timings
 from doc_extraction.schemas.element import ElementType
@@ -212,3 +213,38 @@ def test_worker_page_validation_rejects_broken_reading_order_and_table_links() -
     value["reading_order"] = []
     with pytest.raises(ValueError, match="reading order"):
         validate_worker_page(value)
+
+
+def test_worker_response_is_exact_bounded_protocol_and_identity_checked() -> None:
+    expected_hash = "a" * 64
+    page = page_from_paddle_result(FakeResult({"width": 8, "height": 9, "parsing_res_list": []}))
+    response = {
+        "state": "completed",
+        "input_sha256": expected_hash,
+        "page": page.model_dump(mode="json"),
+        "model_versions": {"model": "fixture@revision"},
+        "phase_timings": {"pipeline_predict_seconds": 0.25},
+    }
+    validated_page, versions, timings = validate_worker_response(response, expected_hash)
+    assert validated_page == page
+    assert versions == {"model": "fixture@revision"}
+    assert timings == {"pipeline_predict_seconds": 0.25}
+
+    for mutation, message in [
+        ({"unexpected": True}, "unexpected"),
+        ({"page": None}, "page"),
+        ({"input_sha256": "b" * 64}, "identity"),
+        ({"phase_timings": {"pipeline_predict_seconds": float("nan")}}, "phase_timings"),
+        ({"model_versions": {}}, "model_versions"),
+    ]:
+        bad = {**response, **mutation}
+        with pytest.raises(ValueError, match=message):
+            validate_worker_response(bad, expected_hash)
+
+
+def test_worker_page_rejects_unrecognized_nested_fields() -> None:
+    page = page_from_paddle_result(FakeResult({"width": 8, "height": 9, "parsing_res_list": []}))
+    payload = page.model_dump(mode="json")
+    payload["unrecognized"] = "must not be silently dropped"
+    with pytest.raises(ValueError, match="Extra inputs are not permitted"):
+        validate_worker_page(payload)
