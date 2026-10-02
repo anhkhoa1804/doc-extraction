@@ -737,6 +737,23 @@ def test_evaluate_uses_copied_frozen_subset_ground_truth_by_default(tmp_path):
     assert resolved == subset_gt
 
 
+def test_frozen_subset_missing_ground_truth_fails_without_falling_back_to_full_dataset(tmp_path):
+    evaluate = _load_evaluate_module()
+    dataset_root = _write_dataset(tmp_path, [_sample_record("full.jpg")], ["full.jpg"])
+    run = tmp_path / "subset-run"
+    run.mkdir()
+
+    selected_gt = evaluate._ground_truth_for_run(
+        None,
+        {"sample_manifest_identity": "frozen-subset-hash"},
+        run,
+    )
+    assert selected_gt == run / "ground_truth_subset.json"
+    assert not selected_gt.exists()
+    with pytest.raises(odb.DatasetError, match="cannot read ground-truth JSON"):
+        odb.load_dataset(dataset_root, selected_gt)
+
+
 def test_evaluate_explicit_ground_truth_overrides_run_subset(tmp_path):
     evaluate = _load_evaluate_module()
     explicit_gt = tmp_path / "other.json"

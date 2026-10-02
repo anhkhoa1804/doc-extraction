@@ -299,6 +299,8 @@ def load_dataset(
     gt_path = Path(ground_truth_path) if ground_truth_path is not None else _find_ground_truth_json(dataset_root)
     try:
         raw = json.loads(gt_path.read_text(encoding="utf-8"))
+    except OSError as exc:
+        raise DatasetError(f"cannot read ground-truth JSON at {gt_path}: {exc}") from exc
     except json.JSONDecodeError as exc:
         raise DatasetError(f"{gt_path} is not valid JSON: {exc}") from exc
     except UnicodeDecodeError as exc:
