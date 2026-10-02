@@ -167,6 +167,21 @@ _LABEL_TO_ELEMENT_TYPE: dict[str, str] = {
     "page-footer": "other",
 }
 
+_TEXT_BEARING_LAYOUT_LABELS = {
+    "title",
+    "section-header",
+    "section_header",
+    "text",
+    "paragraph",
+    "list-item",
+    "list_item",
+    "formula",
+    "caption",
+    "footnote",
+    "handwritten_text",
+    "reference",
+}
+
 
 def _center_in(inner: BBox, outer: BBox) -> bool:
     cx = (inner.x0 + inner.x1) / 2
@@ -689,7 +704,19 @@ def merge_regions_into_page(
         )
         recovered_tokens += len(block)
 
-    notes = list(table_result.warnings) if table_result else []
+    notes = [f"layout ({layout_result.backend}): {warning}" for warning in layout_result.warnings]
+    notes.extend(f"OCR ({ocr_result.backend}): {warning}" for warning in ocr_result.warnings)
+    if not ocr_result.tokens:
+        empty_ocr_regions = sum(
+            region.label.lower() in _TEXT_BEARING_LAYOUT_LABELS for region in layout_result.regions
+        )
+        if empty_ocr_regions:
+            notes.append(
+                "OCR returned no text tokens for "
+                f"{empty_ocr_regions} detected text/formula region(s); page extraction may be incomplete"
+            )
+    if table_result:
+        notes.extend(f"table ({table_result.backend}): {warning}" for warning in table_result.warnings)
     if orphans:
         notes.append(
             f"orphan OCR recovery: {recovered_tokens} of {len(orphans)} unclaimed "

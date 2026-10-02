@@ -135,6 +135,11 @@ note; benchmark prediction serialization fails when a page has elements but
 no complete, valid reading order. Duplicate IDs, unknown reading-order/table
 references, invalid bounding boxes, and table cells outside declared table
 dimensions are rejected rather than normalized into plausible output.
+Visual-route page notes retain layout, OCR, and table backend diagnostics.
+When a page has detected text/formula regions but OCR returns no tokens, the
+page carries a warning that extraction may be incomplete. This detects an
+absence of stage output; it does not establish what content the source image
+contains.
 
 ### Page numbering semantics — nullable, never fabricated
 
