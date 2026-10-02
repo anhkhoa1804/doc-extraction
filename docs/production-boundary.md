@@ -31,8 +31,10 @@ public configuration, and regression coverage.
 
 ## Contract authority
 
-The repository's authoritative output today is its documented canonical
-`Document` schema. No authoritative local `ExtractionPackage v1` contract was
-found or fabricated during this cleanup. A future integration must provide the
-authoritative schema and use a narrow adapter at the public boundary; it must
-not expose private diagnostic or historical classes downstream.
+The repository's production output today is the internal canonical
+`Document` schema (currently v1.4.0). No separate authoritative
+`DocumentExtractionContract 1.0.0` or `ExtractionPackage v1` contract was
+found. Internal schema validation is not a substitute for that external
+authority. A future integration must provide the authoritative schema and use
+a narrow adapter at the public boundary; it must not expose private diagnostic
+or historical classes downstream.

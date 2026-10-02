@@ -35,8 +35,10 @@ mismatches fail loudly rather than producing empty output.
 
 ## Outputs
 
-The **canonical IR is authoritative** (`schemas/document.py`, currently schema
-`1.2.0`). Markdown and HTML are derived views and are explicitly lossy.
+The **internal canonical IR** is versioned by `schemas/document.py` and
+`schemas/version.py` (currently schema `1.4.0`). Markdown and HTML are derived
+views and are explicitly lossy. This is not a separately versioned
+cross-team `DocumentExtractionContract 1.0.0`.
 
 Every run also emits:
 
@@ -71,7 +73,7 @@ case's known strings survived extraction.
 | Cross-page structures | **partial** | repeated headers/footers detected as pages, not yet linked |
 | Images / figures | **recorded** | referenced with geometry, not interpreted |
 | Forms, checkboxes, key-value | **not implemented** | element types exist in the IR; no extraction logic |
-| Formulas | **not implemented** | measured at 0.996 edit distance on OmniDocBench — effectively absent |
+| Formulas (Classic backend) | **not implemented** | Classic baseline measured near-1 edit distance on OmniDocBench; optional PaddleOCR-VL backend has a separate, incomplete paired run |
 | Charts | **not implemented** | recorded as images |
 | Handwriting | **not measured** | no case in the corpus yet |
 

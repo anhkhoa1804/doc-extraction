@@ -217,13 +217,18 @@ def collect_model_versions(backend_name: str) -> dict[str, str]:
 
 
 def _collect_page_warnings(pages: list[Page]) -> list[str]:
-    """Surface per-page notes that indicate a problem to the document level,
-    so `metadata.json` shows them without needing to open every page."""
+    """Promote page diagnostics to run metadata without dropping new warnings.
+
+    Page notes have no structured severity field yet. Only the two established
+    informational note forms are excluded; unknown notes are surfaced as
+    warnings rather than silently disappearing at the document boundary.
+    """
     warnings: list[str] = []
     for page in pages:
         for note in page.notes:
-            if note.startswith("SUSPECT") or "fallback" in note or "skipped" in note:
-                warnings.append(f"page {page.index + 1}: {note}")
+            if note.startswith(("DOCX pagination is a renderer property", "XLSX worksheet ")):
+                continue
+            warnings.append(f"page {page.index + 1}: {note}")
     return warnings
 
 

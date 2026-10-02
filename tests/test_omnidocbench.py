@@ -292,6 +292,18 @@ def test_page_to_markdown_empty_page_does_not_crash():
     assert odb.page_to_prediction_markdown(page) == "\n"
 
 
+def test_prediction_serializer_rejects_elements_without_explicit_reading_order():
+    page = Page(
+        index=0,
+        width=10,
+        height=10,
+        elements=[_text_el("e0", 0, 0, 5, 5, text="must not be implicitly ordered")],
+        reading_order=[],
+    )
+    with pytest.raises(ValueError, match="reading_order"):
+        odb.page_to_prediction_markdown(page)
+
+
 def test_page_to_markdown_blocks_separated_by_blank_line():
     page = Page(
         index=0, width=100, height=100,

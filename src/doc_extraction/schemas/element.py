@@ -6,10 +6,11 @@ expected to interpret `type`/`text`/`table` themselves.
 """
 from __future__ import annotations
 
+import math
 from enum import Enum
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 # Note: Element intentionally does not embed a `Table` object directly.
 # For type == TABLE, `table_id` points into the owning Page's `tables` list
@@ -48,10 +49,21 @@ class BBox(BaseModel):
     which convention a given element used.
     """
 
+    model_config = ConfigDict(extra="forbid")
+
     x0: float
     y0: float
     x1: float
     y1: float
+
+    @model_validator(mode="after")
+    def validate_bounds(self) -> BBox:
+        values = (self.x0, self.y0, self.x1, self.y1)
+        if not all(math.isfinite(value) for value in values):
+            raise ValueError("bounding-box coordinates must be finite")
+        if self.x0 > self.x1 or self.y0 > self.y1:
+            raise ValueError("bounding-box minima must not exceed maxima")
+        return self
 
     def as_tuple(self) -> tuple[float, float, float, float]:
         return (self.x0, self.y0, self.x1, self.y1)
@@ -76,6 +88,8 @@ class BBox(BaseModel):
 
 
 class Element(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     id: str
     type: ElementType
     text: str | None = None
@@ -85,7 +99,7 @@ class Element(BaseModel):
     # pipelines/office.py). None means "unknown", never "page 1": callers
     # must not fabricate pagination that the format does not define.
     page_number: int | None = None
-    confidence: float | None = None
+    confidence: float | None = Field(default=None, ge=0, le=1, allow_inf_nan=False)
     source_backend: str
     source_id: str | None = None
     parent_id: str | None = None

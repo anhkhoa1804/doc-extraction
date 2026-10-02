@@ -46,7 +46,7 @@ from doc_extraction.schemas.page import Page
 _MATCH_IOU = 0.5
 
 
-def page_text(page: Page) -> str:
+def page_text(page: Page) -> str | None:
     """Concatenate a page's text in reading order.
 
     Table content is included via each table element's cells. Without this a
@@ -54,12 +54,10 @@ def page_text(page: Page) -> str:
     element `.text` — would measure as zero characters, which reads as
     "extraction found nothing" when in fact it found everything.
     """
-    order = page.reading_order or [e.id for e in page.elements]
+    if page.elements and set(page.reading_order) != {element.id for element in page.elements}:
+        return None
     parts: list[str] = []
-    for element_id in order:
-        element = page.element_by_id(element_id)
-        if element is None:
-            continue
+    for element in page.elements_in_reading_order():
         if element.text:
             parts.append(element.text)
         elif element.table_id:
@@ -138,8 +136,8 @@ def compare_pages(left: Page, right: Page) -> dict[str, Any]:
     mean_iou = (sum(m[2] for m in matches) / len(matches)) if matches else None
 
     order_pairs: list[tuple[int, int]] = []
-    left_order = {eid: i for i, eid in enumerate(left.reading_order or [e.id for e in left.elements])}
-    right_order = {eid: i for i, eid in enumerate(right.reading_order or [e.id for e in right.elements])}
+    left_order = {eid: i for i, eid in enumerate(left.reading_order)}
+    right_order = {eid: i for i, eid in enumerate(right.reading_order)}
     for i, j, _iou in matches:
         li = left_order.get(left_boxed[i].id)
         ri = right_order.get(right_boxed[j].id)
@@ -148,7 +146,13 @@ def compare_pages(left: Page, right: Page) -> dict[str, Any]:
 
     left_text = page_text(left)
     right_text = page_text(right)
-    text_similarity = SequenceMatcher(None, left_text, right_text).ratio() if (left_text or right_text) else 1.0
+    text_similarity = (
+        SequenceMatcher(None, left_text, right_text).ratio()
+        if left_text is not None and right_text is not None
+        else None
+    )
+    if text_similarity is None and not left.elements and not right.elements:
+        text_similarity = 1.0
 
     return {
         "page_index": left.index,
@@ -158,9 +162,9 @@ def compare_pages(left: Page, right: Page) -> dict[str, Any]:
         "left_tables": len(left.tables),
         "right_tables": len(right.tables),
         "table_count_delta": len(left.tables) - len(right.tables),
-        "left_text_chars": len(left_text),
-        "right_text_chars": len(right_text),
-        "text_similarity": round(text_similarity, 4),
+        "left_text_chars": len(left_text) if left_text is not None else None,
+        "right_text_chars": len(right_text) if right_text is not None else None,
+        "text_similarity": round(text_similarity, 4) if text_similarity is not None else None,
         "matched_elements": len(matches),
         "bbox_match_rate": round(bbox_match_rate, 4) if bbox_match_rate is not None else None,
         "mean_matched_iou": round(mean_iou, 4) if mean_iou is not None else None,
@@ -185,7 +189,13 @@ def compare_documents(left_name: str, left: Document, right_name: str, right: Do
         "total_element_count_delta": sum(p["element_count_delta"] for p in per_page),
         "total_table_count_delta": sum(p["table_count_delta"] for p in per_page),
         "mean_text_similarity": (
-            round(sum(p["text_similarity"] for p in per_page) / len(per_page), 4) if per_page else None
+            round(
+                sum(p["text_similarity"] for p in per_page if p["text_similarity"] is not None)
+                / sum(p["text_similarity"] is not None for p in per_page),
+                4,
+            )
+            if any(p["text_similarity"] is not None for p in per_page)
+            else None
         ),
         "pages": per_page,
     }

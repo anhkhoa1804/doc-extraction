@@ -461,6 +461,9 @@ def test_report_escapes_source_html_and_identifier_paths(tmp_path):
     document.document_id = "../../escape"
     document.pages[0].notes.append("SUSPECT test")
     document.pages[0].tables[0].id = "../../../../outside"
+    for element in document.pages[0].elements:
+        if element.table_id is not None:
+            element.table_id = document.pages[0].tables[0].id
     document.pages[0].tables[0].cells[0].text = "=1+1"
     write_json(next(output.glob("*/final/document.json")), document)
     report = tmp_path / "report"

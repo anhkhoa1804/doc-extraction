@@ -1,16 +1,19 @@
-# ExtractionPackage v1 integration status
+# Cross-team extraction contract status
 
 ## Status: blocked on contract authority
 
 `Document` is the internal canonical representation produced by this
-repository. `ExtractionPackage v1` is an external KP/CDOI interchange
-contract. This repository intentionally does not define, emulate, or infer
-that contract.
+repository. The checkout does not contain a separate cross-team
+`DocumentExtractionContract 1.0.0` artifact, nor the previously requested
+external `ExtractionPackage v1` KP/CDOI interchange contract. The internal
+canonical schema is currently `Document.schema_version == "1.4.0"`; it must
+not be relabeled as either external contract.
 
-As of production baseline `ad15d78e4af2409fc63ca108be7104dee75db2eb`, no
-authoritative ExtractionPackage v1 artifact is available to this checkout.
-Consequently, there is no adapter implementation, public compatibility claim,
-or field-level mapping in this repository.
+At the production hardening audit for this checkout, no authoritative
+`DocumentExtractionContract 1.0.0` or ExtractionPackage v1 artifact is
+available. Consequently, there is no adapter
+implementation, public compatibility claim, or field-level mapping in this
+repository.
 
 ## Evidence checked
 
@@ -19,21 +22,22 @@ The integration audit checked:
 * the tracked working tree and `origin/fix/table-text-ownership` for schema,
   OpenAPI, protobuf, TypeScript, Python-model, canonical-example, adapter,
   and `ExtractionPackage`/`CDOI`/`DocumentIR` references;
-* every reachable Git revision with an `ExtractionPackage`,
+* every reachable Git revision with a `DocumentExtractionContract`, `ExtractionPackage`,
   `cdoi_doc_extraction_adapter`, or `DocumentIR` string change; and
 * the available sibling workspaces and the active project environment for an
   installed or editable KP/CDOI package.
 
 Only the internal `Document` schema and historical research artifacts were
-found. The two production-boundary documents that mention ExtractionPackage
-explicitly state that an authoritative contract is absent. No versioned
-external schema, owner-supplied canonical JSON, validator, or consumer entry
-point was found.
+found. No versioned external schema, owner-supplied canonical JSON, validator,
+or KP/CDOI consumer entry point was found. This audit therefore cannot freeze
+or claim compatibility with `DocumentExtractionContract 1.0.0`; the internal
+schema validation hardening described in `output-format.md` is not a
+replacement for that authority.
 
 ## Required owner-supplied artifacts
 
-Implementation can begin only after KP/CDOI supplies all of the following for
-one named, versioned contract:
+Cross-team adapter implementation can begin only after the contract owner
+supplies all of the following for one named, versioned contract:
 
 1. The authoritative schema or executable model, including the normative
    version and compatibility policy.
@@ -52,7 +56,7 @@ The future adapter belongs at the narrow boundary below. It must map from the
 internal canonical `Document` only after external semantics are known.
 
 ```text
-source file -> doc-extraction -> Document -> ExtractionPackage v1 -> KP/CDOI
+source file -> doc-extraction -> Document -> authoritative external contract -> KP/CDOI
 ```
 
 `Document` and its canonical serialization are documented in

@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from doc_extraction.schemas.element import ElementType
 from doc_extraction.schemas.page import Page
@@ -23,6 +23,8 @@ class RunMetadata(BaseModel):
 
     Written verbatim to outputs/<document_id>/metadata.json.
     """
+
+    model_config = ConfigDict(extra="forbid")
 
     input_filename: str
     input_path: str
@@ -60,22 +62,35 @@ class RunMetadata(BaseModel):
 class Document(BaseModel):
     # Version of the canonical IR this document was serialized with. See
     # schemas/version.py for the change history.
+    model_config = ConfigDict(extra="forbid")
+
     schema_version: str = SCHEMA_VERSION
     document_id: str
     metadata: RunMetadata
     pages: list[Page] = Field(default_factory=list)
     assets: dict[str, str] = Field(default_factory=dict)  # name -> path, relative to output dir
 
+    @model_validator(mode="after")
+    def validate_public_document_boundary(self) -> Document:
+        if self.schema_version != SCHEMA_VERSION:
+            raise ValueError(
+                f"unsupported canonical Document schema version {self.schema_version!r}; "
+                f"this runtime supports {SCHEMA_VERSION!r}"
+            )
+        if self.metadata.status is RunStatus.FAILED:
+            raise ValueError("failed extraction metadata cannot be published as a canonical Document")
+        for position, page in enumerate(self.pages):
+            if page.index != position:
+                raise ValueError("Page.index must equal its zero-based position in Document.pages")
+        return self
+
     def to_markdown(self) -> str:
         """Human-readable Markdown export for quick inspection (not a lossless format)."""
         lines: list[str] = [f"# {self.metadata.input_filename}", ""]
         for page in self.pages:
             lines.append(f"## Page {page.index + 1}")
-            order = page.reading_order or [e.id for e in page.elements]
-            for element_id in order:
-                element = page.element_by_id(element_id)
-                if element is None:
-                    continue
+            ordered_elements = page.elements_in_reading_order(require_complete=False)
+            for element in ordered_elements:
                 if element.type == ElementType.TABLE and element.table_id:
                     table = page.table_by_id(element.table_id)
                     if table is not None:
@@ -92,5 +107,11 @@ class Document(BaseModel):
                 else:
                     if element.text:
                         lines.append(element.text)
+                lines.append("")
+            omitted_count = len(page.elements) - len(ordered_elements)
+            if omitted_count:
+                lines.append(
+                    f"> {omitted_count} element(s) omitted from Markdown: no explicit reading-order entry."
+                )
                 lines.append("")
         return "\n".join(lines)

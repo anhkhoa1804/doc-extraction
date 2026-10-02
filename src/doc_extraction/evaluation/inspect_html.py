@@ -65,11 +65,11 @@ def _render_page(page: Page, inspection_dir: Path) -> str:
         </div>"""
 
     element_rows = []
-    order = page.reading_order or [e.id for e in page.elements]
-    for position, element_id in enumerate(order):
-        element = page.element_by_id(element_id)
-        if element is None:
-            continue
+    ordered_elements = page.elements_in_reading_order(require_complete=False)
+    ordered_ids = {element.id for element in ordered_elements}
+    display_elements = ordered_elements + [element for element in page.elements if element.id not in ordered_ids]
+    positions = {element.id: index for index, element in enumerate(ordered_elements)}
+    for element in display_elements:
         text_preview = html.escape((element.text or "")[:200])
         bbox_str = (
             f"({element.bbox.x0:.0f},{element.bbox.y0:.0f})-({element.bbox.x1:.0f},{element.bbox.y1:.0f})"
@@ -87,7 +87,8 @@ def _render_page(page: Page, inspection_dir: Path) -> str:
                 )
                 table_html = f'<table class="mini-table">{body_rows}</table>'
         element_rows.append(
-            f"<tr><td>{position}</td><td>{element.type.value}</td><td>{element.confidence if element.confidence is not None else '-'}</td>"
+            f"<tr><td>{positions.get(element.id, '—')}</td><td>{element.type.value}</td>"
+            f"<td>{element.confidence if element.confidence is not None else '-'}</td>"
             f"<td>{bbox_str}</td><td>{text_preview}{table_html}</td></tr>"
         )
 
@@ -119,7 +120,7 @@ def _render_page(page: Page, inspection_dir: Path) -> str:
       <div class="legend">{color_legend}</div>
       {image_block}
       <table class="elements-table">
-        <tr><th>#</th><th>type</th><th>conf</th><th>bbox</th><th>content</th></tr>
+        <tr><th>reading-order position</th><th>type</th><th>conf</th><th>bbox</th><th>content</th></tr>
         {''.join(element_rows) or '<tr><td colspan="5">no elements</td></tr>'}
       </table>
     </section>"""

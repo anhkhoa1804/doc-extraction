@@ -37,6 +37,12 @@ renders individual pages on demand when they fail text-quality checks (see
 (`utils/ids.py`). The hash suffix makes re-runs land in the same directory
 (reproducible) while two different files sharing a name cannot collide.
 
+The canonical Pydantic models reject unknown serialized fields and unsupported
+`Document.schema_version` values; this runtime currently reads/writes only
+the current version and has no migration layer. A failed `RunMetadata` cannot
+be wrapped as a canonical `Document`: failed runs publish failure metadata and
+raise through the public API instead.
+
 ## `metadata.json` (`schemas.document.RunMetadata`)
 
 ```json
@@ -88,6 +94,13 @@ canonical document with retained degraded content is `success_with_warnings`.
 Consumers must use `status`, never an empty page/element list, to infer a
 failed extraction.
 
+In the internal v1.4.0 representation, `warnings` and `errors` are arrays of
+diagnostic strings, not structured severity records. There is no `FATAL` or
+`PARTIAL` enum value: fatal run failures use `failed`, are written to the
+failure metadata sidecar, and raise from the public API. This is the current
+internal behavior, not a claim that it satisfies an absent cross-team
+contract's severity model.
+
 When a hard input-resource policy is violated, `resource_violation` is an
 object with `limit_name`, `limit`, `actual`, and `detail`; otherwise it is
 null. See [`resource-limits.md`](resource-limits.md).
@@ -114,6 +127,14 @@ Document
       ├── tables: list[Table]
       └── reading_order: list[str]    # Element.id, in reading order
 ```
+
+`reading_order` is the only ordering claim. Consumers and serializers must not
+infer it from the storage order of `elements`. The Markdown inspection view
+omits elements without an explicit reading-order entry and emits an omission
+note; benchmark prediction serialization fails when a page has elements but
+no complete, valid reading order. Duplicate IDs, unknown reading-order/table
+references, invalid bounding boxes, and table cells outside declared table
+dimensions are rejected rather than normalized into plausible output.
 
 ### Page numbering semantics — nullable, never fabricated
 

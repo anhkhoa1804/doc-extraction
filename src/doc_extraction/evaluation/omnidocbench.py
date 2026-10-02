@@ -443,12 +443,8 @@ def page_to_prediction_markdown(page: Page) -> str:
     human-readable inspection output) — that method is untouched by this
     module. An OmniDocBench prediction is one page with no wrapper at all.
     """
-    order = page.reading_order or [e.id for e in page.elements]
     blocks: list[str] = []
-    for element_id in order:
-        element = page.element_by_id(element_id)
-        if element is None:
-            continue
+    for element in page.elements_in_reading_order():
         block = _element_to_markdown_block(element, page)
         if block:
             blocks.append(block)
