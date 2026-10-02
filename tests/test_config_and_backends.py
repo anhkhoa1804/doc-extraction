@@ -158,6 +158,7 @@ def test_docling_pipeline_options_follow_configured_device(device):
     for fmt in (InputFormat.PDF, InputFormat.IMAGE):
         options = converter.format_to_options[fmt].pipeline_options
         assert options.accelerator_options.device == device
+        assert options.do_formula_enrichment is False
         # `use_gpu` must stay None: it is deprecated upstream and *overrides*
         # the accelerator device instead of following it, which is exactly
         # what pinned EasyOCR to CPU on a CUDA box.
@@ -455,6 +456,45 @@ def test_docling_recognize_and_analyze_traverse_picture_children(tmp_path):
     labels = [r.label for r in layout_result.regions]
     assert labels.count("text") == 3, "nested text must surface as its own layout region too"
     assert "picture" in labels, "the picture region itself must still be reported, not replaced"
+
+
+def test_docling_projection_preserves_available_formula_text(tmp_path):
+    """The adapter must not drop formula text if Docling actually supplies it."""
+    from doc_extraction.backends.docling_backend import DoclingBackend
+    from doc_extraction.pipelines.base import PageInput
+
+    class _BBox:
+        l, t, r, b = 10, 20, 40, 35
+        coord_origin = "TOPLEFT"
+
+    class _Prov:
+        bbox = _BBox()
+        page_no = 1
+
+    class _Formula:
+        def __init__(self):
+            self.label = "formula"
+            self.text = r"x^2 + y^2 = 1"
+            self.prov = [_Prov()]
+
+    class _Document:
+        def __init__(self):
+            self.pages = {}
+
+        def iterate_items(self, traverse_pictures=False):
+            yield _Formula(), 1
+
+    class _Result:
+        def __init__(self):
+            self.document = _Document()
+
+    backend = DoclingBackend()
+    backend._convert_cached = lambda _path: _Result()
+    page = PageInput(page_index=0, width=100, height=100, image_path=tmp_path / "fixture.png")
+
+    result = backend.recognize(page)
+    assert len(result.tokens) == 1
+    assert result.tokens[0].text == r"x^2 + y^2 = 1"
 
 
 class _DoclingBBox:

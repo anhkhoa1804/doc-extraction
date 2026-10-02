@@ -373,10 +373,20 @@ def _cluster_orphans(tokens: list[OCRToken]) -> list[list[OCRToken]]:
             for block in blocks]
 
 
-def _gather_region_text(region: Region, ocr_result: OCRResult) -> str | None:
+def _gather_region_text(
+    region: Region,
+    ocr_result: OCRResult,
+    excluded_boxes: list[BBox] | None = None,
+) -> str | None:
     if not ocr_result.tokens:
         return None
-    contained = [t for t in ocr_result.tokens if _center_in(t.bbox, region.bbox)]
+    excluded_boxes = excluded_boxes or []
+    contained = [
+        token
+        for token in ocr_result.tokens
+        if _center_in(token.bbox, region.bbox)
+        and not any(_center_in(token.bbox, box) for box in excluded_boxes)
+    ]
     if not contained:
         return None
     text = " ".join(t.text for t in _tokens_in_reading_order(contained) if t.text).strip()
@@ -629,6 +639,12 @@ def merge_regions_into_page(
     deliberately inspectable rule); table regions are matched to detected
     Table objects by bbox IoU."""
     tables = list(table_result.tables) if table_result else []
+    # A detected table owns text whose token center lies inside its physical
+    # bounds. Table-cell text is projected separately by `_fill_table_cell_text`;
+    # allowing an overlapping layout text region to gather those same tokens
+    # would publish the same source pixels twice (once as a table cell and once
+    # as free text). This matches `_orphan_tokens`' existing table exclusion.
+    table_boxes = [table.bbox for table in tables if table.bbox is not None]
     elements: list[Element] = []
 
     for i, region in enumerate(layout_result.regions):
@@ -658,7 +674,7 @@ def merge_regions_into_page(
             )
             continue
 
-        text = _gather_region_text(region, ocr_result)
+        text = _gather_region_text(region, ocr_result, excluded_boxes=table_boxes)
         elements.append(
             Element(
                 id=element_id,

@@ -68,9 +68,20 @@ nulls and diagnostics survive round trips. It proves structural and
 representational conformance only; it does not prove that all visible source
 content was recognized or that one backend is more accurate.
 
-The known Classic empty-output case is strongly indicated to originate in the
-Docling conversion output: its persisted layout projection contains only five
-formula-labelled regions, while its OCR result has zero tokens. The artifacts
-do not expose the raw Docling document/model internals needed to decide whether
-this is Docling classification, its text conversion, or an adapter-visible
-representation limitation. It remains unresolved at that finer causal level.
+The known Classic empty-output case remains **STRONGLY INDICATED**, not
+confirmed. Local Docling 2.124.0 / docling-core 2.93.0 source inspection shows
+that formula labels are included in OCR-region selection, so label-based OCR
+suppression is not supported by the evidence. The recorded configuration
+uses EasyOCR languages `en` and `vi` for a simplified-Chinese page, while
+Docling formula enrichment is left at its default-disabled setting. The run
+artifacts do not retain Docling's internal OCR cells or formula-stage outputs,
+so they cannot distinguish zero recognition from a later Docling assembly
+loss. No speculative recovery was added. The full trace and evidence limit
+are recorded in [`classic-backend-forensics.md`](classic-backend-forensics.md).
+
+Stored representative-v2 canonical output also confirms one visual-route
+table-ownership defect: a recognized table's cell strings were repeated in
+overlapping sibling text elements. The visual merge now excludes OCR tokens
+whose centers are inside recognized table bounds from non-table region text;
+the same ownership boundary already applied to orphan recovery. A synthetic
+visual-pipeline regression preserves non-table text outside those bounds.

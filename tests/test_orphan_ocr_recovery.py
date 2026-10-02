@@ -25,6 +25,7 @@ from doc_extraction.pipelines.base import (
     OCRToken,
     Region,
     TableResult,
+    _fill_table_cell_text,
     merge_regions_into_page,
 )
 from doc_extraction.schemas.element import BBox
@@ -224,3 +225,63 @@ def test_cell_tokens_are_excluded_even_when_the_table_has_no_outer_bbox():
     )
     assert _recovered(page) == []
     assert "incell" not in _all_text(page)
+
+
+def test_visual_table_owns_tokens_also_covered_by_layout_text_region():
+    """Overlapping layout text/table regions must not emit the cell twice.
+
+    The representative-v2 Classic artifact for
+    ``jiaocaineedrop_jiaocai_needrop_en_397.jpg`` showed table values such as
+    ``Time`` both in table cells and sibling text elements. The broad text
+    region may still contain genuine text outside the table, so ownership is
+    resolved per token center rather than suppressing the whole region.
+    """
+    table = Table(
+        id="t0",
+        page_number=1,
+        n_rows=1,
+        n_cols=1,
+        bbox=BBox(x0=300, y0=200, x1=500, y1=300),
+        cells=[
+            Cell(
+                row=0,
+                col=0,
+                bbox=BBox(x0=300, y0=200, x1=400, y1=300),
+                text="",
+            )
+        ],
+        source_backend="stub-table",
+    )
+    table_result = TableResult(tables=[table], backend="stub-table")
+    ocr_result = OCRResult(
+        tokens=[
+            _tok("owned-cell-text", 320, 230, 360, 250),
+            _tok("outside-table-text", 510, 230, 550, 250),
+        ],
+        backend="stub-ocr",
+    )
+    _fill_table_cell_text(table_result, ocr_result)
+
+    page = merge_regions_into_page(
+        page_index=0,
+        width=600,
+        height=400,
+        dpi=200,
+        layout_result=LayoutResult(
+            regions=[
+                _region("table", 300, 200, 500, 300),
+                _region("text", 250, 180, 560, 320),
+            ],
+            backend="stub-layout",
+        ),
+        ocr_result=ocr_result,
+        table_result=table_result,
+        rendered_image_path=None,
+    )
+
+    loose_text = " ".join(
+        element.text or "" for element in page.elements if element.type.value != "table"
+    )
+    assert table.cells[0].text == "owned-cell-text"
+    assert "owned-cell-text" not in loose_text
+    assert "outside-table-text" in loose_text
