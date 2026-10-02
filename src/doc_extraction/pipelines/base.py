@@ -56,6 +56,7 @@ class PageInput:
     telemetry_page_regions: list[Region] | None = None
     telemetry_page_region_count: int | None = None
     telemetry_ocr_result: object | None = None
+    visual_trace: Any | None = None  # private, observational; never serialized into Page
 
 
 @dataclass
@@ -774,6 +775,8 @@ def run_scanned_page_pipeline(
     observation_ledger: Any | None = None,
     telemetry: object | None = None,
     resource_guard: Any | None = None,
+    forensics: Any | None = None,
+    forensic_route: str = "visual",
 ) -> Page:
     """Steps E-H for one already-rendered page: layout -> OCR -> table ->
     merge into a canonical Page. Raises BackendUnavailableError (uncaught)
@@ -791,6 +794,8 @@ def run_scanned_page_pipeline(
     with Image.open(image_path) as im:
         width_px, height_px = im.size
 
+    trace = forensics.page(page_index, width_px, height_px, forensic_route) if forensics else None
+
     if resource_guard is not None:
         resource_guard.check_runtime(f"before visual page {page_index + 1}")
 
@@ -801,9 +806,12 @@ def run_scanned_page_pipeline(
         image_path=image_path,
         dpi=dpi,
         telemetry=telemetry,
+        visual_trace=trace,
     )
 
     layout_result = layout_stage.run_layout(page_input, layout_backend, output_dir / "layout", logger)
+    if trace is not None:
+        trace.observe_dependency(layout_backend, page_input)
     if resource_guard is not None:
         resource_guard.check_runtime(f"after layout page {page_index + 1}")
     page_input.telemetry_page_regions = layout_result.regions
@@ -812,6 +820,8 @@ def run_scanned_page_pipeline(
     if resource_guard is not None:
         resource_guard.check_runtime(f"after OCR page {page_index + 1}")
     page_input.telemetry_ocr_result = ocr_result
+    if trace is not None:
+        trace.observe_dependency(layout_backend, page_input)
 
     table_result: TableResult | None = None
     if table_backend.is_available():
@@ -829,6 +839,8 @@ def run_scanned_page_pipeline(
             )
         _fill_table_cell_text(table_result, ocr_result)
     else:
+        if trace is not None:
+            trace.unavailable("table")
         if logger is not None:
             logger.log_event(
                 stage="table",
@@ -856,6 +868,8 @@ def run_scanned_page_pipeline(
     page = merge_regions_into_page(
         page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path
     )
+    if trace is not None:
+        trace.canonical_page(page)
     # Opt-in research instrumentation: it observes acquired stage results and
     # the existing projection, but cannot change extraction decisions.
     if observation_ledger is not None:

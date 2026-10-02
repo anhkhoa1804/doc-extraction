@@ -154,6 +154,7 @@ def parse_digital_pdf(
     logger: StageLogger | None = None,
     telemetry: object | None = None,
     resource_guard: ResourceGuard | None = None,
+    forensics: object | None = None,
 ) -> list[Page]:
     """Native extraction for a born-digital PDF, with native table structure
     and per-page fallback to the visual path for pages whose text layer
@@ -291,6 +292,7 @@ def parse_digital_pdf(
             logger=logger,
             telemetry=telemetry,
             resource_guard=resource_guard,
+            forensics=forensics,
         )
 
     return pages
@@ -308,6 +310,7 @@ def _apply_page_fallback(
     logger: StageLogger | None,
     telemetry: object | None = None,
     resource_guard: ResourceGuard | None = None,
+    forensics: object | None = None,
 ) -> list[Page]:
     """Re-extract individual pages through the visual path.
 
@@ -352,6 +355,8 @@ def _apply_page_fallback(
                 logger=logger,
                 telemetry=telemetry,
                 resource_guard=resource_guard,
+                forensics=forensics,
+                forensic_route="digital_pdf+page_fallback",
             )
             native_notes = list(pages[index].notes)
             rebuilt.notes = native_notes + [
@@ -388,6 +393,7 @@ def parse_scanned_pdf(
     logger: StageLogger | None = None,
     telemetry: object | None = None,
     resource_guard: ResourceGuard | None = None,
+    forensics: object | None = None,
 ) -> list[Page]:
     """Steps D-H for a scanned PDF: render every page, then run the shared
     layout/OCR/table/merge chain per page."""
@@ -399,6 +405,7 @@ def parse_scanned_pdf(
         page = run_scanned_page_pipeline(
             image_path, page_index, dpi, layout_backend, ocr_backend, table_backend, output_dir, logger,
             telemetry=telemetry, resource_guard=resource_guard,
+            forensics=forensics, forensic_route="scanned_pdf",
         )
         page.source_route = "scanned_pdf"
         pages.append(page)

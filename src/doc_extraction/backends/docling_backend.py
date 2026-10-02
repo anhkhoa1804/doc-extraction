@@ -27,6 +27,7 @@ from __future__ import annotations
 import importlib.util
 from collections import OrderedDict
 from datetime import datetime, timezone
+from itertools import chain, islice
 from pathlib import Path
 from typing import Any
 
@@ -252,6 +253,108 @@ class DoclingBackend:
         if len(self._page_cache) > self._page_cache_size:
             self._page_cache.popitem(last=False)
         return result
+
+    def visual_forensic_snapshot(self, page: PageInput) -> dict[str, Any] | None:
+        """Read cached aggregates only: never initialize, convert or retain pixels.
+
+        Docling normally releases parsed_page, so raw OCR/model dispatch is
+        often unavailable. Public document text is NOT the raw OCR result.
+        """
+        from doc_extraction.utils.visual_forensics import safe_name
+
+        result = self._page_cache.get(str(page.image_path))
+        if result is None:
+            return None
+        options = None
+        if self._converter is not None:
+            formats = getattr(self._converter, "format_to_options", {})
+            for kind, option in formats.items():
+                if str(getattr(kind, "value", kind)).lower() == "image":
+                    options = getattr(option, "pipeline_options", None)
+                    break
+        languages = getattr(getattr(options, "ocr_options", None), "lang", None)
+        summary: dict[str, Any] = {
+            "backend": self.name,
+            "ocr_backend": "easyocr",
+            "requested_ocr_languages": [safe_name(x) for x in self.ocr_languages[:32]],
+            "configured_ocr_languages": [safe_name(x) for x in languages[:32]] if languages is not None else None,
+            "languages_truncated": len(languages) > 32 if languages is not None else None,
+            "ocr_enabled": getattr(options, "do_ocr", None),
+            "formula_enrichment_enabled": getattr(options, "do_formula_enrichment", None),
+            "public_items_examined": 0,
+            "public_items_with_text": 0,
+            "public_text_items_without_geometry": 0,
+            "formula_items_with_text": 0,
+            "public_table_text_cells": 0,
+            "public_table_text_cells_without_geometry": 0,
+            "public_table_cells_examined": 0,
+            "public_table_cells_truncated": False,
+            "public_items_truncated": False,
+            "retained_ocr_cells": None,
+            "retained_layout_clusters": None,
+            "retained_layout_cells_with_text": None,
+            "retained_formula_cells_with_text": None,
+        }
+        for index, (item, _) in enumerate(islice(result.document.iterate_items(traverse_pictures=True), 4097)):
+            if index == 4096:
+                summary["public_items_truncated"] = True
+                break
+            summary["public_items_examined"] += 1
+            if getattr(item, "text", None):
+                summary["public_items_with_text"] += 1
+                prov = getattr(item, "prov", None) or []
+                if not prov or getattr(prov[0], "bbox", None) is None:
+                    summary["public_text_items_without_geometry"] += 1
+                if _label_str(item) == "formula":
+                    summary["formula_items_with_text"] += 1
+            if _label_str(item) == "table":
+                cells = getattr(getattr(item, "data", None), "table_cells", None) or []
+                remaining = 4096 - summary["public_table_cells_examined"]
+                if len(cells) > remaining:
+                    summary["public_table_cells_truncated"] = True
+                for cell in islice(cells, remaining):
+                    summary["public_table_cells_examined"] += 1
+                    if getattr(cell, "text", None):
+                        summary["public_table_text_cells"] += 1
+                        if getattr(cell, "bbox", None) is None:
+                            summary["public_table_text_cells_without_geometry"] += 1
+        # This single-page adapter only observes retained cells if all pages
+        # still expose them. Absence is unknown, not zero. Do NOT enable
+        # generate_parsed_pages just to make diagnostics more informative.
+        pages = getattr(result, "pages", None)
+        if isinstance(pages, list) and 0 < len(pages) <= 100:
+            parsed = [getattr(p, "parsed_page", None) for p in pages]
+            if all(p is not None for p in parsed):
+                summary["retained_ocr_cells"] = sum(
+                    bool(getattr(c, "from_ocr", False))
+                    for p in parsed for c in islice(getattr(p, "textline_cells", []), 4096)
+                )
+                summary["retained_ocr_cells_scope"] = "first_4096_cells_per_page"
+            layouts = [getattr(getattr(p, "predictions", None), "layout", None) for p in pages]
+            if all(layout is not None for layout in layouts):
+                clusters = cells_examined = text_cells = formula_cells = 0
+                truncated = False
+                for index, cluster in enumerate(islice(chain.from_iterable(layout.clusters for layout in layouts), 4097)):
+                    if index == 4096:
+                        truncated = True
+                        break
+                    clusters += 1
+                    remaining = 4096 - cells_examined
+                    if len(cluster.cells) > remaining:
+                        truncated = True
+                    for cell in islice(cluster.cells, remaining):
+                        cells_examined += 1
+                        if getattr(cell, "text", None):
+                            text_cells += 1
+                            formula_cells += _label_str(cluster) == "formula"
+                summary.update(
+                    retained_layout_clusters=clusters,
+                    retained_layout_cells_with_text=text_cells,
+                    retained_formula_cells_with_text=formula_cells,
+                    retained_layout_scope="first_4096_clusters_and_cells_nonunique_refs",
+                    retained_layout_truncated=truncated,
+                )
+        return summary
 
     # -- WholeDocumentBackend --------------------------------------------
 

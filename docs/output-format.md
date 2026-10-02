@@ -242,3 +242,9 @@ raw `LayoutResult` / `OCRResult` / `TableResult` dataclasses from
 `Page`/`Element`/`Table` shapes in `assembled/`. Keeping both is the point: a
 failure in the merge step is then distinguishable from a failure in the
 backend call that produced the raw regions.
+
+Opt-in [visual forensic traces](visual-forensics.md) separate component calls,
+projected tokens, available cached Docling state and canonical/export counts.
+They live outside canonical JSON. In particular, `ocr/page-NNN.json` contains
+adapter-projected tokens, **not** raw EasyOCR detections; zero projected tokens
+alone do not establish where recognition information was lost.

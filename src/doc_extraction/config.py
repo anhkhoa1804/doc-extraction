@@ -114,6 +114,10 @@ class PipelineConfig(BaseModel):
 
     log_level: str = "INFO"
 
+    # Debug artifact only; not extraction semantics or canonical provenance.
+    # Excluded so enabling observations does not alter canonical snapshots.
+    visual_forensics: bool = Field(default=False, exclude=True)
+
     def to_snapshot(self) -> dict[str, Any]:
         return self.model_dump(mode="json")
 

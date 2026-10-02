@@ -27,6 +27,8 @@ def run_layout(
     logger: StageLogger | None = None,
 ) -> LayoutResult:
     if not backend.is_available():
+        if page.visual_trace is not None:
+            page.visual_trace.unavailable("layout")
         raise BackendUnavailableError(
             f"layout backend '{backend.name}' is not available in this environment "
             f"— see docs/backends.md"
@@ -34,7 +36,16 @@ def run_layout(
     secure_mkdir(output_dir)
     ctx_manager = logger.stage("layout", backend.name, page=page.page_index) if logger else noop_stage()
     with ctx_manager as ctx:
-        result = backend.analyze(page)
+        if page.visual_trace is not None:
+            page.visual_trace.invoked("layout", backend.name)
+        try:
+            result = backend.analyze(page)
+        except Exception as exc:
+            if page.visual_trace is not None:
+                page.visual_trace.failed("layout", exc)
+            raise
+        if page.visual_trace is not None:
+            page.visual_trace.layout_result(result)
         out_path = output_dir / f"page-{page.page_index + 1:03d}.json"
         write_json(out_path, result)
         ctx.output_path = str(out_path)

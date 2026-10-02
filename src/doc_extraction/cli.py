@@ -251,6 +251,7 @@ def _run_baseline_route(
     logger: StageLogger,
     telemetry: TableTelemetryRecorder | None = None,
     resource_guard: ResourceGuard | None = None,
+    forensics: Any | None = None,
 ) -> list[Page]:
     route = route_decision.route
     kind = route_decision.file_info.detected_kind
@@ -279,6 +280,7 @@ def _run_baseline_route(
             logger=logger,
             telemetry=telemetry,
             resource_guard=resource_guard,
+            forensics=forensics,
         )
 
     if route == dispatcher.ROUTE_SCANNED_PDF:
@@ -293,6 +295,7 @@ def _run_baseline_route(
             logger,
             telemetry,
             resource_guard,
+            forensics,
         )
 
     if route == dispatcher.ROUTE_IMAGE:
@@ -307,6 +310,7 @@ def _run_baseline_route(
             logger,
             telemetry,
             resource_guard,
+            forensics,
         )
 
     raise ValueError(f"unsupported file for baseline pipeline: {path.name} (kind={kind})")
@@ -343,6 +347,7 @@ def process_file(
     route_decision: dispatcher.RouteDecision | None = None
     owns_output = False
     backend: Any | None = None
+    forensics = None
 
     try:
         if output_dir is not None:
@@ -362,6 +367,10 @@ def process_file(
             resources.enter_context(run_lock(output_dir))
             owns_output = True
         logger = StageLogger(doc_id, output_dir / "logs", device=config.device)
+        if config.visual_forensics and backend_name == "baseline":
+            from doc_extraction.utils.visual_forensics import VisualForensics
+
+            forensics = VisualForensics(output_dir, input_sha256=file_hash)
 
         with active_resource_guard(guard):
             guard.check_runtime("before route selection")
@@ -378,7 +387,7 @@ def process_file(
                 table_telemetry.context["config_sha256"] = stable_config_hash(config.to_snapshot())
             if backend_name == "baseline":
                 pages = _run_baseline_route(
-                    path, route_decision, config, output_dir, logger, table_telemetry, guard
+                    path, route_decision, config, output_dir, logger, table_telemetry, guard, forensics
                 )
             else:
                 backend = build_whole_document_backend(backend_name, config)
@@ -410,7 +419,10 @@ def process_file(
             warnings=warnings,
         )
         guard.check_runtime("before canonical assembly")
-        document = assemble_document(doc_id, metadata, pages, output_dir, logger)
+        if forensics is None:
+            document = assemble_document(doc_id, metadata, pages, output_dir, logger)
+        else:
+            document = assemble_document(doc_id, metadata, pages, output_dir, logger, forensics=forensics)
         guard.check_runtime("after canonical assembly")
         document.metadata.runtime_seconds = time.perf_counter() - start
         # assemble_document already wrote metadata.json and final/document.json
@@ -420,6 +432,8 @@ def process_file(
         write_json(output_dir / "final" / "document.json", document)
         if backend is not None:
             _write_backend_phase_timings(output_dir, backend, "success")
+        if forensics is not None:
+            forensics.outcome(document.metadata)
         return document
 
     except UnsafeOutputPath:
@@ -473,6 +487,8 @@ def process_file(
             text_profile=route_decision.text_profile.as_dict() if route_decision and route_decision.text_profile else None,
         )
         write_json(output_dir / "metadata.json", metadata)
+        if forensics is not None:
+            forensics.outcome(metadata)
         if backend is not None:
             _write_backend_phase_timings(output_dir, backend, "failed")
         logger.log_event(
@@ -481,6 +497,8 @@ def process_file(
         )
         raise
     finally:
+        if forensics is not None:
+            forensics.persist()
         resources.close()
 
 

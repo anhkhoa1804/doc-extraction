@@ -1,5 +1,11 @@
 # Classic backend forensic findings
 
+For future runs, opt-in [bounded visual forensic traces](visual-forensics.md)
+now separate component dispatch, cached public Docling text, projected tokens,
+canonical assembly and reading-order/export observations. Model-free artifact
+replay preserves the known failure; it does not reconstruct the unavailable
+historical raw OCR state. The root-cause classification below is unchanged.
+
 This note records evidence from the stored `representative-v2-full-20261002T080500Z`
 run and local source inspection. The outcome-ranked 26-page failure-analysis
 set is diagnostic only; its counts are not estimates of full-dataset failure

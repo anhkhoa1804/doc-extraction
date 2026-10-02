@@ -24,6 +24,8 @@ def run_ocr(
     logger: StageLogger | None = None,
 ) -> OCRResult:
     if not backend.is_available():
+        if page.visual_trace is not None:
+            page.visual_trace.unavailable("ocr")
         raise BackendUnavailableError(
             f"OCR backend '{backend.name}' is not available in this environment "
             f"— see docs/backends.md"
@@ -31,7 +33,16 @@ def run_ocr(
     secure_mkdir(output_dir)
     ctx_manager = logger.stage("ocr", backend.name, page=page.page_index) if logger else noop_stage()
     with ctx_manager as ctx:
-        result = backend.recognize(page)
+        if page.visual_trace is not None:
+            page.visual_trace.invoked("ocr", backend.name)
+        try:
+            result = backend.recognize(page)
+        except Exception as exc:
+            if page.visual_trace is not None:
+                page.visual_trace.failed("ocr", exc)
+            raise
+        if page.visual_trace is not None:
+            page.visual_trace.ocr_result(result, page.telemetry_page_regions or [])
         out_path = output_dir / f"page-{page.page_index + 1:03d}.json"
         write_json(out_path, result)
         ctx.output_path = str(out_path)

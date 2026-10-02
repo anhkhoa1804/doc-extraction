@@ -26,6 +26,8 @@ def run_table(
     logger: StageLogger | None = None,
 ) -> TableResult:
     if not backend.is_available():
+        if page.visual_trace is not None:
+            page.visual_trace.unavailable("table")
         raise BackendUnavailableError(
             f"table backend '{backend.name}' is not available in this environment "
             f"— see docs/backends.md"
@@ -33,7 +35,16 @@ def run_table(
     secure_mkdir(output_dir)
     ctx_manager = logger.stage("table", backend.name, page=page.page_index) if logger else noop_stage()
     with ctx_manager as ctx:
-        result = backend.extract(page, regions)
+        if page.visual_trace is not None:
+            page.visual_trace.invoked("table", backend.name)
+        try:
+            result = backend.extract(page, regions)
+        except Exception as exc:
+            if page.visual_trace is not None:
+                page.visual_trace.failed("table", exc)
+            raise
+        if page.visual_trace is not None:
+            page.visual_trace.table_result(result)
         out_path = output_dir / f"page-{page.page_index + 1:03d}.json"
         write_json(out_path, result)
         ctx.output_path = str(out_path)

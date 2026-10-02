@@ -26,6 +26,12 @@ For a successful extraction, `process_file` returns a `Document` and writes:
 * `final/document.json` — canonical serialized IR; and
 * `final/document.md` — a lossy human-readable view.
 
+For baseline visual debugging, `PipelineConfig(visual_forensics=True)` also
+requests a bounded, best-effort `diagnostics/classic_visual_trace.json` artifact.
+This opt-in control does not enter canonical `config_snapshot` or change
+extraction settings/schema. See [visual-forensics.md](visual-forensics.md) for
+observed vs unavailable stages, privacy bounds and model-free reproduction.
+
 `process_file` raises on failure after writing `metadata.json` with
 `status="failed"` whenever the output directory can be established. The CLI
 continues over sibling inputs and returns non-zero if any input fails.

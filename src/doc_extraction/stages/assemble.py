@@ -17,6 +17,7 @@ from doc_extraction.stages.reading_order import ORDER_STRATEGY, compute_reading_
 from doc_extraction.utils.logging import StageLogger, noop_stage
 from doc_extraction.utils.safe_io import write_text
 from doc_extraction.utils.serde import write_json
+from doc_extraction.utils.visual_forensics import VisualForensics
 
 
 def assemble_document(
@@ -25,6 +26,7 @@ def assemble_document(
     pages: list[Page],
     output_dir: Path,
     logger: StageLogger | None = None,
+    forensics: VisualForensics | None = None,
 ) -> Document:
     assembled_dir = output_dir / "assembled"
     final_dir = output_dir / "final"
@@ -67,7 +69,10 @@ def assemble_document(
         doc_json_path = final_dir / "document.json"
         doc_md_path = final_dir / "document.md"
         write_json(doc_json_path, document)
-        write_text(doc_md_path, document.to_markdown())
+        markdown = document.to_markdown()
+        write_text(doc_md_path, markdown)
+        if forensics is not None:
+            forensics.assembled(document, markdown)
 
         ctx.output_path = str(doc_json_path)
         ctx.metrics = {
