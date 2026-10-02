@@ -1,0 +1,129 @@
+{
+  "schema_version": "benchmark-result/1",
+  "record_status": "invalid_preflight_no_baseline",
+  "benchmark": {
+    "name": "OmniDocBench",
+    "version": "1.6",
+    "subset": "representative-v1",
+    "upstream_evaluator_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044"
+  },
+  "dataset": {
+    "root_relative": "experiments/034a_omnidocbench_snapshot/dataset/full",
+    "annotation_file": "OmniDocBench.json",
+    "annotation_sha256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+    "annotation_semantic_sha256": "31e7a7b96fcf2f823aaf81afc53b15e9bb0413c2e6a52dc3d7bacd0615716f89",
+    "image_inventory_count": 1651,
+    "image_inventory_sha256": "4da40bb41705f9194fc7605c445855a0977b1da62945cb295e05b0ad7c5db915",
+    "sample_count": 1651,
+    "excluded_unresolvable_relation_pages": 5,
+    "subset_manifest": "benchmarks/manifests/omnidocbench-representative-v1.json",
+    "subset_manifest_sha256": "737fe8fc2963956d5f38e3477396bf97e36c56b1c5e76e00e2fe52086d5a341d",
+    "subset_identity": "d978722b84c85e895396a166b1e13bcacfc55a8c135c7a23df56cd7df62d8917",
+    "subset_sample_count": 180,
+    "sample_ids_are_defined_by": "subset_manifest.subset.samples[].page_id",
+    "production_max_image_pixels": 40000000,
+    "selected_pages_over_production_pixel_limit": 8,
+    "over_limit_pages": [
+      "page-8f6792bd-b5e4-435e-b1b0-1b2daa3f7234.png#0",
+      "jiaocaineedrop_jiaocai_needrop_en_2399.jpg#2218",
+      "jiaocaineedrop_jiaocai_needrop_en_952.jpg#1939",
+      "newspaper_The Guardian UK_0801@magazinesclubnew_page_061.png#61",
+      "newspaper_The Guardian UK_0801@magazinesclubnew_page_048.png#48",
+      "newspaper_TheGuardianUS-2025-1-8@magazinesclubnew_page_015.png#15",
+      "newspaper_TheGuardianUS-2025-1-8@magazinesclubnew_page_029.png#29",
+      "exam_paper_2004-2019上海高考英语听力原文和答案_page_002.png#2"
+    ]
+  },
+  "system": {
+    "git_commit": "94e7a15696c7e01dcb703315ae04ab7611b3c815",
+    "component": "doc-extraction",
+    "backend": "baseline",
+    "device": "cpu",
+    "config_file": "configs/cpu.yaml",
+    "config_sha256": "133c78c47501cbe858a97c88f61ea86414bfac83ce2350b0d8f7bfe668e6f3e9",
+    "resolved_config": {
+      "render_dpi": 200,
+      "limits": {
+        "max_image_pixels": 40000000
+      },
+      "layout_backend": "docling",
+      "ocr_backend": "docling",
+      "table_backend": "table_transformer",
+      "backends": {
+        "docling": true,
+        "mineru": false,
+        "paddleocr": false,
+        "vlm": false
+      }
+    },
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-1066-gcp-x86_64-with-glibc2.35",
+    "model_versions": {
+      "doc_extraction": "0.1.0",
+      "pymupdf": "1.28.2",
+      "docling": "2.124.0",
+      "docling-core": "2.93.0",
+      "easyocr": "1.7.2",
+      "transformers": "5.16.1",
+      "torch": "2.14.0"
+    }
+  },
+  "preflight": {
+    "run_id": "representative-v1-preflight-20261002T071028Z",
+    "sample_count": 15,
+    "sample_ids": [
+      "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png#0",
+      "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+      "page-ba4443e6-f432-435f-89e7-ddf0a571d2cd.png#0",
+      "page-cdd33cf6-76ce-42bb-a99c-342c861afed0.png#0",
+      "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0",
+      "page-4431f432-9e71-46d3-a5ea-4d705ad163a8.png#0",
+      "page-9bcba6da-bdb0-4403-97cb-8874898ac8ab.png#0",
+      "page-67013be9-58e5-4842-809d-7a3c1fc91fc7.png#0",
+      "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0",
+      "page-f108020f-edc5-4a27-85d9-d9d9c5d67309.png#0",
+      "page-83a675ab-0021-4979-8293-8af0d36146a0.png#0",
+      "page-5a104368-22a2-440a-a1aa-49b7d1eb57f0.png#0",
+      "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png#0",
+      "page-15cc8cbe-9ce3-4ad8-8737-9159b061ca95.png#0",
+      "page-8f6792bd-b5e4-435e-b1b0-1b2daa3f7234.png#0"
+    ],
+    "successful_pages": 14,
+    "success_with_warnings": 0,
+    "failed_pages": 1,
+    "prediction_count": 14,
+    "prediction_ground_truth_alignment": "FAIL: one expected prediction absent",
+    "runtime_seconds": {
+      "wall_clock": 497.045,
+      "mean_per_selected_page": 33.1313,
+      "median_per_selected_page": 32.8682,
+      "p95_per_selected_page": 70.6263
+    },
+    "failure": {
+      "page_id": "page-8f6792bd-b5e4-435e-b1b0-1b2daa3f7234.png#0",
+      "image_sha256": "33c95a984c3f22a6534c7fa003d12616fb7ac6344d19367fc00080507ec42ddd",
+      "error": "ResourceLimitExceeded: resource limit max_image_pixels exceeded: 44853588 > 40000000 (input image: 5556x8073)"
+    },
+    "evaluator_alignment_check": "PASS: correctly rejected exactly the missing frozen-subset prediction; no metric run"
+  },
+  "metrics": {
+    "valid_baseline": false,
+    "official_end2end": null,
+    "reason": "Preflight failed production extraction and complete prediction/ground-truth pairing. Scores over the 14 successful pages would change the frozen denominator and are not published."
+  },
+  "quality_gates": {
+    "dataset_integrity": "PASS",
+    "subset_reproducibility": "PASS",
+    "prediction_ground_truth_alignment": "FAIL",
+    "no_missing_predictions": "FAIL",
+    "no_unexpected_predictions": "PASS for the produced 14 files; overall gate blocked by missing page",
+    "evaluation_protocol_verified": "PARTIAL: pinned official evaluator is available, but no valid complete-subset run was executed",
+    "run_metadata_complete": "PASS for the 15 attempted pages",
+    "per_page_metadata_complete": "PASS for the 15 attempted pages"
+  },
+  "warnings": [
+    "No OmniDocBench quality score is valid or reported.",
+    "Full representative-v1 extraction and scoring were not launched after preflight failed.",
+    "Dataset license/usage status is UNVERIFIED locally; the evaluator repository license does not establish dataset rights."
+  ]
+}

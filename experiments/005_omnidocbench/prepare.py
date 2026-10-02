@@ -172,6 +172,7 @@ def main(argv: list[str] | None = None) -> int:
     metadata["sample_manifest_identity"] = manifest["subset_identity"]["sha256"] if manifest else None
     metadata["manifest_selected_count"] = len(manifest["subset"]["samples"]) if manifest else None
     metadata["run_selected_count"] = len(samples)
+    metadata["evaluation_ground_truth"] = "ground_truth_subset.json" if manifest else None
     metadata["prediction_directory"] = predictions_dir.name
     records_by_index = {index: raw_records[index] for index in range(len(raw_records))}
     metadata["sample_ids"] = [

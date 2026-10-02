@@ -703,6 +703,33 @@ def test_evaluate_does_not_symlink_resolve_the_interpreter(tmp_path, monkeypatch
     )
 
 
+def test_evaluate_uses_copied_frozen_subset_ground_truth_by_default(tmp_path):
+    evaluate = _load_evaluate_module()
+    output = tmp_path / "run"
+    output.mkdir()
+    subset_gt = output / "ground_truth_subset.json"
+    subset_gt.write_text("[]", encoding="utf-8")
+
+    resolved = evaluate._ground_truth_for_run(
+        None,
+        {"sample_manifest_identity": "frozen-subset-hash"},
+        output,
+    )
+
+    assert resolved == subset_gt
+
+
+def test_evaluate_explicit_ground_truth_overrides_run_subset(tmp_path):
+    evaluate = _load_evaluate_module()
+    explicit_gt = tmp_path / "other.json"
+    resolved = evaluate._ground_truth_for_run(
+        str(explicit_gt),
+        {"sample_manifest_identity": "frozen-subset-hash"},
+        tmp_path / "run",
+    )
+    assert resolved == explicit_gt.resolve()
+
+
 # ---------------------------------------------------------------------------
 # Dataset provenance hashing (byte identity vs. cross-platform dataset identity)
 # ---------------------------------------------------------------------------

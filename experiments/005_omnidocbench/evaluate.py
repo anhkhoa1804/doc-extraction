@@ -36,6 +36,22 @@ from doc_extraction.evaluation import omnidocbench as odb
 _DEFAULT_OMNIDOC_PYTHON = odb.default_omnidoc_python(REPO_ROOT)
 
 
+def _ground_truth_for_run(args_ground_truth: str | None, run_metadata: dict, output_root: Path) -> Path | None:
+    """Resolve explicit or run-scoped truth without silently widening a subset.
+
+    Older representative runs predate ``evaluation_ground_truth`` metadata;
+    the frozen manifest marker still makes their copied subset GT authoritative.
+    """
+    if args_ground_truth:
+        return Path(args_ground_truth).resolve()
+    recorded = run_metadata.get("evaluation_ground_truth")
+    if isinstance(recorded, str) and recorded:
+        return output_root / recorded
+    if run_metadata.get("sample_manifest_identity"):
+        return output_root / "ground_truth_subset.json"
+    return None
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dataset", required=True, help="OmniDocBench dataset directory (for the ground-truth JSON).")
@@ -72,13 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     prediction_dir_name = run_metadata.get("prediction_directory", "predictions")
     predictions_dir = Path(args.predictions).resolve() if args.predictions else output_root / prediction_dir_name
-    ground_truth_path = (
-        Path(args.ground_truth).resolve()
-        if args.ground_truth
-        else output_root / run_metadata.get("evaluation_ground_truth", "")
-        if run_metadata.get("evaluation_ground_truth")
-        else None
-    )
+    ground_truth_path = _ground_truth_for_run(args.ground_truth, run_metadata, output_root)
     omnidoc_repo = Path(args.omnidoc_repo).resolve()
     # Absolute, but NOT symlink-resolved: a venv's `bin/python` is typically a
     # symlink to the base interpreter (uv-managed installs always are), and
