@@ -6,11 +6,14 @@ isolated environment; the core package remains importable without it.
 """
 from __future__ import annotations
 
+import atexit
 import hashlib
 import importlib.metadata
 import importlib.util
 import math
 import mimetypes
+import sys
+import threading
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -22,6 +25,19 @@ from doc_extraction.schemas.page import Page
 from doc_extraction.schemas.table import Cell, Table
 from doc_extraction.utils.hashing import sha256_file
 from doc_extraction.utils.ids import document_id as make_document_id
+from doc_extraction.utils.limits import (
+    ResourceLimitExceeded,
+    current_runtime_elapsed_seconds,
+    current_worker_policy,
+)
+from doc_extraction.utils.process_worker import (
+    BoundedPersistentWorker,
+    WorkerCrashed,
+    WorkerError,
+    WorkerProtocolError,
+    WorkerTempLimit,
+    WorkerTimeout,
+)
 
 _LABEL_TYPES = {
     "paragraph_title": ElementType.HEADING,
@@ -37,7 +53,47 @@ _LABEL_TYPES = {
     "image": ElementType.IMAGE,
     "chart": ElementType.IMAGE,
 }
-_PIPELINE_CACHE: dict[str, Any] = {}
+_WORKERS: dict[str, BoundedPersistentWorker] = {}
+_WORKERS_LOCK = threading.RLock()
+_MAX_WORKER_MESSAGE_BYTES = 16 * 1024 * 1024
+
+
+class E2EWorkerFailure(RuntimeError):
+    """The isolated inference worker failed without producing a valid page."""
+
+
+class E2EInvalidModelOutput(ValueError):
+    """Model output failed canonical page validation."""
+
+
+def _worker_for(device: str) -> BoundedPersistentWorker:
+    with _WORKERS_LOCK:
+        worker = _WORKERS.get(device)
+        if worker is None:
+            worker = BoundedPersistentWorker(
+                [sys.executable, "-u", "-m", "doc_extraction.backends.paddleocr_vl_worker", "--device", device],
+                max_message_bytes=_MAX_WORKER_MESSAGE_BYTES,
+            )
+            _WORKERS[device] = worker
+        return worker
+
+
+def shutdown_paddleocr_vl_workers() -> None:
+    """Terminate owned PaddleOCR-VL worker sessions (also registered at exit)."""
+    with _WORKERS_LOCK:
+        workers = list(_WORKERS.values())
+        _WORKERS.clear()
+    errors: list[Exception] = []
+    for worker in workers:
+        try:
+            worker.close()
+        except (WorkerError, OSError) as exc:  # cleanup integrity errors are not hidden
+            errors.append(exc)
+    if errors:
+        raise E2EWorkerFailure(f"failed to clean up {len(errors)} PaddleOCR-VL worker(s)") from errors[0]
+
+
+atexit.register(shutdown_paddleocr_vl_workers)
 
 
 class _TableHTMLParser(HTMLParser):
@@ -129,7 +185,13 @@ def _table_from_html(table_id: str, html: str, bbox: BBox | None) -> Table | Non
     parser.feed(html)
     parser.close()
     rows = [row for row in parser.rows if row]
-    n_rows = len(rows)
+    # HTML rowspans can extend beyond the last explicit <tr>. The canonical
+    # grid must include every occupied row rather than declaring only the
+    # number of serialized row elements.
+    n_rows = max(
+        len(rows),
+        max((cell.row + cell.row_span for row in rows for cell in row), default=0),
+    )
     n_cols = max((max(cell.col + cell.col_span for cell in row) for row in rows), default=0)
     if not n_rows or not n_cols:
         return None
@@ -231,31 +293,78 @@ def page_from_paddle_result(result: Any) -> Page:
     )
 
 
+def validate_worker_page(value: Any) -> Page:
+    """Validate structural invariants before accepting a worker-produced page."""
+    try:
+        page = Page.model_validate(value)
+        if page.index != 0 or not page.is_rendered_page:
+            raise ValueError("E2E page must identify the sole rendered image page")
+        if not math.isfinite(page.width) or not math.isfinite(page.height) or page.width <= 0 or page.height <= 0:
+            raise ValueError("E2E page dimensions are invalid")
+        element_ids = [element.id for element in page.elements]
+        table_ids = [table.id for table in page.tables]
+        if len(element_ids) != len(set(element_ids)) or len(table_ids) != len(set(table_ids)):
+            raise ValueError("E2E output contains duplicate element/table identifiers")
+        if len(page.reading_order) != len(set(page.reading_order)) or set(page.reading_order) != set(element_ids):
+            raise ValueError("E2E reading order must reference every element exactly once")
+        tables = {table.id: table for table in page.tables}
+        table_elements: dict[str, int] = {table_id: 0 for table_id in tables}
+        for element in page.elements:
+            if element.bbox is not None and not all(math.isfinite(v) for v in element.bbox.as_tuple()):
+                raise ValueError("E2E element geometry contains a non-finite value")
+            if element.type == ElementType.TABLE:
+                if element.table_id not in tables:
+                    raise ValueError("E2E table element references a missing table")
+                table_elements[element.table_id] += 1
+            elif element.table_id is not None:
+                raise ValueError("E2E non-table element contains a table reference")
+        if any(count != 1 for count in table_elements.values()):
+            raise ValueError("E2E each table must have exactly one owning table element")
+        for table in page.tables:
+            if table.n_rows <= 0 or table.n_cols <= 0:
+                raise ValueError("E2E table dimensions must be positive")
+            occupied: set[tuple[int, int]] = set()
+            for cell in table.cells:
+                if cell.row < 0 or cell.col < 0 or cell.row_span <= 0 or cell.col_span <= 0:
+                    raise ValueError("E2E table cell coordinates/spans are invalid")
+                if cell.row + cell.row_span > table.n_rows or cell.col + cell.col_span > table.n_cols:
+                    raise ValueError("E2E table cell span exceeds declared dimensions")
+                if cell.bbox is not None and not all(math.isfinite(v) for v in cell.bbox.as_tuple()):
+                    raise ValueError("E2E table cell geometry contains a non-finite value")
+                slots = {
+                    (row, col)
+                    for row in range(cell.row, cell.row + cell.row_span)
+                    for col in range(cell.col, cell.col + cell.col_span)
+                }
+                if occupied.intersection(slots):
+                    raise ValueError("E2E table cells overlap")
+                occupied.update(slots)
+        return page
+    except Exception as exc:
+        if isinstance(exc, E2EInvalidModelOutput):
+            raise
+        raise E2EInvalidModelOutput(f"invalid PaddleOCR-VL page output: {type(exc).__name__}: {exc}") from exc
+
+
 class PaddleOCRVLBackend:
     """Whole-document backend using PaddleOCR-VL's official v1.6 pipeline."""
 
     name = "paddleocr_vl"
     model_id = "PaddlePaddle/PaddleOCR-VL-1.6"
-    # PaddleX resolves the versioned model through its registry, so a Git
-    # revision is not guaranteed. Run metadata records local weight hashes.
-    model_revision = "PaddleX registry v1.6; resolved weight hashes recorded when available"
+    model_revision = "PaddleX registry model version v1.6 (weight SHA-256 recorded by worker)"
 
     def __init__(self, device: str = "cuda", pipeline: Any | None = None) -> None:
-        if pipeline is None:
-            if importlib.util.find_spec("paddleocr") is None:
-                raise RuntimeError(
-                    "PaddleOCR-VL requires the optional isolated PaddleOCR runtime; "
-                    "install paddlepaddle-gpu and paddleocr[doc-parser]"
-                )
-            paddle_device = "gpu:0" if device == "cuda" else "cpu"
-            if paddle_device not in _PIPELINE_CACHE:
-                from paddleocr import PaddleOCRVL
-
-                _PIPELINE_CACHE[paddle_device] = PaddleOCRVL(
-                    pipeline_version="v1.6", device=paddle_device
-                )
-            pipeline = _PIPELINE_CACHE[paddle_device]
-        self._pipeline = pipeline
+        if device not in ("cpu", "cuda"):
+            raise ValueError("PaddleOCR-VL device must be resolved to cpu or cuda")
+        if pipeline is None and not self.is_available():
+            raise RuntimeError(
+                "PaddleOCR-VL requires the optional isolated PaddleOCR runtime; "
+                "install paddlepaddle-gpu and paddleocr[doc-parser]"
+            )
+        self.device = device
+        # Injectable only for small deterministic adapter unit tests. Normal
+        # execution always goes through the separately supervised process.
+        self._test_pipeline = pipeline
 
     @staticmethod
     def is_available() -> bool:
@@ -264,11 +373,57 @@ class PaddleOCRVLBackend:
     def convert(self, path: Path, config: Any) -> Document:
         if path.suffix.lower() not in {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp"}:
             raise ValueError("PaddleOCR-VL benchmark adapter currently accepts raster images only")
-        results = list(self._pipeline.predict(str(path)))
-        if len(results) != 1:
-            raise ValueError(f"PaddleOCR-VL expected one image result, received {len(results)}")
-        page = page_from_paddle_result(results[0])
         sha256 = sha256_file(path)
+        model_versions = self.model_versions()
+        if self._test_pipeline is not None:
+            results = list(self._test_pipeline.predict(str(path)))
+            if len(results) != 1:
+                raise E2EInvalidModelOutput(f"PaddleOCR-VL expected one image result, received {len(results)}")
+            page = validate_worker_page(page_from_paddle_result(results[0]))
+        else:
+            weight_keys = ("model_weights_sha256", "layout_weights_sha256")
+            missing_weights = [key for key in weight_keys if not model_versions.get(key)]
+            if missing_weights:
+                raise E2EWorkerFailure(
+                    "refusing inference without pre-run model artifact hashes: " + ", ".join(missing_weights)
+                )
+            scratch_limit, timeout, hard_timeout, ipc_limit = current_worker_policy()
+            if scratch_limit <= 0:
+                raise ResourceLimitExceeded(
+                    "max_temp_bytes", 0, 1, "PaddleOCR-VL worker requires a positive remaining scratch budget"
+                )
+            worker = _worker_for(self.device)
+            worker.max_message_bytes = min(_MAX_WORKER_MESSAGE_BYTES, ipc_limit)
+            try:
+                reply = worker.request(
+                    {"op": "predict", "input_path": str(path), "input_sha256": sha256},
+                    timeout=timeout,
+                    scratch_limit=scratch_limit,
+                )
+            except WorkerTimeout as exc:
+                elapsed = current_runtime_elapsed_seconds()
+                raise ResourceLimitExceeded(
+                    "max_runtime_seconds",
+                    hard_timeout,
+                    elapsed if elapsed is not None else hard_timeout,
+                    "PaddleOCR-VL isolated worker startup/inference/postprocessing; worker deadline expired",
+                ) from exc
+            except WorkerTempLimit as exc:
+                raise ResourceLimitExceeded(
+                    "max_temp_bytes", exc.limit, exc.actual,
+                    "PaddleOCR-VL isolated worker private scratch",
+                ) from exc
+            except (WorkerCrashed, WorkerProtocolError) as exc:
+                raise E2EWorkerFailure(f"PaddleOCR-VL {exc.kind}: {exc}") from exc
+            if reply.get("input_sha256") != sha256:
+                raise E2EInvalidModelOutput("worker result input identity does not match submitted page")
+            page = validate_worker_page(reply.get("page"))
+            versions = reply.get("model_versions")
+            if not isinstance(versions, dict):
+                raise E2EInvalidModelOutput("worker did not return model artifact identity")
+            if any(versions.get(key) != model_versions.get(key) for key in weight_keys):
+                raise E2EWorkerFailure("model weight identity changed between pre-run attestation and worker load")
+            model_versions = {**model_versions, **{str(k): str(v) for k, v in versions.items()}}
         document_id = make_document_id(path, sha256)
         metadata = RunMetadata(
             input_filename=path.name,
@@ -278,7 +433,7 @@ class PaddleOCRVLBackend:
             route="image",
             pipeline=self.name,
             backend=self.name,
-            model_versions=self.model_versions(),
+            model_versions=model_versions,
             timestamp=datetime.now(timezone.utc).isoformat(),
             device="cuda" if config.device == "cuda" else "cpu",
         )

@@ -5,6 +5,7 @@ import pytest
 from doc_extraction.backends.paddleocr_vl_backend import (
     PaddleOCRVLBackend,
     page_from_paddle_result,
+    validate_worker_page,
 )
 from doc_extraction.schemas.element import ElementType
 
@@ -101,6 +102,28 @@ def test_malformed_table_is_retained_as_text_and_disclosed() -> None:
     assert page.notes and "E2E_UNSUPPORTED" in page.notes[0]
 
 
+def test_table_dimensions_include_rowspan_beyond_final_explicit_row() -> None:
+    page = page_from_paddle_result(
+        FakeResult(
+            {
+                "width": 100,
+                "height": 100,
+                "parsing_res_list": [
+                    {
+                        "block_label": "table",
+                        "block_content": "<table><tr><td rowspan='2'>continued</td></tr></table>",
+                    }
+                ],
+            }
+        )
+    )
+
+    assert page.tables[0].n_rows == 2
+    assert page.tables[0].cells[0].row == 0
+    assert page.tables[0].cells[0].row_span == 2
+    assert validate_worker_page(page.model_dump(mode="json")) == page
+
+
 @pytest.mark.parametrize("dimensions", [(0, 4), (4, 0), (float("nan"), 3)])
 def test_invalid_model_dimensions_fail_loudly(dimensions: tuple[float, float]) -> None:
     with pytest.raises(ValueError, match="dimensions"):
@@ -128,3 +151,21 @@ def test_backend_uses_injected_pipeline_and_returns_canonical_document(tmp_path:
     assert document.metadata.device == "cuda"
     assert document.pages[0].width == 8
     assert document.pages[0].elements == []
+
+
+def test_worker_page_validation_rejects_broken_reading_order_and_table_links() -> None:
+    page = page_from_paddle_result(
+        FakeResult(
+            {
+                "width": 100,
+                "height": 100,
+                "parsing_res_list": [
+                    {"block_label": "text", "block_content": "x", "block_bbox": [1, 2, 10, 12]}
+                ],
+            }
+        )
+    )
+    value = page.model_dump(mode="json")
+    value["reading_order"] = []
+    with pytest.raises(ValueError, match="reading order"):
+        validate_worker_page(value)

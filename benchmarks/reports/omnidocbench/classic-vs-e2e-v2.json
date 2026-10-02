@@ -1,0 +1,2845 @@
+{
+  "comparability": "The conditional runs use identical 178-page GT and the same pinned evaluator. Successful-page membership depends on E2E completion; this is not an unbiased full-manifest estimate. The full Classic 180-page run is kept separate.",
+  "conditional_population": {
+    "exact_alignment": {
+      "classic": 178,
+      "e2e": 178,
+      "ground_truth": 178
+    },
+    "ground_truth_subset_sha256": "628937132bcc7fdbeba930d9ddf4d3541221fbded68920f2956a1a69b2fa9905",
+    "label": "CONDITIONAL QUALITY — COMPLETED E2E PAGES ONLY",
+    "n": 178,
+    "outcome_conditioned": true,
+    "sample_ids": [
+      "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+      "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+      "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0",
+      "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0",
+      "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png#0",
+      "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png#0",
+      "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png#0",
+      "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png#0",
+      "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.png#0",
+      "page-27a46d41-49b5-4562-a546-6cbbafd23a81.png#0",
+      "page-5a104368-22a2-440a-a1aa-49b7d1eb57f0.png#0",
+      "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png#0",
+      "page-c7a51204-5142-4c7a-bc9d-1faf1fe1be02.png#0",
+      "page-15cc8cbe-9ce3-4ad8-8737-9159b061ca95.png#0",
+      "page-014dee5d-dfce-406b-925e-4ec8ffe4ac16.png#0",
+      "page-0b772bee-71ec-4d4a-a406-d7691b1a6e86.png#0",
+      "page-aee8f1d9-7240-4517-b615-389594556d57.png#0",
+      "page-550c6f8b-929c-46c8-a3b6-264be02d2993.png#0",
+      "page-d9cbe0d2-9aa5-4be4-8b43-e328e2bea931.png#0",
+      "page-34e4675f-4b7f-4bc3-8624-c399423d2c66.png#0",
+      "page-6e75aef4-33d0-478a-a3a3-489c782bfa39.png#0",
+      "page-56023e3d-ae9b-486d-b7bb-419624d18356.png#0",
+      "page-112859dc-07d9-473a-a027-94904db8fd84.png#0",
+      "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png#0",
+      "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png#0",
+      "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png#0",
+      "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png#0",
+      "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png#0",
+      "page-f46e72b1-865d-43e6-ab94-afae16c5f178.png#0",
+      "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11.png#0",
+      "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png#0",
+      "page-3ce15378-6ffd-4f3c-9473-8b897451c770.png#0",
+      "page-458ab820-615f-42fe-af33-3a8fb15ad691.png#0",
+      "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg#17",
+      "yanbaopptmerge_SE20.pdf_2.jpg#2",
+      "yanbaopptmerge_yanbaoPPT_120.jpg#120",
+      "yanbaopptmerge_yanbaoPPT_1465.jpg#1465",
+      "yanbaopptmerge_yanbaoPPT_1695.jpg#1695",
+      "yanbaopptmerge_yanbaoPPT_4150.jpg#4150",
+      "yanbaopptmerge_yanbaoPPT_4285.jpg#4285",
+      "yanbaopptmerge_yanbaoPPT_4330.jpg#4330",
+      "yanbaopptmerge_yanbaoPPT_5540.jpg#5540",
+      "yanbaor2_4862cd850679e945a98c54c8d4c37be0154b5790d2c32da35d0f5ca0be413693.pdf_9.jpg#9",
+      "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg#19",
+      "yanbaor2_yanbaoPPT_916.jpg#916",
+      "docstructbench_llm-raw-scihub-o.O-bf00151572.pdf_3.jpg#3",
+      "docstructbench_llm-raw-scihub-o.O-bf00326833.pdf_3.jpg#3",
+      "docstructbench_llm-raw-scihub-o.O-chin.201025015.pdf_1.jpg#1",
+      "docstructbench_llm-raw-scihub-o.O-hyp.1040.pdf_9.jpg#9",
+      "docstructbench_llm-raw-scihub-o.O-hyp.1092.pdf_1.jpg#1",
+      "docstructbench_llm-raw-scihub-o.O-ijc.22820.pdf_4.jpg#4",
+      "docstructbench_llm-raw-scihub-o.O-ijc.22999.pdf_3.jpg#3",
+      "docstructbench_llm-raw-scihub-o.O-j.ab.2008.05.027.pdf_7.jpg#7",
+      "docstructbench_llm-raw-scihub-o.O-j.jcp.2010.12.006.pdf_5.jpg#5",
+      "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3",
+      "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.11.060.pdf_2.jpg#2",
+      "docstructbench_llm-raw-scihub-o.O-s00374-003-0583-8.pdf_1.jpg#1",
+      "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg#2",
+      "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg#5",
+      "docstructbench_dianzishu_zhongwenzaixian-o.O-63678132.pdf_161.jpg#161",
+      "docstructbench_dianzishu_zhongwenzaixian-o.O-63690689.pdf_134.jpg#134",
+      "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg#105",
+      "yanbaopptmerge_abef2a4978ae4d13e931f0392502bd40.pdf_1287.jpg#1287",
+      "yanbaor2_0ef01b835238626f3589faa671abdfb832f2b98987eadad53cb2e35699dcc039.pdf_13.jpg#13",
+      "yanbaor2_f832cad1f46c067198e9df95ae7b150213f16805037c1a5725e72245010d3e97.pdf_3.jpg#3",
+      "yanbaor2_yanbaoPPT_2098.jpg#2098",
+      "yanbaor2_yanbaoPPT_469.jpg#469",
+      "yanbaor2_yanbaoPPT_5877.jpg#5877",
+      "jiaocai_jiaocai_en_37.jpg#1174",
+      "docstructbench_dianzishu_zhongwenzaixian-o.O-63710614.pdf_149.jpg#87",
+      "docstructbench_enbook-zlib-o.O-17761417.pdf_894.jpg#111",
+      "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg#379",
+      "jiaocaineedrop_Chapter9.pdf_46.jpg#1644",
+      "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg#1700",
+      "jiaocaineedrop_chem-203343.pdf_121.jpg#1650",
+      "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996",
+      "jiaocaineedrop_jiaocai_needrop_en_1417.jpg#2029",
+      "jiaocaineedrop_jiaocai_needrop_en_1449.jpg#2035",
+      "jiaocaineedrop_jiaocai_needrop_en_1458.jpg#2037",
+      "jiaocaineedrop_jiaocai_needrop_en_1751.jpg#2094",
+      "jiaocaineedrop_jiaocai_needrop_en_1761.jpg#2096",
+      "jiaocaineedrop_jiaocai_needrop_en_1776.jpg#2099",
+      "jiaocaineedrop_jiaocai_needrop_en_1959.jpg#2133",
+      "jiaocaineedrop_jiaocai_needrop_en_223.jpg#1800",
+      "jiaocaineedrop_jiaocai_needrop_en_2272.jpg#2193",
+      "jiaocaineedrop_jiaocai_needrop_en_2496.jpg#2238",
+      "jiaocaineedrop_jiaocai_needrop_en_2982.jpg#2334",
+      "jiaocaineedrop_jiaocai_needrop_en_3313.jpg#2398",
+      "jiaocaineedrop_jiaocai_needrop_en_3685.jpg#2472",
+      "jiaocaineedrop_jiaocai_needrop_en_3751.jpg#2485",
+      "jiaocaineedrop_jiaocai_needrop_en_383.jpg#1827",
+      "jiaocaineedrop_jiaocai_needrop_en_397.jpg#1830",
+      "jiaocaineedrop_jiaocai_needrop_en_439.jpg#1842",
+      "jiaocaineedrop_jiaocai_needrop_en_482.jpg#1851",
+      "jiaocaineedrop_jiaocai_needrop_en_715.jpg#1898",
+      "jiaocaineedrop_jiaocai_needrop_en_835.jpg#1917",
+      "jiaocaineedrop_jiaocai_needrop_en_85.jpg#1775",
+      "jiaocaineedrop_jiaocai_needrop_en_854.jpg#1919",
+      "docstructbench_enbook-zlib-o.O-21882649.pdf_3.jpg#3",
+      "yanbaor2_864cbd5f0adeb98dea6cf7105cc8dfb272a9be974757633b2db8cf3f9a11c92b.pdf_33.jpg#33",
+      "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg#14",
+      "yanbaor2_ea86fd46182ff9b675775645ecaf43782b996ffaeeb09c679f56a47aabfbf6b7.pdf_9.jpg#9",
+      "yanbaor2_yanbaoPPT_1517.jpg#1517",
+      "notes_1ba14cb325bc448f7201b20502ecf2b5_103.jpg#103",
+      "notes_1ba14cb325bc448f7201b20502ecf2b5_54.jpg#54",
+      "notes_1ba14cb325bc448f7201b20502ecf2b5_9.jpg#9",
+      "notes_1ba14cb325bc448f7201b20502ecf2b5_97.jpg#97",
+      "notes_9e951846094758afac08c620144e3a76_15.jpg#15",
+      "notes_9e951846094758afac08c620144e3a76_16.jpg#16",
+      "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg#49",
+      "notes_f7f010b78016aeebd76e56d9283eb67f_5.jpg#5",
+      "notes_f7f010b78016aeebd76e56d9283eb67f_6.jpg#6",
+      "notes_f7f010b78016aeebd76e56d9283eb67f_70.jpg#70",
+      "notes_f7f010b78016aeebd76e56d9283eb67f_8.jpg#8",
+      "newspaper_5a8b7563a3262beecbecd7ddd3ef8827_1.jpg#1",
+      "newspaper_8076765115f6c402e81c6bfb48139bc2_1.jpg#1",
+      "newspaper_fe5ed29024932fad071afc53807b16ba_2.jpg#2",
+      "newspaper_fe5ed29024932fad071afc53807b16ba_4.jpg#4",
+      "eastmoney_03e39833d520af7d1abb96dd624dcd15f2b57d061969d196e80922e2f590503f.pdf_22.jpg#22",
+      "eastmoney_6be3f3cd9e5361946ee49252f12dd57fe7c73df330116d6998e2198ec79a05c9.pdf_2.jpg#2",
+      "eastmoney_7e9f2d3e6d80483c7556fe65fe39f432d669cee3dc80840f126db9c7d7140d52.pdf_1.jpg#1",
+      "eastmoney_bef4bcf5f2faff08a78d49945e4ac8983320f367c450720c87ab8cc6ed5726e4.pdf_1.jpg#1",
+      "eastmoney_d0313ed730f58180b1f005a3607c2a77dc3672410e8f7ee1de3b814668da9bcb.pdf_5.jpg#5",
+      "eastmoney_dd8f39ced2188b907304224a635ad605689270486020c34636003e57018c01d8.pdf_2.jpg#2",
+      "yanbaopptmerge_bde265c4886a63cc9a96575991522f2abfce961325fcd4884fabd9a79c423ffa.pdf_2.jpg#2",
+      "scihub_bloodadvances.2019030924.pdf_3.jpg#2793",
+      "scihub_c2gc35284b.pdf_6.jpg#2798",
+      "scihub_j.ejcts.2011.04.042.pdf_3.jpg#2871",
+      "scihub_s11661-013-1726-7.pdf_2.jpg#2970",
+      "yanbaopptmerge_1c5f17c3dfa38c45b86802b9d014da18.pdf_1372.jpg#3062",
+      "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg#3929",
+      "yanbaor2_8072f7ea9b3083ff5e8f9bfbba591771e61115039c96fda1c8ea391a7570f098.pdf_5.jpg#4329",
+      "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg#4194",
+      "yanbaor2_9be04f6bcbe2c6afc83f0751eb05e361872f9673ccd4bec49cf844c66f34bff0.pdf_19.jpg#4062",
+      "yanbaor2_cb862501e720c830960aa5387f65d10961604a63f0491bbdc7fb71257cbd2112.pdf_96.jpg#4543",
+      "yanbaor2_yanbaoPPT_1332.jpg#4820",
+      "yanbaor2_yanbaoPPT_5946.jpg#4945",
+      "yanbaor2_0aa9545ccbc482a37e3b55c96897f0f24cee08bb80c7addfb0c219814af44a3b.pdf_27.jpg#3853",
+      "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.jpg#4297",
+      "PPT_StewartCalcET7e_03_02_page_007.png#7",
+      "PPT_1001115_eng_page_003.png#3",
+      "PPT_english-studies-s6-on-the-road-resource-3_page_002.png#2",
+      "PPT_MMAT5390Lecture1_page_023.png#23",
+      "PPT_all655920_page_001.png#1",
+      "PPT_1001115_eng_page_005.png#5",
+      "PPT_ch7_page_057.png#57",
+      "PPT_linear-algebra primer_page_007.png#7",
+      "PPT_EnglishtoAmericanTransition_page_012.png#12",
+      "PPT_CalculusReview_page_002.png#2",
+      "PPT_StewartCalcET7e_03_02_page_015.png#15",
+      "PPT_english-studies-s6-on-the-road-resource-3_page_003.png#3",
+      "PPT_ch7_page_132.png#132",
+      "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_009.png#9",
+      "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_027.png#27",
+      "newspaper_Chicago Tribune_0801@magazinesclubnew_page_032.png#32",
+      "newspaper_The Times UK_0801@magazinesclubnew_page_001.png#1",
+      "newspaper_Daily Mail_2022-08-01@magazinesclubnew_page_009.png#9",
+      "newspaper_NY Daily News_August 1@magazinesclubnew_page_007.png#7",
+      "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_003.png#3",
+      "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_033.png#33",
+      "newspaper_Daily Mirror 2025-1-8@magazinesclubnew_page_034.png#34",
+      "newspaper_USAToday-2025-01-08@magazinesclubnew_page_024.png#24",
+      "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_021.png#21",
+      "book_zh_CNASGL0072018_extracted_page_48.png#48",
+      "book_zh_GBT 50744-2011_extracted_page_67.png#67",
+      "book_zh_CNASGL0092018_extracted_page_70.png#70",
+      "book_zh_JGJ1022003_extracted_page_27.png#27",
+      "book_zh_JJD10031991_extracted_page_6.png#6",
+      "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_051.png#51",
+      "book_en_国外数学教材-数论-Melvyn B. Nathanson—Elementary Methods in Number Theory_0100.png#100",
+      "book_en_搬书匠-3299-Swift Data Structure and Algorithms-2016-英文版_page_066.png#66",
+      "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2",
+      "exam_paper_2016年安徽省中考英语试题（解析）_page_015.png#15",
+      "exam_paper_2016年安徽省中考英语试题（解析）_page_003.png#3",
+      "exam_paper_en-file-putnam-archive_2002_Solutions_2002s_page_001.png#1",
+      "exam_paper_2018年广西北海、钦州、南宁、来宾、崇左、防城港、北部湾经济区中考英语试题（空白卷）_page_001.png#1",
+      "magazine_TheEconomist.2024.03.02_page_031.png#31",
+      "magazine_TheEconomist.2023.11.18_page_068.png#68"
+    ]
+  },
+  "full_population": {
+    "classic_full_metrics": {
+      "display_formula": {
+        "all": {
+          "Edit_dist": {
+            "ALL_page_avg": 0.9853894477253515,
+            "edit_sample_avg": 0.9954450558625105,
+            "edit_whole": 0.9967009402320338
+          }
+        },
+        "group": {
+          "sample_count": {}
+        },
+        "page": {
+          "Edit_dist": {
+            "ALL": 0.9853894477253516,
+            "None": 0.9847183060453273,
+            "colorful_backgroud": 0.9497117625413958,
+            "data_source: PPT2PDF": 0.9727966179579083,
+            "data_source: academic_literature": 0.9997015816174276,
+            "data_source: book": 0.9987577639751553,
+            "data_source: colorful_textbook": 0.9252505157677572,
+            "data_source: exam_paper": 0.9974651457541192,
+            "data_source: note": 0.9935897435897436,
+            "fuzzy_content": 1.0,
+            "handwriting": 1.0,
+            "language: english": 0.996459918067218,
+            "language: simplified_chinese": 0.968783742212552,
+            "layout: 1andmore_column": 1.0,
+            "layout: double_column": 0.9583333333333334,
+            "layout: other_layout": 1.0,
+            "layout: single_column": 0.9888703307689973,
+            "layout: three_column": 0.986335403726708,
+            "subset: equation_hard": 1.0,
+            "subset: layout_hard": 1.0,
+            "subset: v1.5": 0.9803319488610504,
+            "watermark": 0.9840848806366048,
+            "with_watermark": 1.0
+          }
+        }
+      },
+      "match_debug": {
+        "match_timeout_sec": 420,
+        "page_count": 180,
+        "quick_match_truncated_timeout_sec": 300,
+        "text_match_fallback_counts": {
+          "page_timeout": 0,
+          "quick_match_timeout": 0
+        },
+        "text_match_fallback_pages": {
+          "page_timeout": [],
+          "quick_match_timeout": []
+        },
+        "workers": 1
+      },
+      "reading_order": {
+        "all": {
+          "Edit_dist": {
+            "ALL_page_avg": 0.5849918953131392,
+            "edit_sample_avg": 0.5849918953131392,
+            "edit_whole": 0.6848360655737705
+          }
+        },
+        "group": {
+          "sample_count": {}
+        },
+        "page": {
+          "Edit_dist": {
+            "ALL": 0.5849918953131392,
+            "None": 0.47678876470871523,
+            "colorful_backgroud": 0.612948125278442,
+            "data_source: PPT2PDF": 0.4262793753865183,
+            "data_source: academic_literature": 0.4091369301343725,
+            "data_source: book": 0.6378542418495914,
+            "data_source: colorful_textbook": 0.6810883662905722,
+            "data_source: exam_paper": 0.5226340021066682,
+            "data_source: historical_document": 0.9047619047619048,
+            "data_source: magazine": 0.5539072855249326,
+            "data_source: newspaper": 0.65510135309153,
+            "data_source: note": 0.8231332597141421,
+            "data_source: research_report": 0.7688340548340549,
+            "fuzzy_content": 0.9285714285714286,
+            "fuzzy_scan": 0.85,
+            "geometric_deformation": 0.9401858304297328,
+            "handwriting": 0.9375,
+            "language: en_ch_mixed": 0.617309093881102,
+            "language: english": 0.4115910098060338,
+            "language: other": 0.5882352941176471,
+            "language: simplified_chinese": 0.7431718212279782,
+            "language: traditional_chinese": 0.9047619047619048,
+            "layout: 1andmore_column": 0.5579462463718519,
+            "layout: double_column": 0.690169676563751,
+            "layout: other_layout": 0.5599211079653434,
+            "layout: single_column": 0.5701586672590127,
+            "layout: three_column": 0.7313222313222313,
+            "subset: equation_hard": 0.6356304643069349,
+            "subset: layout_hard": 0.7032407996926988,
+            "subset: table_hard": 0.7900865800865802,
+            "subset: v1.5": 0.5556026408409563,
+            "text_L-shaped_wrap": 0.0,
+            "text_embedded_in_image": 0.6893939393939394,
+            "transparent_pages": 0.8853383458646616,
+            "watermark": 0.6033254624163715,
+            "with_watermark": 0.9060191943272816
+          }
+        }
+      },
+      "table": {
+        "all": {
+          "Edit_dist": {
+            "ALL_page_avg": 0.7125178638784991,
+            "edit_sample_avg": 0.7297851083411059,
+            "edit_whole": 0.6964314869632501
+          },
+          "TEDS": {
+            "all": 0.3981107344001522
+          },
+          "TEDS_structure_only": {
+            "all": 0.6323174152284948
+          }
+        },
+        "group": {
+          "sample_count": {}
+        },
+        "metric_debug": {
+          "TEDS": {
+            "error_case_count": 0,
+            "error_cases": [],
+            "sample_count": 64,
+            "stage": "TEDS",
+            "timeout_case_count": 0,
+            "timeout_cases": [],
+            "timeout_sec": 120.0,
+            "workers": 1
+          }
+        },
+        "page": {
+          "Edit_dist": {
+            "ALL": 0.7125178638784991,
+            "colorful_backgroud": 0.6917499487346445,
+            "data_source: PPT2PDF": 0.664920753456853,
+            "data_source: academic_literature": 0.6540144121256919,
+            "data_source: book": 0.6240430548267677,
+            "data_source: colorful_textbook": 0.6897452815018107,
+            "data_source: exam_paper": 0.85093685619,
+            "data_source: magazine": 0.8573983012963791,
+            "data_source: newspaper": 0.6316538312506055,
+            "data_source: note": 0.8931957612939208,
+            "data_source: research_report": 0.7126571651446642,
+            "fuzzy_scan": 0.59337441643324,
+            "language: en_ch_mixed": 0.879696044567301,
+            "language: english": 0.6252744390067111,
+            "language: simplified_chinese": 0.728276546199593,
+            "layout: 1andmore_column": 0.6255610223468849,
+            "layout: double_column": 0.7588572777007875,
+            "layout: other_layout": 0.7888123911433891,
+            "layout: single_column": 0.7117016016676976,
+            "layout: three_column": 0.6660854402789886,
+            "subset: table_hard": 0.6993909615585113,
+            "subset: v1.5": 0.7162203235072138,
+            "watermark": 0.7966707893344929,
+            "with_watermark": 0.6615078376091312
+          },
+          "TEDS": {
+            "ALL": 0.41387694970737937,
+            "colorful_backgroud": 0.4362994893573628,
+            "data_source: PPT2PDF": 0.421071219419662,
+            "data_source: academic_literature": 0.5684064808911434,
+            "data_source: book": 0.5807509621277723,
+            "data_source: colorful_textbook": 0.3848512408926898,
+            "data_source: exam_paper": 0.25705321331978254,
+            "data_source: magazine": 0.051136363636363646,
+            "data_source: newspaper": 0.5607366257737367,
+            "data_source: note": 0.07500000000000001,
+            "data_source: research_report": 0.43373662065072566,
+            "fuzzy_scan": 0.423341887536332,
+            "language: en_ch_mixed": 0.21427122732679535,
+            "language: english": 0.6069920592351475,
+            "language: simplified_chinese": 0.3505870153402594,
+            "layout: 1andmore_column": 0.6063880856536955,
+            "layout: double_column": 0.40540222208639953,
+            "layout: other_layout": 0.2515224085859862,
+            "layout: single_column": 0.4038006218661906,
+            "layout: three_column": 0.34485679548597437,
+            "subset: table_hard": 0.44612725999787695,
+            "subset: v1.5": 0.40478070834339286,
+            "watermark": 0.3687752241738293,
+            "with_watermark": 0.5783384270341186
+          },
+          "TEDS_structure_only": {
+            "ALL": 0.6731710441627725,
+            "colorful_backgroud": 0.690073948626653,
+            "data_source: PPT2PDF": 0.8366903579613664,
+            "data_source: academic_literature": 0.7969206572657164,
+            "data_source: book": 0.7857366954750675,
+            "data_source: colorful_textbook": 0.6167327340588312,
+            "data_source: exam_paper": 0.29095441595441596,
+            "data_source: magazine": 0.40909090909090906,
+            "data_source: newspaper": 0.6527777777777778,
+            "data_source: note": 0.275,
+            "data_source: research_report": 0.7826716423351425,
+            "fuzzy_scan": 0.7676767676767676,
+            "language: en_ch_mixed": 0.29602109849787867,
+            "language: english": 0.7632881206095491,
+            "language: simplified_chinese": 0.6909708302168664,
+            "layout: 1andmore_column": 0.8045609342221738,
+            "layout: double_column": 0.534611733781169,
+            "layout: other_layout": 0.5192640692640692,
+            "layout: single_column": 0.7077678859213109,
+            "layout: three_column": 0.3888888888888889,
+            "subset: table_hard": 0.7339102784085582,
+            "subset: v1.5": 0.6560394652729356,
+            "watermark": 0.5317460317460319,
+            "with_watermark": 0.7646765492542726
+          }
+        }
+      },
+      "text_block": {
+        "all": {
+          "Edit_dist": {
+            "ALL_page_avg": 0.5739880899019053,
+            "edit_sample_avg": 0.5135211938275871,
+            "edit_whole": 0.31988517521685444
+          }
+        },
+        "group": {
+          "sample_count": {}
+        },
+        "page": {
+          "Edit_dist": {
+            "ALL": 0.5739880899019053,
+            "None": 0.4003825746596588,
+            "colorful_backgroud": 0.6527094266209993,
+            "data_source: PPT2PDF": 0.46744643007936926,
+            "data_source: academic_literature": 0.15418723067689477,
+            "data_source: book": 0.6642618118885243,
+            "data_source: colorful_textbook": 0.8031606583956313,
+            "data_source: exam_paper": 0.4846554943931703,
+            "data_source: historical_document": 0.978319783197832,
+            "data_source: magazine": 0.6323678291512286,
+            "data_source: newspaper": 0.29652910106251174,
+            "data_source: note": 0.9782393244359446,
+            "data_source: research_report": 0.9846586043625892,
+            "fuzzy_content": 0.9876673542854831,
+            "fuzzy_scan": 0.8503616694476059,
+            "geometric_deformation": 0.9796812186131341,
+            "handwriting": 0.996969696969697,
+            "language: en_ch_mixed": 0.6695969017985349,
+            "language: english": 0.1666559183989363,
+            "language: other": 0.0025575447570332483,
+            "language: simplified_chinese": 0.9685903017826586,
+            "language: traditional_chinese": 0.978319783197832,
+            "layout: 1andmore_column": 0.4870755395680562,
+            "layout: double_column": 0.6759197549496307,
+            "layout: other_layout": 0.545318745221458,
+            "layout: single_column": 0.5860711290736232,
+            "layout: three_column": 0.5235781532756782,
+            "subset: equation_hard": 0.6444046725706785,
+            "subset: layout_hard": 0.8099184261316809,
+            "subset: table_hard": 0.755830008924931,
+            "subset: v1.5": 0.5370502665712628,
+            "text_L-shaped_wrap": 0.3011026293469042,
+            "text_embedded_in_image": 0.9968152866242038,
+            "transparent_pages": 0.979280563474761,
+            "watermark": 0.6654237419259174,
+            "with_watermark": 0.9761560638561406
+          }
+        }
+      }
+    },
+    "classic_run_id": "representative-v2-full-20261002T080500Z",
+    "e2e_full_metrics": null,
+    "e2e_run_id": "e2e-paddleocr-vl16-isolation-full180-v2-20261002T115500Z",
+    "status": "NOT AVAILABLE: 2/180 E2E predictions missing"
+  },
+  "metrics": {
+    "formula_edit_distance": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 35,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.9853894477253516
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 35,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.07950046904731534
+      }
+    },
+    "reading_order_edit_distance": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 176,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.5826410086837522
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 176,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.16585518310642172
+      }
+    },
+    "table_edit_distance": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.7125178638784991
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.5674689139145679
+      }
+    },
+    "table_structure_teds": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "higher",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.6731710441627725
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "higher",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.8721063522295893
+      }
+    },
+    "table_teds": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "higher",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.41387694970737937
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "higher",
+        "n": 50,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.8429399306552726
+      }
+    },
+    "text_edit_distance": {
+      "classic": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 166,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.5731945388943094
+      },
+      "e2e": {
+        "aggregation": "pinned OmniDocBench official ALL page aggregation",
+        "direction": "lower",
+        "n": 166,
+        "status": "MEASURED_CONDITIONAL",
+        "value": 0.04490876660296731
+      }
+    }
+  },
+  "paired_page_deltas": {
+    "formula_edit_distance": {
+      "classic_better_count": 0,
+      "classic_mean": 0.9853894477253516,
+      "delta_e2e_minus_classic": {
+        "max": -0.6774193548387096,
+        "mean": -0.9058889786780363,
+        "median": -0.9347826086956522,
+        "min": -1.0,
+        "n": 35,
+        "p95_nearest_rank": -0.6795580110497237
+      },
+      "direction": "lower is better",
+      "e2e_better_count": 35,
+      "e2e_mean": 0.07950046904731534,
+      "n_paired": 35,
+      "per_page": {
+        "PPT_MMAT5390Lecture1_page_023.png": {
+          "classic": 0.9487179487179487,
+          "delta": -0.905982905982906,
+          "e2e": 0.042735042735042736
+        },
+        "PPT_StewartCalcET7e_03_02_page_007.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "PPT_StewartCalcET7e_03_02_page_015.png": {
+          "classic": 1.0,
+          "delta": -0.8482384823848239,
+          "e2e": 0.15176151761517614
+        },
+        "PPT_ch7_page_057.png": {
+          "classic": 1.0,
+          "delta": -0.9722222222222222,
+          "e2e": 0.027777777777777776
+        },
+        "PPT_ch7_page_132.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "PPT_linear-algebra primer_page_007.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_051.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "book_en_国外数学教材-数论-Melvyn B. Nathanson—Elementary Methods in Number Theory_0100.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "book_zh_CNASGL0072018_extracted_page_48.png": {
+          "classic": 1.0,
+          "delta": -0.8984375,
+          "e2e": 0.1015625
+        },
+        "book_zh_CNASGL0092018_extracted_page_70.png": {
+          "classic": 1.0,
+          "delta": -0.9446564885496184,
+          "e2e": 0.05534351145038168
+        },
+        "book_zh_GBT 50744-2011_extracted_page_67.png": {
+          "classic": 1.0,
+          "delta": -0.9893617021276596,
+          "e2e": 0.010638297872340425
+        },
+        "book_zh_JGJ1022003_extracted_page_27.png": {
+          "classic": 1.0,
+          "delta": -0.9296482412060302,
+          "e2e": 0.07035175879396985
+        },
+        "book_zh_JJD10031991_extracted_page_6.png": {
+          "classic": 1.0,
+          "delta": -0.9375,
+          "e2e": 0.0625
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.jcp.2010.12.006.pdf_5.jpg": {
+          "classic": 0.9982094897045658,
+          "delta": -0.8946852606296759,
+          "e2e": 0.10352422907488987
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg": {
+          "classic": 1.0,
+          "delta": -0.8731417244796829,
+          "e2e": 0.12685827552031714
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.11.060.pdf_2.jpg": {
+          "classic": 1.0,
+          "delta": -0.9761467889908257,
+          "e2e": 0.023853211009174313
+        },
+        "exam_paper_en-file-putnam-archive_2002_Solutions_2002s_page_001.png": {
+          "classic": 1.0,
+          "delta": -0.9357142857142857,
+          "e2e": 0.06428571428571428
+        },
+        "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png": {
+          "classic": 1.0,
+          "delta": -0.968,
+          "e2e": 0.032
+        },
+        "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg": {
+          "classic": 0.9923954372623575,
+          "delta": -0.9810889045990409,
+          "e2e": 0.011306532663316583
+        },
+        "jiaocaineedrop_chem-203343.pdf_121.jpg": {
+          "classic": 1.0,
+          "delta": -0.9318181818181819,
+          "e2e": 0.06818181818181818
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1253.jpg": {
+          "classic": 0.7916666666666666,
+          "delta": -0.7708333333333333,
+          "e2e": 0.020833333333333332
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1761.jpg": {
+          "classic": 0.9840848806366048,
+          "delta": -0.9575596816976127,
+          "e2e": 0.026525198938992044
+        },
+        "notes_9e951846094758afac08c620144e3a76_15.jpg": {
+          "classic": 1.0,
+          "delta": -0.8592057761732852,
+          "e2e": 0.1407942238267148
+        },
+        "notes_9e951846094758afac08c620144e3a76_16.jpg": {
+          "classic": 0.9807692307692307,
+          "delta": -0.8461538461538461,
+          "e2e": 0.1346153846153846
+        },
+        "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png": {
+          "classic": 1.0,
+          "delta": -0.9863013698630136,
+          "e2e": 0.0136986301369863
+        },
+        "page-27a46d41-49b5-4562-a546-6cbbafd23a81.png": {
+          "classic": 1.0,
+          "delta": -0.8448753462603878,
+          "e2e": 0.15512465373961218
+        },
+        "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png": {
+          "classic": 1.0,
+          "delta": -0.9347826086956522,
+          "e2e": 0.06521739130434782
+        },
+        "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png": {
+          "classic": 1.0,
+          "delta": -0.8076923076923077,
+          "e2e": 0.19230769230769232
+        },
+        "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png": {
+          "classic": 1.0,
+          "delta": -0.8062283737024222,
+          "e2e": 0.19377162629757785
+        },
+        "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png": {
+          "classic": 1.0,
+          "delta": -0.7429378531073446,
+          "e2e": 0.2570621468926554
+        },
+        "page-aee8f1d9-7240-4517-b615-389594556d57.png": {
+          "classic": 1.0,
+          "delta": -0.6795580110497237,
+          "e2e": 0.32044198895027626
+        },
+        "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png": {
+          "classic": 1.0,
+          "delta": -0.9619195046439628,
+          "e2e": 0.03808049535603715
+        },
+        "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png": {
+          "classic": 1.0,
+          "delta": -0.8707692307692307,
+          "e2e": 0.12923076923076923
+        },
+        "yanbaopptmerge_abef2a4978ae4d13e931f0392502bd40.pdf_1287.jpg": {
+          "classic": 0.986335403726708,
+          "delta": -0.9732349670454853,
+          "e2e": 0.013100436681222707
+        },
+        "yanbaopptmerge_yanbaoPPT_1465.jpg": {
+          "classic": 0.8064516129032258,
+          "delta": -0.6774193548387096,
+          "e2e": 0.12903225806451613
+        }
+      },
+      "tie_count": 0
+    },
+    "reading_order_edit_distance": {
+      "classic_better_count": 6,
+      "classic_mean": 0.5826410086837522,
+      "delta_e2e_minus_classic": {
+        "max": 1.0,
+        "mean": -0.4167858255773305,
+        "median": -0.5,
+        "min": -1.0,
+        "n": 176,
+        "p95_nearest_rank": 0.0
+      },
+      "direction": "lower is better",
+      "e2e_better_count": 128,
+      "e2e_mean": 0.16585518310642172,
+      "n_paired": 176,
+      "per_page": {
+        "PPT_1001115_eng_page_003.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_1001115_eng_page_005.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_CalculusReview_page_002.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_EnglishtoAmericanTransition_page_012.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_MMAT5390Lecture1_page_023.png": {
+          "classic": 0.2727272727272727,
+          "delta": -0.2727272727272727,
+          "e2e": 0.0
+        },
+        "PPT_StewartCalcET7e_03_02_page_007.png": {
+          "classic": 0.5714285714285714,
+          "delta": -0.5714285714285714,
+          "e2e": 0.0
+        },
+        "PPT_StewartCalcET7e_03_02_page_015.png": {
+          "classic": 0.3333333333333333,
+          "delta": 0.0,
+          "e2e": 0.3333333333333333
+        },
+        "PPT_all655920_page_001.png": {
+          "classic": 0.16666666666666666,
+          "delta": -0.16666666666666666,
+          "e2e": 0.0
+        },
+        "PPT_ch7_page_057.png": {
+          "classic": 0.625,
+          "delta": -0.625,
+          "e2e": 0.0
+        },
+        "PPT_ch7_page_132.png": {
+          "classic": 0.5,
+          "delta": -0.5,
+          "e2e": 0.0
+        },
+        "PPT_english-studies-s6-on-the-road-resource-3_page_002.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_english-studies-s6-on-the-road-resource-3_page_003.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "PPT_linear-algebra primer_page_007.png": {
+          "classic": 0.5,
+          "delta": -0.5,
+          "e2e": 0.0
+        },
+        "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_051.png": {
+          "classic": 0.125,
+          "delta": -0.125,
+          "e2e": 0.0
+        },
+        "book_en_国外数学教材-数论-Melvyn B. Nathanson—Elementary Methods in Number Theory_0100.png": {
+          "classic": 0.55,
+          "delta": 0.1499999999999999,
+          "e2e": 0.7
+        },
+        "book_en_搬书匠-3299-Swift Data Structure and Algorithms-2016-英文版_page_066.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "book_zh_CNASGL0072018_extracted_page_48.png": {
+          "classic": 0.8636363636363636,
+          "delta": -0.7727272727272727,
+          "e2e": 0.09090909090909091
+        },
+        "book_zh_CNASGL0092018_extracted_page_70.png": {
+          "classic": 0.8947368421052632,
+          "delta": -0.8947368421052632,
+          "e2e": 0.0
+        },
+        "book_zh_GBT 50744-2011_extracted_page_67.png": {
+          "classic": 0.8,
+          "delta": -0.8,
+          "e2e": 0.0
+        },
+        "book_zh_JGJ1022003_extracted_page_27.png": {
+          "classic": 0.6666666666666666,
+          "delta": -0.6666666666666666,
+          "e2e": 0.0
+        },
+        "book_zh_JJD10031991_extracted_page_6.png": {
+          "classic": 0.8260869565217391,
+          "delta": -0.6521739130434783,
+          "e2e": 0.17391304347826086
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63678132.pdf_161.jpg": {
+          "classic": 0.6666666666666666,
+          "delta": -0.6666666666666666,
+          "e2e": 0.0
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63690689.pdf_134.jpg": {
+          "classic": 0.8571428571428571,
+          "delta": -0.8571428571428571,
+          "e2e": 0.0
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63710614.pdf_149.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": {
+          "classic": 0.3333333333333333,
+          "delta": -0.3333333333333333,
+          "e2e": 0.0
+        },
+        "docstructbench_enbook-zlib-o.O-17761417.pdf_894.jpg": {
+          "classic": 0.5,
+          "delta": -0.33333333333333337,
+          "e2e": 0.16666666666666666
+        },
+        "docstructbench_enbook-zlib-o.O-21882649.pdf_3.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-bf00151572.pdf_3.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-chin.201025015.pdf_1.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-hyp.1040.pdf_9.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-hyp.1092.pdf_1.jpg": {
+          "classic": 0.4,
+          "delta": -0.4,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-ijc.22820.pdf_4.jpg": {
+          "classic": 0.6,
+          "delta": -0.6,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-ijc.22999.pdf_3.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.ab.2008.05.027.pdf_7.jpg": {
+          "classic": 0.5,
+          "delta": -0.5,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.jcp.2010.12.006.pdf_5.jpg": {
+          "classic": 0.5238095238095238,
+          "delta": -0.5238095238095238,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg": {
+          "classic": 0.52,
+          "delta": -0.52,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.11.060.pdf_2.jpg": {
+          "classic": 0.75,
+          "delta": -0.75,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-s00374-003-0583-8.pdf_1.jpg": {
+          "classic": 0.2222222222222222,
+          "delta": -0.2222222222222222,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg": {
+          "classic": 0.4444444444444444,
+          "delta": -0.3333333333333333,
+          "e2e": 0.1111111111111111
+        },
+        "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg": {
+          "classic": 1.0,
+          "delta": -0.8333333333333334,
+          "e2e": 0.16666666666666666
+        },
+        "eastmoney_03e39833d520af7d1abb96dd624dcd15f2b57d061969d196e80922e2f590503f.pdf_22.jpg": {
+          "classic": 0.8333333333333334,
+          "delta": -0.6666666666666667,
+          "e2e": 0.16666666666666666
+        },
+        "eastmoney_6be3f3cd9e5361946ee49252f12dd57fe7c73df330116d6998e2198ec79a05c9.pdf_2.jpg": {
+          "classic": 0.8,
+          "delta": -0.6000000000000001,
+          "e2e": 0.2
+        },
+        "eastmoney_7e9f2d3e6d80483c7556fe65fe39f432d669cee3dc80840f126db9c7d7140d52.pdf_1.jpg": {
+          "classic": 0.8333333333333334,
+          "delta": -0.6666666666666667,
+          "e2e": 0.16666666666666666
+        },
+        "eastmoney_bef4bcf5f2faff08a78d49945e4ac8983320f367c450720c87ab8cc6ed5726e4.pdf_1.jpg": {
+          "classic": 0.5,
+          "delta": -0.33333333333333337,
+          "e2e": 0.16666666666666666
+        },
+        "eastmoney_d0313ed730f58180b1f005a3607c2a77dc3672410e8f7ee1de3b814668da9bcb.pdf_5.jpg": {
+          "classic": 0.7272727272727273,
+          "delta": -0.7272727272727273,
+          "e2e": 0.0
+        },
+        "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg": {
+          "classic": 0.5,
+          "delta": 0.0,
+          "e2e": 0.5
+        },
+        "eastmoney_dd8f39ced2188b907304224a635ad605689270486020c34636003e57018c01d8.pdf_2.jpg": {
+          "classic": 1.0,
+          "delta": -0.8571428571428572,
+          "e2e": 0.14285714285714285
+        },
+        "exam_paper_2016年安徽省中考英语试题（解析）_page_003.png": {
+          "classic": 0.45,
+          "delta": -0.30000000000000004,
+          "e2e": 0.15
+        },
+        "exam_paper_2016年安徽省中考英语试题（解析）_page_015.png": {
+          "classic": 0.3333333333333333,
+          "delta": -0.3333333333333333,
+          "e2e": 0.0
+        },
+        "exam_paper_2018年广西北海、钦州、南宁、来宾、崇左、防城港、北部湾经济区中考英语试题（空白卷）_page_001.png": {
+          "classic": 0.2413793103448276,
+          "delta": -0.2413793103448276,
+          "e2e": 0.0
+        },
+        "exam_paper_en-file-putnam-archive_2002_Solutions_2002s_page_001.png": {
+          "classic": 0.56,
+          "delta": -0.56,
+          "e2e": 0.0
+        },
+        "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png": {
+          "classic": 0.3333333333333333,
+          "delta": -0.3333333333333333,
+          "e2e": 0.0
+        },
+        "jiaocai_jiaocai_en_37.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_Chapter9.pdf_46.jpg": {
+          "classic": 0.5384615384615384,
+          "delta": -0.4615384615384615,
+          "e2e": 0.07692307692307693
+        },
+        "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg": {
+          "classic": 0.55,
+          "delta": -0.55,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_chem-203343.pdf_121.jpg": {
+          "classic": 0.45,
+          "delta": -0.35,
+          "e2e": 0.1
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1253.jpg": {
+          "classic": 0.8333333333333334,
+          "delta": -0.6111111111111112,
+          "e2e": 0.2222222222222222
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1417.jpg": {
+          "classic": 0.8235294117647058,
+          "delta": -0.588235294117647,
+          "e2e": 0.23529411764705882
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1449.jpg": {
+          "classic": 0.8,
+          "delta": -0.8,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1458.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1751.jpg": {
+          "classic": 0.7272727272727273,
+          "delta": -0.7272727272727273,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1761.jpg": {
+          "classic": 0.8571428571428571,
+          "delta": -0.2857142857142857,
+          "e2e": 0.5714285714285714
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1776.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1959.jpg": {
+          "classic": 0.75,
+          "delta": -0.6666666666666666,
+          "e2e": 0.08333333333333333
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_223.jpg": {
+          "classic": 0.16666666666666666,
+          "delta": -0.16666666666666666,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2272.jpg": {
+          "classic": 0.5714285714285714,
+          "delta": -0.5,
+          "e2e": 0.07142857142857142
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2496.jpg": {
+          "classic": 0.6363636363636364,
+          "delta": -0.6363636363636364,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2982.jpg": {
+          "classic": 0.7,
+          "delta": -0.7,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3313.jpg": {
+          "classic": 0.75,
+          "delta": -0.75,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3685.jpg": {
+          "classic": 0.7692307692307693,
+          "delta": -0.46153846153846156,
+          "e2e": 0.3076923076923077
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3751.jpg": {
+          "classic": 1.0,
+          "delta": -0.8571428571428572,
+          "e2e": 0.14285714285714285
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_383.jpg": {
+          "classic": 0.7916666666666666,
+          "delta": -0.49999999999999994,
+          "e2e": 0.2916666666666667
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_397.jpg": {
+          "classic": 0.5,
+          "delta": -0.4285714285714286,
+          "e2e": 0.07142857142857142
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_439.jpg": {
+          "classic": 0.6666666666666666,
+          "delta": -0.5,
+          "e2e": 0.16666666666666666
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_482.jpg": {
+          "classic": 0.4642857142857143,
+          "delta": -0.4285714285714286,
+          "e2e": 0.03571428571428571
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_715.jpg": {
+          "classic": 0.18181818181818182,
+          "delta": -0.18181818181818182,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_835.jpg": {
+          "classic": 0.9285714285714286,
+          "delta": -0.7857142857142858,
+          "e2e": 0.14285714285714285
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_85.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_854.jpg": {
+          "classic": 0.5,
+          "delta": -0.4166666666666667,
+          "e2e": 0.08333333333333333
+        },
+        "magazine_TheEconomist.2023.11.18_page_068.png": {
+          "classic": 0.7777777777777778,
+          "delta": -0.6666666666666667,
+          "e2e": 0.1111111111111111
+        },
+        "magazine_TheEconomist.2024.03.02_page_031.png": {
+          "classic": 0.7142857142857143,
+          "delta": -0.5714285714285714,
+          "e2e": 0.14285714285714285
+        },
+        "newspaper_5a8b7563a3262beecbecd7ddd3ef8827_1.jpg": {
+          "classic": 0.9701492537313433,
+          "delta": -0.9104477611940299,
+          "e2e": 0.05970149253731343
+        },
+        "newspaper_8076765115f6c402e81c6bfb48139bc2_1.jpg": {
+          "classic": 0.0,
+          "delta": 0.35294117647058826,
+          "e2e": 0.35294117647058826
+        },
+        "newspaper_Chicago Tribune_0801@magazinesclubnew_page_032.png": {
+          "classic": 0.7608695652173914,
+          "delta": -0.7173913043478262,
+          "e2e": 0.043478260869565216
+        },
+        "newspaper_Daily Mail_2022-08-01@magazinesclubnew_page_009.png": {
+          "classic": 0.7045454545454546,
+          "delta": -0.6590909090909092,
+          "e2e": 0.045454545454545456
+        },
+        "newspaper_Daily Mirror 2025-1-8@magazinesclubnew_page_034.png": {
+          "classic": 0.7948717948717948,
+          "delta": -0.7435897435897435,
+          "e2e": 0.05128205128205128
+        },
+        "newspaper_NY Daily News_August 1@magazinesclubnew_page_007.png": {
+          "classic": 0.65625,
+          "delta": -0.59375,
+          "e2e": 0.0625
+        },
+        "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_003.png": {
+          "classic": 0.68,
+          "delta": -0.68,
+          "e2e": 0.0
+        },
+        "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_027.png": {
+          "classic": 0.41025641025641024,
+          "delta": -0.3076923076923077,
+          "e2e": 0.10256410256410256
+        },
+        "newspaper_The Times UK_0801@magazinesclubnew_page_001.png": {
+          "classic": 0.6363636363636364,
+          "delta": -0.6363636363636364,
+          "e2e": 0.0
+        },
+        "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_009.png": {
+          "classic": 0.671875,
+          "delta": -0.515625,
+          "e2e": 0.15625
+        },
+        "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_021.png": {
+          "classic": 0.627906976744186,
+          "delta": -0.4418604651162791,
+          "e2e": 0.18604651162790697
+        },
+        "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_033.png": {
+          "classic": 0.7590361445783133,
+          "delta": -0.6506024096385542,
+          "e2e": 0.10843373493975904
+        },
+        "newspaper_USAToday-2025-01-08@magazinesclubnew_page_024.png": {
+          "classic": 0.9090909090909091,
+          "delta": -0.5454545454545454,
+          "e2e": 0.36363636363636365
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_2.jpg": {
+          "classic": 0.6666666666666666,
+          "delta": -0.5,
+          "e2e": 0.16666666666666666
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_4.jpg": {
+          "classic": 0.25,
+          "delta": -0.16666666666666669,
+          "e2e": 0.08333333333333333
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_103.jpg": {
+          "classic": 0.9285714285714286,
+          "delta": -0.9285714285714286,
+          "e2e": 0.0
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_54.jpg": {
+          "classic": 0.8571428571428571,
+          "delta": -0.8571428571428571,
+          "e2e": 0.0
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_9.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_97.jpg": {
+          "classic": 1.0,
+          "delta": -0.75,
+          "e2e": 0.25
+        },
+        "notes_9e951846094758afac08c620144e3a76_15.jpg": {
+          "classic": 0.7692307692307693,
+          "delta": -0.15384615384615385,
+          "e2e": 0.6153846153846154
+        },
+        "notes_9e951846094758afac08c620144e3a76_16.jpg": {
+          "classic": 0.8333333333333334,
+          "delta": -0.6666666666666667,
+          "e2e": 0.16666666666666666
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg": {
+          "classic": 1.0,
+          "delta": -0.9285714285714286,
+          "e2e": 0.07142857142857142
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_6.jpg": {
+          "classic": 0.7142857142857143,
+          "delta": -0.7142857142857143,
+          "e2e": 0.0
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_70.jpg": {
+          "classic": 0.9803921568627451,
+          "delta": -0.9019607843137254,
+          "e2e": 0.0784313725490196
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_8.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "page-014dee5d-dfce-406b-925e-4ec8ffe4ac16.png": {
+          "classic": 0.975609756097561,
+          "delta": -0.975609756097561,
+          "e2e": 0.0
+        },
+        "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png": {
+          "classic": 0.9047619047619048,
+          "delta": -0.4523809523809524,
+          "e2e": 0.4523809523809524
+        },
+        "page-0b772bee-71ec-4d4a-a406-d7691b1a6e86.png": {
+          "classic": 0.5882352941176471,
+          "delta": -0.5882352941176471,
+          "e2e": 0.0
+        },
+        "page-112859dc-07d9-473a-a027-94904db8fd84.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png": {
+          "classic": 0.9375,
+          "delta": -0.625,
+          "e2e": 0.3125
+        },
+        "page-15cc8cbe-9ce3-4ad8-8737-9159b061ca95.png": {
+          "classic": 0.8421052631578947,
+          "delta": -0.8421052631578947,
+          "e2e": 0.0
+        },
+        "page-27a46d41-49b5-4562-a546-6cbbafd23a81.png": {
+          "classic": 0.45,
+          "delta": -0.45,
+          "e2e": 0.0
+        },
+        "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "page-34e4675f-4b7f-4bc3-8624-c399423d2c66.png": {
+          "classic": 0.8333333333333334,
+          "delta": -0.5,
+          "e2e": 0.3333333333333333
+        },
+        "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-3ce15378-6ffd-4f3c-9473-8b897451c770.png": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "page-458ab820-615f-42fe-af33-3a8fb15ad691.png": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png": {
+          "classic": 0.9523809523809523,
+          "delta": -0.9523809523809523,
+          "e2e": 0.0
+        },
+        "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "page-550c6f8b-929c-46c8-a3b6-264be02d2993.png": {
+          "classic": 0.0,
+          "delta": 0.2727272727272727,
+          "e2e": 0.2727272727272727
+        },
+        "page-56023e3d-ae9b-486d-b7bb-419624d18356.png": {
+          "classic": 0.5454545454545454,
+          "delta": -0.09090909090909088,
+          "e2e": 0.45454545454545453
+        },
+        "page-5a104368-22a2-440a-a1aa-49b7d1eb57f0.png": {
+          "classic": 0.8571428571428571,
+          "delta": -0.7142857142857142,
+          "e2e": 0.14285714285714285
+        },
+        "page-6e75aef4-33d0-478a-a3a3-489c782bfa39.png": {
+          "classic": 0.7692307692307693,
+          "delta": -0.7692307692307693,
+          "e2e": 0.0
+        },
+        "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png": {
+          "classic": 0.76,
+          "delta": -0.56,
+          "e2e": 0.2
+        },
+        "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png": {
+          "classic": 0.7142857142857143,
+          "delta": -0.6428571428571429,
+          "e2e": 0.07142857142857142
+        },
+        "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png": {
+          "classic": 0.2857142857142857,
+          "delta": -0.2857142857142857,
+          "e2e": 0.0
+        },
+        "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png": {
+          "classic": 0.5833333333333334,
+          "delta": -0.5833333333333334,
+          "e2e": 0.0
+        },
+        "page-aee8f1d9-7240-4517-b615-389594556d57.png": {
+          "classic": 0.75,
+          "delta": -0.75,
+          "e2e": 0.0
+        },
+        "page-c7a51204-5142-4c7a-bc9d-1faf1fe1be02.png": {
+          "classic": 0.9285714285714286,
+          "delta": -0.7857142857142858,
+          "e2e": 0.14285714285714285
+        },
+        "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png": {
+          "classic": 0.7941176470588235,
+          "delta": -0.7352941176470588,
+          "e2e": 0.058823529411764705
+        },
+        "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.png": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png": {
+          "classic": 0.5,
+          "delta": 0.0,
+          "e2e": 0.5
+        },
+        "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png": {
+          "classic": 0.3888888888888889,
+          "delta": -0.3888888888888889,
+          "e2e": 0.0
+        },
+        "page-d9cbe0d2-9aa5-4be4-8b43-e328e2bea931.png": {
+          "classic": 0.4444444444444444,
+          "delta": -0.4444444444444444,
+          "e2e": 0.0
+        },
+        "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11.png": {
+          "classic": 0.16666666666666666,
+          "delta": 0.0,
+          "e2e": 0.16666666666666666
+        },
+        "page-f46e72b1-865d-43e6-ab94-afae16c5f178.png": {
+          "classic": 0.75,
+          "delta": -0.5,
+          "e2e": 0.25
+        },
+        "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png": {
+          "classic": 0.8,
+          "delta": 0.19999999999999996,
+          "e2e": 1.0
+        },
+        "scihub_bloodadvances.2019030924.pdf_3.jpg": {
+          "classic": 0.3333333333333333,
+          "delta": 0.0,
+          "e2e": 0.3333333333333333
+        },
+        "scihub_c2gc35284b.pdf_6.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "scihub_j.ejcts.2011.04.042.pdf_3.jpg": {
+          "classic": 0.6,
+          "delta": -0.5,
+          "e2e": 0.1
+        },
+        "scihub_s11661-013-1726-7.pdf_2.jpg": {
+          "classic": 0.3333333333333333,
+          "delta": 0.0,
+          "e2e": 0.3333333333333333
+        },
+        "yanbaopptmerge_1c5f17c3dfa38c45b86802b9d014da18.pdf_1372.jpg": {
+          "classic": 0.0,
+          "delta": 1.0,
+          "e2e": 1.0
+        },
+        "yanbaopptmerge_SE20.pdf_2.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_abef2a4978ae4d13e931f0392502bd40.pdf_1287.jpg": {
+          "classic": 0.8828828828828829,
+          "delta": -0.5675675675675675,
+          "e2e": 0.3153153153153153
+        },
+        "yanbaopptmerge_bde265c4886a63cc9a96575991522f2abfce961325fcd4884fabd9a79c423ffa.pdf_2.jpg": {
+          "classic": 0.6,
+          "delta": -0.39999999999999997,
+          "e2e": 0.2
+        },
+        "yanbaopptmerge_yanbaoPPT_120.jpg": {
+          "classic": 0.5,
+          "delta": -0.5,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_1465.jpg": {
+          "classic": 0.8,
+          "delta": -0.8,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_1695.jpg": {
+          "classic": 0.5,
+          "delta": 0.0,
+          "e2e": 0.5
+        },
+        "yanbaopptmerge_yanbaoPPT_4150.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_4285.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaopptmerge_yanbaoPPT_4330.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_5540.jpg": {
+          "classic": 0.75,
+          "delta": -0.75,
+          "e2e": 0.0
+        },
+        "yanbaor2_0aa9545ccbc482a37e3b55c96897f0f24cee08bb80c7addfb0c219814af44a3b.pdf_27.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaor2_0ef01b835238626f3589faa671abdfb832f2b98987eadad53cb2e35699dcc039.pdf_13.jpg": {
+          "classic": 0.8181818181818182,
+          "delta": -0.8181818181818182,
+          "e2e": 0.0
+        },
+        "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg": {
+          "classic": 0.3333333333333333,
+          "delta": 0.0,
+          "e2e": 0.3333333333333333
+        },
+        "yanbaor2_4862cd850679e945a98c54c8d4c37be0154b5790d2c32da35d0f5ca0be413693.pdf_9.jpg": {
+          "classic": 0.5,
+          "delta": 0.0,
+          "e2e": 0.5
+        },
+        "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaor2_8072f7ea9b3083ff5e8f9bfbba591771e61115039c96fda1c8ea391a7570f098.pdf_5.jpg": {
+          "classic": 0.42857142857142855,
+          "delta": -0.42857142857142855,
+          "e2e": 0.0
+        },
+        "yanbaor2_864cbd5f0adeb98dea6cf7105cc8dfb272a9be974757633b2db8cf3f9a11c92b.pdf_33.jpg": {
+          "classic": 0.7142857142857143,
+          "delta": -0.7142857142857143,
+          "e2e": 0.0
+        },
+        "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg": {
+          "classic": 0.2,
+          "delta": 0.39999999999999997,
+          "e2e": 0.6
+        },
+        "yanbaor2_9be04f6bcbe2c6afc83f0751eb05e361872f9673ccd4bec49cf844c66f34bff0.pdf_19.jpg": {
+          "classic": 0.9090909090909091,
+          "delta": -0.5454545454545454,
+          "e2e": 0.36363636363636365
+        },
+        "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg": {
+          "classic": 1.0,
+          "delta": -0.5,
+          "e2e": 0.5
+        },
+        "yanbaor2_cb862501e720c830960aa5387f65d10961604a63f0491bbdc7fb71257cbd2112.pdf_96.jpg": {
+          "classic": 0.8181818181818182,
+          "delta": -0.4545454545454546,
+          "e2e": 0.36363636363636365
+        },
+        "yanbaor2_ea86fd46182ff9b675775645ecaf43782b996ffaeeb09c679f56a47aabfbf6b7.pdf_9.jpg": {
+          "classic": 0.8,
+          "delta": -0.8,
+          "e2e": 0.0
+        },
+        "yanbaor2_f832cad1f46c067198e9df95ae7b150213f16805037c1a5725e72245010d3e97.pdf_3.jpg": {
+          "classic": 0.6428571428571429,
+          "delta": -0.6428571428571429,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_1332.jpg": {
+          "classic": 0.6666666666666666,
+          "delta": -0.6666666666666666,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_1517.jpg": {
+          "classic": 0.0,
+          "delta": 0.0,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_2098.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaor2_yanbaoPPT_469.jpg": {
+          "classic": 0.5,
+          "delta": -0.5,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_5877.jpg": {
+          "classic": 1.0,
+          "delta": 0.0,
+          "e2e": 1.0
+        },
+        "yanbaor2_yanbaoPPT_5946.jpg": {
+          "classic": 0.5714285714285714,
+          "delta": -0.5714285714285714,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_916.jpg": {
+          "classic": 0.6666666666666666,
+          "delta": -0.3333333333333333,
+          "e2e": 0.3333333333333333
+        }
+      },
+      "tie_count": 42
+    },
+    "table_edit_distance": {
+      "classic_better_count": 8,
+      "classic_mean": 0.7125178638784991,
+      "delta_e2e_minus_classic": {
+        "max": 0.07118705488366195,
+        "mean": -0.14504894996393133,
+        "median": -0.0905770803384971,
+        "min": -0.7581658291457286,
+        "n": 50,
+        "p95_nearest_rank": 0.01818056436258464
+      },
+      "direction": "lower is better",
+      "e2e_better_count": 42,
+      "e2e_mean": 0.5674689139145679,
+      "n_paired": 50,
+      "per_page": {
+        "book_en_国外数学教材-数论-Melvyn B. Nathanson—Elementary Methods in Number Theory_0100.png": {
+          "classic": 0.6699128651973347,
+          "delta": -0.04986396544183347,
+          "e2e": 0.6200488997555013
+        },
+        "docstructbench_enbook-zlib-o.O-17761417.pdf_894.jpg": {
+          "classic": 0.5254662840746055,
+          "delta": 0.0060975609756097615,
+          "e2e": 0.5315638450502153
+        },
+        "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg": {
+          "classic": 0.6649568664024248,
+          "delta": 0.06056188132236584,
+          "e2e": 0.7255187477247906
+        },
+        "docstructbench_llm-raw-the-eye-o.O-Character%20Sheet%20-%20Form%20Fillable.pdf_2.jpg": {
+          "classic": 0.8894623655913978,
+          "delta": -0.23178778816267998,
+          "e2e": 0.6576745774287178
+        },
+        "eastmoney_03e39833d520af7d1abb96dd624dcd15f2b57d061969d196e80922e2f590503f.pdf_22.jpg": {
+          "classic": 0.6187624750499002,
+          "delta": -0.0456965724711037,
+          "e2e": 0.5730659025787965
+        },
+        "eastmoney_6be3f3cd9e5361946ee49252f12dd57fe7c73df330116d6998e2198ec79a05c9.pdf_2.jpg": {
+          "classic": 0.8134601316752011,
+          "delta": -0.4734892720345989,
+          "e2e": 0.33997085964060225
+        },
+        "eastmoney_7e9f2d3e6d80483c7556fe65fe39f432d669cee3dc80840f126db9c7d7140d52.pdf_1.jpg": {
+          "classic": 0.6124911284599006,
+          "delta": -0.03077367693635491,
+          "e2e": 0.5817174515235457
+        },
+        "eastmoney_bef4bcf5f2faff08a78d49945e4ac8983320f367c450720c87ab8cc6ed5726e4.pdf_1.jpg": {
+          "classic": 0.6090100111234705,
+          "delta": -0.023008925936275793,
+          "e2e": 0.5860010851871947
+        },
+        "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg": {
+          "classic": 0.5826296743063932,
+          "delta": -0.010351268595506835,
+          "e2e": 0.5722784057108864
+        },
+        "eastmoney_dd8f39ced2188b907304224a635ad605689270486020c34636003e57018c01d8.pdf_2.jpg": {
+          "classic": 0.7255434782608695,
+          "delta": -0.13367265420741736,
+          "e2e": 0.5918708240534521
+        },
+        "jiaocaineedrop_Chapter9.pdf_46.jpg": {
+          "classic": 0.6792698826597132,
+          "delta": -0.1566217990360198,
+          "e2e": 0.5226480836236934
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1417.jpg": {
+          "classic": 0.7488731487443657,
+          "delta": -0.15120015425569455,
+          "e2e": 0.5976729944886712
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1959.jpg": {
+          "classic": 0.8800289960130482,
+          "delta": -0.12639074237479453,
+          "e2e": 0.7536382536382537
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2272.jpg": {
+          "classic": 1.0,
+          "delta": -0.6255707762557078,
+          "e2e": 0.3744292237442922
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3751.jpg": {
+          "classic": 0.6498599439775911,
+          "delta": -0.049357431414777,
+          "e2e": 0.6005025125628141
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_383.jpg": {
+          "classic": 0.7012383900928792,
+          "delta": -0.07122502110892204,
+          "e2e": 0.6300133689839572
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_397.jpg": {
+          "classic": 1.0,
+          "delta": -0.1130888445603806,
+          "e2e": 0.8869111554396194
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_439.jpg": {
+          "classic": 0.6330049261083743,
+          "delta": 0.0043284072249589745,
+          "e2e": 0.6373333333333333
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_482.jpg": {
+          "classic": 1.0,
+          "delta": -0.33793103448275863,
+          "e2e": 0.6620689655172414
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_854.jpg": {
+          "classic": 0.5368888888888889,
+          "delta": -0.10751035781544255,
+          "e2e": 0.4293785310734463
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_2.jpg": {
+          "classic": 0.6660854402789886,
+          "delta": -0.1908124794568949,
+          "e2e": 0.47527296082209375
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_4.jpg": {
+          "classic": 0.5972222222222222,
+          "delta": -0.03066484517304191,
+          "e2e": 0.5665573770491803
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_97.jpg": {
+          "classic": 0.7863915225878416,
+          "delta": -0.20609173672060388,
+          "e2e": 0.5802997858672377
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg": {
+          "classic": 1.0,
+          "delta": -0.2715447154471544,
+          "e2e": 0.7284552845528456
+        },
+        "page-112859dc-07d9-473a-a027-94904db8fd84.png": {
+          "classic": 0.7115384615384616,
+          "delta": -0.0692307692307692,
+          "e2e": 0.6423076923076924
+        },
+        "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png": {
+          "classic": 0.6899137607799025,
+          "delta": -0.15132268584305153,
+          "e2e": 0.538591074936851
+        },
+        "page-3ce15378-6ffd-4f3c-9473-8b897451c770.png": {
+          "classic": 0.7085664620566028,
+          "delta": -0.0475811423253264,
+          "e2e": 0.6609853197312764
+        },
+        "page-458ab820-615f-42fe-af33-3a8fb15ad691.png": {
+          "classic": 0.6389196983141082,
+          "delta": -0.012125710292862912,
+          "e2e": 0.6267939880212453
+        },
+        "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea.png": {
+          "classic": 0.7711022840119166,
+          "delta": -0.39469897962725237,
+          "e2e": 0.37640330438466424
+        },
+        "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png": {
+          "classic": 0.6144492131616596,
+          "delta": 0.01818056436258464,
+          "e2e": 0.6326297775242442
+        },
+        "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png": {
+          "classic": 0.7077451354444868,
+          "delta": -0.2790742934124757,
+          "e2e": 0.4286708420320111
+        },
+        "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png": {
+          "classic": 1.0,
+          "delta": -0.7581658291457286,
+          "e2e": 0.24183417085427136
+        },
+        "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11.png": {
+          "classic": 0.3063545150501672,
+          "delta": -0.07819052218029199,
+          "e2e": 0.2281639928698752
+        },
+        "page-f46e72b1-865d-43e6-ab94-afae16c5f178.png": {
+          "classic": 0.7878228782287823,
+          "delta": -0.5218798660171133,
+          "e2e": 0.26594301221166894
+        },
+        "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png": {
+          "classic": 0.7568881685575365,
+          "delta": -0.2815634932328612,
+          "e2e": 0.4753246753246753
+        },
+        "scihub_bloodadvances.2019030924.pdf_3.jpg": {
+          "classic": 0.6262785208497246,
+          "delta": 0.07118705488366195,
+          "e2e": 0.6974655757333865
+        },
+        "scihub_j.ejcts.2011.04.042.pdf_3.jpg": {
+          "classic": 0.4974779319041614,
+          "delta": -0.005053689479918966,
+          "e2e": 0.49242424242424243
+        },
+        "scihub_s11661-013-1726-7.pdf_2.jpg": {
+          "classic": 0.6019736842105263,
+          "delta": 0.008886044296261053,
+          "e2e": 0.6108597285067874
+        },
+        "yanbaopptmerge_bde265c4886a63cc9a96575991522f2abfce961325fcd4884fabd9a79c423ffa.pdf_2.jpg": {
+          "classic": 0.6364546820230346,
+          "delta": -0.13122820118679768,
+          "e2e": 0.5052264808362369
+        },
+        "yanbaopptmerge_yanbaoPPT_1695.jpg": {
+          "classic": 0.5979381443298969,
+          "delta": -0.10298864938040192,
+          "e2e": 0.494949494949495
+        },
+        "yanbaopptmerge_yanbaoPPT_4285.jpg": {
+          "classic": 0.6352201257861635,
+          "delta": -0.09437505536362834,
+          "e2e": 0.5408450704225352
+        },
+        "yanbaor2_0aa9545ccbc482a37e3b55c96897f0f24cee08bb80c7addfb0c219814af44a3b.pdf_27.jpg": {
+          "classic": 0.7101681345076061,
+          "delta": -0.052892546316387734,
+          "e2e": 0.6572755881912183
+        },
+        "yanbaor2_1492d25d79af850815ea449254ea62418c3c7fd582792b5191e1879671ba1219.pdf_88.jpg": {
+          "classic": 0.7392028204877094,
+          "delta": -0.06499632650741016,
+          "e2e": 0.6742064939802992
+        },
+        "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg": {
+          "classic": 1.0,
+          "delta": -0.28100703443169195,
+          "e2e": 0.718992965568308
+        },
+        "yanbaor2_4862cd850679e945a98c54c8d4c37be0154b5790d2c32da35d0f5ca0be413693.pdf_9.jpg": {
+          "classic": 0.7781954887218046,
+          "delta": -0.32876716858108335,
+          "e2e": 0.4494283201407212
+        },
+        "yanbaor2_5e0df1ef7b30d8982c5cd3665f60d5b7a92d3ba7bb1b76c61b8a01777cebc7a6.pdf_19.jpg": {
+          "classic": 0.7466377440347072,
+          "delta": -0.21330441070137385,
+          "e2e": 0.5333333333333333
+        },
+        "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg": {
+          "classic": 0.7147966025927581,
+          "delta": -0.04379226492175381,
+          "e2e": 0.6710043376710043
+        },
+        "yanbaor2_yanbaoPPT_2098.jpg": {
+          "classic": 0.7150489759572574,
+          "delta": 0.003759957045224027,
+          "e2e": 0.7188089330024814
+        },
+        "yanbaor2_yanbaoPPT_5877.jpg": {
+          "classic": 0.7187307834214733,
+          "delta": 0.010222837072277335,
+          "e2e": 0.7289536204937507
+        },
+        "yanbaor2_yanbaoPPT_916.jpg": {
+          "classic": 0.6239103362391034,
+          "delta": -0.08677910531336586,
+          "e2e": 0.5371312309257376
+        }
+      },
+      "tie_count": 0
+    },
+    "text_edit_distance": {
+      "classic_better_count": 5,
+      "classic_mean": 0.5731945388943094,
+      "delta_e2e_minus_classic": {
+        "max": 0.9842460615153789,
+        "mean": -0.5282857722913421,
+        "median": -0.5139458143180228,
+        "min": -1.0,
+        "n": 166,
+        "p95_nearest_rank": -0.01743652493117161
+      },
+      "direction": "lower is better",
+      "e2e_better_count": 161,
+      "e2e_mean": 0.04490876660296731,
+      "n_paired": 166,
+      "per_page": {
+        "PPT_1001115_eng_page_003.png": {
+          "classic": 0.032846715328467155,
+          "delta": -0.032846715328467155,
+          "e2e": 0.0
+        },
+        "PPT_1001115_eng_page_005.png": {
+          "classic": 0.002777777777777778,
+          "delta": 0.0027623884272083717,
+          "e2e": 0.00554016620498615
+        },
+        "PPT_CalculusReview_page_002.png": {
+          "classic": 0.16666666666666666,
+          "delta": -0.16666666666666666,
+          "e2e": 0.0
+        },
+        "PPT_EnglishtoAmericanTransition_page_012.png": {
+          "classic": 0.009523809523809525,
+          "delta": 0.009523809523809525,
+          "e2e": 0.01904761904761905
+        },
+        "PPT_MMAT5390Lecture1_page_023.png": {
+          "classic": 0.168141592920354,
+          "delta": -0.168141592920354,
+          "e2e": 0.0
+        },
+        "PPT_StewartCalcET7e_03_02_page_007.png": {
+          "classic": 0.10294117647058823,
+          "delta": -0.10294117647058823,
+          "e2e": 0.0
+        },
+        "PPT_StewartCalcET7e_03_02_page_015.png": {
+          "classic": 0.04854368932038835,
+          "delta": -0.02912621359223301,
+          "e2e": 0.019417475728155338
+        },
+        "PPT_all655920_page_001.png": {
+          "classic": 0.08227848101265822,
+          "delta": -0.08227848101265822,
+          "e2e": 0.0
+        },
+        "PPT_ch7_page_057.png": {
+          "classic": 0.09375,
+          "delta": -0.09375,
+          "e2e": 0.0
+        },
+        "PPT_ch7_page_132.png": {
+          "classic": 0.004608294930875576,
+          "delta": -0.004608294930875576,
+          "e2e": 0.0
+        },
+        "PPT_english-studies-s6-on-the-road-resource-3_page_002.png": {
+          "classic": 0.06621392190152801,
+          "delta": -0.06621392190152801,
+          "e2e": 0.0
+        },
+        "PPT_english-studies-s6-on-the-road-resource-3_page_003.png": {
+          "classic": 0.12181303116147309,
+          "delta": -0.12181303116147309,
+          "e2e": 0.0
+        },
+        "PPT_linear-algebra primer_page_007.png": {
+          "classic": 0.5161290322580645,
+          "delta": -0.5161290322580645,
+          "e2e": 0.0
+        },
+        "book_en_6.Complex.Analysis.-.Elias.M..Stein_page_051.png": {
+          "classic": 0.0657439446366782,
+          "delta": -0.0657439446366782,
+          "e2e": 0.0
+        },
+        "book_en_国外数学教材-数论-Melvyn B. Nathanson—Elementary Methods in Number Theory_0100.png": {
+          "classic": 0.3102766798418972,
+          "delta": -0.1284584980237154,
+          "e2e": 0.18181818181818182
+        },
+        "book_en_搬书匠-3299-Swift Data Structure and Algorithms-2016-英文版_page_066.png": {
+          "classic": 0.08213552361396304,
+          "delta": -0.08213552361396304,
+          "e2e": 0.0
+        },
+        "book_zh_CNASGL0072018_extracted_page_48.png": {
+          "classic": 0.9532163742690059,
+          "delta": -0.8564421807206187,
+          "e2e": 0.0967741935483871
+        },
+        "book_zh_CNASGL0092018_extracted_page_70.png": {
+          "classic": 0.975929978118162,
+          "delta": -0.962800875273523,
+          "e2e": 0.01312910284463895
+        },
+        "book_zh_GBT 50744-2011_extracted_page_67.png": {
+          "classic": 0.9728506787330317,
+          "delta": -0.9728506787330317,
+          "e2e": 0.0
+        },
+        "book_zh_JGJ1022003_extracted_page_27.png": {
+          "classic": 0.9682804674457429,
+          "delta": -0.9582971063808511,
+          "e2e": 0.009983361064891847
+        },
+        "book_zh_JJD10031991_extracted_page_6.png": {
+          "classic": 0.9778357235984355,
+          "delta": -0.919460089080669,
+          "e2e": 0.0583756345177665
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63678132.pdf_161.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63690689.pdf_134.jpg": {
+          "classic": 0.9909433962264151,
+          "delta": -0.9901886792452831,
+          "e2e": 0.0007547169811320754
+        },
+        "docstructbench_dianzishu_zhongwenzaixian-o.O-63710614.pdf_149.jpg": {
+          "classic": 0.9924050632911392,
+          "delta": -0.9924050632911392,
+          "e2e": 0.0
+        },
+        "docstructbench_enbook-zlib-o.O-17208435.pdf_105.jpg": {
+          "classic": 0.39669421487603307,
+          "delta": -0.3923379709263719,
+          "e2e": 0.004356243949661181
+        },
+        "docstructbench_enbook-zlib-o.O-17761417.pdf_894.jpg": {
+          "classic": 0.09108910891089109,
+          "delta": -0.09108910891089109,
+          "e2e": 0.0
+        },
+        "docstructbench_enbook-zlib-o.O-21882649.pdf_3.jpg": {
+          "classic": 0.0467741935483871,
+          "delta": -0.0467741935483871,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-bf00151572.pdf_3.jpg": {
+          "classic": 0.14435009797517961,
+          "delta": -0.14304376224689744,
+          "e2e": 0.0013063357282821686
+        },
+        "docstructbench_llm-raw-scihub-o.O-chin.201025015.pdf_1.jpg": {
+          "classic": 0.42625169147496617,
+          "delta": -0.395128552097429,
+          "e2e": 0.03112313937753721
+        },
+        "docstructbench_llm-raw-scihub-o.O-hyp.1040.pdf_9.jpg": {
+          "classic": 0.09338993329290479,
+          "delta": -0.09156954494339023,
+          "e2e": 0.0018203883495145632
+        },
+        "docstructbench_llm-raw-scihub-o.O-hyp.1092.pdf_1.jpg": {
+          "classic": 0.0745628505443748,
+          "delta": -0.0745628505443748,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-ijc.22820.pdf_4.jpg": {
+          "classic": 0.07951070336391437,
+          "delta": -0.07747300596197856,
+          "e2e": 0.0020376974019358125
+        },
+        "docstructbench_llm-raw-scihub-o.O-ijc.22999.pdf_3.jpg": {
+          "classic": 0.1313953488372093,
+          "delta": -0.1313953488372093,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.ab.2008.05.027.pdf_7.jpg": {
+          "classic": 0.14722617354196302,
+          "delta": -0.14615969647122004,
+          "e2e": 0.001066477070742979
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.jcp.2010.12.006.pdf_5.jpg": {
+          "classic": 0.08257986738999397,
+          "delta": -0.0807715491259795,
+          "e2e": 0.0018083182640144665
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg": {
+          "classic": 0.10967741935483871,
+          "delta": -0.0976870116809778,
+          "e2e": 0.011990407673860911
+        },
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.11.060.pdf_2.jpg": {
+          "classic": 0.0649895178197065,
+          "delta": -0.0649895178197065,
+          "e2e": 0.0
+        },
+        "docstructbench_llm-raw-scihub-o.O-s00374-003-0583-8.pdf_1.jpg": {
+          "classic": 0.018048332823493423,
+          "delta": -0.01743652493117161,
+          "e2e": 0.000611807892321811
+        },
+        "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2.jpg": {
+          "classic": 0.24027777777777778,
+          "delta": -0.22469066312589,
+          "e2e": 0.015587114651887772
+        },
+        "docstructbench_llm-raw-the-eye-o.O-Attitudes_Towards_Rainwater_Harvesting_1999.pdf_5.jpg": {
+          "classic": 0.008413461538461538,
+          "delta": -0.008413461538461538,
+          "e2e": 0.0
+        },
+        "eastmoney_03e39833d520af7d1abb96dd624dcd15f2b57d061969d196e80922e2f590503f.pdf_22.jpg": {
+          "classic": 0.96045197740113,
+          "delta": -0.9585687382297552,
+          "e2e": 0.0018832391713747645
+        },
+        "eastmoney_6be3f3cd9e5361946ee49252f12dd57fe7c73df330116d6998e2198ec79a05c9.pdf_2.jpg": {
+          "classic": 0.9941747572815534,
+          "delta": -0.9941747572815534,
+          "e2e": 0.0
+        },
+        "eastmoney_7e9f2d3e6d80483c7556fe65fe39f432d669cee3dc80840f126db9c7d7140d52.pdf_1.jpg": {
+          "classic": 0.9672131147540983,
+          "delta": -0.9672131147540983,
+          "e2e": 0.0
+        },
+        "eastmoney_bef4bcf5f2faff08a78d49945e4ac8983320f367c450720c87ab8cc6ed5726e4.pdf_1.jpg": {
+          "classic": 0.9674418604651163,
+          "delta": -0.9674418604651163,
+          "e2e": 0.0
+        },
+        "eastmoney_d0313ed730f58180b1f005a3607c2a77dc3672410e8f7ee1de3b814668da9bcb.pdf_5.jpg": {
+          "classic": 0.9800210304942166,
+          "delta": -0.9296537692140487,
+          "e2e": 0.05036726128016789
+        },
+        "eastmoney_d09a006aa02ddc09299bbb9a1b5efa0d77408191f0c1ff1fca8c80bd6150f806.pdf_17.jpg": {
+          "classic": 0.5714285714285714,
+          "delta": -0.5714285714285714,
+          "e2e": 0.0
+        },
+        "eastmoney_dd8f39ced2188b907304224a635ad605689270486020c34636003e57018c01d8.pdf_2.jpg": {
+          "classic": 1.0,
+          "delta": -0.9983844911147012,
+          "e2e": 0.0016155088852988692
+        },
+        "exam_paper_2016年安徽省中考英语试题（解析）_page_003.png": {
+          "classic": 0.5707154742096506,
+          "delta": -0.550748752079867,
+          "e2e": 0.019966722129783693
+        },
+        "exam_paper_2016年安徽省中考英语试题（解析）_page_015.png": {
+          "classic": 0.27961783439490445,
+          "delta": -0.2789808917197452,
+          "e2e": 0.0006369426751592356
+        },
+        "exam_paper_2018年广西北海、钦州、南宁、来宾、崇左、防城港、北部湾经济区中考英语试题（空白卷）_page_001.png": {
+          "classic": 0.2430806257521059,
+          "delta": -0.23706377858002406,
+          "e2e": 0.006016847172081829
+        },
+        "exam_paper_en-file-putnam-archive_2002_Solutions_2002s_page_001.png": {
+          "classic": 0.13285024154589373,
+          "delta": -0.11177942980150685,
+          "e2e": 0.021070811744386873
+        },
+        "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png": {
+          "classic": 0.09059633027522936,
+          "delta": -0.05848623853211009,
+          "e2e": 0.03211009174311927
+        },
+        "jiaocai_jiaocai_en_37.jpg": {
+          "classic": 0.2479108635097493,
+          "delta": -0.236830531099777,
+          "e2e": 0.0110803324099723
+        },
+        "jiaocaineedrop_Chapter9.pdf_46.jpg": {
+          "classic": 0.15672396359959556,
+          "delta": -0.07707794590048052,
+          "e2e": 0.07964601769911504
+        },
+        "jiaocaineedrop_Evans_PDE_Solution_Chapter_6_Second-Order_Elliptic_Equations.pdf_5.jpg": {
+          "classic": 0.31333333333333335,
+          "delta": -0.2599287939474856,
+          "e2e": 0.0534045393858478
+        },
+        "jiaocaineedrop_chem-203343.pdf_121.jpg": {
+          "classic": 0.0077777777777777776,
+          "delta": -0.0077777777777777776,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1253.jpg": {
+          "classic": 0.9884393063583815,
+          "delta": -0.9884393063583815,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1417.jpg": {
+          "classic": 0.9090909090909091,
+          "delta": -0.8135659521201689,
+          "e2e": 0.09552495697074011
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1449.jpg": {
+          "classic": 0.9869281045751634,
+          "delta": -0.9836601307189543,
+          "e2e": 0.0032679738562091504
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1458.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1751.jpg": {
+          "classic": 0.9936102236421726,
+          "delta": -0.9887242301568305,
+          "e2e": 0.004885993485342019
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1761.jpg": {
+          "classic": 0.9765625,
+          "delta": -0.8393531976744186,
+          "e2e": 0.1372093023255814
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1776.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_1959.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_223.jpg": {
+          "classic": 0.2470414201183432,
+          "delta": -0.24553652922293312,
+          "e2e": 0.0015048908954100827
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2272.jpg": {
+          "classic": 0.9054726368159204,
+          "delta": -0.8907667544629793,
+          "e2e": 0.014705882352941176
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2496.jpg": {
+          "classic": 0.9188405797101449,
+          "delta": -0.9130434782608695,
+          "e2e": 0.005797101449275362
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_2982.jpg": {
+          "classic": 0.8949211908931699,
+          "delta": -0.847048850467638,
+          "e2e": 0.047872340425531915
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3313.jpg": {
+          "classic": 0.9896073903002309,
+          "delta": -0.9585729075416103,
+          "e2e": 0.03103448275862069
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3685.jpg": {
+          "classic": 0.9660377358490566,
+          "delta": -0.7591411841249187,
+          "e2e": 0.20689655172413793
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_3751.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_383.jpg": {
+          "classic": 0.9365558912386707,
+          "delta": -0.8979802235828843,
+          "e2e": 0.03857566765578635
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_397.jpg": {
+          "classic": 0.34285714285714286,
+          "delta": -0.34285714285714286,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_439.jpg": {
+          "classic": 0.9833333333333333,
+          "delta": -0.9833333333333333,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_482.jpg": {
+          "classic": 0.5022091310751104,
+          "delta": -0.4933856016633457,
+          "e2e": 0.008823529411764706
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_715.jpg": {
+          "classic": 0.12943262411347517,
+          "delta": -0.11170212765957446,
+          "e2e": 0.01773049645390071
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_835.jpg": {
+          "classic": 0.9953917050691244,
+          "delta": -0.9953917050691244,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_85.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "jiaocaineedrop_jiaocai_needrop_en_854.jpg": {
+          "classic": 0.26220095693779905,
+          "delta": -0.23660853987618768,
+          "e2e": 0.025592417061611375
+        },
+        "magazine_TheEconomist.2023.11.18_page_068.png": {
+          "classic": 0.04420105613142969,
+          "delta": -0.03660019859878498,
+          "e2e": 0.007600857532644709
+        },
+        "magazine_TheEconomist.2024.03.02_page_031.png": {
+          "classic": 0.0974124809741248,
+          "delta": -0.07039384743375213,
+          "e2e": 0.02701863354037267
+        },
+        "newspaper_5a8b7563a3262beecbecd7ddd3ef8827_1.jpg": {
+          "classic": 0.9996309509164719,
+          "delta": -0.9477048550343321,
+          "e2e": 0.05192609588213984
+        },
+        "newspaper_8076765115f6c402e81c6bfb48139bc2_1.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "newspaper_Chicago Tribune_0801@magazinesclubnew_page_032.png": {
+          "classic": 0.16300675675675674,
+          "delta": -0.15701628704947287,
+          "e2e": 0.005990469707283867
+        },
+        "newspaper_Daily Mail_2022-08-01@magazinesclubnew_page_009.png": {
+          "classic": 0.20741014278680453,
+          "delta": -0.19966736063457355,
+          "e2e": 0.007742782152230971
+        },
+        "newspaper_Daily Mirror 2025-1-8@magazinesclubnew_page_034.png": {
+          "classic": 0.3937077852826164,
+          "delta": -0.3919129134877446,
+          "e2e": 0.0017948717948717949
+        },
+        "newspaper_NY Daily News_August 1@magazinesclubnew_page_007.png": {
+          "classic": 0.07577845136401212,
+          "delta": -0.07550289335905208,
+          "e2e": 0.0002755580049600441
+        },
+        "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_003.png": {
+          "classic": 0.16920069504778454,
+          "delta": -0.16808212681512236,
+          "e2e": 0.0011185682326621924
+        },
+        "newspaper_The Globe and Mail - 2025-1-8@magazinesclubnew_page_027.png": {
+          "classic": 0.14166666666666666,
+          "delta": -0.11956961294049681,
+          "e2e": 0.022097053726169845
+        },
+        "newspaper_The Times UK_0801@magazinesclubnew_page_001.png": {
+          "classic": 0.35498320268757,
+          "delta": -0.35498320268757,
+          "e2e": 0.0
+        },
+        "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_009.png": {
+          "classic": 0.06460089784298698,
+          "delta": -0.049495485976001535,
+          "e2e": 0.015105411866985437
+        },
+        "newspaper_The Wall Street Journal - 2025-01-08@magazinesclubnew_page_021.png": {
+          "classic": 0.33146067415730335,
+          "delta": -0.2506004591035399,
+          "e2e": 0.08086021505376344
+        },
+        "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_033.png": {
+          "classic": 0.13668485553269524,
+          "delta": -0.10571057357286795,
+          "e2e": 0.030974281959827293
+        },
+        "newspaper_USAToday-2025-01-08@magazinesclubnew_page_024.png": {
+          "classic": 0.0667246881346098,
+          "delta": -0.052162288251108996,
+          "e2e": 0.0145623998835008
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_2.jpg": {
+          "classic": 0.13778484366719662,
+          "delta": -0.1371978743852557,
+          "e2e": 0.0005869692819409117
+        },
+        "newspaper_fe5ed29024932fad071afc53807b16ba_4.jpg": {
+          "classic": 0.20148560817084493,
+          "delta": -0.20148560817084493,
+          "e2e": 0.0
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_103.jpg": {
+          "classic": 0.9971509971509972,
+          "delta": -0.9658119658119658,
+          "e2e": 0.03133903133903134
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_54.jpg": {
+          "classic": 1.0,
+          "delta": -0.9735449735449735,
+          "e2e": 0.026455026455026454
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_9.jpg": {
+          "classic": 0.9822485207100592,
+          "delta": -0.9410720501218239,
+          "e2e": 0.041176470588235294
+        },
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_97.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "notes_9e951846094758afac08c620144e3a76_15.jpg": {
+          "classic": 0.8888888888888888,
+          "delta": -0.37684069611780446,
+          "e2e": 0.5120481927710844
+        },
+        "notes_9e951846094758afac08c620144e3a76_16.jpg": {
+          "classic": 0.9292452830188679,
+          "delta": -0.8292452830188679,
+          "e2e": 0.1
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg": {
+          "classic": 1.0,
+          "delta": -0.9298969072164949,
+          "e2e": 0.07010309278350516
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_6.jpg": {
+          "classic": 0.967741935483871,
+          "delta": -0.9658444022770398,
+          "e2e": 0.0018975332068311196
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_70.jpg": {
+          "classic": 0.9969879518072289,
+          "delta": -0.9774096385542168,
+          "e2e": 0.01957831325301205
+        },
+        "notes_f7f010b78016aeebd76e56d9283eb67f_8.jpg": {
+          "classic": 0.9861111111111112,
+          "delta": -0.9642857142857143,
+          "e2e": 0.021825396825396824
+        },
+        "page-014dee5d-dfce-406b-925e-4ec8ffe4ac16.png": {
+          "classic": 0.981042654028436,
+          "delta": -0.9725967080824901,
+          "e2e": 0.008445945945945946
+        },
+        "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png": {
+          "classic": 1.0,
+          "delta": -0.8056379821958457,
+          "e2e": 0.1943620178041543
+        },
+        "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png": {
+          "classic": 0.978319783197832,
+          "delta": -0.8431846480626968,
+          "e2e": 0.13513513513513514
+        },
+        "page-0b772bee-71ec-4d4a-a406-d7691b1a6e86.png": {
+          "classic": 0.0025575447570332483,
+          "delta": 6.557807069315809e-06,
+          "e2e": 0.002564102564102564
+        },
+        "page-112859dc-07d9-473a-a027-94904db8fd84.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png": {
+          "classic": 0.996969696969697,
+          "delta": -0.511762596377981,
+          "e2e": 0.48520710059171596
+        },
+        "page-15cc8cbe-9ce3-4ad8-8737-9159b061ca95.png": {
+          "classic": 0.9641791044776119,
+          "delta": -0.9641791044776119,
+          "e2e": 0.0
+        },
+        "page-27a46d41-49b5-4562-a546-6cbbafd23a81.png": {
+          "classic": 0.3103448275862069,
+          "delta": -0.17308992562542258,
+          "e2e": 0.13725490196078433
+        },
+        "page-31fb2a53-5b32-40f6-9db1-52b357f3201f.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-34e4675f-4b7f-4bc3-8624-c399423d2c66.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png": {
+          "classic": 0.9970149253731343,
+          "delta": -0.9850746268656716,
+          "e2e": 0.011940298507462687
+        },
+        "page-550c6f8b-929c-46c8-a3b6-264be02d2993.png": {
+          "classic": 0.3011026293469042,
+          "delta": -0.047977629346904194,
+          "e2e": 0.253125
+        },
+        "page-56023e3d-ae9b-486d-b7bb-419624d18356.png": {
+          "classic": 0.9936305732484076,
+          "delta": -0.8873805732484077,
+          "e2e": 0.10625
+        },
+        "page-5a104368-22a2-440a-a1aa-49b7d1eb57f0.png": {
+          "classic": 0.9935275080906149,
+          "delta": -0.9352750809061489,
+          "e2e": 0.05825242718446602
+        },
+        "page-6e75aef4-33d0-478a-a3a3-489c782bfa39.png": {
+          "classic": 0.9955506117908788,
+          "delta": -0.9944382647385984,
+          "e2e": 0.0011123470522803114
+        },
+        "page-7bfad9a4-c5b7-40f3-8600-be513d1b1aaa.png": {
+          "classic": 0.9623875715453802,
+          "delta": -0.9623875715453802,
+          "e2e": 0.0
+        },
+        "page-83587fc3-fe55-4e51-a3c5-f0664edba743.png": {
+          "classic": 0.04495808991617983,
+          "delta": -0.04444918406376253,
+          "e2e": 0.0005089058524173028
+        },
+        "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png": {
+          "classic": 0.19391365888181175,
+          "delta": -0.19391365888181175,
+          "e2e": 0.0
+        },
+        "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png": {
+          "classic": 0.18807339449541285,
+          "delta": -0.0639354634609301,
+          "e2e": 0.12413793103448276
+        },
+        "page-aee8f1d9-7240-4517-b615-389594556d57.png": {
+          "classic": 0.9333333333333333,
+          "delta": -0.9333333333333333,
+          "e2e": 0.0
+        },
+        "page-c7a51204-5142-4c7a-bc9d-1faf1fe1be02.png": {
+          "classic": 0.9943820224719101,
+          "delta": -0.7632262435774377,
+          "e2e": 0.23115577889447236
+        },
+        "page-cdb92c2f-f43f-45ef-ace7-91d4664a7834.png": {
+          "classic": 0.6706875753920386,
+          "delta": -0.4675436818007448,
+          "e2e": 0.20314389359129384
+        },
+        "page-d209d5c0-fe1e-4cf0-90d8-6d610948b235.png": {
+          "classic": 0.4276393831553974,
+          "delta": -0.3458373677434235,
+          "e2e": 0.08180201541197392
+        },
+        "page-d29fe4d2-832a-4ad6-ac80-dc01cf8b0e16.png": {
+          "classic": 0.9826086956521739,
+          "delta": -0.9826086956521739,
+          "e2e": 0.0
+        },
+        "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png": {
+          "classic": 0.32444168734491313,
+          "delta": -0.3013694347644638,
+          "e2e": 0.0230722525804493
+        },
+        "page-d9cbe0d2-9aa5-4be4-8b43-e328e2bea931.png": {
+          "classic": 0.5813953488372093,
+          "delta": -0.5813953488372093,
+          "e2e": 0.0
+        },
+        "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11.png": {
+          "classic": 0.0624,
+          "delta": -0.0624,
+          "e2e": 0.0
+        },
+        "page-f46e72b1-865d-43e6-ab94-afae16c5f178.png": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "page-f8fad378-8ee9-4bb0-b195-35a4d55f3113.png": {
+          "classic": 0.9942857142857143,
+          "delta": 0.005714285714285672,
+          "e2e": 1.0
+        },
+        "scihub_bloodadvances.2019030924.pdf_3.jpg": {
+          "classic": 0.06986899563318777,
+          "delta": -0.0606501698204755,
+          "e2e": 0.009218825812712276
+        },
+        "scihub_c2gc35284b.pdf_6.jpg": {
+          "classic": 0.19855458349182198,
+          "delta": -0.19779383796120198,
+          "e2e": 0.0007607455306200076
+        },
+        "scihub_j.ejcts.2011.04.042.pdf_3.jpg": {
+          "classic": 0.07793840351979887,
+          "delta": -0.07793840351979887,
+          "e2e": 0.0
+        },
+        "scihub_s11661-013-1726-7.pdf_2.jpg": {
+          "classic": 0.03689567430025445,
+          "delta": -0.03625954198473282,
+          "e2e": 0.0006361323155216285
+        },
+        "yanbaopptmerge_1c5f17c3dfa38c45b86802b9d014da18.pdf_1372.jpg": {
+          "classic": 0.015753938484621154,
+          "delta": 0.9842460615153789,
+          "e2e": 1.0
+        },
+        "yanbaopptmerge_SE20.pdf_2.jpg": {
+          "classic": 0.0215311004784689,
+          "delta": -0.0215311004784689,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_abef2a4978ae4d13e931f0392502bd40.pdf_1287.jpg": {
+          "classic": 0.5709219858156028,
+          "delta": -0.5528224383042906,
+          "e2e": 0.01809954751131222
+        },
+        "yanbaopptmerge_bde265c4886a63cc9a96575991522f2abfce961325fcd4884fabd9a79c423ffa.pdf_2.jpg": {
+          "classic": 0.9975429975429976,
+          "delta": -0.9975429975429976,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_120.jpg": {
+          "classic": 0.36134453781512604,
+          "delta": -0.36134453781512604,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_1465.jpg": {
+          "classic": 1.0,
+          "delta": -0.8181818181818181,
+          "e2e": 0.18181818181818182
+        },
+        "yanbaopptmerge_yanbaoPPT_1695.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_4150.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_4330.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "yanbaopptmerge_yanbaoPPT_5540.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "yanbaor2_0ef01b835238626f3589faa671abdfb832f2b98987eadad53cb2e35699dcc039.pdf_13.jpg": {
+          "classic": 0.9929742388758782,
+          "delta": -0.9929742388758782,
+          "e2e": 0.0
+        },
+        "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf_13.jpg": {
+          "classic": 0.9781659388646288,
+          "delta": -0.9737991266375545,
+          "e2e": 0.004366812227074236
+        },
+        "yanbaor2_4862cd850679e945a98c54c8d4c37be0154b5790d2c32da35d0f5ca0be413693.pdf_9.jpg": {
+          "classic": 0.8571428571428571,
+          "delta": -0.8571428571428571,
+          "e2e": 0.0
+        },
+        "yanbaor2_8072f7ea9b3083ff5e8f9bfbba591771e61115039c96fda1c8ea391a7570f098.pdf_5.jpg": {
+          "classic": 0.9944341372912802,
+          "delta": -0.9944341372912802,
+          "e2e": 0.0
+        },
+        "yanbaor2_864cbd5f0adeb98dea6cf7105cc8dfb272a9be974757633b2db8cf3f9a11c92b.pdf_33.jpg": {
+          "classic": 0.9992743105950653,
+          "delta": -0.9971003975515871,
+          "e2e": 0.002173913043478261
+        },
+        "yanbaor2_89c3718f5a45179ef57a5063c6df36fc2c9b7e3ab4275f4905ed89f1c17232ea.pdf_14.jpg": {
+          "classic": 0.9958592132505176,
+          "delta": -0.34782608695652173,
+          "e2e": 0.6480331262939959
+        },
+        "yanbaor2_9be04f6bcbe2c6afc83f0751eb05e361872f9673ccd4bec49cf844c66f34bff0.pdf_19.jpg": {
+          "classic": 0.9988925802879292,
+          "delta": -0.9988925802879292,
+          "e2e": 0.0
+        },
+        "yanbaor2_bc193526614fd5857f7b5254e67bced76222cf3396b01e516303b92609a20075.pdf_14.jpg": {
+          "classic": 1.0,
+          "delta": -1.0,
+          "e2e": 0.0
+        },
+        "yanbaor2_cb862501e720c830960aa5387f65d10961604a63f0491bbdc7fb71257cbd2112.pdf_96.jpg": {
+          "classic": 0.9390581717451524,
+          "delta": -0.9128953810474779,
+          "e2e": 0.02616279069767442
+        },
+        "yanbaor2_ea86fd46182ff9b675775645ecaf43782b996ffaeeb09c679f56a47aabfbf6b7.pdf_9.jpg": {
+          "classic": 0.9871382636655949,
+          "delta": -0.9871382636655949,
+          "e2e": 0.0
+        },
+        "yanbaor2_f832cad1f46c067198e9df95ae7b150213f16805037c1a5725e72245010d3e97.pdf_3.jpg": {
+          "classic": 0.5184696569920845,
+          "delta": -0.5184696569920845,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_1332.jpg": {
+          "classic": 0.9714828897338403,
+          "delta": -0.9658118122291144,
+          "e2e": 0.005671077504725898
+        },
+        "yanbaor2_yanbaoPPT_1517.jpg": {
+          "classic": 0.028132992327365727,
+          "delta": -0.028132992327365727,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_469.jpg": {
+          "classic": 0.023529411764705882,
+          "delta": -0.023529411764705882,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_5946.jpg": {
+          "classic": 0.040979955456570155,
+          "delta": -0.040979955456570155,
+          "e2e": 0.0
+        },
+        "yanbaor2_yanbaoPPT_916.jpg": {
+          "classic": 0.9925925925925926,
+          "delta": -0.9779940524466072,
+          "e2e": 0.014598540145985401
+        }
+      },
+      "tie_count": 0
+    }
+  },
+  "paired_table_instance_deltas": {
+    "TEDS": {
+      "classic_better_count": 2,
+      "classic_mean": 0.39811073440015227,
+      "delta_e2e_minus_classic": {
+        "max": 1.032051282051282,
+        "mean": 0.4463735619904603,
+        "median": 0.391085553362375,
+        "min": -0.13522792711204912,
+        "n": 64,
+        "p95_nearest_rank": 1.0
+      },
+      "direction": "higher is better",
+      "e2e_better_count": 62,
+      "e2e_mean": 0.8444842963906125,
+      "n_paired_instances": 64,
+      "tie_count": 0
+    },
+    "TEDS_structure_only": {
+      "classic_better_count": 9,
+      "classic_mean": 0.632317415228495,
+      "delta_e2e_minus_classic": {
+        "max": 1.0,
+        "mean": 0.23891033724788016,
+        "median": 0.1511257514417661,
+        "min": -0.17391304347826086,
+        "n": 64,
+        "p95_nearest_rank": 1.0
+      },
+      "direction": "higher is better",
+      "e2e_better_count": 45,
+      "e2e_mean": 0.8712277524763752,
+      "n_paired_instances": 64,
+      "tie_count": 10
+    }
+  },
+  "report_schema": "internal-classic-vs-e2e-v2",
+  "runtime": {
+    "classic_full": {
+      "mean_seconds_per_page": 6.6087,
+      "median_seconds_per_page": 4.4045,
+      "p95_seconds_per_page": 19.5529,
+      "total_pages": 180,
+      "wall_clock_seconds": 1190.221
+    },
+    "e2e_full": {
+      "gpu_memory_after_run_mib": 0,
+      "gpu_peak_mib_observed": 20580,
+      "max_runtime_seconds": 300,
+      "other_failures": 0,
+      "runtime_seconds": {
+        "max": 300.8192,
+        "mean": 41.9768,
+        "median": 29.0548,
+        "min": 12.3258,
+        "p95": 95.895
+      },
+      "success": 178,
+      "success_rate": 0.9888888888888889,
+      "timeout_rate": 0.011111111111111112,
+      "timeouts": 2,
+      "wall_clock_seconds": 7557.275,
+      "warnings": 0
+    }
+  }
+}

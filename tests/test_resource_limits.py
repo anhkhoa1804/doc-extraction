@@ -12,6 +12,8 @@ from doc_extraction.utils.limits import (
     ExtractionLimits,
     ResourceGuard,
     ResourceLimitExceeded,
+    active_resource_guard,
+    current_runtime_elapsed_seconds,
     preflight_input,
 )
 from doc_extraction.utils.serde import read_json
@@ -52,6 +54,16 @@ def test_input_size_boundary_is_inclusive(tmp_path):
     preflight_input(source, ExtractionLimits(max_input_bytes=size), _guard(max_input_bytes=size))
     with pytest.raises(ResourceLimitExceeded, match="max_input_bytes"):
         preflight_input(source, ExtractionLimits(max_input_bytes=size - 1), _guard(max_input_bytes=size - 1))
+
+
+def test_active_guard_exposes_true_elapsed_runtime_for_timeout_diagnostics():
+    now = [10.0]
+    guard = ResourceGuard(ExtractionLimits(max_runtime_seconds=5), clock=lambda: now[0])
+    assert current_runtime_elapsed_seconds() is None
+    with active_resource_guard(guard):
+        now[0] = 15.25
+        assert current_runtime_elapsed_seconds() == 5.25
+    assert current_runtime_elapsed_seconds() is None
 
 
 def test_pdf_page_limit_is_checked_before_page_extraction(tmp_path):

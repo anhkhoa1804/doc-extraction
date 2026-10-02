@@ -502,6 +502,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         except Exception as exc:  # noqa: BLE001 - reported per-file, run continues
             exit_code = 1
             print(f"  FAILED: {diagnostic_text(type(exc).__name__ + ': ' + str(exc))}", file=sys.stderr)
+    _shutdown_e2e_worker_if_loaded()
     return exit_code
 
 
@@ -556,7 +557,15 @@ def cmd_compare(args: argparse.Namespace) -> int:
         write_json(doc_dir / "diff.json", comparison)
         write_text(doc_dir / "summary.html", render_comparison_html(path, comparison))
         print(f"  -> outputs/comparison/{doc_dir.name}/summary.html")
+    _shutdown_e2e_worker_if_loaded()
     return exit_code
+
+
+def _shutdown_e2e_worker_if_loaded() -> None:
+    """Close the optional persistent worker at the end of a CLI invocation."""
+    module = sys.modules.get("doc_extraction.backends.paddleocr_vl_backend")
+    if module is not None:
+        module.shutdown_paddleocr_vl_workers()
 
 
 def cmd_inspect(args: argparse.Namespace) -> int:

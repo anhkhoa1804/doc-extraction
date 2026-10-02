@@ -1,0 +1,73 @@
+{
+  "architecture": "persistent isolated POSIX worker process group, parent-supervised bounded framed JSON IPC",
+  "attestation": {
+    "config_sha256": "ea3e0415e6e7699c081dfc7a3d2abcf9344c02db704865beb91ef783e1102748",
+    "device": "NVIDIA L4; 23,034 MiB; CUDA 12.6",
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "git_commit": "8eaa386da5c5b1ce3a3b75158669d83c1792c351",
+    "lockfile_sha256": "52fead6c98dd6be69912b04208ef7b9b4db829dc172239abf1e1ea0b83ed36af",
+    "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+    "model_versions": {
+      "doc_extraction": "0.1.0",
+      "layout_weights_sha256": "70bd316b0582769ec968829fd1feb1a6a58b7c941b938327e551b6b12b45c137",
+      "model": "PaddlePaddle/PaddleOCR-VL-1.6",
+      "model_revision": "PaddleX registry model version v1.6 (weight SHA-256 recorded by worker)",
+      "model_weights_sha256": "85a479d506a11e724e7285d395c551be69f41dbc16b6342d3cacfb189aed71db",
+      "paddleocr": "3.7.0",
+      "paddlepaddle": "3.2.1",
+      "paddlex": "3.7.2",
+      "pipeline": "PaddleOCR v1.6"
+    },
+    "platform": "Linux-6.8.0-1069-gcp-x86_64-with-glibc2.35",
+    "python": "3.12.14",
+    "source_snapshot_sha256": "a65d5d7a2aa7e77071fc0ff678ec1dbcf4bc4b4e27081f69d8457fd2fdcb4638",
+    "working_tree_clean": false
+  },
+  "five_page_smoke": {
+    "failed": 0,
+    "quality_diagnostic_only": true,
+    "run_id": "e2e-paddleocr-vl16-isolation-smoke-v2-20261002T113350Z",
+    "success": 5,
+    "wall_clock_seconds": 270.481,
+    "warnings": 0
+  },
+  "focused_test_counts": {
+    "worker_and_backend_tests": "14 passed",
+    "worker_tests": "5 passed"
+  },
+  "limits": [
+    "not an OS sandbox",
+    "aggregate scratch limit is sampled, not kernel quota",
+    "two pages exceeded the hard operation deadline"
+  ],
+  "report_schema": "internal-e2e-isolation-v2",
+  "run_id": "e2e-paddleocr-vl16-isolation-full180-v2-20261002T115500Z",
+  "timeout_cleanup": {
+    "descendant_pid_gone_tested": true,
+    "post_run_gpu_memory_mib": 0,
+    "post_run_worker_processes": 0,
+    "restarted_for_following_page": true,
+    "scratch_cleaned_tested": true,
+    "worker_group_gone": true
+  },
+  "timeout_semantics": "300s existing page operation limit covers cold startup/model load, preprocessing, inference, postprocessing, IPC and parent validation; terminate group at deadline; page wall time also includes teardown.",
+  "twenty_page_preflight": {
+    "exact_gt_prediction_alignment": true,
+    "failed": 0,
+    "median_seconds_per_page": 29.2274,
+    "p95_seconds_per_page": 81.9641,
+    "run_id": "e2e-paddleocr-vl16-isolation-preflight20-v2-20261002T113950Z",
+    "success": 20,
+    "wall_clock_seconds": 841.741,
+    "warnings": 0
+  },
+  "worker_lifecycle_states": [
+    "starting",
+    "ready",
+    "running",
+    "completed",
+    "failed",
+    "timed_out",
+    "terminated"
+  ]
+}

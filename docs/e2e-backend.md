@@ -9,15 +9,16 @@ route.
 
 ## Runtime and model identity
 
-The adapter imports PaddleOCR lazily. Install it in an isolated environment
-using the upstream PaddleOCR v1.6 pipeline requirements (PaddlePaddle GPU
-3.2.1+ and `paddleocr[doc-parser]>=3.6.0` for the tested CUDA 12.6 stack).
-The root `doc-extraction` environment does not acquire the Paddle runtime as a
-dependency. The verified run used PaddlePaddle 3.2.1, PaddleOCR 3.7.0,
-PaddleX 3.7.2, Python 3.12.14, and an NVIDIA L4. The model and layout weights
-are resolved by PaddleX into its external model cache; their SHA-256 values
-are recorded in benchmark run metadata when available. Model artifacts are
-not committed.
+The parent adapter does not import PaddleOCR. It launches the current Python
+interpreter as a persistent, single-purpose worker; that environment must
+contain the optional runtime. The tested isolated environment used Python
+3.12.14, PaddlePaddle GPU 3.2.1 (CUDA 12.6 wheel), PaddleOCR 3.7.0, PaddleX
+3.7.2, and an NVIDIA L4. See
+[`paddleocr-vl-environment.md`](../experiments/005_omnidocbench/paddleocr-vl-environment.md)
+for the pinned runtime manifest. Model and layout weights are resolved by
+PaddleX into its external cache; inference is refused unless their hashes can
+be computed before the worker is started, and the worker verifies the same
+hashes after loading. Weights are not committed.
 
 The mapping preserves model-provided region text, labels, order, and valid
 page-level boxes. HTML tables are mapped to canonical cells, including row and
@@ -29,14 +30,32 @@ numbers beyond the one-page raster locator, or missing geometry.
 
 ## Resource and failure behavior
 
-Calls go through the existing `process_file` boundary, so existing file-size,
-pixel, temporary-storage, and post-operation runtime checks still apply. The
-backend does not resize/retile images to bypass the production pixel limit.
-The Paddle pipeline executes in-process: the existing runtime limit is
-checked after a backend call returns and therefore cannot interrupt a stuck
-native/model inference. Hard cancellation of inference remains an isolation
-release gate; this adapter does not claim otherwise. Backend exceptions are
-recorded as extraction failures by the public processing path.
+Calls go through the existing `process_file` boundary. Input-byte, image-pixel,
+and temp-reservation checks happen in the parent before worker launch. One
+persistent worker is loaded lazily and reused for pages; it runs in a new POSIX
+session, receives only the input snapshot path/hash for each request, and
+returns a length-bounded JSON page over a dedicated protocol pipe. Worker
+stdout/stderr are not forwarded into protocol or logs. A timeout kills the
+worker process group, waits for it, verifies that the group is gone, then
+removes its private scratch directory. The next page starts a new worker.
+Startup/model load on the first page, preprocessing, inference, output mapping,
+and parent validation all consume that page's remaining `max_runtime_seconds`;
+the model remains warm for subsequent pages. The private worker scratch folder
+is monitored against the remaining `max_temp_bytes` budget and the worker has
+a per-file `RLIMIT_FSIZE` ceiling. The scratch monitor is sampled while the
+parent waits for protocol output; it is not a kernel-enforced aggregate
+filesystem quota. PaddleX model-cache files are read-only inputs to this
+policy and are outside per-run temporary storage.
+
+This is process isolation and hard cancellation, not an OS sandbox: the worker
+runs under the service account and can read files that account can read. The
+adapter does not pass it output paths, run metadata paths, or mutable policy
+objects, but a compromised native/model runtime could still exercise the
+account's ambient filesystem permissions. Deployments requiring filesystem
+confinement need an OS container/sandbox policy. Use
+`shutdown_paddleocr_vl_workers()` for explicit cleanup in long-lived Python
+applications; CLI and benchmark runner close the worker at command completion,
+and an `atexit` cleanup is registered as a final fallback.
 
 ## Security and licensing notes
 

@@ -10,6 +10,39 @@ import time
 from doc_extraction.utils.limits import ResourceLimitExceeded
 
 
+def terminate_process_group(process: subprocess.Popen, *, verify_timeout: float = 3.0) -> bool:
+    """Kill and reap an owned process session, then verify its group is gone.
+
+    ``Popen`` must have been created with ``start_new_session=True``. The
+    session/process-group identifier is therefore the direct child's PID and
+    cannot include unrelated work. SIGKILL is intentional: callers use this
+    after a hard resource deadline, not as cooperative shutdown.
+    """
+    if verify_timeout <= 0:
+        raise ValueError("verify_timeout must be positive")
+    pgid = process.pid
+    try:
+        os.killpg(pgid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+    try:
+        process.wait(timeout=verify_timeout)
+    except subprocess.TimeoutExpired:
+        return False
+
+    deadline = time.monotonic() + verify_timeout
+    while True:
+        try:
+            os.killpg(pgid, 0)
+        except ProcessLookupError:
+            return True
+        except PermissionError:
+            return False
+        if time.monotonic() >= deadline:
+            return False
+        time.sleep(0.02)
+
+
 def run_bounded(argv: list[str], *, timeout: float, max_output_bytes: int) -> subprocess.CompletedProcess:
     """No shell; limit combined stdout/stderr while reading, and reap child.
 

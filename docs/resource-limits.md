@@ -83,12 +83,15 @@ hard failure. A descendant that deliberately starts a separate session is
 outside this guarantee and requires worker isolation.
 
 Docling, PyMuPDF, Pillow, and Office-library calls run in process. Python
-cannot safely kill an arbitrary in-process C extension or model inference
-without risking process corruption, so a call already in progress may run
-until it returns; the run then fails at the next guard boundary and no later
-page is started. Deployments requiring a wall-clock hard kill must run each
-document in an isolated worker process with an external supervisor. This
-repository does not claim that isolation today.
+cannot safely kill an arbitrary in-process C extension without risking process
+corruption, so these calls may run until they return and then fail at the next
+guard boundary. The optional `paddleocr_vl` backend is the exception: it runs
+in a persistent child process/session, and the parent enforces the remaining
+operation deadline by killing and verifying the owned process group. Its
+private worker scratch directory is polled against the remaining temp budget;
+this is not a kernel-enforced aggregate disk quota. Deployments needing hard
+RSS or disk quotas still need an OS/container supervisor. A hard parent-process
+kill requires deployment cleanup of stale temporary directories.
 
 `max_temp_bytes` is not a filesystem-wide quota: it covers the input snapshot
 and pipeline-generated raster reservations, not arbitrary parser caches,

@@ -98,6 +98,9 @@ class ResourceGuard:
     def remaining_runtime_seconds(self) -> float:
         return max(0.0, self.limits.max_runtime_seconds - (self.clock() - self.started_at))
 
+    def elapsed_runtime_seconds(self) -> float:
+        return max(0.0, self.clock() - self.started_at)
+
     def reserve_raster(self, width: int, height: int, boundary: str) -> None:
         self.check_image_dimensions(width, height, boundary)
         pixels = width * height
@@ -145,6 +148,37 @@ def current_subprocess_timeout() -> float | None:
 def current_ocr_output_limit() -> int:
     guard = _ACTIVE_GUARD.get()
     return guard.limits.max_ocr_output_bytes if guard else ExtractionLimits().max_ocr_output_bytes
+
+
+def current_runtime_elapsed_seconds() -> float | None:
+    """Return elapsed time for the active extraction, if one is being guarded."""
+    guard = _ACTIVE_GUARD.get()
+    return guard.elapsed_runtime_seconds() if guard else None
+
+
+def current_worker_policy() -> tuple[int, float, float, int]:
+    """Return scratch budget, runtime, hard runtime limit, and IPC byte limit.
+
+    Input snapshots and reserved rasters are deducted from the same per-run
+    temporary-storage policy. Outside ``process_file`` the safe configured
+    defaults are used rather than an unlimited fallback.
+    """
+    guard = _ACTIVE_GUARD.get()
+    if guard is None:
+        limits = ExtractionLimits()
+        return (
+            limits.max_temp_bytes,
+            limits.max_runtime_seconds,
+            limits.max_runtime_seconds,
+            limits.max_ocr_output_bytes,
+        )
+    guard.check_runtime("before isolated worker")
+    return (
+        max(0, guard.limits.max_temp_bytes - guard._reserved_temp_bytes),
+        guard.remaining_runtime_seconds(),
+        guard.limits.max_runtime_seconds,
+        guard.limits.max_ocr_output_bytes,
+    )
 
 
 def _is_unsafe_archive_member(info: zipfile.ZipInfo) -> bool:

@@ -20,8 +20,11 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.metadata
 import json
+import platform
 import shutil
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -34,6 +37,83 @@ from benchmarks.scripts.build_omnidocbench_manifest import verify_manifest
 from doc_extraction.cli import collect_model_versions, process_file
 from doc_extraction.config import load_config
 from doc_extraction.evaluation import omnidocbench as odb
+
+
+def build_source_attestation() -> dict:
+    """Hash the exact relevant working-tree files, not only the Git commit."""
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, check=True, capture_output=True, text=True
+    ).stdout.strip()
+    status = subprocess.run(
+        ["git", "status", "--porcelain=v1", "--untracked-files=all"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.splitlines()
+    tracked = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+    ).stdout.decode().split("\0")
+    selected = []
+    for rel in tracked:
+        if not rel:
+            continue
+        path = REPO_ROOT / rel
+        relevant = (
+            rel.startswith("src/doc_extraction/") and rel.endswith(".py")
+            or rel == "experiments/005_omnidocbench/prepare.py"
+            or rel.startswith("benchmarks/scripts/") and rel.endswith(".py")
+            or rel in {"pyproject.toml", "uv.lock"}
+        )
+        if relevant and path.is_file():
+            selected.append((rel, path))
+    import hashlib
+
+    digest = hashlib.sha256()
+    file_hashes = {}
+    for rel, path in sorted(selected):
+        data = path.read_bytes()
+        file_hash = hashlib.sha256(data).hexdigest()
+        file_hashes[rel] = file_hash
+        digest.update(rel.encode("utf-8") + b"\0" + data + b"\0")
+    return {
+        "git_commit": head,
+        "working_tree_clean": not status,
+        "working_tree_status": status,
+        "source_files": file_hashes,
+        "source_snapshot_sha256": digest.hexdigest(),
+        "source_snapshot_scope": "current working-tree bytes for doc_extraction Python sources, benchmark scripts, prepare.py, pyproject.toml and uv.lock; evaluator revision is recorded separately",
+        "root_uv_lock_sha256": hashlib.sha256((REPO_ROOT / "uv.lock").read_bytes()).hexdigest(),
+    }
+
+
+def build_runtime_attestation() -> dict:
+    packages = sorted(
+        f"{distribution.metadata.get('Name', 'unknown')}=={distribution.version}"
+        for distribution in importlib.metadata.distributions()
+    )
+    package_inventory = "\n".join(packages) + "\n"
+    try:
+        gpu = subprocess.run(
+            ["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        ).stdout.strip().splitlines()
+    except (OSError, subprocess.SubprocessError):
+        gpu = []
+    return {
+        "python": sys.version,
+        "python_executable": Path(sys.executable).name,
+        "platform": platform.platform(),
+        "packages": packages,
+        "package_inventory_sha256": hashlib.sha256(package_inventory.encode()).hexdigest(),
+        "gpu_inventory": gpu,
+    }
 
 
 def _process_sample(image_path: Path, config, backend_name: str, runs_dir: Path) -> odb.ProcessedSample:
@@ -145,7 +225,27 @@ def main(argv: list[str] | None = None) -> int:
     print(f"samples: {len(samples)} of {total_available} available (backend={args.backend})")
 
     config = load_config(args.config)
+    source_attestation = build_source_attestation()
+    runtime_attestation = build_runtime_attestation()
+    pre_run_model_versions = collect_model_versions(args.backend)
+    if args.backend == "paddleocr_vl":
+        absent_hashes = [
+            name for name in ("model_weights_sha256", "layout_weights_sha256")
+            if not pre_run_model_versions.get(name)
+        ]
+        if absent_hashes:
+            print(f"model artifact hash preflight failed: missing {absent_hashes}", file=sys.stderr)
+            return 1
     output_root.mkdir(parents=True, exist_ok=False)
+    (output_root / "source_attestation.json").write_text(
+        json.dumps(source_attestation, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    (output_root / "pre_run_model_versions.json").write_text(
+        json.dumps(pre_run_model_versions, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    (output_root / "runtime_attestation.json").write_text(
+        json.dumps(runtime_attestation, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
     if args.manifest:
         shutil.copy2(args.manifest, output_root / "sample_manifest.json")
     predictions_dir = output_root / f"predictions_{output_root.name}"
@@ -158,7 +258,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  {msg}")
 
     start = time.perf_counter()
-    results = odb.write_predictions(samples, predictions_dir, process_sample, logger=log)
+    try:
+        results = odb.write_predictions(samples, predictions_dir, process_sample, logger=log)
+    finally:
+        if args.backend == "paddleocr_vl":
+            from doc_extraction.backends.paddleocr_vl_backend import (
+                shutdown_paddleocr_vl_workers,
+            )
+
+            shutdown_paddleocr_vl_workers()
     wall_seconds = time.perf_counter() - start
 
     runtime_report = odb.write_runtime_report(results, output_root / "runtime.json")
@@ -203,6 +311,9 @@ def main(argv: list[str] | None = None) -> int:
         }
         for sample in samples
     ]
+    metadata["source_attestation"] = source_attestation
+    metadata["runtime_attestation"] = runtime_attestation
+    metadata["pre_run_model_versions"] = pre_run_model_versions
     (output_root / "ground_truth_subset.json").write_text(
         json.dumps([records_by_index[sample.index] for sample in samples], ensure_ascii=False, indent=2),
         encoding="utf-8",
