@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from PIL import Image
+
 from benchmarks.scripts.build_omnidocbench_manifest import (
     build_manifest,
     stratified_indices,
@@ -37,13 +39,15 @@ def _records() -> list[dict]:
     return records
 
 
-def _dataset(tmp_path: Path) -> Path:
+def _dataset(tmp_path: Path, oversized_indexes: set[int] | None = None) -> Path:
     root = tmp_path / "dataset"
     (root / "images").mkdir(parents=True)
     records = _records()
-    for record in records:
+    oversized_indexes = oversized_indexes or set()
+    for index, record in enumerate(records):
         name = record["page_info"]["image_path"]
-        (root / "images" / name).write_bytes(name.encode())
+        size = (30, 30) if index in oversized_indexes else (20, 30)
+        Image.new("RGB", size, "white").save(root / "images" / name)
     (root / "OmniDocBench.json").write_text(json.dumps(records), encoding="utf-8")
     return root
 
@@ -100,3 +104,67 @@ def test_dangling_truth_relations_are_explicitly_excluded_before_sampling(tmp_pa
     exclusions = manifest["subset"]["eligibility_exclusions"]
     assert [item["dataset_index"] for item in exclusions] == [0]
     assert 0 not in {item["dataset_index"] for item in manifest["subset"]["samples"]}
+
+
+def test_policy_aware_population_separates_rejections_before_sampling(tmp_path):
+    dataset = _dataset(tmp_path, oversized_indexes={1, 4, 9})
+    manifest = build_manifest(
+        dataset,
+        target=6,
+        seed=22,
+        max_image_pixels=600,
+        policy_config="cpu.yaml",
+        policy_config_sha256="config-hash",
+    )
+    output = tmp_path / "v2.json"
+    output.write_text(json.dumps(manifest), encoding="utf-8")
+
+    policy = manifest["production_policy"]
+    selected = manifest["subset"]["samples"]
+    assert policy["coverage_population_count"] == 12
+    assert policy["policy_rejected_count"] == 3
+    assert policy["policy_eligible_count"] == 9
+    assert {item["dataset_index"] for item in policy["rejections"]} == {1, 4, 9}
+    assert not ({item["dataset_index"] for item in selected} & {1, 4, 9})
+    assert verify_manifest(dataset, output)[0] == [item["dataset_index"] for item in selected]
+
+
+def test_policy_aware_manifest_is_deterministic(tmp_path):
+    dataset = _dataset(tmp_path, oversized_indexes={2, 8})
+    kwargs = {"target": 7, "seed": 22, "max_image_pixels": 600, "policy_config": "cpu.yaml"}
+    first = build_manifest(dataset, **kwargs)
+    second = build_manifest(dataset, **kwargs)
+    assert first == second
+
+
+def test_policy_aware_verifier_rejects_selected_oversized_image(tmp_path):
+    dataset = _dataset(tmp_path, oversized_indexes={2})
+    manifest = build_manifest(dataset, target=7, seed=22, max_image_pixels=600)
+    output = tmp_path / "v2.json"
+    output.write_text(json.dumps(manifest), encoding="utf-8")
+    value = json.loads(output.read_text(encoding="utf-8"))
+    rejected = value["production_policy"]["rejections"].pop()
+    value["subset"]["samples"].append({
+        "dataset_index": rejected["dataset_index"],
+        "sample_id": rejected["sample_id"],
+        "page_id": rejected["page_id"],
+        "page_no": rejected["page_no"],
+        "image_path": f"images/{rejected['image_name']}",
+        "image_name": rejected["image_name"],
+        "image_sha256": rejected["image_sha256"],
+        "image_dimensions": {"width": rejected["width"], "height": rejected["height"], "pixels": rejected["pixels"]},
+        "page_attribute": {},
+        "annotation_counts": {},
+    })
+    value["subset"]["actual_size"] += 1
+    body = {key: item for key, item in value.items() if key != "subset_identity"}
+    from benchmarks.scripts.build_omnidocbench_manifest import canonical_sha256
+
+    value["subset_identity"]["sha256"] = canonical_sha256(body)
+    output.write_text(json.dumps(value), encoding="utf-8")
+    try:
+        verify_manifest(dataset, output)
+    except ValueError as exc:
+        assert "policy rejection population" in str(exc) or "policy-ineligible" in str(exc)
+    else:
+        raise AssertionError("policy-ineligible sample unexpectedly passed manifest verification")

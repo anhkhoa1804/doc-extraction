@@ -10,6 +10,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from PIL import Image
+
 from doc_extraction.evaluation.omnidocbench import dataset_semantic_hash, load_dataset
 
 MANIFEST_SCHEMA = "omnidocbench-subset/1"
@@ -157,7 +159,15 @@ def stratified_indices(records: list[dict[str, Any]], target: int, seed: int) ->
     return selected, composition
 
 
-def build_manifest(dataset_root: Path, target: int = DEFAULT_TARGET, seed: int = DEFAULT_SEED) -> dict[str, Any]:
+def build_manifest(
+    dataset_root: Path,
+    target: int = DEFAULT_TARGET,
+    seed: int = DEFAULT_SEED,
+    *,
+    max_image_pixels: int | None = None,
+    policy_config: str | None = None,
+    policy_config_sha256: str | None = None,
+) -> dict[str, Any]:
     dataset_root = dataset_root.resolve()
     gt_path, samples = load_dataset(dataset_root)
     raw_records = json.loads(gt_path.read_text(encoding="utf-8"))
@@ -226,7 +236,39 @@ def build_manifest(dataset_root: Path, target: int = DEFAULT_TARGET, seed: int =
         })
     inventory_hash = canonical_sha256(image_inventory)
     excluded_indices = {entry["dataset_index"] for entry in dangling_relations}
-    eligible_indices = [index for index in range(len(raw_records)) if index not in excluded_indices]
+    dataset_valid_indices = [index for index in range(len(raw_records)) if index not in excluded_indices]
+    policy_rejections: list[dict[str, Any]] = []
+    dimensions: dict[int, tuple[int, int]] = {}
+    if max_image_pixels is not None:
+        if max_image_pixels <= 0:
+            raise ValueError("max_image_pixels must be positive")
+        for index in dataset_valid_indices:
+            sample = samples[index]
+            with Image.open(sample.image_path) as image:
+                width, height = image.size
+            dimensions[index] = (width, height)
+            pixels = width * height
+            if pixels > max_image_pixels:
+                attrs = raw_records[index]["page_info"].get("page_attribute") or {}
+                policy_rejections.append({
+                    "dataset_index": index,
+                    "sample_id": raw_records[index]["page_info"].get("sample_id"),
+                    "page_id": f"{sample.image_name}#{sample.page_no}",
+                    "page_no": sample.page_no,
+                    "image_name": sample.image_name,
+                    "image_sha256": sha256_file(sample.image_path),
+                    "width": width,
+                    "height": height,
+                    "pixels": pixels,
+                    "reason": "max_image_pixels",
+                    "source": attrs.get("data_source", "unknown"),
+                    "language": attrs.get("language", "unknown"),
+                    "layout": attrs.get("layout", "unknown"),
+                })
+    policy_rejected_indices = {entry["dataset_index"] for entry in policy_rejections}
+    eligible_indices = [index for index in dataset_valid_indices if index not in policy_rejected_indices]
+    if target > len(eligible_indices):
+        raise ValueError(f"target {target} exceeds production-policy-eligible population {len(eligible_indices)}")
     eligible_records = [raw_records[index] for index in eligible_indices]
     chosen_positions, composition = stratified_indices(eligible_records, target, seed)
     chosen_indices = [eligible_indices[position] for position in chosen_positions]
@@ -246,7 +288,11 @@ def build_manifest(dataset_root: Path, target: int = DEFAULT_TARGET, seed: int =
             "page_attribute": record["page_info"].get("page_attribute") or {},
             "annotation_counts": dict(sorted(_region_counts(record).items())),
         })
+        if max_image_pixels is not None:
+            width, height = dimensions[index]
+            selected[-1]["image_dimensions"] = {"width": width, "height": height, "pixels": width * height}
 
+    subset_name = "representative-v2" if max_image_pixels is not None else "representative-v1"
     manifest: dict[str, Any] = {
         "schema_version": MANIFEST_SCHEMA,
         "benchmark": {"name": "OmniDocBench", "version": "1.6", "upstream_evaluator_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044"},
@@ -272,7 +318,7 @@ def build_manifest(dataset_root: Path, target: int = DEFAULT_TARGET, seed: int =
             },
         },
         "subset": {
-            "name": "representative-v1",
+            "name": subset_name,
             "target_size": target,
             "actual_size": len(selected),
             "selection_method": "deterministic iterative marginal-stratification; choose the remaining page maximizing normalized deficits across source, language, layout, hard subset, special issue, table/formula presence, text density, and mixed-content labels; SHA256(seed,image_path) breaks ties; final list sorted by dataset index",
@@ -282,6 +328,24 @@ def build_manifest(dataset_root: Path, target: int = DEFAULT_TARGET, seed: int =
             "samples": selected,
         },
     }
+    if max_image_pixels is not None:
+        def group_counts(field: str) -> dict[str, int]:
+            return dict(sorted(Counter(str(entry[field]) for entry in policy_rejections).items()))
+
+        manifest["production_policy"] = {
+            "config_file": policy_config,
+            "config_sha256": policy_config_sha256,
+            "max_image_pixels": max_image_pixels,
+            "eligibility_rule": "dataset-valid image header pixel product <= configured max_image_pixels; boundary equals limit is eligible",
+            "coverage_population_count": len(dataset_valid_indices),
+            "policy_eligible_count": len(eligible_indices),
+            "policy_rejected_count": len(policy_rejections),
+            "rejected_by_reason": dict(sorted(Counter(entry["reason"] for entry in policy_rejections).items())),
+            "rejected_by_source": group_counts("source"),
+            "rejected_by_language": group_counts("language"),
+            "rejected_by_layout": group_counts("layout"),
+            "rejections": policy_rejections,
+        }
     manifest["subset_identity"] = {
         "algorithm": "sha256(canonical JSON of manifest excluding subset_identity)",
         "sha256": canonical_sha256(manifest),
@@ -313,6 +377,7 @@ def verify_manifest(dataset_root: Path, manifest_path: Path) -> tuple[list[int],
     if len(samples) != identity.get("image_inventory_count"):
         raise ValueError("image count differs from frozen manifest")
     raw = json.loads(gt_path.read_text(encoding="utf-8"))
+    by_index = {sample.index: sample for sample in samples}
     expected_inventory = []
     actual_paths = sorted(path for path in (Path(dataset_root) / "images").rglob("*") if path.is_file() and path.suffix.lower() in {".png", ".jpg", ".jpeg"})
     names = {sample.image_name for sample in samples}
@@ -339,7 +404,29 @@ def verify_manifest(dataset_root: Path, manifest_path: Path) -> tuple[list[int],
         raise ValueError("manifest exclusion set does not match current truth-side integrity checks")
     if expected_exclusions.intersection(indices):
         raise ValueError("manifest selected a page with dangling relation annotations")
-    by_index = {sample.index: sample for sample in samples}
+    production_policy = manifest.get("production_policy")
+    if production_policy is not None:
+        max_pixels = production_policy.get("max_image_pixels")
+        if not isinstance(max_pixels, int) or max_pixels <= 0:
+            raise ValueError("manifest has invalid production max_image_pixels")
+        dataset_valid = [index for index in range(len(raw)) if index not in expected_exclusions]
+        rejected = []
+        measured: dict[int, tuple[int, int]] = {}
+        for index in dataset_valid:
+            with Image.open(by_index[index].image_path) as image:
+                width, height = image.size
+            measured[index] = width, height
+            if width * height > max_pixels:
+                rejected.append(index)
+        recorded_rejected = [entry.get("dataset_index") for entry in production_policy.get("rejections", [])]
+        if recorded_rejected != rejected:
+            raise ValueError("policy rejection population differs from current image dimensions")
+        if production_policy.get("coverage_population_count") != len(dataset_valid):
+            raise ValueError("coverage population count differs from dataset-valid population")
+        if production_policy.get("policy_eligible_count") != len(dataset_valid) - len(rejected):
+            raise ValueError("policy eligible count is inconsistent")
+        if set(indices).intersection(rejected):
+            raise ValueError("manifest selected a production-policy-ineligible image")
     for entry in entries:
         index = entry["dataset_index"]
         if index not in by_index or not 0 <= index < len(raw):
@@ -353,6 +440,10 @@ def verify_manifest(dataset_root: Path, manifest_path: Path) -> tuple[list[int],
             raise ValueError(f"manifest source sample ID differs at dataset index {index}")
         if entry.get("image_sha256") != sha256_file(sample.image_path):
             raise ValueError(f"selected image hash differs at dataset index {index}")
+        if production_policy is not None:
+            width, height = measured[index]
+            if entry.get("image_dimensions") != {"width": width, "height": height, "pixels": width * height}:
+                raise ValueError(f"selected image dimensions differ at dataset index {index}")
     return indices, raw, manifest
 
 
@@ -362,8 +453,21 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--target", type=int, default=DEFAULT_TARGET)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    parser.add_argument("--config", type=Path, default=None,
+                        help="Production config; when supplied, freezes image-pixel eligibility from its limits")
     args = parser.parse_args()
-    manifest = build_manifest(args.dataset, args.target, args.seed)
+    policy_kwargs: dict[str, Any] = {}
+    if args.config is not None:
+        from doc_extraction.config import load_config
+
+        config_path = args.config.resolve()
+        config = load_config(config_path)
+        policy_kwargs = {
+            "max_image_pixels": config.limits.max_image_pixels,
+            "policy_config": config_path.name,
+            "policy_config_sha256": sha256_file(config_path),
+        }
+    manifest = build_manifest(args.dataset, args.target, args.seed, **policy_kwargs)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"wrote {len(manifest['subset']['samples'])} samples to {args.output}")

@@ -861,4 +861,11 @@ def collect_evaluator_results(omnidoc_repo: Path, save_name: str) -> dict[str, P
         "run_summary": result_dir / f"{save_name}_run_summary.json",
         "runtime_environment": result_dir / f"{save_name}_runtime_environment.json",
     }
-    return {name: path for name, path in candidates.items() if path.exists()}
+    found = {name: path for name, path in candidates.items() if path.exists()}
+    # The pinned evaluator writes these small files separately from its
+    # aggregate metrics. Preserve them with the run so page-level analysis can
+    # be reproduced without relying on mutable files in the external checkout.
+    for pattern in (f"{save_name}_*_per_page_edit.json", f"{save_name}_*_per_table_TEDS.json"):
+        for path in sorted(result_dir.glob(pattern)):
+            found[path.name] = path
+    return found

@@ -11,7 +11,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from collections import defaultdict
 from pathlib import Path
+from statistics import mean, median
 from typing import Any
 
 from benchmarks.registry import (
@@ -87,6 +89,47 @@ def _selected_samples(samples: list[odb.OmniDocSample], metadata: dict[str, Any]
     return selected
 
 
+def _stratified_diagnostics(page_results: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize per-page scores by observed annotation metadata, without pooling tasks."""
+    grouped: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
+    page_counts: dict[str, int] = defaultdict(int)
+    for page in page_results:
+        attrs = page.get("source_metadata", {})
+        labels = {
+            "data_source": [str(attrs.get("data_source", "unknown"))],
+            "language": [str(attrs.get("language", "unknown"))],
+            "layout": [str(attrs.get("layout", "unknown"))],
+            "subset": [str(attrs.get("subset", "unknown"))],
+            "special_issue": [str(value) for value in attrs.get("special_issue", [])]
+            if attrs.get("special_issue") else ["none"],
+        }
+        for dimension, values in labels.items():
+            for value in values:
+                group = f"{dimension}:{value}"
+                page_counts[group] += 1
+                for metric, score in page.get("metrics", {}).items():
+                    if metric.endswith("_table_count") or not isinstance(score, (int, float)):
+                        continue
+                    grouped[group][metric].append(float(score))
+    summaries = []
+    small_groups = []
+    for group in sorted(page_counts):
+        if page_counts[group] < 5:
+            small_groups.append({"group": group, "page_count": page_counts[group]})
+        for metric, scores in sorted(grouped[group].items()):
+            if len(scores) < 5:
+                continue
+            summaries.append({
+                "group": group,
+                "metric": metric,
+                "metric_page_denominator": len(scores),
+                "mean_of_page_scores": mean(scores),
+                "median_of_page_scores": median(scores),
+                "aggregation_note": "diagnostic mean of upstream per-page scores; official aggregate remains in official_end2end",
+            })
+    return {"minimum_metric_n": 5, "summaries": summaries, "small_page_groups": small_groups}
+
+
 def build_record(
     *,
     manifest_path: Path,
@@ -106,6 +149,8 @@ def build_record(
     manifest_path = run_directory / "sample_manifest.json"
     subset_identity = None
     manifest_sha256 = None
+    raw_records: list[dict[str, Any]] | None = None
+    frozen_manifest: dict[str, Any] | None = None
     if metadata.get("sample_manifest_identity"):
         if not manifest_path.is_file():
             raise BenchmarkError("representative run is missing its copied sample manifest")
@@ -113,7 +158,7 @@ def build_record(
         if manifest_sha256 != metadata.get("sample_manifest_sha256"):
             raise BenchmarkError("copied sample manifest hash differs from run metadata")
         try:
-            selected_indices, _raw, frozen_manifest = verify_manifest(dataset_root, manifest_path)
+            selected_indices, raw_records, frozen_manifest = verify_manifest(dataset_root, manifest_path)
         except (OSError, ValueError) as exc:
             raise BenchmarkError(f"invalid representative sample manifest: {exc}") from exc
         subset_identity = frozen_manifest["subset_identity"]["sha256"]
@@ -187,6 +232,40 @@ def build_record(
             f"{sorted(unexpected_metric_pages)[:5]}"
         )
 
+    runtime_by_image = {
+        str(row.get("image_name")): row
+        for row in runtime_per_page or []
+        if isinstance(row, dict) and row.get("image_name")
+    }
+    page_results = []
+    for sample in selected:
+        truth_record = raw_records[sample.index] if raw_records is not None else {}
+        page_info = truth_record.get("page_info", {}) if isinstance(truth_record, dict) else {}
+        page_results.append({
+            "dataset_index": sample.index,
+            "page_id": f"{sample.image_name}#{sample.page_no}",
+            "sample_id": page_info.get("sample_id"),
+            "image_name": sample.image_name,
+            "page_no": sample.page_no,
+            "image_sha256": _sha256(sample.image_path),
+            "source_metadata": page_info.get("page_attribute", {}),
+            "route_status_runtime": runtime_by_image.get(sample.image_name),
+            "metrics": per_page_metrics.get(sample.image_name, {}),
+        })
+
+    table_metric_debug = table_status.get("TEDS", {}) if isinstance(table_status, dict) else {}
+    extraction_failures = runtime.get("failures", [])
+    evaluator_errors = table_metric_debug.get("error_cases", []) if isinstance(table_metric_debug, dict) else []
+    evaluator_timeouts = table_metric_debug.get("timeout_cases", []) if isinstance(table_metric_debug, dict) else []
+    current_population_valid = (
+        len(selected) == (frozen_manifest or {}).get("subset", {}).get("actual_size", len(selected))
+        and len(runtime_per_page or []) == len(selected)
+        and all(row.get("status") in {"success", "success_with_warnings"} for row in runtime_per_page or [])
+        and not extraction_failures
+        and len(evaluator_errors) == 0
+        and len(evaluator_timeouts) == 0
+    )
+
     return BenchmarkResult(
         benchmark={"name": manifest.name, "version": manifest.version, "subset": manifest.subset},
         system={
@@ -194,6 +273,8 @@ def build_record(
             "component": "doc-extraction",
             "config_hash": config_hash,
             "config": config,
+            "config_file": metadata.get("config_file"),
+            "config_file_sha256": metadata.get("config_sha256"),
             "model_versions": model_versions,
             "evaluator": {
                 "name": "OmniDocBench",
@@ -202,15 +283,19 @@ def build_record(
                 "match_method": "quick_match",
                 "match_workers": summary.get("stage_execution", {}).get("page_match", {}).get("workers"),
                 "metrics": sorted(metrics),
+                "match_protocol": summary.get("stage_execution", {}).get("page_match", {}),
+                "table_teds_execution": table_metric_debug,
                 "formula_cdm_enabled": False,
                 "bleu_meteor_enabled": False,
             },
         },
         runtime={
             "device": metadata.get("device", "not_recorded"),
-            "started_at": metadata.get("timestamp", "not_recorded"),
+            "run_id": run_directory.name,
+            "metadata_recorded_at": metadata.get("timestamp", "not_recorded"),
             "duration_seconds": runtime.get("wall_clock_seconds"),
             "python": metadata.get("python", "not_recorded"),
+            "platform": metadata.get("platform", "not_recorded"),
             "evaluator_upstream_commit": metadata.get("upstream_commit", "not_recorded"),
         },
         dataset={
@@ -230,13 +315,18 @@ def build_record(
             ],
             "subset_identity": subset_identity,
             "subset_manifest_sha256": manifest_sha256,
+            "coverage_population": (frozen_manifest or {}).get("production_policy", {}),
+            "dataset_integrity_exclusions": (frozen_manifest or {}).get("subset", {}).get("eligibility_exclusions", []),
         },
         metrics={
+            "current_population_valid": current_population_valid,
             "official_end2end": metrics,
             "page_denominators": summary.get("page_denominators", {}),
             "evaluator_stage_execution": stage_execution,
             "extraction_runtime": runtime,
             "per_page_metrics": per_page_metrics,
+            "page_results": page_results,
+            "stratified_diagnostics": _stratified_diagnostics(page_results),
         },
         failures=failures,
         warnings=warnings,

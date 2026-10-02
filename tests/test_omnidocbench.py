@@ -553,8 +553,14 @@ def test_collect_evaluator_results_only_returns_existing_files(tmp_path):
     result_dir = tmp_path / "result"
     result_dir.mkdir()
     (result_dir / "predictions_quick_match_metric_result.json").write_text("{}", encoding="utf-8")
+    (result_dir / "predictions_quick_match_text_block_per_page_edit.json").write_text("{}", encoding="utf-8")
+    (result_dir / "predictions_quick_match_table_per_table_TEDS.json").write_text("{}", encoding="utf-8")
     found = odb.collect_evaluator_results(tmp_path, "predictions_quick_match")
-    assert set(found.keys()) == {"metric_result"}
+    assert set(found.keys()) == {
+        "metric_result",
+        "predictions_quick_match_text_block_per_page_edit.json",
+        "predictions_quick_match_table_per_table_TEDS.json",
+    }
 
 
 def test_collect_evaluator_results_empty_when_nothing_written(tmp_path):

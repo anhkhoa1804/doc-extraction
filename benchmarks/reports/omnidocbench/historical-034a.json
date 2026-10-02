@@ -1,0 +1,156 @@
+{
+  "schema_version": "benchmark-result/1",
+  "record_status": "historical_reference",
+  "benchmark": {
+    "name": "OmniDocBench",
+    "version": "1.6",
+    "subset": "historical-034a-full",
+    "upstream_evaluator_commit": "193627ae9e97d89188468ed1ee3b7a856ff76044"
+  },
+  "dataset": {
+    "annotation_file": "experiments/034a_omnidocbench_snapshot/dataset/full/OmniDocBench.json",
+    "annotation_sha256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+    "annotation_semantic_sha256": "31e7a7b96fcf2f823aaf81afc53b15e9bb0413c2e6a52dc3d7bacd0615716f89",
+    "sample_count": 1651,
+    "sample_ids_source": "page_info.sample_id when present; otherwise image_name#page_no"
+  },
+  "system": {
+    "git_commit": null,
+    "git_commit_status": "UNKNOWN: historical run_metadata.json records null",
+    "branch_at_run": "fix/table-text-ownership per baseline_environment.json",
+    "backend": "baseline",
+    "device": "CUDA / NVIDIA L4 per baseline_environment.json",
+    "extraction_python": "3.12.14",
+    "evaluator_python": "3.11.16",
+    "config": {
+      "device": "cuda",
+      "render_dpi": 200,
+      "digital_pdf_min_chars_per_page": 40,
+      "digital_pdf_page_ratio": 0.6,
+      "digital_pdf_sample_pages": 5,
+      "text_quality_max_suspicious_page_ratio": 0.34,
+      "digital_pdf_page_fallback": true,
+      "digital_pdf_tables": true,
+      "ocr_languages": ["en", "vi"],
+      "layout_backend": "docling",
+      "ocr_backend": "docling",
+      "table_backend": "table_transformer",
+      "backends": {"docling": true, "mineru": false, "paddleocr": false, "vlm": false}
+    },
+    "config_file": null,
+    "config_sha256": null,
+    "model_versions": {
+      "doc_extraction": "0.1.0",
+      "pymupdf": "1.28.2",
+      "docling": "2.124.0",
+      "docling-core": "2.93.0",
+      "easyocr": "1.7.2",
+      "transformers": "5.16.1",
+      "torch": "2.11.0+cu128"
+    }
+  },
+  "extraction": {
+    "attempted": 1651,
+    "succeeded": 1651,
+    "failed": 0,
+    "total_runtime_seconds": 13665.459,
+    "wall_clock_seconds": 13687.102,
+    "mean_seconds_per_page": 8.2771,
+    "runtime_warning_metadata": "not recorded"
+  },
+  "evaluation": {
+    "match_method": "quick_match",
+    "page_match_workers": 4,
+    "matched_pages": 1651,
+    "quick_match_timeouts": 0,
+    "page_match_timeouts": 0,
+    "teds_workers": 13,
+    "teds_timeout_seconds": 120,
+    "teds_instances": 665,
+    "teds_timeouts": 0,
+    "teds_errors": 94,
+    "teds_error_reason": "AssertionError: can only join a started process",
+    "teds_error_behavior": "pinned evaluator worker records score 0.0 for error cases; errors therefore affect aggregate values",
+    "metrics": {
+      "text_block_edit_distance": {
+        "value": 0.5836654200084279,
+        "aggregation": "ALL_page_avg",
+        "denominator_pages": 1557,
+        "direction": "lower",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS"
+      },
+      "table_edit_distance": {
+        "value": 0.7017997644947642,
+        "aggregation": "ALL_page_avg",
+        "denominator_pages": 458,
+        "direction": "lower",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS"
+      },
+      "table_teds_page_average": {
+        "value": 0.3526450949656218,
+        "aggregation": "page macro average, ALL",
+        "denominator_pages": 458,
+        "direction": "higher",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS; 94/665 table instances errored and were assigned zero"
+      },
+      "table_teds_structure_only_page_average": {
+        "value": 0.5647383253354076,
+        "aggregation": "page macro average, ALL",
+        "denominator_pages": 458,
+        "direction": "higher",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS; 94/665 table instances errored and were assigned zero"
+      },
+      "table_teds_instance_average": {
+        "value": 0.3224374240222796,
+        "aggregation": "instance average, all",
+        "denominator_table_instances": 665,
+        "direction": "higher",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS; 94/665 table instances errored and were assigned zero"
+      },
+      "table_teds_structure_only_instance_average": {
+        "value": 0.5247025899893422,
+        "aggregation": "instance average, all",
+        "denominator_table_instances": 665,
+        "direction": "higher",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS; 94/665 table instances errored and were assigned zero"
+      },
+      "reading_order_edit_distance": {
+        "value": 0.5966756385868858,
+        "aggregation": "ALL_page_avg",
+        "denominator_pages": 1638,
+        "direction": "lower",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS"
+      },
+      "display_formula_edit_distance": {
+        "value": 0.9755954913919687,
+        "aggregation": "ALL_page_avg",
+        "denominator_pages": 313,
+        "direction": "lower",
+        "reproducibility": "REPRODUCIBLE WITH STORED OUTPUTS"
+      },
+      "formula_cdm": {
+        "value": null,
+        "aggregation": null,
+        "denominator_pages": null,
+        "direction": "higher",
+        "reproducibility": "NOT REPRODUCIBLE: not run; required toolchain unavailable"
+      }
+    }
+  },
+  "stored_artifacts": {
+    "run_metadata": "experiments/034a_omnidocbench_snapshot/results/full_baseline/run_metadata.json",
+    "run_summary": "experiments/034a_omnidocbench_snapshot/results/full_baseline/run_summary.json",
+    "metrics": "experiments/034a_omnidocbench_snapshot/results/full_baseline/metrics.json",
+    "evaluator_config": "experiments/034a_omnidocbench_snapshot/results/full_baseline/evaluator_config.yaml",
+    "predictions_directory": "experiments/034a_omnidocbench_snapshot/results/full_baseline/predictions",
+    "prediction_files": 1651
+  },
+  "comparability": {
+    "current_v2_same_dataset_revision": true,
+    "current_v2_same_sample_population": false,
+    "current_v2_same_extraction_config": false,
+    "current_v2_same_device": true,
+    "historical_git_revision_known": false,
+    "direct_current_regression_comparison": false
+  }
+}
