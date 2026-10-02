@@ -13,6 +13,11 @@ interchange contract.
 * Existing local OmniDocBench data is reused. Kleister, SWDE, and live-web
   datasets are prepared as manifests only until an operator obtains them under
   verified terms.
+* The committed OmniDocBench manifest intentionally names only the 18-page
+  demo copy it can validate as one dataset identity. A locally available
+  1,651-page historical snapshot has a different ground-truth filename and
+  hash; it needs its own versioned manifest before it can be selected for a
+  new measurement.
 * Raw datasets belong under `.benchmarks/` or existing ignored dataset roots;
   they must not be committed accidentally.
 

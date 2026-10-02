@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -19,6 +20,8 @@ from benchmarks.registry import (
 )
 from benchmarks.replay import load_replay_cases
 from benchmarks.report import render_report
+from benchmarks.scripts.record_omnidocbench import build_record
+from doc_extraction.evaluation.omnidocbench import PredictionAlignmentError
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFESTS = ROOT / "benchmarks" / "manifests"
@@ -103,3 +106,54 @@ def test_replay_manifest_has_unique_deterministic_cases():
     cases = load_replay_cases(MANIFESTS / "web-acquisition-replay.json")
     assert [case.case_id for case in cases] == ["bfs-duplicate-content", "redirect-bounded-body"]
     assert cases[0].expected_acquired == ("/a", "/b", "/c", "/d")
+
+
+def test_omnidocbench_record_requires_an_aligned_complete_run(tmp_path):
+    dataset = tmp_path / "dataset"
+    images = dataset / "images"
+    images.mkdir(parents=True)
+    (images / "page.jpg").write_bytes(b"not-decoded-by-dataset-loader")
+    (dataset / "OmniDocBench_demo.json").write_text(
+        json.dumps(
+            [{"page_info": {"image_path": "images/page.jpg", "page_no": 0, "width": 10, "height": 20}}]
+        ),
+        encoding="utf-8",
+    )
+    run = tmp_path / "run"
+    predictions = run / "predictions"
+    predictions.mkdir(parents=True)
+    (predictions / "page.md").write_text("prediction", encoding="utf-8")
+    (run / "run_metadata.json").write_text(
+        json.dumps({"subset": None, "seed": 0, "num_samples": 1, "config": {"device": "cpu"}, "device": "cpu", "python": "3.12", "model_versions": {}}),
+        encoding="utf-8",
+    )
+    (run / "runtime.json").write_text(json.dumps({"wall_clock_seconds": 1.5, "failures": []}), encoding="utf-8")
+    (run / "metrics.json").write_text(json.dumps({"text_block": {"all": {}}}), encoding="utf-8")
+    (run / "run_summary.json").write_text(
+        json.dumps({"page_denominators": {}, "stage_execution": {}}), encoding="utf-8"
+    )
+
+    result = build_record(
+        manifest_path=MANIFESTS / "omnidocbench.yaml",
+        dataset_root=dataset,
+        run_directory=run,
+        git_commit_override="deadbeef",
+    )
+    assert result.dataset["sample_count"] == 1
+    assert result.dataset["sample_ids"] == [
+        {
+            "dataset_index": 0,
+            "image_name": "page.jpg",
+            "page_no": 0,
+            "image_sha256": "274a94eeda390bda7d71fe9d5287c8623481681f87dc6cf2487991083fa2e9b9",
+        }
+    ]
+
+    (predictions / "page.md").unlink()
+    with pytest.raises(PredictionAlignmentError, match="missing 1 expected prediction"):
+        build_record(
+            manifest_path=MANIFESTS / "omnidocbench.yaml",
+            dataset_root=dataset,
+            run_directory=run,
+            git_commit_override="deadbeef",
+        )

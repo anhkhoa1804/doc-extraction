@@ -37,10 +37,13 @@ What this module provides:
 from __future__ import annotations
 
 import json
+import math
 import os
 import platform
 import subprocess
-from collections.abc import Callable
+import time
+from collections import Counter
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -112,6 +115,19 @@ class DatasetError(RuntimeError):
     read, per the spec's "never silently assume" principle."""
 
 
+class PredictionAlignmentError(RuntimeError):
+    """Predictions cannot be paired one-to-one with benchmark pages.
+
+    The upstream end-to-end evaluator intentionally substitutes an empty
+    prediction when a page's Markdown file is absent.  That is useful for a
+    broad benchmark, but it is not acceptable for a reproducible controlled
+    baseline: an interrupted extraction run would otherwise look like a very
+    poor model rather than an invalid measurement.  The adapter therefore
+    validates its stricter one-page/one-file contract before evaluator
+    invocation.
+    """
+
+
 @dataclass
 class OmniDocSample:
     """One page/sample: OmniDocBench's unit of evaluation is a single page
@@ -133,6 +149,42 @@ class OmniDocSample:
         actually ships `.png` — swapping whatever extension is present,
         rather than hardcoding one, is what actually matches either)."""
         return Path(self.image_name).with_suffix(".md").name
+
+
+def validate_prediction_alignment(samples: list[OmniDocSample], predictions_dir: Path | str) -> None:
+    """Require an exact, unambiguous prediction-file set for ``samples``.
+
+    OmniDocBench's official end-to-end evaluator discovers predictions from
+    their filename.  This check makes that implicit pairing explicit: every
+    selected image must map to exactly one expected ``.md`` file, no selected
+    images may collide after their suffix is replaced, and the directory must
+    not contain an unrelated Markdown file.  It deliberately validates only
+    the filename boundary used by the official evaluator; table IDs and
+    element IDs are not part of that evaluator's Markdown input format.
+    """
+    predictions_dir = Path(predictions_dir)
+    expected = [sample.prediction_filename for sample in samples]
+    duplicate_expected = sorted(name for name, count in Counter(expected).items() if count > 1)
+    if duplicate_expected:
+        raise PredictionAlignmentError(
+            "multiple benchmark samples map to the same prediction filename: "
+            f"{duplicate_expected[:5]}"
+        )
+    if not predictions_dir.is_dir():
+        raise PredictionAlignmentError(f"prediction directory does not exist: {predictions_dir}")
+
+    actual = sorted(path.name for path in predictions_dir.glob("*.md") if path.is_file())
+    expected_set = set(expected)
+    actual_set = set(actual)
+    missing = sorted(expected_set - actual_set)
+    unexpected = sorted(actual_set - expected_set)
+    if missing or unexpected:
+        parts: list[str] = []
+        if missing:
+            parts.append(f"missing {len(missing)} expected prediction(s): {missing[:5]}")
+        if unexpected:
+            parts.append(f"found {len(unexpected)} unexpected prediction(s): {unexpected[:5]}")
+        raise PredictionAlignmentError("; ".join(parts))
 
 
 def _find_ground_truth_json(dataset_root: Path) -> Path:
@@ -228,7 +280,9 @@ def dataset_semantic_hash(ground_truth_path: Path) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
-def load_dataset(dataset_root: Path | str) -> tuple[Path, list[OmniDocSample]]:
+def load_dataset(
+    dataset_root: Path | str, ground_truth_path: Path | str | None = None
+) -> tuple[Path, list[OmniDocSample]]:
     """Validate and enumerate an OmniDocBench dataset directory.
 
     Returns (ground_truth_json_path, samples), sorted by `index` (the
@@ -242,7 +296,7 @@ def load_dataset(dataset_root: Path | str) -> tuple[Path, list[OmniDocSample]]:
     if not dataset_root.is_dir():
         raise DatasetError(f"dataset path is not a directory: {dataset_root}")
 
-    gt_path = _find_ground_truth_json(dataset_root)
+    gt_path = Path(ground_truth_path) if ground_truth_path is not None else _find_ground_truth_json(dataset_root)
     try:
         raw = json.loads(gt_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
@@ -407,18 +461,49 @@ def page_to_prediction_markdown(page: Page) -> str:
 
 
 @dataclass
+class ProcessedSample:
+    """Canonical extraction result and its run metadata for one benchmark page."""
+
+    page: Page
+    route: str
+    runtime_seconds: float
+    status: str
+    warnings: list[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
+    document_id: str | None = None
+    input_sha256: str | None = None
+
+
+@dataclass
 class PredictionRunResult:
     sample: OmniDocSample
     output_path: Path
     runtime_seconds: float
     route: str
     error: str | None = None
+    status: str = "success"
+    warnings: list[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
+    document_id: str | None = None
+    input_sha256: str | None = None
+    prediction_sha256: str | None = None
+
+    @property
+    def sample_id(self) -> str:
+        """Use the official ID when present, otherwise a stable page identity."""
+        return f"{self.sample.image_name}#{self.sample.page_no}"
+
+    @property
+    def warning_categories(self) -> list[str]:
+        # RunMetadata currently provides free-form warning strings, not stable
+        # codes. Preserve the exact text rather than inventing categories.
+        return list(self.warnings)
 
 
 def write_predictions(
     samples: list[OmniDocSample],
     predictions_dir: Path,
-    process_sample: Callable[[Path], tuple[Page, str, float]],
+    process_sample: Callable[[Path], ProcessedSample],
     logger: Callable[[str], None] | None = None,
 ) -> list[PredictionRunResult]:
     """Run `process_sample` (supplied by the caller — see
@@ -426,7 +511,7 @@ def write_predictions(
     `doc_extraction.cli.process_file`) over every sample and write one
     Markdown prediction file per page.
 
-    `process_sample(image_path) -> (page, route, runtime_seconds)` is
+    `process_sample(image_path) -> ProcessedSample` is
     injected rather than imported directly so this module stays free of a
     hard dependency on any particular backend, and so tests can supply a
     fake without needing Docling/torch installed.
@@ -440,16 +525,42 @@ def write_predictions(
     results: list[PredictionRunResult] = []
     for sample in samples:
         out_path = predictions_dir / sample.prediction_filename
+        started = time.perf_counter()
         try:
-            page, route, runtime_seconds = process_sample(sample.image_path)
-            markdown = page_to_prediction_markdown(page)
+            processed = process_sample(sample.image_path)
+            markdown = page_to_prediction_markdown(processed.page)
             out_path.write_text(markdown, encoding="utf-8")
-            results.append(PredictionRunResult(sample, out_path, runtime_seconds, route))
+            results.append(
+                PredictionRunResult(
+                    sample=sample,
+                    output_path=out_path,
+                    runtime_seconds=processed.runtime_seconds,
+                    route=processed.route,
+                    status=processed.status,
+                    warnings=processed.warnings,
+                    errors=processed.errors,
+                    document_id=processed.document_id,
+                    input_sha256=processed.input_sha256 or _file_sha256(sample.image_path),
+                    prediction_sha256=_file_sha256(out_path),
+                )
+            )
             if logger:
-                logger(f"ok    {sample.image_name} ({runtime_seconds:.2f}s, route={route})")
+                logger(
+                    f"ok    {sample.image_name} ({processed.runtime_seconds:.2f}s, "
+                    f"route={processed.route}, status={processed.status})"
+                )
         except Exception as exc:  # noqa: BLE001 - recorded per-sample, run continues
             results.append(
-                PredictionRunResult(sample, out_path, 0.0, "error", error=f"{type(exc).__name__}: {exc}")
+                PredictionRunResult(
+                    sample=sample,
+                    output_path=out_path,
+                    runtime_seconds=time.perf_counter() - started,
+                    route="unknown",
+                    error=f"{type(exc).__name__}: {exc}",
+                    status="failed",
+                    errors=[f"{type(exc).__name__}: {exc}"],
+                    input_sha256=_file_sha256(sample.image_path),
+                )
             )
             if logger:
                 logger(f"FAIL  {sample.image_name}: {type(exc).__name__}: {exc}")
@@ -457,22 +568,73 @@ def write_predictions(
 
 
 def write_runtime_report(results: list[PredictionRunResult], path: Path) -> dict[str, Any]:
-    ok = [r for r in results if r.error is None]
-    failed = [r for r in results if r.error is not None]
-    total_runtime = sum(r.runtime_seconds for r in ok)
+    runtimes = sorted(r.runtime_seconds for r in results)
+    clean = [r for r in results if r.error is None and r.status == "success"]
+    with_warnings = [r for r in results if r.error is None and r.status == "success_with_warnings"]
+    failed = [r for r in results if r.error is not None or r.status == "failed"]
+    warning_pages = [r for r in results if r.warnings]
+    total_runtime = sum(runtimes)
     report = {
         "total_pages": len(results),
-        "succeeded": len(ok),
+        "succeeded": len(clean) + len(with_warnings),
+        "success_count": len(clean),
+        "success_with_warnings_count": len(with_warnings),
         "failed": len(failed),
         "total_runtime_seconds": round(total_runtime, 3),
-        "mean_seconds_per_page": round(total_runtime / len(ok), 4) if ok else None,
-        "pages_per_second": round(len(ok) / total_runtime, 4) if total_runtime > 0 else None,
-        "routes": _count_routes(ok),
+        "mean_seconds_per_page": round(total_runtime / len(results), 4) if results else None,
+        "median_seconds_per_page": _percentile(runtimes, 0.5),
+        "p95_seconds_per_page": _percentile(runtimes, 0.95),
+        "min_seconds_per_page": round(runtimes[0], 4) if runtimes else None,
+        "max_seconds_per_page": round(runtimes[-1], 4) if runtimes else None,
+        "pages_per_second": round(len(results) / total_runtime, 4) if total_runtime > 0 else None,
+        "warning_pages": len(warning_pages),
+        "warning_rate": round(len(warning_pages) / len(results), 6) if results else None,
+        "failure_rate": round(len(failed) / len(results), 6) if results else None,
+        "warning_count": sum(len(result.warnings) for result in results),
+        "warning_text_counts": dict(sorted(Counter(warning for result in results for warning in result.warnings).items())),
+        "routes": _count_routes(results),
         "failures": [{"image": r.sample.image_name, "error": r.error} for r in failed],
+        "per_page": [
+            {
+                "sample_id": r.sample_id,
+                "page_id": r.sample_id,
+                "document_id": r.document_id,
+                "dataset_index": r.sample.index,
+                "page_no": r.sample.page_no,
+                "image_name": r.sample.image_name,
+                "input_sha256": r.input_sha256,
+                "prediction_id": r.output_path.name,
+                "prediction_sha256": r.prediction_sha256,
+                "status": r.status,
+                "route": r.route,
+                "warnings_count": len(r.warnings),
+                "warnings": r.warnings,
+                "errors": r.errors,
+                "runtime_seconds": round(r.runtime_seconds, 6),
+            }
+            for r in results
+        ],
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     return report
+
+
+def _percentile(sorted_values: list[float], fraction: float) -> float | None:
+    if not sorted_values:
+        return None
+    index = max(0, math.ceil(fraction * len(sorted_values)) - 1)
+    return round(sorted_values[index], 4)
+
+
+def _file_sha256(path: Path) -> str:
+    import hashlib
+
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def _count_routes(results: list[PredictionRunResult]) -> dict[str, int]:
@@ -499,6 +661,15 @@ def build_benchmark_metadata(
     """The provenance record every benchmark run writes. Paths are relative
     to the repository root wherever practical — no local username or
     absolute machine path leaks into a file meant to be committed/shared."""
+    try:
+        git_commit = subprocess.check_output(
+            ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        # The extraction result remains usable in a source archive, but the
+        # absent revision must be explicit rather than guessed.
+        git_commit = "unavailable"
+
     return {
         "benchmark": "OmniDocBench",
         "upstream_repo": PINNED_UPSTREAM_REPO,
@@ -508,6 +679,7 @@ def build_benchmark_metadata(
         "python": platform.python_version(),
         "python_implementation": platform.python_implementation(),
         "platform": platform.platform(),
+        "git_commit": git_commit,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "ground_truth_file": ground_truth_path.name,
         # Byte hash identifies the exact copy; semantic hash identifies the
@@ -617,6 +789,7 @@ def run_official_evaluator(
     config_path: Path,
     log_path: Path | None = None,
     timeout_seconds: int | None = None,
+    extra_environment: Mapping[str, str] | None = None,
 ) -> subprocess.CompletedProcess:
     """Invoke the official evaluator: `python pdf_validation.py --config
     <config_path>`, run from inside the cloned repo (it uses relative
@@ -642,6 +815,8 @@ def run_official_evaluator(
     cmd = [str(omnidoc_python), "pdf_validation.py", "--config", str(config_path)]
     env = dict(os.environ)
     env["PYTHONUTF8"] = "1"
+    if extra_environment:
+        env.update(extra_environment)
     process = subprocess.run(
         cmd,
         cwd=str(omnidoc_repo),

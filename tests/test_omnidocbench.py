@@ -308,29 +308,36 @@ def test_page_to_markdown_blocks_separated_by_blank_line():
 
 
 def test_write_predictions_deterministic_output_naming(tmp_path):
-    samples = [odb.OmniDocSample(index=0, image_path=Path("x.jpg"), image_name="x.jpg", page_no=0, width=10, height=10)]
+    image = tmp_path / "x.jpg"
+    image.write_bytes(b"fixture")
+    samples = [odb.OmniDocSample(index=0, image_path=image, image_name="x.jpg", page_no=0, width=10, height=10)]
     page = Page(index=0, width=10, height=10, elements=[_text_el("a", 0, 0, 5, 5, text="hi")], reading_order=["a"])
 
     def process(image_path: Path):
-        return page, "image", 1.23
+        return odb.ProcessedSample(page, "image", 1.23, "success_with_warnings", ["table fallback used"])
 
     results = odb.write_predictions(samples, tmp_path / "preds", process)
     assert results[0].output_path == tmp_path / "preds" / "x.md"
     assert results[0].output_path.exists()
     assert results[0].error is None
+    assert results[0].status == "success_with_warnings"
+    assert results[0].warnings == ["table fallback used"]
+    assert results[0].input_sha256 is not None and results[0].prediction_sha256 is not None
 
 
 def test_write_predictions_continues_after_a_failure(tmp_path):
+    (tmp_path / "bad.jpg").write_bytes(b"bad fixture")
+    (tmp_path / "ok.jpg").write_bytes(b"ok fixture")
     samples = [
-        odb.OmniDocSample(index=0, image_path=Path("bad.jpg"), image_name="bad.jpg", page_no=0, width=10, height=10),
-        odb.OmniDocSample(index=1, image_path=Path("ok.jpg"), image_name="ok.jpg", page_no=1, width=10, height=10),
+        odb.OmniDocSample(index=0, image_path=tmp_path / "bad.jpg", image_name="bad.jpg", page_no=0, width=10, height=10),
+        odb.OmniDocSample(index=1, image_path=tmp_path / "ok.jpg", image_name="ok.jpg", page_no=1, width=10, height=10),
     ]
     page = Page(index=0, width=10, height=10, elements=[], reading_order=[])
 
     def process(image_path: Path):
         if image_path.name == "bad.jpg":
             raise RuntimeError("simulated backend failure")
-        return page, "image", 0.5
+        return odb.ProcessedSample(page, "image", 0.5, "success")
 
     results = odb.write_predictions(samples, tmp_path / "preds", process)
     assert results[0].error is not None and "simulated backend failure" in results[0].error
@@ -339,19 +346,80 @@ def test_write_predictions_continues_after_a_failure(tmp_path):
     assert not (tmp_path / "preds" / "bad.md").exists()
 
 
+def test_prediction_alignment_requires_exact_one_to_one_filename_set(tmp_path):
+    samples = [
+        odb.OmniDocSample(index=0, image_path=Path("a.jpg"), image_name="a.jpg", page_no=0, width=1, height=1),
+        odb.OmniDocSample(index=1, image_path=Path("b.png"), image_name="b.png", page_no=1, width=1, height=1),
+    ]
+    predictions = tmp_path / "predictions"
+    predictions.mkdir()
+    (predictions / "a.md").write_text("a", encoding="utf-8")
+    (predictions / "b.md").write_text("b", encoding="utf-8")
+
+    odb.validate_prediction_alignment(samples, predictions)
+
+
+def test_prediction_alignment_rejects_missing_and_unexpected_files(tmp_path):
+    sample = odb.OmniDocSample(
+        index=0, image_path=Path("a.jpg"), image_name="a.jpg", page_no=0, width=1, height=1
+    )
+    predictions = tmp_path / "predictions"
+    predictions.mkdir()
+    (predictions / "wrong.md").write_text("wrong", encoding="utf-8")
+
+    with pytest.raises(odb.PredictionAlignmentError, match="missing 1 expected.*unexpected"):
+        odb.validate_prediction_alignment([sample], predictions)
+
+
+def test_prediction_alignment_rejects_filename_collision(tmp_path):
+    samples = [
+        odb.OmniDocSample(index=0, image_path=Path("same.jpg"), image_name="same.jpg", page_no=0, width=1, height=1),
+        odb.OmniDocSample(index=1, image_path=Path("same.png"), image_name="same.png", page_no=1, width=1, height=1),
+    ]
+    predictions = tmp_path / "predictions"
+    predictions.mkdir()
+
+    with pytest.raises(odb.PredictionAlignmentError, match="multiple benchmark samples"):
+        odb.validate_prediction_alignment(samples, predictions)
+
+
 def test_write_runtime_report(tmp_path):
     samples = [odb.OmniDocSample(index=i, image_path=Path(f"{i}.jpg"), image_name=f"{i}.jpg", page_no=i, width=1, height=1) for i in range(2)]
     results = [
         odb.PredictionRunResult(samples[0], tmp_path / "0.md", 2.0, "image"),
-        odb.PredictionRunResult(samples[1], tmp_path / "1.md", 0.0, "error", error="boom"),
+        odb.PredictionRunResult(samples[1], tmp_path / "1.md", 0.0, "error", error="boom", status="failed"),
     ]
     report = odb.write_runtime_report(results, tmp_path / "runtime.json")
     assert report["succeeded"] == 1
     assert report["failed"] == 1
     assert report["total_runtime_seconds"] == 2.0
-    assert report["pages_per_second"] == 0.5
+    assert report["pages_per_second"] == 1.0
     assert (tmp_path / "runtime.json").exists()
     assert json.loads((tmp_path / "runtime.json").read_text(encoding="utf-8"))["failed"] == 1
+
+
+def test_runtime_report_preserves_warning_status_and_per_page_identity(tmp_path):
+    image = tmp_path / "page.png"
+    image.write_bytes(b"page")
+    sample = odb.OmniDocSample(0, image, "page.png", 3, 20, 30)
+    result = odb.PredictionRunResult(
+        sample,
+        tmp_path / "page.md",
+        4.0,
+        "image",
+        status="success_with_warnings",
+        warnings=["native text fallback"],
+        document_id="doc-1",
+        input_sha256="input-hash",
+        prediction_sha256="prediction-hash",
+    )
+    report = odb.write_runtime_report([result], tmp_path / "runtime.json")
+    assert report["success_count"] == 0
+    assert report["success_with_warnings_count"] == 1
+    assert report["warning_rate"] == 1.0
+    assert report["per_page"][0]["page_id"] == "page.png#3"
+    assert report["per_page"][0]["document_id"] == "doc-1"
+    assert report["per_page"][0]["warnings"] == ["native text fallback"]
 
 
 # ---------------------------------------------------------------------------
@@ -369,6 +437,7 @@ def test_build_benchmark_metadata(tmp_path):
     assert metadata["benchmark"] == "OmniDocBench"
     assert metadata["upstream_commit"] == odb.PINNED_UPSTREAM_COMMIT
     assert metadata["num_samples"] == 3
+    assert isinstance(metadata["git_commit"], str) and metadata["git_commit"]
     assert metadata["ground_truth_sha256"] == odb.dataset_content_hash(gt)
     assert json.dumps(metadata)  # must be JSON-serializable as-is
 
@@ -595,7 +664,23 @@ def test_evaluate_does_not_symlink_resolve_the_interpreter(tmp_path, monkeypatch
         captured["omnidoc_python"] = omnidoc_python
         return subprocess.CompletedProcess(args=[], returncode=0, stdout="", stderr="")
 
-    monkeypatch.setattr(evaluate.odb, "load_dataset", lambda root: (gt, []))
+    monkeypatch.setattr(
+        evaluate.odb,
+        "load_dataset",
+        lambda root, ground_truth_path=None: (
+            gt,
+            [
+                odb.OmniDocSample(
+                    index=0,
+                    image_path=Path("page.jpg"),
+                    image_name="page.jpg",
+                    page_no=0,
+                    width=1,
+                    height=1,
+                )
+            ],
+        ),
+    )
     monkeypatch.setattr(evaluate.odb, "check_evaluator_available", lambda *a, **k: None)
     monkeypatch.setattr(
         evaluate.odb, "write_evaluator_config", lambda **kwargs: kwargs["output_path"]
