@@ -1,0 +1,22 @@
+schema_version: benchmark-manifest/1
+name: OmniDocBench
+version: "1.6"
+task: physical_document_extraction
+source:
+  url: https://github.com/opendatalab/OmniDocBench
+  license_note: Apache-2.0; verified in the locally pinned evaluator checkout.
+  usage_notes: Official evaluation remains external and uses its own isolated environment.
+download:
+  mode: existing_local
+  checksum: null
+  live_evaluation: false
+local_path_candidates:
+  - experiments/005_omnidocbench/dataset/demo
+  - .external/OmniDocBench/demo_data/omnidocbench_demo
+  - experiments/034a_omnidocbench_snapshot/dataset/full
+expected_file_types: [image/png, image/jpeg]
+ground_truth: OmniDocBench_demo.json
+evaluation:
+  adapter: doc_extraction.evaluation.omnidocbench
+  metrics: [official_external_metrics]
+subset: upstream_demo_or_operator_selected

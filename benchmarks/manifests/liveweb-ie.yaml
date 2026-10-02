@@ -1,0 +1,19 @@
+schema_version: benchmark-manifest/1
+name: LiveWeb-IE
+version: MANIFEST_ONLY
+task: web_acquisition
+source:
+  url: null
+  license_note: NOT APPLICABLE UNTIL AN OPERATOR CURATES TARGETS
+  usage_notes: Explicitly opt-in only. Every target remains subject to crawler scope, SSRF, TLS, robots, and rate policies.
+download:
+  mode: opt_in
+  checksum: null
+  live_evaluation: true
+local_path_candidates: [.benchmarks/liveweb-ie]
+expected_file_types: []
+ground_truth: null
+evaluation:
+  adapter: web_acquisition.job_metrics
+  metrics: [acquired_resources, policy_rejections, ssrf_blocks, robots_blocks, bytes_downloaded]
+subset: no_targets_curated

@@ -1,0 +1,19 @@
+schema_version: benchmark-manifest/1
+name: Kleister NDA
+version: UNVERIFIED
+task: semantic_document_extraction
+source:
+  url: null
+  license_note: NOT VERIFIED LOCALLY
+  usage_notes: No authoritative local dataset source or licence record was found; obtain and verify before download.
+download:
+  mode: manual
+  checksum: null
+  live_evaluation: false
+local_path_candidates: [.benchmarks/kleister-nda/dev]
+expected_file_types: []
+ground_truth: null
+evaluation:
+  adapter: benchmarks.registry.exact_field_metrics
+  metrics: [field_precision, field_recall, field_f1, micro_f1, macro_f1]
+subset: development_only

@@ -1,0 +1,19 @@
+schema_version: benchmark-manifest/1
+name: SWDE Expanded
+version: UNVERIFIED
+task: web_structured_extraction
+source:
+  url: null
+  license_note: NOT VERIFIED LOCALLY
+  usage_notes: No authoritative local dataset source or licence record was found; stratify by site and vertical after verified acquisition.
+download:
+  mode: manual
+  checksum: null
+  live_evaluation: false
+local_path_candidates: [.benchmarks/swde-expanded/subset]
+expected_file_types: [text/html]
+ground_truth: null
+evaluation:
+  adapter: benchmarks.registry.exact_field_metrics
+  metrics: [attribute_precision, attribute_recall, attribute_f1, micro_f1, macro_f1, per_site_f1, per_vertical_f1]
+subset: stratified_development_subset

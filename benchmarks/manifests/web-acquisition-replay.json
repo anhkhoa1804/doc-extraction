@@ -1,0 +1,25 @@
+{
+  "schema_version": "web-acquisition-replay/1",
+  "cases": [
+    {
+      "case_id": "bfs-duplicate-content",
+      "seeds": ["http://web.example/a"],
+      "routes": [
+        {"path": "/a", "body": "<a href=\"/b\">B</a><a href=\"/d\">D</a>", "content_type": "text/html"},
+        {"path": "/b", "body": "<a href=\"/c\">C</a>", "content_type": "text/html"},
+        {"path": "/c", "body": "shared", "content_type": "text/plain"},
+        {"path": "/d", "body": "shared", "content_type": "text/plain"}
+      ],
+      "expected_acquired": ["/a", "/b", "/c", "/d"]
+    },
+    {
+      "case_id": "redirect-bounded-body",
+      "seeds": ["http://web.example/redirect"],
+      "routes": [
+        {"path": "/redirect", "status": 302, "location": "/final"},
+        {"path": "/final", "body": "final", "content_type": "text/plain"}
+      ],
+      "expected_acquired": ["/redirect"]
+    }
+  ]
+}
