@@ -426,12 +426,15 @@ class PaddleOCRVLBackend:
         if path.suffix.lower() not in {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp"}:
             raise ValueError("PaddleOCR-VL benchmark adapter currently accepts raster images only")
         sha256 = sha256_file(path)
+        model_attestation_started = time.perf_counter()
         model_versions = self.model_versions()
+        model_attestation_seconds = time.perf_counter() - model_attestation_started
         if self._test_pipeline is not None:
             predict_started = time.perf_counter()
             results = list(self._test_pipeline.predict(str(path)))
             self.last_phase_timings = {
                 "pipeline_predict_seconds": time.perf_counter() - predict_started,
+                "parent_model_artifact_attestation_seconds": model_attestation_seconds,
                 "timing_source": "injected_test_pipeline",
             }
             if len(results) != 1:
@@ -460,9 +463,13 @@ class PaddleOCRVLBackend:
                 )
             except WorkerTimeout as exc:
                 self.last_phase_timings = {
+                    "parent_model_artifact_attestation_seconds": model_attestation_seconds,
                     "worker_startup_seconds": worker.last_startup_seconds,
                     "parent_request_elapsed_seconds": worker.last_request_seconds,
                     "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "worker_lifecycle_state": worker.last_state,
+                    "worker_termination_verified": worker.termination_verified,
+                    "scratch_cleanup_verified": worker.scratch_dir is None,
                     "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
                     "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
                     "pipeline_predict_seconds": None,
@@ -478,9 +485,13 @@ class PaddleOCRVLBackend:
                 ) from exc
             except WorkerTempLimit as exc:
                 self.last_phase_timings = {
+                    "parent_model_artifact_attestation_seconds": model_attestation_seconds,
                     "worker_startup_seconds": worker.last_startup_seconds,
                     "parent_request_elapsed_seconds": worker.last_request_seconds,
                     "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "worker_lifecycle_state": worker.last_state,
+                    "worker_termination_verified": worker.termination_verified,
+                    "scratch_cleanup_verified": worker.scratch_dir is None,
                     "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
                     "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
                     "timeout": "max_temp_bytes",
@@ -492,9 +503,13 @@ class PaddleOCRVLBackend:
                 ) from exc
             except (WorkerCrashed, WorkerProtocolError) as exc:
                 self.last_phase_timings = {
+                    "parent_model_artifact_attestation_seconds": model_attestation_seconds,
                     "worker_startup_seconds": worker.last_startup_seconds,
                     "parent_request_elapsed_seconds": worker.last_request_seconds,
                     "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                    "worker_lifecycle_state": worker.last_state,
+                    "worker_termination_verified": worker.termination_verified,
+                    "scratch_cleanup_verified": worker.scratch_dir is None,
                     "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
                     "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
                     "timing_source": "parent_supervisor; worker failed before complete timing response",
@@ -506,12 +521,17 @@ class PaddleOCRVLBackend:
             worker_accounted = reply_timings.get("worker_accounted_seconds")
             self.last_phase_timings = {
                 **reply_timings,
+                "parent_model_artifact_attestation_seconds": model_attestation_seconds,
                 "worker_startup_seconds": worker.last_startup_seconds,
                 "model_initialization_seconds": worker.ready_metadata.get("model_initialization_seconds"),
                 "model_weight_attestation_seconds": worker.ready_metadata.get("model_weight_attestation_seconds"),
                 "parent_request_elapsed_seconds": worker.last_request_seconds,
                 "parent_request_wall_seconds": time.perf_counter() - request_started,
-                "worker_termination_and_cleanup_seconds": worker.last_termination_seconds,
+                # The persistent worker is intentionally reused after a
+                # successful request, so termination/cleanup did not occur.
+                "worker_termination_and_cleanup_seconds": None,
+                "worker_lifecycle_state": worker.last_state,
+                "worker_cleanup_status": "persistent_worker_reused",
                 "timing_source": "worker/public-pipeline boundaries; preprocess/inference/decoder internals are opaque",
             }
             if isinstance(worker_accounted, (int, float)):

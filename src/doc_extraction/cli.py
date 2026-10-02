@@ -400,6 +400,11 @@ def process_file(
                 guard.check_runtime("after whole-document backend")
 
         warnings = _collect_page_warnings(pages)
+        run_metadata_attestation_started = time.perf_counter()
+        run_model_versions = collect_model_versions(backend_name)
+        run_metadata_attestation_seconds = time.perf_counter() - run_metadata_attestation_started
+        if backend is not None and isinstance(getattr(backend, "last_phase_timings", None), dict):
+            backend.last_phase_timings["parent_run_metadata_attestation_seconds"] = run_metadata_attestation_seconds
         metadata = RunMetadata(
             input_filename=path.name,
             input_path=str(submitted_path),
@@ -408,7 +413,7 @@ def process_file(
             route=route_decision.route,
             pipeline=backend_name,
             backend=backend_name,
-            model_versions=collect_model_versions(backend_name),
+            model_versions=run_model_versions,
             config_snapshot=config.to_snapshot(),
             timestamp=datetime.now(timezone.utc).isoformat(),
             device=config.device,

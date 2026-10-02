@@ -66,7 +66,7 @@ def build_source_attestation() -> dict:
         path = REPO_ROOT / rel
         relevant = (
             rel.startswith("src/doc_extraction/") and rel.endswith(".py")
-            or rel == "experiments/005_omnidocbench/prepare.py"
+            or rel in {"experiments/005_omnidocbench/prepare.py", "experiments/005_omnidocbench/evaluate.py"}
             or rel.startswith("benchmarks/scripts/") and rel.endswith(".py")
             or rel in {"pyproject.toml", "uv.lock"}
         )
@@ -87,7 +87,7 @@ def build_source_attestation() -> dict:
         "working_tree_status": status,
         "source_files": file_hashes,
         "source_snapshot_sha256": digest.hexdigest(),
-        "source_snapshot_scope": "current working-tree bytes for doc_extraction Python sources, benchmark scripts, prepare.py, pyproject.toml and uv.lock; evaluator revision is recorded separately",
+        "source_snapshot_scope": "current working-tree bytes for doc_extraction Python sources, benchmark scripts, OmniDocBench prepare/evaluate scripts, pyproject.toml and uv.lock; evaluator revision is recorded separately",
         "root_uv_lock_sha256": hashlib.sha256((REPO_ROOT / "uv.lock").read_bytes()).hexdigest(),
     }
 
@@ -98,6 +98,16 @@ def build_runtime_attestation() -> dict:
         for distribution in importlib.metadata.distributions()
     )
     package_inventory = "\n".join(packages) + "\n"
+    critical_names = {
+        "doc-extraction", "paddlepaddle-gpu", "paddlepaddle", "paddleocr", "paddlex",
+        "numpy", "pillow", "safetensors", "opencv-contrib-python",
+    }
+    critical_packages = {}
+    for name in sorted(critical_names):
+        try:
+            critical_packages[name] = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            continue
     try:
         gpu = subprocess.run(
             ["nvidia-smi", "--query-gpu=name,memory.total,driver_version", "--format=csv,noheader"],
@@ -112,7 +122,8 @@ def build_runtime_attestation() -> dict:
         "python": sys.version,
         "python_executable": Path(sys.executable).name,
         "platform": platform.platform(),
-        "packages": packages,
+        "critical_packages": critical_packages,
+        "package_inventory_count": len(packages),
         "package_inventory_sha256": hashlib.sha256(package_inventory.encode()).hexdigest(),
         "gpu_inventory": gpu,
     }
@@ -240,6 +251,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"samples: {len(samples)} of {total_available} available (backend={args.backend})")
 
     config = load_config(args.config)
+    if args.backend == "paddleocr_vl" and config.device != "cuda":
+        print(
+            "refusing PaddleOCR-VL benchmark on a non-CUDA config; use the explicit GPU profile "
+            "(full E2E benchmark execution never falls back to CPU)",
+            file=sys.stderr,
+        )
+        return 2
     source_attestation = build_source_attestation()
     runtime_attestation = build_runtime_attestation()
     pre_run_model_versions = collect_model_versions(args.backend)
@@ -286,6 +304,19 @@ def main(argv: list[str] | None = None) -> int:
 
     runtime_report = odb.write_runtime_report(results, output_root / "runtime.json")
     runtime_report["wall_clock_seconds"] = round(wall_seconds, 3)
+    expected_page_ids = [f"{sample.image_name}#{sample.page_no}" for sample in samples]
+    actual_page_ids = [result.page_id for result in results]
+    runtime_report["coverage"] = {
+        "expected": len(expected_page_ids),
+        "attempted": len(actual_page_ids),
+        "completed": sum(result.error is None for result in results),
+        "failed": sum(result.error is not None for result in results),
+        "missing_attempts": sorted(set(expected_page_ids) - set(actual_page_ids)),
+        "unexpected_attempts": sorted(set(actual_page_ids) - set(expected_page_ids)),
+        "attempt_ids_exact": len(actual_page_ids) == len(expected_page_ids)
+        and set(actual_page_ids) == set(expected_page_ids)
+        and len(actual_page_ids) == len(set(actual_page_ids)),
+    }
     (output_root / "runtime.json").write_text(
         json.dumps(runtime_report, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -315,6 +346,7 @@ def main(argv: list[str] | None = None) -> int:
     metadata["evaluation_ground_truth"] = "ground_truth_subset.json" if manifest else None
     metadata["prediction_directory"] = predictions_dir.name
     records_by_index = {index: raw_records[index] for index in range(len(raw_records))}
+    results_by_page_id = {result.page_id: result for result in results}
     metadata["sample_ids"] = [
         {
             "dataset_index": sample.index,
@@ -323,16 +355,20 @@ def main(argv: list[str] | None = None) -> int:
             "image_name": sample.image_name,
             "page_no": sample.page_no,
             "image_sha256": hashlib.sha256(sample.image_path.read_bytes()).hexdigest(),
+            "document_id": results_by_page_id[f"{sample.image_name}#{sample.page_no}"].document_id,
         }
         for sample in samples
     ]
     metadata["source_attestation"] = source_attestation
     metadata["runtime_attestation"] = runtime_attestation
     metadata["pre_run_model_versions"] = pre_run_model_versions
-    (output_root / "ground_truth_subset.json").write_text(
-        json.dumps([records_by_index[sample.index] for sample in samples], ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    metadata["run_attestation_version"] = 1
+    ground_truth_subset = json.dumps(
+        [records_by_index[sample.index] for sample in samples], ensure_ascii=False, indent=2
+    ) + "\n"
+    (output_root / "ground_truth_subset.json").write_text(ground_truth_subset, encoding="utf-8")
+    metadata["ground_truth_subset_sha256"] = hashlib.sha256(ground_truth_subset.encode("utf-8")).hexdigest()
+    metadata["selected_page_ids"] = expected_page_ids
     (output_root / "run_metadata.json").write_text(
         json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8"
     )

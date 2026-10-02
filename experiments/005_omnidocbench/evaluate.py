@@ -22,9 +22,11 @@ local scoring).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -72,6 +74,10 @@ def build_parser() -> argparse.ArgumentParser:
                               "Ghostscript) the upstream project itself documents as Linux-only — do not enable "
                               "this on Windows. See docs in experiments/005_omnidocbench/README.md.")
     parser.add_argument("--timeout-seconds", type=int, default=None)
+    parser.add_argument(
+        "--require-pinned-evaluator", action="store_true",
+        help="Require the local OmniDocBench checkout to match the adapter's pinned upstream commit.",
+    )
     return parser
 
 
@@ -105,6 +111,42 @@ def main(argv: list[str] | None = None) -> int:
         print(f"dataset error: {exc}", file=sys.stderr)
         return 1
 
+    if run_metadata.get("sample_manifest_identity") and (
+        run_metadata.get("run_attestation_version") == 1 or args.require_pinned_evaluator
+    ):
+        manifest_path = output_root / "sample_manifest.json"
+        if not manifest_path.is_file():
+            print("frozen-subset run is missing its copied sample_manifest.json", file=sys.stderr)
+            return 1
+        manifest_bytes = manifest_path.read_bytes()
+        if hashlib.sha256(manifest_bytes).hexdigest() != run_metadata.get("sample_manifest_sha256"):
+            print("copied benchmark manifest hash differs from run metadata", file=sys.stderr)
+            return 1
+        manifest = json.loads(manifest_bytes)
+        if manifest.get("subset_identity", {}).get("sha256") != run_metadata.get("sample_manifest_identity"):
+            print("copied manifest identity differs from run metadata", file=sys.stderr)
+            return 1
+        gt_bytes = gt_path.read_bytes()
+        if hashlib.sha256(gt_bytes).hexdigest() != run_metadata.get("ground_truth_subset_sha256"):
+            print("run-scoped ground-truth hash differs from run metadata", file=sys.stderr)
+            return 1
+        selected_ids = run_metadata.get("selected_page_ids")
+        metadata_samples = run_metadata.get("sample_ids")
+        if (
+            not isinstance(selected_ids, list)
+            or not isinstance(metadata_samples, list)
+            or len(selected_ids) != len(samples)
+            or len(metadata_samples) != len(samples)
+            or len(set(selected_ids)) != len(selected_ids)
+        ):
+            print("run metadata selected-page coverage is invalid", file=sys.stderr)
+            return 1
+        loaded_ids = [f"{sample.image_name}#{sample.page_no}" for sample in samples]
+        recorded_ids = [entry.get("page_id") for entry in metadata_samples]
+        if loaded_ids != selected_ids or recorded_ids != selected_ids:
+            print("run-scoped ground truth does not exactly match the recorded page IDs", file=sys.stderr)
+            return 1
+
     if not predictions_dir.exists() or not any(predictions_dir.glob("*.md")):
         print(
             f"no predictions found at {predictions_dir} — run prepare.py first "
@@ -126,6 +168,24 @@ def main(argv: list[str] | None = None) -> int:
     except odb.EvaluatorNotAvailableError as exc:
         print(f"evaluator not available: {exc}", file=sys.stderr)
         return 2
+    if args.require_pinned_evaluator:
+        try:
+            actual_revision = subprocess.run(
+                ["git", "-C", str(omnidoc_repo), "rev-parse", "HEAD"],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=5,
+            ).stdout.strip()
+        except (OSError, subprocess.SubprocessError) as exc:
+            print(f"cannot determine evaluator checkout revision: {exc}", file=sys.stderr)
+            return 2
+        if actual_revision != odb.PINNED_UPSTREAM_COMMIT:
+            print(
+                f"evaluator revision mismatch: {actual_revision} != {odb.PINNED_UPSTREAM_COMMIT}",
+                file=sys.stderr,
+            )
+            return 2
 
     config_path = odb.write_evaluator_config(
         ground_truth_path=gt_path,

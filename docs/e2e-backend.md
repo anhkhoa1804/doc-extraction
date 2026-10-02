@@ -57,7 +57,14 @@ serialization, parent roundtrip, and timeout cleanup. Paddle's public
 internal decoding; those phases are deliberately reported as one opaque
 interval, not guessed sub-timings. The parent roundtrip residual also includes
 serialization, IPC, and scheduling overhead, so it is not a pure transport
-measurement.
+measurement. On a cold worker, `worker_startup_seconds` includes waiting for
+the worker's ready response and therefore overlaps
+`model_initialization_seconds`; do not add those values as disjoint time.
+On a successful page, the isolated worker remains persistent; termination and
+scratch cleanup therefore did not run, and the corresponding duration is
+`null` with `worker_cleanup_status=persistent_worker_reused`. A forced timeout
+records a numeric termination/cleanup duration plus process-group termination
+and scratch-cleanup verification flags.
 
 This is process isolation and hard cancellation, not an OS sandbox: the worker
 runs under the service account and can read files that account can read. The
@@ -92,6 +99,67 @@ The later runtime-analysis pass added phase timing and preserved the v2
 timeout/regression cases. Its v3 smoke, determinism, performance preflight, and
 full rerun are explicitly recorded as blocked/not run when the shared L4 is
 occupied; instrumentation alone does not establish a new paired baseline.
+
+## Controlled representative-v2 GPU execution
+
+Use the checked-in orchestrator after the dedicated Paddle environment and L4
+are available. The plan is side-effect free; execution is explicit and fails
+closed if the selected GPU/runtime, frozen data, Classic comparison run, model
+hashes, config, or evaluator revision differ from the recorded requirements.
+It does not fall back to CPU and does not load a model during GPU preflight.
+
+```bash
+RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
+uv run python benchmarks/scripts/e2e_gpu_benchmark.py \
+  --dataset experiments/034a_omnidocbench_snapshot/dataset/full \
+  --config configs/gpu.yaml \
+  --runtime-python .cache/e2e/paddleocr-vl-1_6-venv/bin/python \
+  --evaluator-python .venv-omnidoc/bin/python \
+  --evaluator-repo .external/OmniDocBench \
+  --classic-run .benchmarks/runs/omnidocbench/representative-v2-full-20261002T080500Z \
+  --output-root ".benchmarks/runs/omnidocbench/e2e-gpu-v3-${RUN_ID}" \
+  --plan
+```
+
+After reviewing the printed page IDs and paths, rerun the same command replacing
+`--plan` with `--execute`. The controlled sequence is: five-page smoke, one-page
+phase timing, two runs of the frozen ten-page determinism set, isolated runs of
+both historical timeout pages, a frozen-order 20-page extraction plus official
+evaluation, then the exact 180-page extraction and official evaluation. Any
+missing/extra prediction, mismatched manifest or run-scoped GT, incomplete
+phase timing on a completed E2E page, non-timeout worker failure in the smoke or
+determinism checks, or unverified timeout cleanup stops the run. Determinism
+metrics are withheld if either ten-page pass is incomplete, while isolated
+timeout diagnosis still proceeds. Any incomplete 20-page preflight stops before
+the full run. A timeout-page diagnostic is recorded as a timeout and does not
+become an empty prediction.
+
+The full run is scored only with exact 180/180 successful predictions and
+matching run-scoped ground truth. The final output directory contains
+`execution_manifest.json`, `execution_summary.json`, `determinism.json`, and a
+paired Classic-vs-E2E report with per-page/instance deltas. Each stage also
+keeps the extraction runner's source/runtime/model attestations and per-page
+phase timings. The attestation records the dirty-tree status and hashes the
+benchmark-relevant source files; unrelated dirty files do not prevent a run.
+
+The runner enforces the documented Python 3.12.14 / PaddlePaddle GPU 3.2.1
+(CUDA 12.6) / PaddleOCR 3.7.0 / PaddleX 3.7.2 environment. A complete
+transitive lock for the optional Paddle environment is not maintained yet;
+the run records critical versions plus a digest/count for the full installed
+package inventory. The runner checks
+the model and layout weight SHA-256 values before inference and verifies their
+identity in each extraction run. The evaluator checkout must equal
+`193627ae9e97d89188468ed1ee3b7a856ff76044`. No model weights or benchmark
+inputs are committed. The Paddle public `pipeline.predict()` remains a single
+opaque timed boundary; internal preprocess, inference, and decoder durations
+are not fabricated or separately reported.
+
+GPU determinism remains **NOT ESTABLISHED** until the actual two-pass GPU
+experiment completes. The harness compares canonical page content (IDs,
+element order, reading order, text, tables, formulas, geometry and page
+diagnostics) plus serialized Markdown bytes, ignoring document timestamps and
+runtime. It does not compare raw native Paddle result objects because those
+are not persisted by the worker.
 
 The model card recommends its page-level pipeline over its element-only
 Transformers example; this implementation uses the page-level pipeline.

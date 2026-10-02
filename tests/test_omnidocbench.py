@@ -662,6 +662,11 @@ def test_evaluate_does_not_symlink_resolve_the_interpreter(tmp_path, monkeypatch
     predictions = tmp_path / "out" / "predictions"
     predictions.mkdir(parents=True)
     (predictions / "page.md").write_text("# x", encoding="utf-8")
+    (tmp_path / "out" / "run_metadata.json").write_text(
+        json.dumps({"run_attestation_version": 1, "sample_manifest_identity": None,
+                    "prediction_directory": "predictions"}),
+        encoding="utf-8",
+    )
 
     venv_python = tmp_path / ".venv-omnidoc" / "bin" / "python"
     venv_python.parent.mkdir(parents=True)
