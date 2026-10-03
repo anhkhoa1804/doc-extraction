@@ -295,37 +295,49 @@ def _tokens_in_reading_order(tokens: list[OCRToken]) -> list[OCRToken]:
 # least one alphanumeric character, which costs nothing and excludes runs of
 # rule/border glyphs.
 #
-# Tokens inside a detected table are deliberately NOT recovered here. Table
-# ownership has its own tiered rules and its own guarantees
-# (experiments/017_table_cell_geometry), and text that belongs to a table
-# belongs in its cells, not in a sibling text element. Leaving them alone
-# also makes duplication impossible by construction: a recovered token is by
-# definition claimed by no region and inside no table, so it cannot also have
+# Tokens assigned to table cells are deliberately NOT recovered here. Table
+# ownership has its own tiered rules and guarantees
+# (experiments/017_table_cell_geometry), and text that belongs to a cell
+# belongs there, not in a sibling text element. The table's outer bbox alone
+# is not an ownership claim: unassigned titles/footnotes inside it remain
+# eligible for ordinary text recovery. A recovered token is therefore
+# unclaimed by every layout region and every cell, so it cannot also have
 # reached a region's text or a cell's text.
 #
 # Recovered blocks carry real geometry, so `compute_reading_order` places
 # them by position like any other element rather than at the end of the page.
 
 
-def _orphan_tokens(
-    regions: list[Region], ocr_result: OCRResult, tables: list
-) -> list[OCRToken]:
-    """OCR tokens claimed by no layout region and inside no detected table.
+def _table_cell_token_ids(tables: list, ocr_result: OCRResult) -> set[int]:
+    """Return OCR tokens physically owned by a structured table cell.
 
-    Cell boxes are excluded as well as each table's outer box, because
-    `Table.bbox` is optional: a table that carries cells but no outer bbox
-    would otherwise leave its cells' own tokens looking unclaimed, and
-    `_fill_table_cell_text` will have put them in cells regardless. Checking
-    both is what makes "recovered tokens cannot also be cell text" true by
-    construction rather than by assumption.
+    An outer table box is not an ownership claim: title/footnote text can sit
+    inside it without belonging to a cell. Cell geometry is the available
+    physical evidence when a caller has not retained the exact assignment
+    ledger from `_fill_table_cell_text`.
     """
-    boxes = [t.bbox for t in tables if getattr(t, "bbox", None) is not None]
-    boxes += [c.bbox for t in tables for c in (getattr(t, "cells", None) or [])
-              if getattr(c, "bbox", None) is not None]
+    return {
+        id(token)
+        for table in tables
+        for cell in (getattr(table, "cells", None) or [])
+        if getattr(cell, "bbox", None) is not None
+        for token in ocr_result.tokens
+        if _center_in(token.bbox, cell.bbox)
+    }
+
+
+def _orphan_tokens(
+    regions: list[Region], ocr_result: OCRResult, tables: list,
+    table_owned_token_ids: set[int] | None = None,
+) -> list[OCRToken]:
+    """OCR tokens claimed by no layout region and no table cell."""
+    owned_ids = table_owned_token_ids
+    if owned_ids is None:
+        owned_ids = _table_cell_token_ids(tables, ocr_result)
     return [
         t for t in ocr_result.tokens
         if not any(_center_in(t.bbox, r.bbox) for r in regions)
-        and not any(_center_in(t.bbox, b) for b in boxes)
+        and id(t) not in owned_ids
     ]
 
 
@@ -377,16 +389,16 @@ def _cluster_orphans(tokens: list[OCRToken]) -> list[list[OCRToken]]:
 def _gather_region_text(
     region: Region,
     ocr_result: OCRResult,
-    excluded_boxes: list[BBox] | None = None,
+    excluded_token_ids: set[int] | None = None,
 ) -> str | None:
     if not ocr_result.tokens:
         return None
-    excluded_boxes = excluded_boxes or []
+    excluded_token_ids = excluded_token_ids or set()
     contained = [
         token
         for token in ocr_result.tokens
         if _center_in(token.bbox, region.bbox)
-        and not any(_center_in(token.bbox, box) for box in excluded_boxes)
+        and id(token) not in excluded_token_ids
     ]
     if not contained:
         return None
@@ -514,7 +526,7 @@ def _renumber_rows_by_position(table: Table) -> None:
     table.n_rows = len(bands)
 
 
-def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> None:
+def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> set[int]:
     """Table Transformer produces grid geometry only (no text). Fill each
     cell's text from whichever OCR tokens land there, in three tiers:
 
@@ -530,8 +542,9 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> N
 
     Every tier stays inside the table's own outer bbox; nothing here ever
     considers a token that starts outside it, however close."""
+    owned_token_ids: set[int] = set()
     if not ocr_result.tokens:
-        return
+        return owned_token_ids
     for table in table_result.tables:
         claimed_ids: set[int] = set()
 
@@ -542,6 +555,7 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> N
             if not contained:
                 continue
             claimed_ids.update(id(t) for t in contained)
+            owned_token_ids.update(id(t) for t in contained)
             cell.text = " ".join(
                 t.text for t in _tokens_in_reading_order(contained) if t.text
             ).strip()
@@ -569,6 +583,7 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> N
             ]
             if len(qualifying) == 1:
                 best_cell = qualifying[0]
+                owned_token_ids.add(id(t))
                 best_cell.text = f"{best_cell.text} {t.text}".strip() if best_cell.text else t.text
                 best_cell.confidence = min(best_cell.confidence or 1.0, 0.7)
             else:
@@ -595,6 +610,7 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> N
             y1 = max(t.bbox.y1 for t in cluster)
             for col, col_tokens in by_col.items():
                 col_tokens.sort(key=lambda t: t.bbox.x0)
+                owned_token_ids.update(id(t) for t in col_tokens)
                 lo, hi = column_bands[col]
                 table.cells.append(Cell(
                     row=next_row, col=col,
@@ -622,6 +638,7 @@ def _fill_table_cell_text(table_result: TableResult, ocr_result: OCRResult) -> N
             # is a tolerance correction on structure that was found, not
             # an inference that structure exists at all.
             table.confidence = 0.5
+    return owned_token_ids
 
 
 def merge_regions_into_page(
@@ -633,6 +650,7 @@ def merge_regions_into_page(
     ocr_result: OCRResult,
     table_result: TableResult | None,
     rendered_image_path: Path | None,
+    table_owned_token_ids: set[int] | None = None,
 ) -> Page:
     """Combine one page's layout regions + OCR tokens + detected tables into
     a canonical Page. Region text is assembled from whichever OCR tokens
@@ -640,42 +658,59 @@ def merge_regions_into_page(
     deliberately inspectable rule); table regions are matched to detected
     Table objects by bbox IoU."""
     tables = list(table_result.tables) if table_result else []
-    # A detected table owns text whose token center lies inside its physical
-    # bounds. Table-cell text is projected separately by `_fill_table_cell_text`;
-    # allowing an overlapping layout text region to gather those same tokens
-    # would publish the same source pixels twice (once as a table cell and once
-    # as free text). This matches `_orphan_tokens`' existing table exclusion.
-    table_boxes = [table.bbox for table in tables if table.bbox is not None]
+    # A table owns OCR text only when the table-cell assignment stage actually
+    # assigned the token (or its cell geometry provides that ownership evidence).
+    # The outer table bounds can also contain titles/footnotes and must not
+    # suppress those from ordinary text regions.
+    owned_token_ids = table_owned_token_ids
+    if owned_token_ids is None:
+        owned_token_ids = _table_cell_token_ids(tables, ocr_result)
     elements: list[Element] = []
+    unmatched_table_region_ids: list[str] = []
+    represented_table_ids: set[str] = set()
 
     for i, region in enumerate(layout_result.regions):
         etype = ElementType(_LABEL_TO_ELEMENT_TYPE.get(region.label.lower(), "other"))
         element_id = f"p{page_index}-e{i}"
 
-        if etype == ElementType.TABLE and tables:
+        if etype == ElementType.TABLE:
+            available_tables = [table for table in tables if table.id not in represented_table_ids]
             best_table = max(
-                tables, key=lambda t: (t.bbox.iou(region.bbox) if t.bbox else 0.0)
+                available_tables,
+                key=lambda table: table.bbox.iou(region.bbox) if table.bbox else 0.0,
+                default=None,
             )
-            matched = (
-                best_table.id
-                if best_table.bbox is not None and best_table.bbox.iou(region.bbox) > 0.1
+            matched_table = (
+                best_table
+                if best_table is not None
+                and best_table.bbox is not None
+                and best_table.bbox.iou(region.bbox) > 0.1
                 else None
             )
-            elements.append(
-                Element(
-                    id=element_id,
-                    type=etype,
-                    bbox=region.bbox,
-                    page_number=page_index + 1,
-                    confidence=region.confidence,
-                    source_backend=layout_result.backend,
-                    table_id=matched,
-                    order_index=i,
+            if matched_table is not None:
+                represented_table_ids.add(matched_table.id)
+                elements.append(
+                    Element(
+                        id=element_id,
+                        type=ElementType.TABLE,
+                        bbox=region.bbox,
+                        page_number=page_index + 1,
+                        confidence=region.confidence,
+                        source_backend=layout_result.backend,
+                        table_id=matched_table.id,
+                        order_index=i,
+                    )
                 )
-            )
-            continue
+                continue
 
-        text = _gather_region_text(region, ocr_result, excluded_boxes=table_boxes)
+            # A layout detector can identify a table-shaped region even when
+            # the structure backend cannot produce a canonical Table. Keep
+            # the observed region and its OCR text, but do not publish an
+            # invalid TABLE element or invent a table reference.
+            etype = ElementType.OTHER
+            unmatched_table_region_ids.append(element_id)
+
+        text = _gather_region_text(region, ocr_result, excluded_token_ids=owned_token_ids)
         elements.append(
             Element(
                 id=element_id,
@@ -686,6 +721,27 @@ def merge_regions_into_page(
                 confidence=region.confidence,
                 source_backend=layout_result.backend,
                 order_index=i,
+                extra={"layout_label": region.label} if element_id in unmatched_table_region_ids else {},
+            )
+        )
+
+    # Structure recognition can find a table even when layout classification
+    # does not label any corresponding region as `table`. Preserve the
+    # structured table with one canonical owner rather than dropping it from
+    # serialization or leaking its cell text into sibling text elements.
+    for table_index, table in enumerate(tables):
+        if table.id in represented_table_ids:
+            continue
+        elements.append(
+            Element(
+                id=f"p{page_index}-etbl{table_index}",
+                type=ElementType.TABLE,
+                bbox=table.bbox,
+                page_number=page_index + 1,
+                confidence=table.confidence,
+                source_backend=table.source_backend,
+                table_id=table.id,
+                order_index=len(elements),
             )
         )
 
@@ -694,7 +750,7 @@ def merge_regions_into_page(
     # order_index values are untouched; `compute_reading_order` (stage H)
     # then places them geometrically, which is where this page's canonical
     # ordering actually lives.
-    orphans = _orphan_tokens(layout_result.regions, ocr_result, tables)
+    orphans = _orphan_tokens(layout_result.regions, ocr_result, tables, owned_token_ids)
     recovered_tokens = 0
     for j, block in enumerate(_cluster_orphans(orphans)):
         text = " ".join(t.text for t in block if t.text).strip()
@@ -734,6 +790,14 @@ def merge_regions_into_page(
             )
     if table_result:
         notes.extend(f"table ({table_result.backend}): {warning}" for warning in table_result.warnings)
+    notes.extend(
+        f"layout table region {element_id} preserved as other: no matching structured table was produced"
+        for element_id in unmatched_table_region_ids
+    )
+    notes.extend(
+        f"structured table {table.id} emitted without a matching layout table region"
+        for table in tables if table.id not in represented_table_ids
+    )
     if orphans:
         notes.append(
             f"orphan OCR recovery: {recovered_tokens} of {len(orphans)} unclaimed "
@@ -824,6 +888,7 @@ def run_scanned_page_pipeline(
         trace.observe_dependency(layout_backend, page_input)
 
     table_result: TableResult | None = None
+    table_owned_token_ids: set[int] = set()
     if table_backend.is_available():
         table_regions = [r for r in layout_result.regions if r.label.lower() == "table"]
         table_result = table_stage.run_table(
@@ -837,7 +902,7 @@ def run_scanned_page_pipeline(
             observation_ledger.capture_acquisition_scanned_page(
                 page_index=page_index, layout_result=layout_result, ocr_result=ocr_result, table_result=table_result
             )
-        _fill_table_cell_text(table_result, ocr_result)
+        table_owned_token_ids = _fill_table_cell_text(table_result, ocr_result)
     else:
         if trace is not None:
             trace.unavailable("table")
@@ -866,7 +931,8 @@ def run_scanned_page_pipeline(
             page_index=page_index, layout_result=layout_result, ocr_result=ocr_result, table_result=None
         )
     page = merge_regions_into_page(
-        page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path
+        page_index, width_px, height_px, dpi, layout_result, ocr_result, table_result, image_path,
+        table_owned_token_ids=table_owned_token_ids,
     )
     if trace is not None:
         trace.canonical_page(page)

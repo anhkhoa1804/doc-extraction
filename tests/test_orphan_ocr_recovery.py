@@ -19,6 +19,7 @@ end-to-end numbers live in `experiments/024_ocr_fidelity_recovery/`.
 """
 from __future__ import annotations
 
+from doc_extraction.evaluation.omnidocbench import page_to_prediction_markdown
 from doc_extraction.pipelines.base import (
     LayoutResult,
     OCRResult,
@@ -260,7 +261,7 @@ def test_visual_table_owns_tokens_also_covered_by_layout_text_region():
         ],
         backend="stub-ocr",
     )
-    _fill_table_cell_text(table_result, ocr_result)
+    owned_token_ids = _fill_table_cell_text(table_result, ocr_result)
 
     page = merge_regions_into_page(
         page_index=0,
@@ -277,6 +278,7 @@ def test_visual_table_owns_tokens_also_covered_by_layout_text_region():
         ocr_result=ocr_result,
         table_result=table_result,
         rendered_image_path=None,
+        table_owned_token_ids=owned_token_ids,
     )
 
     loose_text = " ".join(
@@ -285,3 +287,101 @@ def test_visual_table_owns_tokens_also_covered_by_layout_text_region():
     assert table.cells[0].text == "owned-cell-text"
     assert "owned-cell-text" not in loose_text
     assert "outside-table-text" in loose_text
+
+
+def test_structured_table_without_layout_table_region_has_one_owner_and_keeps_unassigned_text():
+    """A structure backend may find a table that layout labels only as text.
+
+    Cell-assigned tokens belong to the table exactly once, while a title in
+    the outer table bounds but outside every cell remains ordinary text.
+    """
+    table = Table(
+        id="t0",
+        page_number=1,
+        n_rows=1,
+        n_cols=2,
+        bbox=BBox(x0=100, y0=200, x1=500, y1=400),
+        cells=[
+            Cell(row=0, col=0, bbox=BBox(x0=100, y0=250, x1=290, y1=380), text=""),
+            Cell(row=0, col=1, bbox=BBox(x0=300, y0=250, x1=500, y1=380), text=""),
+        ],
+        source_backend="stub-table",
+    )
+    table_result = TableResult(tables=[table], backend="stub-table")
+    ocr_result = OCRResult(
+        tokens=[
+            _tok("Time", 120, 270, 180, 292),
+            _tok("Fee", 320, 270, 360, 292),
+            _tok("Welcome to the 2010 Summer Camp", 120, 210, 430, 238),
+        ],
+        backend="stub-ocr",
+    )
+    owned_token_ids = _fill_table_cell_text(table_result, ocr_result)
+    page = merge_regions_into_page(
+        page_index=0,
+        width=600,
+        height=500,
+        dpi=200,
+        layout_result=LayoutResult(
+            regions=[_region("text", 80, 180, 520, 420)],
+            backend="stub-layout",
+        ),
+        ocr_result=ocr_result,
+        table_result=table_result,
+        rendered_image_path=None,
+        table_owned_token_ids=owned_token_ids,
+    )
+    page.reading_order = [element.id for element in page.elements]
+
+    table_owners = [element for element in page.elements if element.table_id == "t0"]
+    assert len(table_owners) == 1
+    assert table_owners[0].type.value == "table"
+    assert table.cells[0].text == "Time"
+    assert table.cells[1].text == "Fee"
+    text_elements = [element.text or "" for element in page.elements if element.type.value != "table"]
+    assert text_elements == ["Welcome to the 2010 Summer Camp"]
+
+    markdown = page_to_prediction_markdown(page)
+    assert markdown.count("Time") == 1
+    assert markdown.count("Fee") == 1
+    assert markdown.count("Welcome to the 2010 Summer Camp") == 1
+
+
+def test_unmatched_layout_table_region_is_preserved_without_fabricated_reference():
+    """A layout-only table remains visible when structure recognition fails."""
+    page = _page(
+        regions=[_region("table", 100, 100, 300, 220)],
+        tokens=[_tok("observed cell text", 120, 120, 260, 145)],
+    )
+
+    region = page.elements[0]
+    assert region.type.value == "other"
+    assert region.table_id is None
+    assert region.bbox == BBox(x0=100, y0=100, x1=300, y1=220)
+    assert region.extra == {"layout_label": "table"}
+    assert region.text == "observed cell text"
+    assert any("no matching structured table was produced" in note for note in page.notes)
+
+
+def test_unmatched_layout_table_does_not_attach_to_nearest_unrelated_table():
+    recognized = Table(
+        id="t0",
+        page_number=1,
+        n_rows=1,
+        n_cols=1,
+        bbox=BBox(x0=10, y0=10, x1=100, y1=100),
+        cells=[Cell(row=0, col=0, bbox=BBox(x0=10, y0=10, x1=100, y1=100), text="known")],
+        source_backend="stub-table",
+    )
+    page = _page(
+        regions=[_region("table", 10, 10, 100, 100), _region("table", 400, 400, 550, 550)],
+        tokens=[_tok("unstructured content", 420, 420, 520, 450)],
+        tables=[recognized],
+    )
+
+    assert page.elements[0].type.value == "table"
+    assert page.elements[0].table_id == recognized.id
+    assert page.elements[1].type.value == "other"
+    assert page.elements[1].table_id is None
+    assert page.elements[1].text == "unstructured content"
+    assert page.tables == [recognized]
