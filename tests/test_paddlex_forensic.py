@@ -3,9 +3,16 @@ from __future__ import annotations
 import json
 
 import numpy as np
+import pytest
 
 import doc_extraction.backends.paddlex_forensic as forensic
-from doc_extraction.backends.paddlex_forensic import Trace, _shape, _wrap_iterator
+from doc_extraction.backends.paddlex_forensic import (
+    Trace,
+    _experiment_cap,
+    _generated_lengths,
+    _shape,
+    _wrap_iterator,
+)
 
 
 def test_trace_flushes_bounded_metadata_without_content(tmp_path):
@@ -62,3 +69,34 @@ def test_shape_summary_uses_only_dimensions_and_pixel_count():
         "pixels": 408,
     }
     assert _shape("not an image") is None
+
+
+def test_generated_token_count_subtracts_prompt_prefix_when_shapes_are_exposed():
+    class Tensor:
+        def __init__(self, shape):
+            self.shape = shape
+
+    result = Tensor((1, 710 + 1024))
+    model_inputs = {"input_ids": Tensor((1, 710))}
+    assert _generated_lengths(result, model_inputs) == {
+        "generated_tokens": 1024,
+        "input_tokens": 710,
+        "output_sequence_tokens": 1734,
+    }
+
+
+def test_generated_token_count_is_unavailable_without_both_sequence_shapes():
+    assert _generated_lengths(object(), {}) == {
+        "generated_tokens": None,
+        "input_tokens": None,
+        "output_sequence_tokens": None,
+    }
+
+
+def test_experiment_token_cap_is_explicit_and_allowlisted():
+    assert _experiment_cap(None) is None
+    assert _experiment_cap("4096") == 4096
+    assert _experiment_cap("2048") == 2048
+    assert _experiment_cap("1024") == 1024
+    with pytest.raises(ValueError):
+        _experiment_cap("512")

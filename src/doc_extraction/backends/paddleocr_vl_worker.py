@@ -104,6 +104,10 @@ def main() -> int:
             source = Path(request["input_path"])
             expected_sha256 = request["input_sha256"]
             if forensic_trace is not None:
+                forensic_trace.current_input_name = source.name
+                forensic_trace.recognition_batches_started = 0
+                forensic_trace.recognition_process_batches_started = 0
+                forensic_trace.active_recognition_batch = None
                 forensic_trace.emit("page_request_started", input_name=source.name)
             input_hash_started = time.perf_counter()
             before_sha256 = _sha256_file(source)

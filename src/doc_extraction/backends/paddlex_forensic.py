@@ -16,8 +16,8 @@ from collections.abc import Callable, Iterator
 from pathlib import Path
 from typing import Any
 
-_MAX_EVENTS = 1024
-_MAX_BYTES = 256 * 1024
+_MAX_EVENTS = 8192
+_MAX_BYTES = 2 * 1024 * 1024
 
 
 class Trace:
@@ -26,6 +26,7 @@ class Trace:
         self.started = time.monotonic()
         self.events = 0
         self.bytes_written = 0
+        self.current_input_name: str | None = None
         self.lock = threading.Lock()
         flags = os.O_WRONLY | os.O_CREAT | os.O_APPEND | getattr(os, "O_NOFOLLOW", 0)
         self.fd = os.open(path, flags, 0o600)
@@ -40,6 +41,8 @@ class Trace:
                 "trace_elapsed_seconds": round(time.monotonic() - self.started, 4),
                 "event": event,
             }
+            if self.current_input_name is not None:
+                record["input_name"] = self.current_input_name
             record.update(fields)
             encoded = (json.dumps(record, separators=(",", ":"), allow_nan=False) + "\n").encode()
             if self.bytes_written + len(encoded) > _MAX_BYTES:
@@ -68,6 +71,51 @@ def _shape(image: Any) -> dict[str, Any] | None:
     except (TypeError, ValueError):
         return None
     return {"width": width, "height": height, "pixels": width * height}
+
+
+def _generated_lengths(result: Any, model_inputs: Any) -> dict[str, Any]:
+    """Summarize generated token counts when the model API exposes sequences.
+
+    PaddleX postprocessing trims each prompt prefix from the returned sequence,
+    so the generation tensor's final dimension minus input_ids length is the
+    generated-token count. If either shape is unavailable, preserve that fact.
+    """
+    output_shape = getattr(result, "shape", None)
+    if output_shape is None:
+        output_shape = getattr(getattr(result, "sequences", None), "shape", None)
+    input_ids = model_inputs.get("input_ids") if isinstance(model_inputs, dict) else None
+    input_shape = getattr(input_ids, "shape", None)
+    if output_shape is None or input_shape is None or len(output_shape) < 2 or len(input_shape) < 2:
+        return {"generated_tokens": None, "input_tokens": None, "output_sequence_tokens": None}
+    try:
+        input_tokens = int(input_shape[-1])
+        output_tokens = int(output_shape[-1])
+    except (TypeError, ValueError):
+        return {"generated_tokens": None, "input_tokens": None, "output_sequence_tokens": None}
+    generated = output_tokens - input_tokens
+    if generated < 0:
+        return {
+            "generated_tokens": None,
+            "input_tokens": input_tokens,
+            "output_sequence_tokens": output_tokens,
+        }
+    return {
+        "generated_tokens": generated,
+        "input_tokens": input_tokens,
+        "output_sequence_tokens": output_tokens,
+    }
+
+
+def _experiment_cap(raw: str | None) -> int | None:
+    if raw is None:
+        return None
+    try:
+        cap = int(raw)
+    except ValueError as exc:
+        raise ValueError("invalid explicit PaddleX experiment max_new_tokens") from exc
+    if cap not in {1024, 2048, 4096}:
+        raise ValueError("PaddleX experiment max_new_tokens must be 1024, 2048, or 4096")
+    return cap
 
 
 def _safe_label_histogram(boxes: Any) -> dict[str, int] | None:
@@ -260,8 +308,12 @@ def attach(pipeline_wrapper: Any, trace_path: str, profile_path: str | None = No
     vl_model = getattr(pipeline, "vl_rec_model", None)
     if vl_model is not None:
         original_predict = vl_model.predict
+        experiment_cap = _experiment_cap(os.environ.get("DOC_EXTRACTION_PADDLEX_EXPERIMENT_MAX_NEW_TOKENS"))
+        trace.emit("experiment_generation_cap", max_new_tokens=experiment_cap)
 
         def recognize(inputs: Any, *args: Any, **kwargs: Any) -> Any:
+            if experiment_cap is not None:
+                kwargs["max_new_tokens"] = experiment_cap
             batch_inputs = inputs if isinstance(inputs, list) else []
             image_shapes = [
                 _shape(item.get("image")) for item in batch_inputs[:64] if isinstance(item, dict)
@@ -272,6 +324,7 @@ def attach(pipeline_wrapper: Any, trace_path: str, profile_path: str | None = No
                 "crop_pixels": sum((shape or {}).get("pixels", 0) for shape in image_shapes),
                 "crop_shapes": image_shapes,
                 "max_new_tokens": kwargs.get("max_new_tokens", "default_4096"),
+                "experiment_max_new_tokens": experiment_cap,
                 "pixel_bounds": [kwargs.get("min_pixels"), kwargs.get("max_pixels")],
                 "internal_batch_size": getattr(getattr(vl_model, "batch_sampler", None), "batch_size", None),
             }
@@ -343,16 +396,8 @@ def attach(pipeline_wrapper: Any, trace_path: str, profile_path: str | None = No
                     raise
                 summary: dict[str, Any] = {}
                 if __name == "model_generate":
-                    shape = getattr(result, "shape", None)
-                    if shape is None:
-                        shape = getattr(getattr(result, "sequences", None), "shape", None)
-                    summary["sequence_shape"] = [int(value) for value in shape[:4]] if shape is not None else None
                     model_inputs = args[0] if args else None
-                    input_ids = model_inputs.get("input_ids") if isinstance(model_inputs, dict) else None
-                    input_shape = getattr(input_ids, "shape", None)
-                    summary["input_ids_shape"] = (
-                        [int(value) for value in input_shape[:4]] if input_shape is not None else None
-                    )
+                    summary.update(_generated_lengths(result, model_inputs))
                 elif __name == "recognition_postprocess":
                     summary = _result_summary({"result": result})
                 trace.emit("stage_finished", stage=__name, status="returned",
