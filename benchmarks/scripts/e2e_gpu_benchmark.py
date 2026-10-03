@@ -95,7 +95,9 @@ def resolve_named_pages(samples: list[dict[str, Any]], names: tuple[str, ...] = 
 
 def failure_kind(record: dict[str, Any]) -> str:
     details = " ".join(str(value) for value in [record.get("error", ""), *record.get("errors", [])])
-    if "max_runtime_seconds" in details or record.get("backend_timings", {}).get("timeout") == "max_runtime_seconds":
+    backend_timings = record.get("backend_timings", {})
+    timings = backend_timings.get("phases", backend_timings) if isinstance(backend_timings, dict) else {}
+    if "max_runtime_seconds" in details or timings.get("timeout") == "max_runtime_seconds":
         return "timeout"
     if record.get("status") in {"failed", "error"}:
         return "failure"
@@ -125,7 +127,8 @@ def validate_phase_timing_records(runtime: dict[str, Any]) -> dict[str, Any]:
     timeout_cleanup_failures = []
     pages = runtime.get("per_page", [])
     for record in pages:
-        timings = record.get("backend_timings")
+        backend_timings = record.get("backend_timings")
+        timings = backend_timings.get("phases", backend_timings) if isinstance(backend_timings, dict) else None
         if failure_kind(record) == "timeout":
             if not isinstance(timings, dict) or not (
                 isinstance(timings.get("worker_termination_and_cleanup_seconds"), (int, float))

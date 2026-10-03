@@ -150,6 +150,29 @@ def test_phase_timing_schema_requires_real_success_measurements() -> None:
     assert "worker-local phases are unavailable" in report["timeout_phases"]
 
 
+def test_phase_timing_validator_reads_actual_nested_backend_phase_schema() -> None:
+    fields = HARNESS.validate_phase_timing_records({"per_page": []})["required_success_fields"]
+    phases = {key: 0.1 for key in fields}
+    phases.update({"worker_lifecycle_state": "completed", "worker_cleanup_status": "persistent_worker_reused"})
+    report = HARNESS.validate_phase_timing_records({"per_page": [{
+        "page_id": "nested.png#0", "status": "success",
+        "backend_timings": {"status": "success", "phases": phases},
+    }]})
+    assert report["complete"] is True
+
+    timeout = HARNESS.validate_phase_timing_records({"per_page": [{
+        "page_id": "timeout.png#0", "status": "failed", "errors": ["max_runtime_seconds"],
+        "backend_timings": {"status": "failed", "phases": {
+            "timeout": "max_runtime_seconds", "worker_termination_and_cleanup_seconds": 0.5,
+            "worker_termination_verified": True, "scratch_cleanup_verified": True,
+        }},
+    }]})
+    assert timeout["complete"] is True
+    assert HARNESS.failure_kind({
+        "status": "failed", "backend_timings": {"phases": {"timeout": "max_runtime_seconds"}},
+    }) == "timeout"
+
+
 def test_gpu_benchmark_config_refuses_cpu_fallback_and_changed_runtime_policy() -> None:
     limits = SimpleNamespace(max_runtime_seconds=300, max_image_pixels=40_000_000)
     with pytest.raises(HARNESS.BenchmarkGateError, match="device: cuda"):
