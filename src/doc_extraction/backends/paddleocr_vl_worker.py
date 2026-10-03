@@ -52,6 +52,8 @@ def main() -> int:
     os.close(devnull)
     _set_file_size_limit()
 
+    forensic_trace = None
+    forensic_profile = None
     try:
         model_import_started = time.perf_counter()
         from paddleocr import PaddleOCRVL
@@ -65,6 +67,15 @@ def main() -> int:
         attestation_started = time.perf_counter()
         model_versions = PaddleOCRVLBackend.model_versions()
         model_weight_attestation_seconds = time.perf_counter() - attestation_started
+        forensic_path = os.environ.get("DOC_EXTRACTION_PADDLEX_TRACE")
+        if forensic_path:
+            from doc_extraction.backends.paddlex_forensic import attach
+
+            forensic_trace, forensic_profile = attach(
+                pipeline,
+                forensic_path,
+                os.environ.get("DOC_EXTRACTION_PADDLEX_CPROFILE"),
+            )
     except Exception as exc:  # noqa: BLE001 - startup failures must cross the worker protocol
         _write_message(
             protocol_fd,
@@ -92,6 +103,8 @@ def main() -> int:
                 raise ValueError("unknown worker operation")
             source = Path(request["input_path"])
             expected_sha256 = request["input_sha256"]
+            if forensic_trace is not None:
+                forensic_trace.emit("page_request_started", input_name=source.name)
             input_hash_started = time.perf_counter()
             before_sha256 = _sha256_file(source)
             if before_sha256 != expected_sha256:
@@ -100,6 +113,9 @@ def main() -> int:
             predict_started = time.perf_counter()
             results = list(pipeline.predict(str(source)))
             pipeline_predict_seconds = time.perf_counter() - predict_started
+            if forensic_trace is not None:
+                forensic_trace.emit("pipeline_predict_returned", elapsed_seconds=round(pipeline_predict_seconds, 4),
+                                    result_count=len(results))
             if len(results) != 1:
                 raise ValueError("model returned an unexpected result count")
             phase_timings = {
@@ -135,8 +151,20 @@ def main() -> int:
                 },
                 maximum,
             )
+            if forensic_trace is not None:
+                from doc_extraction.backends.paddlex_forensic import finish
+
+                finish(forensic_trace, forensic_profile)
+                forensic_trace = None
+                forensic_profile = None
         except Exception as exc:  # noqa: BLE001 - record per-request failure without leaking payloads
             kind = "invalid_model_output" if isinstance(exc, (TypeError, ValueError, KeyError)) else "model_inference_failure"
+            if forensic_trace is not None:
+                from doc_extraction.backends.paddlex_forensic import finish
+
+                finish(forensic_trace, forensic_profile)
+                forensic_trace = None
+                forensic_profile = None
             _write_message(
                 protocol_fd,
                 {"state": "failed", "kind": kind, "message": type(exc).__name__},
