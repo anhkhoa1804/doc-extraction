@@ -122,17 +122,19 @@ uv run python benchmarks/scripts/e2e_gpu_benchmark.py \
 ```
 
 After reviewing the printed page IDs and paths, rerun the same command replacing
-`--plan` with `--execute`. The controlled sequence is: five-page smoke, one-page
-phase timing, two runs of the frozen ten-page determinism set, isolated runs of
-both historical timeout pages, a frozen-order 20-page extraction plus official
-evaluation, then the exact 180-page extraction and official evaluation. Any
-missing/extra prediction, mismatched manifest or run-scoped GT, incomplete
-phase timing on a completed E2E page, non-timeout worker failure in the smoke or
-determinism checks, or unverified timeout cleanup stops the run. Determinism
-metrics are withheld if either ten-page pass is incomplete, while isolated
-timeout diagnosis still proceeds. Any incomplete 20-page preflight stops before
-the full run. A timeout-page diagnostic is recorded as a timeout and does not
-become an empty prediction.
+`--plan` with `--execute`. The controlled sequence is: one-page phase timing
+and structural/serialization inspection; isolated runs of both historical
+timeout pages and a timing-profile record; two runs of the frozen ten-page
+determinism set; five-page smoke; frozen-order 20-page extraction plus official
+evaluation; then the exact 180-page extraction and official evaluation. The GPU
+preflight and every stage check that no compute process has occupied the L4; on
+detecting one, the run stops without signaling it. Any missing/extra prediction,
+mismatched manifest or run-scoped GT, incomplete phase timing on a completed
+E2E page, non-timeout worker failure, or unverified timeout cleanup stops the
+run. Determinism metrics are withheld if either ten-page pass is incomplete,
+while the timeout profile remains available. Any incomplete 20-page preflight
+stops before the full run. A timeout-page diagnostic is recorded as a timeout
+and does not become an empty prediction.
 
 The full run is scored only with exact 180/180 successful predictions and
 matching run-scoped ground truth. The final output directory contains

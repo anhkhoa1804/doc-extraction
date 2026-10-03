@@ -294,6 +294,64 @@ def compare_run_outputs(first_run: Path, second_run: Path, expected_page_ids: li
     }
 
 
+def inspect_single_page_output(run_dir: Path, page_id: str) -> dict[str, Any]:
+    """Capture bounded structural/text-presence facts for the timing page."""
+    metadata = json.loads((run_dir / "run_metadata.json").read_text(encoding="utf-8"))
+    runtime = json.loads((run_dir / "runtime.json").read_text(encoding="utf-8"))
+    entries = [item for item in metadata.get("sample_ids", []) if item.get("page_id") == page_id]
+    outcomes = [item for item in runtime.get("per_page", []) if item.get("page_id") == page_id]
+    if len(entries) != 1 or len(outcomes) != 1:
+        raise BenchmarkGateError("timing diagnostic must have exactly one matching input and runtime record")
+    document_id = entries[0].get("document_id")
+    if not document_id:
+        raise BenchmarkGateError("timing diagnostic has no persisted canonical document identity")
+    document_path = run_dir / "_doc_extraction_runs" / document_id / "final" / "document.json"
+    if not document_path.is_file():
+        raise BenchmarkGateError("timing diagnostic canonical Document was not retained")
+    document = json.loads(document_path.read_text(encoding="utf-8"))
+    pages = document.get("pages")
+    if not isinstance(pages, list) or len(pages) != 1 or not isinstance(pages[0], dict):
+        raise BenchmarkGateError("timing diagnostic did not produce one structurally valid canonical page")
+    page = pages[0]
+    elements = page.get("elements")
+    tables = page.get("tables")
+    reading_order = page.get("reading_order")
+    if not isinstance(elements, list) or not isinstance(tables, list) or not isinstance(reading_order, list):
+        raise BenchmarkGateError("timing diagnostic canonical page lacks elements/tables/reading_order arrays")
+    element_ids = [item.get("id") for item in elements if isinstance(item, dict)]
+    if len(element_ids) != len(elements) or len(element_ids) != len(set(element_ids)):
+        raise BenchmarkGateError("timing diagnostic canonical elements are malformed or have duplicate IDs")
+    prediction_path = run_dir / metadata["prediction_directory"] / Path(entries[0]["image_name"]).with_suffix(".md").name
+    prediction_bytes = prediction_path.read_bytes()
+    prediction_bytes.decode("utf-8")
+    formula_count = sum(
+        isinstance(item, dict) and str(item.get("type", "")).lower() in {"formula", "display_formula"}
+        for item in elements
+    )
+    warnings = document.get("metadata", {}).get("warnings", [])
+    errors = document.get("metadata", {}).get("errors", [])
+    runtime_record = outcomes[0]
+    return {
+        "page_id": page_id,
+        "status": runtime_record.get("status"),
+        "runtime_seconds": runtime_record.get("runtime_seconds"),
+        "canonical_document_valid": True,
+        "canonical_page_count": len(pages),
+        "element_count": len(elements),
+        "text_bearing_element_count": sum(bool(item.get("text")) for item in elements if isinstance(item, dict)),
+        "table_count": len(tables),
+        "formula_element_count": formula_count,
+        "reading_order_reference_count": len(reading_order),
+        "warnings": warnings,
+        "errors": errors,
+        "runtime_warnings": runtime_record.get("warnings", []),
+        "prediction_utf8_valid": True,
+        "prediction_bytes": len(prediction_bytes),
+        "prediction_sha256": hashlib.sha256(prediction_bytes).hexdigest(),
+        "backend_timings": runtime_record.get("backend_timings", {}),
+    }
+
+
 def compare_official_metric_outputs(first_run: Path, second_run: Path) -> dict[str, Any]:
     def collect(run: Path) -> dict[str, Any]:
         metadata = json.loads((run / "run_metadata.json").read_text(encoding="utf-8"))
@@ -383,6 +441,9 @@ def gpu_preflight(config_path: Path, expected_gpu: str = "L4") -> dict[str, Any]
     ).stdout.strip().splitlines()
     if not query or not any(expected_gpu.lower() in row.lower() for row in query):
         raise BenchmarkGateError(f"expected GPU family {expected_gpu!r} not found in nvidia-smi inventory: {query}")
+    processes = query_gpu_processes()
+    if processes:
+        raise BenchmarkGateError(f"GPU is occupied by an existing compute process; refusing benchmark: {processes}")
     try:
         import paddle
     except ImportError as exc:
@@ -423,10 +484,25 @@ def gpu_preflight(config_path: Path, expected_gpu: str = "L4") -> dict[str, Any]
         "model_versions": model_versions,
         "device_name": str(paddle_gpu_name),
         "gpu_inventory": query,
+        "gpu_processes": processes,
         "model_loaded": False,
-        "model_weights_hashed": False,
+        "model_weight_hashes_verified": True,
         "note": "cheap device/runtime check only; no model allocation and no calibrated minimum-free-memory threshold",
     }
+
+
+def query_gpu_processes() -> list[str]:
+    result = subprocess.run(
+        ["nvidia-smi", "--query-compute-apps=pid,process_name,used_memory", "--format=csv,noheader"],
+        check=True, capture_output=True, text=True, timeout=10,
+    )
+    return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+
+def require_unoccupied_gpu() -> None:
+    processes = query_gpu_processes()
+    if processes:
+        raise BenchmarkGateError(f"GPU acquired another compute process during benchmark; stopping without signaling it: {processes}")
 
 
 def _timestamp() -> str:
@@ -497,12 +573,12 @@ def build_plan(manifest_path: Path, determinism_path: Path, run_root: Path, data
     if len(selected) != manifest["subset"].get("actual_size"):
         raise BenchmarkGateError("manifest actual_size does not equal selected page count")
     stages = [
-        {"name": "smoke-5", "page_ids": smoke_ids, "repeat": 1, "keep_runs": True},
         {"name": "timing-diagnostic", "page_ids": [det_ids[2]], "repeat": 1, "keep_runs": True},
-        {"name": "determinism-a", "page_ids": det_ids, "repeat": 1, "keep_runs": True},
-        {"name": "determinism-b", "page_ids": det_ids, "repeat": 1, "keep_runs": True},
         *[{"name": f"timeout-diagnostic-{i + 1}", "page_ids": [page_id], "repeat": 1, "keep_runs": True}
           for i, page_id in enumerate(timeout_ids)],
+        {"name": "determinism-a", "page_ids": det_ids, "repeat": 1, "keep_runs": True},
+        {"name": "determinism-b", "page_ids": det_ids, "repeat": 1, "keep_runs": True},
+        {"name": "smoke-5", "page_ids": smoke_ids, "repeat": 1, "keep_runs": True},
         {"name": "preflight-20", "page_ids": selected[:20], "repeat": 1, "keep_runs": False},
         {"name": "full-180", "page_ids": selected, "repeat": 1, "keep_runs": False},
     ]
@@ -707,6 +783,9 @@ def execute(args: argparse.Namespace) -> int:
     config = args.config.resolve()
     manifest_path = args.manifest.resolve()
     for stage in plan:
+        # Do not contend with workloads that appeared after the initial
+        # preflight. This is an observation gate only; never signal processes.
+        require_unoccupied_gpu()
         output = Path(stage["output"])
         run_manifest["current_stage"] = stage["name"]
         (args.output_root / "execution_manifest.json").write_text(json.dumps(run_manifest, indent=2) + "\n")
@@ -732,6 +811,34 @@ def execute(args: argparse.Namespace) -> int:
             or timeout_isolated_safely(binding["coverage"])
         ):
             raise BenchmarkGateError("timing diagnostic failed without verified, safe timeout cleanup")
+        if stage["name"] == "timing-diagnostic" and binding["coverage"]["valid_for_quality_evaluation"]:
+            timing_page = inspect_single_page_output(output, stage["page_ids"][0])
+            record["timing_page_inspection"] = timing_page
+            (args.output_root / "timing-page-inspection.json").write_text(json.dumps(timing_page, indent=2) + "\n")
+        if stage["name"].startswith("timeout-diagnostic-") and not (
+            binding["coverage"]["valid_for_quality_evaluation"]
+            or timeout_isolated_safely(binding["coverage"])
+        ):
+            raise BenchmarkGateError(f"{stage['name']} failed without verified, safe timeout cleanup")
+        if stage["name"] == "timeout-diagnostic-2":
+            timeout_records = [
+                {
+                    "page_id": item["runtime"].get("per_page", [{}])[0].get("page_id"),
+                    "status": item["runtime"].get("per_page", [{}])[0].get("status"),
+                    "failure_kind": failure_kind(item["runtime"].get("per_page", [{}])[0]),
+                    "runtime_seconds": item["runtime"].get("per_page", [{}])[0].get("runtime_seconds"),
+                    "backend_timings": item["runtime"].get("per_page", [{}])[0].get("backend_timings"),
+                }
+                for item in stage_records if item["name"].startswith("timeout-diagnostic-")
+            ]
+            timeout_analysis = {
+                "status": "OBSERVED_PROFILES_RECORDED",
+                "causal_conclusion": "NOT_ESTABLISHED_BY_RUNNER",
+                "pages": timeout_records,
+                "note": "Compare measured phases; do not infer a cause from timeout status alone.",
+            }
+            run_manifest["timeout_analysis"] = timeout_analysis
+            (args.output_root / "timeout-analysis.json").write_text(json.dumps(timeout_analysis, indent=2) + "\n")
         if stage["name"] == "determinism-a":
             run_manifest["determinism_run_a"] = str(output)
             if binding["coverage"]["valid_for_quality_evaluation"]:
@@ -744,7 +851,8 @@ def execute(args: argparse.Namespace) -> int:
                 raise BenchmarkGateError("first determinism run failed without verified timeout-only cleanup")
         elif stage["name"] == "determinism-b":
             first_run = Path(run_manifest["determinism_run_a"])
-            first_complete = stage_records[2]["coverage"]["valid_for_quality_evaluation"]
+            first_record = next(item for item in stage_records if item["name"] == "determinism-a")
+            first_complete = first_record["coverage"]["valid_for_quality_evaluation"]
             second_complete = binding["coverage"]["valid_for_quality_evaluation"]
             if second_complete:
                 record["evaluation_status"] = "running"

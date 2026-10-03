@@ -58,16 +58,54 @@ def test_plan_has_explicit_frozen_smoke_diagnostics_preflight_and_full_run(tmp_p
                               tmp_path / "gpu.yaml", tmp_path / "runtime-python")
 
     assert [stage["name"] for stage in plan] == [
-        "smoke-5", "timing-diagnostic", "determinism-a", "determinism-b",
-        "timeout-diagnostic-1", "timeout-diagnostic-2", "preflight-20", "full-180",
+        "timing-diagnostic", "timeout-diagnostic-1", "timeout-diagnostic-2",
+        "determinism-a", "determinism-b", "smoke-5", "preflight-20", "full-180",
     ]
-    assert len(plan[0]["page_ids"]) == 5
-    assert len(plan[2]["page_ids"]) == 10 == len(plan[3]["page_ids"])
-    assert plan[4]["page_ids"] == [samples[-2]["page_id"]]
-    assert plan[5]["page_ids"] == [samples[-1]["page_id"]]
+    assert len(plan[0]["page_ids"]) == 1
+    assert plan[1]["page_ids"] == [samples[-2]["page_id"]]
+    assert plan[2]["page_ids"] == [samples[-1]["page_id"]]
+    assert len(plan[3]["page_ids"]) == 10 == len(plan[4]["page_ids"])
+    assert len(plan[5]["page_ids"]) == 5
     assert plan[6]["page_ids"] == [entry["page_id"] for entry in samples[:20]]
     assert plan[7]["page_ids"] == [entry["page_id"] for entry in samples]
     assert all("--page-ids" in stage["command"] for stage in plan)
+
+
+def test_gpu_process_guard_refuses_occupied_device_without_signaling_process(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(HARNESS, "query_gpu_processes", lambda: ["1234, python, 512 MiB"])
+    with pytest.raises(HARNESS.BenchmarkGateError, match="without signaling it"):
+        HARNESS.require_unoccupied_gpu()
+
+
+def test_timing_page_inspection_requires_canonical_page_and_reports_serialization(tmp_path: Path) -> None:
+    run = tmp_path / "run"
+    document_dir = run / "_doc_extraction_runs" / "doc-one" / "final"
+    prediction_dir = run / "predictions"
+    document_dir.mkdir(parents=True)
+    prediction_dir.mkdir()
+    (document_dir / "document.json").write_text(json.dumps({
+        "metadata": {"warnings": ["W1"], "errors": []},
+        "pages": [{
+            "elements": [{"id": "p0-e0", "type": "text", "text": "sample"}],
+            "tables": [], "reading_order": ["p0-e0"],
+        }],
+    }), encoding="utf-8")
+    (prediction_dir / "one.md").write_text("sample\n", encoding="utf-8")
+    (run / "run_metadata.json").write_text(json.dumps({
+        "sample_ids": [{"page_id": "one.png#0", "document_id": "doc-one", "image_name": "one.png"}],
+        "prediction_directory": "predictions",
+    }), encoding="utf-8")
+    (run / "runtime.json").write_text(json.dumps({"per_page": [{
+        "page_id": "one.png#0", "status": "success", "runtime_seconds": 1.0,
+        "backend_timings": {"pipeline_predict_seconds": 0.5},
+    }]}), encoding="utf-8")
+
+    result = HARNESS.inspect_single_page_output(run, "one.png#0")
+    assert result["canonical_document_valid"] is True
+    assert result["text_bearing_element_count"] == 1
+    assert result["reading_order_reference_count"] == 1
+    assert result["warnings"] == ["W1"]
+    assert result["prediction_utf8_valid"] is True
 
 
 def test_evaluator_command_preserves_venv_python_symlink_path(tmp_path: Path) -> None:
