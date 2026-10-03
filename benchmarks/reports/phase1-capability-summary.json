@@ -100,10 +100,58 @@
     "cuda_visible_devices": "",
     "coverage": {"selected": 5, "success": 5, "failed": 0, "warning_pages": 1, "warning_occurrences": 1},
     "runtime_seconds": {"total": 1016.123, "mean": 203.2247, "median": 201.4132, "p95": 265.3996, "max": 265.3996},
-    "same_pages_gpu_assisted_mean_seconds": 33.787172,
-    "descriptive_cpu_gpu_assisted_ratio": 6.0145407
+    "earlier_full_run_same_pages_gpu_assisted_mean_seconds": 33.787172,
+    "earlier_ratio_valid": false,
+    "earlier_ratio_invalidated_by": "fresh matched CPU/GPU Markdown outputs differed on all five pages"
   },
   "plumbing_overhead": {"parent_model_artifact_attestation_seconds_mean_per_page": 5.87862, "parent_model_artifact_attestation_total_179_seconds": 1052.27, "parent_run_metadata_attestation_seconds_mean_per_page": 5.90755, "parent_run_metadata_attestation_total_179_seconds": 1057.45, "combined_mean_per_page_seconds": 11.78617},
   "architecture": {"canonical_document_version": "1.4.0", "public_api": "doc_extraction.cli.process_file(path, config, output_root=...)", "external_document_extraction_contract": "NOT FOUND / UNDEFINED in inspected workspace", "extraction_package_v1": "NOT FOUND / UNDEFINED in inspected workspace", "kp_document_ir_adapter": "NOT FOUND in inspected workspace"},
-  "decision": {"phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_reruns_in_this_report": 0}
+  "final_bounded_experiments": {
+    "matched_classic_cpu_gpu": {
+      "source_commit": "2bebedacbef0a948e82201139a78a9cd0ef19944",
+      "manifest_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b",
+      "configs": {"cpu": "configs/cpu.yaml", "gpu": "configs/gpu.yaml", "only_material_inference_difference": "device"},
+      "coverage": {"pages": 5, "cpu_success": 5, "gpu_success": 5, "cpu_warnings": 1, "gpu_warnings": 1},
+      "cpu_seconds": {"mean": 203.2247, "median": 201.4132, "p95": 265.3996, "max": 265.3996, "total": 1016.123},
+      "gpu_seconds": {"mean": 39.2186, "median": 27.3537, "p95": 101.7059, "max": 101.7059, "total": 196.093},
+      "markdown_content_equal_pages": 0,
+      "markdown_content_different_pages": 5,
+      "canonical_structure_comparison": "NOT COMPARABLE; CPU run did not retain canonical JSON",
+      "cpu_gpu_ratio": null,
+      "ratio_reason": "Outputs were not materially equivalent; no speedup ratio is valid",
+      "pages": [
+        {"page_id": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42", "cpu_seconds": 201.413152, "gpu_seconds": 101.705918, "output": "CONTENT DIFFERENCE"},
+        {"page_id": "newspaper_5a8b7563a3262beecbecd7ddd3ef8827_1.jpg#1", "cpu_seconds": 236.418926, "gpu_seconds": 29.013817, "output": "CONTENT DIFFERENCE"},
+        {"page_id": "newspaper_8076765115f6c402e81c6bfb48139bc2_1.jpg#1", "cpu_seconds": 124.803289, "gpu_seconds": 13.407003, "output": "CONTENT DIFFERENCE"},
+        {"page_id": "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_033.png#33", "cpu_seconds": 265.39955, "gpu_seconds": 27.353714, "output": "CONTENT DIFFERENCE"},
+        {"page_id": "newspaper_Chicago Tribune_0801@magazinesclubnew_page_032.png#32", "cpu_seconds": 188.088362, "gpu_seconds": 24.612487, "output": "CONTENT DIFFERENCE"}
+      ]
+    },
+    "formula_five_page_experiment": {
+      "pages": [
+        {"page_id": "PPT_MMAT5390Lecture1_page_023.png#23", "formula_elements": 2, "text_formula_elements": 0, "null_formula_elements": 2, "baseline_formula_ed": 0.9487179487179487, "candidate_status": "not available; candidate initialization failed"},
+        {"page_id": "book_zh_CNASGL0072018_extracted_page_48.png#48", "formula_elements": 8, "text_formula_elements": 0, "null_formula_elements": 8, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
+        {"page_id": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3", "formula_elements": 12, "text_formula_elements": 0, "null_formula_elements": 12, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
+        {"page_id": "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2", "formula_elements": 2, "text_formula_elements": 0, "null_formula_elements": 2, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
+        {"page_id": "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996", "formula_elements": 0, "text_formula_elements": 0, "null_formula_elements": 0, "baseline_formula_ed": 0.7916666666666666, "baseline_runtime_seconds": 18.000446, "candidate_status": "not included in candidate attempt"}
+      ],
+      "baseline_formula_ed_mean": 0.948076923076923,
+      "baseline_formula_ed_pages": 5,
+      "formula_metric_cohort_pages": 5,
+      "unscored_diagnostic_fixture": {"page_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0", "formula_elements": 5, "text_formula_elements": 0, "null_formula_elements": 5, "baseline_formula_ed": null},
+      "five_page_selection_criterion_met": true,
+      "candidate_option": "do_formula_enrichment=true; all other options unchanged",
+      "candidate_model": "docling-project/CodeFormulaV2",
+      "candidate_model_revision": "main",
+      "local_docling_model_safetensors_bytes": 630993616,
+      "local_docling_model_safetensors_sha256": "4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2",
+      "candidate_coverage": {"attempted": 5, "completed": 0, "failed": 5, "valid_predictions": 0, "scored_pages_attempted": 4, "replacement_page_attempted": false},
+      "candidate_failure": "LocalEntryNotFoundError: no cached Hub snapshot for requested revision main while Hub networking was disabled; no model download attempted",
+      "candidate_quality_metrics": null,
+      "formula_elements_in_scored_baseline": 24,
+      "formula_elements_with_null_text_in_scored_baseline": 24,
+      "formula_decision": "FORMULA RESULT REMAINS UNRESOLVED"
+    }
+  },
+  "decision": {"phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_decision": "NO MORE GPU WORK REQUIRED", "gpu_diagnostic_runs": 4}
 }

@@ -161,7 +161,7 @@ The all-attempt mean multiplier is **6.25×** (E2E/Classic); successful-only is 
 
 The official Classic config requested `cuda`; the E2E worker used the L4. Existing timeout telemetry for page 42 reports worker CPU near one saturated core, RSS peak about 2.33–2.63 GiB, GPU utilization median around 18–19% (p90 around 24%, samples up to 100%), and GPU memory observed up to 9,108 MiB in those diagnostic traces. These observations indicate low/moderate average GPU activity and CPU saturation but do not identify a specific hardware bottleneck by themselves.
 
-A separate five-page CPU-only Classic sample was run with `CUDA_VISIBLE_DEVICES=''` and `configs/cpu.yaml`, on the same frozen newspaper pages used in the token-cap experiment. It completed 5/5 in 1,016.12 seconds; mean 203.225 s, median 201.413 s, p95/max 265.400 s. One page had one table reconstruction warning; no extraction failures. The GPU-assisted Classic runtime for the same five pages in the existing full run averaged 33.787 s/page (sum 168.936 s), approximately 6.01× faster in this small descriptive sample. The individual CPU/GPU-assisted times vary substantially (CPU 124.8–265.4 s; GPU-assisted 13.5–75.5 s). This supports that CPU-only Classic is supported but costly for dense newspaper images. It is not a controlled hardware benchmark: the runs were not simultaneous and environment/load may differ. No L4 was used for the CPU-only run; repeated PyTorch “pin_memory but no accelerator” warnings are expected configuration noise.
+A separate five-page CPU-only Classic sample was run with `CUDA_VISIBLE_DEVICES=''` and `configs/cpu.yaml`, on the same frozen newspaper pages used in the token-cap experiment. It completed 5/5 in 1,016.12 seconds; mean 203.225 s, median 201.413 s, p95/max 265.400 s. One page had one table reconstruction warning; no extraction failures. At the time, stored GPU-assisted full-run times were used to form a descriptive ratio, but a later fresh matched GPU sample found Markdown content differs on all five pages. Therefore that earlier 6.01× figure is **not a valid speedup comparison** and is superseded by the non-equivalence finding in the addendum. CPU-only Classic is supported but costly for dense newspaper images; a same-output CPU/GPU acceleration factor remains unestablished. No L4 was used for the CPU-only run; repeated PyTorch “pin_memory but no accelerator” warnings are expected configuration noise.
 
 ### Model compute vs plumbing
 
@@ -271,3 +271,55 @@ Two qualifications remain part of the frozen record: (1) the Classic full-run so
 ## Evidence artifacts
 
 The companion machine-readable summary is [`benchmarks/reports/phase1-capability-summary.json`](../benchmarks/reports/phase1-capability-summary.json). Run artifacts remain ignored local research data; this report does not commit predictions, model weights, caches, or profiler dumps.
+
+## Addendum — final bounded Classic measurements (2026-10-03)
+
+These experiments were performed after the original evidence cut. The repository remained at HEAD `00be1ed`; neither production config, model/dependencies, manifest, nor extraction source was changed. Before each GPU run, `nvidia-smi` showed an idle NVIDIA L4. After each run, memory returned to 0 MiB and no compute process remained.
+
+### Matched Classic CPU/GPU timing sample
+
+The CPU-only sample and a fresh GPU-assisted sample used the same five manifest page IDs, input hashes, source snapshot (`2bebeda`), Classic path and resource limits. The configs differed by device (`cpu` versus `cuda`); the output format was Markdown, and the GPU run retained canonical JSON for inspection. Both runs completed 5/5 pages with one warning on Chicago Tribune (the same table-row synthesis warning).
+
+| Page | CPU seconds | GPU seconds | CPU/GPU ratio |
+| --- | ---: | ---: | --- |
+| Washington Post #42 | 201.413 | 101.706 | Not calculated |
+| `newspaper_5a8b…#1` | 236.419 | 29.014 | Not calculated |
+| `newspaper_8076…#1` | 124.803 | 13.407 | Not calculated |
+| Boston Globe #33 | 265.400 | 27.354 | Not calculated |
+| Chicago Tribune #32 | 188.088 | 24.612 | Not calculated |
+| **Mean** | **203.225** | **39.219** | **Not calculated** |
+| **Median** | **201.413** | **27.354** | **Not calculated** |
+| **p95 / max** | **265.400 / 265.400** | **101.706 / 101.706** | **Not calculated** |
+
+Markdown content differed on all five pages. Examples range from a short OCR line changing from `# 4` to `#L#ì#IlF.` to punctuation, word-order, and table-content differences on the newspaper pages. Thus outputs are classified **CONTENT DIFFERENCE**, not equivalent. CPU canonical JSON was not retained, so structural equality is **NOT COMPARABLE**. Per the experiment's stop rule, these timings are reported as a matched descriptive sample only; no acceleration ratio is valid. Difference cause is unknown (device-dependent recognition/numerics or other runtime variation are possibilities, not established causes). Do not call this a universal GPU speedup.
+
+Artifacts: `.benchmarks/diagnostics/phase1-classic-cpu-newspapers-20261003/` and `.benchmarks/diagnostics/phase1-classic-gpu-matched-20261003/`.
+
+### Formula capability experiment
+
+Source inspection confirms Docling 2.124.0's `PdfPipelineOptions.do_formula_enrichment` defaults to `False`; its CodeFormulaVlm default preset is `CodeFormulaV2`, `AUTO_INLINE`, repo `docling-project/CodeFormulaV2`, revision `main`, with `extract_formulas=True`. The stage is created only when code or formula enrichment is enabled. It processes formula-labeled items and writes the returned text back to the same item. The Classic adapter propagates public formula-item text when present. No local adapter behavior was found that deliberately clears valid formula text.
+
+A 630,993,616-byte `model.safetensors` exists at `.cache/docling/docling-project--CodeFormulaV2/model.safetensors` (SHA-256 `4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2`). However, the installed `AUTO_INLINE` path, when the sole option `do_formula_enrichment=True` was enabled in an isolated process, attempted Hub snapshot resolution for revision `main`. With Hub traffic disabled to obey the no-download rule, it failed on all five pages with `LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision`. The separate Docling artifact directory therefore does not currently satisfy the runtime's Hub snapshot lookup. No page prediction was accepted; no model was downloaded.
+
+The initial five-page selection included four pages with formula metrics and the known Chinese empty-output regression fixture, which has no formula metric entry. After seeing that denominator mismatch, one additional, manifest-selected formula-scored page was run as a bounded replacement: `jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996`. The resulting scored cohort is now five pages (the four original scored pages plus this replacement). The Chinese fixture remains a separate, unscored diagnostic and is not included in the five-page metric cohort.
+
+| Page | Formula elements | Text-bearing / null | Baseline Formula ED | Candidate ED |
+| --- | ---: | ---: | ---: | ---: |
+| `PPT_MMAT5390Lecture1_page_023.png#23` | 2 | 0 / 2 | 0.948718 | N/A — candidate initialization failed |
+| `book_zh_CNASGL0072018_extracted_page_48.png#48` | 8 | 0 / 8 | 1.000000 | N/A — candidate initialization failed |
+| `docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3` | 12 | 0 / 12 | 1.000000 | N/A — candidate initialization failed |
+| `exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2` | 2 | 0 / 2 | 1.000000 | N/A — candidate initialization failed |
+| `jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996` | 0 | 0 / 0 | 0.791667 | N/A — not included in candidate attempt |
+
+The five scored baseline pages have a descriptive mean Formula ED of **0.948077 (N=5)**. Across these outputs, 24 canonical formula elements were present and all 24 had null text; the replacement page had zero canonical formula elements despite a scored GT formula metric. The Chinese diagnostic fixture separately had five formula elements, all null, and no Formula ED entry. The candidate attempt used the original four scored pages plus that diagnostic fixture; pipeline initialization failed before extraction on all five, so candidate runtime/metrics are unavailable and no valid candidate predictions were published. The replacement page was not run under the candidate config. This is **not** evidence that CodeFormulaV2 recognition itself is ineffective; candidate inference never occurred.
+
+**Formula classification:** **FORMULA RESULT REMAINS UNRESOLVED.** Evidence strongly indicates a current configuration/model-resolution gap: formula enrichment is disabled, and the supported installed stage cannot resolve the available Docling-cache files as its requested Hub snapshot offline. It is not established whether enabling the supported recognizer would fix the 0.985389 corpus result, nor whether its output would be accurate. Do not call this a proven capability ceiling or a confirmed adapter defect.
+
+Artifacts: `.benchmarks/diagnostics/phase1-formula-baseline-20261003/`, `.benchmarks/diagnostics/phase1-formula-baseline-replacement-20261003/`, and `.benchmarks/diagnostics/phase1-formula-candidate-codeformulav2-20261003/`. The candidate directory is failure-only diagnostic metadata; it contains no candidate prediction set.
+
+### Updated decisions
+
+* **Matched hardware cost:** measured runtimes are much lower in the GPU sample, but output non-equivalence blocks a CPU/GPU acceleration ratio. A controlled same-output speedup has not been established.
+* **Formula decision:** **FORMULA RESULT REMAINS UNRESOLVED**; candidate comparison was blocked at model snapshot resolution. Any follow-up must first establish an approved, hash-pinned, offline-loadable CodeFormulaV2 artifact path, then repeat only the five-page baseline/candidate comparison. No network download, config promotion, or further GPU run is authorized by these results.
+* **GPU decision:** **NO MORE GPU WORK REQUIRED** for Phase 1. The missing formula candidate is a local dependency/cache-resolution prerequisite, not a reason to spend more shared GPU time now.
+* **Phase 1 decision:** remains **FREEZE WITH EXPLICIT E2E LIMITATION**. Classic remains 180/180 valid as previously reported; E2E remains 179/180 incomplete with full quality withheld. Fine-tuning remains **NOT STARTED**.
