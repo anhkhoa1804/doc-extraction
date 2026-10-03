@@ -305,7 +305,7 @@ def main(argv: list[str] | None = None) -> int:
     runtime_report = odb.write_runtime_report(results, output_root / "runtime.json")
     runtime_report["wall_clock_seconds"] = round(wall_seconds, 3)
     expected_page_ids = [f"{sample.image_name}#{sample.page_no}" for sample in samples]
-    actual_page_ids = [result.page_id for result in results]
+    actual_page_ids = [result.sample_id for result in results]
     runtime_report["coverage"] = {
         "expected": len(expected_page_ids),
         "attempted": len(actual_page_ids),
@@ -346,7 +346,7 @@ def main(argv: list[str] | None = None) -> int:
     metadata["evaluation_ground_truth"] = "ground_truth_subset.json" if manifest else None
     metadata["prediction_directory"] = predictions_dir.name
     records_by_index = {index: raw_records[index] for index in range(len(raw_records))}
-    results_by_page_id = {result.page_id: result for result in results}
+    results_by_page_id = {result.sample_id: result for result in results}
     metadata["sample_ids"] = [
         {
             "dataset_index": sample.index,

@@ -332,6 +332,7 @@ def test_write_predictions_deterministic_output_naming(tmp_path):
     assert results[0].output_path == tmp_path / "preds" / "x.md"
     assert results[0].output_path.exists()
     assert results[0].error is None
+    assert results[0].sample_id == "x.jpg#0"
     assert results[0].status == "success_with_warnings"
     assert results[0].warnings == ["table fallback used"]
     assert results[0].input_sha256 is not None and results[0].prediction_sha256 is not None
