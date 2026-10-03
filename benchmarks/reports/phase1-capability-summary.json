@@ -1,0 +1,109 @@
+{
+  "evidence_date": "2026-10-03",
+  "repository": {
+    "head": "2bebedacbef0a948e82201139a78a9cd0ef19944",
+    "working_tree_unrelated_dirty_files_preserved": [
+      "benchmarks/manifests/web-acquisition-replay.json",
+      "services/web-acquisition/tests/test_replay_benchmark.py"
+    ]
+  },
+  "population": {
+    "manifest": "benchmarks/manifests/omnidocbench-representative-v2.json",
+    "selected_pages": 180,
+    "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+    "subset_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b",
+    "annotation_sha256": "a45cd84b04ad8b793e775089640e6b681209abea33ead54c1828ddca35fae496",
+    "semantic_hash": "31e7a7b96fcf2f823aaf81afc53b15e9bb0413c2e6a52dc3d7bacd0615716f89",
+    "image_inventory_count": 1651,
+    "image_inventory_sha256": "4da40bb41705f9194fc7605c445855a0977b1da62945cb295e05b0ad7c5db915",
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "eligibility": {
+      "annotation_records": 1651,
+      "relations": 2852,
+      "dangling_relation_records": 53,
+      "dangling_endpoints": 82,
+      "pages_excluded_relation_integrity": 5,
+      "post_integrity_pages": 1646,
+      "pages_excluded_over_40m_pixels": 31,
+      "eligible_pages": 1615,
+      "sampled_pages": 180
+    }
+  },
+  "classic": {
+    "run": ".benchmarks/runs/omnidocbench/classic-current-valid-20261003T153500Z",
+    "coverage": {"selected": 180, "attempted": 180, "valid": 180, "missing": 0, "unexpected": 0, "duplicates": 0, "canonical_failures": 0},
+    "source_provenance": {
+      "attested_commit": "5730460693ba0d8a008b950a5b1c61f1a26e5207",
+      "dirty_tree": true,
+      "attested_source_snapshot_hash": "14ca7e4a0ef151c3eb8ec8cbee696352a62cc06441fc755bb3b6d93c6b044eef",
+      "final_head_byte_identical": false,
+      "mismatched_relevant_file": "src/doc_extraction/pipelines/base.py"
+    },
+    "metrics": {
+      "text_edit_distance": {"value": 0.5893967456014855, "pages": 168},
+      "table_edit_distance": {"value": 0.701107695460781, "pages": 50},
+      "table_teds": {"value": 0.40773931300173183, "instances": 64},
+      "table_structure_teds": {"value": 0.6491142902284949, "instances": 64},
+      "reading_order_edit_distance": {"value": 0.5968228067586311, "pages": 178},
+      "formula_edit_distance": {"value": 0.9853894477253515, "pages": 35}
+    },
+    "runtime_seconds": {"total_page_runtime": 1168.63, "wall": 1169.288, "mean": 6.4924, "median": 4.3198, "p95": 18.9351, "max": 75.465552},
+    "outcomes": {"success": 115, "success_with_warnings": 65, "failed": 0, "warning_occurrences": 76, "warning_pages": 65},
+    "hardware": {"configured_device": "cuda", "routes": {"image": 180}}
+  },
+  "e2e_official": {
+    "run": ".benchmarks/runs/omnidocbench/e2e-gpu-v3-20261003T065100Z/08-full-180-20261003T065030Z",
+    "configuration": {"model": "PaddleOCR-VL 1.6", "max_new_tokens": 4096, "recognition_batch_size": 1, "timeout_seconds": 300, "gpu": "NVIDIA L4", "model_weight_sha256": "85a479d506a11e724e7285d395c551be69f41dbc16b6342d3cacfb189aed71db", "layout_weight_sha256": "70bd316b0582769ec968829fd1feb1a6a58b7c941b938327e551b6b12b45c137"},
+    "coverage": {"selected": 180, "attempted": 180, "success": 179, "timeout": 1, "missing_prediction": 1, "unexpected": 0, "duplicates": 0, "quality_evaluation_official": "WITHHELD"},
+    "timeout_page": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+    "runtime_seconds": {"attempt_mean": 40.566, "median": 29.1654, "p95": 93.6077, "max": 300.8316, "wall": 7303.292, "success_mean": 39.112, "success_p95": 91.376843, "pipeline_predict_success_mean": 27.12526696},
+    "telemetry": {"worker_cpu_median_percent": 100, "worker_rss_peak_gib_range": [2.33, 2.63], "gpu_utilization_median_percent_range": [18, 19], "gpu_utilization_p90_percent": 24, "gpu_memory_observed_peak_mib": 9108},
+    "timeout_diagnosis": {"layout_regions": 119, "crops": 113, "vlm_inputs": 102, "serial_batch_size": 1, "token_caps_tested": [4096, 2048, 1024], "all_caps_page_timed_out": true, "batching_above_one_supported": false, "deep_cause": "UNKNOWN"}
+  },
+  "conditional_common_179": {
+    "scope": "179 exact E2E-success page IDs; same filtered GT, evaluator revision, and Classic predictions; not an official 180-page score",
+    "classic_metrics": {
+      "text_edit_distance": {"value": 0.5911276279225373, "paired_pages": 167},
+      "table_edit_distance": {"value": 0.701107695460781, "paired_pages": 50},
+      "table_teds": {"value": 0.40773931300173183, "paired_instances": 64},
+      "table_structure_teds": {"value": 0.649114290228495, "paired_instances": 64},
+      "reading_order_edit_distance": {"value": 0.5946368348341129, "paired_pages": 177},
+      "formula_edit_distance": {"value": 0.9853894477253515, "paired_pages": 35}
+    },
+    "e2e_metrics": {
+      "text_edit_distance": {"value": 0.04594933477782781, "paired_pages": 167},
+      "table_edit_distance": {"value": 0.5674689139145679, "paired_pages": 50},
+      "table_teds": {"value": 0.8444842963906123, "paired_instances": 64},
+      "table_structure_teds": {"value": 0.8712277524763752, "paired_instances": 64},
+      "reading_order_edit_distance": {"value": 0.16491814817361708, "paired_pages": 177},
+      "formula_edit_distance": {"value": 0.07950046904731534, "paired_pages": 35}
+    },
+    "paired_direction_counts": {
+      "text": {"e2e_better": 162, "classic_better": 5, "ties": 0, "n": 167},
+      "table_edit": {"e2e_better": 41, "classic_better": 9, "ties": 0, "n": 50},
+      "teds_instances": {"e2e_better": 61, "classic_better": 3, "ties": 0, "n": 64},
+      "table_structure_instances": {"e2e_better": 44, "classic_better": 10, "ties": 10, "n": 64},
+      "reading_order": {"e2e_better": 129, "classic_better": 6, "ties": 42, "n": 177},
+      "formula": {"e2e_better": 35, "classic_better": 0, "ties": 0, "n": 35}
+    }
+  },
+  "cpu_only_classic_sample": {
+    "artifact": ".benchmarks/diagnostics/phase1-classic-cpu-newspapers-20261003",
+    "pages": [
+      "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+      "newspaper_5a8b7563a3262beecbecd7ddd3ef8827_1.jpg#1",
+      "newspaper_8076765115f6c402e81c6bfb48139bc2_1.jpg#1",
+      "newspaper_TheBostonGlobe-2025-1-8@magazinesclubnew_page_033.png#33",
+      "newspaper_Chicago Tribune_0801@magazinesclubnew_page_032.png#32"
+    ],
+    "device": "cpu",
+    "cuda_visible_devices": "",
+    "coverage": {"selected": 5, "success": 5, "failed": 0, "warning_pages": 1, "warning_occurrences": 1},
+    "runtime_seconds": {"total": 1016.123, "mean": 203.2247, "median": 201.4132, "p95": 265.3996, "max": 265.3996},
+    "same_pages_gpu_assisted_mean_seconds": 33.787172,
+    "descriptive_cpu_gpu_assisted_ratio": 6.0145407
+  },
+  "plumbing_overhead": {"parent_model_artifact_attestation_seconds_mean_per_page": 5.87862, "parent_model_artifact_attestation_total_179_seconds": 1052.27, "parent_run_metadata_attestation_seconds_mean_per_page": 5.90755, "parent_run_metadata_attestation_total_179_seconds": 1057.45, "combined_mean_per_page_seconds": 11.78617},
+  "architecture": {"canonical_document_version": "1.4.0", "public_api": "doc_extraction.cli.process_file(path, config, output_root=...)", "external_document_extraction_contract": "NOT FOUND / UNDEFINED in inspected workspace", "extraction_package_v1": "NOT FOUND / UNDEFINED in inspected workspace", "kp_document_ir_adapter": "NOT FOUND in inspected workspace"},
+  "decision": {"phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_reruns_in_this_report": 0}
+}
