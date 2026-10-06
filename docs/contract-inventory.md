@@ -1,8 +1,9 @@
 # Extraction boundary inventory
 
-This inventory records artifacts found in this checkout and available sibling
-workspace. It distinguishes repository facts from ownership inferences; it is
-not a proposed cross-team schema.
+This historical inventory records artifacts found in this checkout and
+available sibling workspace. The current official CDOI adoption mapping is in
+[`contract-adoption-audit.md`](contract-adoption-audit.md). It distinguishes
+repository facts from ownership inferences and does not propose a schema.
 
 | Artifact | Path / identity | Owner, producer, consumer | Status | Evidence classification / confidence |
 | --- | --- | --- | --- | --- |
@@ -10,9 +11,10 @@ not a proposed cross-team schema.
 | Canonical JSON serialization | `final/document.json`; documented in `docs/output-format.md` | Produced by extraction assembly; consumed by local callers | Implemented, internal only | FACT: it serializes canonical `Document`; HIGH confidence |
 | Markdown view | `Document.to_markdown()` and OmniDocBench adapter in `src/doc_extraction/evaluation/omnidocbench.py` | Human inspection / pinned benchmark evaluator | Implemented, explicitly lossy and benchmark-specific | FACT: separate serializer code and documentation; HIGH confidence |
 | Public extraction API | `doc_extraction.cli.process_file(path, config, output_root=...)`; `docs/public-api.md` | Package producer; service callers | Implemented | FACT: documented function exists and Web Acquisition seam calls it; HIGH confidence |
-| `DocumentExtractionContract 1.0.0` | No schema/model/example/validator found in tracked repo or available sibling source tree | Owner, producer, and consumer cannot be inferred | NOT FOUND / UNDEFINED in inspected workspace | FACT: searches and contract-blocker documentation show no artifact; MEDIUM confidence limited to inspected workspace |
-| `ExtractionPackage v1` | No authoritative external contract or converter found; see `docs/extractionpackage-v1-integration.md` | KP/CDOI ownership was requested but no owner artifact or consumer entry point is present | NOT FOUND / UNDEFINED in inspected workspace | FACT: only references describe the missing contract; MEDIUM confidence limited to inspected workspace |
-| KP `DocumentIR` adapter | No adapter implementation or downstream `DocumentIR` model found | Downstream owner unknown | NOT FOUND | FACT: no implementation/reference beyond blocker documentation; MEDIUM confidence |
+| `DocumentExtractionContract 1.0.0` | Official CDOI specification is authoritative per owner-supplied facts; local spec file not found | CDOI owns public schema; Extraction produces it; KP consumes it | SPECIFICATION AVAILABLE; implementation unconfirmed here | FACT: authoritative identity/requirements supplied for current audit; bounded local search found no schema/model/validator; see current adoption audit |
+| `ExtractionPackage v1` | Official payload/implementation name for the same public contract; no local producer/converter | Extraction producer; KP validator/consumer | SPECIFICATION AVAILABLE; producer not found locally | FACT: owner-supplied public identity; implementation evidence absent in inspected workspace |
+| KP `DocumentIR` adapter | No KP implementation or downstream `DocumentIR` model found in accessible workspace | KP owns adapter | EXTERNAL DEPENDENCY | FACT: bounded local/sibling search found no implementation |
+| `cdoi_doc_extraction_adapter_v1` | User-specified producer-side adapter for legacy internal schemas 1.0.0–1.2.0; implementation path not found | Extraction/CDOI ownership requires teammate confirmation | UNKNOWN locally; distinct from public contract and KP adapter | FACT: adapter name/role supplied for audit; local `git grep` found no implementation |
 | Extraction run provenance | `RunMetadata` in `schemas/document.py` | Produced by extractor; extraction consumers | Implemented internally | FACT: contains input name/path/hash, detected file type, route, backend, config, versions, runtime/device, status/warnings/errors. It has no source byte-size or authoritative MIME field; HIGH confidence |
 | Physical evidence traceability | Element/table/cell source backend and optional source IDs, plus internal diagnostics in `evaluation/evidence_integrity.py` | Extractor diagnostics; no external evidence-reference consumer found | Partial/internal | FACT: canonical fields and research/diagnostic ledger exist; no formal `EvidenceRef` cross-team schema found. HIGH confidence for repo model, MEDIUM for absence outside workspace |
 | Acquisition artifact | `services/web-acquisition/src/web_acquisition/models.py` (`Artifact`, `Resource`, `CrawlJob`) and `integration.py` | Owner inferred as Web Acquisition; acquisition service produces artifact; optional extraction seam consumes it | Implemented separately from `Document` | FACT: acquisition models and API seam are present. Resource/source URL/job provenance remain acquisition-owned; no extraction-contract mapping is defined. HIGH confidence |
@@ -21,11 +23,11 @@ not a proposed cross-team schema.
 
 ## Internal-to-external boundary analysis
 
-The only established flow is:
+The repository's current implemented flow is:
 
 ```text
 Acquisition Artifact → public extraction API → internal Document 1.4.0
-                                      → [external contract unknown] → KP unknown
+                                      → [ExtractionPackage v1 not implemented here] → KP adapter unconfirmed
 ```
 
 `Document` fields that are clearly physical extraction concerns include page
@@ -55,9 +57,11 @@ Potentially unsafe-to-project-without-contract-definitions include:
 * `Element.extra` and internal backend/source identifiers;
 * physical page/table/cell identifiers and their scope/stability.
 
-These are open mapping questions, not candidate fields or semantics for a
-guessed adapter. See [`extractionpackage-v1-integration.md`](extractionpackage-v1-integration.md)
-for the concrete owner-supplied artifacts needed to unblock integration.
+These remain mapping questions, not candidate fields or semantics for a
+guessed adapter. The contract is now authoritative; the implementation and
+field-by-field owner confirmations remain outstanding. See
+[`contract-adoption-audit.md`](contract-adoption-audit.md) and
+[`cdoi-teammate-confirmation-checklist.md`](cdoi-teammate-confirmation-checklist.md).
 
 ## Backend conformance scope
 

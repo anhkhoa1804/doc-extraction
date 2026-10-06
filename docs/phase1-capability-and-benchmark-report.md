@@ -1,8 +1,9 @@
 # Phase 1 Capability and Benchmark Evidence
 
-**Evidence cut:** 2026-10-03
-**Repository HEAD:** `2bebedacbef0a948e82201139a78a9cd0ef19944`
-**Decision:** **FREEZE WITH EXPLICIT E2E LIMITATION**
+**Benchmark evidence cut:** 2026-10-03; **CDOI contract audit:** 2026-10-06
+**Initial report HEAD:** `2bebedacbef0a948e82201139a78a9cd0ef19944` (individual benchmark source attestations are listed with their runs)
+**Physical Extraction decision:** **FREEZE WITH EXPLICIT E2E LIMITATION**
+**Cross-team adoption:** **CONFIRMATION REQUIRED**
 
 ## Executive summary
 
@@ -13,6 +14,8 @@ PaddleOCR-VL 1.6 provides a large conditional quality advantage on the 179 pages
 The official E2E model path is about 6.25× the Classic GPU-assisted backend's mean wall time per attempt (about 6.02× among successful E2E pages). This is a backend runtime comparison, not a GPU-vs-CPU speedup. The strict 180-page Classic scores are useful as the current baseline, with a provenance qualification: the run recorded a dirty source snapshot based on commit `5730460`, and `base.py` in that attestation is not byte-identical to final HEAD. The run achieved exact 180/180 coverage and is reported below as the valid post-fix run artifact, but not as a clean immutable-HEAD reproduction.
 
 **Freeze rationale:** Freeze Phase 1's extraction, safety, and benchmark infrastructure, with Classic as the measured baseline and E2E explicitly experimental/incomplete. Keep the Classic source-snapshot qualification and formula/language gaps visible as follow-up items. Do not claim universal backend superiority, a production router, or an official 180-page E2E score.
+
+The CDOI `DocumentExtractionContract` 1.0.0 / ExtractionPackage v1 is now treated as authoritative. This checkout still has no evidenced public package producer or KP adapter; therefore the physical extraction phase can be frozen with the E2E limitation, but cross-team contract adoption is not complete. See the dedicated contract status at the end of this report.
 
 ## 1. Benchmark population
 
@@ -181,9 +184,9 @@ The benchmark path verifies frozen manifest identity, run-scoped GT pairing, exa
 
 ## 12. Contract and integration ownership
 
-Repository and available sibling-workspace searches found the internal canonical `Document` schema version 1.4.0, its validators/serializers, and the public entry point `doc_extraction.cli.process_file(path, config, output_root=...)`. The Web Acquisition seam calls that public API and passes an acquisition artifact path/provenance; it does not implement a cross-team package adapter.
+The authoritative CDOI public boundary is `DocumentExtractionContract` 1.0.0, implemented/payload-named `ExtractionPackage v1`, according to the CDOI owner-supplied specification facts for this audit. Internal Extraction `Document` 1.4.0 is distinct from that package and from KP `DocumentIR`. The public API remains `doc_extraction.cli.process_file(path, config, output_root=...)`, which returns/writes only the internal canonical Document; the Web Acquisition seam does not implement the package producer.
 
-`DocumentExtractionContract 1.0.0`, `ExtractionPackage v1`, KP `DocumentIR`, and a KP adapter are **not found / undefined in the inspected workspace**. Ownership, status/severity semantics, and compatibility rules cannot be inferred. Do not describe canonical `Document` 1.4.0 as the external contract. Integration is blocked only on obtaining the external owner/specification and consumer contract; this report does not create one.
+The actual normative specification file/revision, producer implementation, KP adapter, `DocumentIR`, EvidenceRef resolver, and `cdoi_doc_extraction_adapter_v1` source were not found in this checkout or accessible sibling workspace. Thus the contract is **defined and authoritative**, but adoption is **not established**. Extraction lacks explicit run ID, source size, guaranteed MIME, section model, cell IDs and structured ContractIssue/ErrorEnvelope mapping; KP-side validation, adaptation, EvidenceRef preservation and incompatible-version rejection are unverified. See [`contract-adoption-audit.md`](contract-adoption-audit.md) and [`cdoi-teammate-confirmation-checklist.md`](cdoi-teammate-confirmation-checklist.md). Do not call this “contract undefined”; do not claim cross-team adoption until producer and consumer test evidence is supplied.
 
 ## 13. Bug-vs-capability matrix
 
@@ -230,17 +233,17 @@ Each row refers to the existing run/test/report artifacts; this ledger is an inv
 | E2E timeout telemetry/phase timing | Locate page #42 cost | e2e v3 runtime/timeout diagnostic traces | Measured coarse stages | `pipeline.predict`/generation dominates; cleanup correct | Deepest decoder operation/cause |
 | E2E token cap | Compare 4096/2048/1024 on 5 pages | isolated `e2e-config-experiments` records | Controlled single-variable experiment | Page 42 times out for all; slow batch duration decreases | Cap resolves page-level completion or quality tradeoff |
 | E2E batching capability | Inspect local predictor >1 behavior | PaddleX 3.7.2 installed source audit | Direct source observation | Local predictor supports/clamps to batch 1 | Performance if dependency behavior were changed |
-| Contract/KP source discovery | Search repo/sibling workspace for external owner/spec | `docs/contract-inventory.md`, `docs/extractionpackage-v1-integration.md` | Bounded workspace search | No contract/adapter found in inspected workspace | That no external organization owns one |
+| Contract/KP source discovery | Find authoritative CDOI contract and verify producer/KP artifacts | `docs/contract-adoption-audit.md`, `docs/cdoi-teammate-confirmation-checklist.md` | Owner-supplied contract facts + bounded repo/sibling search | Specification is authoritative; implementation paths not found locally | That KP adoption or EvidenceRef resolution works |
 | Acquisition seam | Check Artifact to public extraction API | `services/web-acquisition/src/web_acquisition/integration.py` | Direct source observation | Public `process_file` seam; no package adapter | External KP integration |
 | CPU-only Classic timing | Run the five frozen newspaper pages with CUDA hidden | `.benchmarks/diagnostics/phase1-classic-cpu-newspapers-20261003/` | Measured small sample | CPU backend path works and is slow on dense pages | Corpus-wide CPU/GPU multiplier |
 
 Historical 1,651-page metrics are intentionally excluded from the paired evidence above.
 
-## 16. Phase 1 closure decision
+## 16. Phase 1 closure decision — physical Extraction scope
 
-**FREEZE WITH EXPLICIT E2E LIMITATION.**
+**FREEZE WITH EXPLICIT E2E LIMITATION** for the repository's physical extraction, security, and benchmark scope.
 
-Phase 1 has sufficient evidence to freeze its safety boundaries, canonical internal model, public API seam, frozen representative-v2 manifest, strict run-scoped evaluator, Classic conformance behavior, and E2E isolated-worker experimental path. Classic has a complete 180/180 scored run artifact. E2E has validated model execution, isolation, cleanup, a 20/20 preflight, conditional paired quality evidence over 179 pages, and a reproducible timeout. The timeout is a real operational limitation and correctly prevents a full official score. Do not label E2E a production-ready replacement.
+Phase 1 has sufficient evidence to freeze its safety boundaries, canonical internal model, public API seam, frozen representative-v2 manifest, strict run-scoped evaluator, Classic conformance behavior, and E2E isolated-worker experimental path. Classic has a complete 180/180 scored run artifact. E2E has validated model execution, isolation, cleanup, a 20/20 preflight, conditional paired quality evidence over 179 pages, and a reproducible timeout. The timeout is a real operational limitation and correctly prevents a full official score. Do not label E2E a production-ready replacement. This repository-level freeze does not assert adoption of the official CDOI package; that cross-team gate remains open as recorded below.
 
 Two qualifications remain part of the frozen record: (1) the Classic full-run source attestation differs from final HEAD in `base.py`, so the scores are not a clean final-HEAD reproduction; (2) GPU determinism was not established because page 42 timed out in both determinism runs. Neither is hidden by the conditional analysis. If release policy requires a clean immutable-HEAD baseline or demonstrated E2E determinism, those are explicit acceptance gates before claiming those stronger properties—not reasons to fabricate or weaken existing scores.
 
@@ -262,7 +265,7 @@ Two qualifications remain part of the frozen record: (1) the Classic full-run so
 
 ### Integration
 
-* Obtain the external owner and authoritative `DocumentExtractionContract`/KP `DocumentIR` schema before implementing an adapter. Do not invent the boundary.
+* Confirm the immutable source revision/hash and executable schema for the already-authoritative CDOI contract; implement the ExtractionPackage v1 producer and obtain KP validator/`DocumentIR`/EvidenceRef test evidence. Do not invent field semantics.
 
 ### Model research
 
@@ -319,7 +322,15 @@ Artifacts: `.benchmarks/diagnostics/phase1-formula-baseline-20261003/`, `.benchm
 
 ### Updated decisions
 
-* **Matched hardware cost:** measured runtimes are much lower in the GPU sample, but output non-equivalence blocks a CPU/GPU acceleration ratio. A controlled same-output speedup has not been established.
+* **Matched hardware cost:** mean wall time was 203.225 s/page CPU and 39.219 s/page GPU-assisted on the same five pages, a descriptive wall-clock ratio of about **5.18×**. Markdown differed on all five pages and CPU canonical JSON was not retained; output equivalence is not established, so this is **not a validated hardware speedup**.
 * **Formula decision:** **FORMULA RESULT REMAINS UNRESOLVED**; candidate comparison was blocked at model snapshot resolution. Any follow-up must first establish an approved, hash-pinned, offline-loadable CodeFormulaV2 artifact path, then repeat only the five-page baseline/candidate comparison. No network download, config promotion, or further GPU run is authorized by these results.
 * **GPU decision:** **NO MORE GPU WORK REQUIRED** for Phase 1. The missing formula candidate is a local dependency/cache-resolution prerequisite, not a reason to spend more shared GPU time now.
 * **Phase 1 decision:** remains **FREEZE WITH EXPLICIT E2E LIMITATION**. Classic remains 180/180 valid as previously reported; E2E remains 179/180 incomplete with full quality withheld. Fine-tuning remains **NOT STARTED**.
+
+## Official CDOI Contract Adoption Status
+
+**Official identity:** `DocumentExtractionContract` 1.0.0 = `ExtractionPackage v1`. The official contract is now treated as authoritative. **Repository adoption status: SPECIFICATION AVAILABLE; IMPLEMENTATION UNCONFIRMED.** The current producer still emits only internal `Document` 1.4.0; the contract producer and KP `DocumentIR`/EvidenceRef adapter are not present in the inspected workspace. Exact field mapping, stable cell identity, source/run provenance, structured issues, FATAL conversion, unknown-field/version rejection and KP preservation need owner-confirmed paths and tests.
+
+The authoritative user-supplied contract facts resolve the former “contract source unknown” blocker, but do not constitute implementation evidence. The repository's completed physical extraction/benchmark work can be frozen separately; **cross-team contract adoption cannot yet be claimed**. See [the field-level audit](contract-adoption-audit.md) and [the teammate checklist](cdoi-teammate-confirmation-checklist.md). In particular: do not add `document_revision_id`; keep URLs, artifact/job IDs and retrieval timestamps Acquisition-owned; keep semantic/KG ontology KP-owned; and preserve the distinct internal schema and legacy producer adapter boundaries.
+
+**Overall adoption gate:** **CROSS-TEAM CONTRACT CONFIRMATION REQUIRED.** This does not reopen the measured Classic/E2E physical-extraction work; it prevents claiming that the public CDOI/KP interchange has been implemented or accepted.

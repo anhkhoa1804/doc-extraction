@@ -1,73 +1,79 @@
-# Cross-team extraction contract status
+# CDOI ExtractionPackage v1 integration status
 
-## Status: blocked on contract authority
+## Status: specification available; producer and consumer implementation unconfirmed
 
-`Document` is the internal canonical representation produced by this
-repository. The checkout does not contain a separate cross-team
-`DocumentExtractionContract 1.0.0` artifact, nor the previously requested
-external `ExtractionPackage v1` KP/CDOI interchange contract. The internal
-canonical schema is currently `Document.schema_version == "1.4.0"`; it must
-not be relabeled as either external contract.
+The authoritative public Extraction ↔ KP/CDOI boundary is
+`DocumentExtractionContract` version `1.0.0`, with `ExtractionPackage v1` as
+its payload/implementation name. The internal canonical `Document` remains
+schema `1.4.0`; it is neither the public contract nor KP's internal
+`DocumentIR`.
 
-At the production hardening audit for this checkout, no authoritative
-`DocumentExtractionContract 1.0.0` or ExtractionPackage v1 artifact is
-available. Consequently, there is no adapter
-implementation, public compatibility claim, or field-level mapping in this
-repository.
+The specification facts supplied by the CDOI owner are authoritative. The
+normative source file/revision and implementation artifacts were not found in
+this checkout or the accessible sibling workspace. In particular, no local
+ExtractionPackage producer, public validator, `DocumentIR` adapter,
+`EvidenceRef` model/resolver, or named
+`cdoi_doc_extraction_adapter_v1` implementation was found. Do not infer that
+the official contract is undefined; do not claim that this repository has
+adopted it.
 
-## Evidence checked
+The package producer and KP consumer must both enforce exact public identity
+and fail closed on unsupported versions and unknown fields. The producer must
+preserve physical extraction evidence, nulls, explicit producer reading order
+and issues. KP must validate, adapt to `DocumentIR`, preserve `EvidenceRef`,
+and reject incompatible versions. Fatal producer issues must produce the
+official `EXTRACTION_PACKAGE_FAILED` behavior with no successful empty
+document. These are adoption requirements, not current API guarantees.
 
-The integration audit checked:
+## Evidence and exact gaps
 
-* the tracked working tree and `origin/fix/table-text-ownership` for schema,
-  OpenAPI, protobuf, TypeScript, Python-model, canonical-example, adapter,
-  and `ExtractionPackage`/`CDOI`/`DocumentIR` references;
-* every reachable Git revision with a `DocumentExtractionContract`, `ExtractionPackage`,
-  `cdoi_doc_extraction_adapter`, or `DocumentIR` string change; and
-* the available sibling workspaces and the active project environment for an
-  installed or editable KP/CDOI package.
+The existing public API is `doc_extraction.cli.process_file(path, config,
+output_root=...)`; it returns/writes only canonical `Document`. Internal
+`RunStatus.FAILED` is rejected by canonical `Document` validation, and
+`process_file` raises on extraction failure while writing failure metadata
+where safe. This is a useful producer-side fail-closed foundation, but it is
+not the public FATAL/ErrorEnvelope mapping.
 
-Only the internal `Document` schema and historical research artifacts were
-found. No versioned external schema, owner-supplied canonical JSON, validator,
-or KP/CDOI consumer entry point was found. This audit therefore cannot freeze
-or claim compatibility with `DocumentExtractionContract 1.0.0`; the internal
-schema validation hardening described in `output-format.md` is not a
-replacement for that authority.
+Current metadata has filename, full SHA-256, detected file type, route,
+pipeline/backend, model versions, timestamp, config and device. It does not
+have an explicit `extraction_run_id`, source byte size, guaranteed MIME type,
+first-class language hints, or approved `source_document_id`. The local
+`document_id` is a filesystem-safe filename stem plus eight hash characters;
+it must not be treated as source identity without CDOI confirmation. Element
+and table IDs exist, but cells lack IDs, textual source spans are absent, and
+no EvidenceRef grammar/resolver exists locally. Warning/error values are
+strings, not structured `ContractIssue`/`ErrorEnvelope` instances.
 
-## Required owner-supplied artifacts
+The user-specified `cdoi_doc_extraction_adapter_v1` is a separate
+producer-side compatibility adapter for legacy internal Document schemas
+1.0.0–1.2.0. It is not the public contract validator and not the KP
+`DocumentIR` adapter. Its path/implementation could not be confirmed here;
+`schemas/version.py` records internal version history, not that adapter.
 
-Cross-team adapter implementation can begin only after the contract owner
-supplies all of the following for one named, versioned contract:
+Acquisition-owned `source_url`, `final_url`, `acquisition_job_id`,
+`artifact_id`, and retrieval timestamps remain outside ExtractionPackage.
+No `document_revision_id` is present in official v1. Entity/relation/canonical
+entity ontology, KG writes, review decisions, and agent reasoning remain
+outside Extraction.
 
-1. The authoritative schema or executable model, including the normative
-   version and compatibility policy.
-2. Required and optional fields, enum constraints, and omission-versus-null
-   semantics.
-3. Identifier, locator, ordering, provenance, table/cell, section/block,
-   warning/error, and run-status semantics.
-4. At least one canonical valid example and a validator or test fixture that
-   represents the downstream consumer's expectations.
-5. The real KP/CDOI adapter or consumer entry point for a minimal integration
-   test.
+## Adoption path
 
-## Safe boundary already available
+1. Obtain the authoritative CDOI repo path, immutable spec revision/hash,
+   executable model, generated JSON Schema, and shared fixtures.
+2. Confirm field/null/ID/locator/error/EvidenceRef semantics using
+   [`cdoi-teammate-confirmation-checklist.md`](cdoi-teammate-confirmation-checklist.md).
+3. Implement the narrow Extraction producer adapter from canonical Document
+   1.4.0; do not relabel the internal schema or alter its semantics to fit the
+   external package.
+4. Add producer conformance/golden tests, including exact-version and
+   unknown-field rejection, warnings, partial/error, FATAL fail-closed,
+   null/order preservation, and EvidenceRef targets.
+5. Obtain KP's validator/adapter path and run a shared package fixture through
+   validation → `DocumentIR` → EvidenceRef source resolution.
+6. Claim cross-team adoption only after both repositories provide passing
+   test evidence and owners sign off.
 
-The future adapter belongs at the narrow boundary below. It must map from the
-internal canonical `Document` only after external semantics are known.
-
-```text
-source file -> doc-extraction -> Document -> authoritative external contract -> KP/CDOI
-```
-
-`Document` and its canonical serialization are documented in
-[`output-format.md`](output-format.md). That documentation is not an
-ExtractionPackage specification and must not be treated as one. No adapter
-module or placeholder schema is created while this blocker remains unresolved:
-doing so would encode unsupported external semantics.
-
-## Failure behavior
-
-There is currently no ExtractionPackage conversion API. Callers needing the
-external package must fail integration configuration explicitly rather than
-receive a guessed projection. The normal `doc-extraction` CLI and Python API
-continue to produce only the documented internal canonical `Document`.
+See [`contract-adoption-audit.md`](contract-adoption-audit.md) for the full
+field mapping and status inventory. Until the producer exists, this API must
+not return a guessed package; callers requiring the cross-team contract must
+fail integration setup explicitly.

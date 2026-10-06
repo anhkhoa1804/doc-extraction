@@ -29,8 +29,24 @@
       "sampled_pages": 180
     }
   },
+  "official_contract": {
+    "name": "DocumentExtractionContract",
+    "version": "1.0.0",
+    "payload_name": "ExtractionPackage v1",
+    "authority_status": "AUTHORITATIVE CDOI SPECIFICATION FACTS SUPPLIED; SPEC FILE/REVISION NOT FOUND IN ACCESSIBLE WORKSPACE",
+    "implementation_artifacts_discovery": "FOUND ONLY AS SPECIFICATION; no local or accessible sibling executable/schema/KP implementation artifacts located",
+    "implementation_status": "SPECIFICATION AVAILABLE; IMPLEMENTATION UNCONFIRMED",
+    "extraction_producer_status": "NOT IMPLEMENTED IN THIS CHECKOUT; CURRENT PUBLIC API EMITS INTERNAL DOCUMENT 1.4.0",
+    "kp_adapter_status": "NOT FOUND IN ACCESSIBLE WORKSPACE",
+    "legacy_producer_adapter": {"name": "cdoi_doc_extraction_adapter_v1", "role": "internal Document schema 1.0.0-1.2.0 compatibility, distinct from public contract and KP adapter", "local_implementation": "NOT FOUND; OWNER PATH CONFIRMATION REQUIRED"},
+    "document_revision_id_in_v1": false,
+    "acquisition_owned_fields_excluded": ["source_url", "final_url", "acquisition_job_id", "artifact_id", "retrieval timestamps"],
+    "audit": "docs/contract-adoption-audit.md",
+    "teammate_checklist": "docs/cdoi-teammate-confirmation-checklist.md"
+  },
   "classic": {
     "run": ".benchmarks/runs/omnidocbench/classic-current-valid-20261003T153500Z",
+    "population": {"manifest": "benchmarks/manifests/omnidocbench-representative-v2.json", "selected_pages": 180, "dataset_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b", "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6", "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044"},
     "coverage": {"selected": 180, "attempted": 180, "valid": 180, "missing": 0, "unexpected": 0, "duplicates": 0, "canonical_failures": 0},
     "source_provenance": {
       "attested_commit": "5730460693ba0d8a008b950a5b1c61f1a26e5207",
@@ -56,6 +72,9 @@
     "configuration": {"model": "PaddleOCR-VL 1.6", "max_new_tokens": 4096, "recognition_batch_size": 1, "timeout_seconds": 300, "gpu": "NVIDIA L4", "model_weight_sha256": "85a479d506a11e724e7285d395c551be69f41dbc16b6342d3cacfb189aed71db", "layout_weight_sha256": "70bd316b0582769ec968829fd1feb1a6a58b7c941b938327e551b6b12b45c137"},
     "coverage": {"selected": 180, "attempted": 180, "success": 179, "timeout": 1, "missing_prediction": 1, "unexpected": 0, "duplicates": 0, "quality_evaluation_official": "WITHHELD"},
     "timeout_page": "newspaper_TheWashingtonPost-2025-01-08@magazinesclubnew_page_042.png#42",
+    "population": {"manifest": "benchmarks/manifests/omnidocbench-representative-v2.json", "selected_pages": 180, "dataset_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b", "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6", "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044"},
+    "timeout_count": 1,
+    "full_quality_status": "WITHHELD",
     "runtime_seconds": {"attempt_mean": 40.566, "median": 29.1654, "p95": 93.6077, "max": 300.8316, "wall": 7303.292, "success_mean": 39.112, "success_p95": 91.376843, "pipeline_predict_success_mean": 27.12526696},
     "telemetry": {"worker_cpu_median_percent": 100, "worker_rss_peak_gib_range": [2.33, 2.63], "gpu_utilization_median_percent_range": [18, 19], "gpu_utilization_p90_percent": 24, "gpu_memory_observed_peak_mib": 9108},
     "timeout_diagnosis": {"layout_regions": 119, "crops": 113, "vlm_inputs": 102, "serial_batch_size": 1, "token_caps_tested": [4096, 2048, 1024], "all_caps_page_timed_out": true, "batching_above_one_supported": false, "deep_cause": "UNKNOWN"}
@@ -105,7 +124,35 @@
     "earlier_ratio_invalidated_by": "fresh matched CPU/GPU Markdown outputs differed on all five pages"
   },
   "plumbing_overhead": {"parent_model_artifact_attestation_seconds_mean_per_page": 5.87862, "parent_model_artifact_attestation_total_179_seconds": 1052.27, "parent_run_metadata_attestation_seconds_mean_per_page": 5.90755, "parent_run_metadata_attestation_total_179_seconds": 1057.45, "combined_mean_per_page_seconds": 11.78617},
-  "architecture": {"canonical_document_version": "1.4.0", "public_api": "doc_extraction.cli.process_file(path, config, output_root=...)", "external_document_extraction_contract": "NOT FOUND / UNDEFINED in inspected workspace", "extraction_package_v1": "NOT FOUND / UNDEFINED in inspected workspace", "kp_document_ir_adapter": "NOT FOUND in inspected workspace"},
+  "architecture": {"canonical_document_version": "1.4.0", "public_api": "doc_extraction.cli.process_file(path, config, output_root=...)", "external_document_extraction_contract": "AUTHORITATIVE 1.0.0 SPECIFICATION SUPPLIED; producer adoption unconfirmed", "extraction_package_v1": "official payload identity; producer not implemented in this checkout", "kp_document_ir_adapter": "NOT FOUND in accessible workspace"},
+  "runtime": {
+    "classic_cpu_sample": {"pages": 5, "mean_seconds_per_page": 203.2247, "median": 201.4132, "p95": 265.3996, "max": 265.3996, "artifact": ".benchmarks/diagnostics/phase1-classic-cpu-newspapers-20261003"},
+    "classic_gpu_sample": {"pages": 5, "mean_seconds_per_page": 39.2186, "median": 27.3537, "p95": 101.7059, "max": 101.7059, "markdown_content_different_pages": 5, "canonical_equivalence": "NOT COMPARABLE; CPU canonical JSON not retained" , "artifact": ".benchmarks/diagnostics/phase1-classic-gpu-matched-20261003"},
+    "descriptive_ratio": {"cpu_over_gpu_wall_clock": 5.181844838928468, "label": "descriptive matched five-page CPU/GPU wall-clock ratio only", "output_equivalence_established": false, "validated_hardware_speedup": null},
+    "e2e_runtime": {"mean_seconds_per_attempt": 40.566, "p95": 93.6077, "max": 300.8316, "timeout_count": 1, "attempted": 180, "note": "backend wall-clock; not a CPU-vs-GPU speed comparison"}
+  },
+  "benchmark_integrity": {
+    "manifest_identity_pinned": true,
+    "strict_run_scoped_ground_truth": true,
+    "full_dataset_fallback_for_subset": false,
+    "timeout_as_empty_prediction": false,
+    "missing_prediction_as_empty": false,
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "e2e_quality_gate": "full 180-page quality withheld after 179/180 success; no denominator substitution"
+  },
+  "e2e": {
+    "population": {"selected": 180, "successful_predictions": 179, "timeout": 1, "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6", "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044"},
+    "conditional_metrics": {
+      "text_edit_distance": {"value": 0.04594933477782781, "paired_pages": 167},
+      "table_edit_distance": {"value": 0.5674689139145679, "paired_pages": 50},
+      "table_teds": {"value": 0.8444842963906123, "paired_instances": 64},
+      "table_structure_teds": {"value": 0.8712277524763752, "paired_instances": 64},
+      "reading_order_edit_distance": {"value": 0.16491814817361708, "paired_pages": 177},
+      "formula_edit_distance": {"value": 0.07950046904731534, "paired_pages": 35}
+    },
+    "timeout_count": 1,
+    "full_quality_status": "WITHHELD"
+  },
   "final_bounded_experiments": {
     "matched_classic_cpu_gpu": {
       "source_commit": "2bebedacbef0a948e82201139a78a9cd0ef19944",
@@ -153,5 +200,11 @@
       "formula_decision": "FORMULA RESULT REMAINS UNRESOLVED"
     }
   },
-  "decision": {"phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_decision": "NO MORE GPU WORK REQUIRED", "gpu_diagnostic_runs": 4}
+  "closure": {
+    "phase1_status": "CROSS-TEAM CONTRACT CONFIRMATION REQUIRED",
+    "repository_physical_extraction_status": "FREEZE WITH EXPLICIT E2E LIMITATION",
+    "external_dependency_status": "CDOI authoritative schema artifact/revision and KP implementation/test evidence must be confirmed by teammate",
+    "remaining_phase2_items": ["ExtractionPackage v1 producer and conformance tests", "KP validator and DocumentIR/EvidenceRef adapter tests", "Formula path resolution and capability experiment", "E2E pathological generation/library investigation", "empirical routing analysis", "fine-tuning only after stable pretrained baseline and error analysis"]
+  },
+  "decision": {"phase1": "CROSS-TEAM CONTRACT CONFIRMATION REQUIRED", "repository_phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_decision": "NO MORE GPU WORK REQUIRED", "gpu_diagnostic_runs": 4}
 }

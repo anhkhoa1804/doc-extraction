@@ -1,9 +1,11 @@
 # Classic visual forensic trace
 
 This opt-in debug artifact observes the **baseline component pipeline**, not a
-new public extraction contract. Canonical Document remains 1.4.0. There is
-still no authoritative cross-team DocumentExtractionContract, ExtractionPackage
-or KP adapter in this repository.
+new public extraction contract. Canonical Document remains 1.4.0. The
+authoritative CDOI `DocumentExtractionContract` 1.0.0 / ExtractionPackage v1
+is distinct from this internal diagnostic; no public package producer or KP
+adapter is implemented in this repository. See
+[`contract-adoption-audit.md`](contract-adoption-audit.md).
 
 Enable `visual_forensics: true` in a normal CPU/production configuration, or
 construct `PipelineConfig(visual_forensics=True)` for the existing public

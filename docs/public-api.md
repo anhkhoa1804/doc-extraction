@@ -53,10 +53,10 @@ Consumers must preserve null semantics: unknown geometry, confidence, and
 rendered page numbers remain null; logical OOXML locators must not be coerced
 to PDF page numbers.
 
-The internal canonical `Document` schema is version 1.4.0. No separate
-authoritative `DocumentExtractionContract 1.0.0` or ExtractionPackage v1
-schema is available locally, so this repository does not claim compatibility
-with a cross-team contract. Future KP/CDOI integration must supply that
-authority and adapt from `Document` at a narrow public boundary. The exact
-blocker and the artifacts required from the contract owner are recorded in
-[`extractionpackage-v1-integration.md`](extractionpackage-v1-integration.md).
+The internal canonical `Document` schema is version 1.4.0 and is distinct from
+the authoritative CDOI `DocumentExtractionContract` 1.0.0 / ExtractionPackage
+v1. This package's public API still emits only the internal Document; it does
+not claim public-contract compatibility or produce the package. Adoption gaps
+and the producer/KP confirmation checklist are recorded in
+[`contract-adoption-audit.md`](contract-adoption-audit.md) and
+[`cdoi-teammate-confirmation-checklist.md`](cdoi-teammate-confirmation-checklist.md).

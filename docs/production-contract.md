@@ -37,8 +37,9 @@ mismatches fail loudly rather than producing empty output.
 
 The **internal canonical IR** is versioned by `schemas/document.py` and
 `schemas/version.py` (currently schema `1.4.0`). Markdown and HTML are derived
-views and are explicitly lossy. This is not a separately versioned
-cross-team `DocumentExtractionContract 1.0.0`.
+views and are explicitly lossy. This is not the separately versioned
+cross-team `DocumentExtractionContract 1.0.0` / ExtractionPackage v1; an
+adapter at that boundary is not implemented here.
 
 Every run also emits:
 

@@ -243,8 +243,10 @@ replacement was made.
 * Use a job-owned output root for isolation between requests. Legacy document
   directory IDs include only eight hash characters; they are not cryptographic
   authorization or uniqueness guarantees. Full source SHA-256 is in metadata.
-* ExtractionPackage v1 authority and real KP/CDOI integration remain blocked
-  as documented separately; no schema was invented in this phase.
+* The authoritative ExtractionPackage v1 contract is identified, but producer
+  adoption and real KP/CDOI validation remain unconfirmed as documented in
+  `contract-adoption-audit.md`; internal security/conformance checks do not
+  substitute for public-contract or KP consumer tests.
 
 ## Reproduction
 

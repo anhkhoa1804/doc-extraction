@@ -32,9 +32,10 @@ public configuration, and regression coverage.
 ## Contract authority
 
 The repository's production output today is the internal canonical
-`Document` schema (currently v1.4.0). No separate authoritative
-`DocumentExtractionContract 1.0.0` or `ExtractionPackage v1` contract was
-found. Internal schema validation is not a substitute for that external
-authority. A future integration must provide the authoritative schema and use
-a narrow adapter at the public boundary; it must not expose private diagnostic
-or historical classes downstream.
+`Document` schema (currently v1.4.0). The authoritative CDOI public contract
+is `DocumentExtractionContract` 1.0.0 / ExtractionPackage v1, but its producer
+and consumer implementations are not present in this checkout. Internal
+schema validation is not public-contract validation. Adoption requires a
+narrow, tested producer/adapter at the public boundary; it must not expose
+private diagnostics or historical classes downstream. See
+[`contract-adoption-audit.md`](contract-adoption-audit.md).
