@@ -86,6 +86,10 @@ class OCRResult:
     tokens: list[OCRToken] = field(default_factory=list)
     backend: str = ""
     warnings: list[str] = field(default_factory=list)
+    # Optional bounded, content-free diagnostics (e.g. experimental routing).
+    # Kept out of canonical Page/Document semantics; written with this stage's
+    # ordinary intermediate OCR artifact only.
+    diagnostics: dict[str, Any] | None = None
 
 
 @dataclass

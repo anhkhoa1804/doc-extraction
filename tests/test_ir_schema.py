@@ -105,7 +105,9 @@ def test_table_spans_and_grid():
         ],
     )
     assert table.to_grid() == [["Title", "Title", "Title"], ["a", "b", "c"]]
-    assert "| a | b | c |" in table.to_markdown()
+    markdown = table.to_markdown()
+    assert '<th colspan="3">Title</th>' in markdown
+    assert "<td>a</td><td>b</td><td>c</td>" in markdown
 
 
 def test_table_row_span_fills_grid_downwards():

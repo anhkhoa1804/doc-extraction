@@ -59,6 +59,98 @@ class _DetectedTableBox:
     score: float | None
 
 
+def _indices_for_span(bands: list[tuple[float, float]], lo: float, hi: float) -> list[int]:
+    """Map a model-predicted span box to bands whose centers it covers."""
+    return [index for index, (start, end) in enumerate(bands) if lo <= (start + end) / 2 <= hi]
+
+
+def _structure_cells(
+    rows: list[tuple[float, float]],
+    cols: list[tuple[float, float]],
+    header_rows: list[tuple[float, float]],
+    span_boxes: list[tuple[tuple[float, float, float, float], float | None]],
+    table_bbox: BBox,
+) -> list[Cell]:
+    """Build a table grid while preserving explicit Table Transformer spans.
+
+    Only the model's ``table spanning cell`` detections can merge cells. A
+    span must cover contiguous row/column centers and at least two grid slots;
+    ambiguous overlapping predictions are ignored rather than guessed.
+    """
+    if not rows or not cols:
+        return []
+    candidates: list[tuple[int, int, int, int, float | None]] = []
+    grid_x0, grid_x1 = cols[0][0], cols[-1][1]
+    grid_y0, grid_y1 = rows[0][0], rows[-1][1]
+    for (x0, y0, x1, y1), confidence in span_boxes:
+        # A model span that crosses beyond the detected row/column grid has
+        # ambiguous ownership. Do not clip it inward and accidentally merge
+        # unrelated edge cells.
+        if x0 < grid_x0 or x1 > grid_x1 or y0 < grid_y0 or y1 > grid_y1:
+            continue
+        row_ids = _indices_for_span(rows, y0, y1)
+        col_ids = _indices_for_span(cols, x0, x1)
+        if not row_ids or not col_ids:
+            continue
+        if row_ids != list(range(row_ids[0], row_ids[-1] + 1)):
+            continue
+        if col_ids != list(range(col_ids[0], col_ids[-1] + 1)):
+            continue
+        if len(row_ids) == 1 and len(col_ids) == 1:
+            continue
+        candidates.append((row_ids[0], col_ids[0], len(row_ids), len(col_ids), confidence))
+
+    candidates.sort(key=lambda item: (-(item[4] if item[4] is not None else 0.0), item[:4]))
+    merged_origins: dict[tuple[int, int], tuple[int, int, float | None]] = {}
+    covered: set[tuple[int, int]] = set()
+    for row, col, row_span, col_span, confidence in candidates:
+        positions = {
+            (r, c)
+            for r in range(row, row + row_span)
+            for c in range(col, col + col_span)
+        }
+        if positions & covered:
+            continue
+        covered.update(positions)
+        merged_origins[(row, col)] = (row_span, col_span, confidence)
+
+    cells: list[Cell] = []
+    for row, (ry0, ry1) in enumerate(rows):
+        for col, (cx0, cx1) in enumerate(cols):
+            if (row, col) in covered and (row, col) not in merged_origins:
+                continue
+            row_span, col_span, confidence = merged_origins.get((row, col), (1, 1, None))
+            selected_rows = rows[row:row + row_span]
+            selected_cols = cols[col:col + col_span]
+            cell_y0 = min(start for start, _ in selected_rows)
+            cell_y1 = max(end for _, end in selected_rows)
+            cell_x0 = min(start for start, _ in selected_cols)
+            cell_x1 = max(end for _, end in selected_cols)
+            is_header = any(
+                min(row_end, header_end) - max(row_start, header_start) > 0
+                for row_start, row_end in selected_rows
+                for header_start, header_end in header_rows
+            )
+            cells.append(
+                Cell(
+                    row=row,
+                    col=col,
+                    row_span=row_span,
+                    col_span=col_span,
+                    bbox=BBox(
+                        x0=table_bbox.x0 + cell_x0,
+                        y0=table_bbox.y0 + cell_y0,
+                        x1=table_bbox.x0 + cell_x1,
+                        y1=table_bbox.y0 + cell_y1,
+                    ),
+                    text="",
+                    is_header=is_header,
+                    confidence=confidence,
+                )
+            )
+    return cells
+
+
 def is_available() -> bool:
     return (
         importlib.util.find_spec("transformers") is not None
@@ -428,8 +520,10 @@ class TableTransformerBackend:
         rows: list[tuple[float, float]] = []
         cols: list[tuple[float, float]] = []
         header_rows: list[tuple[float, float]] = []
+        span_boxes: list[tuple[tuple[float, float, float, float], float | None]] = []
 
-        for label_id, box in zip(results["labels"], results["boxes"]):
+        scores = results.get("scores", [])
+        for index, (label_id, box) in enumerate(zip(results["labels"], results["boxes"])):
             label = id2label[int(label_id)]
             x0, y0, x1, y1 = (float(v) for v in box)
             if label == "table row":
@@ -438,23 +532,16 @@ class TableTransformerBackend:
                 cols.append((x0, x1))
             elif label == "table column header":
                 header_rows.append((y0, y1))
+            elif label == "table spanning cell":
+                confidence = float(scores[index]) if index < len(scores) else None
+                span_boxes.append(((x0, y0, x1, y1), confidence))
 
         if not rows or not cols:
             return None
         rows.sort()
         cols.sort()
 
-        cells: list[Cell] = []
-        for r_idx, (ry0, ry1) in enumerate(rows):
-            is_header = any(min(ry1, hy1) - max(ry0, hy0) > 0 for hy0, hy1 in header_rows)
-            for c_idx, (cx0, cx1) in enumerate(cols):
-                cell_bbox = BBox(
-                    x0=table_bbox.x0 + cx0,
-                    y0=table_bbox.y0 + ry0,
-                    x1=table_bbox.x0 + cx1,
-                    y1=table_bbox.y0 + ry1,
-                )
-                cells.append(Cell(row=r_idx, col=c_idx, bbox=cell_bbox, text="", is_header=is_header))
+        cells = _structure_cells(rows, cols, header_rows, span_boxes, table_bbox)
 
         return Table(
             id=table_id,

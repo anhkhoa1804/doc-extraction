@@ -1,7 +1,7 @@
 {
-  "evidence_date": "2026-10-03",
+  "evidence_date": "2026-10-07",
   "repository": {
-    "head": "2bebedacbef0a948e82201139a78a9cd0ef19944",
+    "head": "caf0ac6dff53306cd1c69185a619f95305898bd6",
     "working_tree_unrelated_dirty_files_preserved": [
       "benchmarks/manifests/web-acquisition-replay.json",
       "services/web-acquisition/tests/test_replay_benchmark.py"
@@ -42,6 +42,7 @@
     "document_revision_id_in_v1": false,
     "acquisition_owned_fields_excluded": ["source_url", "final_url", "acquisition_job_id", "artifact_id", "retrieval timestamps"],
     "audit": "docs/contract-adoption-audit.md",
+    "teammate_handoff": "docs/cdoi-teammate-confirmation-handoff.md",
     "teammate_checklist": "docs/cdoi-teammate-confirmation-checklist.md"
   },
   "classic": {
@@ -65,7 +66,31 @@
     },
     "runtime_seconds": {"total_page_runtime": 1168.63, "wall": 1169.288, "mean": 6.4924, "median": 4.3198, "p95": 18.9351, "max": 75.465552},
     "outcomes": {"success": 115, "success_with_warnings": 65, "failed": 0, "warning_occurrences": 76, "warning_pages": 65},
-    "hardware": {"configured_device": "cuda", "routes": {"image": 180}}
+    "hardware": {"configured_device": "cuda", "routes": {"image": 180}},
+    "text_language_audit": {
+      "source": "Per-page evaluator artifact plus matching representative-v2 sample_manifest; OCR trace from a stored same-config image-route run",
+      "metric_population_pages": 168,
+      "config_ocr_languages": ["en", "vi"],
+      "page_error_arithmetic_means": {
+        "english": {"pages": 77, "mean": 0.1860},
+        "simplified_chinese": {"pages": 77, "mean": 0.9688, "median": 0.9932, "pages_at_1_0": 21},
+        "en_ch_mixed": {"pages": 12, "mean": 0.7584},
+        "traditional_chinese": {"pages": 1, "mean": 0.9946},
+        "other": {"pages": 1, "mean": 0.0026}
+      },
+      "direct_forensic_example": {
+        "page_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-63678132.pdf_161.jpg#161",
+        "route": "image",
+        "ground_truth_text_blocks": 3,
+        "ocr_token_count": 1,
+        "ocr_token_text": "4 ,",
+        "packages": {"docling": "2.124.0", "easyocr": "1.7.2"},
+        "config_sha256": "ea3e0415e6e7699c081dfc7a3d2abcf9344c02db704865beb91ef783e1102748"
+      },
+      "local_cjk_recognition_assets": {"easyocr_ch_sim_weights": true, "easyocr_ch_sim_path": ".cache/docling/EasyOcr/zh_sim_g2.pth", "easyocr_ch_sim_sha256": "cb678fdef09d651e7763ca551ad790dc89f0b2e3d2a640484330e338fb574c7a", "tesseract_languages": ["eng", "osd", "vie"]},
+      "classification": "CONFIGURATION_ERROR confirmed as a Chinese language-coverage omission; not all Chinese errors attributed to it",
+      "candidate_status": "Global ch_sim,en candidate rejected on seven-page CPU A/B due English and mixed regressions; language routing remains experimental"
+    }
   },
   "e2e_official": {
     "run": ".benchmarks/runs/omnidocbench/e2e-gpu-v3-20261003T065100Z/08-full-180-20261003T065030Z",
@@ -175,36 +200,522 @@
       ]
     },
     "formula_five_page_experiment": {
+      "experiment_id": "phase1-completion-formula-local-20261006",
       "pages": [
-        {"page_id": "PPT_MMAT5390Lecture1_page_023.png#23", "formula_elements": 2, "text_formula_elements": 0, "null_formula_elements": 2, "baseline_formula_ed": 0.9487179487179487, "candidate_status": "not available; candidate initialization failed"},
-        {"page_id": "book_zh_CNASGL0072018_extracted_page_48.png#48", "formula_elements": 8, "text_formula_elements": 0, "null_formula_elements": 8, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
-        {"page_id": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3", "formula_elements": 12, "text_formula_elements": 0, "null_formula_elements": 12, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
-        {"page_id": "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2", "formula_elements": 2, "text_formula_elements": 0, "null_formula_elements": 2, "baseline_formula_ed": 1.0, "candidate_status": "not available; candidate initialization failed"},
-        {"page_id": "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996", "formula_elements": 0, "text_formula_elements": 0, "null_formula_elements": 0, "baseline_formula_ed": 0.7916666666666666, "baseline_runtime_seconds": 18.000446, "candidate_status": "not included in candidate attempt"}
+        {"page_id": "PPT_MMAT5390Lecture1_page_023.png#23", "baseline_formula_ed": 0.9487179487179487, "candidate_formula_ed": 0.12096774193548387, "candidate_formula_elements": 2, "candidate_elements_with_text": 2},
+        {"page_id": "book_zh_CNASGL0072018_extracted_page_48.png#48", "baseline_formula_ed": 1.0, "candidate_formula_ed": 0.24804177545691905, "candidate_formula_elements": 8, "candidate_elements_with_text": 8},
+        {"page_id": "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3", "baseline_formula_ed": 1.0, "candidate_formula_ed": 0.11370882040382571, "candidate_formula_elements": 12, "candidate_elements_with_text": 12},
+        {"page_id": "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2", "baseline_formula_ed": 1.0, "candidate_formula_ed": 0.032, "candidate_formula_elements": 2, "candidate_elements_with_text": 2},
+        {"page_id": "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996", "baseline_formula_ed": 0.7916666666666666, "candidate_formula_ed": 0.7916666666666666, "candidate_formula_elements": 0, "candidate_elements_with_text": 0}
       ],
-      "baseline_formula_ed_mean": 0.948076923076923,
-      "baseline_formula_ed_pages": 5,
-      "formula_metric_cohort_pages": 5,
-      "unscored_diagnostic_fixture": {"page_id": "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0", "formula_elements": 5, "text_formula_elements": 0, "null_formula_elements": 5, "baseline_formula_ed": null},
-      "five_page_selection_criterion_met": true,
-      "candidate_option": "do_formula_enrichment=true; all other options unchanged",
-      "candidate_model": "docling-project/CodeFormulaV2",
-      "candidate_model_revision": "main",
-      "local_docling_model_safetensors_bytes": 630993616,
-      "local_docling_model_safetensors_sha256": "4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2",
-      "candidate_coverage": {"attempted": 5, "completed": 0, "failed": 5, "valid_predictions": 0, "scored_pages_attempted": 4, "replacement_page_attempted": false},
-      "candidate_failure": "LocalEntryNotFoundError: no cached Hub snapshot for requested revision main while Hub networking was disabled; no model download attempted",
-      "candidate_quality_metrics": null,
-      "formula_elements_in_scored_baseline": 24,
-      "formula_elements_with_null_text_in_scored_baseline": 24,
-      "formula_decision": "FORMULA RESULT REMAINS UNRESOLVED"
+      "configuration": {"baseline": "docling_formula_enrichment=false", "candidate": "docling_formula_enrichment=true", "all_other_options_identical": true, "official_config_changed": false},
+      "model": {"name": "docling-project/CodeFormulaV2", "local_artifacts": ".cache/docling/docling-project--CodeFormulaV2", "model_safetensors_bytes": 630993616, "model_safetensors_sha256": "4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2"},
+      "coverage": {"selected": 5, "baseline_valid": 5, "candidate_valid": 5, "formula_elements_baseline": 24, "formula_elements_baseline_null": 24, "formula_elements_candidate": 24, "formula_elements_candidate_with_text": 24},
+      "metrics": {
+        "formula_edit_distance": {"baseline": 0.9480769230769232, "candidate": 0.26127700089257905, "delta": -0.6867999221843441, "pages": 5},
+        "text_edit_distance": {"baseline": 0.46201420463556186, "candidate": 0.46111451952535043, "delta": -0.00089968511021143, "pages": 5},
+        "reading_order_edit_distance": {"baseline": 0.5646060606060606, "candidate": 0.28484848484848485, "delta": -0.2797575757575758, "pages": 5},
+        "table_metrics": null
+      },
+      "runtime_seconds": {"baseline_total": 74.84, "baseline_mean_per_page": 14.9679, "candidate_total": 84.749, "candidate_mean_per_page": 16.9498, "candidate_mean_delta": 1.9819, "candidate_percent_delta": 13.24},
+      "candidate_model_warnings": ["pad_token_id 128002 outside vocabulary 0..31999", "tied embedding and lm_head checkpoint values differ"],
+      "decision": "PROMISING SEPARATE CONFIGURATION CANDIDATE; NOT PROMOTED; full-population runtime/quality not established"
+    },
+    "formula_corpus_expansion": {
+      "experiment_id": "phase1-completion-formula-corpus-candidate-venv-20261006",
+      "intended_pages": 35,
+      "completed_valid_pages": 2,
+      "scored": false,
+      "first_two_total_runtime_seconds": [113.08, 97.31],
+      "docling_layout_conversion_seconds": [102.6869, 96.8185],
+      "warning": "Pillow DecompressionBombWarning was emitted by manifest dimension verification opening separate source page jiaocaineedrop_jiaocai_needrop_en_3222.jpg#2382 (145456564 pixels); verify_manifest reads Image.size and excludes it under the 40M-pixel policy; it was not a formula intermediate or inference input",
+      "stop_reason": "two slow pages made projected shared-L4 cost disproportionate before the warning source was understood; third page interrupted; no metric calculated",
+      "source_analysis": "benchmarks/scripts/build_omnidocbench_manifest.py::verify_manifest opens each image for dimension verification before selection and checks 40M-pixel exclusion integrity"
+    },
+    "formula_performance_profile": {
+      "experiment_id": "phase1-formula-profile-baseline-route-20261006",
+      "pages": ["docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3", "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2"],
+      "model": "docling-project/CodeFormulaV2",
+      "local_model_sha256": "4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2",
+      "model_initializations": 2,
+      "model_initialization_seconds_by_page": [1.097642, 1.026262],
+      "model_initialization_seconds_total": 2.123904,
+      "first_page_formula_batches": [5, 5, 2],
+      "first_page_batch_wall_seconds": [5.840257, 9.628964, 3.307776],
+      "first_page_generate_seconds": [5.699609, 9.502258, 3.257365],
+      "second_page_batch_regions": 2,
+      "second_page_batch_wall_seconds": 4.269352,
+      "second_page_generate_seconds": 4.220613,
+      "max_observed_crop": {"width": 2533, "height": 202, "pixels": 511666},
+      "exact_generated_tokens_per_region": null,
+      "finding": "generation dominates measured formula stage; processor/decode remainder about 0.05-0.14 seconds per batch; two initialization events were recorded, one associated with each profiled page",
+      "cache_reuse_status": "The 2026-10-07 same-process profile observed one pipeline/model reused across two pages; the older trace's two initialization events remain unexplained"
+    },
+    "formula_ten_page_extension": {
+      "experiment_id": "phase1-formula-combined-10-20261006",
+      "selected": 10,
+      "candidate_valid": 10,
+      "candidate_formula_elements": 42,
+      "candidate_formula_elements_with_text": 42,
+      "metrics": {
+        "formula_edit_distance": {"baseline": 0.9740384615384615, "candidate": 0.3886825566990895, "delta": -0.585355904839372, "pages": 10, "candidate_better": 9, "baseline_better": 0, "ties": 1},
+        "text_edit_distance": {"baseline": 0.49640223780852366, "candidate": 0.49365255917669887, "delta": -0.00274967863182479, "pages": 10, "candidate_better": 3, "baseline_better": 0, "ties": 7},
+        "reading_order_edit_distance": {"baseline": 0.598612554112554, "candidate": 0.39075757575757575, "delta": -0.20785497835497827, "pages": 10, "candidate_better": 7, "baseline_better": 2, "ties": 1},
+        "table_metrics": null
+      },
+      "page_ids": ["PPT_MMAT5390Lecture1_page_023.png#23", "book_zh_CNASGL0072018_extracted_page_48.png#48", "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3", "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2", "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996", "PPT_StewartCalcET7e_03_02_page_007.png#7", "PPT_ch7_page_057.png#57", "PPT_linear-algebra primer_page_007.png#7", "book_zh_GBT 50744-2011_extracted_page_67.png#67", "book_zh_JGJ1022003_extracted_page_27.png#27"],
+      "canonical_invariants": {"element_ids_types_order_indices_bboxes": "identical on all 10", "reading_order_arrays": "identical on all 10", "tables": "identical on all 10", "non_formula_text_changes": 0, "formula_text_changed_pages": 9, "candidate_populated_formula_elements": 42},
+      "runtime": {"candidate_total_seconds": 142.197, "baseline_total_seconds": 102.249, "delta_seconds": 39.948, "percent_delta": 39.1, "pages": 10, "first_five_candidate_seconds": 84.749, "first_five_baseline_seconds": 74.84, "extension_five_candidate_seconds": 57.448, "extension_five_baseline_seconds": 27.409, "extension_five_candidate_mean": 11.4897, "extension_five_candidate_median": 7.870839, "extension_five_candidate_p95_max": 31.400807, "extension_five_baseline_mean": 5.4818, "extension_five_baseline_max": 18.6045, "timing_comparability": "two separately paired five-page config A/B cohorts; each pair's source snapshot/environment match, but source snapshot differs between cohorts"},
+      "provenance_audit": {"artifact": ".benchmarks/diagnostics/phase1-formula-combined-10-20261006/provenance-audit.json", "merged_metadata_warning": "derived baseline metadata incorrectly inherited enabled config and five-page count; parent metadata is authoritative", "all_10_prediction_files_byte_verified_against_parent_runs": true, "pinned_evaluator_replayed_on_explicit_merged_prediction_directories": true},
+      "warnings": ["pad_token_id 128002 outside vocabulary 0..31999", "checkpoint tied embedding/lm_head values differ"],
+      "status": "STRONG TARGETED CANDIDATE; NOT PROMOTED; detection gaps and warning behavior remain open"
+    },
+    "formula_direct_twenty_page": {
+      "experiment_id": "phase1-formula-20-direct-20261006",
+      "type": "direct paired configuration experiment; exploratory candidate, not an official baseline",
+      "baseline": ".benchmarks/diagnostics/phase1-formula-20-direct-20261006/baseline",
+      "candidate": ".benchmarks/diagnostics/phase1-formula-20-direct-20261006/candidate",
+      "paired_provenance": {
+        "source_commit": "caf0ac6dff53306cd1c69185a619f95305898bd6",
+        "source_snapshot_sha256": "76bb2fcf7f43bbf54c693236dcb8b6cc21fe9b5e106180f42f412cfef543670c",
+        "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+        "manifest_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b",
+        "ground_truth_subset_sha256": "d929bf2de5707b9eea9e8541e108686ab20221d7fcd869385f5339e1fa7b2394",
+        "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+        "device": "cuda",
+        "only_config_difference": "docling_formula_enrichment false -> true",
+        "baseline_config_sha256": "79efe4294e9325d3fb6cf48a3eb3ad8bfea9c8668c0e64ec23eca77391c6dcf7",
+        "candidate_config_sha256": "ee7cc6066412d26ad19da33519abc01fa90370c7874d68d580f76b3ec38af0fe",
+        "model": "docling-project/CodeFormulaV2",
+        "model_safetensors_sha256": "4b04e77af34c4e682a7ab1617628340d658f3c3dcd12456dd2a7fff805cf79d2"
+      },
+      "selected_page_ids": [
+        "PPT_MMAT5390Lecture1_page_023.png#23",
+        "book_zh_CNASGL0072018_extracted_page_48.png#48",
+        "docstructbench_llm-raw-scihub-o.O-j.physletb.2004.06.101.pdf_3.jpg#3",
+        "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2",
+        "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996",
+        "PPT_StewartCalcET7e_03_02_page_007.png#7",
+        "PPT_ch7_page_057.png#57",
+        "PPT_linear-algebra primer_page_007.png#7",
+        "book_zh_GBT 50744-2011_extracted_page_67.png#67",
+        "book_zh_JGJ1022003_extracted_page_27.png#27",
+        "page-14cd673f-d86d-45a7-a13e-2b4e1d91c08f.png#0",
+        "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0",
+        "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0",
+        "page-87c18f88-ea2f-4044-b092-02e9b2a7436d.png#0",
+        "page-d9a27df2-127e-4f76-bb61-e7e741078bef.png#0",
+        "page-a32698bb-e3ae-49bc-b3af-203fb77b2bdf.png#0",
+        "jiaocaineedrop_jiaocai_needrop_en_1761.jpg#2096",
+        "PPT_StewartCalcET7e_03_02_page_015.png#15",
+        "page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0",
+        "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png#0"
+      ],
+      "coverage": {"selected": 20, "baseline_valid": 20, "candidate_valid": 20, "missing": 0, "unexpected": 0, "canonical_failures": 0},
+      "canonical_observations": {"baseline_formula_elements": 103, "baseline_formula_elements_with_text": 0, "candidate_formula_elements": 103, "candidate_formula_elements_with_text": 103, "structure_equal_pages": 20, "non_formula_text_equal_pages": 20, "formula_detection_changed": false},
+      "metrics": {
+        "formula_edit_distance": {"baseline": 0.9846927497789567, "candidate": 0.45107481226209334, "delta": -0.5336179375168634, "pages": 18, "candidate_better": 17, "baseline_better": 0, "ties": 1},
+        "text_edit_distance": {"baseline": 0.5834454089774723, "candidate": 0.5279201024099271, "delta": -0.0555253065675452, "pages": 20, "candidate_better": 9, "baseline_better": 0, "ties": 11},
+        "reading_order_edit_distance": {"baseline": 0.6462209595959597, "candidate": 0.4081069624819625, "delta": -0.2381139971139972, "pages": 20, "candidate_better": 16, "baseline_better": 2, "ties": 2},
+        "table_metrics": null
+      },
+      "runtime_seconds": {
+        "baseline": {"total": 74.624, "mean": 3.7312, "median": 2.6274, "p95": 5.5008, "max": 17.1315, "warning_pages": 4},
+        "candidate": {"total": 555.773, "mean": 27.7886, "median": 13.7575, "p95": 94.4362, "max": 96.533, "warning_pages": 2},
+        "candidate_to_baseline_total_ratio": 7.447644189536879
+      },
+      "controls": {"equation_annotations": 18, "zero_equation_annotation_pages": ["page-062fc21c-6b9c-40be-8d0e-7a617509a9bc.png#0", "page-affbb0cc-d616-481d-b493-80ed1ccb5a10.png#0"], "visual_review": "both annotation-free pages visibly contain equations; they are not true negative controls and do not establish false-positive rate", "missed_detection_page": "jiaocaineedrop_jiaocai_needrop_en_1253.jpg#1996"},
+      "model_warnings": ["pad_token_id 128002 outside vocabulary 0..31999", "checkpoint tied embedding/lm_head values differ"],
+      "status": "EXPERIMENTAL; strong targeted quality signal for already-detected formulas, not promoted; 7.45x runtime and generation-cap behavior require a separately bounded configuration investigation"
+    },
+    "formula_slow_outlier_profile": {
+      "experiment_id": "phase1-formula-profile-slowoutlier-20261007",
+      "page_id": "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0",
+      "input_dimensions": [2339, 1654],
+      "layout_regions": 18,
+      "formula_regions": 2,
+      "formula_model_init_seconds": 16.929557,
+      "crop_preparation_seconds": 0.161497,
+      "crops": [{"width": 3747, "height": 1625, "pixels": 6088875}, {"width": 2314, "height": 207, "pixels": 478998}],
+      "generation_batch_count": 1,
+      "batch_regions": 2,
+      "input_tokens": 605,
+      "padded_new_sequence_positions": 2048,
+      "generated_tokens_per_region": null,
+      "configured_max_new_tokens": 2048,
+      "generation_seconds": 96.948396,
+      "batch_seconds_including_processor_decode": 97.151356,
+      "docling_layout_conversion_seconds": 172.38599,
+      "total_extraction_seconds": 176.96,
+      "profile_completeness": "The initial wrapper profile left about 58 seconds unallocated; the later same-page TimeRecorder profile accounted its internal pipeline and did not reproduce the gap; exact per-item token counts are unavailable",
+      "generation_cap_interpretation": "returned batch-padded sequence contains 2048 new positions, matching the installed CodeFormulaVlmModel hard-coded max_new_tokens; exact per-region token counts are unavailable, so per-region cap reach is unknown",
+      "source_level_path": "StandardPdfPipeline._init_models creates CodeFormulaVlmModel; BasePipeline._enrich_document prepares formula crops and chunks by elements_batch_size=5; CodeFormulaVlmModel.__call__ builds VlmEngineInput with max_new_tokens=2048 and invokes predict_batch",
+      "cache_reuse_status": "This single-page trace cannot establish reuse; a later two-page trace observed reuse; the older trace discrepancy remains unresolved",
+      "image_warning_correction": "145456564-pixel Pillow warning belongs to excluded source page jiaocaineedrop_jiaocai_needrop_en_3222.jpg#2382 during manifest dimension scan, not this crop"
+    },
+    "formula_cache_and_stage_profile": {
+      "experiment_id": "phase1-formula-cache-phase-profile-20261007",
+      "pages": ["page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0", "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2"],
+      "artifact": ".benchmarks/diagnostics/phase1-formula-cache-phase-profile-20261007/formula_profile.json",
+      "same_process_lifecycle": {"docling_backend_instances": 1, "converter_instances": 1, "pipeline_instances": 1, "pipeline_cache_misses": 1, "pipeline_cache_hits": 1, "code_formula_initializations": 1, "initialization_seconds": 1.085904, "status": "Pipeline/model reused in this run; older two-init trace conflicts and remains unexplained"},
+      "page_timings": [
+        {"page_id": "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0", "total_seconds": 97.743365, "outer_docling_conversion_seconds": 95.379721, "pipeline_total_seconds": 85.833997, "doc_enrich_seconds": 83.176019, "generate_seconds": 82.879199, "crop_preparation_seconds": 0.164138, "generation_batch_including_processor_decode_seconds": 83.011444, "input_tokens": 605, "batch_new_sequence_positions": 2048, "exact_generated_tokens_per_region": null, "seconds_outside_pipeline_total_within_outer_conversion": 9.545724},
+        {"page_id": "exam_paper_en-file-putnam-archive_2013_Problems_2013_page_002.png#2", "total_seconds": 6.98768, "outer_docling_conversion_seconds": 6.71301752, "pipeline_total_seconds": 6.669072, "doc_enrich_seconds": 4.430846, "generate_seconds": 4.371618, "crop_preparation_seconds": 0.01108, "generation_batch_including_processor_decode_seconds": 4.419258, "input_tokens": 340, "batch_new_sequence_positions": 117, "exact_generated_tokens_per_region": null}
+      ],
+      "interpretation": "Generation dominates these two observed pages. The earlier ~58-second wrapper-accounting gap did not recur and cannot be retrospectively assigned.",
+      "token_capture_followup": "ABORTED after an unrelated GPU training workload appeared; partial output excluded",
+      "profile_harness_v2": {
+        "change": "Uses effective generation config EOS/pad IDs and records per-row generated sequence length plus region index; cap-length observation is not treated as proof of cap-caused stopping",
+        "model_inference_performed": false,
+        "tests": "3 CPU synthetic sequence-length tests passed"
+      }
+    },
+    "table_serialization_replay": {
+      "experiment_id": "phase1-completion-table-export-attested-20261006",
+      "type": "offline serialization-only replay; no model inference",
+      "selected_pages": 180,
+      "replaced_pages": 4,
+      "unchanged_control_pages": 176,
+      "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+      "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "metrics": {
+        "table_edit_distance": {"baseline": 0.701107695460781, "candidate": 0.6838373891005324, "delta": -0.0172703063602486, "pages": 50},
+        "table_teds": {"baseline": 0.40773931300173183, "candidate": 0.40777735201282433, "delta": 0.0000380390110925, "instances": 64},
+        "table_structure_teds": {"baseline": 0.6491142902284949, "candidate": 0.6495962631648948, "delta": 0.0004819729363999, "instances": 64},
+        "text_edit_distance": {"baseline": 0.5893967456014855, "candidate": 0.5893967456014855, "delta": 0.0, "pages": 168},
+        "reading_order_edit_distance": {"baseline": 0.5968228067586311, "candidate": 0.5968228067586311, "delta": 0.0, "pages": 178},
+        "formula_edit_distance": {"baseline": 0.9853894477253515, "candidate": 0.9853894477253515, "delta": 0.0, "pages": 35}
+      },
+      "attribution": "The only changed outputs are HTML/escaped serialization of four retained canonical tables with spans or Markdown delimiters. Three changed pages have lower page table ED; fourth has no page-table metric. This is a candidate serialization replay, not a new extraction baseline.",
+      "run_metadata_source_attested": true
+    },
+    "table_span_candidate": {
+      "experiment_id": "phase1-table-spans-top5-20261006",
+      "implementation": "Map installed Table Transformer table-spanning-cell detections to contiguous grid slots; preserve non-overlapping spans in canonical cells and HTML serialization",
+      "official_configuration_changed": false,
+      "pages": [
+        "docstructbench_llm-raw-the-eye-o.O-Character Sheet - Form Fillable.pdf#379",
+        "eastmoney_dd8f39ced2188b907304224a635ad605689270486020c34636003e57018c01d8.pdf#2",
+        "jiaocaineedrop_jiaocai_needrop_en_1959.jpg#2133",
+        "notes_1ba14cb325bc448f7201b20502ecf2b5_97.jpg#97",
+        "yanbaor2_3e1be78252e2fdfe1adf12bba38ec2a7b30699e152d61269aa6e5827f5adcc35.pdf#3929"
+      ],
+      "coverage": {"selected": 5, "valid": 5, "canonical_failures": 0},
+      "baseline_reference": ".benchmarks/runs/omnidocbench/classic-current-valid-20261003T153500Z",
+      "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "metrics": {
+        "table_edit_distance": {"baseline": 0.8562852724906315, "candidate": 0.783827152737342, "delta": -0.0724581197532895, "pages": 5},
+        "table_teds": {"baseline": 0.11142796526024712, "candidate": 0.1199911836510517, "delta": 0.00856321839080458, "instances": 10},
+        "table_structure_teds": {"baseline": 0.1995836198709762, "candidate": 0.21603955856829424, "delta": 0.01645593869731804, "instances": 10},
+        "text_edit_distance": {"baseline": 0.9945414847161572, "candidate": 0.9945414847161572, "delta": 0.0, "pages": 4},
+        "reading_order_edit_distance": {"baseline": 0.8166666666666667, "candidate": 0.8166666666666667, "delta": 0.0, "pages": 5}
+      },
+      "candidate_observations": {"tables": 4, "cells_with_explicit_spans": 4, "pages_with_spans": 2, "pages_without_candidate_table": 1},
+      "decision": "PROMISING LOCAL TABLE-STRUCTURE FIX; diagnostic selected subset only, not a representative estimate or new official baseline",
+      "artifact": ".benchmarks/diagnostics/phase1-table-spans-top5-20261006"
+    },
+  "table_span_twenty_page_validation": {
+    "experiment_id": "phase1-table-spans-20-20261006",
+    "paired_control_experiment_id": "phase1-table-spans-head-paired-control-20-20261006",
+    "cohort": "15 frozen representative-v2 GT span-annotated pages ranked by baseline table ED plus 5 table-bearing pages without GT span annotation; deterministic, no resampling",
+    "selected": 20,
+    "valid": 20,
+    "failed": 0,
+    "candidate_runtime_seconds": 154.0,
+    "baseline_runtime_seconds": 148.4,
+    "baseline": ".benchmarks/diagnostics/phase1-table-spans-head-baseline-20-20261006; fresh 20-page extraction at clean HEAD caf0ac6dff53306cd1c69185a619f95305898bd6 in a disposable worktree",
+    "candidate": ".benchmarks/diagnostics/phase1-table-spans-20-20261006; candidate predictions explicitly passed to the pinned evaluator",
+    "baseline_source_snapshot_sha256": "6b4f838a4a0b6962569486d85449e421544d43a603d6ce4bf224b944bc931526",
+    "candidate_source_snapshot_sha256": "76bb2fcf7f43bbf54c693236dcb8b6cc21fe9b5e106180f42f412cfef543670c",
+    "config_sha256": "ea3e0415e6e7699c081dfc7a3d2abcf9344c02db704865beb91ef783e1102748",
+    "ground_truth_subset_sha256": "83b24bd4c74544e2e5b2bfbc206da830441fd217aad5b152265ea3f0414760a4",
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "metrics": {
+        "table_edit_distance": {"baseline": 0.7698334950746224, "candidate": 0.6658285192812645, "delta": -0.1040049757933579, "pages": 20},
+        "table_teds": {"baseline": 0.30180992541305135, "candidate": 0.30526445909046346, "delta": 0.0034545336774121, "pages": 20},
+        "table_structure_teds": {"baseline": 0.46378029484051025, "candidate": 0.46745560744515696, "delta": 0.0036753126046467, "pages": 20},
+        "text_edit_distance": {"baseline": 0.7134346779698636, "candidate": 0.7134346779698636, "delta": 0.0, "pages": 15},
+        "reading_order_edit_distance": {"baseline": 0.7930143467643467, "candidate": 0.7930143467643467, "delta": 0.0, "pages": 20}
+      },
+    "per_page_table_edit_direction": {"candidate_better": 5, "baseline_better": 0, "ties": 15},
+    "canonical_observations": {"pages_with_spans": 5, "explicit_merged_cells": 10, "changed_pages_match_pages_with_spans": true},
+    "attribution_limit": "The candidate combines preserved Table Transformer spans with the safe HTML serializer; the paired run establishes the effect of this code bundle, not an isolated causal effect for either sub-change.",
+      "official_config_changed": false,
+      "promotion": "retain implementation candidate and tests; do not replace frozen full Classic baseline; next separate refresh requires full attestation"
+    },
+  "table_factorial_twenty_page_replay": {
+    "experiment_id": "phase1-table-factorial-20-20261007",
+    "artifact": ".benchmarks/diagnostics/phase1-table-factorial-20-20261007/",
+    "type": "four-arm offline canonical/serializer replay; no inference",
+    "population": 20,
+    "manifest_identity": "899191e7471ae5c826a6a07ff7edf3c7c8facec72764196ef9f3f49a8265a93b",
+    "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+    "ground_truth_sha256": "83b24bd4c74544e2e5b2bfbc206da830441fd217aad5b152265ea3f0414760a4",
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+    "non_table_canonical_content_equal": true,
+    "metric_denominators": {
+      "table_edit_distance_pages": 20,
+      "table_teds_pages": 20,
+      "table_structure_teds_pages": 20,
+      "text_edit_distance_pages": 15,
+      "reading_order_edit_distance_pages": 20
+    },
+    "arms": {
+      "baseline_legacy": {"table_edit_distance": 0.7698334950746224, "table_teds": 0.30180992541305135, "structure_teds": 0.46378029484051025},
+      "serialization_only": {"table_edit_distance": 0.7534895661987241, "table_teds": 0.30177385037697635, "structure_teds": 0.4647182457784612},
+      "span_only": {"table_edit_distance": 0.7698487247317964, "table_teds": 0.3017801983175348, "structure_teds": 0.46378029484051025},
+      "span_plus_serialization": {"table_edit_distance": 0.6658285192812645, "table_teds": 0.30526445909046346, "structure_teds": 0.46745560744515696}
+    },
+    "page_level_table_edit_direction_vs_baseline": {
+      "serialization_only": {"better": 1, "worse": 0, "ties": 19},
+      "span_only": {"better": 0, "worse": 1, "ties": 19},
+      "span_plus_serialization": {"better": 5, "worse": 0, "ties": 15}
+    },
+    "text_and_reading_order_unchanged": true,
+    "interpretation": "The large Table ED reduction is an interaction between span-aware canonical cells and safe HTML serialization; this is subset replay evidence, not a representative-corpus estimate."
+  }
+  },
+  "classic_table_candidate": {
+    "status": "FULL_180_CANDIDATE_VALIDATED; RECOMMENDED CLASSIC IMPLEMENTATION",
+    "run": ".benchmarks/diagnostics/phase1-table-combined-full180-20261007",
+    "baseline_run": ".benchmarks/runs/omnidocbench/classic-current-valid-20261003T153500Z",
+    "population_pages": 180,
+    "table_ed_pages": 50,
+    "teds_instances": 64,
+    "coverage": {"selected": 180, "attempted": 180, "valid": 180, "missing": 0, "unexpected": 0, "duplicates": 0, "canonical_failures": 0},
+    "metrics": {
+      "table_edit_distance": {"baseline": 0.701107695460781, "candidate": 0.6259519378292139, "delta": -0.0751557576315671, "pages": 50},
+      "table_teds": {"baseline": 0.40773931300173183, "candidate": 0.4093949091278383, "delta": 0.00165559612610647, "instances": 64},
+      "table_structure_teds": {"baseline": 0.6491142902284949, "candidate": 0.6518862916525392, "delta": 0.0027720014240443, "instances": 64},
+      "text_edit_distance": {"baseline": 0.5893967456014855, "candidate": 0.5893967456014855, "delta": 0.0, "pages": 168},
+      "reading_order_edit_distance": {"baseline": 0.5968228067586311, "candidate": 0.5968228067586311, "delta": 0.0, "pages": 178},
+      "formula_edit_distance": {"baseline": 0.9853894477253515, "candidate": 0.9853894477253515, "delta": 0.0, "pages": 35}
+    },
+    "runtime_seconds": {"baseline_mean": 6.4924, "candidate_mean": 6.3993, "baseline_p95": 18.9351, "candidate_p95": 19.3168, "baseline_max": 75.465552, "candidate_max": 74.1038},
+    "warnings": {"baseline_occurrences": 76, "candidate_occurrences": 76, "baseline_pages": 65, "candidate_pages": 65},
+    "source_commit": "caf0ac6dff53306cd1c69185a619f95305898bd6",
+    "source_snapshot_sha256": "79844f366c07bf7251c99a1554113df4e34829b476e44786e3da16bcf8ab5dd4",
+    "config_sha256": "ea3e0415e6e7699c081dfc7a3d2abcf9344c02db704865beb91ef783e1102748",
+    "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+    "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044"
+  },
+  "current_follow_up": {
+    "table_candidate": "Full 180-page candidate validated separately; Table ED improves by 0.075156, TEDS/structure improve slightly; other metrics and warning counts unchanged. Recommended implementation promotion; frozen reference artifacts remain unchanged.",
+    "cjk_language_ab": {
+      "status": "CPU PAIRED DIAGNOSTIC COMPLETE; GLOBAL MULTILINGUAL CANDIDATE REJECTED",
+      "run_root": ".benchmarks/diagnostics/phase1-cjk-currentv2-20261007",
+      "pages": 7,
+      "config_a_languages": ["en", "vi"],
+      "config_b_languages": ["ch_sim", "en"],
+      "config_a_sha256": "133c78c47501cbe858a97c88f61ea86414bfac83ce2350b0d8f7bfe668e6f3e9",
+      "config_b_sha256": "c94160b27fc81e390fe2e9608ed6ba116384bf89c982a9bb1a1bc7d686cca1b3",
+      "metrics": {
+        "text_ed_all": {"baseline": 0.6395470513, "candidate": 0.6645241152, "delta": 0.0249770639, "pages": 7},
+        "text_ed_simplified_chinese": {"baseline": 0.9583761, "candidate": 0.8722082, "delta": -0.0861679, "pages": 3},
+        "text_ed_mixed_en_ch": {"baseline": 0.4480806, "candidate": 0.5043355, "delta": 0.0562549, "pages": 2},
+        "text_ed_english": {"baseline": 0.35277, "candidate": 0.5131866, "delta": 0.1604167, "pages": 2},
+        "reading_order_ed_all": {"baseline": 0.7236345, "candidate": 0.7582687, "delta": 0.0346342, "pages": 7},
+        "formula_ed_all": {"baseline": 1.0, "candidate": 1.0, "pages": 2}
+      },
+      "oracle_route_using_gt_language_only_for_analysis": {"text_ed": 0.6026179694, "pages": 7, "baseline_text_ed": 0.6395470513, "deployable": false, "limitation": "Uses manifest ground-truth language labels; no inference-time classifier or production router was validated"},
+      "tesseract_osd_signal_probe": {
+        "version": "4.1.1",
+        "pages": 179,
+        "language_counts": {"simplified_chinese": 83, "traditional_chinese": 1, "mixed_en_ch": 13, "english": 82},
+        "han_label_counts": {"chinese_gt_language": 63, "english_or_mixed_gt_language": 2},
+        "descriptive_classifier_metrics": {"han_precision": 0.9692, "chinese_recall": 0.75, "non_chinese_specificity": 0.9789},
+        "unavailable": {"english_pages": 1, "fallback": "retain baseline en,vi config"},
+        "seven_page_saved_output_route_replay": {"text_ed": 0.6026179694, "baseline_text_ed": 0.6395470513, "matched_gt_oracle_outputs": true},
+        "assessment": "Offline-supported page-level routing candidate; misses 25% of Chinese pages and broader routed output quality/false-positive impact is unmeasured",
+        "gpu": false
+      },
+      "candidate_role": "offline-supported page-routing hypothesis; no production router implemented",
+      "vietnamese_control": "unavailable in representative-v2 language labels"
+    },
+    "cjk_routed_output_pilot": {
+      "experiment_id": "phase1-cjk-route15-20261007",
+      "status": "EXPERIMENTAL; OUTPUT-LEVEL PAIRED PILOT COMPLETE; NOT PROMOTED",
+      "artifact_root": ".benchmarks/diagnostics/phase1-cjk-route15-20261007",
+      "source_commit": "caf0ac6dff53306cd1c69185a619f95305898bd6",
+      "relevant_source_sha256": {"docling_backend.py": "213bd469e3e052a3d99b4347f11f711fc3642ec04ef003af075b39e778bef1c7", "cli.py": "7c899cfa24db2117a88a547ff13c0048ecfcd9ad04e31c8224409a84f954dd31"},
+      "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+      "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "cohort": {"pages": 15, "simplified_chinese": 8, "mixed_en_ch": 3, "english": 4, "vietnamese": 0},
+      "routing_policy": "Tesseract OSD script=Han selects local EasyOCR ch_sim,en; all other/unavailable outputs retain en,vi; GT used only for stratification and analysis",
+      "configs": {
+        "baseline_languages": ["en", "vi"],
+        "baseline_sha256": "133c78c47501cbe858a97c88f61ea86414bfac83ce2350b0d8f7bfe668e6f3e9",
+        "cjk_languages": ["ch_sim", "en"],
+        "cjk_sha256": "f2e4bcccc3e1e7a48c7e5614318d044b7b36d6ca4bb84d1ded7cc3a760a77f51",
+        "only_config_difference": "ocr_languages"
+      },
+      "coverage": {"baseline_valid": 15, "candidate_han_valid": 8, "routed_composite_valid": 15, "missing": 0, "unexpected": 0, "duplicates": 0},
+      "routing_counts": {"chinese_pages": 8, "han_routed_chinese": 6, "missed_chinese": 2, "false_positive_mixed": 1, "false_positive_english": 1},
+      "metrics": {
+        "text_ed": {"all": {"baseline": 0.7293628739213541, "candidate": 0.5006733782546476, "delta": -0.2286894956667065, "pages": 15, "route_better": 7, "route_worse": 0, "ties": 8}, "simplified_chinese": {"baseline": 0.9806341357889552, "candidate": 0.647890380571093, "delta": -0.3327437552178622, "pages": 8, "route_better": 5, "route_worse": 0, "ties": 3}, "mixed_en_ch": {"baseline": 0.541551996436795, "candidate": 0.3264982329959348, "delta": -0.2150537634408602, "pages": 3, "route_better": 1, "route_worse": 0, "ties": 2}, "english": {"baseline": 0.3676785082995713, "candidate": 0.33687073256579136, "delta": -0.03080777573377994, "pages": 4, "route_better": 1, "route_worse": 0, "ties": 3}},
+        "reading_order_ed": {"all": {"baseline": 0.6462973329846394, "candidate": 0.49147188552761306, "delta": -0.15482544745702635, "pages": 15, "route_better": 6, "route_worse": 0, "ties": 9}, "simplified_chinese": {"baseline": 0.7643285077495605, "candidate": 0.5052807937676359, "pages": 8}, "mixed_en_ch": {"baseline": 0.7142857142857143, "candidate": 0.7142857142857143, "pages": 3}, "english": {"baseline": 0.35924369747899154, "candidate": 0.2967436974789916, "pages": 4}},
+        "table_edit_distance": {"baseline": 0.8028366639, "candidate": 0.5970277786, "pages": 3, "interpretation": "incidental small-N measure; not attributed to OCR routing"},
+        "table_teds": {"baseline": 0.422955473, "candidate": 0.7349624424, "instances": 4, "interpretation": "incidental small-N measure; not attributed to OCR routing"},
+        "table_structure_teds": {"baseline": 0.6385897436, "candidate": 0.9047008547, "instances": 4, "interpretation": "incidental small-N measure; not attributed to OCR routing"},
+        "formula_ed": {"baseline": 1.0, "candidate": 1.0, "pages": 2}
+      },
+      "empty_output_pages": {"baseline": 1, "candidate": 1, "persisted_page_id": "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0"},
+      "runtime_seconds": {"baseline_page_runtime": 578.338, "han_candidate_page_runtime": 235.168, "composed_route_extraction_estimate": 571.335, "osd_total_15_pages": 20.259, "osd_mean_seconds_per_page": 1.3506, "composed_route_total_estimate": 591.594, "baseline_plus_osd_delta_percent": 2.3, "note": "composed from page times and separate OSD timing; not one end-to-end route execution"},
+      "decision": "EXPERIMENTAL; superseded by 30- and 50-page routed validations below; not promoted",
+      "gpu_used": false
+    },
+    "cjk_routed_output_30page": {
+      "experiment_id": "phase1-cjk-route30-20261007",
+      "status": "EXPERIMENTAL; COMPLETE PAIRED CPU CANDIDATE; RELIABILITY ISSUE",
+      "artifact_root": ".benchmarks/diagnostics/phase1-cjk-route30-20261007",
+      "source_commit": "caf0ac6dff53306cd1c69185a619f95305898bd6",
+      "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+      "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "cohort": {"pages": 30, "simplified_chinese": 17, "traditional_chinese": 1, "mixed": 6, "english": 6, "vietnamese": 0},
+      "policy": "Tesseract OSD script=Han selects local EasyOCR ch_sim,en; all other/unavailable outputs retain en,vi; GT only for stratification and post-hoc evaluation",
+      "coverage": {"baseline_valid": 30, "routed_valid": 30, "missing": 0, "unexpected": 0, "duplicates": 0},
+      "routing_counts": {"han_selected": 16, "true_chinese": 14, "missed_chinese": 4, "false_positive_non_chinese": 2, "precision": 0.875, "recall": 0.7778, "specificity": 0.8333},
+      "metrics": {
+        "text_ed_all": {"baseline": 0.7737623675, "candidate": 0.627034686, "delta": -0.1467276815, "pages": 29, "better": 11, "worse": 3, "ties": 15},
+        "text_ed_simplified_chinese": {"baseline": 0.959485, "candidate": 0.753593, "pages": 17, "better": 9, "worse": 2, "ties": 6},
+        "text_ed_mixed": {"baseline": 0.612158, "candidate": 0.483126, "pages": 5},
+        "text_ed_english": {"baseline": 0.347657, "candidate": 0.327118, "pages": 6},
+        "text_ed_traditional_chinese": {"baseline": 0.981132, "candidate": 0.99458, "pages": 1},
+        "reading_order_ed": {"baseline": 0.692217212, "candidate": 0.6153403345, "delta": -0.0768768775, "pages": 30, "better": 10, "worse": 4, "ties": 16}
+      },
+      "empty_output_regression": {"page_id": "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0", "baseline_nonempty": true, "routed_bytes": 1, "routed_content": "newline"},
+      "runtime_seconds": {"baseline_page_runtime": 1061.997, "routed_extraction_composite": 1061.711, "osd": 40.36, "estimated_routed_total": 1102.071, "estimated_delta_percent": 3.77, "note": "OSD plus extracted page runtimes composed from separate measurements; not a single end-to-end route run"},
+      "gpu_used": false,
+      "decision": "No escalation to 180 pages: new empty routed output fails reliability gate"
+    },
+    "cjk_routed_output_50page": {
+      "experiment_id": "phase1-cjk-route50-20261007",
+      "status": "EXPERIMENTAL; 50-PAGE GATE FAILS RELIABILITY CRITERION",
+      "artifact_root": ".benchmarks/diagnostics/phase1-cjk-route50-20261007",
+      "source_commit": "caf0ac6dff53306cd1c69185a619f95305898bd6",
+      "manifest_sha256": "bb99b04e425a6b337252c7fa56dbf01fae94623181b06ab39d8b223abbe16fc6",
+      "evaluator_revision": "193627ae9e97d89188468ed1ee3b7a856ff76044",
+      "cohort": {"pages": 50, "simplified_chinese": 31, "traditional_chinese": 1, "mixed": 10, "english": 8, "vietnamese": 0},
+      "policy": "Tesseract OSD script=Han selects local EasyOCR ch_sim,en; all other/unavailable outputs retain en,vi; GT only for stratification and post-hoc evaluation",
+      "coverage": {"baseline_valid": 50, "routed_valid": 50, "missing": 0, "unexpected": 0, "duplicates": 0},
+      "routing_counts": {"han_selected": 28, "true_chinese": 26, "missed_chinese": 6, "false_positive_non_chinese": 2, "precision": 0.9286, "recall": 0.8125, "specificity": 0.8889},
+      "metrics": {
+        "text_ed_all": {"baseline": 0.791111323996583, "candidate": 0.544701229442563, "delta": -0.24641009455402, "pages": 47, "better": 20, "worse": 3, "ties": 24},
+        "text_ed_simplified_chinese": {"baseline": 0.954394220270818, "candidate": 0.581072498853265, "pages": 29, "better": 18, "worse": 2, "ties": 9},
+        "text_ed_mixed": {"baseline": 0.639671875727488, "candidate": 0.567987287913868, "pages": 9, "better": 1, "worse": 0, "ties": 8},
+        "text_ed_english": {"baseline": 0.345827610370826, "candidate": 0.330423722503936, "pages": 8, "better": 1, "worse": 0, "ties": 7},
+        "text_ed_traditional_chinese": {"baseline": 0.981132075471698, "candidate": 0.994579945799458, "pages": 1, "better": 0, "worse": 1, "ties": 0},
+        "reading_order_ed": {"baseline": 0.674163660529609, "candidate": 0.576637534053033, "delta": -0.097526126476576, "pages": 50, "better": 16, "worse": 5, "ties": 29}
+      },
+      "empty_output_regression": {"page_id": "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0", "baseline_nonempty": true, "routed_bytes": 1, "routed_content": "newline"},
+      "runtime_seconds": {"baseline_page_runtime": 1697.524196, "routed_extraction_composite": 1680.823192, "osd": 65.232, "estimated_routed_total": 1746.055192, "estimated_delta_percent": 2.8589, "note": "OSD plus extracted page runtimes composed from separate measurements; not a single end-to-end route run"},
+      "gpu_used": false,
+      "decision": "EXPERIMENTAL; do not run 180-page candidate until empty-output mechanism and Vietnamese controls are addressed"
+    },
+    "cjk_route_reliability_followup": {
+      "experiment_id": "phase1-cjk-empty-repro-and-fallback-replay-20261007",
+      "status": "EXPERIMENTAL; FALLBACK PROTOTYPE VALIDATED OFFLINE; NOT PROMOTED",
+      "artifact_roots": [".benchmarks/diagnostics/phase1-cjk-empty-repro-20261007/", ".benchmarks/diagnostics/phase1-cjk-route50-20261007/routed-fallback50-tool-20261007/", ".benchmarks/diagnostics/phase1-cjk-route50-20261007/routed-fallback50-replay-final-20261007/"],
+      "page_id": "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0",
+      "classification": "OCR_EMPTY_RESULT",
+      "first_empty_boundary": "Docling raw OCRResult token list; canonical assembly and Markdown serialization subsequently contain no text",
+      "baseline_observation": {"languages": ["en", "vi"], "layout_regions": 9, "raw_ocr_tokens": 1, "raw_text": "2", "canonical_text_elements": 1, "markdown_bytes": 8},
+      "routed_observation": {"languages": ["ch_sim", "en"], "osd_script": "Han", "osd_confidence": 1.43, "layout_regions": 8, "raw_ocr_tokens": 0, "ocr_empty_warning": true, "canonical_text_elements": 0, "markdown_bytes": 1, "status": "success_with_warnings"},
+      "source_image": {"dimensions": [1654, 2339], "pixels": 3868706, "local_ch_sim_asset": ".cache/docling/EasyOcr/zh_sim_g2.pth", "sha256": "cb678fdef09d651e7763ca551ad790dc89f0b2e3d2a640484330e338fb574c7a"},
+      "backend_probes": {"ch_sim_only": "zero tokens on this sample", "ch_sim_en_vi": "unsupported; EasyOCR raises ValueError because Chinese_sim is only compatible with English", "model_downloaded": false},
+      "root_cause_limit": "OCR result is empty before canonicalization; public backend result does not distinguish EasyOCR detection failure from recognition failure, and layout classification also differs between arms",
+      "fallback_prototype": {"implemented_as": "pure decision helper plus offline saved-output composer; not integrated into process_file", "triggers": ["exception", "missing result", "malformed result", "invalid result", "whitespace-only Markdown", "explicit Docling no-token warning"], "han_routes": 28, "fallbacks": 2, "fallback_rate": 0.0714, "rescued_candidate_created_empty": 1, "no_op_baseline_already_empty": 1, "candidate_created_empty_after_fallback": 0, "baseline_empty_outputs_retained": 2},
+      "fallback_replay_metrics": {"text_edit_distance": {"raw_route": 0.5447012294, "fallback": 0.544574205, "paired_pages": 47}, "text_ed_simplified_chinese": {"value": 0.5808666, "pages": 29}, "text_ed_mixed": {"value": 0.5679873, "pages": 9}, "text_ed_english": {"value": 0.3304237, "pages": 8}, "text_ed_traditional_chinese": {"value": 0.9945799, "pages": 1}, "reading_order_edit_distance": {"raw_route": 0.5766375341, "fallback": 0.5756851531, "paired_pages": 50}},
+      "vietnamese_controls": {"kind": "synthetic in-memory raster phrases; not representative page inference", "phrases": 3, "baseline_en_vi_sequence_similarity": [0.92, 1.0, 0.9783], "candidate_ch_sim_en_sequence_similarity": [0.6531, 0.806, 0.913], "chinese_vietnamese_mixed_control": "unavailable", "real_page_controls": "not available locally"},
+      "limitations": ["offline replay, not fresh routed inference", "fallback is not integrated into production pipeline", "nonempty but degraded candidates are not detected", "Vietnamese tests are synthetic only", "underlying EasyOCR detector-versus-recognizer failure remains unresolved"],
+      "decision": "Do not escalate to 180 pages; retain CJK route as experimental. Live integration requires telemetry, real Vietnamese controls, and bounded paired inference revalidation.",
+      "gpu_used": false
+    },
+    "cjk_live_route_candidate": {
+      "experiment_id": "phase1-cjk-live-failure-20261007",
+      "status": "OPT-IN LIVE PATH IMPLEMENTED; ONE-PAGE VALIDATION ONLY; EXPERIMENTAL",
+      "artifact_root": ".benchmarks/diagnostics/phase1-cjk-live-failure-20261007/",
+      "toggle": "experimental_cjk_ocr_routing",
+      "default_enabled": false,
+      "requires": {"baseline_ocr_backend": "docling", "baseline_languages": ["en", "vi"], "specialized_backend": "direct EasyOCR", "specialized_languages": ["ch_sim", "en"], "osd": "bounded Tesseract psm 0"},
+      "page_id": "page-4b8f8a9d-e061-4207-a42e-ebf9b7090099.png#0",
+      "osd": {"available": true, "script": "Han", "confidence": 1.43, "seconds": 1.723263},
+      "candidate": {"backend": "easyocr", "tokens": 57, "nonspace_chars": 502, "seconds": 19.753185, "fallback": false, "state": "SPECIALIZED_OK"},
+      "baseline_cache": {"token_count": 1, "nonspace_chars": 1, "comparison_seconds": 0.000143},
+      "canonical": {"pages": 1, "elements": 17, "text_bearing_elements": 15, "valid": true},
+      "metrics_one_page": {"text_edit_distance": {"baseline": 0.9970149254, "candidate": 0.7789473684, "paired_pages": 1}, "reading_order_edit_distance": {"baseline": 0.9523809524, "candidate": 0.6666666667, "paired_pages": 1}, "formula_edit_distance": {"baseline": 1.0, "candidate": 0.9501385042, "paired_pages": 1}},
+      "runtime_seconds": {"page_total": 65.415923, "docling_layout": 40.993491, "osd": 1.723263, "specialized_ocr": 19.753185, "baseline_cached_ocr": 0.000143, "table": 2.185103, "total_router": 21.47685},
+      "telemetry": "OCR stage JSON contains script/confidence, backend/state, token/character counts, fallback reason and phase timings; no OCR text duplicated",
+      "limitations": ["one page only", "new direct-EasyOCR path differs from prior Docling-wrapped 50-page candidate", "no live fallback triggered on this sample", "real Vietnamese controls absent", "nonempty-quality detector not broadly validated"],
+      "gpu_used": false,
+      "decision": "Keep opt-in and experimental; no 15/20/30/50/180 escalation without real Vietnamese page controls and bounded multilingual live validation."
+    },
+    "cjk_collapse_guard_replay": {
+      "experiment_id": "phase1-cjk-route50-fallback-collapse50-20261007",
+      "kind": "offline saved-output replay; no inference",
+      "han_routes": 28,
+      "fallbacks": 3,
+      "fallback_rate": 0.1071,
+      "events": [
+        {"class": "empty candidate with nonempty baseline", "recovered": true},
+        {"class": "nonempty collapse", "page_id": "page-07088b2f-f9d6-4c38-9c97-d7f98bc3d556.png#0", "posthoc_language": "traditional_chinese", "nonspace_chars": {"baseline": 50, "candidate": 22}, "text_ed": {"baseline": 0.981132, "candidate": 0.99458}, "reading_order_ed": {"baseline": 0.904762, "candidate": 0.97619}, "gt_used_for_decision": false},
+        {"class": "both outputs empty", "recovered": false}
+      ],
+      "metrics": {"text_edit_distance": {"before": 0.544574205, "after": 0.5442880801, "paired_pages": 47}, "reading_order_edit_distance": {"before": 0.5756851531, "after": 0.5742565817, "paired_pages": 50}},
+      "threshold": {"minimum_baseline_nonspace_chars": 40, "candidate_baseline_ratio_less_than": 0.5, "evidence": "catches one observed saved-output collapse; broader sensitivity unknown"},
+      "gpu_used": false
+    },
+    "formula_generation_economics": {
+      "status": "ONE-PAGE CAP PROFILE AND CONTROLLED 1024 DIAGNOSTIC COMPLETE; FORMULA REMAINS EXPERIMENTAL",
+      "slow_page_id": "page-39551bb3-1b65-4562-b258-1bc97898cdf9.png#0",
+      "baseline_cap": 2048,
+      "candidate_cap": 1024,
+      "regions": [
+        {"region": 0, "crop": [3747, 1625], "generated_tokens_2048": 2048, "completion_2048": "cap_length_observed"},
+        {"region": 1, "crop": [2314, 207], "generated_tokens_2048": 47, "completion_2048": "eos_observed"}
+      ],
+      "generation_seconds_2048": 96.32651,
+      "page_wall_seconds_2048": 111.92,
+      "candidate_1024": {"region_0_tokens": 1024, "region_0_completion": "cap_length_observed", "region_1_tokens": 47, "region_1_completion": "eos_observed", "generation_seconds": 42.048937, "page_wall_seconds": 57.05},
+      "quality_one_page": {"formula_ed_2048": 0.9875222816, "formula_ed_1024": 0.9770491803, "baseline_formula_ed": 1.0, "text_ed": 1.0, "reading_order_ed": 0.8},
+      "device": "cuda:0",
+      "production_cap_changed": false,
+      "limitation": "Docling 2.124 hard-codes 2048 in CodeFormulaVlmModel.__call__; diagnostic cap override was isolated in process; no broader cap cohort"
+    },
+    "classic_ocr_language_coverage": {
+      "finding": "Baseline config en,vi omits Chinese; local EasyOCR zh_sim_g2.pth exists. Global ch_sim,en is rejected. The prior OSD-routed 50-page saved-output candidate had strong aggregate gains but one OCR_EMPTY_RESULT. An opt-in live router is now integrated behind experimental_cjk_ocr_routing, uses direct EasyOCR ch_sim,en on OSD Han, and records content-free per-page telemetry. The known failure page completed on this new path; a saved-output collapse guard also restores one Traditional Chinese candidate degradation.",
+      "next_experiment": "Real Vietnamese and mixed-language page controls are unavailable locally. Do not escalate to 15/30/50/180 live routed validation or claim multilingual safety until real controls are available; current one-page live evidence and saved-output replay are insufficient for promotion.",
+      "classification": "CONFIGURATION_ERROR confirmed for missing Chinese language coverage; prior wrapped route failure classified OCR_EMPTY_RESULT; new direct-EasyOCR opt-in route has fallback and telemetry but remains EXPERIMENTAL, with live multilingual reliability unestablished"
+    },
+    "gpu_preflight": {
+      "device": "NVIDIA L4",
+      "candidate_workloads": ["50 table-bearing pages", "full 180-page table candidate", "one slow formula page at cap 2048", "same slow formula page with diagnostic cap 1024"],
+      "released_after_each": true,
+      "no_other_processes_killed": true
     }
+  },
+  "current_cjk_route_status": {
+    "classification": "EXPERIMENTAL; NOT PROMOTED",
+    "live_path": "Opt-in via experimental_cjk_ocr_routing; default remains disabled; Docling layout plus direct EasyOCR ch_sim,en only after OSD Han; cached baseline OCR retained for fail-closed checks.",
+    "live_validation": "One page only: the previously newline-only source produced 57 OCR tokens and 502 non-space characters; one-page Text ED .997015→.778947 and Reading-order ED .952381→.666667. No live fallback event was triggered.",
+    "saved_output_replay": "Collapse guard plus empty/error fallback caused 3/28 Han-route fallbacks (10.7%); Text ED .544574→.544288 (N47), Reading-order ED .575685→.574257 (N50). Replay, not fresh inference.",
+    "reliability_limits": ["real Vietnamese controls unavailable", "single-page live run only", "length-collapse signal is heuristic", "nonempty degradation detection is incomplete"],
+    "escalation": "No 15/30/50/180 routed inference until real Vietnamese and mixed-language controls are available and a bounded live paired cohort passes."
   },
   "closure": {
     "phase1_status": "CROSS-TEAM CONTRACT CONFIRMATION REQUIRED",
     "repository_physical_extraction_status": "FREEZE WITH EXPLICIT E2E LIMITATION",
     "external_dependency_status": "CDOI authoritative schema artifact/revision and KP implementation/test evidence must be confirmed by teammate",
-    "remaining_phase2_items": ["ExtractionPackage v1 producer and conformance tests", "KP validator and DocumentIR/EvidenceRef adapter tests", "Formula path resolution and capability experiment", "E2E pathological generation/library investigation", "empirical routing analysis", "fine-tuning only after stable pretrained baseline and error analysis"]
+    "remaining_phase2_items": ["ExtractionPackage v1 producer and conformance tests", "KP validator and DocumentIR/EvidenceRef adapter tests", "broader formula cap cohort and formula detection/false-positive controls", "CJK language-routing rule and broader paired validation, including Vietnamese controls if available", "E2E pathological generation/library investigation only if a new actionable hypothesis emerges", "empirical offline routing analysis", "fine-tuning only after a document-grouped train/test split and compatible PEFT stack are established"]
   },
-  "decision": {"phase1": "CROSS-TEAM CONTRACT CONFIRMATION REQUIRED", "repository_phase1": "FREEZE WITH EXPLICIT E2E LIMITATION", "e2e_status": "validated experimental backend; official 180-page quality WITHHELD", "fine_tuning": "NOT STARTED", "gpu_decision": "NO MORE GPU WORK REQUIRED", "gpu_diagnostic_runs": 4}
+  "decision": {
+    "phase1": "CROSS-TEAM CONTRACT CONFIRMATION REQUIRED",
+    "repository_phase1": "FREEZE WITH EXPLICIT E2E LIMITATION",
+    "e2e_status": "validated experimental backend; 179/180; page #42 timeout; full quality WITHHELD",
+    "formula_enrichment": "EXPERIMENTAL",
+    "table_span_plus_serializer": "PROMOTED AS RECOMMENDED CLASSIC IMPLEMENTATION; frozen baseline preserved",
+    "cjk_ocr": "EXPERIMENTAL; opt-in live route and fallback telemetry exist; one page live-validated; Vietnamese controls unavailable; not promoted",
+    "fine_tuning": "NOT JUSTIFIED BY CURRENT LOCAL EVIDENCE",
+    "gpu_decision": "No GPU used for latest live CJK reliability continuation; no new E2E inference or full Classic benchmark"
+  }
 }

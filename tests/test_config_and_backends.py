@@ -42,6 +42,7 @@ def test_config_snapshot_is_machine_independent():
     snapshot = PipelineConfig().to_snapshot()
     assert snapshot["cache_dir"] == ".cache"
     assert snapshot["device"] == "cpu"
+    assert snapshot["experimental_cjk_ocr_routing"] is False
 
 
 def test_overrides_merge_over_file(repo_root):
@@ -166,6 +167,77 @@ def test_docling_pipeline_options_follow_configured_device(device):
         assert options.ocr_options.lang == ["en", "vi"]
 
 
+def test_docling_unstructured_table_region_does_not_abort_page(tmp_path, monkeypatch):
+    """A table label without a row/column grid is preserved as a physical
+    region, not converted into a fabricated Table or allowed to fail a page."""
+    from types import SimpleNamespace
+
+    from doc_extraction.backends.docling_backend import DoclingBackend
+    from doc_extraction.schemas.element import ElementType
+
+    item = SimpleNamespace(
+        label="table",
+        data=SimpleNamespace(num_rows=0, num_cols=0, table_cells=[]),
+        text="",
+        prov=[SimpleNamespace(page_no=1, bbox=None)],
+    )
+    page_item = SimpleNamespace(size=SimpleNamespace(width=640, height=480))
+
+    class _Document:
+        def __init__(self):
+            self.pages = {1: page_item}
+
+        @staticmethod
+        def iterate_items(traverse_pictures=True):
+            yield item, 0
+
+    image = tmp_path / "unstructured-table.png"
+    image.write_bytes(b"diagnostic fixture bytes")
+    backend = DoclingBackend()
+    converter = SimpleNamespace(convert=lambda _path: SimpleNamespace(document=_Document()))
+    monkeypatch.setattr(backend, "_get_converter", lambda: converter)
+
+    document = backend.convert(image, PipelineConfig())
+    page = document.pages[0]
+
+    assert page.tables == []
+    assert len(page.elements) == 1
+    element = page.elements[0]
+    assert element.type == ElementType.OTHER
+    assert element.text == ""
+    assert element.table_id is None
+    assert element.extra == {
+        "docling_label": "table",
+        "table_structure_available": False,
+    }
+    assert page.reading_order == [element.id]
+
+
+def test_docling_table_dimensions_can_be_derived_from_observed_cells():
+    from types import SimpleNamespace
+
+    from doc_extraction.backends.docling_backend import _convert_docling_table
+
+    cell = SimpleNamespace(
+        start_row_offset_idx=1,
+        end_row_offset_idx=3,
+        start_col_offset_idx=2,
+        end_col_offset_idx=4,
+        text="observed cell",
+        column_header=False,
+        row_header=False,
+    )
+    item = SimpleNamespace(data=SimpleNamespace(num_rows=0, num_cols=0, table_cells=[cell]))
+
+    table = _convert_docling_table(item, page_no=1, table_id="t0", bbox=None)
+
+    assert table is not None
+    assert (table.n_rows, table.n_cols) == (3, 4)
+    assert [(c.row, c.col, c.row_span, c.col_span, c.text) for c in table.cells] == [
+        (1, 2, 2, 2, "observed cell")
+    ]
+
+
 def test_table_transformer_moves_inputs_to_its_device():
     """The models are moved to `self.device`; their inputs must be too, or
     torch raises "Expected all tensors to be on the same device" as soon as
@@ -206,6 +278,40 @@ def test_table_transformer_moves_inputs_to_its_device():
 
     backend._detect_tables(_FakeImage())
     assert moved == ["pixel_values->cpu"], f"inputs were not moved to the device: {moved}"
+
+
+def test_formula_options_reach_both_docling_entry_points_and_cache():
+    from docling.datamodel.base_models import InputFormat
+
+    from doc_extraction.cli import (
+        _get_component_backends,
+        build_whole_document_backend,
+        clear_component_backend_cache,
+    )
+    from doc_extraction.config import REPO_ROOT
+
+    clear_component_backend_cache()
+    try:
+        baseline = PipelineConfig()
+        candidate = PipelineConfig(
+            docling_formula_enrichment=True, docling_artifacts_path=".cache/docling",
+        )
+        off, _, _ = _get_component_backends(baseline)
+        on, ocr, _ = _get_component_backends(candidate)
+        assert off is not on
+        assert on is ocr
+        assert _get_component_backends(candidate)[0] is on
+        for backend in (on, build_whole_document_backend("docling", candidate)):
+            for fmt in (InputFormat.PDF, InputFormat.IMAGE):
+                options = backend._get_converter().format_to_options[fmt].pipeline_options
+                assert options.do_formula_enrichment is True
+                assert options.do_code_enrichment is False
+                assert options.artifacts_path == REPO_ROOT / ".cache/docling"
+                assert options.ocr_options.lang == baseline.ocr_languages
+        different_path = candidate.model_copy(update={"docling_artifacts_path": ".cache/other"})
+        assert _get_component_backends(different_path)[0] is not on
+    finally:
+        clear_component_backend_cache()
 
 
 def test_component_backends_are_cached_per_device_and_languages():
@@ -249,6 +355,19 @@ def test_component_backends_are_cached_per_device_and_languages():
         clear_component_backend_cache()
         layout_fresh, _, _ = _get_component_backends(cfg)
         assert layout_fresh is not layout_a
+
+        from doc_extraction.backends.routed_ocr_backend import RoutedOCRBackend
+
+        routed_cfg = PipelineConfig(experimental_cjk_ocr_routing=True)
+        route_layout, route_ocr, _ = _get_component_backends(routed_cfg)
+        assert route_layout is not layout_fresh
+        assert isinstance(route_ocr, RoutedOCRBackend)
+        assert route_ocr.baseline is route_layout
+        assert _get_component_backends(routed_cfg)[1] is route_ocr
+        with pytest.raises(ValueError, match="requires the baseline Docling OCR"):
+            _get_component_backends(
+                PipelineConfig(experimental_cjk_ocr_routing=True, ocr_languages=["en"])
+            )
     finally:
         clear_component_backend_cache()
 

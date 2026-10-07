@@ -100,6 +100,15 @@ class PipelineConfig(BaseModel):
 
     # OCR (stages/ocr.py)
     ocr_languages: list[str] = Field(default_factory=lambda: ["en", "vi"])
+    # Experimental page-level CJK OCR selection. Disabled by default; the
+    # opt-in path requires Docling as the baseline OCR/layout backend and
+    # records route/fallback telemetry in each page's OCR stage artifact.
+    experimental_cjk_ocr_routing: bool = False
+
+    # Optional specialist stage; disabled in all established baselines.
+    # Explicit artifacts avoid mutable Hub resolution for offline runs.
+    docling_formula_enrichment: bool = False
+    docling_artifacts_path: str | None = None
 
     # Backend selection
     layout_backend: str = "docling"

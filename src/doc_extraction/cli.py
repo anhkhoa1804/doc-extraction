@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from doc_extraction.config import PipelineConfig, load_config
+from doc_extraction.config import REPO_ROOT, PipelineConfig, load_config
 from doc_extraction.ingest import dispatcher
 from doc_extraction.pipelines import image as image_pipeline
 from doc_extraction.pipelines import office as office_pipeline
@@ -61,7 +61,7 @@ def _discover_inputs(input_path: Path) -> list[Path]:
     )
 
 
-_COMPONENT_BACKEND_CACHE: dict[tuple[str, tuple[str, ...]], Any] = {}
+_COMPONENT_BACKEND_CACHE: dict[tuple[Any, ...], Any] = {}
 
 # Set by resolve_device() so the run's metadata can record *why* a device was
 # chosen, not just which one. Process-global because device selection happens
@@ -119,15 +119,43 @@ def _get_component_backends(config: PipelineConfig):
     from doc_extraction.backends.docling_backend import DoclingBackend
     from doc_extraction.backends.table_backend import TableTransformerBackend
 
-    key = (config.device, tuple(config.ocr_languages), config.ocr_backend)
+    key = (
+        config.device, tuple(config.ocr_languages), config.ocr_backend,
+        config.docling_formula_enrichment, config.docling_artifacts_path,
+        config.experimental_cjk_ocr_routing,
+    )
     cached = _COMPONENT_BACKEND_CACHE.get(key)
     if cached is None:
-        docling = DoclingBackend(device=config.device, ocr_languages=config.ocr_languages)
+        docling = DoclingBackend(
+            device=config.device, ocr_languages=config.ocr_languages,
+            formula_enrichment=config.docling_formula_enrichment,
+            artifacts_path=_docling_artifacts_path(config),
+        )
         table_backend = TableTransformerBackend(device=config.device)
         ocr_backend = _build_ocr_backend(config, docling)
+        if config.experimental_cjk_ocr_routing:
+            if config.ocr_backend != "docling" or config.ocr_languages != ["en", "vi"]:
+                raise ValueError(
+                    "experimental CJK routing currently requires the baseline "
+                    "Docling OCR backend with languages ['en', 'vi']"
+                )
+            from doc_extraction.backends.easyocr_backend import EasyOCRBackend
+            from doc_extraction.backends.routed_ocr_backend import RoutedOCRBackend
+
+            ocr_backend = RoutedOCRBackend(
+                baseline=docling,
+                specialized=EasyOCRBackend(device=config.device, languages=["ch_sim", "en"]),
+            )
         cached = (docling, ocr_backend, table_backend)
         _COMPONENT_BACKEND_CACHE[key] = cached
     return cached
+
+
+def _docling_artifacts_path(config: PipelineConfig) -> Path | None:
+    if config.docling_artifacts_path is None:
+        return None
+    path = Path(config.docling_artifacts_path)
+    return path if path.is_absolute() else REPO_ROOT / path
 
 
 def _build_ocr_backend(config: PipelineConfig, docling: Any) -> Any:
@@ -163,7 +191,11 @@ def build_whole_document_backend(name: str, config: PipelineConfig) -> Any:
     if name == "docling":
         from doc_extraction.backends.docling_backend import DoclingBackend
 
-        return DoclingBackend(device=config.device, ocr_languages=config.ocr_languages)
+        return DoclingBackend(
+            device=config.device, ocr_languages=config.ocr_languages,
+            formula_enrichment=config.docling_formula_enrichment,
+            artifacts_path=_docling_artifacts_path(config),
+        )
     if name == "mineru":
         from doc_extraction.backends.mineru_backend import MinerUBackend
 

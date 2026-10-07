@@ -7,6 +7,8 @@ semantics (e.g. "this column is a price") are attached here.
 """
 from __future__ import annotations
 
+from html import escape
+
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from doc_extraction.schemas.element import BBox
@@ -62,6 +64,15 @@ class Table(BaseModel):
         return grid
 
     def to_markdown(self) -> str:
+        # Pipe tables cannot represent merged cells or literal delimiters /
+        # line breaks in cell text. HTML is valid Markdown and preserves the
+        # physical grid instead of silently creating extra rows/columns.
+        if any(
+            cell.row_span > 1 or cell.col_span > 1 or "|" in cell.text
+            or "\n" in cell.text or "\r" in cell.text
+            for cell in self.cells
+        ):
+            return self.to_html()
         grid = self.to_grid()
         if not grid:
             return ""
@@ -69,3 +80,40 @@ class Table(BaseModel):
         header_sep = "| " + " | ".join(["---"] * self.n_cols) + " |"
         lines.insert(1, header_sep)
         return "\n".join(lines)
+
+    def to_html(self) -> str:
+        """Render observed cell content and spans without delimiter ambiguity.
+
+        Unoccupied grid positions retain the existing empty-grid rendering.
+        Overlapping cells cannot be serialized unambiguously and fail closed.
+        """
+        origins: dict[tuple[int, int], Cell] = {}
+        covered: set[tuple[int, int]] = set()
+        for cell in self.cells:
+            positions = {
+                (row, col)
+                for row in range(cell.row, cell.row + cell.row_span)
+                for col in range(cell.col, cell.col + cell.col_span)
+            }
+            if positions & covered:
+                raise ValueError(f"overlapping cells in table {self.id!r}")
+            covered.update(positions)
+            origins[(cell.row, cell.col)] = cell
+        rows = []
+        for row in range(self.n_rows):
+            cells = []
+            for col in range(self.n_cols):
+                cell = origins.get((row, col))
+                if cell is None:
+                    if (row, col) not in covered:
+                        cells.append("<td></td>")
+                    continue
+                tag = "th" if cell.is_header else "td"
+                spans = ""
+                if cell.row_span > 1:
+                    spans += f' rowspan="{cell.row_span}"'
+                if cell.col_span > 1:
+                    spans += f' colspan="{cell.col_span}"'
+                cells.append(f"<{tag}{spans}>{escape(cell.text)}</{tag}>")
+            rows.append("<tr>" + "".join(cells) + "</tr>")
+        return "<table>\n" + "\n".join(rows) + "\n</table>"

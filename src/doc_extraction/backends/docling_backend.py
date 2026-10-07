@@ -155,7 +155,9 @@ def _bbox_from_docling(
     return BBox(x0=x0, y0=y0, x1=x1, y1=y1)
 
 
-def _convert_docling_table(item: Any, page_no: int, table_id: str, bbox: BBox | None) -> Table:
+def _convert_docling_table(
+    item: Any, page_no: int, table_id: str, bbox: BBox | None,
+) -> Table | None:
     data = item.data
     n_rows = getattr(data, "num_rows", 0) or 0
     n_cols = getattr(data, "num_cols", 0) or 0
@@ -176,6 +178,19 @@ def _convert_docling_table(item: Any, page_no: int, table_id: str, bbox: BBox | 
                 is_header=is_header,
             )
         )
+    # Docling can emit a physical region labeled `table` without extracting
+    # any table structure (zero rows/columns and no cells). That is not a
+    # canonical Table: preserve the region as an unstructured element in the
+    # caller rather than fabricating dimensions or aborting the whole page.
+    # When real cell extents exist, they are sufficient evidence to recover
+    # dimensions omitted by the backend.
+    if n_rows < 1 or n_cols < 1:
+        if not cells:
+            return None
+        n_rows = max(n_rows, max(cell.row + cell.row_span for cell in cells))
+        n_cols = max(n_cols, max(cell.col + cell.col_span for cell in cells))
+    if n_rows < 1 or n_cols < 1:
+        return None
     return Table(
         id=table_id,
         bbox=bbox,
@@ -191,9 +206,14 @@ def _convert_docling_table(item: Any, page_no: int, table_id: str, bbox: BBox | 
 class DoclingBackend:
     name = "docling"
 
-    def __init__(self, device: str = "cpu", ocr_languages: list[str] | None = None) -> None:
+    def __init__(
+        self, device: str = "cpu", ocr_languages: list[str] | None = None,
+        *, formula_enrichment: bool = False, artifacts_path: Path | None = None,
+    ) -> None:
         self.device = device
         self.ocr_languages = ocr_languages or ["en"]
+        self.formula_enrichment = formula_enrichment
+        self.artifacts_path = artifacts_path
         self._converter = None
         self._page_cache: OrderedDict[str, Any] = OrderedDict()
         self._page_cache_size = 8
@@ -217,6 +237,8 @@ class DoclingBackend:
 
             pipeline_options = PdfPipelineOptions()
             pipeline_options.do_ocr = True
+            pipeline_options.do_formula_enrichment = self.formula_enrichment
+            pipeline_options.artifacts_path = self.artifacts_path
             # Drive *every* model stage (layout, TableFormer, OCR) from the
             # configured device. Without this, docling falls back to its own
             # `device="auto"` default, which silently disagrees with
@@ -386,11 +408,22 @@ class DoclingBackend:
 
             if label == "table":
                 table = _convert_docling_table(item, page_no, table_id=f"p{page_no - 1}-t{idx}", bbox=bbox)
-                page.tables.append(table)
-                element = Element(
-                    id=element_id, type=ElementType.TABLE, bbox=bbox, page_number=page_no,
-                    source_backend=self.name, table_id=table.id, order_index=idx,
-                )
+                if table is None:
+                    # Keep the physical region and order visible without
+                    # inventing an empty grid or a dangling table reference.
+                    element = Element(
+                        id=element_id, type=ElementType.OTHER,
+                        text=getattr(item, "text", None), bbox=bbox,
+                        page_number=page_no, source_backend=self.name,
+                        order_index=idx,
+                        extra={"docling_label": "table", "table_structure_available": False},
+                    )
+                else:
+                    page.tables.append(table)
+                    element = Element(
+                        id=element_id, type=ElementType.TABLE, bbox=bbox, page_number=page_no,
+                        source_backend=self.name, table_id=table.id, order_index=idx,
+                    )
             else:
                 etype = _LABEL_MAP.get(label, ElementType.OTHER)
                 element = Element(

@@ -1,5 +1,25 @@
 # Backends
 
+## Experimental page-level CJK OCR routing
+
+`experimental_cjk_ocr_routing: true` is an opt-in research setting, not a
+production default. It currently requires the baseline `docling` OCR backend
+with `ocr_languages: [en, vi]`. The Docling layout pass remains authoritative;
+on pages where bounded Tesseract OSD reports `Han`, the OCR stage tries the
+existing direct EasyOCR backend with `ch_sim,en`. Empty, malformed,
+exceptional, replacement-heavy, or severely collapsed specialized output
+falls back to the cached baseline OCR result when available. OSD failures use
+the baseline path.
+
+Per-page, content-free route details are stored in the ordinary OCR stage
+artifact at `ocr/page-NNN.json` under `diagnostics`: OSD script/confidence,
+selected backend/state, token and non-space-character counts, fallback reason,
+and OSD/baseline/specialized/total timings. The text itself remains in the
+normal OCR token artifact and is not duplicated into route telemetry. A
+fallback is also surfaced as an OCR warning. This route is still experimental:
+real Vietnamese page controls are required before broader promotion, and the
+current local Vietnamese corpus images are generated synthetic controls.
+
 ## Status legend
 
 Every backend below is labelled with one of these, and the labels are meant
