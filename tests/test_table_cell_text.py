@@ -80,7 +80,8 @@ class _FakeItem:
 class _FakeDoc:
     items: list
 
-    def iterate_items(self):
+    def iterate_items(self, traverse_pictures=False, **_kwargs):
+        # Mirrors docling's DoclingDocument.iterate_items signature.
         return [(item, 0) for item in self.items]
 
 
@@ -250,8 +251,10 @@ from doc_extraction.schemas.element import BBox
 
 
 def _table(id_, bbox, cells, source_backend="table_transformer"):
-    n_rows = max((c.row for c in cells), default=-1) + 1
-    n_cols = max((c.col for c in cells), default=-1) + 1
+    # The schema requires at least one row and column (no fabricated 0-dimension tables),
+    # so an empty table is represented as the smallest valid 1x1 grid with no cells.
+    n_rows = max((c.row for c in cells), default=0) + 1
+    n_cols = max((c.col for c in cells), default=0) + 1
     return Table(id=id_, bbox=bbox, page_number=1, n_rows=n_rows, n_cols=n_cols,
                  cells=cells, source_backend=source_backend)
 
