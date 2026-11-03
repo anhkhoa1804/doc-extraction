@@ -157,6 +157,7 @@ def _bbox_from_docling(
 
 def _convert_docling_table(
     item: Any, page_no: int, table_id: str, bbox: BBox | None,
+    page_height: float | None = None,
 ) -> Table | None:
     data = item.data
     n_rows = getattr(data, "num_rows", 0) or 0
@@ -174,7 +175,10 @@ def _convert_docling_table(
                 col=col,
                 row_span=row_span,
                 col_span=col_span,
-                bbox=_bbox_from_docling(getattr(tc, "bbox", None), page_height),
+                bbox=(
+                    _bbox_from_docling(getattr(tc, "bbox", None), page_height)
+                    if page_height is not None else None
+                ),
                 text=(getattr(tc, "text", "") or "").strip(),
                 is_header=is_header,
             )
