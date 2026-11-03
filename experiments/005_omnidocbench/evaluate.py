@@ -57,8 +57,6 @@ def _ground_truth_for_run(args_ground_truth: str | None, run_metadata: dict, out
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dataset", required=True, help="OmniDocBench dataset directory (for the ground-truth JSON).")
-    parser.add_argument("--ground-truth", default=None,
-                        help="Explicit selected ground-truth JSON (for a frozen subset run).")
     parser.add_argument("--output", required=True, help="Result directory containing predictions/ (from prepare.py).")
     parser.add_argument("--predictions", default=None, help="Override: predictions dir (default: <output>/predictions).")
     parser.add_argument(
@@ -83,6 +81,13 @@ def build_parser() -> argparse.ArgumentParser:
                               "Ghostscript) the upstream project itself documents as Linux-only — do not enable "
                               "this on Windows. See docs in experiments/005_omnidocbench/README.md.")
     parser.add_argument("--timeout-seconds", type=int, default=None)
+    parser.add_argument(
+        "--teds-timeout-seconds", type=float, default=odb.DEFAULT_TEDS_TIMEOUT_SECONDS,
+        help="Per-table-comparison timeout the evaluator's own TEDS metric enforces. A comparison that "
+             "exceeds it is silently scored 0.0, indistinguishable from a real failure (see "
+             "write_evaluator_config's docstring). Written into evaluator_config.yaml directly. "
+             "Pass 0 to fall back to the upstream default.",
+    )
     parser.add_argument(
         "--require-pinned-evaluator", action="store_true",
         help="Require the local OmniDocBench checkout to match the adapter's pinned upstream commit.",
