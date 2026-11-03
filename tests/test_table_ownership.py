@@ -30,7 +30,25 @@ from doc_extraction.backends.pymupdf_table_backend import (
 from doc_extraction.ingest.table_quality import assess_table
 from doc_extraction.pipelines.base import PageInput
 
-FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+def _find_test_font() -> str | None:
+    """Locate a TTF with Vietnamese glyphs. Override with DOC_EXTRACTION_TEST_FONT."""
+    import os
+
+    candidates = [
+        os.environ.get("DOC_EXTRACTION_TEST_FONT", ""),
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        r"C:\Windows\Fonts\arial.ttf",
+        r"C:\Windows\Fonts\DejaVuSans.ttf",
+        "/Library/Fonts/Arial Unicode.ttf",
+    ]
+    return next((c for c in candidates if c and os.path.isfile(c)), None)
+
+
+FONT = _find_test_font()
+pytestmark = pytest.mark.skipif(
+    FONT is None,
+    reason="needs a TTF font with Vietnamese glyphs; set DOC_EXTRACTION_TEST_FONT",
+)
 HEADERS = ["STT", "Mô tả hàng hóa", "Đơn vị", "Số lượng", "Thành tiền"]
 ROWS = [
     ["1", "Sản phẩm A-100", "Cái", "12", "18.000.000"],
