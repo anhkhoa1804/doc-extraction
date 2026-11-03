@@ -80,6 +80,21 @@ experiments (`experiments/005_omnidocbench/`) can be run on a Kaggle T4
 GPU. Nothing under `data/` is ever attached to Kaggle. See
 [docs/kaggle.md](docs/kaggle.md).
 
+## Repository layout
+
+```text
+src/doc_extraction/   Library: pipeline, backends, IR schema, CLI
+tests/                Pytest suite; Quick start below shows the CPU-only validation run
+configs/              Runtime configurations (cpu / gpu / default / omnidocbench)
+benchmarks/           Manifests and report generators for OmniDocBench-style evaluation
+research/             Hard-case corpus generator and research artifacts
+experiments/          Numbered investigations, each with its configs, scripts and results
+services/web-acquisition/  Independent URL discovery and content-acquisition service (own pyproject)
+scripts/              Operator and maintenance scripts
+docs/                 Architecture, setup, backend and output-format documentation
+data/, outputs/       Local-only inputs and run outputs (git-ignored; see data/README.md)
+```
+
 ## Quick start
 
 Production extraction now requires Linux/POSIX secure filesystem primitives;
