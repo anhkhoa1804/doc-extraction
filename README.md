@@ -175,8 +175,10 @@ than assuming a GPU that exists is a GPU that is free:
 
 ```bash
 doc_extraction run --input data --device auto
-# device: auto -> cpu: 1 other compute process(es) holding 4746 MiB at 100% utilization — actively computing
 ```
+
+The chosen device and the GPU state that informed it are recorded in the
+run's `metadata.json`; the console prints the decision only.
 
 `cpu` and `cuda` keep their literal meanings — an explicit choice is never
 overridden, because a recorded benchmark device that the pipeline silently
@@ -211,7 +213,7 @@ integrated as an external, unmodified evaluator — see
 adapter, the exact upstream commit pinned, the IR→benchmark field mapping,
 and results from a validated small-subset run (`baseline` and `docling`
 backends; the full 1651-page benchmark needs more CPU time or a GPU than
-this dev machine has — the same run is prepared and documented for Kaggle
+the local validation machine provides — the same run is prepared and documented for Kaggle
 in that directory's `kaggle/` notebook).
 
 ## Documentation
