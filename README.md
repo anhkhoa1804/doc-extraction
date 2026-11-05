@@ -8,6 +8,11 @@ reproducible without one.** A GPU path now exists and has been measured (see
 [experiments/006](experiments/006_linux_gpu_validation/)); it is an
 optimization, not a requirement, and produces identical output.
 
+## Reports and slides
+
+- [Evidence-to-Knowledge Infrastructure for Enterprise AI (PDF, 38 pages, 2026)](docs/reports/Evidence-to-Knowledge-Infrastructure-for-Enterprise-AI.pdf):
+  a talk on turning enterprise documents into traceable evidence, then approved knowledge that AI applications can use.
+
 ## Scope
 
 This repository provides deterministic physical document extraction with a
